@@ -1,0 +1,6 @@
+{
+  "api": "ResNet50_Weights.IMAGENET1K_V2",
+  "url": "https://download.pytorch.org/models/resnet50-11ad3fa6.pth",
+  "sha256": "11ad3fa62ca79e40addfd354a8ec4b7c75143b3038b8d2a807fbc68deab379ca",
+  "bytes": 102540417
+}

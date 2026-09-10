@@ -1,0 +1,6 @@
+{
+  "source_sha256": "a1b6933e92d6db6878d320cac030a023bccc138e7d96800c6fb391cbef23334f",
+  "authorization": "2026-09-10 user: \u5b8c\u6210\u540e\u5f00\u59cb\u8bad\u7ec3",
+  "max_optimizer_steps": 40000,
+  "world_size": 8
+}

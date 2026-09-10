@@ -1,0 +1,17 @@
+{
+  "files": [
+    {
+      "name": "20200928-subject-07.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20200928-subject-07.tar.gz",
+      "bytes": 12818333033,
+      "mtime_ns": 1788951736758465628,
+      "sha256": "af34bbf19bf02f695c9680fefa76362ad8ffe3507bf3237425fb5851db492522",
+      "gzip_crc_verified": true,
+      "remote_path": "/mnt/why/DexYCB/20200928-subject-07.tar.gz",
+      "remote_sha256": "af34bbf19bf02f695c9680fefa76362ad8ffe3507bf3237425fb5851db492522",
+      "status": "verified",
+      "transport": "HF mirror; exact SHA256 match to user-local archive"
+    }
+  ],
+  "scope": "Verified exact user-local SHA256 archive from server-side mirror"
+}

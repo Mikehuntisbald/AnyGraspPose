@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "dexycb-lip"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = ["torch>=2.5", "torchvision>=0.20", "numpy", "scipy", "trimesh", "opencv-python-headless", "PyYAML", "tensorboard"]
+[project.optional-dependencies]
+test = ["pytest"]
+[tool.setuptools.packages.find]
+where = ["src"]
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+markers = ["cuda: needs CUDA and nvdiffrast", "foundationpose: needs real FoundationPose weights"]

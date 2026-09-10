@@ -1,0 +1,22 @@
+DEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/deep_ep-1.0.0+a84a248-py3.12-linux-x86_64.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+Looking in indexes: http://mirrors.tencentyun.com/pypi/simple
+Obtaining file:///mnt/why/dexycb_lip
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: dexycb-lip
+  Building editable for dexycb-lip (pyproject.toml): started
+  Building editable for dexycb-lip (pyproject.toml): finished with status 'done'
+  Created wheel for dexycb-lip: filename=dexycb_lip-0.1.0-0.editable-py3-none-any.whl size=1310 sha256=b632451fcba9a9d7f03b35eb3f4ef895c4332b7d1cc0ede7b25c0582c1a7f4c4
+  Stored in directory: /tmp/pip-ephem-wheel-cache-8s_8ah0s/wheels/54/c2/4b/dc8d8aeac84a9149b7ec068ca17d1f3f65f63ad44c83e3d99f
+Successfully built dexycb-lip
+Installing collected packages: dexycb-lip
+Successfully installed dexycb-lip-0.1.0
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: python3 -m pip install --upgrade pip

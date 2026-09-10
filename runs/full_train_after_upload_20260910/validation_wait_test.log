@@ -1,0 +1,16 @@
+[Gloo] Rank [Gloo] Rank 1 is connected to [Gloo] Rank 70 peer ranks.  is connected to Expected number of connected peer ranks is : 677[Gloo] Rank  is connected to  peer ranks. 
+Expected number of connected peer ranks is : 77[Gloo] Rank  peer ranks. 
+2Expected number of connected peer ranks is : 3[Gloo] Rank  is connected to 7 is connected to 7
+[Gloo] Rank 7 peer ranks. 4[Gloo] Rank  peer ranks. Expected number of connected peer ranks is :  is connected to 5Expected number of connected peer ranks is : 777 is connected to 7 is connected to  peer ranks. 
+7
+7Expected number of connected peer ranks is :  peer ranks.  peer ranks. 7Expected number of connected peer ranks is : Expected number of connected peer ranks is : 
+77
+
+{
+  "passed": true,
+  "world_size": 8,
+  "nccl_timeout_seconds": 10,
+  "simulated_validation_seconds": 12,
+  "cpu_control_backend": "gloo",
+  "post_validation_nccl_all_reduce": 8.0
+}

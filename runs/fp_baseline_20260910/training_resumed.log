@@ -1,0 +1,27 @@
+REAL DATA PREFLIGHT PASSED; no long training was launched by this check
+[Gloo] Rank 0 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank [Gloo] Rank 1[Gloo] Rank 3 is connected to [Gloo] Rank 2 is connected to 74 is connected to 7 peer ranks. [Gloo] Rank [Gloo] Rank  is connected to 7[Gloo] Rank  peer ranks. Expected number of connected peer ranks is : 567 peer ranks. 7Expected number of connected peer ranks is : 7 is connected to  is connected to  peer ranks. Expected number of connected peer ranks is :  is connected to 7
+77Expected number of connected peer ranks is : 77
+ peer ranks.  peer ranks. 7
+ peer ranks. Expected number of connected peer ranks is : Expected number of connected peer ranks is : 
+Expected number of connected peer ranks is : 777
+
+
+{"environment": {"versions": {"torch": "2.8.0+cu128", "torchvision": "0.23.0+cu128", "numpy": "1.26.4", "scipy": "1.16.2", "trimesh": "5.1.0", "opencv-python-headless": "4.12.0.88", "PyYAML": "6.0.3", "pytest": "9.1.1", "nvdiffrast": "0.4.0", "tensorboard": "2.20.0"}, "cuda_runtime": "12.8", "gpus": [{"index": 0, "name": "NVIDIA H20", "total_bytes": 102085361664}, {"index": 1, "name": "NVIDIA H20", "total_bytes": 102085361664}, {"index": 2, "name": "NVIDIA H20", "total_bytes": 102085361664}, {"index": 3, "name": "NVIDIA H20", "total_bytes": 102085361664}, {"index": 4, "name": "NVIDIA H20", "total_bytes": 102085361664}, {"index": 5, "name": "NVIDIA H20", "total_bytes": 102085361664}, {"index": 6, "name": "NVIDIA H20", "total_bytes": 102085361664}, {"index": 7, "name": "NVIDIA H20", "total_bytes": 102085361664}], "cgroup_limits": {"cpu_quota_us": 12800000, "cpu_period_us": 100000, "memory_limit_bytes": 549755813888}, "driver": ["580.126.20", "580.126.20", "580.126.20", "580.126.20", "580.126.20", "580.126.20", "580.126.20", "580.126.20"], "cpu_affinity": 344, "cpu_count": 344, "disk": {"total": 599233837137920, "used": 478835447975936, "free": 120398389161984}, "bf16": true}}
+{"resumed_step": 13000, "scheduler_step": 13000, "sampler_position": 13000, "rank": 0}
+{"resumed_step": 13000, "scheduler_step": 13000, "sampler_position": 13000, "rank": 1}
+{"resumed_step": 13000, "scheduler_step": 13000, "sampler_position": 13000, "rank": 5}
+{"resumed_step": 13000, "scheduler_step": 13000, "sampler_position": 13000, "rank": 4}
+{"resumed_step": 13000, "scheduler_step": 13000, "sampler_position": 13000, "rank": 3}
+{"resumed_step": 13000, "scheduler_step": 13000, "sampler_position": 13000, "rank": 2}
+{"resumed_step": 13000, "scheduler_step": 13000, "sampler_position": 13000, "rank": 7}
+{"resumed_step": 13000, "scheduler_step": 13000, "sampler_position": 13000, "rank": 6}
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 1}
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 3}
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 0}
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 7}
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 6}
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 5}
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 2}
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 4}
+{"loss": 0.07673446834087372, "translation": 0.006630954332649708, "rotation": 0.07201971858739853, "points": 0.034093648195266724, "update_rotation_rad": 0.08376886695623398, "update_center_norm": 0.09919973462820053, "render_time": 1.7804144729161635, "forward_time": 0.7945007239468396, "backward_time": 1.8095075850142166, "rotation_clipped": 0.0078125, "translation_clipped": 0.0234375, "data_time": 17.355656005907804, "step": 13001, "rank": 0, "rollout": 1, "grad_norm": 0.5971699357032776, "scheduler_step": 13001, "sampler_position": 13001, "samples_seen": 3328256, "effective_batch": 256, "clips_per_sec": 1.3505082474153822, "observed_frames_per_sec": 10.804065979323058, "peak_memory_bytes": 19680352256, "elapsed": 23.694783102022484, "nonfinite_count": 0, "lrs": [8.263663613154952e-05, 8.263663613154952e-06, 8.263663613154952e-06, 8.263663613154952e-05]}

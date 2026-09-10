@@ -1,0 +1,247 @@
+{
+  "source": "synthetic_memory_only",
+  "environment": {
+    "versions": {
+      "torch": "2.8.0+cu128",
+      "torchvision": "0.23.0+cu128",
+      "numpy": "1.26.4",
+      "scipy": "1.16.2",
+      "trimesh": "5.1.0",
+      "opencv-python-headless": "4.12.0.88",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "nvdiffrast": "0.4.0",
+      "tensorboard": "2.20.0"
+    },
+    "cuda_runtime": "12.8",
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 1,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 2,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 3,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 4,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 5,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 6,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 7,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      }
+    ],
+    "driver": [
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20"
+    ],
+    "cpu_affinity": 344,
+    "cpu_count": 344,
+    "disk": {
+      "total": 599233837137920,
+      "used": 465689250750464,
+      "free": 133544586387456
+    },
+    "bf16": true
+  },
+  "available_bytes_at_start": 101738479616,
+  "results": [
+    {
+      "batch": 4,
+      "rollout": 1,
+      "passed": true,
+      "peak_allocated": 2613323776,
+      "peak_reserved": 3091202048,
+      "seconds": 0.9694779730052687,
+      "loss": 0.08880408108234406,
+      "translation": 0.0003596878086682409,
+      "rotation": 0.09321653097867966,
+      "points": 0.041836123913526535,
+      "update_rotation_rad": 0.0,
+      "update_center_norm": 0.0,
+      "render_time": 0.14630618097726256,
+      "forward_time": 0.3722452920046635,
+      "backward_time": 0.20468676701420918,
+      "rotation_clipped": 0.0,
+      "translation_clipped": 0.0,
+      "memory_safe": true
+    },
+    {
+      "batch": 4,
+      "rollout": 4,
+      "passed": true,
+      "peak_allocated": 2804383744,
+      "peak_reserved": 3118465024,
+      "seconds": 0.276821173960343,
+      "loss": 0.10408453270792961,
+      "translation": 0.0019785246258834377,
+      "rotation": 0.10613865219056606,
+      "points": 0.049036682583391666,
+      "update_rotation_rad": 5.3716164529760135e-06,
+      "update_center_norm": 5.3716164529760135e-06,
+      "render_time": 0.07964447693666443,
+      "forward_time": 0.06955046107759699,
+      "backward_time": 0.11561170796630904,
+      "rotation_clipped": 0.0,
+      "translation_clipped": 0.0,
+      "memory_safe": true
+    },
+    {
+      "batch": 8,
+      "rollout": 1,
+      "passed": true,
+      "peak_allocated": 5023835648,
+      "peak_reserved": 5777653760,
+      "seconds": 0.2503888630308211,
+      "loss": 0.08880408108234406,
+      "translation": 0.0003596878086682409,
+      "rotation": 0.09321653097867966,
+      "points": 0.041836123913526535,
+      "update_rotation_rad": 0.0,
+      "update_center_norm": 0.0,
+      "render_time": 0.041096224973443896,
+      "forward_time": 0.08730928797740489,
+      "backward_time": 0.09594914497574791,
+      "rotation_clipped": 0.0,
+      "translation_clipped": 0.0,
+      "memory_safe": true
+    },
+    {
+      "batch": 8,
+      "rollout": 4,
+      "passed": true,
+      "peak_allocated": 5219091968,
+      "peak_reserved": 5798625280,
+      "seconds": 0.4686516779474914,
+      "loss": 0.1040857620537281,
+      "translation": 0.0019787878773058765,
+      "rotation": 0.10613950714468956,
+      "points": 0.049037219025194645,
+      "update_rotation_rad": 4.85784471493389e-06,
+      "update_center_norm": 4.85784471493389e-06,
+      "render_time": 0.15773611597251147,
+      "forward_time": 0.10774402902461588,
+      "backward_time": 0.18723200296517462,
+      "rotation_clipped": 0.0,
+      "translation_clipped": 0.0,
+      "memory_safe": true
+    },
+    {
+      "batch": 16,
+      "rollout": 1,
+      "passed": true,
+      "peak_allocated": 9857107968,
+      "peak_reserved": 11077156864,
+      "seconds": 0.5576573780272156,
+      "loss": 0.08880408108234406,
+      "translation": 0.0003596878086682409,
+      "rotation": 0.09321653097867966,
+      "points": 0.041836123913526535,
+      "update_rotation_rad": 0.0,
+      "update_center_norm": 0.0,
+      "render_time": 0.11744302295846865,
+      "forward_time": 0.2763978220173158,
+      "backward_time": 0.13079770497279242,
+      "rotation_clipped": 0.0,
+      "translation_clipped": 0.0,
+      "memory_safe": true
+    },
+    {
+      "batch": 16,
+      "rollout": 4,
+      "passed": true,
+      "peak_allocated": 10056740864,
+      "peak_reserved": 11093934080,
+      "seconds": 0.8666205640183762,
+      "loss": 0.10408631525933743,
+      "translation": 0.001978910899197217,
+      "rotation": 0.1061398796737194,
+      "points": 0.04903746489435434,
+      "update_rotation_rad": 4.639673193196359e-06,
+      "update_center_norm": 4.639673193196359e-06,
+      "render_time": 0.30573687807191163,
+      "forward_time": 0.20166352903470397,
+      "backward_time": 0.33558486500987783,
+      "rotation_clipped": 0.0,
+      "translation_clipped": 0.0,
+      "memory_safe": true
+    },
+    {
+      "batch": 32,
+      "rollout": 1,
+      "passed": true,
+      "peak_allocated": 19500572672,
+      "peak_reserved": 21690843136,
+      "seconds": 0.47435027197934687,
+      "loss": 0.08880408108234406,
+      "translation": 0.0003596878086682409,
+      "rotation": 0.09321653097867966,
+      "points": 0.041836123913526535,
+      "update_rotation_rad": 0.0,
+      "update_center_norm": 0.0,
+      "render_time": 0.15727012301795185,
+      "forward_time": 0.10013455798616633,
+      "backward_time": 0.17130361101590097,
+      "rotation_clipped": 0.0,
+      "translation_clipped": 0.0,
+      "memory_safe": true
+    },
+    {
+      "batch": 32,
+      "rollout": 4,
+      "passed": true,
+      "peak_allocated": 19700780032,
+      "peak_reserved": 21703426048,
+      "seconds": 1.5725537940161303,
+      "loss": 0.10408440791070461,
+      "translation": 0.0019784961186815053,
+      "rotation": 0.1061385776847601,
+      "points": 0.04903662670403719,
+      "update_rotation_rad": 5.432242005554144e-06,
+      "update_center_norm": 5.432174816633051e-06,
+      "render_time": 0.6001436710357666,
+      "forward_time": 0.33224946301197633,
+      "backward_time": 0.6016139899147674,
+      "rotation_clipped": 0.0,
+      "translation_clipped": 0.0,
+      "memory_safe": true
+    }
+  ],
+  "eligible_batches": [
+    4,
+    8,
+    16,
+    32
+  ]
+}

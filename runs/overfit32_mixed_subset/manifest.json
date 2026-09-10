@@ -1,0 +1,266 @@
+{
+  "seed": 42,
+  "clips": [
+    {
+      "stream": 5,
+      "start": 23,
+      "stride": 2,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.9988307512423268
+    },
+    {
+      "stream": 3,
+      "start": 30,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.646267754608643
+    },
+    {
+      "stream": 6,
+      "start": 37,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.9991722996275348
+    },
+    {
+      "stream": 5,
+      "start": 37,
+      "stride": 2,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.9998179501183324
+    },
+    {
+      "stream": 1,
+      "start": 5,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.999369244354737
+    },
+    {
+      "stream": 4,
+      "start": 46,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.8524401064773736
+    },
+    {
+      "stream": 3,
+      "start": 47,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.7035506094329623
+    },
+    {
+      "stream": 6,
+      "start": 47,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.9991444634563676
+    },
+    {
+      "stream": 5,
+      "start": 51,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.9995347755291928
+    },
+    {
+      "stream": 7,
+      "start": 19,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9793140028288543
+    },
+    {
+      "stream": 2,
+      "start": 46,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.9536092781443711
+    },
+    {
+      "stream": 2,
+      "start": 45,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.9546713157624859
+    },
+    {
+      "stream": 5,
+      "start": 54,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.9996218709823792
+    },
+    {
+      "stream": 3,
+      "start": 4,
+      "stride": 4,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.6604032997250229
+    },
+    {
+      "stream": 6,
+      "start": 25,
+      "stride": 2,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.9992474413004214
+    },
+    {
+      "stream": 4,
+      "start": 56,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.8441770647653001
+    },
+    {
+      "stream": 3,
+      "start": 29,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.638118214716526
+    },
+    {
+      "stream": 6,
+      "start": 45,
+      "stride": 2,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.9992915338292596
+    },
+    {
+      "stream": 4,
+      "start": 44,
+      "stride": 2,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.8515489856895738
+    },
+    {
+      "stream": 7,
+      "start": 59,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.8766525478115774
+    },
+    {
+      "stream": 6,
+      "start": 32,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.9992474413004214
+    },
+    {
+      "stream": 4,
+      "start": 45,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.8520829510001835
+    },
+    {
+      "stream": 2,
+      "start": 43,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.9537728699794306
+    },
+    {
+      "stream": 4,
+      "start": 32,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.811108093427485
+    },
+    {
+      "stream": 4,
+      "start": 47,
+      "stride": 2,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.8437969360168218
+    },
+    {
+      "stream": 2,
+      "start": 51,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.9535496773020634
+    },
+    {
+      "stream": 3,
+      "start": 37,
+      "stride": 2,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.7028296482987741
+    },
+    {
+      "stream": 4,
+      "start": 1,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9995601817915262
+    },
+    {
+      "stream": 6,
+      "start": 38,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.9991842284160435
+    },
+    {
+      "stream": 2,
+      "start": 28,
+      "stride": 2,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.9417153478491769
+    },
+    {
+      "stream": 1,
+      "start": 26,
+      "stride": 2,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.9984880937381883
+    },
+    {
+      "stream": 3,
+      "start": 51,
+      "stride": 2,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.7036967886482449
+    }
+  ],
+  "source": "real_DexYCB",
+  "split_hash": "63c159aab3ecbc9ac0e7049d2f23b979af959797b26edfac2181d88ca44b23d0",
+  "noise": false,
+  "augmentation": false,
+  "sampling": "declared mixture; object/sequence/camera balanced; fixed unique clips"
+}

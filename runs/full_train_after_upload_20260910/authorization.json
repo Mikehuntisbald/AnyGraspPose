@@ -1,0 +1,10 @@
+{
+  "user_instruction": "完成后开始训练",
+  "recorded_utc": "2026-09-09T18:38:30.945645+00:00",
+  "authorized_action": "After verified upload and complete s0 preflight, start formal training",
+  "world_size": 8,
+  "max_optimizer_steps": 40000,
+  "preflight_required": true,
+  "training_output": "/mnt/why/dexycb_lip/runs/lip_v1_s0",
+  "raw_data": "/mnt/why/dexycb_lip/cache/raw_full_20260910"
+}

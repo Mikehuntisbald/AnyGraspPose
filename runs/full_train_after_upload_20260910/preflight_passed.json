@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "split_hash": "54a35253db5bea988ffea5e41641d3313b31c5568193a186dd4e4359c497804b",
+  "mesh_hash": "359f53a5f41963d3fdfc2542bd640432d820bfc99a055baec8976ad99966d32c",
+  "rank_sampler_positions": [
+    53,
+    53,
+    53,
+    53,
+    53,
+    53,
+    53,
+    53
+  ],
+  "config_sha256": "86d3d1960f57c34602525de9226fbeac92947668a93885d60fae39405a1466b3"
+}

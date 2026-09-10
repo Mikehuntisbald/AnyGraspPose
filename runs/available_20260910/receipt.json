@@ -1,0 +1,180 @@
+{
+  "engineering_preflight_passed": true,
+  "formal_training_approved": false,
+  "scope": "Complete subjects 02,03,10; official s0 train/val/test membership retained",
+  "index": {
+    "errors": [],
+    "missing_subjects": [],
+    "streams": 2400,
+    "frames": 174208,
+    "source_root": "/mnt/why/dexycb_lip/cache/raw_available_20260910",
+    "cache_schema_version": 2,
+    "depth_scale_to_m": 0.001,
+    "pose_scale_to_m": 1.0,
+    "mesh_scale_to_m": 1.0,
+    "fps": 30.0,
+    "timestamp_source": "frame_index/fps; official capture rate 30 Hz",
+    "setup": "s0",
+    "split_disjoint": true,
+    "physical_sequences": {
+      "train": 240,
+      "val": 20,
+      "test": 40
+    },
+    "complete": false,
+    "verified_train_subset": false,
+    "verified_subject_subset": true,
+    "selected_subjects": [
+      "20200813-subject-02",
+      "20200820-subject-03",
+      "20201022-subject-10"
+    ],
+    "object_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      21
+    ],
+    "inventory_scope": "Complete inventories of selected subjects; official s0 subset",
+    "split_hash": "d67ff06d5f211531a9faf29731716bb5521818bc6a6c212849f49fd1124db4f7",
+    "mesh_hash": "359f53a5f41963d3fdfc2542bd640432d820bfc99a055baec8976ad99966d32c"
+  },
+  "geometry_samples": 32,
+  "geometry_objects": 20,
+  "depth_median_mm": 6.595313549041748,
+  "crop_max_px": 9.1552734375e-05,
+  "overfit": {
+    "passed": true,
+    "data_complete": false,
+    "split_scope": "Complete inventories of selected subjects; official s0 subset",
+    "source": "real_DexYCB",
+    "num_clips": 32,
+    "steps": 500,
+    "initial": {
+      "loss": 0.2449935209006071,
+      "learned": {
+        "center_mm": 21.34196213033598,
+        "rotation_deg": 6.800937993411409,
+        "add_m": 0.02265765984363488,
+        "adds_m": 0.011972701305254437,
+        "add_005": 0.4375,
+        "add_01": 0.53125,
+        "adds_005": 0.59375,
+        "adds_01": 0.78125
+      },
+      "zero_motion": {
+        "center_mm": 21.34196213033598,
+        "rotation_deg": 6.800937993411409,
+        "add_m": 0.02265765984363488,
+        "adds_m": 0.011972701305254437,
+        "add_005": 0.4375,
+        "add_01": 0.53125,
+        "adds_005": 0.59375,
+        "adds_01": 0.78125
+      }
+    },
+    "final": {
+      "loss": 0.12934647919610143,
+      "learned": {
+        "center_mm": 8.974225323584049,
+        "rotation_deg": 5.474541928590511,
+        "add_m": 0.010372553264379712,
+        "adds_m": 0.005128498146594138,
+        "add_005": 0.625,
+        "add_01": 0.84375,
+        "adds_005": 0.84375,
+        "adds_01": 0.96875
+      },
+      "zero_motion": {
+        "center_mm": 21.34196213033598,
+        "rotation_deg": 6.800937993411409,
+        "add_m": 0.02265765984363488,
+        "adds_m": 0.011972701305254437,
+        "add_005": 0.4375,
+        "add_01": 0.53125,
+        "adds_005": 0.59375,
+        "adds_01": 0.78125
+      }
+    },
+    "criterion": "loss <75% initial and learned ADD below identical zero-motion baseline"
+  },
+  "ranks": [
+    {
+      "rank": 0,
+      "global_step": 53,
+      "scheduler_step": 53,
+      "samples_seen": 13568
+    },
+    {
+      "rank": 1,
+      "global_step": 53,
+      "scheduler_step": 53,
+      "samples_seen": 13568
+    },
+    {
+      "rank": 2,
+      "global_step": 53,
+      "scheduler_step": 53,
+      "samples_seen": 13568
+    },
+    {
+      "rank": 3,
+      "global_step": 53,
+      "scheduler_step": 53,
+      "samples_seen": 13568
+    },
+    {
+      "rank": 4,
+      "global_step": 53,
+      "scheduler_step": 53,
+      "samples_seen": 13568
+    },
+    {
+      "rank": 5,
+      "global_step": 53,
+      "scheduler_step": 53,
+      "samples_seen": 13568
+    },
+    {
+      "rank": 6,
+      "global_step": 53,
+      "scheduler_step": 53,
+      "samples_seen": 13568
+    },
+    {
+      "rank": 7,
+      "global_step": 53,
+      "scheduler_step": 53,
+      "samples_seen": 13568
+    }
+  ],
+  "peak_gpu_allocated_bytes": 19763796992,
+  "median_rank_step_seconds": 1.5359182354877703,
+  "pytest": "........................s                                                [100%]\n24 passed, 1 skipped in 10.10s",
+  "validation_streams": 20,
+  "validation_frames": 1448,
+  "validation_checkpoint": {
+    "path": "/mnt/why/dexycb_lip/runs/available_20260910/overfit32/last.pt",
+    "sha256": "df8cb178e21a30cccb812d90b8a42cab0bb43b6cd485464409f67005d03fc0f2",
+    "global_step": 500,
+    "code_sha256": "619a603b8dd9dc0b3f018b31936525253e8acade2a6a4d0bd613c44c36e5dea8"
+  },
+  "config_sha256": "dd3234c0d8cbb2e5969c816314742e2da7a0ffd6f59f2b656b2b6c36656fe12d",
+  "no_long_training_launched": true
+}

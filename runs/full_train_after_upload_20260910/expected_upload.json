@@ -1,0 +1,85 @@
+{
+  "source": "/media/haoyi/linux-data/Downloads",
+  "destination": "root@111.230.4.68:10863:/mnt/why/DexYCB",
+  "files": [
+    {
+      "name": "20200709-subject-01.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20200709-subject-01.tar.gz",
+      "bytes": 12412314463,
+      "mtime_ns": 1788951520881655282
+    },
+    {
+      "name": "20200813-subject-02.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20200813-subject-02.tar.gz",
+      "bytes": 12004145048,
+      "mtime_ns": 1788951511471663550
+    },
+    {
+      "name": "20200820-subject-03.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20200820-subject-03.tar.gz",
+      "bytes": 12197037343,
+      "mtime_ns": 1788951600943584943
+    },
+    {
+      "name": "20200903-subject-04.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20200903-subject-04.tar.gz",
+      "bytes": 12792618020,
+      "mtime_ns": 1788951713808485790
+    },
+    {
+      "name": "20200908-subject-05.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20200908-subject-05.tar.gz",
+      "bytes": 12815420651,
+      "mtime_ns": 1788951708888490112
+    },
+    {
+      "name": "20200918-subject-06.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20200918-subject-06.tar.gz",
+      "bytes": 12610980973,
+      "mtime_ns": 1788951740300462517
+    },
+    {
+      "name": "20200928-subject-07.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20200928-subject-07.tar.gz",
+      "bytes": 12818333033,
+      "mtime_ns": 1788951736758465628
+    },
+    {
+      "name": "20201002-subject-08.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20201002-subject-08.tar.gz",
+      "bytes": 12418522598,
+      "mtime_ns": 1788951710131489020
+    },
+    {
+      "name": "20201015-subject-09.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20201015-subject-09.tar.gz",
+      "bytes": 12493882548,
+      "mtime_ns": 1788951704410494046
+    },
+    {
+      "name": "20201022-subject-10.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20201022-subject-10.tar.gz",
+      "bytes": 12341740204,
+      "mtime_ns": 1788951665055528619
+    },
+    {
+      "name": "bop.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/bop.tar.gz",
+      "bytes": 1250767497,
+      "mtime_ns": 1788947812151164129
+    },
+    {
+      "name": "calibration.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/calibration.tar.gz",
+      "bytes": 14464,
+      "mtime_ns": 1788947527998600727
+    },
+    {
+      "name": "models.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/models.tar.gz",
+      "bytes": 1455399753,
+      "mtime_ns": 1788947874107080995
+    }
+  ],
+  "total_bytes": 127611176595
+}

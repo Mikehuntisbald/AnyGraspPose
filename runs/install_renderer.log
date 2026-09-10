@@ -1,0 +1,18 @@
+DEPRECATION: Loading egg at /usr/local/lib/python3.12/dist-packages/deep_ep-1.0.0+a84a248-py3.12-linux-x86_64.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+Looking in indexes: http://mirrors.tencentyun.com/pypi/simple
+Processing ./cache/nvdiffrast
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: numpy in /usr/local/lib/python3.12/dist-packages (from nvdiffrast==0.4.0) (1.26.4)
+Building wheels for collected packages: nvdiffrast
+  Building wheel for nvdiffrast (pyproject.toml): started
+  Building wheel for nvdiffrast (pyproject.toml): finished with status 'done'
+  Created wheel for nvdiffrast: filename=nvdiffrast-0.4.0-cp312-cp312-linux_x86_64.whl size=15797322 sha256=06cc66b17278a0a314095de80b3f6d71a71c63073679c4cf63d1a30f4579e3ea
+  Stored in directory: /tmp/pip-ephem-wheel-cache-h73fvj56/wheels/d5/02/4b/6719129c22b10d5482f25febb76a840791273d2019476571f9
+Successfully built nvdiffrast
+WARNING: Error parsing dependencies of mlnx-tools: Invalid version: '"5.2.0"'
+Installing collected packages: nvdiffrast
+Successfully installed nvdiffrast-0.4.0
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: python3 -m pip install --upgrade pip

@@ -1,0 +1,283 @@
+{
+  "seed": 42,
+  "mode": "one-step",
+  "split": "train",
+  "split_hash": "63c159aab3ecbc9ac0e7049d2f23b979af959797b26edfac2181d88ca44b23d0",
+  "mesh_hash": "eec0a1c15f40668f085ca7aba2c5f572e4d25c64d94784dd59350b0b62788801",
+  "initial_pose_source": "noisy_strict_past_gt",
+  "full_sequences": false,
+  "quick_subset": false,
+  "loss_symmetry": "canonical_gt",
+  "metric_points": "all mesh vertices",
+  "streams": [
+    "20200709-subject-01/20200709_141754/836212060125",
+    "20200709-subject-01/20200709_141754/839512060362",
+    "20200709-subject-01/20200709_141754/840412060917",
+    "20200709-subject-01/20200709_141754/841412060263",
+    "20200709-subject-01/20200709_141754/932122060857",
+    "20200709-subject-01/20200709_141754/932122060861",
+    "20200709-subject-01/20200709_141754/932122061900",
+    "20200709-subject-01/20200709_141754/932122062010"
+  ],
+  "data_complete": false,
+  "diagnostic_train_subset": true,
+  "clips": [
+    {
+      "stream": 0,
+      "start": 1,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9998679867986798
+    },
+    {
+      "stream": 0,
+      "start": 2,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9996040126715945
+    },
+    {
+      "stream": 0,
+      "start": 3,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9997360084477297
+    },
+    {
+      "stream": 0,
+      "start": 4,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9993425378040762
+    },
+    {
+      "stream": 0,
+      "start": 5,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 1.0
+    },
+    {
+      "stream": 0,
+      "start": 6,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9997360781208762
+    },
+    {
+      "stream": 0,
+      "start": 7,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9997364953886693
+    },
+    {
+      "stream": 0,
+      "start": 8,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9997364953886693
+    },
+    {
+      "stream": 0,
+      "start": 9,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9998679693688935
+    },
+    {
+      "stream": 0,
+      "start": 10,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9998679170519086
+    },
+    {
+      "stream": 0,
+      "start": 11,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9994722258873202
+    },
+    {
+      "stream": 0,
+      "start": 12,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9998679693688935
+    },
+    {
+      "stream": 0,
+      "start": 13,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9998679519345042
+    },
+    {
+      "stream": 0,
+      "start": 14,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9997362173568979
+    },
+    {
+      "stream": 0,
+      "start": 15,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9994708994708995
+    },
+    {
+      "stream": 0,
+      "start": 16,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.992072929052715
+    },
+    {
+      "stream": 0,
+      "start": 17,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9689809926082366
+    },
+    {
+      "stream": 0,
+      "start": 18,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9403142743958801
+    },
+    {
+      "stream": 0,
+      "start": 19,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.924022198731501
+    },
+    {
+      "stream": 0,
+      "start": 20,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.9022327916501519
+    },
+    {
+      "stream": 0,
+      "start": 21,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.8846865908489817
+    },
+    {
+      "stream": 0,
+      "start": 22,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.8623102310231023
+    },
+    {
+      "stream": 0,
+      "start": 23,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.8482413384270847
+    },
+    {
+      "stream": 0,
+      "start": 24,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.8316662279547249
+    },
+    {
+      "stream": 0,
+      "start": 25,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.82130130658572
+    },
+    {
+      "stream": 0,
+      "start": 26,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.8122529644268774
+    },
+    {
+      "stream": 0,
+      "start": 27,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.8062352012628256
+    },
+    {
+      "stream": 0,
+      "start": 28,
+      "stride": 1,
+      "moving": false,
+      "occluded": false,
+      "visibility": 0.8003150846790075
+    },
+    {
+      "stream": 0,
+      "start": 29,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.7991857105332283
+    },
+    {
+      "stream": 0,
+      "start": 30,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.800655737704918
+    },
+    {
+      "stream": 0,
+      "start": 31,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.795921052631579
+    },
+    {
+      "stream": 0,
+      "start": 32,
+      "stride": 1,
+      "moving": true,
+      "occluded": false,
+      "visibility": 0.7935196117014299
+    }
+  ],
+  "first_five_consecutive_adds_failures": {}
+}

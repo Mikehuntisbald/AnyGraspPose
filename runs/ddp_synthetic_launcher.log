@@ -1,0 +1,88 @@
+Traceback (most recent call last):
+  File "/mnt/why/dexycb_lip/tools/ddp_synthetic.py", line 6, in <module>
+    from lip.data.synthetic import synthetic_item
+  File "/mnt/why/dexycb_lip/src/lip/data/synthetic.py", line 4, in <module>
+    import trimesh
+ModuleNotFoundError: No module named 'trimesh'
+Traceback (most recent call last):
+  File "/mnt/why/dexycb_lip/tools/ddp_synthetic.py", line 6, in <module>
+    from lip.data.synthetic import synthetic_item
+  File "/mnt/why/dexycb_lip/src/lip/data/synthetic.py", line 4, in <module>
+    import trimesh
+ModuleNotFoundError: No module named 'trimesh'
+Traceback (most recent call last):
+  File "/mnt/why/dexycb_lip/tools/ddp_synthetic.py", line 6, in <module>
+    from lip.data.synthetic import synthetic_item
+  File "/mnt/why/dexycb_lip/src/lip/data/synthetic.py", line 4, in <module>
+    import trimesh
+ModuleNotFoundError: No module named 'trimesh'
+Traceback (most recent call last):
+  File "/mnt/why/dexycb_lip/tools/ddp_synthetic.py", line 6, in <module>
+    from lip.data.synthetic import synthetic_item
+  File "/mnt/why/dexycb_lip/src/lip/data/synthetic.py", line 4, in <module>
+    import trimesh
+ModuleNotFoundError: No module named 'trimesh'
+Traceback (most recent call last):
+  File "/mnt/why/dexycb_lip/tools/ddp_synthetic.py", line 6, in <module>
+    from lip.data.synthetic import synthetic_item
+  File "/mnt/why/dexycb_lip/src/lip/data/synthetic.py", line 4, in <module>
+    import trimesh
+ModuleNotFoundError: No module named 'trimesh'
+Traceback (most recent call last):
+  File "/mnt/why/dexycb_lip/tools/ddp_synthetic.py", line 6, in <module>
+    from lip.data.synthetic import synthetic_item
+  File "/mnt/why/dexycb_lip/src/lip/data/synthetic.py", line 4, in <module>
+    import trimesh
+ModuleNotFoundError: No module named 'trimesh'
+Traceback (most recent call last):
+  File "/mnt/why/dexycb_lip/tools/ddp_synthetic.py", line 6, in <module>
+    from lip.data.synthetic import synthetic_item
+  File "/mnt/why/dexycb_lip/src/lip/data/synthetic.py", line 4, in <module>
+    import trimesh
+ModuleNotFoundError: No module named 'trimesh'
+Traceback (most recent call last):
+  File "/mnt/why/dexycb_lip/tools/ddp_synthetic.py", line 6, in <module>
+    from lip.data.synthetic import synthetic_item
+  File "/mnt/why/dexycb_lip/src/lip/data/synthetic.py", line 4, in <module>
+    import trimesh
+ModuleNotFoundError: No module named 'trimesh'
+W0909 16:40:21.491000 711709 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 711713 closing signal SIGTERM
+W0909 16:40:21.492000 711709 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 711714 closing signal SIGTERM
+W0909 16:40:21.492000 711709 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 711715 closing signal SIGTERM
+W0909 16:40:21.492000 711709 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 711716 closing signal SIGTERM
+W0909 16:40:21.492000 711709 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 711718 closing signal SIGTERM
+W0909 16:40:21.493000 711709 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 711719 closing signal SIGTERM
+W0909 16:40:21.493000 711709 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 711720 closing signal SIGTERM
+E0909 16:40:21.557000 711709 torch/distributed/elastic/multiprocessing/api.py:874] failed (exitcode: 1) local_rank: 4 (pid: 711717) of binary: /usr/bin/python3
+Traceback (most recent call last):
+  File "/usr/local/bin/torchrun", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 357, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/launcher/api.py", line 143, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/launcher/api.py", line 277, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+tools/ddp_synthetic.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-09-09_16:40:21
+  host      : nb-1665947968857557760-cnnl9oh5e22o
+  rank      : 4 (local_rank: 4)
+  exitcode  : 1 (pid: 711717)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

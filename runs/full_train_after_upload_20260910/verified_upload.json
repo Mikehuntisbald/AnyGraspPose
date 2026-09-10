@@ -1,0 +1,162 @@
+{
+  "files": [
+    {
+      "name": "calibration.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/calibration.tar.gz",
+      "bytes": 14464,
+      "mtime_ns": 1788947527998600727,
+      "sha256": "1f6cb30cfe290833ac66edec919c3b9b3f3937af2ba7bb78f0700a5349edd645",
+      "gzip_crc_verified": true,
+      "remote_sha256": "1f6cb30cfe290833ac66edec919c3b9b3f3937af2ba7bb78f0700a5349edd645",
+      "remote_path": "/mnt/why/DexYCB/calibration.tar.gz",
+      "transfer_verify_seconds": 0.8334627699950943,
+      "status": "verified"
+    },
+    {
+      "name": "bop.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/bop.tar.gz",
+      "bytes": 1250767497,
+      "mtime_ns": 1788947812151164129,
+      "sha256": "0b5b31e0d611a477c7bd7b0d037281361a28c870662f579f1302c568d17a8a12",
+      "gzip_crc_verified": true,
+      "remote_sha256": "0b5b31e0d611a477c7bd7b0d037281361a28c870662f579f1302c568d17a8a12",
+      "remote_path": "/mnt/why/DexYCB/bop.tar.gz",
+      "transfer_verify_seconds": 407.3887042899878,
+      "status": "verified"
+    },
+    {
+      "name": "models.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/models.tar.gz",
+      "bytes": 1455399753,
+      "mtime_ns": 1788947874107080995,
+      "sha256": "7b066c369be56d8cd84314d01c0c9169d543f00792f0e26bb787c657bad75d7d",
+      "gzip_crc_verified": true,
+      "remote_sha256": "7b066c369be56d8cd84314d01c0c9169d543f00792f0e26bb787c657bad75d7d",
+      "remote_path": "/mnt/why/DexYCB/models.tar.gz",
+      "transfer_verify_seconds": 1.857647122000344,
+      "status": "verified"
+    },
+    {
+      "name": "20200813-subject-02.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20200813-subject-02.tar.gz",
+      "bytes": 12004145048,
+      "mtime_ns": 1788951511471663550,
+      "sha256": "df785049fdaf9266cbba4102084bd435e72ae12836fa603bdce00182c449bd89",
+      "gzip_crc_verified": true,
+      "remote_sha256": "df785049fdaf9266cbba4102084bd435e72ae12836fa603bdce00182c449bd89",
+      "remote_path": "/mnt/why/DexYCB/20200813-subject-02.tar.gz",
+      "transfer_verify_seconds": 5557.461261346994,
+      "status": "verified"
+    },
+    {
+      "name": "20200820-subject-03.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20200820-subject-03.tar.gz",
+      "bytes": 12197037343,
+      "mtime_ns": 1788951600943584943,
+      "sha256": "743fff9ce921759146b780064147c448fa474faaf8b71ae3ad4a7ce5c9c446a9",
+      "gzip_crc_verified": true,
+      "remote_sha256": "743fff9ce921759146b780064147c448fa474faaf8b71ae3ad4a7ce5c9c446a9",
+      "remote_path": "/mnt/why/DexYCB/20200820-subject-03.tar.gz",
+      "transfer_verify_seconds": 5834.21892657,
+      "status": "verified"
+    },
+    {
+      "name": "20201022-subject-10.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20201022-subject-10.tar.gz",
+      "bytes": 12341740204,
+      "mtime_ns": 1788951665055528619,
+      "sha256": "2236c553f2ae71246d73af22b92e35fb6f4e0e4677b0f6c44aee510f1290c524",
+      "gzip_crc_verified": true,
+      "remote_sha256": "2236c553f2ae71246d73af22b92e35fb6f4e0e4677b0f6c44aee510f1290c524",
+      "remote_path": "/mnt/why/DexYCB/20201022-subject-10.tar.gz",
+      "transfer_verify_seconds": 7071.487595376995,
+      "status": "verified"
+    },
+    {
+      "name": "20200709-subject-01.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20200709-subject-01.tar.gz",
+      "bytes": 12412314463,
+      "mtime_ns": 1788951520881655282,
+      "sha256": "ce44e97a7567f7fb128b474ae33f327715314956a1c7b24cb08b08bc51cf4303",
+      "gzip_crc_verified": true,
+      "remote_sha256": "ce44e97a7567f7fb128b474ae33f327715314956a1c7b24cb08b08bc51cf4303",
+      "remote_path": "/mnt/why/DexYCB/20200709-subject-01.tar.gz",
+      "transfer_verify_seconds": 3367.366322475,
+      "status": "verified"
+    },
+    {
+      "name": "20201002-subject-08.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20201002-subject-08.tar.gz",
+      "bytes": 12418522598,
+      "mtime_ns": 1788951710131489020,
+      "sha256": "f65201fc619b6aa0d6053d16a372c6776573cf6db476c59e3f69c2c56ed4f480",
+      "gzip_crc_verified": true,
+      "remote_sha256": "f65201fc619b6aa0d6053d16a372c6776573cf6db476c59e3f69c2c56ed4f480",
+      "remote_path": "/mnt/why/DexYCB/20201002-subject-08.tar.gz",
+      "transfer_verify_seconds": 3533.389204276,
+      "status": "verified"
+    },
+    {
+      "name": "20201015-subject-09.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20201015-subject-09.tar.gz",
+      "bytes": 12493882548,
+      "mtime_ns": 1788951704410494046,
+      "sha256": "ceecf8c9db6768db2dd1c24320915415b6c9a4bb6db6ae7937012e832a7e8bdc",
+      "gzip_crc_verified": true,
+      "remote_sha256": "ceecf8c9db6768db2dd1c24320915415b6c9a4bb6db6ae7937012e832a7e8bdc",
+      "remote_path": "/mnt/why/DexYCB/20201015-subject-09.tar.gz",
+      "transfer_verify_seconds": 4944.457423274999,
+      "status": "verified"
+    },
+    {
+      "name": "20200918-subject-06.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20200918-subject-06.tar.gz",
+      "bytes": 12610980973,
+      "mtime_ns": 1788951740300462517,
+      "sha256": "7b51ef72886a901d0d66a3f37002f6ba8de9b7facc338af64a5700551ece7834",
+      "gzip_crc_verified": true,
+      "remote_sha256": "7b51ef72886a901d0d66a3f37002f6ba8de9b7facc338af64a5700551ece7834",
+      "remote_path": "/mnt/why/DexYCB/20200918-subject-06.tar.gz",
+      "transfer_verify_seconds": 1699.001867125,
+      "status": "verified"
+    },
+    {
+      "name": "20200903-subject-04.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20200903-subject-04.tar.gz",
+      "bytes": 12792618020,
+      "mtime_ns": 1788951713808485790,
+      "sha256": "fcfee84a44cb9df365b84a2aa3c4d057ebc64d038b3db15de4475d2d06b6fd10",
+      "gzip_crc_verified": true,
+      "remote_sha256": "fcfee84a44cb9df365b84a2aa3c4d057ebc64d038b3db15de4475d2d06b6fd10",
+      "remote_path": "/mnt/why/DexYCB/20200903-subject-04.tar.gz",
+      "transfer_verify_seconds": 1235.279260505,
+      "status": "verified"
+    },
+    {
+      "name": "20200908-subject-05.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20200908-subject-05.tar.gz",
+      "bytes": 12815420651,
+      "mtime_ns": 1788951708888490112,
+      "sha256": "36113d7ceb410608322345aab1d4279c8bd12d2746c4b5d60d56b313fe1b3fbb",
+      "gzip_crc_verified": true,
+      "remote_sha256": "36113d7ceb410608322345aab1d4279c8bd12d2746c4b5d60d56b313fe1b3fbb",
+      "remote_path": "/mnt/why/DexYCB/20200908-subject-05.tar.gz",
+      "transfer_verify_seconds": 618.6520111550017,
+      "status": "verified"
+    },
+    {
+      "name": "20200928-subject-07.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20200928-subject-07.tar.gz",
+      "bytes": 12818333033,
+      "mtime_ns": 1788951736758465628,
+      "sha256": "af34bbf19bf02f695c9680fefa76362ad8ffe3507bf3237425fb5851db492522",
+      "gzip_crc_verified": true,
+      "remote_path": "/mnt/why/DexYCB/20200928-subject-07.tar.gz",
+      "remote_sha256": "af34bbf19bf02f695c9680fefa76362ad8ffe3507bf3237425fb5851db492522",
+      "status": "verified",
+      "transport": "HF mirror; exact SHA256 match to user-local archive"
+    }
+  ],
+  "scope": "full official DexYCB: all 10 subjects plus bop/calibration/models",
+  "upload_finished_utc": "2026-09-09T19:43:12Z"
+}

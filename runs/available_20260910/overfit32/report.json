@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "data_complete": false,
+  "split_scope": "Complete inventories of selected subjects; official s0 subset",
+  "source": "real_DexYCB",
+  "num_clips": 32,
+  "steps": 500,
+  "initial": {
+    "loss": 0.2449935209006071,
+    "learned": {
+      "center_mm": 21.34196213033598,
+      "rotation_deg": 6.800937993411409,
+      "add_m": 0.02265765984363488,
+      "adds_m": 0.011972701305254437,
+      "add_005": 0.4375,
+      "add_01": 0.53125,
+      "adds_005": 0.59375,
+      "adds_01": 0.78125
+    },
+    "zero_motion": {
+      "center_mm": 21.34196213033598,
+      "rotation_deg": 6.800937993411409,
+      "add_m": 0.02265765984363488,
+      "adds_m": 0.011972701305254437,
+      "add_005": 0.4375,
+      "add_01": 0.53125,
+      "adds_005": 0.59375,
+      "adds_01": 0.78125
+    }
+  },
+  "final": {
+    "loss": 0.12934647919610143,
+    "learned": {
+      "center_mm": 8.974225323584049,
+      "rotation_deg": 5.474541928590511,
+      "add_m": 0.010372553264379712,
+      "adds_m": 0.005128498146594138,
+      "add_005": 0.625,
+      "add_01": 0.84375,
+      "adds_005": 0.84375,
+      "adds_01": 0.96875
+    },
+    "zero_motion": {
+      "center_mm": 21.34196213033598,
+      "rotation_deg": 6.800937993411409,
+      "add_m": 0.02265765984363488,
+      "adds_m": 0.011972701305254437,
+      "add_005": 0.4375,
+      "add_01": 0.53125,
+      "adds_005": 0.59375,
+      "adds_01": 0.78125
+    }
+  },
+  "criterion": "loss <75% initial and learned ADD below identical zero-motion baseline"
+}

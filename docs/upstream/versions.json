@@ -1,0 +1,14 @@
+[
+  {
+    "repo": "NVlabs/dex-ycb-toolkit",
+    "commit": "64551b001d360ad83bc383157a559ec248fb9100"
+  },
+  {
+    "repo": "NVlabs/FoundationPose",
+    "commit": "a1b694b83e633c2cb6115b9063d940a687759392"
+  },
+  {
+    "repo": "NVlabs/nvdiffrast",
+    "commit": "253ac4fcea7de5f396371124af597e6cc957bfae"
+  }
+]

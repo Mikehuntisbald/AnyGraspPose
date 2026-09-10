@@ -1,0 +1,14 @@
+{
+  "pid": 741486,
+  "phase": "training",
+  "updated_utc": "2026-09-09T20:13:47Z",
+  "data_root": "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+  "job_root": "/mnt/why/dexycb_lip/runs/full_train_after_upload_20260910",
+  "upload_receipt_sha256": "902e351a27cffb7225632979d8612c45f3f958453b03ae076a9104832ac8c3fe",
+  "source_sha256": "a1b6933e92d6db6878d320cac030a023bccc138e7d96800c6fb391cbef23334f",
+  "stage": "train_40000",
+  "child_pid": 751126,
+  "log": "/mnt/why/dexycb_lip/runs/full_train_after_upload_20260910/train_40000.log",
+  "training_started": true,
+  "optimizer_step": 25
+}

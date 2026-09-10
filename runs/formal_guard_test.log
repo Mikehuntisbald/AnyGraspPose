@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/mnt/why/dexycb_lip/tools/verify_preflight.py", line 6, in <module>
+    path=Path(a.config);c=yaml.safe_load(path.read_text());audit=check_data_gate('cache/dexycb_s0')
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/why/dexycb_lip/src/lip/engine/config.py", line 56, in check_data_gate
+    index=Path(index);audit=json.loads((index/'audit.json').read_text())
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'cache/dexycb_s0/audit.json'

@@ -1,0 +1,35 @@
+/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py:829: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [1, 1, 256], strides() = [35072, 256, 1]
+bucket_view.sizes() = [1, 1, 256], strides() = [256, 256, 1] (Triggered internally at /pytorch/torch/csrc/distributed/c10d/reducer.cpp:334.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py:829: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [1, 1, 256], strides() = [35072, 256, 1]
+bucket_view.sizes() = [1, 1, 256], strides() = [256, 256, 1] (Triggered internally at /pytorch/torch/csrc/distributed/c10d/reducer.cpp:334.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py:829: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [1, 1, 256], strides() = [35072, 256, 1]
+bucket_view.sizes() = [1, 1, 256], strides() = [256, 256, 1] (Triggered internally at /pytorch/torch/csrc/distributed/c10d/reducer.cpp:334.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py:829: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [1, 1, 256], strides() = [35072, 256, 1]
+bucket_view.sizes() = [1, 1, 256], strides() = [256, 256, 1] (Triggered internally at /pytorch/torch/csrc/distributed/c10d/reducer.cpp:334.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py:829: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [1, 1, 256], strides() = [35072, 256, 1]
+bucket_view.sizes() = [1, 1, 256], strides() = [256, 256, 1] (Triggered internally at /pytorch/torch/csrc/distributed/c10d/reducer.cpp:334.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py:829: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [1, 1, 256], strides() = [35072, 256, 1]
+bucket_view.sizes() = [1, 1, 256], strides() = [256, 256, 1] (Triggered internally at /pytorch/torch/csrc/distributed/c10d/reducer.cpp:334.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py:829: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [1, 1, 256], strides() = [35072, 256, 1]
+bucket_view.sizes() = [1, 1, 256], strides() = [256, 256, 1] (Triggered internally at /pytorch/torch/csrc/distributed/c10d/reducer.cpp:334.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py:829: UserWarning: Grad strides do not match bucket view strides. This may indicate grad was not created according to the gradient layout contract, or that the param's strides changed since DDP was constructed.  This is not an error, but may impair performance.
+grad.sizes() = [1, 1, 256], strides() = [35072, 256, 1]
+bucket_view.sizes() = [1, 1, 256], strides() = [256, 256, 1] (Triggered internally at /pytorch/torch/csrc/distributed/c10d/reducer.cpp:334.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+{"source": "synthetic_correctness_only", "rank": 0, "step": 51, "scheduler_step": 51, "rollout": 1, "samples_seen": 102, "seconds": 1.1678828559815884, "grad_norm": 2.791008949279785, "loss": 0.08504286408424377, "translation": 0.0005572218215093017, "rotation": 0.08884425461292267, "points": 0.040063515305519104, "update_rotation_rad": 0.007011160254478455, "update_center_norm": 0.005727053619921207, "render_time": 0.006346556008793414, "forward_time": 0.018966533010825515, "backward_time": 0.14341378799872473, "rotation_clipped": 0.0, "translation_clipped": 0.0}
+{"source": "synthetic_correctness_only", "rank": 0, "step": 52, "scheduler_step": 52, "rollout": 4, "samples_seen": 104, "seconds": 0.34028302697697654, "grad_norm": 3.3296687602996826, "loss": 0.09069523215293884, "translation": 0.0008261802286142483, "rotation": 0.09396464750170708, "points": 0.04288672748953104, "update_rotation_rad": 0.007237816229462624, "update_center_norm": 0.005873629706911743, "render_time": 0.021480160066857934, "forward_time": 0.058076012996025383, "backward_time": 0.09937301301397383, "rotation_clipped": 0.0, "translation_clipped": 0.0}
+{"source": "synthetic_correctness_only", "rank": 0, "step": 53, "scheduler_step": 53, "rollout": 1, "samples_seen": 106, "seconds": 0.09174244198948145, "grad_norm": 2.8260180950164795, "loss": 0.0845455452799797, "translation": 0.0006051571108400822, "rotation": 0.0882270485162735, "points": 0.03982686251401901, "update_rotation_rad": 0.007730831857770681, "update_center_norm": 0.006281470879912376, "render_time": 0.005582508980296552, "forward_time": 0.013732339954003692, "backward_time": 0.025917599035892636, "rotation_clipped": 0.0, "translation_clipped": 0.0}

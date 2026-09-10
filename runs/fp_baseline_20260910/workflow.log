@@ -1,0 +1,4 @@
+{"phase": "waiting_new_checkpoint", "pid": 768145, "utc": "2026-09-10T03:55:30Z", "step": 12355}
+{"phase": "evaluating", "pid": 768145, "utc": "2026-09-10T04:18:24Z", "checkpoint_step": 13000, "last_logged_step": 13000, "replayed_steps": 0}
+{"phase": "resuming_training", "pid": 768145, "utc": "2026-09-10T04:45:18Z", "eval_exit_code": 0}
+{"phase": "training_resumed", "pid": 768145, "utc": "2026-09-10T04:45:18Z", "child_pid": 769854, "eval_exit_code": 0}

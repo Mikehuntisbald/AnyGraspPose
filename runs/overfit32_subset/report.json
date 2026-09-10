@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "data_complete": false,
+  "split_scope": "Official README positions 0..3 only; incomplete s0; preflight diagnostics",
+  "source": "real_DexYCB",
+  "num_clips": 32,
+  "steps": 500,
+  "initial": {
+    "loss": 0.16752396710217,
+    "learned": {
+      "center_mm": 18.81595083023825,
+      "rotation_deg": 1.5442806015311825,
+      "add_m": 0.018700396519863972,
+      "adds_m": 0.008846680828948555,
+      "add_005": 0.28125,
+      "add_01": 0.53125,
+      "adds_005": 0.53125,
+      "adds_01": 0.875
+    },
+    "zero_motion": {
+      "center_mm": 18.81595083023825,
+      "rotation_deg": 1.5442806015311825,
+      "add_m": 0.018700396519863972,
+      "adds_m": 0.008846680828948555,
+      "add_005": 0.28125,
+      "add_01": 0.53125,
+      "adds_005": 0.53125,
+      "adds_01": 0.875
+    }
+  },
+  "final": {
+    "loss": 0.03600949700921774,
+    "learned": {
+      "center_mm": 3.8788734175566812,
+      "rotation_deg": 0.9220742860547456,
+      "add_m": 0.003918634009552481,
+      "adds_m": 0.00235864659971176,
+      "add_005": 0.96875,
+      "add_01": 0.96875,
+      "adds_005": 0.96875,
+      "adds_01": 1.0
+    },
+    "zero_motion": {
+      "center_mm": 18.81595083023825,
+      "rotation_deg": 1.5442806015311825,
+      "add_m": 0.018700396519863972,
+      "adds_m": 0.008846680828948555,
+      "add_005": 0.28125,
+      "add_01": 0.53125,
+      "adds_005": 0.53125,
+      "adds_01": 0.875
+    }
+  },
+  "criterion": "loss <75% initial and learned ADD below identical zero-motion baseline"
+}

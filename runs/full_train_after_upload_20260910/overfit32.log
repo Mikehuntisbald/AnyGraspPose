@@ -1,0 +1,76 @@
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 0}
+{"loss": 0.1933550089597702, "translation": 0.048333629965782166, "rotation": 0.0551711842417717, "points": 0.11743577569723129, "update_rotation_rad": 0.00048138940474018455, "update_center_norm": 0.0014350971905514598, "render_time": 0.018557861912995577, "forward_time": 0.015650487039238214, "backward_time": 0.02789947798009962, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 25}
+{"loss": 0.2655452787876129, "translation": 0.05950053408741951, "rotation": 0.12916158139705658, "points": 0.14146395027637482, "update_rotation_rad": 0.0015042144805192947, "update_center_norm": 0.006193225271999836, "render_time": 0.01852587703615427, "forward_time": 0.015508815995417535, "backward_time": 0.027669170987792313, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 50}
+{"loss": 0.5088739395141602, "translation": 0.12979112565517426, "rotation": 0.21778464317321777, "points": 0.2701904773712158, "update_rotation_rad": 0.0021835414227098227, "update_center_norm": 0.012932599522173405, "render_time": 0.018484378000721335, "forward_time": 0.015536596067249775, "backward_time": 0.027671352960169315, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 75}
+{"loss": 0.08276471495628357, "translation": 0.01140989363193512, "rotation": 0.05260426551103592, "points": 0.04505268484354019, "update_rotation_rad": 0.0022840499877929688, "update_center_norm": 0.018066758289933205, "render_time": 0.018485017935745418, "forward_time": 0.015507483971305192, "backward_time": 0.02770336903631687, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 100}
+{"loss": 0.24552059173583984, "translation": 0.06334643065929413, "rotation": 0.09394466876983643, "points": 0.1352018266916275, "update_rotation_rad": 0.003078900743275881, "update_center_norm": 0.02264031209051609, "render_time": 0.018444771063514054, "forward_time": 0.015356238931417465, "backward_time": 0.027796990936622024, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 125}
+{"loss": 0.02633737400174141, "translation": 0.0016153304604813457, "rotation": 0.02289946749806404, "points": 0.013272310607135296, "update_rotation_rad": 0.004634578712284565, "update_center_norm": 0.01438800897449255, "render_time": 0.01839519094210118, "forward_time": 0.015555843012407422, "backward_time": 0.02772215602453798, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 150}
+{"loss": 0.04073598235845566, "translation": 0.0031225017737597227, "rotation": 0.03876079246401787, "points": 0.018233085051178932, "update_rotation_rad": 0.009643478319048882, "update_center_norm": 0.02590271644294262, "render_time": 0.0184995390009135, "forward_time": 0.015446918085217476, "backward_time": 0.027855826076120138, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 175}
+{"loss": 0.3664517104625702, "translation": 0.07927799224853516, "rotation": 0.208637535572052, "points": 0.18285495042800903, "update_rotation_rad": 0.009417415596544743, "update_center_norm": 0.02751411311328411, "render_time": 0.01843503804411739, "forward_time": 0.015555953024886549, "backward_time": 0.02769988402724266, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 200}
+{"loss": 0.10242186486721039, "translation": 0.017729502171278, "rotation": 0.06204443424940109, "points": 0.05367014557123184, "update_rotation_rad": 0.024618230760097504, "update_center_norm": 0.08071776479482651, "render_time": 0.018609285005368292, "forward_time": 0.015490319929085672, "backward_time": 0.027843488031066954, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 225}
+{"loss": 0.2129172682762146, "translation": 0.04651899263262749, "rotation": 0.12219454348087311, "points": 0.10530101507902145, "update_rotation_rad": 0.020049434155225754, "update_center_norm": 0.0731583833694458, "render_time": 0.018459882936440408, "forward_time": 0.015490991063416004, "backward_time": 0.02778938098344952, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 250}
+{"loss": 0.43858301639556885, "translation": 0.10421006381511688, "rotation": 0.21491700410842896, "points": 0.2269144505262375, "update_rotation_rad": 0.01222553662955761, "update_center_norm": 0.05678866058588028, "render_time": 0.01883944298606366, "forward_time": 0.015637860051356256, "backward_time": 0.028032967005856335, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 275}
+{"loss": 0.05859474465250969, "translation": 0.004679765552282333, "rotation": 0.05234156548976898, "points": 0.027744192630052567, "update_rotation_rad": 0.009417494758963585, "update_center_norm": 0.029594119638204575, "render_time": 0.018562698969617486, "forward_time": 0.01545620197430253, "backward_time": 0.028150783968158066, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 300}
+{"loss": 0.1528257131576538, "translation": 0.03164523467421532, "rotation": 0.09281456470489502, "points": 0.07477319240570068, "update_rotation_rad": 0.02280890941619873, "update_center_norm": 0.087282694876194, "render_time": 0.01859254203736782, "forward_time": 0.015502387075684965, "backward_time": 0.028199683991260827, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 325}
+{"loss": 0.017098845914006233, "translation": 0.00027136108838021755, "rotation": 0.018860284239053726, "points": 0.007397342473268509, "update_rotation_rad": 0.009658904746174812, "update_center_norm": 0.012226138263940811, "render_time": 0.018534458940848708, "forward_time": 0.015488547971472144, "backward_time": 0.028150444966740906, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 350}
+{"loss": 0.016949906945228577, "translation": 0.0002393436006968841, "rotation": 0.019823521375656128, "points": 0.006798804271966219, "update_rotation_rad": 0.020007427781820297, "update_center_norm": 0.024324100464582443, "render_time": 0.018464919994585216, "forward_time": 0.015492642996832728, "backward_time": 0.028052314999513328, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 375}
+{"loss": 0.20343048870563507, "translation": 0.03013322502374649, "rotation": 0.17302212119102478, "points": 0.0867861956357956, "update_rotation_rad": 0.04773479700088501, "update_center_norm": 0.16056719422340393, "render_time": 0.01832385896705091, "forward_time": 0.0155322200153023, "backward_time": 0.02812937507405877, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 400}
+{"loss": 0.08345090597867966, "translation": 0.014878876507282257, "rotation": 0.03854529559612274, "points": 0.04929938167333603, "update_rotation_rad": 0.03601537644863129, "update_center_norm": 0.13446533679962158, "render_time": 0.018464389024302363, "forward_time": 0.015511789941228926, "backward_time": 0.02814116096124053, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 425}
+{"loss": 0.1637573093175888, "translation": 0.03269485756754875, "rotation": 0.10075477510690689, "points": 0.08068506419658661, "update_rotation_rad": 0.035772740840911865, "update_center_norm": 0.06897624582052231, "render_time": 0.01861352100968361, "forward_time": 0.015511208912357688, "backward_time": 0.028216929058544338, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 450}
+{"loss": 0.3370600938796997, "translation": 0.058385688811540604, "rotation": 0.21296226978302002, "points": 0.17219328880310059, "update_rotation_rad": 0.04907563328742981, "update_center_norm": 0.16742819547653198, "render_time": 0.018549100030213594, "forward_time": 0.015549773932434618, "backward_time": 0.028055969974957407, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 475}
+{"loss": 0.06610976904630661, "translation": 0.008214452303946018, "rotation": 0.04184455797076225, "points": 0.03697303682565689, "update_rotation_rad": 0.023761598393321037, "update_center_norm": 0.06442323327064514, "render_time": 0.018613451975397766, "forward_time": 0.015477951965294778, "backward_time": 0.028212512959726155, "rotation_clipped": 0.0, "translation_clipped": 0.0, "step": 500}
+{
+  "passed": true,
+  "data_complete": true,
+  "split_scope": "full official inventory",
+  "source": "real_DexYCB",
+  "num_clips": 32,
+  "steps": 500,
+  "initial": {
+    "loss": 0.22575054364278913,
+    "learned": {
+      "center_mm": 18.93850505258372,
+      "rotation_deg": 5.924828399690859,
+      "add_m": 0.019309060177882753,
+      "adds_m": 0.010518890802882125,
+      "add_005": 0.5,
+      "add_01": 0.625,
+      "adds_005": 0.65625,
+      "adds_01": 0.78125
+    },
+    "zero_motion": {
+      "center_mm": 18.93850505258372,
+      "rotation_deg": 5.924828399690859,
+      "add_m": 0.019309060177882753,
+      "adds_m": 0.010518890802882125,
+      "add_005": 0.5,
+      "add_01": 0.625,
+      "adds_005": 0.65625,
+      "adds_01": 0.78125
+    }
+  },
+  "final": {
+    "loss": 0.11489911237731576,
+    "learned": {
+      "center_mm": 9.037385189679801,
+      "rotation_deg": 4.4241048040896445,
+      "add_m": 0.009948313317577838,
+      "adds_m": 0.00489810346483951,
+      "add_005": 0.65625,
+      "add_01": 0.8125,
+      "adds_005": 0.84375,
+      "adds_01": 0.96875
+    },
+    "zero_motion": {
+      "center_mm": 18.93850505258372,
+      "rotation_deg": 5.924828399690859,
+      "add_m": 0.019309060177882753,
+      "adds_m": 0.010518890802882125,
+      "add_005": 0.5,
+      "add_01": 0.625,
+      "adds_005": 0.65625,
+      "adds_01": 0.78125
+    }
+  },
+  "criterion": "loss <75% initial and learned ADD below identical zero-motion baseline"
+}

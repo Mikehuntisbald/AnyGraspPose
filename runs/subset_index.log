@@ -1,0 +1,23 @@
+{
+  "errors": [],
+  "missing_subjects": [],
+  "streams": 8,
+  "frames": 576,
+  "depth_scale_to_m": 0.001,
+  "pose_scale_to_m": 1.0,
+  "mesh_scale_to_m": 1.0,
+  "fps": 30.0,
+  "timestamp_source": "frame_index/fps; official capture rate 30 Hz",
+  "setup": "s0",
+  "split_disjoint": true,
+  "physical_sequences": {
+    "train": 1,
+    "val": 0,
+    "test": 0
+  },
+  "complete": false,
+  "verified_train_subset": true,
+  "inventory_scope": "Official README positions 0..3 only; incomplete s0; preflight diagnostics",
+  "split_hash": "63c159aab3ecbc9ac0e7049d2f23b979af959797b26edfac2181d88ca44b23d0",
+  "mesh_hash": "eec0a1c15f40668f085ca7aba2c5f572e4d25c64d94784dd59350b0b62788801"
+}

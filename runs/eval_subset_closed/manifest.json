@@ -1,0 +1,66 @@
+{
+  "seed": 42,
+  "mode": "closed-loop",
+  "split": "train",
+  "split_hash": "63c159aab3ecbc9ac0e7049d2f23b979af959797b26edfac2181d88ca44b23d0",
+  "mesh_hash": "eec0a1c15f40668f085ca7aba2c5f572e4d25c64d94784dd59350b0b62788801",
+  "initial_pose_source": "gt_first_frame",
+  "full_sequences": true,
+  "quick_subset": false,
+  "loss_symmetry": "canonical_gt",
+  "metric_points": "all mesh vertices",
+  "streams": [
+    "20200709-subject-01/20200709_141754/836212060125",
+    "20200709-subject-01/20200709_141754/839512060362",
+    "20200709-subject-01/20200709_141754/840412060917",
+    "20200709-subject-01/20200709_141754/841412060263",
+    "20200709-subject-01/20200709_141754/932122060857",
+    "20200709-subject-01/20200709_141754/932122060861",
+    "20200709-subject-01/20200709_141754/932122061900",
+    "20200709-subject-01/20200709_141754/932122062010"
+  ],
+  "data_complete": false,
+  "diagnostic_train_subset": true,
+  "first_five_consecutive_adds_failures": {
+    "20200709-subject-01/20200709_141754/836212060125": {
+      "frame": 8,
+      "elapsed_frames": 8,
+      "seconds": 0.26666666666666666
+    },
+    "20200709-subject-01/20200709_141754/839512060362": {
+      "frame": 8,
+      "elapsed_frames": 8,
+      "seconds": 0.26666666666666666
+    },
+    "20200709-subject-01/20200709_141754/840412060917": {
+      "frame": 7,
+      "elapsed_frames": 7,
+      "seconds": 0.23333333333333334
+    },
+    "20200709-subject-01/20200709_141754/841412060263": {
+      "frame": 8,
+      "elapsed_frames": 8,
+      "seconds": 0.26666666666666666
+    },
+    "20200709-subject-01/20200709_141754/932122060857": {
+      "frame": 9,
+      "elapsed_frames": 9,
+      "seconds": 0.3
+    },
+    "20200709-subject-01/20200709_141754/932122060861": {
+      "frame": 9,
+      "elapsed_frames": 9,
+      "seconds": 0.3
+    },
+    "20200709-subject-01/20200709_141754/932122061900": {
+      "frame": 6,
+      "elapsed_frames": 6,
+      "seconds": 0.2
+    },
+    "20200709-subject-01/20200709_141754/932122062010": {
+      "frame": 6,
+      "elapsed_frames": 6,
+      "seconds": 0.2
+    }
+  }
+}

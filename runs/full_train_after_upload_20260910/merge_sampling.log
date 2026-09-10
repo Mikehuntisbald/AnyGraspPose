@@ -1,0 +1,28 @@
+{
+  "train": {
+    "total": 903712,
+    "moving": 571432,
+    "occluded": 23630,
+    "unknown_visibility": 7244,
+    "moving_center_d": 0.05,
+    "moving_rotation_deg": 5,
+    "heavy_visibility": 0.3
+  },
+  "val": {
+    "total": 44960,
+    "moving": 31480,
+    "occluded": 1745,
+    "unknown_visibility": 325,
+    "moving_center_d": 0.05,
+    "moving_rotation_deg": 5,
+    "heavy_visibility": 0.3
+  },
+  "motion": {
+    "source": "train transitions only",
+    "split_hash": "54a35253db5bea988ffea5e41641d3313b31c5568193a186dd4e4359c497804b",
+    "quantile": 0.75,
+    "transitions": 459104,
+    "center_d_per_sec": 1.35685595870018,
+    "rotation_rad_per_sec": 1.1892163157463074
+  }
+}

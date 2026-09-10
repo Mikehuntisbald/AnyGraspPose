@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/mnt/why/dexycb_lip/tools/verify_preflight.py", line 6, in <module>
+    path=Path(a.config);c=yaml.safe_load(path.read_text());audit=check_data_gate('cache/dexycb_s0')
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/why/dexycb_lip/src/lip/engine/config.py", line 57, in check_data_gate
+    if not (index/'audit.json').exists():raise RuntimeError(f'Official data index is absent at {index}; provide extracted DEX_YCB_DIR and run scripts/preflight.sh')
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Official data index is absent at cache/dexycb_s0; provide extracted DEX_YCB_DIR and run scripts/preflight.sh

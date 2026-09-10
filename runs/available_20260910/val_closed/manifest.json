@@ -1,0 +1,199 @@
+{
+  "seed": 42,
+  "mode": "closed-loop",
+  "split": "val",
+  "split_hash": "d67ff06d5f211531a9faf29731716bb5521818bc6a6c212849f49fd1124db4f7",
+  "mesh_hash": "359f53a5f41963d3fdfc2542bd640432d820bfc99a055baec8976ad99966d32c",
+  "initial_pose_source": "gt_first_frame",
+  "full_sequences": true,
+  "quick_subset": true,
+  "loss_symmetry": "canonical_gt",
+  "metric_points": "all mesh vertices",
+  "streams": [
+    "20200813-subject-02/20200813_145612/836212060125",
+    "20200813-subject-02/20200813_145920/932122061900",
+    "20200813-subject-02/20200813_150228/836212060125",
+    "20200813-subject-02/20200813_150535/839512060362",
+    "20200813-subject-02/20200813_150823/840412060917",
+    "20200813-subject-02/20200813_151117/841412060263",
+    "20200813-subject-02/20200813_151925/836212060125",
+    "20200813-subject-02/20200813_152215/841412060263",
+    "20200813-subject-02/20200813_152513/932122060861",
+    "20200813-subject-02/20200813_152842/839512060362",
+    "20200813-subject-02/20200813_153152/932122062010",
+    "20200813-subject-02/20200813_153453/932122060861",
+    "20200813-subject-02/20200813_153802/932122060861",
+    "20200813-subject-02/20200813_154103/932122062010",
+    "20200813-subject-02/20200813_154408/932122061900",
+    "20200813-subject-02/20200813_154729/932122060861",
+    "20200813-subject-02/20200813_155021/932122060857",
+    "20200813-subject-02/20200813_155314/840412060917",
+    "20200813-subject-02/20200813_155633/932122060861",
+    "20200813-subject-02/20200813_155953/932122061900"
+  ],
+  "data_complete": false,
+  "diagnostic_verified_subset": true,
+  "diagnostic_train_subset": false,
+  "checkpoint": {
+    "path": "/mnt/why/dexycb_lip/runs/available_20260910/overfit32/last.pt",
+    "sha256": "df8cb178e21a30cccb812d90b8a42cab0bb43b6cd485464409f67005d03fc0f2",
+    "global_step": 500,
+    "code_sha256": "619a603b8dd9dc0b3f018b31936525253e8acade2a6a4d0bd613c44c36e5dea8"
+  },
+  "config": {
+    "seed": 42,
+    "image_size": 224,
+    "clip_length": 8,
+    "world_size": 8,
+    "batch_size_per_gpu": 32,
+    "grad_accum_steps": 1,
+    "precision": "bf16",
+    "pretrained": true,
+    "rgb_weights": "torchvision.ResNet50_Weights.IMAGENET1K_V2",
+    "optimizer": "adamw",
+    "lr_new_modules": 0.0001,
+    "lr_rgb_backbone": 1e-05,
+    "weight_decay": 0.05,
+    "max_optimizer_steps": 40000,
+    "warmup_optimizer_steps": 2000,
+    "backbone_ramp_steps": 1000,
+    "min_lr_ratio": 0.1,
+    "grad_clip_norm": 1.0,
+    "num_workers_per_rank": 4,
+    "cpu_threads": 2,
+    "prefetch_factor": 2,
+    "pin_memory": true,
+    "persistent_workers": true,
+    "save_every_optimizer_steps": 1000,
+    "quick_val_every_optimizer_steps": 2000,
+    "full_val_every_optimizer_steps": 5000,
+    "rollout_start_step": 30000,
+    "pose_token_dropout": 0.2,
+    "history_noise": true,
+    "augmentation": true,
+    "synthetic_erasure": false,
+    "crop_expansion": 2.0,
+    "depth_scale_to_m": 0.001,
+    "pose_scale_to_m": 1.0,
+    "mesh_scale_to_m": 1.0,
+    "fps": 30.0,
+    "canonical_gt": true,
+    "renderer": "cuda",
+    "motion_speed_quantile": 0.75,
+    "probe_source": "real_DexYCB",
+    "data_geometry_passed": true,
+    "preflight_approved": false,
+    "split_hash": "d67ff06d5f211531a9faf29731716bb5521818bc6a6c212849f49fd1124db4f7",
+    "mesh_hash": "359f53a5f41963d3fdfc2542bd640432d820bfc99a055baec8976ad99966d32c"
+  },
+  "moving_thresholds": {
+    "source": "train transitions only",
+    "split_hash": "d67ff06d5f211531a9faf29731716bb5521818bc6a6c212849f49fd1124db4f7",
+    "quantile": 0.75,
+    "transitions": 137472,
+    "center_d_per_sec": 1.4606834650039673,
+    "rotation_rad_per_sec": 1.410051703453064
+  },
+  "first_five_consecutive_adds_failures": {
+    "20200813-subject-02/20200813_145612/836212060125": {
+      "frame": 25,
+      "elapsed_frames": 25,
+      "seconds": 0.8333333333333334
+    },
+    "20200813-subject-02/20200813_145920/932122061900": {
+      "frame": 8,
+      "elapsed_frames": 8,
+      "seconds": 0.26666666666666666
+    },
+    "20200813-subject-02/20200813_150228/836212060125": {
+      "frame": 33,
+      "elapsed_frames": 33,
+      "seconds": 1.1
+    },
+    "20200813-subject-02/20200813_150535/839512060362": {
+      "frame": 25,
+      "elapsed_frames": 25,
+      "seconds": 0.8333333333333334
+    },
+    "20200813-subject-02/20200813_150823/840412060917": {
+      "frame": 6,
+      "elapsed_frames": 6,
+      "seconds": 0.2
+    },
+    "20200813-subject-02/20200813_151117/841412060263": {
+      "frame": 7,
+      "elapsed_frames": 7,
+      "seconds": 0.23333333333333334
+    },
+    "20200813-subject-02/20200813_151925/836212060125": {
+      "frame": 43,
+      "elapsed_frames": 43,
+      "seconds": 1.4333333333333333
+    },
+    "20200813-subject-02/20200813_152215/841412060263": {
+      "frame": 6,
+      "elapsed_frames": 6,
+      "seconds": 0.2
+    },
+    "20200813-subject-02/20200813_152513/932122060861": {
+      "frame": 9,
+      "elapsed_frames": 9,
+      "seconds": 0.3
+    },
+    "20200813-subject-02/20200813_152842/839512060362": {
+      "frame": 41,
+      "elapsed_frames": 41,
+      "seconds": 1.3666666666666667
+    },
+    "20200813-subject-02/20200813_153152/932122062010": {
+      "frame": 26,
+      "elapsed_frames": 26,
+      "seconds": 0.8666666666666667
+    },
+    "20200813-subject-02/20200813_153453/932122060861": {
+      "frame": 6,
+      "elapsed_frames": 6,
+      "seconds": 0.2
+    },
+    "20200813-subject-02/20200813_153802/932122060861": {
+      "frame": 22,
+      "elapsed_frames": 22,
+      "seconds": 0.7333333333333333
+    },
+    "20200813-subject-02/20200813_154103/932122062010": {
+      "frame": 6,
+      "elapsed_frames": 6,
+      "seconds": 0.2
+    },
+    "20200813-subject-02/20200813_154408/932122061900": {
+      "frame": 10,
+      "elapsed_frames": 10,
+      "seconds": 0.3333333333333333
+    },
+    "20200813-subject-02/20200813_154729/932122060861": {
+      "frame": 7,
+      "elapsed_frames": 7,
+      "seconds": 0.23333333333333334
+    },
+    "20200813-subject-02/20200813_155021/932122060857": {
+      "frame": 13,
+      "elapsed_frames": 13,
+      "seconds": 0.43333333333333335
+    },
+    "20200813-subject-02/20200813_155314/840412060917": {
+      "frame": 5,
+      "elapsed_frames": 5,
+      "seconds": 0.16666666666666666
+    },
+    "20200813-subject-02/20200813_155633/932122060861": {
+      "frame": 7,
+      "elapsed_frames": 7,
+      "seconds": 0.23333333333333334
+    },
+    "20200813-subject-02/20200813_155953/932122061900": {
+      "frame": 6,
+      "elapsed_frames": 6,
+      "seconds": 0.2
+    }
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "source": "real_DexYCB",
+  "data_complete": false,
+  "environment": {
+    "versions": {
+      "torch": "2.8.0+cu128",
+      "torchvision": "0.23.0+cu128",
+      "numpy": "1.26.4",
+      "scipy": "1.16.2",
+      "trimesh": "5.1.0",
+      "opencv-python-headless": "4.12.0.88",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "nvdiffrast": "0.4.0",
+      "tensorboard": "2.20.0"
+    },
+    "cuda_runtime": "12.8",
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 1,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 2,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 3,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 4,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 5,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 6,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 7,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      }
+    ],
+    "cgroup_limits": {
+      "cpu_quota_us": 12800000,
+      "cpu_period_us": 100000,
+      "memory_limit_bytes": 549755813888
+    },
+    "driver": [
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20"
+    ],
+    "cpu_affinity": 344,
+    "cpu_count": 344,
+    "disk": {
+      "total": 599233837137920,
+      "used": 471439986552832,
+      "free": 127793850585088
+    },
+    "bf16": true
+  },
+  "available_bytes_at_start": 101738479616,
+  "results": [
+    {
+      "batch": 4,
+      "rollout": 1,
+      "passed": true,
+      "peak_allocated": 2613323776,
+      "peak_reserved": 3091202048,
+      "seconds": 0.8990416600136086,
+      "loss": 0.20768117904663086,
+      "translation": 0.045674167573451996,
+      "rotation": 0.11060857772827148,
+      "points": 0.10670274496078491,
+      "update_rotation_rad": 0.0,
+      "update_center_norm": 0.0,
+      "render_time": 0.1337771899998188,
+      "forward_time": 0.3473494560457766,
+      "backward_time": 0.20051936199888587,
+      "rotation_clipped": 0.0,
+      "translation_clipped": 0.0,
+      "memory_safe": true
+    },
+    {
+      "batch": 4,
+      "rollout": 4,
+      "passed": true,
+      "peak_allocated": 2804383744,
+      "peak_reserved": 3118465024,
+      "seconds": 0.2762486949795857,
+      "loss": 0.43710070475935936,
+      "translation": 0.10256903525441885,
+      "rotation": 0.23428531922399998,
+      "points": 0.21738900430500507,
+      "update_rotation_rad": 5.058705028204713e-06,
+      "update_center_norm": 5.117569457979698e-06,
+      "render_time": 0.07822132599540055,
+      "forward_time": 0.06808329897467047,
+      "backward_time": 0.11852021503727883,
+      "rotation_clipped": 0.0,
+      "translation_clipped": 0.0,
+      "memory_safe": true
+    },
+    {
+      "batch": 8,
+      "rollout": 1,
+      "passed": true,
+      "peak_allocated": 5023835648,
+      "peak_reserved": 5775556608,
+      "seconds": 0.2429699299391359,
+      "loss": 0.32422029972076416,
+      "translation": 0.06698839366436005,
+      "rotation": 0.18073105812072754,
+      "points": 0.16686637699604034,
+      "update_rotation_rad": 0.0,
+      "update_center_norm": 0.0,
+      "render_time": 0.04034846799913794,
+      "forward_time": 0.07898067589849234,
+      "backward_time": 0.0990072350250557,
+      "rotation_clipped": 0.0,
+      "translation_clipped": 0.0,
+      "memory_safe": true
+    },
+    {
+      "batch": 8,
+      "rollout": 4,
+      "passed": true,
+      "peak_allocated": 5219091968,
+      "peak_reserved": 5798625280,
+      "seconds": 0.460452436003834,
+      "loss": 0.6698965653777122,
+      "translation": 0.1647382378578186,
+      "rotation": 0.25905587896704674,
+      "points": 0.375630397349596,
+      "update_rotation_rad": 4.453925726011221e-06,
+      "update_center_norm": 4.75112881304085e-06,
+      "render_time": 0.15115648496430367,
+      "forward_time": 0.10514072794467211,
+      "backward_time": 0.18889709608629346,
+      "rotation_clipped": 0.0,
+      "translation_clipped": 0.0,
+      "memory_safe": true
+    },
+    {
+      "batch": 16,
+      "rollout": 1,
+      "passed": true,
+      "peak_allocated": 9857107968,
+      "peak_reserved": 11079254016,
+      "seconds": 0.3291478910250589,
+      "loss": 0.40672099590301514,
+      "translation": 0.08187882602214813,
+      "rotation": 0.24661654233932495,
+      "points": 0.20153391361236572,
+      "update_rotation_rad": 0.0,
+      "update_center_norm": 0.0,
+      "render_time": 0.08066543203312904,
+      "forward_time": 0.08924338000360876,
+      "backward_time": 0.12693997705355287,
+      "rotation_clipped": 0.0625,
+      "translation_clipped": 0.0390625,
+      "memory_safe": true
+    },
+    {
+      "batch": 16,
+      "rollout": 4,
+      "passed": true,
+      "peak_allocated": 10056740864,
+      "peak_reserved": 11093934080,
+      "seconds": 0.8538892799988389,
+      "loss": 0.9176422283053398,
+      "translation": 0.22294536978006363,
+      "rotation": 0.3896581381559372,
+      "points": 0.49986783042550087,
+      "update_rotation_rad": 4.368942313703883e-06,
+      "update_center_norm": 4.3679501686710864e-06,
+      "render_time": 0.31171245698351413,
+      "forward_time": 0.18097287602722645,
+      "backward_time": 0.3374272841028869,
+      "rotation_clipped": 0.0625,
+      "translation_clipped": 0.0390625,
+      "memory_safe": true
+    },
+    {
+      "batch": 32,
+      "rollout": 1,
+      "passed": true,
+      "peak_allocated": 19500572672,
+      "peak_reserved": 21690843136,
+      "seconds": 0.4788359480444342,
+      "loss": 0.32819658517837524,
+      "translation": 0.06275251507759094,
+      "rotation": 0.21487686038017273,
+      "points": 0.15800565481185913,
+      "update_rotation_rad": 0.0,
+      "update_center_norm": 0.0,
+      "render_time": 0.15973710699472576,
+      "forward_time": 0.09910337103065103,
+      "backward_time": 0.1723805379588157,
+      "rotation_clipped": 0.03125,
+      "translation_clipped": 0.01953125,
+      "memory_safe": true
+    },
+    {
+      "batch": 32,
+      "rollout": 4,
+      "passed": true,
+      "peak_allocated": 19700780032,
+      "peak_reserved": 21703426048,
+      "seconds": 1.5807471119333059,
+      "loss": 0.7476218119263649,
+      "translation": 0.17759954743087292,
+      "rotation": 0.3464621976017952,
+      "points": 0.39679116010665894,
+      "update_rotation_rad": 4.496978817769559e-06,
+      "update_center_norm": 5.06756009599485e-06,
+      "render_time": 0.608065192005597,
+      "forward_time": 0.331184446811676,
+      "backward_time": 0.6032870850758627,
+      "rotation_clipped": 0.03125,
+      "translation_clipped": 0.01953125,
+      "memory_safe": true
+    }
+  ],
+  "eligible_batches": [
+    4,
+    8,
+    16,
+    32
+  ]
+}

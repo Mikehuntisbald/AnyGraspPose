@@ -1,0 +1,80 @@
+{
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "torchvision": "0.23.0+cu128",
+    "numpy": "1.26.4",
+    "scipy": "1.16.2",
+    "trimesh": "5.1.0",
+    "opencv-python-headless": "4.12.0.88",
+    "PyYAML": "6.0.3",
+    "pytest": "9.1.1",
+    "nvdiffrast": "0.4.0",
+    "tensorboard": "2.20.0"
+  },
+  "cuda_runtime": "12.8",
+  "gpus": [
+    {
+      "index": 0,
+      "name": "NVIDIA H20",
+      "total_bytes": 102085361664
+    },
+    {
+      "index": 1,
+      "name": "NVIDIA H20",
+      "total_bytes": 102085361664
+    },
+    {
+      "index": 2,
+      "name": "NVIDIA H20",
+      "total_bytes": 102085361664
+    },
+    {
+      "index": 3,
+      "name": "NVIDIA H20",
+      "total_bytes": 102085361664
+    },
+    {
+      "index": 4,
+      "name": "NVIDIA H20",
+      "total_bytes": 102085361664
+    },
+    {
+      "index": 5,
+      "name": "NVIDIA H20",
+      "total_bytes": 102085361664
+    },
+    {
+      "index": 6,
+      "name": "NVIDIA H20",
+      "total_bytes": 102085361664
+    },
+    {
+      "index": 7,
+      "name": "NVIDIA H20",
+      "total_bytes": 102085361664
+    }
+  ],
+  "cgroup_limits": {
+    "cpu_quota_us": 12800000,
+    "cpu_period_us": 100000,
+    "memory_limit_bytes": 549755813888
+  },
+  "driver": [
+    "580.126.20",
+    "580.126.20",
+    "580.126.20",
+    "580.126.20",
+    "580.126.20",
+    "580.126.20",
+    "580.126.20",
+    "580.126.20"
+  ],
+  "cpu_affinity": 344,
+  "cpu_count": 344,
+  "disk": {
+    "total": 599233837137920,
+    "used": 465780754374656,
+    "free": 133453082763264
+  },
+  "bf16": true
+}

@@ -1,0 +1,133 @@
+{
+  "engineering_preflight_passed": true,
+  "official_s0_complete": false,
+  "formal_training_approved": false,
+  "data_scope": "one verified official s0 train sequence, 8 camera streams, 576 frames",
+  "split_hash": "63c159aab3ecbc9ac0e7049d2f23b979af959797b26edfac2181d88ca44b23d0",
+  "mesh_hash": "eec0a1c15f40668f085ca7aba2c5f572e4d25c64d94784dd59350b0b62788801",
+  "ranks": [
+    {
+      "rank": 0,
+      "steps": 53,
+      "final_step": 53,
+      "scheduler_step": 53
+    },
+    {
+      "rank": 1,
+      "steps": 53,
+      "final_step": 53,
+      "scheduler_step": 53
+    },
+    {
+      "rank": 2,
+      "steps": 53,
+      "final_step": 53,
+      "scheduler_step": 53
+    },
+    {
+      "rank": 3,
+      "steps": 53,
+      "final_step": 53,
+      "scheduler_step": 53
+    },
+    {
+      "rank": 4,
+      "steps": 53,
+      "final_step": 53,
+      "scheduler_step": 53
+    },
+    {
+      "rank": 5,
+      "steps": 53,
+      "final_step": 53,
+      "scheduler_step": 53
+    },
+    {
+      "rank": 6,
+      "steps": 53,
+      "final_step": 53,
+      "scheduler_step": 53
+    },
+    {
+      "rank": 7,
+      "steps": 53,
+      "final_step": 53,
+      "scheduler_step": 53
+    }
+  ],
+  "global_samples_seen_reported_by_rank": [
+    13568,
+    13568,
+    13568,
+    13568,
+    13568,
+    13568,
+    13568,
+    13568
+  ],
+  "maximum_gpu_allocated_bytes": 19763796992,
+  "median_rank_optimizer_step_sec_after_warmup": 1.5091295590391383,
+  "pytest": ".....................s                                                   [100%]\n21 passed, 1 skipped in 7.77s",
+  "overfit": {
+    "passed": true,
+    "data_complete": false,
+    "split_scope": "Official README positions 0..3 only; incomplete s0; preflight diagnostics",
+    "source": "real_DexYCB",
+    "num_clips": 32,
+    "steps": 500,
+    "initial": {
+      "loss": 0.08472011657431722,
+      "learned": {
+        "center_mm": 9.618086460793828,
+        "rotation_deg": 0.9317644961082077,
+        "add_m": 0.009577219626538555,
+        "adds_m": 0.005379005477895612,
+        "add_005": 0.46875,
+        "add_01": 0.875,
+        "adds_005": 0.84375,
+        "adds_01": 1.0
+      },
+      "zero_motion": {
+        "center_mm": 9.618086460793828,
+        "rotation_deg": 0.9317644961082077,
+        "add_m": 0.009577219626538555,
+        "adds_m": 0.005379005477895612,
+        "add_005": 0.46875,
+        "add_01": 0.875,
+        "adds_005": 0.84375,
+        "adds_01": 1.0
+      }
+    },
+    "final": {
+      "loss": 0.015608520421665162,
+      "learned": {
+        "center_mm": 1.4863029066432305,
+        "rotation_deg": 0.5755831733276716,
+        "add_m": 0.0015890610297455052,
+        "adds_m": 0.0012052410023552142,
+        "add_005": 1.0,
+        "add_01": 1.0,
+        "adds_005": 1.0,
+        "adds_01": 1.0
+      },
+      "zero_motion": {
+        "center_mm": 9.618086460793828,
+        "rotation_deg": 0.9317644961082077,
+        "add_m": 0.009577219626538555,
+        "adds_m": 0.005379005477895612,
+        "add_005": 0.46875,
+        "add_01": 0.875,
+        "adds_005": 0.84375,
+        "adds_01": 1.0
+      }
+    },
+    "criterion": "loss <75% initial and learned ADD below identical zero-motion baseline"
+  },
+  "closed_loop_rows": 576,
+  "unresolved": [
+    "Full s0 inventory/geometry/validation unavailable",
+    "Real FoundationPose inference not run",
+    "No held-out performance claim; this is a single-object training subset"
+  ],
+  "config_sha256": "b1a2e4b2cefb0aff4027c00ac6e1dafc9a8c8c625220bebc66e528f6fee2d786"
+}

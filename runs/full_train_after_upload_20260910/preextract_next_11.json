@@ -1,0 +1,17 @@
+{
+  "files": [
+    {
+      "name": "20200918-subject-06.tar.gz",
+      "path": "/media/haoyi/linux-data/Downloads/20200918-subject-06.tar.gz",
+      "bytes": 12610980973,
+      "mtime_ns": 1788951740300462517,
+      "sha256": "7b51ef72886a901d0d66a3f37002f6ba8de9b7facc338af64a5700551ece7834",
+      "gzip_crc_verified": true,
+      "remote_sha256": "7b51ef72886a901d0d66a3f37002f6ba8de9b7facc338af64a5700551ece7834",
+      "remote_path": "/mnt/why/DexYCB/20200918-subject-06.tar.gz",
+      "transfer_verify_seconds": 1699.001867125,
+      "status": "verified"
+    }
+  ],
+  "scope": "Newly verified archives; full training still gated"
+}

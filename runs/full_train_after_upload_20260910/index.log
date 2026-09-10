@@ -1,0 +1,310 @@
+{"indexed_streams": 32, "total_streams": 8000, "frames": 2336, "errors": 0}
+{"indexed_streams": 64, "total_streams": 8000, "frames": 4672, "errors": 0}
+{"indexed_streams": 96, "total_streams": 8000, "frames": 7008, "errors": 0}
+{"indexed_streams": 128, "total_streams": 8000, "frames": 9328, "errors": 0}
+{"indexed_streams": 160, "total_streams": 8000, "frames": 11680, "errors": 0}
+{"indexed_streams": 192, "total_streams": 8000, "frames": 14000, "errors": 0}
+{"indexed_streams": 224, "total_streams": 8000, "frames": 16352, "errors": 0}
+{"indexed_streams": 256, "total_streams": 8000, "frames": 18656, "errors": 0}
+{"indexed_streams": 288, "total_streams": 8000, "frames": 20976, "errors": 0}
+{"indexed_streams": 320, "total_streams": 8000, "frames": 23296, "errors": 0}
+{"indexed_streams": 352, "total_streams": 8000, "frames": 25600, "errors": 0}
+{"indexed_streams": 384, "total_streams": 8000, "frames": 27968, "errors": 0}
+{"indexed_streams": 416, "total_streams": 8000, "frames": 30288, "errors": 0}
+{"indexed_streams": 448, "total_streams": 8000, "frames": 32624, "errors": 0}
+{"indexed_streams": 480, "total_streams": 8000, "frames": 34960, "errors": 0}
+{"indexed_streams": 512, "total_streams": 8000, "frames": 37264, "errors": 0}
+{"indexed_streams": 544, "total_streams": 8000, "frames": 39632, "errors": 0}
+{"indexed_streams": 576, "total_streams": 8000, "frames": 41968, "errors": 0}
+{"indexed_streams": 608, "total_streams": 8000, "frames": 44288, "errors": 0}
+{"indexed_streams": 640, "total_streams": 8000, "frames": 46608, "errors": 0}
+{"indexed_streams": 672, "total_streams": 8000, "frames": 48944, "errors": 0}
+{"indexed_streams": 704, "total_streams": 8000, "frames": 51280, "errors": 0}
+{"indexed_streams": 736, "total_streams": 8000, "frames": 53584, "errors": 0}
+{"indexed_streams": 768, "total_streams": 8000, "frames": 55872, "errors": 0}
+{"indexed_streams": 800, "total_streams": 8000, "frames": 58160, "errors": 0}
+{"indexed_streams": 832, "total_streams": 8000, "frames": 60480, "errors": 0}
+{"indexed_streams": 864, "total_streams": 8000, "frames": 62800, "errors": 0}
+{"indexed_streams": 896, "total_streams": 8000, "frames": 65120, "errors": 0}
+{"indexed_streams": 928, "total_streams": 8000, "frames": 67440, "errors": 0}
+{"indexed_streams": 960, "total_streams": 8000, "frames": 69760, "errors": 0}
+{"indexed_streams": 992, "total_streams": 8000, "frames": 72096, "errors": 0}
+{"indexed_streams": 1024, "total_streams": 8000, "frames": 74400, "errors": 0}
+{"indexed_streams": 1056, "total_streams": 8000, "frames": 76720, "errors": 0}
+{"indexed_streams": 1088, "total_streams": 8000, "frames": 79072, "errors": 0}
+{"indexed_streams": 1120, "total_streams": 8000, "frames": 81360, "errors": 0}
+{"indexed_streams": 1152, "total_streams": 8000, "frames": 83680, "errors": 0}
+{"indexed_streams": 1184, "total_streams": 8000, "frames": 86016, "errors": 0}
+{"indexed_streams": 1216, "total_streams": 8000, "frames": 88288, "errors": 0}
+{"indexed_streams": 1248, "total_streams": 8000, "frames": 90608, "errors": 0}
+{"indexed_streams": 1280, "total_streams": 8000, "frames": 92928, "errors": 0}
+{"indexed_streams": 1312, "total_streams": 8000, "frames": 95216, "errors": 0}
+{"indexed_streams": 1344, "total_streams": 8000, "frames": 97504, "errors": 0}
+{"indexed_streams": 1376, "total_streams": 8000, "frames": 99856, "errors": 0}
+{"indexed_streams": 1408, "total_streams": 8000, "frames": 102144, "errors": 0}
+{"indexed_streams": 1440, "total_streams": 8000, "frames": 104464, "errors": 0}
+{"indexed_streams": 1472, "total_streams": 8000, "frames": 106800, "errors": 0}
+{"indexed_streams": 1504, "total_streams": 8000, "frames": 109136, "errors": 0}
+{"indexed_streams": 1536, "total_streams": 8000, "frames": 111456, "errors": 0}
+{"indexed_streams": 1568, "total_streams": 8000, "frames": 113760, "errors": 0}
+{"indexed_streams": 1600, "total_streams": 8000, "frames": 116096, "errors": 0}
+{"indexed_streams": 1632, "total_streams": 8000, "frames": 118432, "errors": 0}
+{"indexed_streams": 1664, "total_streams": 8000, "frames": 120752, "errors": 0}
+{"indexed_streams": 1696, "total_streams": 8000, "frames": 123072, "errors": 0}
+{"indexed_streams": 1728, "total_streams": 8000, "frames": 125392, "errors": 0}
+{"indexed_streams": 1760, "total_streams": 8000, "frames": 127664, "errors": 0}
+{"indexed_streams": 1792, "total_streams": 8000, "frames": 130000, "errors": 0}
+{"indexed_streams": 1824, "total_streams": 8000, "frames": 132320, "errors": 0}
+{"indexed_streams": 1856, "total_streams": 8000, "frames": 134624, "errors": 0}
+{"indexed_streams": 1888, "total_streams": 8000, "frames": 136944, "errors": 0}
+{"indexed_streams": 1920, "total_streams": 8000, "frames": 139264, "errors": 0}
+{"indexed_streams": 1952, "total_streams": 8000, "frames": 141568, "errors": 0}
+{"indexed_streams": 1984, "total_streams": 8000, "frames": 143920, "errors": 0}
+{"indexed_streams": 2016, "total_streams": 8000, "frames": 146224, "errors": 0}
+{"indexed_streams": 2048, "total_streams": 8000, "frames": 148592, "errors": 0}
+{"indexed_streams": 2080, "total_streams": 8000, "frames": 150928, "errors": 0}
+{"indexed_streams": 2112, "total_streams": 8000, "frames": 153248, "errors": 0}
+{"indexed_streams": 2144, "total_streams": 8000, "frames": 155568, "errors": 0}
+{"indexed_streams": 2176, "total_streams": 8000, "frames": 157888, "errors": 0}
+{"indexed_streams": 2208, "total_streams": 8000, "frames": 160192, "errors": 0}
+{"indexed_streams": 2240, "total_streams": 8000, "frames": 162480, "errors": 0}
+{"indexed_streams": 2272, "total_streams": 8000, "frames": 164816, "errors": 0}
+{"indexed_streams": 2304, "total_streams": 8000, "frames": 167152, "errors": 0}
+{"indexed_streams": 2336, "total_streams": 8000, "frames": 169472, "errors": 0}
+{"indexed_streams": 2368, "total_streams": 8000, "frames": 171792, "errors": 0}
+{"indexed_streams": 2400, "total_streams": 8000, "frames": 174112, "errors": 0}
+{"indexed_streams": 2432, "total_streams": 8000, "frames": 176416, "errors": 0}
+{"indexed_streams": 2464, "total_streams": 8000, "frames": 178720, "errors": 0}
+{"indexed_streams": 2496, "total_streams": 8000, "frames": 181056, "errors": 0}
+{"indexed_streams": 2528, "total_streams": 8000, "frames": 183392, "errors": 0}
+{"indexed_streams": 2560, "total_streams": 8000, "frames": 185680, "errors": 0}
+{"indexed_streams": 2592, "total_streams": 8000, "frames": 188032, "errors": 0}
+{"indexed_streams": 2624, "total_streams": 8000, "frames": 190336, "errors": 0}
+{"indexed_streams": 2656, "total_streams": 8000, "frames": 192656, "errors": 0}
+{"indexed_streams": 2688, "total_streams": 8000, "frames": 194976, "errors": 0}
+{"indexed_streams": 2720, "total_streams": 8000, "frames": 197280, "errors": 0}
+{"indexed_streams": 2752, "total_streams": 8000, "frames": 199600, "errors": 0}
+{"indexed_streams": 2784, "total_streams": 8000, "frames": 201904, "errors": 0}
+{"indexed_streams": 2816, "total_streams": 8000, "frames": 204224, "errors": 0}
+{"indexed_streams": 2848, "total_streams": 8000, "frames": 206528, "errors": 0}
+{"indexed_streams": 2880, "total_streams": 8000, "frames": 208848, "errors": 0}
+{"indexed_streams": 2912, "total_streams": 8000, "frames": 211168, "errors": 0}
+{"indexed_streams": 2944, "total_streams": 8000, "frames": 213456, "errors": 0}
+{"indexed_streams": 2976, "total_streams": 8000, "frames": 215776, "errors": 0}
+{"indexed_streams": 3008, "total_streams": 8000, "frames": 218096, "errors": 0}
+{"indexed_streams": 3040, "total_streams": 8000, "frames": 220416, "errors": 0}
+{"indexed_streams": 3072, "total_streams": 8000, "frames": 222736, "errors": 0}
+{"indexed_streams": 3104, "total_streams": 8000, "frames": 225072, "errors": 0}
+{"indexed_streams": 3136, "total_streams": 8000, "frames": 227360, "errors": 0}
+{"indexed_streams": 3168, "total_streams": 8000, "frames": 229664, "errors": 0}
+{"indexed_streams": 3200, "total_streams": 8000, "frames": 232000, "errors": 0}
+{"indexed_streams": 3232, "total_streams": 8000, "frames": 234320, "errors": 0}
+{"indexed_streams": 3264, "total_streams": 8000, "frames": 236656, "errors": 0}
+{"indexed_streams": 3296, "total_streams": 8000, "frames": 238944, "errors": 0}
+{"indexed_streams": 3328, "total_streams": 8000, "frames": 241184, "errors": 0}
+{"indexed_streams": 3360, "total_streams": 8000, "frames": 243504, "errors": 0}
+{"indexed_streams": 3392, "total_streams": 8000, "frames": 245840, "errors": 0}
+{"indexed_streams": 3424, "total_streams": 8000, "frames": 248160, "errors": 0}
+{"indexed_streams": 3456, "total_streams": 8000, "frames": 250464, "errors": 0}
+{"indexed_streams": 3488, "total_streams": 8000, "frames": 252816, "errors": 0}
+{"indexed_streams": 3520, "total_streams": 8000, "frames": 255136, "errors": 0}
+{"indexed_streams": 3552, "total_streams": 8000, "frames": 257456, "errors": 0}
+{"indexed_streams": 3584, "total_streams": 8000, "frames": 259744, "errors": 0}
+{"indexed_streams": 3616, "total_streams": 8000, "frames": 262048, "errors": 0}
+{"indexed_streams": 3648, "total_streams": 8000, "frames": 264368, "errors": 0}
+{"indexed_streams": 3680, "total_streams": 8000, "frames": 266672, "errors": 0}
+{"indexed_streams": 3712, "total_streams": 8000, "frames": 269008, "errors": 0}
+{"indexed_streams": 3744, "total_streams": 8000, "frames": 271296, "errors": 0}
+{"indexed_streams": 3776, "total_streams": 8000, "frames": 273632, "errors": 0}
+{"indexed_streams": 3808, "total_streams": 8000, "frames": 275952, "errors": 0}
+{"indexed_streams": 3840, "total_streams": 8000, "frames": 278320, "errors": 0}
+{"indexed_streams": 3872, "total_streams": 8000, "frames": 280640, "errors": 0}
+{"indexed_streams": 3904, "total_streams": 8000, "frames": 282976, "errors": 0}
+{"indexed_streams": 3936, "total_streams": 8000, "frames": 285344, "errors": 0}
+{"indexed_streams": 3968, "total_streams": 8000, "frames": 287680, "errors": 0}
+{"indexed_streams": 4000, "total_streams": 8000, "frames": 290016, "errors": 0}
+{"indexed_streams": 4032, "total_streams": 8000, "frames": 292352, "errors": 0}
+{"indexed_streams": 4064, "total_streams": 8000, "frames": 294704, "errors": 0}
+{"indexed_streams": 4096, "total_streams": 8000, "frames": 297056, "errors": 0}
+{"indexed_streams": 4128, "total_streams": 8000, "frames": 299408, "errors": 0}
+{"indexed_streams": 4160, "total_streams": 8000, "frames": 301744, "errors": 0}
+{"indexed_streams": 4192, "total_streams": 8000, "frames": 304096, "errors": 0}
+{"indexed_streams": 4224, "total_streams": 8000, "frames": 306448, "errors": 0}
+{"indexed_streams": 4256, "total_streams": 8000, "frames": 308816, "errors": 0}
+{"indexed_streams": 4288, "total_streams": 8000, "frames": 311152, "errors": 0}
+{"indexed_streams": 4320, "total_streams": 8000, "frames": 313520, "errors": 0}
+{"indexed_streams": 4352, "total_streams": 8000, "frames": 315872, "errors": 0}
+{"indexed_streams": 4384, "total_streams": 8000, "frames": 318240, "errors": 0}
+{"indexed_streams": 4416, "total_streams": 8000, "frames": 320576, "errors": 0}
+{"indexed_streams": 4448, "total_streams": 8000, "frames": 322912, "errors": 0}
+{"indexed_streams": 4480, "total_streams": 8000, "frames": 325264, "errors": 0}
+{"indexed_streams": 4512, "total_streams": 8000, "frames": 327616, "errors": 0}
+{"indexed_streams": 4544, "total_streams": 8000, "frames": 329984, "errors": 0}
+{"indexed_streams": 4576, "total_streams": 8000, "frames": 332336, "errors": 0}
+{"indexed_streams": 4608, "total_streams": 8000, "frames": 334656, "errors": 0}
+{"indexed_streams": 4640, "total_streams": 8000, "frames": 337024, "errors": 0}
+{"indexed_streams": 4672, "total_streams": 8000, "frames": 339376, "errors": 0}
+{"indexed_streams": 4704, "total_streams": 8000, "frames": 341728, "errors": 0}
+{"indexed_streams": 4736, "total_streams": 8000, "frames": 344096, "errors": 0}
+{"indexed_streams": 4768, "total_streams": 8000, "frames": 346464, "errors": 0}
+{"indexed_streams": 4800, "total_streams": 8000, "frames": 348832, "errors": 0}
+{"indexed_streams": 4832, "total_streams": 8000, "frames": 351184, "errors": 0}
+{"indexed_streams": 4864, "total_streams": 8000, "frames": 353552, "errors": 0}
+{"indexed_streams": 4896, "total_streams": 8000, "frames": 355904, "errors": 0}
+{"indexed_streams": 4928, "total_streams": 8000, "frames": 358224, "errors": 0}
+{"indexed_streams": 4960, "total_streams": 8000, "frames": 360592, "errors": 0}
+{"indexed_streams": 4992, "total_streams": 8000, "frames": 362944, "errors": 0}
+{"indexed_streams": 5024, "total_streams": 8000, "frames": 365296, "errors": 0}
+{"indexed_streams": 5056, "total_streams": 8000, "frames": 367616, "errors": 0}
+{"indexed_streams": 5088, "total_streams": 8000, "frames": 369968, "errors": 0}
+{"indexed_streams": 5120, "total_streams": 8000, "frames": 372304, "errors": 0}
+{"indexed_streams": 5152, "total_streams": 8000, "frames": 374672, "errors": 0}
+{"indexed_streams": 5184, "total_streams": 8000, "frames": 376992, "errors": 0}
+{"indexed_streams": 5216, "total_streams": 8000, "frames": 379328, "errors": 0}
+{"indexed_streams": 5248, "total_streams": 8000, "frames": 381632, "errors": 0}
+{"indexed_streams": 5280, "total_streams": 8000, "frames": 383984, "errors": 0}
+{"indexed_streams": 5312, "total_streams": 8000, "frames": 386336, "errors": 0}
+{"indexed_streams": 5344, "total_streams": 8000, "frames": 388704, "errors": 0}
+{"indexed_streams": 5376, "total_streams": 8000, "frames": 391008, "errors": 0}
+{"indexed_streams": 5408, "total_streams": 8000, "frames": 393376, "errors": 0}
+{"indexed_streams": 5440, "total_streams": 8000, "frames": 395712, "errors": 0}
+{"indexed_streams": 5472, "total_streams": 8000, "frames": 398064, "errors": 0}
+{"indexed_streams": 5504, "total_streams": 8000, "frames": 400416, "errors": 0}
+{"indexed_streams": 5536, "total_streams": 8000, "frames": 402720, "errors": 0}
+{"indexed_streams": 5568, "total_streams": 8000, "frames": 405088, "errors": 0}
+{"indexed_streams": 5600, "total_streams": 8000, "frames": 407424, "errors": 0}
+{"indexed_streams": 5632, "total_streams": 8000, "frames": 409744, "errors": 0}
+{"indexed_streams": 5664, "total_streams": 8000, "frames": 412064, "errors": 0}
+{"indexed_streams": 5696, "total_streams": 8000, "frames": 414384, "errors": 0}
+{"indexed_streams": 5728, "total_streams": 8000, "frames": 416688, "errors": 0}
+{"indexed_streams": 5760, "total_streams": 8000, "frames": 419008, "errors": 0}
+{"indexed_streams": 5792, "total_streams": 8000, "frames": 421344, "errors": 0}
+{"indexed_streams": 5824, "total_streams": 8000, "frames": 423664, "errors": 0}
+{"indexed_streams": 5856, "total_streams": 8000, "frames": 426000, "errors": 0}
+{"indexed_streams": 5888, "total_streams": 8000, "frames": 428304, "errors": 0}
+{"indexed_streams": 5920, "total_streams": 8000, "frames": 430640, "errors": 0}
+{"indexed_streams": 5952, "total_streams": 8000, "frames": 432960, "errors": 0}
+{"indexed_streams": 5984, "total_streams": 8000, "frames": 435296, "errors": 0}
+{"indexed_streams": 6016, "total_streams": 8000, "frames": 437600, "errors": 0}
+{"indexed_streams": 6048, "total_streams": 8000, "frames": 439920, "errors": 0}
+{"indexed_streams": 6080, "total_streams": 8000, "frames": 442224, "errors": 0}
+{"indexed_streams": 6112, "total_streams": 8000, "frames": 444544, "errors": 0}
+{"indexed_streams": 6144, "total_streams": 8000, "frames": 446864, "errors": 0}
+{"indexed_streams": 6176, "total_streams": 8000, "frames": 449200, "errors": 0}
+{"indexed_streams": 6208, "total_streams": 8000, "frames": 451520, "errors": 0}
+{"indexed_streams": 6240, "total_streams": 8000, "frames": 453888, "errors": 0}
+{"indexed_streams": 6272, "total_streams": 8000, "frames": 456208, "errors": 0}
+{"indexed_streams": 6304, "total_streams": 8000, "frames": 458528, "errors": 0}
+{"indexed_streams": 6336, "total_streams": 8000, "frames": 460848, "errors": 0}
+{"indexed_streams": 6368, "total_streams": 8000, "frames": 463168, "errors": 0}
+{"indexed_streams": 6400, "total_streams": 8000, "frames": 465536, "errors": 0}
+{"indexed_streams": 6432, "total_streams": 8000, "frames": 467872, "errors": 0}
+{"indexed_streams": 6464, "total_streams": 8000, "frames": 470208, "errors": 0}
+{"indexed_streams": 6496, "total_streams": 8000, "frames": 472560, "errors": 0}
+{"indexed_streams": 6528, "total_streams": 8000, "frames": 474896, "errors": 0}
+{"indexed_streams": 6560, "total_streams": 8000, "frames": 477248, "errors": 0}
+{"indexed_streams": 6592, "total_streams": 8000, "frames": 479584, "errors": 0}
+{"indexed_streams": 6624, "total_streams": 8000, "frames": 481888, "errors": 0}
+{"indexed_streams": 6656, "total_streams": 8000, "frames": 484208, "errors": 0}
+{"indexed_streams": 6688, "total_streams": 8000, "frames": 486528, "errors": 0}
+{"indexed_streams": 6720, "total_streams": 8000, "frames": 488848, "errors": 0}
+{"indexed_streams": 6752, "total_streams": 8000, "frames": 491168, "errors": 0}
+{"indexed_streams": 6784, "total_streams": 8000, "frames": 493472, "errors": 0}
+{"indexed_streams": 6816, "total_streams": 8000, "frames": 495776, "errors": 0}
+{"indexed_streams": 6848, "total_streams": 8000, "frames": 498048, "errors": 0}
+{"indexed_streams": 6880, "total_streams": 8000, "frames": 500384, "errors": 0}
+{"indexed_streams": 6912, "total_streams": 8000, "frames": 502720, "errors": 0}
+{"indexed_streams": 6944, "total_streams": 8000, "frames": 505040, "errors": 0}
+{"indexed_streams": 6976, "total_streams": 8000, "frames": 507344, "errors": 0}
+{"indexed_streams": 7008, "total_streams": 8000, "frames": 509680, "errors": 0}
+{"indexed_streams": 7040, "total_streams": 8000, "frames": 512000, "errors": 0}
+{"indexed_streams": 7072, "total_streams": 8000, "frames": 514352, "errors": 0}
+{"indexed_streams": 7104, "total_streams": 8000, "frames": 516688, "errors": 0}
+{"indexed_streams": 7136, "total_streams": 8000, "frames": 519040, "errors": 0}
+{"indexed_streams": 7168, "total_streams": 8000, "frames": 521360, "errors": 0}
+{"indexed_streams": 7200, "total_streams": 8000, "frames": 523712, "errors": 0}
+{"indexed_streams": 7232, "total_streams": 8000, "frames": 526000, "errors": 0}
+{"indexed_streams": 7264, "total_streams": 8000, "frames": 528320, "errors": 0}
+{"indexed_streams": 7296, "total_streams": 8000, "frames": 530640, "errors": 0}
+{"indexed_streams": 7328, "total_streams": 8000, "frames": 532960, "errors": 0}
+{"indexed_streams": 7360, "total_streams": 8000, "frames": 535264, "errors": 0}
+{"indexed_streams": 7392, "total_streams": 8000, "frames": 537584, "errors": 0}
+{"indexed_streams": 7424, "total_streams": 8000, "frames": 539888, "errors": 0}
+{"indexed_streams": 7456, "total_streams": 8000, "frames": 542240, "errors": 0}
+{"indexed_streams": 7488, "total_streams": 8000, "frames": 544592, "errors": 0}
+{"indexed_streams": 7520, "total_streams": 8000, "frames": 546928, "errors": 0}
+{"indexed_streams": 7552, "total_streams": 8000, "frames": 549280, "errors": 0}
+{"indexed_streams": 7584, "total_streams": 8000, "frames": 551632, "errors": 0}
+{"indexed_streams": 7616, "total_streams": 8000, "frames": 553968, "errors": 0}
+{"indexed_streams": 7648, "total_streams": 8000, "frames": 556304, "errors": 0}
+{"indexed_streams": 7680, "total_streams": 8000, "frames": 558608, "errors": 0}
+{"indexed_streams": 7712, "total_streams": 8000, "frames": 560944, "errors": 0}
+{"indexed_streams": 7744, "total_streams": 8000, "frames": 563280, "errors": 0}
+{"indexed_streams": 7776, "total_streams": 8000, "frames": 565648, "errors": 0}
+{"indexed_streams": 7808, "total_streams": 8000, "frames": 567984, "errors": 0}
+{"indexed_streams": 7840, "total_streams": 8000, "frames": 570304, "errors": 0}
+{"indexed_streams": 7872, "total_streams": 8000, "frames": 572640, "errors": 0}
+{"indexed_streams": 7904, "total_streams": 8000, "frames": 574976, "errors": 0}
+{"indexed_streams": 7936, "total_streams": 8000, "frames": 577312, "errors": 0}
+{"indexed_streams": 7968, "total_streams": 8000, "frames": 579664, "errors": 0}
+{"indexed_streams": 8000, "total_streams": 8000, "frames": 581968, "errors": 0}
+{
+  "errors": [],
+  "missing_subjects": [],
+  "streams": 8000,
+  "frames": 581968,
+  "source_root": "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+  "cache_schema_version": 2,
+  "depth_scale_to_m": 0.001,
+  "pose_scale_to_m": 1.0,
+  "mesh_scale_to_m": 1.0,
+  "fps": 30.0,
+  "timestamp_source": "frame_index/fps; official capture rate 30 Hz",
+  "setup": "s0",
+  "split_disjoint": true,
+  "physical_sequences": {
+    "train": 800,
+    "val": 40,
+    "test": 160
+  },
+  "complete": true,
+  "verified_train_subset": false,
+  "verified_subject_subset": false,
+  "selected_subjects": [
+    "20200709-subject-01",
+    "20200813-subject-02",
+    "20200820-subject-03",
+    "20200903-subject-04",
+    "20200908-subject-05",
+    "20200918-subject-06",
+    "20200928-subject-07",
+    "20201002-subject-08",
+    "20201015-subject-09",
+    "20201022-subject-10"
+  ],
+  "object_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    20,
+    21
+  ],
+  "inventory_scope": "full official inventory",
+  "split_hash": "54a35253db5bea988ffea5e41641d3313b31c5568193a186dd4e4359c497804b",
+  "mesh_hash": "359f53a5f41963d3fdfc2542bd640432d820bfc99a055baec8976ad99966d32c"
+}

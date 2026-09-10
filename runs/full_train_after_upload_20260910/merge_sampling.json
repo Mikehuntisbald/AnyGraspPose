@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/mnt/why/dexycb_lip/.venv/bin/python",
+    "tools/merge_sampling.py",
+    "--index",
+    "cache/dexycb_s0",
+    "--world",
+    "8"
+  ],
+  "source_sha256": "a1b6933e92d6db6878d320cac030a023bccc138e7d96800c6fb391cbef23334f",
+  "upload_receipt_sha256": "902e351a27cffb7225632979d8612c45f3f958453b03ae076a9104832ac8c3fe",
+  "status": "complete",
+  "returncode": 0,
+  "elapsed_seconds": 20.042693589930423,
+  "log": "/mnt/why/dexycb_lip/runs/full_train_after_upload_20260910/merge_sampling.log"
+}
