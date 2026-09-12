@@ -13,10 +13,15 @@ def constant_velocity(history, times, target_time):
     return base
 
 
-def errors(pred, gt, points, d):
-    pred,gt,points=[np.asarray(x,dtype='f8') for x in (pred,gt,points)]
+def errors(pred, gt, points, d, dtype='f8'):
+    """Legacy float64 by default; streaming requests FP32 pose/error arithmetic.
+
+    SciPy's nearest-neighbor search uses double internally; its distances are
+    narrowed before the requested-precision ADD-S reduction.
+    """
+    pred,gt,points=[np.asarray(x,dtype=dtype) for x in (pred,gt,points)]
     a=points@pred[:3,:3].T+pred[:3,3];b=points@gt[:3,:3].T+gt[:3,3]
-    add=float(np.linalg.norm(a-b,axis=1).mean());adds=float(cKDTree(b).query(a)[0].mean())
+    add=float(np.linalg.norm(a-b,axis=1).mean());adds=float(cKDTree(b).query(a)[0].astype(dtype,copy=False).mean())
     return dict(center_mm=float(np.linalg.norm(pred[:3,3]-gt[:3,3])*1000),
                 rotation_deg=float(angle(torch.from_numpy(pred[:3,:3]@gt[:3,:3].T))*180/torch.pi),
                 add_m=add,adds_m=adds,add_005=float(add<.05*d),add_01=float(add<.1*d),
