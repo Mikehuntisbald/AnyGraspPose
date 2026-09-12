@@ -17,6 +17,14 @@ def batch_step(model, batch, renderer, config, rollout=1, noise=True, backward=T
     device=next(model.parameters()).device;length=config['clip_length']
     times=dict(render_time=0.,forward_time=0.,backward_time=0.,fp_transition_time=0.)
     states=[]
+    # A rollout reuses 11 RGB-D frames through four overlapping windows.
+    # Keep the CPU batch for official FP; copy observations to GPU only once.
+    device_batch=batch
+    if config.get('preload_rollout_observations',False):
+        t=time.perf_counter()
+        device_batch=[dict(item,**{k:item[k].to(device,non_blocking=item[k].is_pinned())
+                                  for k in ('rgb','depth','poses','times','k')}) for item in batch]
+        sync(device);times['upload_time']=time.perf_counter()-t
     for item in batch:
         g=torch.Generator().manual_seed(item['seed'])
         # Only strict past GT seeds the first update. Later slots are model-owned.
@@ -26,7 +34,7 @@ def batch_step(model, batch, renderer, config, rollout=1, noise=True, backward=T
     metrics=[];outputs=[]
     for u in range(rollout):
         sync(device);t=time.perf_counter();features=[];targets=[];points=[]
-        for item,state in zip(batch,states):
+        for item,state in zip(device_batch,states):
             if history_mode=='noisy_gt':
                 teacher,_=noisy_history(item['poses'][u:u+length].to(device),float(item['mesh']['diameter']),state['generator'],noise)
                 base=teacher[-1];past=list(teacher[1:].unbind())

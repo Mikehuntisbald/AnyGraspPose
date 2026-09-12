@@ -54,10 +54,12 @@ def main():
     if world>1:model=DDP(model,device_ids=[local],broadcast_buffers=False)
     renderer=Renderer(device);batch=c['batch_size_per_gpu'];accum=c['grad_accum_steps'];limit=a.max_steps or c['max_optimizer_steps']
     ds=ClipDataset(a.data_root,a.index_root,c['clip_length'],seed=c['seed'],steps=max(1,(limit-step)*batch*accum),
-                   rank=rank,world=world,batch=batch,start=position,augmentation=c.get('augmentation',True),synthetic_erasure=c.get('synthetic_erasure',False))
+                   rank=rank,world=world,batch=batch,start=position,augmentation=c.get('augmentation',True),synthetic_erasure=c.get('synthetic_erasure',False),
+                   decode_threads=c.get('decode_threads_per_worker',1))
     workers=c['num_workers_per_rank']
-    loader=DataLoader(ds,batch_size=batch,num_workers=workers,collate_fn=collate,pin_memory=True,
-                      **(dict(persistent_workers=True,prefetch_factor=2,multiprocessing_context='spawn') if workers else {}))
+    loader=DataLoader(ds,batch_size=batch,num_workers=workers,collate_fn=collate,pin_memory=c.get('pin_memory',True),
+                      **(dict(persistent_workers=c.get('persistent_workers',True),
+                              prefetch_factor=c.get('prefetch_factor',2),multiprocessing_context='spawn') if workers else {}))
     iterator=iter(loader);writer=SummaryWriter(str(output/'tensorboard')) if rank==0 else None
     logfile=(output/f'rank{rank}.jsonl').open('a');model.train()
     fp_transition=None

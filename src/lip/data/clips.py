@@ -3,6 +3,7 @@ from pathlib import Path
 import numpy as np
 import torch
 import cv2
+from concurrent.futures import ThreadPoolExecutor
 from torch.utils.data import Dataset
 from lip.data.index import read_frame
 from lip.geometry.so3 import center_pose
@@ -10,10 +11,12 @@ from lip.geometry.so3 import center_pose
 
 class ClipDataset(Dataset):
     def __init__(self, root, index_root, length=8, split='train', seed=42, steps=1_000_000,
-                 rank=0, world=1, batch=1, start=0, augmentation=True, fixed=None, synthetic_erasure=False):
+                 rank=0, world=1, batch=1, start=0, augmentation=True, fixed=None, synthetic_erasure=False,
+                 decode_threads=1):
         self.root=root;self.index=Path(index_root);self.length=length;self.seed=seed;self.steps=steps
         self.rank=rank;self.world=world;self.batch=batch;self.start=start;self.augmentation=augmentation
         self.synthetic_erasure=synthetic_erasure and augmentation and split=='train'
+        self.decode_threads=int(decode_threads);self._decode_pool=None
         self.audit=json.loads((self.index/'audit.json').read_text())
         self.streams=[json.loads(x) for x in (self.index/'streams.jsonl').read_text().splitlines() if json.loads(x)['split']==split]
         self.fixed=fixed;self.poses=[];self.meshes=[];mesh_cache={}
@@ -40,6 +43,19 @@ class ClipDataset(Dataset):
         print(json.dumps(dict(sampler_available_buckets=self.available,weights=self.weights.tolist(),rank=rank)),flush=True)
 
     def __len__(self):return self.steps
+
+    def __getstate__(self):
+        state=self.__dict__.copy();state['_decode_pool']=None
+        return state
+
+    def __getitems__(self, indices):
+        # One bounded batch queue per worker. Each clip owns its RNG and map
+        # preserves sampler order, including across checkpoint resumes.
+        if self.decode_threads<=1:return [self[i] for i in indices]
+        if self._decode_pool is None:
+            cv2.setNumThreads(1)
+            self._decode_pool=ThreadPoolExecutor(max_workers=self.decode_threads)
+        return list(self._decode_pool.map(self.__getitem__,indices))
 
     def choose(self, idx):
         # Index includes optimizer/microbatch stream position; resume reconstructs it.
