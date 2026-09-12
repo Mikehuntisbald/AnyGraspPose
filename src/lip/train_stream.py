@@ -71,7 +71,7 @@ def main():
     batch=c['batch_sequences_per_gpu'];accum=c['grad_accum_steps'];effective=batch*accum*world
     dataset=StreamClips(a.data_root,a.index_root,c['burn_in_frames'],c['supervised_unroll_frames'],seed=c['seed'],
         length=max(1,(stop-step)*batch*accum),start_sample=position,rank=rank,world=world,fixed=fixed,decode_threads=c['decode_threads'])
-    kwargs=dict(batch_size=batch,collate_fn=collate,num_workers=c['num_workers'],pin_memory=False)
+    kwargs=dict(batch_size=batch,collate_fn=collate,num_workers=c['num_workers'],pin_memory=c.get('pin_memory',False))
     if c['num_workers']:kwargs.update(prefetch_factor=c['prefetch_factor'],persistent_workers=True)
     # Dedicated generator prevents DataLoader setup from consuming training/dropout RNG on resume.
     kwargs['generator']=torch.Generator().manual_seed(c['seed'])

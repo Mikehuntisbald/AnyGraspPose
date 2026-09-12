@@ -1,6 +1,7 @@
 import copy
 import inspect
 import torch
+import pytest
 from test_stream_geometry import fixture
 from lip.models.stream_tracker import StreamTracker
 from lip.engine.stream_training import StreamTrainingModule
@@ -15,8 +16,9 @@ def sample():
         frames=torch.arange(5),mesh=mesh,k=k,sample={'seed':42},depth_scale=1.)
 
 
-def test_gt_and_future_rgbd_do_not_enter_past_prediction():
-    c=dict(burn_in_frames=1,supervised_unroll_frames=3,initial_pose_noise=False,image_size=32,crop_expansion=2.,precision='fp32')
+@pytest.mark.parametrize('batched',[False,True])
+def test_gt_and_future_rgbd_do_not_enter_past_prediction(batched):
+    c=dict(burn_in_frames=1,supervised_unroll_frames=3,initial_pose_noise=False,image_size=32,crop_expansion=2.,precision='fp32',batch_current_features=batched)
     m=StreamTracker(dropout=0.).eval();torch.nn.init.normal_(m.head[-1].weight,std=.001)
     runner=StreamTrainingModule(m,c,Renderer('cpu'));s=sample();features=[]
     handle=m.register_forward_pre_hook(lambda m,a:features.append({k:v.detach().clone() for k,v in a[0].items()}))
@@ -51,8 +53,9 @@ def test_dual_context_does_not_change_source_cache_and_gate_not_confidence():
     for la,lb in zip(ca.layers,cb.layers):assert torch.equal(la[0].key,lb[0].key)
 
 
-def test_last_loss_reaches_earlier_rgb_encoder_through_kv_only():
-    c=dict(burn_in_frames=1,supervised_unroll_frames=3,initial_pose_noise=False,image_size=32,crop_expansion=2.,precision='fp32')
+@pytest.mark.parametrize('batched',[False,True])
+def test_last_loss_reaches_earlier_rgb_encoder_through_kv_only(batched):
+    c=dict(burn_in_frames=1,supervised_unroll_frames=3,initial_pose_noise=False,image_size=32,crop_expansion=2.,precision='fp32',batch_current_features=batched)
     m=StreamTracker(dropout=0.).train();torch.nn.init.normal_(m.head[-1].weight,std=.001)
     original=m.encode_current;sources=[]
     def encode(features,profiler=None):
