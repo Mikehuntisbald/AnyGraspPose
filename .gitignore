@@ -19,3 +19,7 @@ runs/**/*.jsonl
 runs/**/source_snapshot/
 runs/upload_dexycb/
 runs/**/resume.pt
+runs/**/candidate/
+runs/**/tensorboard/
+runs/**/events.out.tfevents.*
+runs/**/worktree_before.patch

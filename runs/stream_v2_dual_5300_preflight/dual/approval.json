@@ -1,0 +1,44 @@
+{
+  "architecture_id": "stream_dual",
+  "config_hash": "f71dbb08373dadb189988bed2bf75232bf4bae97aa273d86d74405452d02fb98",
+  "source_sha256": "5ccca80a97c2a50a00819dc3d8d6f86c953eae1e8c7a799e45f85330340708e2",
+  "cache_contract": "lip-v2-source17-block-local-timebias-v1",
+  "split_hash": "54a35253db5bea988ffea5e41641d3313b31c5568193a186dd4e4359c497804b",
+  "mesh_hash": "359f53a5f41963d3fdfc2542bd640432d820bfc99a055baec8976ad99966d32c",
+  "init_sha256": "42e5628f4d3cbfbd4c72d000a625a8adce516fc70b5b949022306dd53c34ceb8",
+  "approved": true,
+  "checks": {
+    "cpu_tests": {
+      "status": "passed",
+      "tests": 76
+    },
+    "full_unroll_memory": {
+      "status": "passed",
+      "records": "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_5300_preflight/dual/memory_probe/rank0.jsonl"
+    },
+    "overfit": {
+      "status": "completed",
+      "steps": 300,
+      "real_fragments": 16,
+      "before_loss": 0.0711435277480632,
+      "after_loss": 0.022922995063709095,
+      "improved": true,
+      "scope": "No fabricated mandatory accuracy target"
+    },
+    "geometry": {
+      "status": "checked_with_known_depth_mismatch",
+      "correction": false
+    },
+    "cuda_tests": {
+      "status": "passed",
+      "reference_and_10000_steps": true
+    },
+    "ddp": {
+      "status": "passed",
+      "steps": 50,
+      "resume_steps": 3,
+      "all_ranks_restored": true
+    }
+  },
+  "completed": true
+}

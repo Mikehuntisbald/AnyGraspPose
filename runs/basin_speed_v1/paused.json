@@ -1,0 +1,9 @@
+{
+  "paused": true,
+  "step": 21500,
+  "checkpoint": "runs/basin_speed_v1/resume_21500.pt",
+  "checkpoint_sha256": "c3bb96aa491b82b0c248405e31b251d2dc7ec26a6629bae9bceb0747fff56712",
+  "previous_launcher": 805129,
+  "previous_command": "/mnt/why/dexycb_lip/.venv-fp/bin/python -m torch.distributed.run --standalone --nproc_per_node=8 -m lip.train --config /mnt/why/dexycb_lip/runs/basin_memory_fix/config.yaml --data-root /mnt/why/dexycb_lip/cache/raw_full_20260910 --index-root cache/dexycb_s0 --output runs/lip_v1_s0 --resume /mnt/why/dexycb_lip/runs/basin_memory_fix/probe/last.pt ",
+  "utc": "2026-09-10T12:45:57Z"
+}

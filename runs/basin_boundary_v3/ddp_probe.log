@@ -1,0 +1,591 @@
+[Gloo] Rank [Gloo] Rank 1[Gloo] Rank 0[Gloo] Rank  is connected to [Gloo] Rank 6[Gloo] Rank  is connected to [Gloo] Rank 2[Gloo] Rank 73 is connected to 577 is connected to 4 peer ranks.  is connected to 7 is connected to  peer ranks.  is connected to 7 is connected to Expected number of connected peer ranks is : 7 peer ranks. 7Expected number of connected peer ranks is : 7 peer ranks. 77 peer ranks. Expected number of connected peer ranks is :  peer ranks. 7 peer ranks. Expected number of connected peer ranks is :  peer ranks. 
+Expected number of connected peer ranks is : 7Expected number of connected peer ranks is : 
+Expected number of connected peer ranks is : 7Expected number of connected peer ranks is : 7
+77
+7
+
+
+
+{"environment": {"versions": {"torch": "2.8.0+cu128", "torchvision": "0.23.0+cu128", "numpy": "2.5.3", "scipy": "1.16.2", "trimesh": "5.1.0", "opencv-python-headless": "4.12.0.88", "PyYAML": "6.0.3", "pytest": "9.1.1", "nvdiffrast": "0.4.0", "tensorboard": "2.20.0"}, "cuda_runtime": "12.8", "gpus": [{"index": 0, "name": "NVIDIA H20", "total_bytes": 102085361664}, {"index": 1, "name": "NVIDIA H20", "total_bytes": 102085361664}, {"index": 2, "name": "NVIDIA H20", "total_bytes": 102085361664}, {"index": 3, "name": "NVIDIA H20", "total_bytes": 102085361664}, {"index": 4, "name": "NVIDIA H20", "total_bytes": 102085361664}, {"index": 5, "name": "NVIDIA H20", "total_bytes": 102085361664}, {"index": 6, "name": "NVIDIA H20", "total_bytes": 102085361664}, {"index": 7, "name": "NVIDIA H20", "total_bytes": 102085361664}], "cgroup_limits": {"cpu_quota_us": 12800000, "cpu_period_us": 100000, "memory_limit_bytes": 549755813888}, "driver": ["580.126.20", "580.126.20", "580.126.20", "580.126.20", "580.126.20", "580.126.20", "580.126.20", "580.126.20"], "cpu_affinity": 344, "cpu_count": 344, "disk": {"total": 599233837137920, "used": 484040529252352, "free": 115193307885568}, "bf16": true}}
+{"resumed_step": 20000, "scheduler_step": 20000, "sampler_position": 20000, "rank": 0}
+{"resumed_step": 20000, "scheduler_step": 20000, "sampler_position": 20000, "rank": 4}
+{"resumed_step": 20000, "scheduler_step": 20000, "sampler_position": 20000, "rank": 6}
+{"resumed_step": 20000, "scheduler_step": 20000, "sampler_position": 20000, "rank": 2}
+{"resumed_step": 20000, "scheduler_step": 20000, "sampler_position": 20000, "rank": 7}
+{"resumed_step": 20000, "scheduler_step": 20000, "sampler_position": 20000, "rank": 1}
+{"resumed_step": 20000, "scheduler_step": 20000, "sampler_position": 20000, "rank": 5}
+{"resumed_step": 20000, "scheduler_step": 20000, "sampler_position": 20000, "rank": 3}
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 7}
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 6}
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 4}
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 5}
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 3}
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 0}
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 2}
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 1}
+Warp 1.17.0 initialized:
+   CUDA Toolkit 12.9, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:1"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:2"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:3"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:4"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:5"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:6"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:7"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+   CUDA peer access:
+     Supported fully (all-directional)
+   Kernel cache:
+     /root/.cache/warp/1.17.0
+[__init__()] welcome
+[__init__()] self.cfg: 
+ lr: 0.0001
+c_in: 6
+zfar: .inf
+debug: null
+w_rot: 0.1
+n_view: 1
+run_id: null
+use_BN: true
+rot_rep: axis_angle
+ckpt_dir: /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+exp_name: 2023-10-28-18-33-37
+save_dir: /tmp/2023-10-28-18-33-37/
+loss_type: l2
+optimizer: adam
+trans_rep: tracknet
+batch_size: 64
+crop_ratio: 1.2
+use_normal: false
+BN_momentum: 0.1
+max_num_key: null
+warmup_step: -1
+input_resize:
+- 160
+- 160
+max_step_val: 1000
+normal_uint8: false
+vis_interval: 1000
+weight_decay: 0
+n_max_objects: null
+normalize_xyz: true
+clip_grad_norm: 'Infinity'
+rot_normalizer: 0.3490658503988659
+trans_normalizer:
+- 0.019999999552965164
+- 0.019999999552965164
+- 0.05000000074505806
+max_step_per_epoch: 25000
+val_epoch_interval: 10
+n_dataloader_workers: 60
+enable_amp: true
+use_mask: false
+
+[__init__()] self.h5_file:
+[__init__()] Using pretrained model from /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+Warp 1.17.0 initialized:
+   CUDA Toolkit 12.9, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:1"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:2"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:3"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:4"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:5"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:6"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:7"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+   CUDA peer access:
+     Supported fully (all-directional)
+   Kernel cache:
+     /root/.cache/warp/1.17.0
+[__init__()] welcome
+[__init__()] self.cfg: 
+ lr: 0.0001
+c_in: 6
+zfar: .inf
+debug: null
+w_rot: 0.1
+n_view: 1
+run_id: null
+use_BN: true
+rot_rep: axis_angle
+ckpt_dir: /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+exp_name: 2023-10-28-18-33-37
+save_dir: /tmp/2023-10-28-18-33-37/
+loss_type: l2
+optimizer: adam
+trans_rep: tracknet
+batch_size: 64
+crop_ratio: 1.2
+use_normal: false
+BN_momentum: 0.1
+max_num_key: null
+warmup_step: -1
+input_resize:
+- 160
+- 160
+max_step_val: 1000
+normal_uint8: false
+vis_interval: 1000
+weight_decay: 0
+n_max_objects: null
+normalize_xyz: true
+clip_grad_norm: 'Infinity'
+rot_normalizer: 0.3490658503988659
+trans_normalizer:
+- 0.019999999552965164
+- 0.019999999552965164
+- 0.05000000074505806
+max_step_per_epoch: 25000
+val_epoch_interval: 10
+n_dataloader_workers: 60
+enable_amp: true
+use_mask: false
+
+[__init__()] self.h5_file:
+[__init__()] init done
+{"fp_refiner_sha256": "774700586ddc435d408fc01c9809c43e151232936369dfbea0f0f964ba471d60", "fp_frozen": true, "rank": 5}
+Warp 1.17.0 initialized:
+   CUDA Toolkit 12.9, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:1"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:2"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:3"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:4"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:5"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:6"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:7"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+   CUDA peer access:
+     Supported fully (all-directional)
+   Kernel cache:
+     /root/.cache/warp/1.17.0
+{"basin_critic_frozen": true, "basin_checkpoint_sha256": "d984e7dec99239610b338d53130c130a02eab9dfe3ac519ee4dade8615615a9a", "basin_quality_policy": "validated", "rank": 5}
+[__init__()] Using pretrained model from /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+[__init__()] welcome
+[__init__()] self.cfg: 
+ lr: 0.0001
+c_in: 6
+zfar: .inf
+debug: null
+w_rot: 0.1
+n_view: 1
+run_id: null
+use_BN: true
+rot_rep: axis_angle
+ckpt_dir: /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+exp_name: 2023-10-28-18-33-37
+save_dir: /tmp/2023-10-28-18-33-37/
+loss_type: l2
+optimizer: adam
+trans_rep: tracknet
+batch_size: 64
+crop_ratio: 1.2
+use_normal: false
+BN_momentum: 0.1
+max_num_key: null
+warmup_step: -1
+input_resize:
+- 160
+- 160
+max_step_val: 1000
+normal_uint8: false
+vis_interval: 1000
+weight_decay: 0
+n_max_objects: null
+normalize_xyz: true
+clip_grad_norm: 'Infinity'
+rot_normalizer: 0.3490658503988659
+trans_normalizer:
+- 0.019999999552965164
+- 0.019999999552965164
+- 0.05000000074505806
+max_step_per_epoch: 25000
+val_epoch_interval: 10
+n_dataloader_workers: 60
+enable_amp: true
+use_mask: false
+
+[__init__()] self.h5_file:
+Warp 1.17.0 initialized:
+   CUDA Toolkit 12.9, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:1"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:2"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:3"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:4"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:5"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:6"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:7"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+   CUDA peer access:
+     Supported fully (all-directional)
+   Kernel cache:
+     /root/.cache/warp/1.17.0
+[__init__()] welcome
+[__init__()] self.cfg: 
+ lr: 0.0001
+c_in: 6
+zfar: .inf
+debug: null
+w_rot: 0.1
+n_view: 1
+run_id: null
+use_BN: true
+rot_rep: axis_angle
+ckpt_dir: /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+exp_name: 2023-10-28-18-33-37
+save_dir: /tmp/2023-10-28-18-33-37/
+loss_type: l2
+optimizer: adam
+trans_rep: tracknet
+batch_size: 64
+crop_ratio: 1.2
+use_normal: false
+BN_momentum: 0.1
+max_num_key: null
+warmup_step: -1
+input_resize:
+- 160
+- 160
+max_step_val: 1000
+normal_uint8: false
+vis_interval: 1000
+weight_decay: 0
+n_max_objects: null
+normalize_xyz: true
+clip_grad_norm: 'Infinity'
+rot_normalizer: 0.3490658503988659
+trans_normalizer:
+- 0.019999999552965164
+- 0.019999999552965164
+- 0.05000000074505806
+max_step_per_epoch: 25000
+val_epoch_interval: 10
+n_dataloader_workers: 60
+enable_amp: true
+use_mask: false
+
+[__init__()] self.h5_file:
+Warp 1.17.0 initialized:
+   CUDA Toolkit 12.9, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:1"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:2"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:3"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:4"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:5"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:6"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:7"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+   CUDA peer access:
+     Supported fully (all-directional)
+   Kernel cache:
+     /root/.cache/warp/1.17.0
+Warp 1.17.0 initialized:
+   CUDA Toolkit 12.9, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:1"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:2"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:3"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:4"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:5"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:6"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:7"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+   CUDA peer access:
+     Supported fully (all-directional)
+   Kernel cache:
+     /root/.cache/warp/1.17.0
+[__init__()] Using pretrained model from /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+Warp 1.17.0 initialized:
+   CUDA Toolkit 12.9, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:1"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:2"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:3"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:4"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:5"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:6"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:7"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+   CUDA peer access:
+     Supported fully (all-directional)
+   Kernel cache:
+     /root/.cache/warp/1.17.0
+Warp 1.17.0 initialized:
+   CUDA Toolkit 12.9, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:1"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:2"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:3"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:4"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:5"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:6"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:7"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+   CUDA peer access:
+     Supported fully (all-directional)
+   Kernel cache:
+     /root/.cache/warp/1.17.0
+[__init__()] welcome
+[__init__()] welcome
+[__init__()] self.cfg: 
+ lr: 0.0001
+c_in: 6
+zfar: .inf
+debug: null
+w_rot: 0.1
+n_view: 1
+run_id: null
+use_BN: true
+rot_rep: axis_angle
+ckpt_dir: /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+exp_name: 2023-10-28-18-33-37
+save_dir: /tmp/2023-10-28-18-33-37/
+loss_type: l2
+optimizer: adam
+trans_rep: tracknet
+batch_size: 64
+crop_ratio: 1.2
+use_normal: false
+BN_momentum: 0.1
+max_num_key: null
+warmup_step: -1
+input_resize:
+- 160
+- 160
+max_step_val: 1000
+normal_uint8: false
+vis_interval: 1000
+weight_decay: 0
+n_max_objects: null
+normalize_xyz: true
+clip_grad_norm: 'Infinity'
+rot_normalizer: 0.3490658503988659
+trans_normalizer:
+- 0.019999999552965164
+- 0.019999999552965164
+- 0.05000000074505806
+max_step_per_epoch: 25000
+val_epoch_interval: 10
+n_dataloader_workers: 60
+enable_amp: true
+use_mask: false
+
+[__init__()] self.h5_file:
+[__init__()] self.cfg: 
+ lr: 0.0001
+c_in: 6
+zfar: .inf
+debug: null
+w_rot: 0.1
+n_view: 1
+run_id: null
+use_BN: true
+rot_rep: axis_angle
+ckpt_dir: /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+exp_name: 2023-10-28-18-33-37
+save_dir: /tmp/2023-10-28-18-33-37/
+loss_type: l2
+optimizer: adam
+trans_rep: tracknet
+batch_size: 64
+crop_ratio: 1.2
+use_normal: false
+BN_momentum: 0.1
+max_num_key: null
+warmup_step: -1
+input_resize:
+- 160
+- 160
+max_step_val: 1000
+normal_uint8: false
+vis_interval: 1000
+weight_decay: 0
+n_max_objects: null
+normalize_xyz: true
+clip_grad_norm: 'Infinity'
+rot_normalizer: 0.3490658503988659
+trans_normalizer:
+- 0.019999999552965164
+- 0.019999999552965164
+- 0.05000000074505806
+max_step_per_epoch: 25000
+val_epoch_interval: 10
+n_dataloader_workers: 60
+enable_amp: true
+use_mask: false
+
+[__init__()] self.h5_file:
+[__init__()] welcome
+[__init__()] self.cfg: 
+ lr: 0.0001
+c_in: 6
+zfar: .inf
+debug: null
+w_rot: 0.1
+n_view: 1
+run_id: null
+use_BN: true
+rot_rep: axis_angle
+ckpt_dir: /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+exp_name: 2023-10-28-18-33-37
+save_dir: /tmp/2023-10-28-18-33-37/
+loss_type: l2
+optimizer: adam
+trans_rep: tracknet
+batch_size: 64
+crop_ratio: 1.2
+use_normal: false
+BN_momentum: 0.1
+max_num_key: null
+warmup_step: -1
+input_resize:
+- 160
+- 160
+max_step_val: 1000
+normal_uint8: false
+vis_interval: 1000
+weight_decay: 0
+n_max_objects: null
+normalize_xyz: true
+clip_grad_norm: 'Infinity'
+rot_normalizer: 0.3490658503988659
+trans_normalizer:
+- 0.019999999552965164
+- 0.019999999552965164
+- 0.05000000074505806
+max_step_per_epoch: 25000
+val_epoch_interval: 10
+n_dataloader_workers: 60
+enable_amp: true
+use_mask: false
+
+[__init__()] self.h5_file:
+[__init__()] welcome
+[__init__()] self.cfg: 
+ lr: 0.0001
+c_in: 6
+zfar: .inf
+debug: null
+w_rot: 0.1
+n_view: 1
+run_id: null
+use_BN: true
+rot_rep: axis_angle
+ckpt_dir: /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+exp_name: 2023-10-28-18-33-37
+save_dir: /tmp/2023-10-28-18-33-37/
+loss_type: l2
+optimizer: adam
+trans_rep: tracknet
+batch_size: 64
+crop_ratio: 1.2
+use_normal: false
+BN_momentum: 0.1
+max_num_key: null
+warmup_step: -1
+input_resize:
+- 160
+- 160
+max_step_val: 1000
+normal_uint8: false
+vis_interval: 1000
+weight_decay: 0
+n_max_objects: null
+normalize_xyz: true
+clip_grad_norm: 'Infinity'
+rot_normalizer: 0.3490658503988659
+trans_normalizer:
+- 0.019999999552965164
+- 0.019999999552965164
+- 0.05000000074505806
+max_step_per_epoch: 25000
+val_epoch_interval: 10
+n_dataloader_workers: 60
+enable_amp: true
+use_mask: false
+
+[__init__()] self.h5_file:
+[__init__()] Using pretrained model from /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+[__init__()] init done
+{"fp_refiner_sha256": "774700586ddc435d408fc01c9809c43e151232936369dfbea0f0f964ba471d60", "fp_frozen": true, "rank": 1}
+{"basin_critic_frozen": true, "basin_checkpoint_sha256": "d984e7dec99239610b338d53130c130a02eab9dfe3ac519ee4dade8615615a9a", "basin_quality_policy": "validated", "rank": 1}
+[__init__()] Using pretrained model from /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+[__init__()] Using pretrained model from /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+[__init__()] Using pretrained model from /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+[__init__()] Using pretrained model from /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+[__init__()] init done
+{"fp_refiner_sha256": "774700586ddc435d408fc01c9809c43e151232936369dfbea0f0f964ba471d60", "fp_frozen": true, "rank": 0}
+{"basin_critic_frozen": true, "basin_checkpoint_sha256": "d984e7dec99239610b338d53130c130a02eab9dfe3ac519ee4dade8615615a9a", "basin_quality_policy": "validated", "rank": 0}
+[__init__()] init done
+{"fp_refiner_sha256": "774700586ddc435d408fc01c9809c43e151232936369dfbea0f0f964ba471d60", "fp_frozen": true, "rank": 2}
+{"basin_critic_frozen": true, "basin_checkpoint_sha256": "d984e7dec99239610b338d53130c130a02eab9dfe3ac519ee4dade8615615a9a", "basin_quality_policy": "validated", "rank": 2}
+[__init__()] init done
+{"fp_refiner_sha256": "774700586ddc435d408fc01c9809c43e151232936369dfbea0f0f964ba471d60", "fp_frozen": true, "rank": 6}
+[__init__()] init done
+{"fp_refiner_sha256": "774700586ddc435d408fc01c9809c43e151232936369dfbea0f0f964ba471d60", "fp_frozen": true, "rank": 4}
+{"basin_critic_frozen": true, "basin_checkpoint_sha256": "d984e7dec99239610b338d53130c130a02eab9dfe3ac519ee4dade8615615a9a", "basin_quality_policy": "validated", "rank": 6}
+{"basin_critic_frozen": true, "basin_checkpoint_sha256": "d984e7dec99239610b338d53130c130a02eab9dfe3ac519ee4dade8615615a9a", "basin_quality_policy": "validated", "rank": 4}
+[__init__()] init done
+{"fp_refiner_sha256": "774700586ddc435d408fc01c9809c43e151232936369dfbea0f0f964ba471d60", "fp_frozen": true, "rank": 3}
+[__init__()] init done
+{"fp_refiner_sha256": "774700586ddc435d408fc01c9809c43e151232936369dfbea0f0f964ba471d60", "fp_frozen": true, "rank": 7}
+{"basin_critic_frozen": true, "basin_checkpoint_sha256": "d984e7dec99239610b338d53130c130a02eab9dfe3ac519ee4dade8615615a9a", "basin_quality_policy": "validated", "rank": 3}
+{"basin_critic_frozen": true, "basin_checkpoint_sha256": "d984e7dec99239610b338d53130c130a02eab9dfe3ac519ee4dade8615615a9a", "basin_quality_policy": "validated", "rank": 7}
+Module Utils 65dffc6 load on device 'cuda:5' took 0.72 ms  (cached)
+/usr/local/lib/python3.12/dist-packages/torch/__init__.py:1264: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /pytorch/torch/csrc/tensor/python_tensor.cpp:434.)
+  _C._set_default_tensor_type(t)
+/mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/predict_pose_refine.py:190: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.amp):
+Module Utils 65dffc6 load on device 'cuda:1' took 0.76 ms  (cached)
+/usr/local/lib/python3.12/dist-packages/torch/__init__.py:1264: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /pytorch/torch/csrc/tensor/python_tensor.cpp:434.)
+  _C._set_default_tensor_type(t)
+/mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/predict_pose_refine.py:190: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.amp):
+Module Utils 65dffc6 load on device 'cuda:4' took 0.76 ms  (cached)
+/usr/local/lib/python3.12/dist-packages/torch/__init__.py:1264: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /pytorch/torch/csrc/tensor/python_tensor.cpp:434.)
+  _C._set_default_tensor_type(t)
+/mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/predict_pose_refine.py:190: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.amp):
+Module Utils 65dffc6 load on device 'cuda:3' took 0.71 ms  (cached)
+/usr/local/lib/python3.12/dist-packages/torch/__init__.py:1264: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /pytorch/torch/csrc/tensor/python_tensor.cpp:434.)
+  _C._set_default_tensor_type(t)
+/mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/predict_pose_refine.py:190: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.amp):
+Module Utils 65dffc6 load on device 'cuda:0' took 0.76 ms  (cached)
+/usr/local/lib/python3.12/dist-packages/torch/__init__.py:1264: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /pytorch/torch/csrc/tensor/python_tensor.cpp:434.)
+  _C._set_default_tensor_type(t)
+/mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/predict_pose_refine.py:190: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.amp):
+Module Utils 65dffc6 load on device 'cuda:2' took 1.25 ms  (cached)
+/usr/local/lib/python3.12/dist-packages/torch/__init__.py:1264: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /pytorch/torch/csrc/tensor/python_tensor.cpp:434.)
+  _C._set_default_tensor_type(t)
+/mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/predict_pose_refine.py:190: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.amp):
+Module Utils 65dffc6 load on device 'cuda:7' took 0.80 ms  (cached)
+/usr/local/lib/python3.12/dist-packages/torch/__init__.py:1264: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /pytorch/torch/csrc/tensor/python_tensor.cpp:434.)
+  _C._set_default_tensor_type(t)
+/mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/predict_pose_refine.py:190: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.amp):
+Module Utils 65dffc6 load on device 'cuda:6' took 0.71 ms  (cached)
+/usr/local/lib/python3.12/dist-packages/torch/__init__.py:1264: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /pytorch/torch/csrc/tensor/python_tensor.cpp:434.)
+  _C._set_default_tensor_type(t)
+/mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/predict_pose_refine.py:190: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.amp):
+{"loss": 0.12424067407846451, "translation": 0.013286148896440864, "rotation": 0.11444412171840668, "points": 0.052658299915492535, "pose_loss": 0.1231665126979351, "basin_loss": 0.1074160523712635, "update_rotation_rad": 0.1338960099965334, "update_center_norm": 0.09648441709578037, "render_time": 1.4064433680614457, "forward_time": 1.3412005900172517, "backward_time": 22.548066099989228, "fp_transition_time": 80.00670751079451, "rotation_clipped": 0.00390625, "translation_clipped": 0.0, "data_time": 2.7166365740122274, "step": 20001, "rank": 0, "run_id": "basin_boundary_v3_ddp_probe", "rollout": 4, "history_mode": "lip_fp", "history_probs": [0.3904761904761905, 0.29523809523809524, 0.3142857142857143], "basin_weight": 0.01, "grad_norm": 1.42220139503479, "scheduler_step": 20001, "sampler_position": 20001, "samples_seen": 5120256, "effective_batch": 256, "clips_per_sec": 0.29369547138563984, "observed_frames_per_sec": 9.398255084340475, "peak_memory_bytes": 22854809088, "elapsed": 108.95639571500942, "nonfinite_count": 0, "lrs": [5.87123629332048e-05, 5.87123629332048e-06, 5.87123629332048e-06, 5.87123629332048e-05]}
+{"loss": 0.0916743129491806, "translation": 0.006999880657531321, "rotation": 0.09439274668693542, "points": 0.03677496965974569, "pose_loss": 0.0909712202847004, "basin_loss": 0.07030921243131161, "update_rotation_rad": 0.06567423790693283, "update_center_norm": 0.05821739137172699, "render_time": 0.44460280099883676, "forward_time": 0.3335329759865999, "backward_time": 0.6191804381087422, "fp_transition_time": 0.0, "rotation_clipped": 0.0, "translation_clipped": 0.03515625, "data_time": 0.000572583987377584, "step": 20002, "rank": 0, "run_id": "basin_boundary_v3_ddp_probe", "rollout": 4, "history_mode": "lip_only", "history_probs": [0.3904666666666667, 0.29523333333333335, 0.3143], "basin_weight": 0.01, "grad_norm": 0.5557256937026978, "scheduler_step": 20002, "sampler_position": 20002, "samples_seen": 5120512, "effective_batch": 256, "clips_per_sec": 22.27374955767556, "observed_frames_per_sec": 712.759985845618, "peak_memory_bytes": 22856453120, "elapsed": 1.4366687529254705, "nonfinite_count": 0, "lrs": [5.870865529478098e-05, 5.870865529478098e-06, 5.870865529478098e-06, 5.870865529478098e-05]}
+{"loss": 0.09734256379306316, "translation": 0.00855786947067827, "rotation": 0.09848983958363533, "points": 0.03888048883527517, "pose_loss": 0.09668327867984772, "basin_loss": 0.06592846289277077, "update_rotation_rad": 0.11214854940772057, "update_center_norm": 0.09485345147550106, "render_time": 0.44436681596562266, "forward_time": 0.3330846179742366, "backward_time": 0.6107448550174013, "fp_transition_time": 0.0, "rotation_clipped": 0.0, "translation_clipped": 0.0, "data_time": 0.0004607649752870202, "step": 20003, "rank": 0, "run_id": "basin_boundary_v3_ddp_probe", "rollout": 4, "history_mode": "lip_only", "history_probs": [0.3904571428571429, 0.2952285714285714, 0.3143142857142857], "basin_weight": 0.01, "grad_norm": 0.4387524425983429, "scheduler_step": 20003, "sampler_position": 20003, "samples_seen": 5120768, "effective_batch": 256, "clips_per_sec": 22.39695743594605, "observed_frames_per_sec": 716.7026379502736, "peak_memory_bytes": 22856453120, "elapsed": 1.4287654960062355, "nonfinite_count": 0, "lrs": [5.8704947631008845e-05, 5.870494763100885e-06, 5.870494763100885e-06, 5.8704947631008845e-05]}
+{"loss": 0.09711376018822193, "translation": 0.009910218883305788, "rotation": 0.0900152362883091, "points": 0.041436683386564255, "pose_loss": 0.0963545199483633, "basin_loss": 0.07592382095754147, "update_rotation_rad": 0.1043151244521141, "update_center_norm": 0.09192693419754505, "render_time": 0.5606385440332815, "forward_time": 0.33476094191428274, "backward_time": 0.6117652958491817, "fp_transition_time": 0.0, "rotation_clipped": 0.0, "translation_clipped": 0.0, "data_time": 0.00044647499453276396, "step": 20004, "rank": 0, "run_id": "basin_boundary_v3_ddp_probe", "rollout": 4, "history_mode": "noisy_gt", "history_probs": [0.3904476190476191, 0.29522380952380955, 0.31432857142857146], "basin_weight": 0.01, "grad_norm": 0.9544681310653687, "scheduler_step": 20004, "sampler_position": 20004, "samples_seen": 5121024, "effective_batch": 256, "clips_per_sec": 20.682025133085826, "observed_frames_per_sec": 661.8248042587464, "peak_memory_bytes": 22856453120, "elapsed": 1.5472372649237514, "nonfinite_count": 0, "lrs": [5.8701239941913736e-05, 5.870123994191373e-06, 5.870123994191373e-06, 5.8701239941913736e-05]}
+{"loss": 0.09371510334312916, "translation": 0.008577559376135468, "rotation": 0.09268658794462681, "points": 0.03797121345996857, "pose_loss": 0.09289206564426422, "basin_loss": 0.08230364322662354, "update_rotation_rad": 0.12966354936361313, "update_center_norm": 0.1152794100344181, "render_time": 0.5596383828669786, "forward_time": 0.3357536819530651, "backward_time": 0.6110435201553628, "fp_transition_time": 0.0, "rotation_clipped": 0.00390625, "translation_clipped": 0.00390625, "data_time": 0.0004696679534390569, "step": 20005, "rank": 0, "run_id": "basin_boundary_v3_ddp_probe", "rollout": 4, "history_mode": "noisy_gt", "history_probs": [0.39043809523809525, 0.2952190476190476, 0.3143428571428571], "basin_weight": 0.01, "grad_norm": 0.6622589230537415, "scheduler_step": 20005, "sampler_position": 20005, "samples_seen": 5121280, "effective_batch": 256, "clips_per_sec": 20.69719976560517, "observed_frames_per_sec": 662.3103924993654, "peak_memory_bytes": 22856453120, "elapsed": 1.5461028720019385, "nonfinite_count": 0, "lrs": [5.8697532227521024e-05, 5.869753222752103e-06, 5.869753222752103e-06, 5.8697532227521024e-05]}
+{"loss": 0.09482387639582157, "translation": 0.008898137835785747, "rotation": 0.09403843618929386, "points": 0.03808159613981843, "pose_loss": 0.09399895370006561, "basin_loss": 0.08249225839972496, "update_rotation_rad": 0.0721744243055582, "update_center_norm": 0.08860412798821926, "render_time": 0.44761735387146473, "forward_time": 0.333670269115828, "backward_time": 0.6108608589274809, "fp_transition_time": 0.0, "rotation_clipped": 0.0, "translation_clipped": 0.0, "data_time": 0.00048645108472555876, "step": 20006, "rank": 0, "run_id": "basin_boundary_v3_ddp_probe", "rollout": 4, "history_mode": "lip_only", "history_probs": [0.39042857142857146, 0.2952142857142857, 0.31435714285714284], "basin_weight": 0.01, "grad_norm": 0.6651131510734558, "scheduler_step": 20006, "sampler_position": 20006, "samples_seen": 5121536, "effective_batch": 256, "clips_per_sec": 22.348796276459254, "observed_frames_per_sec": 715.1614808466961, "peak_memory_bytes": 22856453120, "elapsed": 1.4318444539094344, "nonfinite_count": 0, "lrs": [5.869382448785601e-05, 5.869382448785601e-06, 5.869382448785601e-06, 5.869382448785601e-05]}

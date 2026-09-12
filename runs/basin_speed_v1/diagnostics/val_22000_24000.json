@@ -1,0 +1,182 @@
+{
+  "scope": "Matched saved pure-LIP closed-loop predictions; descriptive diagnosis, not a treatment-effect experiment",
+  "population": {
+    "frames": 584,
+    "streams": 8,
+    "objects": 8
+  },
+  "macro_add_drop_pp": 12.012012012012008,
+  "objects": [
+    {
+      "object_id": 1,
+      "name": "master_chef_can",
+      "frames": 74,
+      "before": {
+        "add_01": 1.0,
+        "adds_01": 1.0,
+        "rotation_deg": 7.338275264507948,
+        "center_mm": 5.8947958893703625
+      },
+      "after": {
+        "add_01": 0.7837837837837838,
+        "adds_01": 1.0,
+        "rotation_deg": 15.37176717568485,
+        "center_mm": 5.61604259726186
+      },
+      "macro_add_drop_pp": 2.7027027027027026,
+      "fraction_of_total_drop": 0.22500000000000006
+    },
+    {
+      "object_id": 2,
+      "name": "cracker_box",
+      "frames": 74,
+      "before": {
+        "add_01": 1.0,
+        "adds_01": 1.0,
+        "rotation_deg": 2.6598869499026465,
+        "center_mm": 4.915364094077985
+      },
+      "after": {
+        "add_01": 1.0,
+        "adds_01": 1.0,
+        "rotation_deg": 2.3580106623650603,
+        "center_mm": 6.4117714279547195
+      },
+      "macro_add_drop_pp": 0.0,
+      "fraction_of_total_drop": 0.0
+    },
+    {
+      "object_id": 3,
+      "name": "sugar_box",
+      "frames": 72,
+      "before": {
+        "add_01": 1.0,
+        "adds_01": 1.0,
+        "rotation_deg": 3.553174230626009,
+        "center_mm": 3.9010201159110736
+      },
+      "after": {
+        "add_01": 1.0,
+        "adds_01": 1.0,
+        "rotation_deg": 2.5428009047410733,
+        "center_mm": 3.4445729088411006
+      },
+      "macro_add_drop_pp": 0.0,
+      "fraction_of_total_drop": 0.0
+    },
+    {
+      "object_id": 4,
+      "name": "tomato_soup_can",
+      "frames": 74,
+      "before": {
+        "add_01": 0.7432432432432432,
+        "adds_01": 1.0,
+        "rotation_deg": 5.512291296486044,
+        "center_mm": 8.22696790597436
+      },
+      "after": {
+        "add_01": 0.5675675675675675,
+        "adds_01": 1.0,
+        "rotation_deg": 10.333568442936397,
+        "center_mm": 8.17815167490592
+      },
+      "macro_add_drop_pp": 2.1959459459459456,
+      "fraction_of_total_drop": 0.18281250000000004
+    },
+    {
+      "object_id": 5,
+      "name": "mustard_bottle",
+      "frames": 74,
+      "before": {
+        "add_01": 0.7027027027027027,
+        "adds_01": 1.0,
+        "rotation_deg": 16.917367456737402,
+        "center_mm": 5.307124849685023
+      },
+      "after": {
+        "add_01": 0.6891891891891891,
+        "adds_01": 1.0,
+        "rotation_deg": 17.252788751967476,
+        "center_mm": 5.976311912129746
+      },
+      "macro_add_drop_pp": 0.16891891891891997,
+      "fraction_of_total_drop": 0.014062500000000092
+    },
+    {
+      "object_id": 6,
+      "name": "tuna_fish_can",
+      "frames": 72,
+      "before": {
+        "add_01": 0.5277777777777778,
+        "adds_01": 0.9722222222222222,
+        "rotation_deg": 13.48733065888844,
+        "center_mm": 5.385406923445704
+      },
+      "after": {
+        "add_01": 0.4722222222222222,
+        "adds_01": 1.0,
+        "rotation_deg": 14.023283032839466,
+        "center_mm": 4.836708277968843
+      },
+      "macro_add_drop_pp": 0.6944444444444448,
+      "fraction_of_total_drop": 0.057812500000000044
+    },
+    {
+      "object_id": 7,
+      "name": "pudding_box",
+      "frames": 72,
+      "before": {
+        "add_01": 0.6666666666666666,
+        "adds_01": 0.8194444444444444,
+        "rotation_deg": 7.98383079554573,
+        "center_mm": 13.609398201041666
+      },
+      "after": {
+        "add_01": 0.5694444444444444,
+        "adds_01": 0.7361111111111112,
+        "rotation_deg": 10.830487044245707,
+        "center_mm": 17.142094745076783
+      },
+      "macro_add_drop_pp": 1.2152777777777777,
+      "fraction_of_total_drop": 0.10117187500000002
+    },
+    {
+      "object_id": 8,
+      "name": "gelatin_box",
+      "frames": 72,
+      "before": {
+        "add_01": 0.9305555555555556,
+        "adds_01": 1.0,
+        "rotation_deg": 6.25320118809322,
+        "center_mm": 3.789596677404532
+      },
+      "after": {
+        "add_01": 0.5277777777777778,
+        "adds_01": 1.0,
+        "rotation_deg": 37.18041103214624,
+        "center_mm": 4.4596358568626515
+      },
+      "macro_add_drop_pp": 5.034722222222222,
+      "fraction_of_total_drop": 0.41914062500000016
+    }
+  ],
+  "top3_fraction_of_drop": 0.8269531250000003,
+  "gelatin_late_segment": {
+    "22000": {
+      "frames": 26,
+      "rotation_deg": 9.45407265806416,
+      "center_mm": 4.046025934284992,
+      "adds_success": 1.0
+    },
+    "24000": {
+      "frames": 26,
+      "rotation_deg": 89.74634242505068,
+      "center_mm": 4.536288071268791,
+      "adds_success": 1.0
+    }
+  },
+  "predictions_sha256": {
+    "22000": "f80618315be175aee2f34ca0483b783b41b0d9c49811c0f7ba3947eaa5d5a786",
+    "24000": "e13bd60d50d3bdb0c77d3a5271859da459a08a439c12bc9e19f2b846799a8386"
+  }
+}

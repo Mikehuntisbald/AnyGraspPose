@@ -1,0 +1,23 @@
+{
+  "layout": "consolidated_frame_candidate_arrays",
+  "frames": 2048,
+  "data_sha256": "d2a4d5c81496db23786dbaf0d1c5f41a86dc550e354f143d8a4ca7e172eca833",
+  "source_data_sha256": "fd63d3d43c5ac1e23e04b13c9bbae2ff2f3b6e085f5c13cc779c5bfda50ee803",
+  "label_policy": {
+    "primary_error": "adds_over_d",
+    "tau": 0.1,
+    "improve_margin": 0.005,
+    "converge_rule": "e_after < tau",
+    "improve_rule": "e_after < e_before - margin",
+    "delta_rule": "e_before - e_after; positive means improvement",
+    "pose_frame": "object mesh-centered to camera; original-mesh aliases also stored",
+    "center_error": "Euclidean error of mesh center in camera coordinates, millimeters",
+    "rotation_error": "canonical SO(3) geodesic angle, degrees; no symmetry minimization"
+  },
+  "fp_rerun": false,
+  "candidates": 12288,
+  "converge": 11391,
+  "improve": 3837,
+  "both": 3801,
+  "regressed": 7055
+}

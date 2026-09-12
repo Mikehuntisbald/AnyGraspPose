@@ -1,0 +1,63 @@
+Warp 1.17.0 initialized:
+   CUDA Toolkit 12.9, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+   Kernel cache:
+     /root/.cache/warp/1.17.0
+[__init__()] welcome
+[__init__()] self.cfg: 
+ lr: 0.0001
+c_in: 6
+zfar: .inf
+debug: null
+w_rot: 0.1
+n_view: 1
+run_id: null
+use_BN: true
+rot_rep: axis_angle
+ckpt_dir: /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+exp_name: 2023-10-28-18-33-37
+save_dir: /tmp/2023-10-28-18-33-37/
+loss_type: l2
+optimizer: adam
+trans_rep: tracknet
+batch_size: 64
+crop_ratio: 1.2
+use_normal: false
+BN_momentum: 0.1
+max_num_key: null
+warmup_step: -1
+input_resize:
+- 160
+- 160
+max_step_val: 1000
+normal_uint8: false
+vis_interval: 1000
+weight_decay: 0
+n_max_objects: null
+normalize_xyz: true
+clip_grad_norm: 'Infinity'
+rot_normalizer: 0.3490658503988659
+trans_normalizer:
+- 0.019999999552965164
+- 0.019999999552965164
+- 0.05000000074505806
+max_step_per_epoch: 25000
+val_epoch_interval: 10
+n_dataloader_workers: 60
+enable_amp: true
+use_mask: false
+
+[__init__()] self.h5_file:
+[__init__()] Using pretrained model from /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+[__init__()] init done
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 0}
+{"mode": "noisy_gt", "batch": 32, "rollout": 4, "seconds": 6.376312971115112, "peak_bytes": 19639520256, "fp_frozen": true, "lip_gradients_finite": true, "loss": 0.09791372530162334, "translation": 0.008002036716789007, "rotation": 0.10136646963655949, "points": 0.03922845050692558, "update_rotation_rad": 0.12487142905592918, "update_center_norm": 0.129680298268795, "render_time": 3.7792059478815645, "forward_time": 0.8458722659852356, "backward_time": 1.2094423411181197, "fp_transition_time": 0.0, "rotation_clipped": 0.01171875, "translation_clipped": 0.0}
+{"mode": "lip_only", "batch": 32, "rollout": 4, "seconds": 6.296444892883301, "peak_bytes": 19639424000, "fp_frozen": true, "lip_gradients_finite": true, "loss": 0.12638046592473984, "translation": 0.01318179676309228, "rotation": 0.11756840348243713, "points": 0.054414466954767704, "update_rotation_rad": 0.10032760538160801, "update_center_norm": 0.12113413959741592, "render_time": 4.656849957886152, "forward_time": 0.5402731508947909, "backward_time": 0.9872504951199517, "fp_transition_time": 0.0, "rotation_clipped": 0.01171875, "translation_clipped": 0.0}
+Module Utils 65dffc6 load on device 'cuda:0' took 2.45 ms  (cached)
+/usr/local/lib/python3.12/dist-packages/torch/__init__.py:1264: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /pytorch/torch/csrc/tensor/python_tensor.cpp:434.)
+  _C._set_default_tensor_type(t)
+/mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/predict_pose_refine.py:190: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.amp):
+{"mode": "lip_fp", "batch": 32, "rollout": 4, "seconds": 105.85812711715698, "peak_bytes": 22907900416, "fp_frozen": true, "lip_gradients_finite": true, "loss": 0.1830237526446581, "translation": 0.024155400693416595, "rotation": 0.15768345817923546, "points": 0.08002662099897861, "update_rotation_rad": 0.1089652981609106, "update_center_norm": 0.14017690531909466, "render_time": 3.022348802885972, "forward_time": 0.5513382260687649, "backward_time": 1.1281247108709067, "fp_transition_time": 100.46149175404571, "rotation_clipped": 0.01171875, "translation_clipped": 0.0}

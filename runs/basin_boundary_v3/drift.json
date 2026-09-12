@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "checks": {
+    "order": true,
+    "population": true,
+    "converge_nll": true,
+    "converge_brier": true,
+    "converge_auroc": true,
+    "improve_nll": true,
+    "improve_brier": true,
+    "improve_auroc": true
+  },
+  "metrics": {
+    "converge": {
+      "auroc": 0.9135461860610616,
+      "nll": 0.29893001914024353,
+      "brier": 0.09663688391447067
+    },
+    "improve": {
+      "auroc": 0.7814460696796572,
+      "nll": 0.5545958876609802,
+      "brier": 0.1859109252691269
+    },
+    "quality_frames": 300,
+    "quality_pair_accuracy": 0.8836141649298588,
+    "latent_cosine_mean": 0.9677809219807386
+  },
+  "frames": 320,
+  "actor_step": 20000,
+  "actor_sha256": "1858c87f6642c2ecab10dfc7edfdb4e59f263768d86decdb78e4843cae43b649",
+  "scope": "unchanged fresh labeled contexts, new actor z; no refit or threshold tuning"
+}

@@ -1,0 +1,9 @@
+{
+  "phase": "completed",
+  "frames_per_variant": 23200,
+  "variants": [
+    "legacy",
+    "stream_single",
+    "stream_dual"
+  ]
+}

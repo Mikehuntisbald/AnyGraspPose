@@ -1,0 +1,23 @@
+{
+  "scheduled": true,
+  "verified_utc": 1789090229.4324305,
+  "current_step": 30831,
+  "pause_step": 31000,
+  "pause_monitor_pid": 827605,
+  "evaluation_supervisor_pid": 827758,
+  "streams": 320,
+  "frames": 23200,
+  "methods": [
+    "LIP",
+    "LIP+FP"
+  ],
+  "initialization": "GT first frame only",
+  "history": "post-FP for hybrid",
+  "fp_iterations": 2,
+  "resume_after_evaluation": true,
+  "config_sha256": "269072c8c3931e4672532dfcccac2b87e089bd67c8274feb05cce6e4d78beb4d",
+  "resume_checkpoint": "runs/lip_fp_31000/resume_31000.pt",
+  "target_step": 40000,
+  "resume_policy": "Only after successful full paired evaluation; retain optimizer/scheduler/RNG state",
+  "updated_utc": 1789090652.1635292
+}

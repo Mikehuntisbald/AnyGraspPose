@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "config_sha256": "269072c8c3931e4672532dfcccac2b87e089bd67c8274feb05cce6e4d78beb4d",
+  "code_sha256": "9dfcd34cd43a8a5dde86eb5248590ae60fd690b2e95c70d1cbd0003f222dd2c3",
+  "tests": {
+    "tests": 45,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 1
+  },
+  "acceptance_scope": "functional equivalence, state restoration, finite DDP updates, bounded memory and throughput; not bitwise multi-step trajectories",
+  "trajectory_bitwise_equal": false,
+  "trajectory_diagnostic": "threaded_comparison.json",
+  "baseline_repeatability": "baseline_repeatability.json",
+  "limitation": "Specific source of initial ~1e-6 DDP gradient-norm discrepancy not isolated; it amplifies over BF16 closed-loop updates. Baseline 8-step repeat was exact. No accuracy-equivalence claim.",
+  "comparison_sha256": "fb950a460362fee2801b8e697c98201c8d28467e619056bd53ee0d9691ecfbf4",
+  "resume": "runs/basin_speed_v1/threaded/last.pt",
+  "resume_step": 21530,
+  "resume_sha256": "60985b08628c7ce8c4cdf6247f3f90b2d292a92b650dd0215a4347e0d2db5150",
+  "speedup": 2.005362498871299,
+  "only_config_changes": [
+    "decode_threads_per_worker",
+    "preload_rollout_observations",
+    "run_id"
+  ],
+  "rng_states_equal": true,
+  "input_audit_sha256": "5e0ac214321445edeaf30414f992acee521eb0733e469aed403a64758d77fc8a",
+  "gpu_equivalence_sha256": "1dc1d820dbdf72504e7cf5b5ae41f3644f3b64b4dfc5259afc65fb12ab50c57b"
+}

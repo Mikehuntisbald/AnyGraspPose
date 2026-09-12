@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "mode": "noisy_gt",
+      "clips": 8,
+      "rollout": 4,
+      "inputs_bitwise_equal": true,
+      "max_output_difference": 0.0,
+      "loss_difference": 0.0,
+      "gradient_relative_l2": 0.0,
+      "frozen_modules_have_no_gradients": true
+    },
+    {
+      "mode": "lip_only",
+      "clips": 8,
+      "rollout": 4,
+      "inputs_bitwise_equal": true,
+      "max_output_difference": 0.0,
+      "loss_difference": 0.0,
+      "gradient_relative_l2": 0.0,
+      "frozen_modules_have_no_gradients": true
+    },
+    {
+      "mode": "lip_fp",
+      "clips": 8,
+      "rollout": 4,
+      "inputs_bitwise_equal": true,
+      "max_output_difference": 0.0,
+      "loss_difference": 0.0,
+      "gradient_relative_l2": 0.0,
+      "frozen_modules_have_no_gradients": true
+    }
+  ]
+}

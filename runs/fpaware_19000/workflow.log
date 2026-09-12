@@ -1,0 +1,4 @@
+{"phase": "waiting_pause", "pid": 776993, "utc": "2026-09-10T08:27:52Z"}
+{"phase": "ddp_probe", "pid": 776993, "utc": "2026-09-10T08:33:07Z", "child_pid": 777183, "output": "/mnt/why/dexycb_lip/runs/fpaware_19000/ddp_probe"}
+{"phase": "preflight_passed", "pid": 776993, "utc": "2026-09-10T08:36:50Z"}
+{"phase": "training", "pid": 776993, "utc": "2026-09-10T08:36:50Z", "child_pid": 781909, "output": "/mnt/why/dexycb_lip/runs/lip_v1_s0"}

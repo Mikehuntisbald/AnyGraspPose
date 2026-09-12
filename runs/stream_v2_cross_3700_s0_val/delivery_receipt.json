@@ -1,0 +1,163 @@
+{
+  "passed": true,
+  "utc": "2026-09-12T06:22:09.788616+00:00",
+  "files_verified": 38,
+  "mismatches": [],
+  "checkpoint_sha256": "0d1a49fef8b88ed270a046094a36c02ac436f05e1b3e7eec357b7ca8aaa5dc4d",
+  "frames": 23200,
+  "streams": 320,
+  "files": [
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/checkpoint_receipt.json",
+      "sha256": "7f33e3aff3f85b805fe054bfead7799f67c4c8bb60514db5503c4ff7b8952797"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/comparison.json",
+      "sha256": "d9e081139e6102d7b18739a20c0760126490fe8a07a585585da9d16bce1c1a9b"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/comparison_source_audit.json",
+      "sha256": "7d977fd4a519346ae089ec61cf88074eaa2384f4868f431b06ad14afea3abbea"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/launch.json",
+      "sha256": "d11e43c3ebf5f2fe32d4b11f67c9328252287302b8cc7a20aead629500aa0ef8"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/manifest.json",
+      "sha256": "0f903dd37d343b1b480e87b0b40993959a352a66316538d7c0665685b0a0b139"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/metrics.json",
+      "sha256": "4205dd12b1277db87eb7fcf78c501c6e5e7ef920472d1212c37d19f0293fafaf"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/per_camera.csv",
+      "sha256": "3c6162ccb2a1019e8e108537b3da14b0b62c38a268762317b8c14d617a92e159"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/per_object.csv",
+      "sha256": "2c0b858115ee9230b565f4d769fe0caaaa005754399bc568a09cf775a4419208"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/per_stream_comparison.csv",
+      "sha256": "c90397d7e94f1be209f738918e93f0edd55ed833903b57b8740001b7f2d6f945"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/predictions.jsonl",
+      "sha256": "cf3348fa0629b752b93117ca05c4d13425a641d5beef4b0d37eb5e0fbedcfd2c"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank0/manifest.json",
+      "sha256": "7ee99baa0e11f9498c3802bad4210e4f45d2410d6d0adb4ea1ea56a0e46e39a2"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank0/metrics.json",
+      "sha256": "8287962e78c689d9165ad9eca00daa7cf62876f98f220947d0f516ad98c89bcd"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank0.log",
+      "sha256": "235037e86678c81a2c022b1eefae798dd2c2353475574c8e1f3ea0ecf780a4c2"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank1/manifest.json",
+      "sha256": "40c056ceba1c62046da9e63d6090c9319ac2c14a22d960fbfa01f32e6d1195c6"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank1/metrics.json",
+      "sha256": "01103ea04e5a75e14fa08dabb970b25e091097921559b10178c4f155b6ec0491"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank1.log",
+      "sha256": "e56265603e402ef1bf0e7d9363857bf79701068afa61d01b35fce58e3b73c440"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank2/manifest.json",
+      "sha256": "0c6c42af77cdd9fcbd1fcb136f7ea9a2514b14fd3a60798780b3e74952169f5a"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank2/metrics.json",
+      "sha256": "6c9f4b1bb4d3b3aec98966abc6bc1db41f65d9f10830c35b7075ca1b04c1a7f7"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank2.log",
+      "sha256": "6774751793bc9c199842879edf692089dfe819bf12b875799cbdf2b72fda79dd"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank3/manifest.json",
+      "sha256": "ebf35738767732bd672c526ca1e114a47e61cd81fabf33add288f22931088998"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank3/metrics.json",
+      "sha256": "25a62c90401c0b48f5cc081f3f5cd5aa52b49b89b21cdeec467023ca001c1670"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank3.log",
+      "sha256": "f987d3b75e19751a3a01274f73ad9cb00652ac2e19c470b63607cfa117967d67"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank4/manifest.json",
+      "sha256": "c134f3650d9de6fd898de7f44c092afb20f7ee4ee36169ea7b9e491213bd8dd1"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank4/metrics.json",
+      "sha256": "bc32427d9327eb47855a9af10baac3b1a208a4ba8fb3024113bc1ce8e215125d"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank4.log",
+      "sha256": "71f0fc4eab7015da6b0426d1e3ca2a5c5fd1ae85a11c3f5b3c4fa27a068a3e1a"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank5/manifest.json",
+      "sha256": "2267d575145954add9b3a7f3f0680aef21a024040b80746fc916b06171a6482f"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank5/metrics.json",
+      "sha256": "c7cfcdefa378daf573ffd4bc252bd3fcea7fbb62a3d02bb24c4921e37ac7d870"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank5.log",
+      "sha256": "dc65581a7053ef95fbd56a9063a8d1c5bb47cc82b827c2e05b84d5a96b1d2b66"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank6/manifest.json",
+      "sha256": "3bea0cbcf1c6f85a0c990b5fce68446a899a1c5e411fcf4f6a3d3793c4d1fe76"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank6/metrics.json",
+      "sha256": "f1421a0fc0dd835b344f5afd7d037f21c78898e6a3615c2c314911125d191936"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank6.log",
+      "sha256": "a4547f143e39705ccc170dbc178ee3facd806a9274dfe7515e579d372d842a4f"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank7/manifest.json",
+      "sha256": "229601d3d13fbec40f28efa2e21b4553a2c9d58315f2f878f16df753bf7529fc"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank7/metrics.json",
+      "sha256": "8954eff2961ba5e01fe179186622aa4cbe1bc69d35c4e537dd7456ba753bf196"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/rank7.log",
+      "sha256": "6288df252a82d0f87811ebb69129e3ad0cd7615d6457080d55db20e3ddd045bc"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/report.md",
+      "sha256": "930525f082260d93480b7ca4f812c737f06183da12212edf3ea4d79fac7ab084"
+    },
+    {
+      "path": "runs/stream_v2_cross_3700_s0_val/status.json",
+      "sha256": "47f227642e4b4d772f05792b9724f183adc5aa00a62d7a438b24c61f5e2d64d3"
+    },
+    {
+      "path": "tools/evaluate_saved_stream.py",
+      "sha256": "25f8ad511fa9336734a59c2727c8421fd3f1d9cecb8536cde5c2600ebeb60310"
+    },
+    {
+      "path": "tools/compare_stream_evaluations.py",
+      "sha256": "dc53e5773cf0a471fb3f72b7d7a6f0b35c625d2ced0f33ea2ce34b737fddaf63"
+    }
+  ]
+}

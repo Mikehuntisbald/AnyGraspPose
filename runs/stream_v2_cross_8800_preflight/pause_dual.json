@@ -1,0 +1,13 @@
+{
+  "checkpoint": "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_archive/checkpoint_8800.pt",
+  "checkpoint_sha256": "0d9fb0a42c6b1a3adb2673b964450b3d8bd2e900f92074d4ea594cdceb1111ce",
+  "saved_step": 8800,
+  "sampler_position": 563200,
+  "optimizer_and_rng_retained": true,
+  "launcher_pid": 860364,
+  "launcher_command": "/mnt/why/dexycb_lip/.venv-fp/bin/python -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=8 -m lip.train_stream --data-root /mnt/why/dexycb_lip/cache/raw_full_20260910 --config configs/stream_lip_v2_dual_5300_fast.yaml --init-from runs/stream_v2_dual_from_single_5300_init/init.pt --output runs/stream_v2_dual_from_single_5300 --max-steps 10000 ",
+  "source_sha256": "5ccca80a97c2a50a00819dc3d8d6f86c953eae1e8c7a799e45f85330340708e2",
+  "signal": "SIGTERM",
+  "stopped": true,
+  "time": 1789188343.5112832
+}

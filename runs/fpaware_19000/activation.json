@@ -1,0 +1,96 @@
+{
+  "activated": true,
+  "start_checkpoint": 19000,
+  "rank_states": [
+    {
+      "rank": 0,
+      "last_step": 19026,
+      "first_fp_step": 19001,
+      "modes": [
+        "lip_fp",
+        "lip_only",
+        "noisy_gt"
+      ],
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 1,
+      "last_step": 19027,
+      "first_fp_step": 19001,
+      "modes": [
+        "lip_fp",
+        "lip_only",
+        "noisy_gt"
+      ],
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 2,
+      "last_step": 19027,
+      "first_fp_step": 19001,
+      "modes": [
+        "lip_fp",
+        "lip_only",
+        "noisy_gt"
+      ],
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 3,
+      "last_step": 19027,
+      "first_fp_step": 19001,
+      "modes": [
+        "lip_fp",
+        "lip_only",
+        "noisy_gt"
+      ],
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 4,
+      "last_step": 19027,
+      "first_fp_step": 19001,
+      "modes": [
+        "lip_fp",
+        "lip_only",
+        "noisy_gt"
+      ],
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 5,
+      "last_step": 19027,
+      "first_fp_step": 19001,
+      "modes": [
+        "lip_fp",
+        "lip_only",
+        "noisy_gt"
+      ],
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 6,
+      "last_step": 19027,
+      "first_fp_step": 19001,
+      "modes": [
+        "lip_fp",
+        "lip_only",
+        "noisy_gt"
+      ],
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 7,
+      "last_step": 19028,
+      "first_fp_step": 19001,
+      "modes": [
+        "lip_fp",
+        "lip_only",
+        "noisy_gt"
+      ],
+      "nonfinite_count": 0
+    }
+  ],
+  "training_log": "runs/fpaware_19000/train.log",
+  "scope": "real formal continuation, not DDP preflight"
+}

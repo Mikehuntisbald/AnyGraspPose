@@ -1,0 +1,95 @@
+{
+  "running_verified": true,
+  "utc": 1789046418.959189,
+  "launcher_pid": 814286,
+  "rows": [
+    {
+      "rank": 0,
+      "step": 21545,
+      "scheduler_step": 21545,
+      "sampler_position": 21545,
+      "run_id": "basin_speed_v1",
+      "nonfinite_count": 0,
+      "history_mode": "noisy_gt",
+      "basin_weight": 0.01
+    },
+    {
+      "rank": 1,
+      "step": 21545,
+      "scheduler_step": 21545,
+      "sampler_position": 21545,
+      "run_id": "basin_speed_v1",
+      "nonfinite_count": 0,
+      "history_mode": "noisy_gt",
+      "basin_weight": 0.01
+    },
+    {
+      "rank": 2,
+      "step": 21545,
+      "scheduler_step": 21545,
+      "sampler_position": 21545,
+      "run_id": "basin_speed_v1",
+      "nonfinite_count": 0,
+      "history_mode": "noisy_gt",
+      "basin_weight": 0.01
+    },
+    {
+      "rank": 3,
+      "step": 21545,
+      "scheduler_step": 21545,
+      "sampler_position": 21545,
+      "run_id": "basin_speed_v1",
+      "nonfinite_count": 0,
+      "history_mode": "noisy_gt",
+      "basin_weight": 0.01
+    },
+    {
+      "rank": 4,
+      "step": 21545,
+      "scheduler_step": 21545,
+      "sampler_position": 21545,
+      "run_id": "basin_speed_v1",
+      "nonfinite_count": 0,
+      "history_mode": "noisy_gt",
+      "basin_weight": 0.01
+    },
+    {
+      "rank": 5,
+      "step": 21545,
+      "scheduler_step": 21545,
+      "sampler_position": 21545,
+      "run_id": "basin_speed_v1",
+      "nonfinite_count": 0,
+      "history_mode": "noisy_gt",
+      "basin_weight": 0.01
+    },
+    {
+      "rank": 6,
+      "step": 21545,
+      "scheduler_step": 21545,
+      "sampler_position": 21545,
+      "run_id": "basin_speed_v1",
+      "nonfinite_count": 0,
+      "history_mode": "noisy_gt",
+      "basin_weight": 0.01
+    },
+    {
+      "rank": 7,
+      "step": 21545,
+      "scheduler_step": 21545,
+      "sampler_position": 21545,
+      "run_id": "basin_speed_v1",
+      "nonfinite_count": 0,
+      "history_mode": "noisy_gt",
+      "basin_weight": 0.01
+    }
+  ],
+  "memory": {
+    "utc": 1789046409.8350828,
+    "phase": "training",
+    "usage": 187750219776,
+    "limit": 549755813888,
+    "rss": 85646254080,
+    "shmem": 17504993280
+  }
+}

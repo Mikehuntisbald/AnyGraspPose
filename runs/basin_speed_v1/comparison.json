@@ -1,0 +1,52 @@
+{
+  "passed": false,
+  "baseline": {
+    "mean_step_seconds": 8.109910173315173,
+    "median_step_seconds": 8.324545880954247,
+    "modes": {
+      "noisy_gt": {
+        "steps": 9,
+        "mean_seconds": 8.287085285785402
+      },
+      "lip_only": {
+        "steps": 10,
+        "mean_seconds": 7.276101068186108
+      },
+      "lip_fp": {
+        "steps": 3,
+        "mean_seconds": 10.357748519668045
+      }
+    },
+    "peak_gpu_bytes": 23906278400
+  },
+  "optimized": {
+    "mean_step_seconds": 4.038248295546509,
+    "median_step_seconds": 3.4723815455217846,
+    "modes": {
+      "noisy_gt": {
+        "steps": 9,
+        "mean_seconds": 3.6087801973335445
+      },
+      "lip_only": {
+        "steps": 10,
+        "mean_seconds": 3.1809961233986543
+      },
+      "lip_fp": {
+        "steps": 3,
+        "mean_seconds": 8.184159830678254
+      }
+    },
+    "peak_gpu_bytes": 28636632576
+  },
+  "speedup": 2.008274276314065,
+  "loss_max_abs_difference": 0.0030075684189796448,
+  "model_max_abs_difference": 0.0007765665650367737,
+  "optimizer_max_abs_difference": 0.0022439323365688324,
+  "scheduler_equal": true,
+  "sampler_equal": true,
+  "steps_per_rank": 30,
+  "world_size": 8,
+  "config_sha256": "8ff3899f6cad0c817e6acfa5e81649124b4a1bb04cb87be134567446f8ebe358",
+  "peak_container_bytes": 223350165504,
+  "source_checkpoint_sha256": "c3bb96aa491b82b0c248405e31b251d2dc7ec26a6629bae9bceb0747fff56712"
+}

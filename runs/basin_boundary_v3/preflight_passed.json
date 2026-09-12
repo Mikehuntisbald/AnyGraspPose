@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "ranks": [
+    {
+      "rank": 0,
+      "step": 20006,
+      "peak_bytes": 22856453120
+    },
+    {
+      "rank": 1,
+      "step": 20006,
+      "peak_bytes": 23261294080
+    },
+    {
+      "rank": 2,
+      "step": 20006,
+      "peak_bytes": 23058531328
+    },
+    {
+      "rank": 3,
+      "step": 20006,
+      "peak_bytes": 23682472960
+    },
+    {
+      "rank": 4,
+      "step": 20006,
+      "peak_bytes": 23261782016
+    },
+    {
+      "rank": 5,
+      "step": 20006,
+      "peak_bytes": 22876057600
+    },
+    {
+      "rank": 6,
+      "step": 20006,
+      "peak_bytes": 23061436928
+    },
+    {
+      "rank": 7,
+      "step": 20006,
+      "peak_bytes": 22673928704
+    }
+  ],
+  "config_sha256": "881920ebf8d33f89f4e0440979bae916086395c50e430b2d7b731c35e8e3ca9d",
+  "critic_sha256": "d984e7dec99239610b338d53130c130a02eab9dfe3ac519ee4dade8615615a9a",
+  "resume_step": 20000,
+  "scope": "critic quality plus current-actor drift plus real batch32 gradients plus 8-GPU full-lambda short run"
+}

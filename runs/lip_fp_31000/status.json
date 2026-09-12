@@ -1,0 +1,18 @@
+{
+  "phase": "training_resumed_after_evaluation",
+  "utc": 1789091589.491208,
+  "supervisor_pid": 830794,
+  "launcher_pid": 830797,
+  "checkpoint": "/mnt/why/dexycb_lip/runs/lip_fp_31000/resume_31000.pt",
+  "verified_steps": [
+    31001,
+    31001,
+    31001,
+    31001,
+    31001,
+    31001,
+    31001,
+    31001
+  ],
+  "target_step": 40000
+}

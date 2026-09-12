@@ -1,0 +1,4 @@
+batch_feature_errors cpu {'rgb': 0.0, 'geometry': 0.0, 'state_input': 0.0, 'source_xy': 0.0, 'T_base_centered': 0.0, 'object_diameter_m': 0.0, 'mesh_center': 0.0}
+.batch_training_gradient_max_abs 0.0
+......
+7 passed, 1 deselected in 7.68s

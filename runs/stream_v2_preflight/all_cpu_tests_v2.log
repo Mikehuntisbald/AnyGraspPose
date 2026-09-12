@@ -1,0 +1,18 @@
+..{"event": "stage_start", "utc": "2026-09-11T19:05:30Z", "stage": "failed_preflight", "command": ["/mnt/why/dexycb_lip/.venv-fp/bin/python", "-c", "raise SystemExit(3)"]}
+.................................{"completed_stream": "subject/sequence/camera", "frames": 7}
+{"completed_stream": "subject/sequence/camera", "frames": 7}
+.{"completed_stream": "subject/sequence/camera", "frames": 3}
+.{"completed_stream": "subject/sequence/camera", "frames": 3}
+........{"test": "cache_reference", "frames": 1, "dual": false, "max_abs": 0.0}
+.{"test": "cache_reference", "frames": 2, "dual": false, "max_abs": 7.152557373046875e-07}
+.{"test": "cache_reference", "frames": 8, "dual": false, "max_abs": 7.152557373046875e-07}
+.{"test": "cache_reference", "frames": 9, "dual": false, "max_abs": 9.5367431640625e-07}
+.{"test": "cache_reference", "frames": 32, "dual": false, "max_abs": 9.5367431640625e-07}
+.{"test": "cache_reference", "frames": 1, "dual": true, "max_abs": 0.0}
+.{"test": "cache_reference", "frames": 2, "dual": true, "max_abs": 8.344650268554688e-07}
+.{"test": "cache_reference", "frames": 8, "dual": true, "max_abs": 9.5367431640625e-07}
+.{"test": "cache_reference", "frames": 9, "dual": true, "max_abs": 9.5367431640625e-07}
+.{"test": "cache_reference", "frames": 32, "dual": true, "max_abs": 9.5367431640625e-07}
+.{"test": "cache_gradient_reference", "max_abs": 1.1920928955078125e-07}
+............
+67 passed, 2 deselected in 11.14s

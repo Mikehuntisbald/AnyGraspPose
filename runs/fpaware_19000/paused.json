@@ -1,0 +1,6 @@
+{
+  "checkpoint_step": 19000,
+  "scheduler_step": 19000,
+  "sampler_position": 19000,
+  "reason": "user requested FP-aware rollout; awaiting verified implementation"
+}

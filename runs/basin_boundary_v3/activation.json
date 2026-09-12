@@ -1,0 +1,68 @@
+{
+  "activated": true,
+  "quality_policy": "validated",
+  "source_checkpoint_step": 20000,
+  "replayed_unsaved_steps": 285,
+  "lambda_max": 0.01,
+  "warmup_steps": 1000,
+  "live_process": 797264,
+  "rank_states": [
+    {
+      "rank": 0,
+      "step": 20016,
+      "basin_weight": 0.00015,
+      "basin_loss": 0.14597473293542862,
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 1,
+      "step": 20016,
+      "basin_weight": 0.00015,
+      "basin_loss": 0.08008185774087906,
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 2,
+      "step": 20016,
+      "basin_weight": 0.00015,
+      "basin_loss": 0.08193538710474968,
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 3,
+      "step": 20016,
+      "basin_weight": 0.00015,
+      "basin_loss": 0.10871069692075253,
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 4,
+      "step": 20016,
+      "basin_weight": 0.00015,
+      "basin_loss": 0.09365374967455864,
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 5,
+      "step": 20017,
+      "basin_weight": 0.00016,
+      "basin_loss": 0.08540483191609383,
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 6,
+      "step": 20017,
+      "basin_weight": 0.00016,
+      "basin_loss": 0.1664859652519226,
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 7,
+      "step": 20017,
+      "basin_weight": 0.00016,
+      "basin_loss": 0.12232749909162521,
+      "nonfinite_count": 0
+    }
+  ],
+  "log": "runs/basin_boundary_v3/train.log"
+}

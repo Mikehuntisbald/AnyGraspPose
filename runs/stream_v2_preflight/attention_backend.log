@@ -1,0 +1,4 @@
+{
+  "spatial_fusion:aten::_scaled_dot_product_flash_attention": 2,
+  "temporal_readout:aten::_scaled_dot_product_efficient_attention": 4
+}

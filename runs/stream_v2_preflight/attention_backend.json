@@ -1,0 +1,11 @@
+{
+  "completed": true,
+  "checkpoint_sha256": "e09a3c2daaf4b64b8ad198ec3be0b20249fb4648e43b4dbf8ee904aad4ef334a",
+  "stream_id": "20200709-subject-01/20200709_142123/836212060125",
+  "attention_operators": {
+    "spatial_fusion:aten::_scaled_dot_product_flash_attention": 2,
+    "temporal_readout:aten::_scaled_dot_product_efficient_attention": 4
+  },
+  "cache_bytes": 557056,
+  "scope": "One warmed frame with 8-frame KV; profiler latency is not used in benchmark results"
+}

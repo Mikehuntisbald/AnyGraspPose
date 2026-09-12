@@ -1,4 +1,32 @@
-# AnyGraspPose — DexYCB-LIP v1
+# AnyGraspPose: RGB-D temporal object pose estimation
+
+This repository contains the original LIP/FP experiments and three independently trainable streaming architectures: `stream_single`, `stream_dual`, and `stream_dual_cross` (object-to-context cross-attention with a gated residual). No MANO or explicit hand supervision is required. Streaming defaults disable FoundationPose and the basin critic.
+
+See [release stages](docs/RELEASE_STAGES.md) for the ordered implementation history and [artifact policy](docs/EXPERIMENT_ARTIFACTS.md) for what is included in Git. Experiment reports are dated snapshots: their original Git state, checkpoint availability, and running-job statements describe the time of the experiment, not a live deployment status.
+
+- [Streaming implementation and preflight](docs/STREAMING_LIP_V2.md)
+- [Eight-GPU training optimization](docs/STREAM_DUAL_5300_TRAINING.md)
+- [Cross-attention architecture, migration, and training](docs/STREAM_CROSS_8800_TRAINING.md)
+- [Matched 320-stream / 23,200-frame validation](runs/stream_v2_cross_3700_s0_val/report.md)
+
+Saved standalone s0 val results, excluding initialization and using object-macro averages:
+
+| Checkpoint | ADD@0.1d | ADD-S@0.1d | Center mean | Rotation mean |
+|---|---:|---:|---:|---:|
+| V1 34,700 | 81.36% | 96.92% | 10.02 mm | 11.64° |
+| stream single 5,300 | 81.12% | 96.85% | 9.92 mm | 12.74° |
+| stream dual 6,100 | 80.74% | 96.56% | 10.00 mm | 12.81° |
+| stream cross 3,700 | 80.55% | 96.53% | 10.05 mm | 13.65° |
+
+Training budgets and warm-start lineages differ; these results do not establish an architectural benefit. The cross model starts from dual 8,800, not the dual 6,100 comparison checkpoint. Models use first-frame GT initialization, then closed-loop predictions with no FP or later GT resets.
+
+Install the core project and CPU test dependencies with `pip install -e '.[test]'`; plotting/critic analysis tools use `.[analysis]`. CUDA rendering requires the existing nvdiffrast/FP environment described below. Data and pretrained checkpoints are external; set `DEX_YCB_DIR`, adapt the recorded experiment paths in configs, migrate weights, and run the matching architecture preflight before a new training stage.
+
+## Historical V1 bring-up notes
+
+The following original notes include the September 10 partial-data bring-up. Later full-data streaming experiments and their verified populations are documented above; do not interpret the historical partial-data gate as the current full s0 experiment scope.
+
+### Original DexYCB-LIP v1 implementation
 
 An implemented deterministic RGB-D temporal object-pose updater. This is a new engineering model, not a claim of reproducing a published method. See [the frozen task](docs/TASK.md), [the matched FoundationPose comparison](runs/fp_baseline_20260910/REPORT.md), and [the baseline protocol](docs/foundationpose_baseline.md). Historical subset reports are retained as historical diagnostics.
 

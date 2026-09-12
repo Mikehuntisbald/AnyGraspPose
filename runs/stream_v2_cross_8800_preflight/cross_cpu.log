@@ -1,0 +1,8 @@
+.cross_reference 1 0.0
+.cross_reference 2 2.384185791015625e-07
+.cross_reference 8 2.384185791015625e-07
+.cross_reference 9 2.384185791015625e-07
+.cross_reference 32 2.384185791015625e-07
+.cross_gradient_max_abs 9.313225746154785e-10
+.............
+19 passed in 8.36s

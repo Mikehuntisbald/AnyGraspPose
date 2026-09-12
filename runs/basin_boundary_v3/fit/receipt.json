@@ -1,0 +1,124 @@
+{
+  "passed": true,
+  "checks": {
+    "converge_auroc": true,
+    "converge_nll": true,
+    "converge_brier": true,
+    "improve_auroc": true,
+    "improve_nll": true,
+    "improve_brier": true,
+    "quality_population": true,
+    "quality_order": true
+  },
+  "metrics": {
+    "train": {
+      "converge": {
+        "auroc": 0.937352505394947,
+        "nll": 0.26805830001831055,
+        "brier": 0.08550556004047394,
+        "constant_nll": 0.48652032861996203,
+        "constant_brier": 0.15402717888355255,
+        "positive": 11525,
+        "negative": 2707
+      },
+      "improve": {
+        "auroc": 0.8443703983957367,
+        "nll": 0.48208779096603394,
+        "brier": 0.15887650847434998,
+        "constant_nll": 0.6683225239793305,
+        "constant_brier": 0.237690731883049,
+        "positive": 5537,
+        "negative": 8695
+      },
+      "frames": 1635,
+      "quality_frames": 1502,
+      "quality_pairs": 31932,
+      "quality_pair_accuracy": 0.8838165066721755,
+      "binary_mixed_frames": 963,
+      "binary_pair_accuracy": 0.9666691390990457,
+      "log_after_mae": 0.5166392922401428
+    },
+    "calibration": {
+      "converge": {
+        "auroc": 0.9201455690242032,
+        "nll": 0.28480276465415955,
+        "brier": 0.09069684892892838,
+        "constant_nll": 0.46916274248279805,
+        "constant_brier": 0.14660345017910004,
+        "positive": 1434,
+        "negative": 311
+      },
+      "improve": {
+        "auroc": 0.7856306135773815,
+        "nll": 0.5547637343406677,
+        "brier": 0.18268853425979614,
+        "constant_nll": 0.671969816792716,
+        "constant_brier": 0.239484041929245,
+        "positive": 693,
+        "negative": 1052
+      },
+      "frames": 197,
+      "quality_frames": 182,
+      "quality_pairs": 3754,
+      "quality_pair_accuracy": 0.9088050822762654,
+      "binary_mixed_frames": 125,
+      "binary_pair_accuracy": 0.976727619047619,
+      "log_after_mae": 0.5702323317527771
+    },
+    "test": {
+      "converge": {
+        "auroc": 0.9186042226600696,
+        "nll": 0.29573097825050354,
+        "brier": 0.09638577699661255,
+        "constant_nll": 0.49189860062149154,
+        "constant_brier": 0.15632741153240204,
+        "positive": 2253,
+        "negative": 542
+      },
+      "improve": {
+        "auroc": 0.7828679733727811,
+        "nll": 0.5582334995269775,
+        "brier": 0.18445929884910583,
+        "constant_nll": 0.6753619745352595,
+        "constant_brier": 0.24115188419818878,
+        "positive": 1131,
+        "negative": 1664
+      },
+      "frames": 320,
+      "quality_frames": 300,
+      "quality_pairs": 6060,
+      "quality_pair_accuracy": 0.886088850883638,
+      "binary_mixed_frames": 194,
+      "binary_pair_accuracy": 0.9672569955817378,
+      "log_after_mae": 0.5850890278816223
+    }
+  },
+  "spec": {
+    "seed": 731,
+    "data": "runs/basin_boundary_v3/data",
+    "source_actor": "runs/fpaware_19000/resume.pt",
+    "batch_frames": 64,
+    "max_epochs": 150,
+    "patience": 20,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.001,
+    "log_after_weight": 0.3,
+    "pair_weight": 0.5,
+    "pair_margin_d": 0.005,
+    "min_quality_frames": 30,
+    "min_quality_pair_accuracy": 0.6,
+    "min_auroc": 0.7,
+    "basin_lambda_max": 0.01,
+    "basin_warmup_steps": 1000,
+    "validation_scope": "320 fresh frames from 70 physical sequences absent from all v1/v2 critic data; previous validation/test excluded from training"
+  },
+  "best_epoch": 11,
+  "temperatures": [
+    0.7852356433868408,
+    1.2302687168121338
+  ],
+  "data_sha256": "d6f2786426dfe134c7817c187cdb3d46d7a5502c2bfc7c1e4cbdd4d7ef2ed97e",
+  "source_actor_sha256": "dadf8321a88ed2de035a1e3857473e0b2a5b1dba78936c20ad57d4cee2ee763a",
+  "acceptance_change": "320 fresh frames from 70 physical sequences absent from all v1/v2 critic data; previous validation/test excluded from training",
+  "critic_sha256": "d984e7dec99239610b338d53130c130a02eab9dfe3ac519ee4dade8615615a9a"
+}

@@ -1,0 +1,13 @@
+{
+  "phase": "training",
+  "utc": 1789046199.796679,
+  "child_pid": 814286,
+  "resume": "runs/basin_speed_v1/threaded/last.pt",
+  "command": [
+    "bash",
+    "scripts/train_basin_fast.sh",
+    "--resume",
+    "runs/basin_speed_v1/threaded/last.pt"
+  ],
+  "run_id": "basin_speed_v1"
+}

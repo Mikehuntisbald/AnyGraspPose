@@ -1,0 +1,73 @@
+{
+  "launcher_alive": true,
+  "ranks_with_updates": 8,
+  "ranks": {
+    "0": {
+      "new_stage_step": 5,
+      "loss": 0.2465965747833252,
+      "grad_norm": 1.6688026189804077,
+      "seconds": 3.6478106200229377,
+      "peak_allocated": 3219017728,
+      "actual_supervised_frames_global": 1024
+    },
+    "1": {
+      "new_stage_step": 5,
+      "loss": 0.601318895816803,
+      "grad_norm": 1.6688026189804077,
+      "seconds": 3.647715023951605,
+      "peak_allocated": 3219062272,
+      "actual_supervised_frames_global": 1024
+    },
+    "2": {
+      "new_stage_step": 5,
+      "loss": 0.88038170337677,
+      "grad_norm": 1.6688026189804077,
+      "seconds": 3.6478804600192234,
+      "peak_allocated": 3219067904,
+      "actual_supervised_frames_global": 1024
+    },
+    "3": {
+      "new_stage_step": 5,
+      "loss": 0.4166652262210846,
+      "grad_norm": 1.6688026189804077,
+      "seconds": 3.647985578980297,
+      "peak_allocated": 3219002368,
+      "actual_supervised_frames_global": 1024
+    },
+    "4": {
+      "new_stage_step": 5,
+      "loss": 0.17004673182964325,
+      "grad_norm": 1.6688026189804077,
+      "seconds": 3.647815097006969,
+      "peak_allocated": 3218994176,
+      "actual_supervised_frames_global": 1024
+    },
+    "5": {
+      "new_stage_step": 5,
+      "loss": 0.318176805973053,
+      "grad_norm": 1.6688026189804077,
+      "seconds": 3.6477425940101966,
+      "peak_allocated": 3219008512,
+      "actual_supervised_frames_global": 1024
+    },
+    "6": {
+      "new_stage_step": 5,
+      "loss": 0.7089197635650635,
+      "grad_norm": 1.6688026189804077,
+      "seconds": 3.6476757280761376,
+      "peak_allocated": 3278440960,
+      "actual_supervised_frames_global": 1024
+    },
+    "7": {
+      "new_stage_step": 5,
+      "loss": 0.5106240510940552,
+      "grad_norm": 1.6688026189804077,
+      "seconds": 3.6483281559776515,
+      "peak_allocated": 3278483968,
+      "actual_supervised_frames_global": 1024
+    }
+  },
+  "finite": true,
+  "gpu_compute_processes": "854445, /mnt/why/dexycb_lip/.venv-fp/bin/python, 4998 MiB\n854446, /mnt/why/dexycb_lip/.venv-fp/bin/python, 5000 MiB\n854447, /mnt/why/dexycb_lip/.venv-fp/bin/python, 4998 MiB\n854448, /mnt/why/dexycb_lip/.venv-fp/bin/python, 4998 MiB\n854449, /mnt/why/dexycb_lip/.venv-fp/bin/python, 4998 MiB\n854450, /mnt/why/dexycb_lip/.venv-fp/bin/python, 5000 MiB\n854451, /mnt/why/dexycb_lip/.venv-fp/bin/python, 5052 MiB\n854452, /mnt/why/dexycb_lip/.venv-fp/bin/python, 5054 MiB",
+  "console_tail": "apping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.\n/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. \n  warnings.warn(  # warn only once\n[rank2]:[W912 04:25:56.117908926 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 2]  using GPU 2 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.\n/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. \n  warnings.warn(  # warn only once\n/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. \n  warnings.warn(  # warn only once\n[rank1]:[W912 04:25:57.270112502 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 1]  using GPU 1 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.\n[rank4]:[W912 04:25:57.274361064 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 4]  using GPU 4 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.\n/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. \n  warnings.warn(  # warn only once\n[rank6]:[W912 04:25:57.425238413 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 6]  using GPU 6 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.\n/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. \n  warnings.warn(  # warn only once\n[rank7]:[W912 04:25:57.426500178 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 7]  using GPU 7 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.\n/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. \n  warnings.warn(  # warn only once\n[rank3]:[W912 04:25:57.444073010 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 3]  using GPU 3 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.\n/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. \n  warnings.warn(  # warn only once\n[rank5]:[W912 04:25:57.481651615 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 5]  using GPU 5 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.\n"
+}

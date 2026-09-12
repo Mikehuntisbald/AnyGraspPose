@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/mnt/why/dexycb_lip/tools/probe_fp_depth_intervention.py", line 13, in <module>
+    from lip.integrations.frozen_fp import FrozenFoundationPose
+ModuleNotFoundError: No module named 'lip.integrations.frozen_fp'

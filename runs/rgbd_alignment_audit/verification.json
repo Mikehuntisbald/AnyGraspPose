@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "hash_verified_artifacts": 70,
+  "syntax_parsed_scripts": 6,
+  "completed_diagnostics": 5,
+  "completed_summary": true,
+  "observed_FP_reproduction_max_abs": 0.0,
+  "scope": "Artifact integrity and executed diagnostic completion checks; not a new model unit-test suite."
+}

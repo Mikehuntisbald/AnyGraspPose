@@ -1,0 +1,36 @@
+Warp 1.17.0 initialized:
+   CUDA Toolkit 12.9, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:1"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:2"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:3"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:4"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:5"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:6"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+     "cuda:7"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+   CUDA peer access:
+     Supported fully (all-directional)
+   Kernel cache:
+     /root/.cache/warp/1.17.0
+{"object_id": 1, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.00017881393432617188, "renderer_diff_max_mm": 0.044345855712890625, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 5600}
+{"object_id": 2, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.00017881393432617188, "renderer_diff_max_mm": 0.012755393981933594, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 10669}
+{"object_id": 3, "renderer_diff_median_mm": 0.0, "renderer_diff_p99_mm": 0.0002384185791015625, "renderer_diff_max_mm": 0.02944469451904297, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 3745}
+{"object_id": 4, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.0002384185791015625, "renderer_diff_max_mm": 0.03647804260253906, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 2051}
+{"object_id": 5, "renderer_diff_median_mm": 0.0, "renderer_diff_p99_mm": 0.00011920928955078125, "renderer_diff_max_mm": 0.04076957702636719, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 11060, "high_res_vertices": 274543, "simple_vertices": 10983, "high_vs_simple_depth_median_abs_mm": 0.011146068572998047, "observed_minus_high_res_median_mm": -0.3253817558288574, "observed_minus_simple_median_mm": -0.32770633697509766, "simple_sha256": "f156897814cba5889427759c52d76f7d7c7dd7902aef87e38ec898195bbc6d79", "high_res_sha256": "a6f920a2bee9299ef9666166788cd67ffbd219571a301bfa2023cfcf6189586a"}
+{"object_id": 6, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.00017881393432617188, "renderer_diff_max_mm": 0.0655055046081543, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 1948}
+{"object_id": 7, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.0002384185791015625, "renderer_diff_max_mm": 0.03921985626220703, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 2882, "high_res_vertices": 263629, "simple_vertices": 8331, "high_vs_simple_depth_median_abs_mm": 0.007987022399902344, "observed_minus_high_res_median_mm": 9.190261840820312, "observed_minus_simple_median_mm": 9.184122085571289, "simple_sha256": "589f458b5acfcb1be645017fb988992f533eb1ea9076bebe742311ec305f4d83", "high_res_sha256": "a2d30c09e48ab583beb56f5000344ab61e7d053b7538b61b1d4febdbd9380a4f"}
+{"object_id": 8, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.00017881393432617188, "renderer_diff_max_mm": 0.03695487976074219, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 2121}
+{"object_id": 9, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.00017881393432617188, "renderer_diff_max_mm": 0.011563301086425781, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 2711}
+{"object_id": 10, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.0002384185791015625, "renderer_diff_max_mm": 0.03534555435180664, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 1209}
+{"object_id": 11, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.00017881393432617188, "renderer_diff_max_mm": 0.3185868263244629, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 14215}
+{"object_id": 12, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.00011920928955078125, "renderer_diff_max_mm": 0.051915645599365234, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 6611}
+{"object_id": 13, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.00017881393432617188, "renderer_diff_max_mm": 0.03933906555175781, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 8582}
+{"object_id": 14, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.00017881393432617188, "renderer_diff_max_mm": 0.05352497100830078, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 1741, "high_res_vertices": 304059, "simple_vertices": 16763, "high_vs_simple_depth_median_abs_mm": 0.09274482727050781, "observed_minus_high_res_median_mm": 24.942100524902344, "observed_minus_simple_median_mm": 25.01255226135254, "simple_sha256": "5ed579ff021939935bfc200aa1652ff1e1ff6a85f791aa30cd5ab96c3604e858", "high_res_sha256": "e7dd77a49d2543a3e695f1fbabe1807e9cf899f87794dd21193b45c28f16e5d6"}
+{"object_id": 15, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.00011920928955078125, "renderer_diff_max_mm": 0.02968311309814453, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 2375, "high_res_vertices": 266303, "simple_vertices": 9174, "high_vs_simple_depth_median_abs_mm": 0.046193599700927734, "observed_minus_high_res_median_mm": 18.892169952392578, "observed_minus_simple_median_mm": 18.886566162109375, "simple_sha256": "deb0b714fbdf357e5bad147374029207a80e3416a264bceba309a779fdc08bce", "high_res_sha256": "61daab5bfb6289e893b253d23c0f0dd66d337d11d49a8db365f19fd117b2b28b"}
+{"object_id": 16, "renderer_diff_median_mm": 0.0, "renderer_diff_p99_mm": 0.00011920928955078125, "renderer_diff_max_mm": 0.02378225326538086, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 6718}
+{"object_id": 17, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.0002980232238769531, "renderer_diff_max_mm": 0.04470348358154297, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 818}
+{"object_id": 18, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.0022286176681518555, "renderer_diff_max_mm": 0.011205673217773438, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 430}
+{"object_id": 20, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.00011920928955078125, "renderer_diff_max_mm": 0.04458427429199219, "renderer_diff_over_1mm_pixels": 0, "renderer_comparison_pixels": 3213}
+{"object_id": 21, "renderer_diff_median_mm": 5.9604644775390625e-05, "renderer_diff_p99_mm": 0.00011920928955078125, "renderer_diff_max_mm": 14.761209487915039, "renderer_diff_over_1mm_pixels": 1, "renderer_comparison_pixels": 2152, "high_res_vertices": 263659, "simple_vertices": 8455, "high_vs_simple_depth_median_abs_mm": 0.018656253814697266, "observed_minus_high_res_median_mm": 13.367563247680664, "observed_minus_simple_median_mm": 13.353765487670898, "simple_sha256": "99575346eace2c8ef931a61620eddf3a3027c4497280a2a8a022de929839d408", "high_res_sha256": "60e1d957353ef116d32f8db651f019275743b122819d2bf17cdec9c9248cde84"}

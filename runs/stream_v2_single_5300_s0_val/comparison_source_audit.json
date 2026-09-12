@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "prior_validation_source_sha256": "4b6bbad081529fcea4f3f07e96d141bd06c2bcdcf1e3a3a379d4d1a64a3c3909",
+  "current_evaluation_source_sha256": "3d9cd99903161b0ee7b17cc50df80afe5204cb62c0a3674961f87fd161d9d47e",
+  "historical_digest_reconstructed": true,
+  "differences": {
+    "engine/stream_state.py": "Added metadata shape validation; no arithmetic changes",
+    "train_stream.py": "Reject nonpositive max-steps; training CLI only"
+  },
+  "inference_and_metric_implementation_unchanged": true
+}

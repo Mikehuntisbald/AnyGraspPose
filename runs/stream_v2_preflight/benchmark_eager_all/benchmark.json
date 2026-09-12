@@ -1,0 +1,1053 @@
+{
+  "completed": true,
+  "environment": {
+    "versions": {
+      "torch": "2.8.0+cu128",
+      "torchvision": "0.23.0+cu128",
+      "numpy": "2.5.3",
+      "scipy": "1.16.2",
+      "trimesh": "5.1.0",
+      "opencv-python-headless": "4.12.0.88",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "nvdiffrast": "0.4.0",
+      "tensorboard": "2.20.0"
+    },
+    "cuda_runtime": "12.8",
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      }
+    ],
+    "cgroup_limits": {
+      "cpu_quota_us": 12800000,
+      "cpu_period_us": 100000,
+      "memory_limit_bytes": 549755813888
+    },
+    "driver": [
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20"
+    ],
+    "cpu_affinity": 344,
+    "cpu_count": 344,
+    "disk": {
+      "total": 725677674332160,
+      "used": 528622620528640,
+      "free": 197055053803520
+    },
+    "bf16": true
+  },
+  "stream_id": "20200709-subject-01/20200709_142123/836212060125",
+  "split_hash": "54a35253db5bea988ffea5e41641d3313b31c5568193a186dd4e4359c497804b",
+  "mesh_hash": "359f53a5f41963d3fdfc2542bd640432d820bfc99a055baec8976ad99966d32c",
+  "initial_pose_source": "GT first frame only",
+  "GT_metrics": false,
+  "overlay": false,
+  "compile": false,
+  "compilation": {},
+  "mode": "eager",
+  "batch_size": 1,
+  "attention_backend": "PyTorch SDPA automatic dispatch; explicit float mask and is_causal=False",
+  "timing": "CUDA events for GPU sections, synchronize once at each frame boundary; wall-clock latency includes normal API validation",
+  "configurations": {
+    "legacy": {
+      "checkpoint_sha256": "b3a7c4fd04d6d8c0fe24301dcfe97b460b508ce74a3d39651579badade2dc646",
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "core": {
+        "kind": "legacy",
+        "scope": "predecoded GPU input tracker core wall-clock",
+        "latency_ms": {
+          "count": 120,
+          "mean": 13.633251225110143,
+          "p50": 13.608154491521418,
+          "p95": 13.86901549412869,
+          "p99": 13.996647852472961
+        },
+        "components_gpu_ms": {
+          "geometry_encoder": {
+            "count": 120,
+            "mean": 1.5035346686840056,
+            "p50": 1.4963200092315674,
+            "p95": 1.5637840092182158,
+            "p99": 1.6335170757770539
+          },
+          "legacy_network": {
+            "count": 120,
+            "mean": 10.95057544708252,
+            "p50": 10.934544086456299,
+            "p95": 11.157866954803467,
+            "p99": 11.326501064300537
+          },
+          "pose_update": {
+            "count": 120,
+            "mean": 0.5338154658675194,
+            "p50": 0.5322399735450745,
+            "p95": 0.574727988243103,
+            "p99": 0.5959097445011139
+          },
+          "preprocess": {
+            "count": 120,
+            "mean": 1.9194029440482459,
+            "p50": 1.9135518968105316,
+            "p95": 2.00504310131073,
+            "p99": 2.0496810227632523
+          },
+          "preprocess_including_render": {
+            "count": 120,
+            "mean": 2.473524808883667,
+            "p50": 2.46779203414917,
+            "p95": 2.5529359102249147,
+            "p99": 2.592391722202301
+          },
+          "render": {
+            "count": 120,
+            "mean": 0.5541218648354213,
+            "p50": 0.5551200211048126,
+            "p95": 0.5879296064376831,
+            "p99": 0.6019628620147706
+          },
+          "rgb_encoder": {
+            "count": 120,
+            "mean": 4.229225865999857,
+            "p50": 4.2252960205078125,
+            "p95": 4.292599844932556,
+            "p99": 4.4467502689361575
+          },
+          "spatial_fusion": {
+            "count": 120,
+            "mean": 1.1737973322470983,
+            "p50": 1.1719359755516052,
+            "p95": 1.207566398382187,
+            "p99": 1.225366418361664
+          },
+          "temporal_readout": {
+            "count": 120,
+            "mean": 1.9847810606161753,
+            "p50": 1.9809759855270386,
+            "p95": 2.0389103651046754,
+            "p99": 2.066213028430939
+          }
+        },
+        "encoder_images": {
+          "rgb": 1152,
+          "geometry": 1152
+        },
+        "encoder_images_per_update": {
+          "rgb": 8.0,
+          "geometry": 8.0
+        },
+        "render_calls": 144,
+        "render_calls_per_update": 1.0,
+        "fp_calls": 0,
+        "critic_calls": 0,
+        "cache_bytes": 0,
+        "initial_allocated": 300511744,
+        "peak_allocated": 491269120,
+        "peak_reserved": 553648128,
+        "simulated_queue": {
+          "policy": "process every frame, no drop; measured service times and original dt; no live camera claim",
+          "dropped": 0,
+          "age_ms": {
+            "count": 120,
+            "mean": 44.302890290144,
+            "p50": 13.638322008773685,
+            "p95": 267.3616473702713,
+            "p99": 361.2570279461022
+          }
+        },
+        "warmup_frames_each_repeat": 8,
+        "repeats": 3,
+        "observed_updates": 144
+      },
+      "end_to_end": {
+        "kind": "legacy",
+        "scope": "decode + H2D + tracker + final pose D2H wall-clock",
+        "latency_ms": {
+          "count": 120,
+          "mean": 23.529349824336048,
+          "p50": 22.575845010578632,
+          "p95": 27.173836069414392,
+          "p99": 32.30893867323176
+        },
+        "components_gpu_ms": {
+          "geometry_encoder": {
+            "count": 120,
+            "mean": 1.8832888066768647,
+            "p50": 1.5282240509986877,
+            "p95": 4.337451338768003,
+            "p99": 7.609959855079653
+          },
+          "legacy_network": {
+            "count": 120,
+            "mean": 11.521488817532857,
+            "p50": 11.166719913482666,
+            "p95": 13.967131090164182,
+            "p99": 17.29169591903687
+          },
+          "pose_update": {
+            "count": 120,
+            "mean": 0.5435498634974162,
+            "p50": 0.5400959849357605,
+            "p95": 0.5888352185487747,
+            "p99": 0.5961433619260788
+          },
+          "preprocess": {
+            "count": 120,
+            "mean": 2.059384797513485,
+            "p50": 2.0567359626293182,
+            "p95": 2.138540747761726,
+            "p99": 2.1670604318380358
+          },
+          "preprocess_including_render": {
+            "count": 120,
+            "mean": 2.631088529030482,
+            "p50": 2.6324321031570435,
+            "p95": 2.6947216153144837,
+            "p99": 2.749122462272644
+          },
+          "render": {
+            "count": 120,
+            "mean": 0.571703731516997,
+            "p50": 0.5728319883346558,
+            "p95": 0.6038959801197052,
+            "p99": 0.6152102196216583
+          },
+          "rgb_encoder": {
+            "count": 120,
+            "mean": 4.310893845558167,
+            "p50": 4.306063890457153,
+            "p95": 4.363230228424072,
+            "p99": 4.393729114532471
+          },
+          "spatial_fusion": {
+            "count": 120,
+            "mean": 1.203012800216675,
+            "p50": 1.2020480036735535,
+            "p95": 1.246060812473297,
+            "p99": 1.2563488233089448
+          },
+          "temporal_readout": {
+            "count": 120,
+            "mean": 2.021548260251681,
+            "p50": 2.0185599327087402,
+            "p95": 2.0673359751701357,
+            "p99": 2.1587231183052062
+          }
+        },
+        "encoder_images": {
+          "rgb": 1152,
+          "geometry": 1152
+        },
+        "encoder_images_per_update": {
+          "rgb": 8.0,
+          "geometry": 8.0
+        },
+        "render_calls": 144,
+        "render_calls_per_update": 1.0,
+        "fp_calls": 0,
+        "critic_calls": 0,
+        "cache_bytes": 0,
+        "initial_allocated": 334066176,
+        "peak_allocated": 741633536,
+        "peak_reserved": 788529152,
+        "simulated_queue": {
+          "policy": "process every frame, no drop; measured service times and original dt; no live camera claim",
+          "dropped": 0,
+          "age_ms": {
+            "count": 120,
+            "mean": 23.79098419022436,
+            "p50": 22.575845010578632,
+            "p95": 28.72982377302833,
+            "p99": 42.334866286333096
+          }
+        },
+        "warmup_frames_each_repeat": 8,
+        "repeats": 3,
+        "observed_updates": 144
+      }
+    },
+    "stream_single": {
+      "checkpoint_sha256": "e09a3c2daaf4b64b8ad198ec3be0b20249fb4648e43b4dbf8ee904aad4ef334a",
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "core": {
+        "kind": "stream_single",
+        "scope": "predecoded GPU input tracker core wall-clock",
+        "latency_ms": {
+          "count": 120,
+          "mean": 17.45216185033011,
+          "p50": 17.451996507588774,
+          "p95": 17.604738101363182,
+          "p99": 17.65445817844011
+        },
+        "components_gpu_ms": {
+          "geometry_encoder": {
+            "count": 120,
+            "mean": 1.4857485353946687,
+            "p50": 1.4910879731178284,
+            "p95": 1.5266624510288238,
+            "p99": 1.53594752907753
+          },
+          "pose_update": {
+            "count": 120,
+            "mean": 0.4900967995325724,
+            "p50": 0.4843519926071167,
+            "p95": 0.536425593495369,
+            "p99": 0.5503968197107315
+          },
+          "preprocess_and_state_checks": {
+            "count": 120,
+            "mean": 5.365056557953357,
+            "p50": 5.3574240654706955,
+            "p95": 5.4844641730189325,
+            "p99": 5.5314156299829484
+          },
+          "render": {
+            "count": 120,
+            "mean": 0.5556093340118726,
+            "p50": 0.5579040050506592,
+            "p95": 0.5924575954675675,
+            "p99": 0.601312969326973
+          },
+          "rgb_encoder": {
+            "count": 120,
+            "mean": 4.225570940971375,
+            "p50": 4.220752000808716,
+            "p95": 4.2788207054138185,
+            "p99": 4.333534660339356
+          },
+          "spatial_fusion": {
+            "count": 120,
+            "mean": 1.8750754674275716,
+            "p50": 1.8775520324707031,
+            "p95": 1.9136543691158294,
+            "p99": 1.9235968124866485
+          },
+          "temporal_readout": {
+            "count": 120,
+            "mean": 3.422451466321945,
+            "p50": 3.4205440282821655,
+            "p95": 3.499095988273621,
+            "p99": 3.5188642716407776
+          },
+          "tracker_total": {
+            "count": 120,
+            "mean": 17.419609101613364,
+            "p50": 17.419487953186035,
+            "p95": 17.572962093353272,
+            "p99": 17.621707763671875
+          }
+        },
+        "encoder_images": {
+          "rgb": 144,
+          "geometry": 144
+        },
+        "encoder_images_per_update": {
+          "rgb": 1.0,
+          "geometry": 1.0
+        },
+        "render_calls": 144,
+        "render_calls_per_update": 1.0,
+        "fp_calls": 0,
+        "critic_calls": 0,
+        "cache_bytes": 557056,
+        "initial_allocated": 334071808,
+        "peak_allocated": 373792256,
+        "peak_reserved": 398458880,
+        "simulated_queue": {
+          "policy": "process every frame, no drop; measured service times and original dt; no live camera claim",
+          "dropped": 0,
+          "age_ms": {
+            "count": 120,
+            "mean": 17.45216185033011,
+            "p50": 17.451996507588774,
+            "p95": 17.604738101363182,
+            "p99": 17.65445817844011
+          }
+        },
+        "warmup_frames_each_repeat": 8,
+        "repeats": 3,
+        "observed_updates": 144
+      },
+      "end_to_end": {
+        "kind": "stream_single",
+        "scope": "decode + H2D + tracker + final pose D2H wall-clock",
+        "latency_ms": {
+          "count": 120,
+          "mean": 27.311498132379104,
+          "p50": 26.70304401544854,
+          "p95": 29.883164685452357,
+          "p99": 34.556629112921655
+        },
+        "components_gpu_ms": {
+          "geometry_encoder": {
+            "count": 120,
+            "mean": 1.510576793551445,
+            "p50": 1.5067359805107117,
+            "p95": 1.5642944037914277,
+            "p99": 1.631072348356247
+          },
+          "pose_update": {
+            "count": 120,
+            "mean": 0.4979693325857321,
+            "p50": 0.49217601120471954,
+            "p95": 0.547139185667038,
+            "p99": 0.5611580908298492
+          },
+          "preprocess_and_state_checks": {
+            "count": 120,
+            "mean": 5.707363743335009,
+            "p50": 5.702127903699875,
+            "p95": 5.878561785817146,
+            "p99": 5.9473735123872755
+          },
+          "render": {
+            "count": 120,
+            "mean": 0.5719133297602336,
+            "p50": 0.5715360045433044,
+            "p95": 0.6020175725221634,
+            "p99": 0.6166064083576203
+          },
+          "rgb_encoder": {
+            "count": 120,
+            "mean": 4.341809074083964,
+            "p50": 4.334239959716797,
+            "p95": 4.397649550437928,
+            "p99": 4.518132953643799
+          },
+          "spatial_fusion": {
+            "count": 120,
+            "mean": 1.9150162706772487,
+            "p50": 1.9136639833450317,
+            "p95": 1.9517231822013854,
+            "p99": 2.00254967212677
+          },
+          "temporal_readout": {
+            "count": 120,
+            "mean": 3.465610941251119,
+            "p50": 3.456384062767029,
+            "p95": 3.5368656158447265,
+            "p99": 3.8226512193679816
+          },
+          "tracker_total": {
+            "count": 120,
+            "mean": 18.010259485244752,
+            "p50": 18.001808166503906,
+            "p95": 18.291789245605468,
+            "p99": 18.709244861602784
+          }
+        },
+        "encoder_images": {
+          "rgb": 144,
+          "geometry": 144
+        },
+        "encoder_images_per_update": {
+          "rgb": 1.0,
+          "geometry": 1.0
+        },
+        "render_calls": 144,
+        "render_calls_per_update": 1.0,
+        "fp_calls": 0,
+        "critic_calls": 0,
+        "cache_bytes": 557056,
+        "initial_allocated": 334071808,
+        "peak_allocated": 378514944,
+        "peak_reserved": 398458880,
+        "simulated_queue": {
+          "policy": "process every frame, no drop; measured service times and original dt; no live camera claim",
+          "dropped": 0,
+          "age_ms": {
+            "count": 120,
+            "mean": 27.36151276602565,
+            "p50": 26.725806470494717,
+            "p95": 30.26947298164789,
+            "p99": 34.556629112921655
+          }
+        },
+        "warmup_frames_each_repeat": 8,
+        "repeats": 3,
+        "observed_updates": 144
+      }
+    },
+    "stream_dual": {
+      "checkpoint_sha256": "7edbf4bfecab6ef9eec584d34b4a6d60fbc2d83df1ddab7c65d71725d3d1fda4",
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "core": {
+        "kind": "stream_dual",
+        "scope": "predecoded GPU input tracker core wall-clock",
+        "latency_ms": {
+          "count": 120,
+          "mean": 17.94100016510735,
+          "p50": 17.932310525793582,
+          "p95": 18.109306157566607,
+          "p99": 18.151855325559154
+        },
+        "components_gpu_ms": {
+          "geometry_encoder": {
+            "count": 120,
+            "mean": 1.492467466990153,
+            "p50": 1.4897440075874329,
+            "p95": 1.543369597196579,
+            "p99": 1.555386599302292
+          },
+          "pose_update": {
+            "count": 120,
+            "mean": 0.4901581342021624,
+            "p50": 0.48559999465942383,
+            "p95": 0.5343871802091599,
+            "p99": 0.5478515100479127
+          },
+          "preprocess_and_state_checks": {
+            "count": 120,
+            "mean": 5.510239821175734,
+            "p50": 5.497359976172447,
+            "p95": 5.6463487043976786,
+            "p99": 5.734114803373814
+          },
+          "render": {
+            "count": 120,
+            "mean": 0.5596613337596258,
+            "p50": 0.560368001461029,
+            "p95": 0.5943167954683304,
+            "p99": 0.5996832185983658
+          },
+          "rgb_encoder": {
+            "count": 120,
+            "mean": 4.248580797513326,
+            "p50": 4.2463037967681885,
+            "p95": 4.293818974494934,
+            "p99": 4.303966360092163
+          },
+          "spatial_fusion": {
+            "count": 120,
+            "mean": 1.8841834704081217,
+            "p50": 1.884656012058258,
+            "p95": 1.928056037425995,
+            "p99": 1.9420771646499635
+          },
+          "temporal_readout": {
+            "count": 120,
+            "mean": 3.7223570624987286,
+            "p50": 3.7198400497436523,
+            "p95": 3.775875186920166,
+            "p99": 3.835201635360718
+          },
+          "tracker_total": {
+            "count": 120,
+            "mean": 17.90764808654785,
+            "p50": 17.89374351501465,
+            "p95": 18.076978778839113,
+            "p99": 18.12080774307251
+          }
+        },
+        "encoder_images": {
+          "rgb": 144,
+          "geometry": 144
+        },
+        "encoder_images_per_update": {
+          "rgb": 1.0,
+          "geometry": 1.0
+        },
+        "render_calls": 144,
+        "render_calls_per_update": 1.0,
+        "fp_calls": 0,
+        "critic_calls": 0,
+        "cache_bytes": 557056,
+        "initial_allocated": 334861824,
+        "peak_allocated": 374973440,
+        "peak_reserved": 398458880,
+        "simulated_queue": {
+          "policy": "process every frame, no drop; measured service times and original dt; no live camera claim",
+          "dropped": 0,
+          "age_ms": {
+            "count": 120,
+            "mean": 17.94100016510735,
+            "p50": 17.932310525793582,
+            "p95": 18.109306157566607,
+            "p99": 18.151855325559154
+          }
+        },
+        "warmup_frames_each_repeat": 8,
+        "repeats": 3,
+        "observed_updates": 144
+      },
+      "end_to_end": {
+        "kind": "stream_dual",
+        "scope": "decode + H2D + tracker + final pose D2H wall-clock",
+        "latency_ms": {
+          "count": 120,
+          "mean": 27.407420962117612,
+          "p50": 27.087386464700103,
+          "p95": 29.11233254126273,
+          "p99": 31.079971147701148
+        },
+        "components_gpu_ms": {
+          "geometry_encoder": {
+            "count": 120,
+            "mean": 1.5158690671126047,
+            "p50": 1.5223360061645508,
+            "p95": 1.5648048222064972,
+            "p99": 1.5745782160758972
+          },
+          "pose_update": {
+            "count": 120,
+            "mean": 0.49974453349908193,
+            "p50": 0.49859198927879333,
+            "p95": 0.5456896245479583,
+            "p99": 0.5664985543489456
+          },
+          "preprocess_and_state_checks": {
+            "count": 120,
+            "mean": 5.853020320336024,
+            "p50": 5.844384476542473,
+            "p95": 6.008345307409764,
+            "p99": 6.086361195147037
+          },
+          "render": {
+            "count": 120,
+            "mean": 0.5771002680063247,
+            "p50": 0.5728320181369781,
+            "p95": 0.6065311849117279,
+            "p99": 0.6157884764671325
+          },
+          "rgb_encoder": {
+            "count": 120,
+            "mean": 4.361203213532765,
+            "p50": 4.358911991119385,
+            "p95": 4.410723328590393,
+            "p99": 4.449401903152466
+          },
+          "spatial_fusion": {
+            "count": 120,
+            "mean": 1.916204003492991,
+            "p50": 1.9156959652900696,
+            "p95": 1.9577407658100128,
+            "p99": 1.9656748747825623
+          },
+          "temporal_readout": {
+            "count": 120,
+            "mean": 3.755419995387395,
+            "p50": 3.760416030883789,
+            "p95": 3.819988787174225,
+            "p99": 3.8339689445495604
+          },
+          "tracker_total": {
+            "count": 120,
+            "mean": 18.478561401367188,
+            "p50": 18.47254467010498,
+            "p95": 18.657416152954102,
+            "p99": 18.805465240478515
+          }
+        },
+        "encoder_images": {
+          "rgb": 144,
+          "geometry": 144
+        },
+        "encoder_images_per_update": {
+          "rgb": 1.0,
+          "geometry": 1.0
+        },
+        "render_calls": 144,
+        "render_calls_per_update": 1.0,
+        "fp_calls": 0,
+        "critic_calls": 0,
+        "cache_bytes": 557056,
+        "initial_allocated": 334861824,
+        "peak_allocated": 379696128,
+        "peak_reserved": 398458880,
+        "simulated_queue": {
+          "policy": "process every frame, no drop; measured service times and original dt; no live camera claim",
+          "dropped": 0,
+          "age_ms": {
+            "count": 120,
+            "mean": 27.407420962117612,
+            "p50": 27.087386464700103,
+            "p95": 29.11233254126273,
+            "p99": 31.079971147701148
+          }
+        },
+        "warmup_frames_each_repeat": 8,
+        "repeats": 3,
+        "observed_updates": 144
+      }
+    },
+    "reference": {
+      "checkpoint_sha256": "e09a3c2daaf4b64b8ad198ec3be0b20249fb4648e43b4dbf8ee904aad4ef334a",
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "core": {
+        "kind": "reference",
+        "scope": "predecoded GPU input tracker core wall-clock",
+        "latency_ms": {
+          "count": 8,
+          "mean": 19.761216128244996,
+          "p50": 19.50742502231151,
+          "p95": 21.69325147406198,
+          "p99": 21.85699910041876
+        },
+        "components_gpu_ms": {
+          "geometry_encoder": {
+            "count": 8,
+            "mean": 1.4768279939889908,
+            "p50": 1.459984004497528,
+            "p95": 1.5344832062721252,
+            "p99": 1.5386406445503236
+          },
+          "pose_update": {
+            "count": 8,
+            "mean": 0.47713999450206757,
+            "p50": 0.46774399280548096,
+            "p95": 0.5225407898426055,
+            "p99": 0.5277017557621002
+          },
+          "preprocess": {
+            "count": 8,
+            "mean": 3.563864029943943,
+            "p50": 3.5272479951381683,
+            "p95": 3.6699040055274965,
+            "p99": 3.6766239190101624
+          },
+          "preprocess_including_render": {
+            "count": 8,
+            "mean": 4.124352037906647,
+            "p50": 4.088848114013672,
+            "p95": 4.230755066871643,
+            "p99": 4.240198941230774
+          },
+          "render": {
+            "count": 8,
+            "mean": 0.5604880079627037,
+            "p50": 0.5648320019245148,
+            "p95": 0.5776208132505417,
+            "p99": 0.5808553832769394
+          },
+          "rgb_encoder": {
+            "count": 8,
+            "mean": 4.291823983192444,
+            "p50": 4.291951894760132,
+            "p95": 4.320566344261169,
+            "p99": 4.323236498832703
+          },
+          "spatial_fusion": {
+            "count": 8,
+            "mean": 1.8871999979019165,
+            "p50": 1.8930559754371643,
+            "p95": 1.9104848146438598,
+            "p99": 1.9104937601089478
+          },
+          "temporal_readout": {
+            "count": 8,
+            "mean": 7.056876003742218,
+            "p50": 6.716207981109619,
+            "p95": 9.024629020690918,
+            "p99": 9.234122734069825
+          }
+        },
+        "encoder_images": {
+          "rgb": 16,
+          "geometry": 16
+        },
+        "encoder_images_per_update": {
+          "rgb": 1.0,
+          "geometry": 1.0
+        },
+        "render_calls": 16,
+        "render_calls_per_update": 1.0,
+        "fp_calls": 0,
+        "critic_calls": 0,
+        "cache_bytes": 0,
+        "initial_allocated": 334071808,
+        "peak_allocated": 386676224,
+        "peak_reserved": 419430400,
+        "simulated_queue": {
+          "policy": "process every frame, no drop; measured service times and original dt; no live camera claim",
+          "dropped": 0,
+          "age_ms": {
+            "count": 8,
+            "mean": 19.761216128244996,
+            "p50": 19.50742502231151,
+            "p95": 21.69325147406198,
+            "p99": 21.85699910041876
+          }
+        },
+        "warmup_frames_each_repeat": 8,
+        "repeats": 1,
+        "observed_updates": 16
+      },
+      "end_to_end": {
+        "kind": "reference",
+        "scope": "decode + H2D + tracker + final pose D2H wall-clock",
+        "latency_ms": {
+          "count": 8,
+          "mean": 25.470799359027296,
+          "p50": 25.349574454594404,
+          "p95": 26.07921590679325,
+          "p99": 26.184026311384514
+        },
+        "components_gpu_ms": {
+          "geometry_encoder": {
+            "count": 8,
+            "mean": 1.5256320089101791,
+            "p50": 1.511680006980896,
+            "p95": 1.6185920357704162,
+            "p99": 1.6361536526679992
+          },
+          "pose_update": {
+            "count": 8,
+            "mean": 0.4838680028915405,
+            "p50": 0.4806240051984787,
+            "p95": 0.524249616265297,
+            "p99": 0.5247155314683914
+          },
+          "preprocess": {
+            "count": 8,
+            "mean": 3.7868680357933044,
+            "p50": 3.786032110452652,
+            "p95": 3.911988878250122,
+            "p99": 3.9218538570404053
+          },
+          "preprocess_including_render": {
+            "count": 8,
+            "mean": 4.346244037151337,
+            "p50": 4.332207918167114,
+            "p95": 4.486406469345093,
+            "p99": 4.50171015739441
+          },
+          "render": {
+            "count": 8,
+            "mean": 0.5593760013580322,
+            "p50": 0.5609759986400604,
+            "p95": 0.5810927897691727,
+            "p99": 0.5811913400888443
+          },
+          "rgb_encoder": {
+            "count": 8,
+            "mean": 4.398320019245148,
+            "p50": 4.370575904846191,
+            "p95": 4.502062463760376,
+            "p99": 4.526012544631958
+          },
+          "spatial_fusion": {
+            "count": 8,
+            "mean": 1.9112360179424286,
+            "p50": 1.9195359945297241,
+            "p95": 1.9532368421554565,
+            "p99": 1.9561130094528199
+          },
+          "temporal_readout": {
+            "count": 8,
+            "mean": 3.577212005853653,
+            "p50": 3.5926400423049927,
+            "p95": 3.66752005815506,
+            "p99": 3.6879488968849183
+          }
+        },
+        "encoder_images": {
+          "rgb": 16,
+          "geometry": 16
+        },
+        "encoder_images_per_update": {
+          "rgb": 1.0,
+          "geometry": 1.0
+        },
+        "render_calls": 16,
+        "render_calls_per_update": 1.0,
+        "fp_calls": 0,
+        "critic_calls": 0,
+        "cache_bytes": 0,
+        "initial_allocated": 334071808,
+        "peak_allocated": 391570432,
+        "peak_reserved": 419430400,
+        "simulated_queue": {
+          "policy": "process every frame, no drop; measured service times and original dt; no live camera claim",
+          "dropped": 0,
+          "age_ms": {
+            "count": 8,
+            "mean": 25.470799359027296,
+            "p50": 25.349574454594404,
+            "p95": 26.07921590679325,
+            "p99": 26.184026311384514
+          }
+        },
+        "warmup_frames_each_repeat": 8,
+        "repeats": 1,
+        "observed_updates": 16
+      }
+    }
+  },
+  "memory_frames_1": "Not trained; intentionally not reported as an accuracy ablation"
+}

@@ -1,0 +1,8 @@
+{
+  "step": 34700,
+  "checkpoint": "/mnt/why/dexycb_lip/runs/checkpoint_archive/checkpoint_34700.pt",
+  "sha256": "b3a7c4fd04d6d8c0fe24301dcfe97b460b508ce74a3d39651579badade2dc646",
+  "source": "Atomic hard link of live last.pt; training replaces last.pt on save",
+  "requested_step": 34000,
+  "requested_checkpoint_available": false
+}

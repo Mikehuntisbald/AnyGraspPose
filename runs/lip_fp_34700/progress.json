@@ -1,0 +1,32 @@
+{
+  "utc": 1789110445.3513668,
+  "status": {
+    "phase": "evaluating_lip_fp",
+    "utc": 1789110403.691347,
+    "checkpoint_step": 34700,
+    "pids": [
+      838732,
+      838733,
+      838734,
+      838735,
+      838736,
+      838737,
+      838738,
+      838739
+    ],
+    "shared_with_training": true
+  },
+  "frames": 1176,
+  "target_frames": 23200,
+  "per_rank": {
+    "rank0": 147,
+    "rank1": 147,
+    "rank2": 147,
+    "rank3": 147,
+    "rank4": 147,
+    "rank5": 147,
+    "rank6": 147,
+    "rank7": 147
+  },
+  "nonfinite_outputs": 0
+}

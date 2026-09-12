@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "checkpoint_sha256": "3f84a3dbc9828a4b6d6dea78a881c87a1a20f8ee846e2fda2879dae4f58ea1f2",
+  "loaded_step": 50,
+  "scheduler_step": 50,
+  "sampler_position": 3200,
+  "rng_restored": true,
+  "optimizer_state_entries": 149,
+  "parameter_groups_verified": true
+}

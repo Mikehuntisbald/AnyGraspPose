@@ -1,0 +1,4656 @@
+{
+  "parent": {
+    "path": "/mnt/why/dexycb_lip/runs/stream_v2_preflight/single/overfit/last.pt",
+    "sha256": "e09a3c2daaf4b64b8ad198ec3be0b20249fb4648e43b4dbf8ee904aad4ef334a",
+    "architecture_id": "stream_single",
+    "global_step": 300,
+    "new_stage_step": 300,
+    "config": {
+      "architecture_id": "stream_single",
+      "source_tokens": 17,
+      "latent_dim": 256,
+      "temporal_layers": 4,
+      "attention_heads": 8,
+      "image_size": 224,
+      "memory_frames": 8,
+      "crop_expansion": 2.0,
+      "time_unit": 0.03333333333333333,
+      "max_gap_seconds": 0.5,
+      "cache_kind": "functional",
+      "dropout": 0.0,
+      "seed": 42,
+      "precision": "bf16",
+      "world_size": 1,
+      "batch_sequences_per_gpu": 1,
+      "grad_accum_steps": 1,
+      "effective_sequences_per_step": 1,
+      "burn_in_frames": 8,
+      "supervised_unroll_frames": 16,
+      "nominal_supervised_updates_per_step": 16,
+      "lr_loaded_modules": 1e-05,
+      "lr_rgb_backbone": 5e-06,
+      "lr_new_modules": 5e-05,
+      "freeze_rgb_steps": 1000,
+      "warmup_steps": 500,
+      "optimizer": "adamw",
+      "weight_decay": 0.05,
+      "grad_clip_norm": 1.0,
+      "max_stage_steps": 10000,
+      "save_every": 25,
+      "cpu_threads": 2,
+      "num_workers": 1,
+      "prefetch_factor": 1,
+      "decode_threads": 4,
+      "initial_pose_noise": true,
+      "augmentation": false,
+      "preflight_receipt": "runs/stream_v2_preflight/single/approval.json",
+      "foundationpose_enabled": false,
+      "basin_weight": 0.0,
+      "depth_correction": false
+    },
+    "split_hash": "54a35253db5bea988ffea5e41641d3313b31c5568193a186dd4e4359c497804b",
+    "mesh_hash": "359f53a5f41963d3fdfc2542bd640432d820bfc99a055baec8976ad99966d32c"
+  },
+  "target_architecture": "stream_dual",
+  "cache_contract": "lip-v2-source17-block-local-timebias-v1",
+  "optimizer_restored": false,
+  "new_stage_step": 0,
+  "parameters": {
+    "token_type": {
+      "status": "loaded",
+      "source": "token_type",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 768,
+      "loaded_numel": 768,
+      "initialized_numel": 0,
+      "shape": [
+        3,
+        256
+      ]
+    },
+    "rgb.0.weight": {
+      "status": "loaded",
+      "source": "rgb.0.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 9408,
+      "loaded_numel": 9408,
+      "initialized_numel": 0,
+      "shape": [
+        64,
+        3,
+        7,
+        7
+      ]
+    },
+    "rgb.1.weight": {
+      "status": "loaded",
+      "source": "rgb.1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.1.bias": {
+      "status": "loaded",
+      "source": "rgb.1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.1.running_var": {
+      "status": "loaded",
+      "source": "rgb.1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.4.0.conv1.weight": {
+      "status": "loaded",
+      "source": "rgb.4.0.conv1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 4096,
+      "loaded_numel": 4096,
+      "initialized_numel": 0,
+      "shape": [
+        64,
+        64,
+        1,
+        1
+      ]
+    },
+    "rgb.4.0.bn1.weight": {
+      "status": "loaded",
+      "source": "rgb.4.0.bn1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.0.bn1.bias": {
+      "status": "loaded",
+      "source": "rgb.4.0.bn1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.0.bn1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.4.0.bn1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.0.bn1.running_var": {
+      "status": "loaded",
+      "source": "rgb.4.0.bn1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.0.bn1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.4.0.bn1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.4.0.conv2.weight": {
+      "status": "loaded",
+      "source": "rgb.4.0.conv2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 36864,
+      "loaded_numel": 36864,
+      "initialized_numel": 0,
+      "shape": [
+        64,
+        64,
+        3,
+        3
+      ]
+    },
+    "rgb.4.0.bn2.weight": {
+      "status": "loaded",
+      "source": "rgb.4.0.bn2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.0.bn2.bias": {
+      "status": "loaded",
+      "source": "rgb.4.0.bn2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.0.bn2.running_mean": {
+      "status": "loaded",
+      "source": "rgb.4.0.bn2.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.0.bn2.running_var": {
+      "status": "loaded",
+      "source": "rgb.4.0.bn2.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.0.bn2.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.4.0.bn2.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.4.0.conv3.weight": {
+      "status": "loaded",
+      "source": "rgb.4.0.conv3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 16384,
+      "loaded_numel": 16384,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        64,
+        1,
+        1
+      ]
+    },
+    "rgb.4.0.bn3.weight": {
+      "status": "loaded",
+      "source": "rgb.4.0.bn3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.4.0.bn3.bias": {
+      "status": "loaded",
+      "source": "rgb.4.0.bn3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.4.0.bn3.running_mean": {
+      "status": "loaded",
+      "source": "rgb.4.0.bn3.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.4.0.bn3.running_var": {
+      "status": "loaded",
+      "source": "rgb.4.0.bn3.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.4.0.bn3.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.4.0.bn3.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.4.0.downsample.0.weight": {
+      "status": "loaded",
+      "source": "rgb.4.0.downsample.0.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 16384,
+      "loaded_numel": 16384,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        64,
+        1,
+        1
+      ]
+    },
+    "rgb.4.0.downsample.1.weight": {
+      "status": "loaded",
+      "source": "rgb.4.0.downsample.1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.4.0.downsample.1.bias": {
+      "status": "loaded",
+      "source": "rgb.4.0.downsample.1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.4.0.downsample.1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.4.0.downsample.1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.4.0.downsample.1.running_var": {
+      "status": "loaded",
+      "source": "rgb.4.0.downsample.1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.4.0.downsample.1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.4.0.downsample.1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.4.1.conv1.weight": {
+      "status": "loaded",
+      "source": "rgb.4.1.conv1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 16384,
+      "loaded_numel": 16384,
+      "initialized_numel": 0,
+      "shape": [
+        64,
+        256,
+        1,
+        1
+      ]
+    },
+    "rgb.4.1.bn1.weight": {
+      "status": "loaded",
+      "source": "rgb.4.1.bn1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.1.bn1.bias": {
+      "status": "loaded",
+      "source": "rgb.4.1.bn1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.1.bn1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.4.1.bn1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.1.bn1.running_var": {
+      "status": "loaded",
+      "source": "rgb.4.1.bn1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.1.bn1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.4.1.bn1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.4.1.conv2.weight": {
+      "status": "loaded",
+      "source": "rgb.4.1.conv2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 36864,
+      "loaded_numel": 36864,
+      "initialized_numel": 0,
+      "shape": [
+        64,
+        64,
+        3,
+        3
+      ]
+    },
+    "rgb.4.1.bn2.weight": {
+      "status": "loaded",
+      "source": "rgb.4.1.bn2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.1.bn2.bias": {
+      "status": "loaded",
+      "source": "rgb.4.1.bn2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.1.bn2.running_mean": {
+      "status": "loaded",
+      "source": "rgb.4.1.bn2.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.1.bn2.running_var": {
+      "status": "loaded",
+      "source": "rgb.4.1.bn2.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.1.bn2.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.4.1.bn2.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.4.1.conv3.weight": {
+      "status": "loaded",
+      "source": "rgb.4.1.conv3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 16384,
+      "loaded_numel": 16384,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        64,
+        1,
+        1
+      ]
+    },
+    "rgb.4.1.bn3.weight": {
+      "status": "loaded",
+      "source": "rgb.4.1.bn3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.4.1.bn3.bias": {
+      "status": "loaded",
+      "source": "rgb.4.1.bn3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.4.1.bn3.running_mean": {
+      "status": "loaded",
+      "source": "rgb.4.1.bn3.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.4.1.bn3.running_var": {
+      "status": "loaded",
+      "source": "rgb.4.1.bn3.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.4.1.bn3.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.4.1.bn3.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.4.2.conv1.weight": {
+      "status": "loaded",
+      "source": "rgb.4.2.conv1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 16384,
+      "loaded_numel": 16384,
+      "initialized_numel": 0,
+      "shape": [
+        64,
+        256,
+        1,
+        1
+      ]
+    },
+    "rgb.4.2.bn1.weight": {
+      "status": "loaded",
+      "source": "rgb.4.2.bn1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.2.bn1.bias": {
+      "status": "loaded",
+      "source": "rgb.4.2.bn1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.2.bn1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.4.2.bn1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.2.bn1.running_var": {
+      "status": "loaded",
+      "source": "rgb.4.2.bn1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.2.bn1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.4.2.bn1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.4.2.conv2.weight": {
+      "status": "loaded",
+      "source": "rgb.4.2.conv2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 36864,
+      "loaded_numel": 36864,
+      "initialized_numel": 0,
+      "shape": [
+        64,
+        64,
+        3,
+        3
+      ]
+    },
+    "rgb.4.2.bn2.weight": {
+      "status": "loaded",
+      "source": "rgb.4.2.bn2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.2.bn2.bias": {
+      "status": "loaded",
+      "source": "rgb.4.2.bn2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.2.bn2.running_mean": {
+      "status": "loaded",
+      "source": "rgb.4.2.bn2.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.2.bn2.running_var": {
+      "status": "loaded",
+      "source": "rgb.4.2.bn2.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "rgb.4.2.bn2.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.4.2.bn2.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.4.2.conv3.weight": {
+      "status": "loaded",
+      "source": "rgb.4.2.conv3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 16384,
+      "loaded_numel": 16384,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        64,
+        1,
+        1
+      ]
+    },
+    "rgb.4.2.bn3.weight": {
+      "status": "loaded",
+      "source": "rgb.4.2.bn3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.4.2.bn3.bias": {
+      "status": "loaded",
+      "source": "rgb.4.2.bn3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.4.2.bn3.running_mean": {
+      "status": "loaded",
+      "source": "rgb.4.2.bn3.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.4.2.bn3.running_var": {
+      "status": "loaded",
+      "source": "rgb.4.2.bn3.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.4.2.bn3.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.4.2.bn3.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.5.0.conv1.weight": {
+      "status": "loaded",
+      "source": "rgb.5.0.conv1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 32768,
+      "loaded_numel": 32768,
+      "initialized_numel": 0,
+      "shape": [
+        128,
+        256,
+        1,
+        1
+      ]
+    },
+    "rgb.5.0.bn1.weight": {
+      "status": "loaded",
+      "source": "rgb.5.0.bn1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.0.bn1.bias": {
+      "status": "loaded",
+      "source": "rgb.5.0.bn1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.0.bn1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.5.0.bn1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.0.bn1.running_var": {
+      "status": "loaded",
+      "source": "rgb.5.0.bn1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.0.bn1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.5.0.bn1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.5.0.conv2.weight": {
+      "status": "loaded",
+      "source": "rgb.5.0.conv2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 147456,
+      "loaded_numel": 147456,
+      "initialized_numel": 0,
+      "shape": [
+        128,
+        128,
+        3,
+        3
+      ]
+    },
+    "rgb.5.0.bn2.weight": {
+      "status": "loaded",
+      "source": "rgb.5.0.bn2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.0.bn2.bias": {
+      "status": "loaded",
+      "source": "rgb.5.0.bn2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.0.bn2.running_mean": {
+      "status": "loaded",
+      "source": "rgb.5.0.bn2.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.0.bn2.running_var": {
+      "status": "loaded",
+      "source": "rgb.5.0.bn2.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.0.bn2.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.5.0.bn2.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.5.0.conv3.weight": {
+      "status": "loaded",
+      "source": "rgb.5.0.conv3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 65536,
+      "loaded_numel": 65536,
+      "initialized_numel": 0,
+      "shape": [
+        512,
+        128,
+        1,
+        1
+      ]
+    },
+    "rgb.5.0.bn3.weight": {
+      "status": "loaded",
+      "source": "rgb.5.0.bn3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.0.bn3.bias": {
+      "status": "loaded",
+      "source": "rgb.5.0.bn3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.0.bn3.running_mean": {
+      "status": "loaded",
+      "source": "rgb.5.0.bn3.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.0.bn3.running_var": {
+      "status": "loaded",
+      "source": "rgb.5.0.bn3.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.0.bn3.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.5.0.bn3.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.5.0.downsample.0.weight": {
+      "status": "loaded",
+      "source": "rgb.5.0.downsample.0.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 131072,
+      "loaded_numel": 131072,
+      "initialized_numel": 0,
+      "shape": [
+        512,
+        256,
+        1,
+        1
+      ]
+    },
+    "rgb.5.0.downsample.1.weight": {
+      "status": "loaded",
+      "source": "rgb.5.0.downsample.1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.0.downsample.1.bias": {
+      "status": "loaded",
+      "source": "rgb.5.0.downsample.1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.0.downsample.1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.5.0.downsample.1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.0.downsample.1.running_var": {
+      "status": "loaded",
+      "source": "rgb.5.0.downsample.1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.0.downsample.1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.5.0.downsample.1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.5.1.conv1.weight": {
+      "status": "loaded",
+      "source": "rgb.5.1.conv1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 65536,
+      "loaded_numel": 65536,
+      "initialized_numel": 0,
+      "shape": [
+        128,
+        512,
+        1,
+        1
+      ]
+    },
+    "rgb.5.1.bn1.weight": {
+      "status": "loaded",
+      "source": "rgb.5.1.bn1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.1.bn1.bias": {
+      "status": "loaded",
+      "source": "rgb.5.1.bn1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.1.bn1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.5.1.bn1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.1.bn1.running_var": {
+      "status": "loaded",
+      "source": "rgb.5.1.bn1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.1.bn1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.5.1.bn1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.5.1.conv2.weight": {
+      "status": "loaded",
+      "source": "rgb.5.1.conv2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 147456,
+      "loaded_numel": 147456,
+      "initialized_numel": 0,
+      "shape": [
+        128,
+        128,
+        3,
+        3
+      ]
+    },
+    "rgb.5.1.bn2.weight": {
+      "status": "loaded",
+      "source": "rgb.5.1.bn2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.1.bn2.bias": {
+      "status": "loaded",
+      "source": "rgb.5.1.bn2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.1.bn2.running_mean": {
+      "status": "loaded",
+      "source": "rgb.5.1.bn2.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.1.bn2.running_var": {
+      "status": "loaded",
+      "source": "rgb.5.1.bn2.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.1.bn2.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.5.1.bn2.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.5.1.conv3.weight": {
+      "status": "loaded",
+      "source": "rgb.5.1.conv3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 65536,
+      "loaded_numel": 65536,
+      "initialized_numel": 0,
+      "shape": [
+        512,
+        128,
+        1,
+        1
+      ]
+    },
+    "rgb.5.1.bn3.weight": {
+      "status": "loaded",
+      "source": "rgb.5.1.bn3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.1.bn3.bias": {
+      "status": "loaded",
+      "source": "rgb.5.1.bn3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.1.bn3.running_mean": {
+      "status": "loaded",
+      "source": "rgb.5.1.bn3.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.1.bn3.running_var": {
+      "status": "loaded",
+      "source": "rgb.5.1.bn3.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.1.bn3.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.5.1.bn3.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.5.2.conv1.weight": {
+      "status": "loaded",
+      "source": "rgb.5.2.conv1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 65536,
+      "loaded_numel": 65536,
+      "initialized_numel": 0,
+      "shape": [
+        128,
+        512,
+        1,
+        1
+      ]
+    },
+    "rgb.5.2.bn1.weight": {
+      "status": "loaded",
+      "source": "rgb.5.2.bn1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.2.bn1.bias": {
+      "status": "loaded",
+      "source": "rgb.5.2.bn1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.2.bn1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.5.2.bn1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.2.bn1.running_var": {
+      "status": "loaded",
+      "source": "rgb.5.2.bn1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.2.bn1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.5.2.bn1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.5.2.conv2.weight": {
+      "status": "loaded",
+      "source": "rgb.5.2.conv2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 147456,
+      "loaded_numel": 147456,
+      "initialized_numel": 0,
+      "shape": [
+        128,
+        128,
+        3,
+        3
+      ]
+    },
+    "rgb.5.2.bn2.weight": {
+      "status": "loaded",
+      "source": "rgb.5.2.bn2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.2.bn2.bias": {
+      "status": "loaded",
+      "source": "rgb.5.2.bn2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.2.bn2.running_mean": {
+      "status": "loaded",
+      "source": "rgb.5.2.bn2.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.2.bn2.running_var": {
+      "status": "loaded",
+      "source": "rgb.5.2.bn2.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.2.bn2.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.5.2.bn2.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.5.2.conv3.weight": {
+      "status": "loaded",
+      "source": "rgb.5.2.conv3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 65536,
+      "loaded_numel": 65536,
+      "initialized_numel": 0,
+      "shape": [
+        512,
+        128,
+        1,
+        1
+      ]
+    },
+    "rgb.5.2.bn3.weight": {
+      "status": "loaded",
+      "source": "rgb.5.2.bn3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.2.bn3.bias": {
+      "status": "loaded",
+      "source": "rgb.5.2.bn3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.2.bn3.running_mean": {
+      "status": "loaded",
+      "source": "rgb.5.2.bn3.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.2.bn3.running_var": {
+      "status": "loaded",
+      "source": "rgb.5.2.bn3.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.2.bn3.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.5.2.bn3.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.5.3.conv1.weight": {
+      "status": "loaded",
+      "source": "rgb.5.3.conv1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 65536,
+      "loaded_numel": 65536,
+      "initialized_numel": 0,
+      "shape": [
+        128,
+        512,
+        1,
+        1
+      ]
+    },
+    "rgb.5.3.bn1.weight": {
+      "status": "loaded",
+      "source": "rgb.5.3.bn1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.3.bn1.bias": {
+      "status": "loaded",
+      "source": "rgb.5.3.bn1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.3.bn1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.5.3.bn1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.3.bn1.running_var": {
+      "status": "loaded",
+      "source": "rgb.5.3.bn1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.3.bn1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.5.3.bn1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.5.3.conv2.weight": {
+      "status": "loaded",
+      "source": "rgb.5.3.conv2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 147456,
+      "loaded_numel": 147456,
+      "initialized_numel": 0,
+      "shape": [
+        128,
+        128,
+        3,
+        3
+      ]
+    },
+    "rgb.5.3.bn2.weight": {
+      "status": "loaded",
+      "source": "rgb.5.3.bn2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.3.bn2.bias": {
+      "status": "loaded",
+      "source": "rgb.5.3.bn2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.3.bn2.running_mean": {
+      "status": "loaded",
+      "source": "rgb.5.3.bn2.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.3.bn2.running_var": {
+      "status": "loaded",
+      "source": "rgb.5.3.bn2.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "rgb.5.3.bn2.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.5.3.bn2.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.5.3.conv3.weight": {
+      "status": "loaded",
+      "source": "rgb.5.3.conv3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 65536,
+      "loaded_numel": 65536,
+      "initialized_numel": 0,
+      "shape": [
+        512,
+        128,
+        1,
+        1
+      ]
+    },
+    "rgb.5.3.bn3.weight": {
+      "status": "loaded",
+      "source": "rgb.5.3.bn3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.3.bn3.bias": {
+      "status": "loaded",
+      "source": "rgb.5.3.bn3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.3.bn3.running_mean": {
+      "status": "loaded",
+      "source": "rgb.5.3.bn3.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.3.bn3.running_var": {
+      "status": "loaded",
+      "source": "rgb.5.3.bn3.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        512
+      ]
+    },
+    "rgb.5.3.bn3.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.5.3.bn3.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.0.conv1.weight": {
+      "status": "loaded",
+      "source": "rgb.6.0.conv1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 131072,
+      "loaded_numel": 131072,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        512,
+        1,
+        1
+      ]
+    },
+    "rgb.6.0.bn1.weight": {
+      "status": "loaded",
+      "source": "rgb.6.0.bn1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.0.bn1.bias": {
+      "status": "loaded",
+      "source": "rgb.6.0.bn1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.0.bn1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.0.bn1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.0.bn1.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.0.bn1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.0.bn1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.0.bn1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.0.conv2.weight": {
+      "status": "loaded",
+      "source": "rgb.6.0.conv2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 589824,
+      "loaded_numel": 589824,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        256,
+        3,
+        3
+      ]
+    },
+    "rgb.6.0.bn2.weight": {
+      "status": "loaded",
+      "source": "rgb.6.0.bn2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.0.bn2.bias": {
+      "status": "loaded",
+      "source": "rgb.6.0.bn2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.0.bn2.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.0.bn2.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.0.bn2.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.0.bn2.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.0.bn2.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.0.bn2.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.0.conv3.weight": {
+      "status": "loaded",
+      "source": "rgb.6.0.conv3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        1024,
+        256,
+        1,
+        1
+      ]
+    },
+    "rgb.6.0.bn3.weight": {
+      "status": "loaded",
+      "source": "rgb.6.0.bn3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.0.bn3.bias": {
+      "status": "loaded",
+      "source": "rgb.6.0.bn3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.0.bn3.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.0.bn3.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.0.bn3.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.0.bn3.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.0.bn3.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.0.bn3.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.0.downsample.0.weight": {
+      "status": "loaded",
+      "source": "rgb.6.0.downsample.0.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 524288,
+      "loaded_numel": 524288,
+      "initialized_numel": 0,
+      "shape": [
+        1024,
+        512,
+        1,
+        1
+      ]
+    },
+    "rgb.6.0.downsample.1.weight": {
+      "status": "loaded",
+      "source": "rgb.6.0.downsample.1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.0.downsample.1.bias": {
+      "status": "loaded",
+      "source": "rgb.6.0.downsample.1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.0.downsample.1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.0.downsample.1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.0.downsample.1.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.0.downsample.1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.0.downsample.1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.0.downsample.1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.1.conv1.weight": {
+      "status": "loaded",
+      "source": "rgb.6.1.conv1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        1024,
+        1,
+        1
+      ]
+    },
+    "rgb.6.1.bn1.weight": {
+      "status": "loaded",
+      "source": "rgb.6.1.bn1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.1.bn1.bias": {
+      "status": "loaded",
+      "source": "rgb.6.1.bn1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.1.bn1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.1.bn1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.1.bn1.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.1.bn1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.1.bn1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.1.bn1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.1.conv2.weight": {
+      "status": "loaded",
+      "source": "rgb.6.1.conv2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 589824,
+      "loaded_numel": 589824,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        256,
+        3,
+        3
+      ]
+    },
+    "rgb.6.1.bn2.weight": {
+      "status": "loaded",
+      "source": "rgb.6.1.bn2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.1.bn2.bias": {
+      "status": "loaded",
+      "source": "rgb.6.1.bn2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.1.bn2.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.1.bn2.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.1.bn2.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.1.bn2.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.1.bn2.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.1.bn2.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.1.conv3.weight": {
+      "status": "loaded",
+      "source": "rgb.6.1.conv3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        1024,
+        256,
+        1,
+        1
+      ]
+    },
+    "rgb.6.1.bn3.weight": {
+      "status": "loaded",
+      "source": "rgb.6.1.bn3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.1.bn3.bias": {
+      "status": "loaded",
+      "source": "rgb.6.1.bn3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.1.bn3.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.1.bn3.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.1.bn3.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.1.bn3.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.1.bn3.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.1.bn3.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.2.conv1.weight": {
+      "status": "loaded",
+      "source": "rgb.6.2.conv1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        1024,
+        1,
+        1
+      ]
+    },
+    "rgb.6.2.bn1.weight": {
+      "status": "loaded",
+      "source": "rgb.6.2.bn1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.2.bn1.bias": {
+      "status": "loaded",
+      "source": "rgb.6.2.bn1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.2.bn1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.2.bn1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.2.bn1.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.2.bn1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.2.bn1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.2.bn1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.2.conv2.weight": {
+      "status": "loaded",
+      "source": "rgb.6.2.conv2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 589824,
+      "loaded_numel": 589824,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        256,
+        3,
+        3
+      ]
+    },
+    "rgb.6.2.bn2.weight": {
+      "status": "loaded",
+      "source": "rgb.6.2.bn2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.2.bn2.bias": {
+      "status": "loaded",
+      "source": "rgb.6.2.bn2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.2.bn2.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.2.bn2.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.2.bn2.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.2.bn2.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.2.bn2.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.2.bn2.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.2.conv3.weight": {
+      "status": "loaded",
+      "source": "rgb.6.2.conv3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        1024,
+        256,
+        1,
+        1
+      ]
+    },
+    "rgb.6.2.bn3.weight": {
+      "status": "loaded",
+      "source": "rgb.6.2.bn3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.2.bn3.bias": {
+      "status": "loaded",
+      "source": "rgb.6.2.bn3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.2.bn3.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.2.bn3.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.2.bn3.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.2.bn3.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.2.bn3.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.2.bn3.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.3.conv1.weight": {
+      "status": "loaded",
+      "source": "rgb.6.3.conv1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        1024,
+        1,
+        1
+      ]
+    },
+    "rgb.6.3.bn1.weight": {
+      "status": "loaded",
+      "source": "rgb.6.3.bn1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.3.bn1.bias": {
+      "status": "loaded",
+      "source": "rgb.6.3.bn1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.3.bn1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.3.bn1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.3.bn1.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.3.bn1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.3.bn1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.3.bn1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.3.conv2.weight": {
+      "status": "loaded",
+      "source": "rgb.6.3.conv2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 589824,
+      "loaded_numel": 589824,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        256,
+        3,
+        3
+      ]
+    },
+    "rgb.6.3.bn2.weight": {
+      "status": "loaded",
+      "source": "rgb.6.3.bn2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.3.bn2.bias": {
+      "status": "loaded",
+      "source": "rgb.6.3.bn2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.3.bn2.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.3.bn2.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.3.bn2.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.3.bn2.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.3.bn2.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.3.bn2.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.3.conv3.weight": {
+      "status": "loaded",
+      "source": "rgb.6.3.conv3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        1024,
+        256,
+        1,
+        1
+      ]
+    },
+    "rgb.6.3.bn3.weight": {
+      "status": "loaded",
+      "source": "rgb.6.3.bn3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.3.bn3.bias": {
+      "status": "loaded",
+      "source": "rgb.6.3.bn3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.3.bn3.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.3.bn3.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.3.bn3.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.3.bn3.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.3.bn3.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.3.bn3.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.4.conv1.weight": {
+      "status": "loaded",
+      "source": "rgb.6.4.conv1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        1024,
+        1,
+        1
+      ]
+    },
+    "rgb.6.4.bn1.weight": {
+      "status": "loaded",
+      "source": "rgb.6.4.bn1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.4.bn1.bias": {
+      "status": "loaded",
+      "source": "rgb.6.4.bn1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.4.bn1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.4.bn1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.4.bn1.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.4.bn1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.4.bn1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.4.bn1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.4.conv2.weight": {
+      "status": "loaded",
+      "source": "rgb.6.4.conv2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 589824,
+      "loaded_numel": 589824,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        256,
+        3,
+        3
+      ]
+    },
+    "rgb.6.4.bn2.weight": {
+      "status": "loaded",
+      "source": "rgb.6.4.bn2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.4.bn2.bias": {
+      "status": "loaded",
+      "source": "rgb.6.4.bn2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.4.bn2.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.4.bn2.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.4.bn2.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.4.bn2.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.4.bn2.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.4.bn2.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.4.conv3.weight": {
+      "status": "loaded",
+      "source": "rgb.6.4.conv3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        1024,
+        256,
+        1,
+        1
+      ]
+    },
+    "rgb.6.4.bn3.weight": {
+      "status": "loaded",
+      "source": "rgb.6.4.bn3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.4.bn3.bias": {
+      "status": "loaded",
+      "source": "rgb.6.4.bn3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.4.bn3.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.4.bn3.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.4.bn3.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.4.bn3.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.4.bn3.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.4.bn3.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.5.conv1.weight": {
+      "status": "loaded",
+      "source": "rgb.6.5.conv1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        1024,
+        1,
+        1
+      ]
+    },
+    "rgb.6.5.bn1.weight": {
+      "status": "loaded",
+      "source": "rgb.6.5.bn1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.5.bn1.bias": {
+      "status": "loaded",
+      "source": "rgb.6.5.bn1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.5.bn1.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.5.bn1.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.5.bn1.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.5.bn1.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.5.bn1.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.5.bn1.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.5.conv2.weight": {
+      "status": "loaded",
+      "source": "rgb.6.5.conv2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 589824,
+      "loaded_numel": 589824,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        256,
+        3,
+        3
+      ]
+    },
+    "rgb.6.5.bn2.weight": {
+      "status": "loaded",
+      "source": "rgb.6.5.bn2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.5.bn2.bias": {
+      "status": "loaded",
+      "source": "rgb.6.5.bn2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.5.bn2.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.5.bn2.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.5.bn2.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.5.bn2.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "rgb.6.5.bn2.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.5.bn2.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb.6.5.conv3.weight": {
+      "status": "loaded",
+      "source": "rgb.6.5.conv3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        1024,
+        256,
+        1,
+        1
+      ]
+    },
+    "rgb.6.5.bn3.weight": {
+      "status": "loaded",
+      "source": "rgb.6.5.bn3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.5.bn3.bias": {
+      "status": "loaded",
+      "source": "rgb.6.5.bn3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.5.bn3.running_mean": {
+      "status": "loaded",
+      "source": "rgb.6.5.bn3.running_mean",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.5.bn3.running_var": {
+      "status": "loaded",
+      "source": "rgb.6.5.bn3.running_var",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "rgb.6.5.bn3.num_batches_tracked": {
+      "status": "loaded",
+      "source": "rgb.6.5.bn3.num_batches_tracked",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1,
+      "loaded_numel": 1,
+      "initialized_numel": 0,
+      "shape": []
+    },
+    "rgb_proj.weight": {
+      "status": "loaded",
+      "source": "rgb_proj.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        1024,
+        1,
+        1
+      ]
+    },
+    "rgb_proj.bias": {
+      "status": "loaded",
+      "source": "rgb_proj.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "geometry.0.weight": {
+      "status": "loaded",
+      "source": "geometry.0.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 2592,
+      "loaded_numel": 2592,
+      "initialized_numel": 0,
+      "shape": [
+        32,
+        9,
+        3,
+        3
+      ]
+    },
+    "geometry.0.bias": {
+      "status": "loaded",
+      "source": "geometry.0.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 32,
+      "loaded_numel": 32,
+      "initialized_numel": 0,
+      "shape": [
+        32
+      ]
+    },
+    "geometry.1.weight": {
+      "status": "loaded",
+      "source": "geometry.1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 32,
+      "loaded_numel": 32,
+      "initialized_numel": 0,
+      "shape": [
+        32
+      ]
+    },
+    "geometry.1.bias": {
+      "status": "loaded",
+      "source": "geometry.1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 32,
+      "loaded_numel": 32,
+      "initialized_numel": 0,
+      "shape": [
+        32
+      ]
+    },
+    "geometry.3.net.0.weight": {
+      "status": "loaded",
+      "source": "geometry.3.net.0.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 9216,
+      "loaded_numel": 9216,
+      "initialized_numel": 0,
+      "shape": [
+        32,
+        32,
+        3,
+        3
+      ]
+    },
+    "geometry.3.net.0.bias": {
+      "status": "loaded",
+      "source": "geometry.3.net.0.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 32,
+      "loaded_numel": 32,
+      "initialized_numel": 0,
+      "shape": [
+        32
+      ]
+    },
+    "geometry.3.net.1.weight": {
+      "status": "loaded",
+      "source": "geometry.3.net.1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 32,
+      "loaded_numel": 32,
+      "initialized_numel": 0,
+      "shape": [
+        32
+      ]
+    },
+    "geometry.3.net.1.bias": {
+      "status": "loaded",
+      "source": "geometry.3.net.1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 32,
+      "loaded_numel": 32,
+      "initialized_numel": 0,
+      "shape": [
+        32
+      ]
+    },
+    "geometry.3.net.3.weight": {
+      "status": "loaded",
+      "source": "geometry.3.net.3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 9216,
+      "loaded_numel": 9216,
+      "initialized_numel": 0,
+      "shape": [
+        32,
+        32,
+        3,
+        3
+      ]
+    },
+    "geometry.3.net.3.bias": {
+      "status": "loaded",
+      "source": "geometry.3.net.3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 32,
+      "loaded_numel": 32,
+      "initialized_numel": 0,
+      "shape": [
+        32
+      ]
+    },
+    "geometry.3.net.4.weight": {
+      "status": "loaded",
+      "source": "geometry.3.net.4.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 32,
+      "loaded_numel": 32,
+      "initialized_numel": 0,
+      "shape": [
+        32
+      ]
+    },
+    "geometry.3.net.4.bias": {
+      "status": "loaded",
+      "source": "geometry.3.net.4.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 32,
+      "loaded_numel": 32,
+      "initialized_numel": 0,
+      "shape": [
+        32
+      ]
+    },
+    "geometry.4.weight": {
+      "status": "loaded",
+      "source": "geometry.4.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 18432,
+      "loaded_numel": 18432,
+      "initialized_numel": 0,
+      "shape": [
+        64,
+        32,
+        3,
+        3
+      ]
+    },
+    "geometry.4.bias": {
+      "status": "loaded",
+      "source": "geometry.4.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "geometry.5.weight": {
+      "status": "loaded",
+      "source": "geometry.5.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "geometry.5.bias": {
+      "status": "loaded",
+      "source": "geometry.5.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "geometry.7.net.0.weight": {
+      "status": "loaded",
+      "source": "geometry.7.net.0.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 36864,
+      "loaded_numel": 36864,
+      "initialized_numel": 0,
+      "shape": [
+        64,
+        64,
+        3,
+        3
+      ]
+    },
+    "geometry.7.net.0.bias": {
+      "status": "loaded",
+      "source": "geometry.7.net.0.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "geometry.7.net.1.weight": {
+      "status": "loaded",
+      "source": "geometry.7.net.1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "geometry.7.net.1.bias": {
+      "status": "loaded",
+      "source": "geometry.7.net.1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "geometry.7.net.3.weight": {
+      "status": "loaded",
+      "source": "geometry.7.net.3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 36864,
+      "loaded_numel": 36864,
+      "initialized_numel": 0,
+      "shape": [
+        64,
+        64,
+        3,
+        3
+      ]
+    },
+    "geometry.7.net.3.bias": {
+      "status": "loaded",
+      "source": "geometry.7.net.3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "geometry.7.net.4.weight": {
+      "status": "loaded",
+      "source": "geometry.7.net.4.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "geometry.7.net.4.bias": {
+      "status": "loaded",
+      "source": "geometry.7.net.4.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 64,
+      "loaded_numel": 64,
+      "initialized_numel": 0,
+      "shape": [
+        64
+      ]
+    },
+    "geometry.8.weight": {
+      "status": "loaded",
+      "source": "geometry.8.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 73728,
+      "loaded_numel": 73728,
+      "initialized_numel": 0,
+      "shape": [
+        128,
+        64,
+        3,
+        3
+      ]
+    },
+    "geometry.8.bias": {
+      "status": "loaded",
+      "source": "geometry.8.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "geometry.9.weight": {
+      "status": "loaded",
+      "source": "geometry.9.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "geometry.9.bias": {
+      "status": "loaded",
+      "source": "geometry.9.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "geometry.11.net.0.weight": {
+      "status": "loaded",
+      "source": "geometry.11.net.0.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 147456,
+      "loaded_numel": 147456,
+      "initialized_numel": 0,
+      "shape": [
+        128,
+        128,
+        3,
+        3
+      ]
+    },
+    "geometry.11.net.0.bias": {
+      "status": "loaded",
+      "source": "geometry.11.net.0.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "geometry.11.net.1.weight": {
+      "status": "loaded",
+      "source": "geometry.11.net.1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "geometry.11.net.1.bias": {
+      "status": "loaded",
+      "source": "geometry.11.net.1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "geometry.11.net.3.weight": {
+      "status": "loaded",
+      "source": "geometry.11.net.3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 147456,
+      "loaded_numel": 147456,
+      "initialized_numel": 0,
+      "shape": [
+        128,
+        128,
+        3,
+        3
+      ]
+    },
+    "geometry.11.net.3.bias": {
+      "status": "loaded",
+      "source": "geometry.11.net.3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "geometry.11.net.4.weight": {
+      "status": "loaded",
+      "source": "geometry.11.net.4.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "geometry.11.net.4.bias": {
+      "status": "loaded",
+      "source": "geometry.11.net.4.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 128,
+      "loaded_numel": 128,
+      "initialized_numel": 0,
+      "shape": [
+        128
+      ]
+    },
+    "geometry.12.weight": {
+      "status": "loaded",
+      "source": "geometry.12.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 294912,
+      "loaded_numel": 294912,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        128,
+        3,
+        3
+      ]
+    },
+    "geometry.12.bias": {
+      "status": "loaded",
+      "source": "geometry.12.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "geometry.13.weight": {
+      "status": "loaded",
+      "source": "geometry.13.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "geometry.13.bias": {
+      "status": "loaded",
+      "source": "geometry.13.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "geometry.15.net.0.weight": {
+      "status": "loaded",
+      "source": "geometry.15.net.0.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 589824,
+      "loaded_numel": 589824,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        256,
+        3,
+        3
+      ]
+    },
+    "geometry.15.net.0.bias": {
+      "status": "loaded",
+      "source": "geometry.15.net.0.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "geometry.15.net.1.weight": {
+      "status": "loaded",
+      "source": "geometry.15.net.1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "geometry.15.net.1.bias": {
+      "status": "loaded",
+      "source": "geometry.15.net.1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "geometry.15.net.3.weight": {
+      "status": "loaded",
+      "source": "geometry.15.net.3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 589824,
+      "loaded_numel": 589824,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        256,
+        3,
+        3
+      ]
+    },
+    "geometry.15.net.3.bias": {
+      "status": "loaded",
+      "source": "geometry.15.net.3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "geometry.15.net.4.weight": {
+      "status": "loaded",
+      "source": "geometry.15.net.4.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "geometry.15.net.4.bias": {
+      "status": "loaded",
+      "source": "geometry.15.net.4.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "fusion.0.qnorm.weight": {
+      "status": "loaded",
+      "source": "fusion.0.qnorm.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "fusion.0.qnorm.bias": {
+      "status": "loaded",
+      "source": "fusion.0.qnorm.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "fusion.0.knorm.weight": {
+      "status": "loaded",
+      "source": "fusion.0.knorm.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "fusion.0.knorm.bias": {
+      "status": "loaded",
+      "source": "fusion.0.knorm.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "fusion.0.fnorm.weight": {
+      "status": "loaded",
+      "source": "fusion.0.fnorm.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "fusion.0.fnorm.bias": {
+      "status": "loaded",
+      "source": "fusion.0.fnorm.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "fusion.0.attn.in_proj_weight": {
+      "status": "loaded",
+      "source": "fusion.0.attn.in_proj_weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 196608,
+      "loaded_numel": 196608,
+      "initialized_numel": 0,
+      "shape": [
+        768,
+        256
+      ]
+    },
+    "fusion.0.attn.in_proj_bias": {
+      "status": "loaded",
+      "source": "fusion.0.attn.in_proj_bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 768,
+      "loaded_numel": 768,
+      "initialized_numel": 0,
+      "shape": [
+        768
+      ]
+    },
+    "fusion.0.attn.out_proj.weight": {
+      "status": "loaded",
+      "source": "fusion.0.attn.out_proj.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 65536,
+      "loaded_numel": 65536,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        256
+      ]
+    },
+    "fusion.0.attn.out_proj.bias": {
+      "status": "loaded",
+      "source": "fusion.0.attn.out_proj.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "fusion.0.ff.0.weight": {
+      "status": "loaded",
+      "source": "fusion.0.ff.0.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        1024,
+        256
+      ]
+    },
+    "fusion.0.ff.0.bias": {
+      "status": "loaded",
+      "source": "fusion.0.ff.0.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "fusion.0.ff.3.weight": {
+      "status": "loaded",
+      "source": "fusion.0.ff.3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        1024
+      ]
+    },
+    "fusion.0.ff.3.bias": {
+      "status": "loaded",
+      "source": "fusion.0.ff.3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "fusion.1.qnorm.weight": {
+      "status": "loaded",
+      "source": "fusion.1.qnorm.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "fusion.1.qnorm.bias": {
+      "status": "loaded",
+      "source": "fusion.1.qnorm.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "fusion.1.knorm.weight": {
+      "status": "loaded",
+      "source": "fusion.1.knorm.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "fusion.1.knorm.bias": {
+      "status": "loaded",
+      "source": "fusion.1.knorm.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "fusion.1.fnorm.weight": {
+      "status": "loaded",
+      "source": "fusion.1.fnorm.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "fusion.1.fnorm.bias": {
+      "status": "loaded",
+      "source": "fusion.1.fnorm.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "fusion.1.attn.in_proj_weight": {
+      "status": "loaded",
+      "source": "fusion.1.attn.in_proj_weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 196608,
+      "loaded_numel": 196608,
+      "initialized_numel": 0,
+      "shape": [
+        768,
+        256
+      ]
+    },
+    "fusion.1.attn.in_proj_bias": {
+      "status": "loaded",
+      "source": "fusion.1.attn.in_proj_bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 768,
+      "loaded_numel": 768,
+      "initialized_numel": 0,
+      "shape": [
+        768
+      ]
+    },
+    "fusion.1.attn.out_proj.weight": {
+      "status": "loaded",
+      "source": "fusion.1.attn.out_proj.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 65536,
+      "loaded_numel": 65536,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        256
+      ]
+    },
+    "fusion.1.attn.out_proj.bias": {
+      "status": "loaded",
+      "source": "fusion.1.attn.out_proj.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "fusion.1.ff.0.weight": {
+      "status": "loaded",
+      "source": "fusion.1.ff.0.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        1024,
+        256
+      ]
+    },
+    "fusion.1.ff.0.bias": {
+      "status": "loaded",
+      "source": "fusion.1.ff.0.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "fusion.1.ff.3.weight": {
+      "status": "loaded",
+      "source": "fusion.1.ff.3.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        1024
+      ]
+    },
+    "fusion.1.ff.3.bias": {
+      "status": "loaded",
+      "source": "fusion.1.ff.3.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "head.0.weight": {
+      "status": "loaded",
+      "source": "head.0.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 65536,
+      "loaded_numel": 65536,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        256
+      ]
+    },
+    "head.0.bias": {
+      "status": "loaded",
+      "source": "head.0.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "head.2.weight": {
+      "status": "loaded",
+      "source": "head.2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1536,
+      "loaded_numel": 1536,
+      "initialized_numel": 0,
+      "shape": [
+        6,
+        256
+      ]
+    },
+    "head.2.bias": {
+      "status": "loaded",
+      "source": "head.2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 6,
+      "loaded_numel": 6,
+      "initialized_numel": 0,
+      "shape": [
+        6
+      ]
+    },
+    "state.0.weight": {
+      "status": "loaded",
+      "source": "state.0.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 6144,
+      "loaded_numel": 6144,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        24
+      ]
+    },
+    "state.0.bias": {
+      "status": "loaded",
+      "source": "state.0.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "state.2.weight": {
+      "status": "loaded",
+      "source": "state.2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 65536,
+      "loaded_numel": 65536,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        256
+      ]
+    },
+    "state.2.bias": {
+      "status": "loaded",
+      "source": "state.2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "source_position.weight": {
+      "status": "loaded",
+      "source": "source_position.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 512,
+      "loaded_numel": 512,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        2
+      ]
+    },
+    "source_position.bias": {
+      "status": "loaded",
+      "source": "source_position.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.0.self_attn.in_proj_weight": {
+      "status": "loaded",
+      "source": "temporal.layers.0.self_attn.in_proj_weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 196608,
+      "loaded_numel": 196608,
+      "initialized_numel": 0,
+      "shape": [
+        768,
+        256
+      ]
+    },
+    "temporal.layers.0.self_attn.in_proj_bias": {
+      "status": "loaded",
+      "source": "temporal.layers.0.self_attn.in_proj_bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 768,
+      "loaded_numel": 768,
+      "initialized_numel": 0,
+      "shape": [
+        768
+      ]
+    },
+    "temporal.layers.0.self_attn.out_proj.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.0.self_attn.out_proj.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 65536,
+      "loaded_numel": 65536,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        256
+      ]
+    },
+    "temporal.layers.0.self_attn.out_proj.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.0.self_attn.out_proj.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.0.linear1.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.0.linear1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        1024,
+        256
+      ]
+    },
+    "temporal.layers.0.linear1.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.0.linear1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "temporal.layers.0.linear2.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.0.linear2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        1024
+      ]
+    },
+    "temporal.layers.0.linear2.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.0.linear2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.0.norm1.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.0.norm1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.0.norm1.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.0.norm1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.0.norm2.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.0.norm2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.0.norm2.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.0.norm2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.1.self_attn.in_proj_weight": {
+      "status": "loaded",
+      "source": "temporal.layers.1.self_attn.in_proj_weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 196608,
+      "loaded_numel": 196608,
+      "initialized_numel": 0,
+      "shape": [
+        768,
+        256
+      ]
+    },
+    "temporal.layers.1.self_attn.in_proj_bias": {
+      "status": "loaded",
+      "source": "temporal.layers.1.self_attn.in_proj_bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 768,
+      "loaded_numel": 768,
+      "initialized_numel": 0,
+      "shape": [
+        768
+      ]
+    },
+    "temporal.layers.1.self_attn.out_proj.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.1.self_attn.out_proj.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 65536,
+      "loaded_numel": 65536,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        256
+      ]
+    },
+    "temporal.layers.1.self_attn.out_proj.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.1.self_attn.out_proj.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.1.linear1.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.1.linear1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        1024,
+        256
+      ]
+    },
+    "temporal.layers.1.linear1.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.1.linear1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "temporal.layers.1.linear2.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.1.linear2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        1024
+      ]
+    },
+    "temporal.layers.1.linear2.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.1.linear2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.1.norm1.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.1.norm1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.1.norm1.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.1.norm1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.1.norm2.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.1.norm2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.1.norm2.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.1.norm2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.2.self_attn.in_proj_weight": {
+      "status": "loaded",
+      "source": "temporal.layers.2.self_attn.in_proj_weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 196608,
+      "loaded_numel": 196608,
+      "initialized_numel": 0,
+      "shape": [
+        768,
+        256
+      ]
+    },
+    "temporal.layers.2.self_attn.in_proj_bias": {
+      "status": "loaded",
+      "source": "temporal.layers.2.self_attn.in_proj_bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 768,
+      "loaded_numel": 768,
+      "initialized_numel": 0,
+      "shape": [
+        768
+      ]
+    },
+    "temporal.layers.2.self_attn.out_proj.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.2.self_attn.out_proj.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 65536,
+      "loaded_numel": 65536,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        256
+      ]
+    },
+    "temporal.layers.2.self_attn.out_proj.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.2.self_attn.out_proj.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.2.linear1.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.2.linear1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        1024,
+        256
+      ]
+    },
+    "temporal.layers.2.linear1.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.2.linear1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "temporal.layers.2.linear2.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.2.linear2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        1024
+      ]
+    },
+    "temporal.layers.2.linear2.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.2.linear2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.2.norm1.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.2.norm1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.2.norm1.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.2.norm1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.2.norm2.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.2.norm2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.2.norm2.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.2.norm2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.3.self_attn.in_proj_weight": {
+      "status": "loaded",
+      "source": "temporal.layers.3.self_attn.in_proj_weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 196608,
+      "loaded_numel": 196608,
+      "initialized_numel": 0,
+      "shape": [
+        768,
+        256
+      ]
+    },
+    "temporal.layers.3.self_attn.in_proj_bias": {
+      "status": "loaded",
+      "source": "temporal.layers.3.self_attn.in_proj_bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 768,
+      "loaded_numel": 768,
+      "initialized_numel": 0,
+      "shape": [
+        768
+      ]
+    },
+    "temporal.layers.3.self_attn.out_proj.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.3.self_attn.out_proj.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 65536,
+      "loaded_numel": 65536,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        256
+      ]
+    },
+    "temporal.layers.3.self_attn.out_proj.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.3.self_attn.out_proj.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.3.linear1.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.3.linear1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        1024,
+        256
+      ]
+    },
+    "temporal.layers.3.linear1.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.3.linear1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 1024,
+      "loaded_numel": 1024,
+      "initialized_numel": 0,
+      "shape": [
+        1024
+      ]
+    },
+    "temporal.layers.3.linear2.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.3.linear2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 262144,
+      "loaded_numel": 262144,
+      "initialized_numel": 0,
+      "shape": [
+        256,
+        1024
+      ]
+    },
+    "temporal.layers.3.linear2.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.3.linear2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.3.norm1.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.3.norm1.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.3.norm1.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.3.norm1.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.3.norm2.weight": {
+      "status": "loaded",
+      "source": "temporal.layers.3.norm2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.layers.3.norm2.bias": {
+      "status": "loaded",
+      "source": "temporal.layers.3.norm2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.norm.weight": {
+      "status": "loaded",
+      "source": "temporal.norm.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.norm.bias": {
+      "status": "loaded",
+      "source": "temporal.norm.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        256
+      ]
+    },
+    "temporal.time_bias.0.weight": {
+      "status": "loaded",
+      "source": "temporal.time_bias.0.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 32,
+      "loaded_numel": 32,
+      "initialized_numel": 0,
+      "shape": [
+        32,
+        1
+      ]
+    },
+    "temporal.time_bias.0.bias": {
+      "status": "loaded",
+      "source": "temporal.time_bias.0.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 32,
+      "loaded_numel": 32,
+      "initialized_numel": 0,
+      "shape": [
+        32
+      ]
+    },
+    "temporal.time_bias.2.weight": {
+      "status": "loaded",
+      "source": "temporal.time_bias.2.weight",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 256,
+      "loaded_numel": 256,
+      "initialized_numel": 0,
+      "shape": [
+        8,
+        32
+      ]
+    },
+    "temporal.time_bias.2.bias": {
+      "status": "loaded",
+      "source": "temporal.time_bias.2.bias",
+      "reason": "compatible module with unchanged parameter semantics",
+      "numel": 8,
+      "loaded_numel": 8,
+      "initialized_numel": 0,
+      "shape": [
+        8
+      ]
+    },
+    "readout.query": {
+      "status": "remapped",
+      "source": "readout.query",
+      "reason": "object query copied; context query independently initialized",
+      "partial_new": true,
+      "numel": 512,
+      "loaded_numel": 256,
+      "initialized_numel": 256,
+      "shape": [
+        1,
+        2,
+        256
+      ]
+    },
+    "readout.context_projection.weight": {
+      "status": "initialized",
+      "reason": "new streaming parameter / buffer",
+      "numel": 65536,
+      "loaded_numel": 0,
+      "initialized_numel": 65536,
+      "shape": [
+        256,
+        256
+      ]
+    },
+    "readout.gate.0.weight": {
+      "status": "initialized",
+      "reason": "new streaming parameter / buffer",
+      "numel": 131072,
+      "loaded_numel": 0,
+      "initialized_numel": 131072,
+      "shape": [
+        256,
+        512
+      ]
+    },
+    "readout.gate.0.bias": {
+      "status": "initialized",
+      "reason": "new streaming parameter / buffer",
+      "numel": 256,
+      "loaded_numel": 0,
+      "initialized_numel": 256,
+      "shape": [
+        256
+      ]
+    },
+    "readout.gate.2.weight": {
+      "status": "initialized",
+      "reason": "new streaming parameter / buffer",
+      "numel": 256,
+      "loaded_numel": 0,
+      "initialized_numel": 256,
+      "shape": [
+        1,
+        256
+      ]
+    },
+    "readout.gate.2.bias": {
+      "status": "initialized",
+      "reason": "new streaming parameter / buffer",
+      "numel": 1,
+      "loaded_numel": 0,
+      "initialized_numel": 1,
+      "shape": [
+        1
+      ]
+    }
+  },
+  "source_skipped": {},
+  "loaded_parameter_numel": 15648142,
+  "total_parameter_numel": 15845519,
+  "coverage": 0.9875436708636681
+}

@@ -1,0 +1,22 @@
+{"completed_selections": 1}
+{"completed_selections": 2}
+{"completed_selections": 3}
+{"completed_selections": 4}
+{"completed_selections": 5}
+{"completed_selections": 6}
+{"completed_selections": 7}
+{"completed_selections": 8}
+{"completed_selections": 9}
+{"completed_selections": 10}
+{"completed_selections": 11}
+{"completed_selections": 12}
+{"completed_selections": 13}
+{"completed_selections": 14}
+{"completed_selections": 15}
+{"completed_selections": 16}
+{"completed_selections": 17}
+{"completed_selections": 18}
+{"completed_selections": 19}
+{"completed_selections": 20}
+/mnt/why/dexycb_lip/tools/diagnose_table_consistency.py:65: RuntimeWarning: All-NaN slice encountered
+  med=np.nanmedian(maps[:,ci],axis=0)

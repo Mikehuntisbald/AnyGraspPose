@@ -1,0 +1,240 @@
+{
+  "environment": {
+    "versions": {
+      "torch": "2.8.0+cu128",
+      "torchvision": "0.23.0+cu128",
+      "numpy": "2.5.3",
+      "scipy": "1.16.2",
+      "trimesh": "5.1.0",
+      "opencv-python-headless": "4.12.0.88",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "nvdiffrast": "0.4.0",
+      "tensorboard": "2.20.0"
+    },
+    "cuda_runtime": "12.8",
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 1,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 2,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 3,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 4,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 5,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 6,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      },
+      {
+        "index": 7,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      }
+    ],
+    "cgroup_limits": {
+      "cpu_quota_us": 12800000,
+      "cpu_period_us": 100000,
+      "memory_limit_bytes": 549755813888
+    },
+    "driver": [
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20"
+    ],
+    "cpu_affinity": 344,
+    "cpu_count": 344,
+    "disk": {
+      "total": 725677674332160,
+      "used": 527384437989376,
+      "free": 198293236342784
+    },
+    "bf16": true
+  },
+  "gpu_occupancy": "0, NVIDIA H20, 4 MiB, 97871 MiB, 0 %\n1, NVIDIA H20, 4 MiB, 97871 MiB, 0 %\n2, NVIDIA H20, 4 MiB, 97871 MiB, 0 %\n3, NVIDIA H20, 4 MiB, 97871 MiB, 0 %\n4, NVIDIA H20, 4 MiB, 97871 MiB, 0 %\n5, NVIDIA H20, 4 MiB, 97871 MiB, 0 %\n6, NVIDIA H20, 4 MiB, 97871 MiB, 0 %\n7, NVIDIA H20, 4 MiB, 97871 MiB, 0 %\n",
+  "processes": "",
+  "audit": {
+    "errors": [],
+    "missing_subjects": [],
+    "streams": 8000,
+    "frames": 581968,
+    "source_root": "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+    "cache_schema_version": 2,
+    "depth_scale_to_m": 0.001,
+    "pose_scale_to_m": 1.0,
+    "mesh_scale_to_m": 1.0,
+    "fps": 30.0,
+    "timestamp_source": "frame_index/fps; official capture rate 30 Hz",
+    "setup": "s0",
+    "split_disjoint": true,
+    "physical_sequences": {
+      "train": 800,
+      "val": 40,
+      "test": 160
+    },
+    "complete": true,
+    "verified_train_subset": false,
+    "verified_subject_subset": false,
+    "selected_subjects": [
+      "20200709-subject-01",
+      "20200813-subject-02",
+      "20200820-subject-03",
+      "20200903-subject-04",
+      "20200908-subject-05",
+      "20200918-subject-06",
+      "20200928-subject-07",
+      "20201002-subject-08",
+      "20201015-subject-09",
+      "20201022-subject-10"
+    ],
+    "object_ids": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      20,
+      21
+    ],
+    "inventory_scope": "full official inventory",
+    "split_hash": "54a35253db5bea988ffea5e41641d3313b31c5568193a186dd4e4359c497804b",
+    "mesh_hash": "359f53a5f41963d3fdfc2542bd640432d820bfc99a055baec8976ad99966d32c"
+  },
+  "source_sha256": {
+    "src/lip/__init__.py": "6c23f1bd95a2c640a7f083de4c67183e428f7d0bc03d4da5b01414ef2dfa41d7",
+    "src/lip/data/clips.py": "09f865873b31fa94d313d3a93aecebff5869bd77321287314f8601c44dcaae26",
+    "src/lip/data/index.py": "c341b7d6a313b865ef4d206f69a1c9515dc97eb76d26455e807f93b4e24eeef6",
+    "src/lip/data/motion.py": "7133c352b966a3bd62a2509ef0c150da8b56f1e592c27c467a02f5002769e4c2",
+    "src/lip/data/perturb.py": "cd1d86da599810877e224f3497a7c6535c800055f20b79e8ef18cc2530b24112",
+    "src/lip/data/sampling.py": "01014ee0572551b18f542e2df4ec7750dfb89a95f3d0645b697d86292851d0ca",
+    "src/lip/data/synthetic.py": "549aa84627bd39bc180e795b12e5d3c6fd80be1c7930b978e90036b9d531f24e",
+    "src/lip/engine/checkpoint.py": "01e67080caf11b0aedfb1211e1d51bf5c5bfea88d77a12a94e62b22860672f9c",
+    "src/lip/engine/config.py": "3e199511597b783c74b934d1b34b52773e1102ea3c6aeadb2fc8429604bf9bd2",
+    "src/lip/engine/features.py": "a12e998997d8c33b63583bb57b952bd0c3bf4ec0672047a7cac033490f91ac7a",
+    "src/lip/engine/runtime.py": "8eee432709f8486a133495133f21282dd6d569eb0c25b2e046b4059d2bc5c70f",
+    "src/lip/evaluate.py": "b3f474a73c83b23926958c4e0fe37bf31fe75bce6f61684c5f82ac80a067f438",
+    "src/lip/evaluation/metrics.py": "f76b02d0ce22d25da887a24eee6810c2b68880405fabfc7d0118cffed6c34b09",
+    "src/lip/evaluation/selection.py": "122710f5351f74ed4b781151536709f1214299685d25965bd3471a5c39c53e42",
+    "src/lip/geometry/crop.py": "a5ce009bfe27e996c2ef236ef5f33b4de8b54da3b2f46bc04622a86157752c7f",
+    "src/lip/geometry/mesh.py": "43ab77da0ef583161775f52150ee2621db49a1ae37c6bf546fb6189b659faf04",
+    "src/lip/geometry/renderer.py": "d206bbade9659c71284c6e7c2408a28854ad44df9b6ec726b9f0de2be757b520",
+    "src/lip/geometry/so3.py": "1019ff2babaf4e200c3df283bf9c23f577eafdbec830a14a53cd0eec5687a871",
+    "src/lip/integrations/foundationpose.py": "c027e21943e9830831e4747e01b4063e83c5e0f1a0705b2bbaca0322dd279c27",
+    "src/lip/losses.py": "f3dd10e3f425be542fb9a04fff827beb55d30013cef626c589f7568f329471d6",
+    "src/lip/models/tracker.py": "24f6c4e62c45deaf0d6c6890cf106aa23a8e700ddff999002b5c6b23a8ec98c7",
+    "src/lip/train.py": "2274963b63653ed9521229d9c0a7fdf8d37358d6478a27ec9ccd0069e4961070"
+  },
+  "active_runtime_sha256": {
+    "runs/basin_speed_v1/candidate/src/lip/__init__.py": "6c23f1bd95a2c640a7f083de4c67183e428f7d0bc03d4da5b01414ef2dfa41d7",
+    "runs/basin_speed_v1/candidate/src/lip/data/basin_targets.py": "6a43e342656ab5ff3c9ef1627147628ed2db08cd621ec5bfac3a200e93c3eba3",
+    "runs/basin_speed_v1/candidate/src/lip/data/clips.py": "2aa8cd41153064ab2ad20f08fa6416ac0f49564a5be6f396a7223cbedc682e39",
+    "runs/basin_speed_v1/candidate/src/lip/data/index.py": "c341b7d6a313b865ef4d206f69a1c9515dc97eb76d26455e807f93b4e24eeef6",
+    "runs/basin_speed_v1/candidate/src/lip/data/motion.py": "7133c352b966a3bd62a2509ef0c150da8b56f1e592c27c467a02f5002769e4c2",
+    "runs/basin_speed_v1/candidate/src/lip/data/perturb.py": "cd1d86da599810877e224f3497a7c6535c800055f20b79e8ef18cc2530b24112",
+    "runs/basin_speed_v1/candidate/src/lip/data/sampling.py": "01014ee0572551b18f542e2df4ec7750dfb89a95f3d0645b697d86292851d0ca",
+    "runs/basin_speed_v1/candidate/src/lip/data/synthetic.py": "549aa84627bd39bc180e795b12e5d3c6fd80be1c7930b978e90036b9d531f24e",
+    "runs/basin_speed_v1/candidate/src/lip/engine/checkpoint.py": "01e67080caf11b0aedfb1211e1d51bf5c5bfea88d77a12a94e62b22860672f9c",
+    "runs/basin_speed_v1/candidate/src/lip/engine/config.py": "3e199511597b783c74b934d1b34b52773e1102ea3c6aeadb2fc8429604bf9bd2",
+    "runs/basin_speed_v1/candidate/src/lip/engine/features.py": "a12e998997d8c33b63583bb57b952bd0c3bf4ec0672047a7cac033490f91ac7a",
+    "runs/basin_speed_v1/candidate/src/lip/engine/rollout.py": "268aee8766c87115c64b57db10486fe49742d27c4b56febf43a75e0007cec718",
+    "runs/basin_speed_v1/candidate/src/lip/engine/runtime.py": "cc45d64c17c0897fed3f56d1cfbba6110cc52f56ed0eb50f123251ec7b5a58b7",
+    "runs/basin_speed_v1/candidate/src/lip/evaluate.py": "b3f474a73c83b23926958c4e0fe37bf31fe75bce6f61684c5f82ac80a067f438",
+    "runs/basin_speed_v1/candidate/src/lip/evaluation/metrics.py": "f76b02d0ce22d25da887a24eee6810c2b68880405fabfc7d0118cffed6c34b09",
+    "runs/basin_speed_v1/candidate/src/lip/evaluation/selection.py": "122710f5351f74ed4b781151536709f1214299685d25965bd3471a5c39c53e42",
+    "runs/basin_speed_v1/candidate/src/lip/geometry/crop.py": "a5ce009bfe27e996c2ef236ef5f33b4de8b54da3b2f46bc04622a86157752c7f",
+    "runs/basin_speed_v1/candidate/src/lip/geometry/mesh.py": "43ab77da0ef583161775f52150ee2621db49a1ae37c6bf546fb6189b659faf04",
+    "runs/basin_speed_v1/candidate/src/lip/geometry/renderer.py": "d206bbade9659c71284c6e7c2408a28854ad44df9b6ec726b9f0de2be757b520",
+    "runs/basin_speed_v1/candidate/src/lip/geometry/so3.py": "1019ff2babaf4e200c3df283bf9c23f577eafdbec830a14a53cd0eec5687a871",
+    "runs/basin_speed_v1/candidate/src/lip/integrations/foundationpose.py": "c027e21943e9830831e4747e01b4063e83c5e0f1a0705b2bbaca0322dd279c27",
+    "runs/basin_speed_v1/candidate/src/lip/integrations/frozen_fp.py": "4e2de392857a75290150da26342befc3c5fa0e3effbe92a78b665b4ef3da909d",
+    "runs/basin_speed_v1/candidate/src/lip/losses.py": "f3dd10e3f425be542fb9a04fff827beb55d30013cef626c589f7568f329471d6",
+    "runs/basin_speed_v1/candidate/src/lip/models/basin.py": "f6e56e00cd3f25bf60f558e590036a2efdfd95c023ef8a773d753a22a520528f",
+    "runs/basin_speed_v1/candidate/src/lip/models/tracker.py": "24f6c4e62c45deaf0d6c6890cf106aa23a8e700ddff999002b5c6b23a8ec98c7",
+    "runs/basin_speed_v1/candidate/src/lip/train.py": "db69777255ee8f344dfa8023ddb3961cbe2608d15ea3d9056530f19199571874"
+  },
+  "last_training_record": {
+    "loss": 0.0842889528721571,
+    "translation": 0.005907708662562072,
+    "rotation": 0.08138013072311878,
+    "points": 0.036720008589327335,
+    "pose_loss": 0.08331778086721897,
+    "basin_loss": 0.09711709059774876,
+    "update_rotation_rad": 0.13056235946714878,
+    "update_center_norm": 0.19890708848834038,
+    "render_time": 0.7822054368443787,
+    "forward_time": 0.4253430338576436,
+    "backward_time": 1.0829832419985905,
+    "fp_transition_time": 2.9862181812059134,
+    "rotation_clipped": 0.00390625,
+    "translation_clipped": 0.015625,
+    "data_time": 0.5740774710429832,
+    "step": 40000,
+    "rank": 0,
+    "run_id": "basin_speed_v1",
+    "rollout": 4,
+    "history_mode": "lip_fp",
+    "history_probs": [
+      0.20000952380952383,
+      0.2000047619047619,
+      0.5999857142857142
+    ],
+    "basin_weight": 0.01,
+    "grad_norm": 0.546612024307251,
+    "scheduler_step": 40000,
+    "sampler_position": 40000,
+    "samples_seen": 10240000,
+    "effective_batch": 256,
+    "clips_per_sec": 5.430371510860898,
+    "observed_frames_per_sec": 173.77188834754872,
+    "peak_memory_bytes": 60991641088,
+    "elapsed": 5.8927828300511464,
+    "nonfinite_count": 0,
+    "lrs": [
+      1e-05,
+      1.0000000000000002e-06,
+      1.0000000000000002e-06,
+      1e-05
+    ]
+  }
+}

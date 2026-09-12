@@ -1,0 +1,60 @@
+{
+  "public_baseline": "fa0905147b4d7f581e25f6b075b600b3ea945bfe",
+  "local_head": "fa0905147b4d7f581e25f6b075b600b3ea945bfe",
+  "worktree_before": "M src/lip/data/clips.py\n M src/lip/engine/runtime.py\n M src/lip/evaluate.py\n M src/lip/train.py\n?? configs/basin_boundary_v3.yaml\n?? configs/basin_critic.yaml\n?? configs/basin_memory_fixed.yaml\n?? configs/basin_outcome_v2.yaml\n?? configs/basin_speed.yaml\n?? configs/basin_validated.yaml\n?? configs/fpaware_19000.yaml\n?? docs/basin_prior.md\n?? docs/fp_transition_analysis.md\n?? docs/fpaware_rollout.md\n?? docs/memory_interruption_20260910.md\n?? docs/novelty_assessment_20260911.md\n?? docs/rgbd_alignment_audit.md\n?? docs/training_speed.md\n?? runs/basin_boundary_v3/\n?? runs/basin_dual_v2/\n?? runs/basin_memory_fix/\n?? runs/basin_speed_v1/\n?? runs/basin_v1/\n?? runs/checkpoint_archive/\n?? runs/fp_transition_analysis_21530_31000/\n?? runs/fpaware_19000/\n?? runs/lip_fp_21530/\n?? runs/lip_fp_31000/\n?? runs/lip_fp_34700/\n?? runs/lip_v1_s0/\n?? runs/rgbd_alignment_audit/\n?? scripts/train_basin_8gpu.sh\n?? scripts/train_basin_fast.sh\n?? scripts/train_basin_memory_fixed.sh\n?? scripts/train_fpaware_8gpu.sh\n?? src/lip/data/basin_targets.py\n?? src/lip/engine/rollout.py\n?? src/lip/integrations/frozen_fp.py\n?? src/lip/models/basin.py\n?? tests/test_basin.py\n?? tests/test_basin_outcome.py\n?? tests/test_basin_targets.py\n?? tests/test_evaluate_hybrid.py\n?? tests/test_fpaware.py\n?? tests/test_speed.py\n?? tools/analyze_fp_transitions.py\n?? tools/approve_speed.py\n?? tools/audit_speed_inputs.py\n?? tools/benchmark_speed.py\n?? tools/check_basin_drift.py\n?? tools/check_boundary_critic_drift.py\n?? tools/check_mesh_depth_hypotheses.py\n?? tools/collect_basin.py\n?? tools/collect_basin_boundary.py\n?? tools/diagnose_multiview_depth.py\n?? tools/diagnose_rgbd_alignment.py\n?? tools/diagnose_speed_numeric.py\n?? tools/diagnose_table_consistency.py\n?? tools/diagnose_val_regression.py\n?? tools/enrich_basin_outcomes.py\n?? tools/eval_lip_fp.py\n?? tools/fit_basin_boundary.py\n?? tools/pause_for_speed.py\n?? tools/probe_basin_actor.py\n?? tools/probe_fp_depth_intervention.py\n?? tools/probe_fp_gt_bias.py\n?? tools/probe_fpaware.py\n?? tools/probe_selected_depth_residual.py\n?? tools/recheck_speed_threads.py\n?? tools/resume_after_eval_31000.py\n?? tools/resume_memory_fixed.py\n?? tools/retain_checkpoint.py\n?? tools/run_basin_fit.py\n?? tools/run_lip_fp_31000.py\n?? tools/run_saved_checkpoint_eval.py\n?? tools/run_speed_training.py\n?? tools/start_fpaware.py\n?? tools/start_validated_basin.py\n?? tools/summarize_rgbd_audit.py\n?? tools/train_basin_critic.py\n?? tools/train_basin_outcome.py\n?? tools/verify_basin_outcomes.py\n?? tools/verify_parallel_loader.py\n?? tools/verify_speed_gpu.py",
+  "diff_stat": "src/lip/data/clips.py     | 18 +++++++++++++++++-\n src/lip/engine/runtime.py | 39 +++++++++++++++++++++++++++++++++------\n src/lip/evaluate.py       | 28 ++++++++++++++++++++++++----\n src/lip/train.py          | 29 ++++++++++++++++++++++++-----\n 4 files changed, 98 insertions(+), 16 deletions(-)",
+  "local_python": "/home/haoyi/miniconda/bin/python",
+  "local_gpu": "0, NVIDIA GeForce RTX 5090, 1741 MiB, 32607 MiB, 29 %",
+  "file_sha256": {
+    "src/lip/models/tracker.py": "24f6c4e62c45deaf0d6c6890cf106aa23a8e700ddff999002b5c6b23a8ec98c7",
+    "src/lip/engine/features.py": "a12e998997d8c33b63583bb57b952bd0c3bf4ec0672047a7cac033490f91ac7a",
+    "src/lip/engine/runtime.py": "cc45d64c17c0897fed3f56d1cfbba6110cc52f56ed0eb50f123251ec7b5a58b7",
+    "src/lip/data/clips.py": "2aa8cd41153064ab2ad20f08fa6416ac0f49564a5be6f396a7223cbedc682e39",
+    "src/lip/geometry/crop.py": "a5ce009bfe27e996c2ef236ef5f33b4de8b54da3b2f46bc04622a86157752c7f",
+    "src/lip/geometry/renderer.py": "d206bbade9659c71284c6e7c2408a28854ad44df9b6ec726b9f0de2be757b520",
+    "src/lip/geometry/so3.py": "1019ff2babaf4e200c3df283bf9c23f577eafdbec830a14a53cd0eec5687a871",
+    "src/lip/losses.py": "f3dd10e3f425be542fb9a04fff827beb55d30013cef626c589f7568f329471d6",
+    "src/lip/train.py": "db69777255ee8f344dfa8023ddb3961cbe2608d15ea3d9056530f19199571874",
+    "src/lip/evaluate.py": "fc717822027671262cbf061e13ba3baba3e9139cc95e6a9865ffcbd89e65b861",
+    "src/lip/engine/checkpoint.py": "01e67080caf11b0aedfb1211e1d51bf5c5bfea88d77a12a94e62b22860672f9c",
+    "src/lip/engine/config.py": "3e199511597b783c74b934d1b34b52773e1102ea3c6aeadb2fc8429604bf9bd2",
+    "configs/resolved_8gpu.yaml": "86d3d1960f57c34602525de9226fbeac92947668a93885d60fae39405a1466b3"
+  },
+  "spec_path": "/home/haoyi/Documents/CODEX_TASK_STREAMING_LIP_V2.md",
+  "spec_sha256": "862b1490bf2804c45401a25adb248fc5a375a57211f53b2eddbe8f0f8a542e9c",
+  "checks": [
+    {
+      "behavior": "whole_window_encoding",
+      "confirmed": true,
+      "evidence": "tracker.py: rgb.flatten(0,1), geometry.flatten(0,1)"
+    },
+    {
+      "behavior": "history_recrop_and_shared_CAD",
+      "confirmed": true,
+      "evidence": "features.py: crop_images(rgb,a), geometry_channels(depth,rd[None],xyz[None])"
+    },
+    {
+      "behavior": "history_relative_to_latest_base",
+      "confirmed": true,
+      "evidence": "features.py: history.R @ base.R.T, (history.p-base.p)/d"
+    },
+    {
+      "behavior": "history_time_reencoded",
+      "confirmed": true,
+      "evidence": "features.py: times-times[-1]"
+    },
+    {
+      "behavior": "source_can_see_current_readout",
+      "confirmed": true,
+      "evidence": "tracker.py: appended readout frame_id=l-1; causal=key_id>query_id"
+    }
+  ],
+  "init_checkpoint": {
+    "path": "/mnt/why/dexycb_lip/runs/checkpoint_archive/checkpoint_34700.pt",
+    "step": 34700,
+    "sha256": "b3a7c4fd04d6d8c0fe24301dcfe97b460b508ce74a3d39651579badade2dc646",
+    "selection": "Explicit user warm-start choice; optimizer reset"
+  },
+  "remote_git": "Runtime directory is not a Git repository",
+  "geometry_issue": "Existing camera-dependent depth/GT inconsistency remains; no correction in v2"
+}

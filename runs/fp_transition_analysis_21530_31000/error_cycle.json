@@ -1,0 +1,40 @@
+{
+  "21530": {
+    "frames": 22880,
+    "lip_error_change_xyz_mm": [
+      -1.1769500683369658,
+      -1.0973836130440098,
+      -4.073041827268117
+    ],
+    "fp_error_change_xyz_mm": [
+      1.1852454331461444,
+      1.1587046923561464,
+      4.103192939729124
+    ],
+    "net_error_change_xyz_mm": [
+      0.008295364809178559,
+      0.061321079312136616,
+      0.030151112461006723
+    ],
+    "scope": "GT-motion-adjusted camera-center error changes on saved hybrid trajectory; no training causal claim"
+  },
+  "31000": {
+    "frames": 22880,
+    "lip_error_change_xyz_mm": [
+      -0.8461094715588384,
+      -1.0834393507043483,
+      -4.532146007083096
+    ],
+    "fp_error_change_xyz_mm": [
+      0.875054564765925,
+      1.134113794357729,
+      4.572489031857544
+    ],
+    "net_error_change_xyz_mm": [
+      0.028945093207086527,
+      0.050674443653380905,
+      0.040343024774448025
+    ],
+    "scope": "GT-motion-adjusted camera-center error changes on saved hybrid trajectory; no training causal claim"
+  }
+}

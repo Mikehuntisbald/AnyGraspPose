@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="2" failures="0" skipped="0" tests="2" time="5.975" timestamp="2026-09-12T03:02:39.918859+08:00" hostname="nb-1665947968857557760-cnnl9oh5e22o"><testcase classname="" name="tests.test_autostart" time="0.000"><error message="collection failure">tests/test_autostart.py:10: in &lt;module&gt;
+    auto=importlib.util.module_from_spec(spec);spec.loader.exec_module(auto)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap_external&gt;:995: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:1132: in get_code
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:1190: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/mnt/why/dexycb_lip/runs/stream_v2_preflight/candidate/tools/auto_full_train.py'</error></testcase><testcase classname="" name="tests.test_fp_comparison" time="0.000"><error message="collection failure">tests/test_fp_comparison.py:5: in &lt;module&gt;
+    m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+&lt;frozen importlib._bootstrap_external&gt;:995: in exec_module
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:1132: in get_code
+    ???
+&lt;frozen importlib._bootstrap_external&gt;:1190: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/mnt/why/dexycb_lip/runs/stream_v2_preflight/candidate/tools/compare_foundationpose.py'</error></testcase></testsuite></testsuites>

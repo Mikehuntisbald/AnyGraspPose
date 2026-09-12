@@ -1,0 +1,1495 @@
+{
+  "completed_delivery": true,
+  "training_running": true,
+  "captured_utc": "2026-09-12T02:15:46Z",
+  "source_sha256": "5ccca80a97c2a50a00819dc3d8d6f86c953eae1e8c7a799e45f85330340708e2",
+  "pause": {
+    "checkpoint": "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_single_archive/checkpoint_5300.pt",
+    "checkpoint_sha256": "1877627fd31bf0a1c86a3b6ca3546608818639694642d896a7db1e348383b96b",
+    "saved_step": 5300,
+    "sampler_position": 339200,
+    "optimizer_and_rng_retained": true,
+    "launcher_pid": 854439,
+    "launcher_command": "/mnt/why/dexycb_lip/.venv-fp/bin/python -m torch.distributed.run --standalone --nnodes=1 --nproc_per_node=8 -m lip.train_stream --data-root /mnt/why/dexycb_lip/cache/raw_full_20260910 --config configs/stream_lip_v2_single.yaml --init-from runs/stream_v2_init/init.pt --output runs/stream_v2_single --max-steps 10000 ",
+    "source_sha256": "3d9cd99903161b0ee7b17cc50df80afe5204cb62c0a3674961f87fd161d9d47e",
+    "signal": "SIGTERM",
+    "stopped": true,
+    "time": 1789177923.3957715
+  },
+  "launch": {
+    "pid": 860364,
+    "started_utc": "2026-09-12T02:13:38Z",
+    "command": [
+      "bash",
+      "scripts/train_stream_8gpu.sh",
+      "--config",
+      "configs/stream_lip_v2_dual_5300_fast.yaml",
+      "--init-from",
+      "runs/stream_v2_dual_from_single_5300_init/init.pt",
+      "--output",
+      "runs/stream_v2_dual_from_single_5300",
+      "--max-steps",
+      "10000"
+    ],
+    "cwd": "/mnt/why/dexycb_lip/stream_v2_dual_5300",
+    "source_sha256": "5ccca80a97c2a50a00819dc3d8d6f86c953eae1e8c7a799e45f85330340708e2",
+    "config": {
+      "architecture_id": "stream_dual",
+      "source_tokens": 17,
+      "latent_dim": 256,
+      "temporal_layers": 4,
+      "attention_heads": 8,
+      "image_size": 224,
+      "memory_frames": 8,
+      "crop_expansion": 2.0,
+      "time_unit": 0.03333333333333333,
+      "max_gap_seconds": 0.5,
+      "cache_kind": "functional",
+      "dropout": 0.0,
+      "seed": 42,
+      "precision": "bf16",
+      "world_size": 8,
+      "batch_sequences_per_gpu": 8,
+      "grad_accum_steps": 1,
+      "effective_sequences_per_step": 64,
+      "burn_in_frames": 8,
+      "supervised_unroll_frames": 16,
+      "nominal_supervised_updates_per_step": 1024,
+      "lr_loaded_modules": 1e-05,
+      "lr_rgb_backbone": 5e-06,
+      "lr_new_modules": 5e-05,
+      "freeze_rgb_steps": 1000,
+      "warmup_steps": 500,
+      "optimizer": "adamw",
+      "weight_decay": 0.05,
+      "grad_clip_norm": 1.0,
+      "max_stage_steps": 10000,
+      "save_every": 100,
+      "cpu_threads": 2,
+      "num_workers": 2,
+      "prefetch_factor": 2,
+      "decode_threads": 4,
+      "initial_pose_noise": true,
+      "augmentation": false,
+      "preflight_receipt": "runs/stream_v2_dual_5300_preflight/dual/approval.json",
+      "foundationpose_enabled": false,
+      "basin_weight": 0.0,
+      "depth_correction": false,
+      "pin_memory": true,
+      "batch_current_features": true
+    },
+    "approval_sha256": "fde1a59c7203d9128ba890c9e35437a08f282a8b828565755d70128a446363f9",
+    "init_sha256": "42e5628f4d3cbfbd4c72d000a625a8adce516fc70b5b949022306dd53c34ceb8",
+    "output": "/mnt/why/dexycb_lip/stream_v2_dual_5300/runs/stream_v2_dual_from_single_5300",
+    "console_log": "/mnt/why/dexycb_lip/stream_v2_dual_5300/runs/stream_v2_dual_5300_tuning/formal_console.log",
+    "user_authorized_long_training": true
+  },
+  "tests": {
+    "cpu": {
+      "passed": 76,
+      "xml": "/mnt/why/dexycb_lip/stream_v2_dual_5300/runs/stream_v2_dual_5300_preflight/dual/cpu_tests.xml",
+      "sha256": "0ae09b7f8f7da0b2c39151d6ea605a35aa71cac67d6f7710c9b72632ae0fcfcc"
+    },
+    "cuda": {
+      "passed": 3,
+      "xml": "/mnt/why/dexycb_lip/stream_v2_dual_5300/runs/stream_v2_dual_5300_preflight/dual/cuda_tests.xml",
+      "sha256": "012fc186f4a7bf5859b202830166ffba7d3088b08e11acd02913b17b069a7214"
+    },
+    "batch_cuda": {
+      "passed": 1,
+      "xml": "/mnt/why/dexycb_lip/stream_v2_dual_5300/runs/stream_v2_dual_5300_tuning/batch_gpu_tests.xml",
+      "sha256": "c212066688d927443f83c34cc65f882a253fbcf76cb9128a5b9f5e998ee43863"
+    },
+    "legacy_renderer": {
+      "passed": 1,
+      "xml": "/mnt/why/dexycb_lip/stream_v2_dual_5300/runs/stream_v2_dual_5300_tuning/renderer_test.xml",
+      "sha256": "0ea16decdc3e1b0cef6b02dc78f45f5ada2f59079036e7ebad3623b879d588a0"
+    }
+  },
+  "unique_tests_passed": 81,
+  "fp_fixture_deselected": true,
+  "preflight": {
+    "architecture_id": "stream_dual",
+    "config_hash": "f71dbb08373dadb189988bed2bf75232bf4bae97aa273d86d74405452d02fb98",
+    "source_sha256": "5ccca80a97c2a50a00819dc3d8d6f86c953eae1e8c7a799e45f85330340708e2",
+    "cache_contract": "lip-v2-source17-block-local-timebias-v1",
+    "split_hash": "54a35253db5bea988ffea5e41641d3313b31c5568193a186dd4e4359c497804b",
+    "mesh_hash": "359f53a5f41963d3fdfc2542bd640432d820bfc99a055baec8976ad99966d32c",
+    "init_sha256": "42e5628f4d3cbfbd4c72d000a625a8adce516fc70b5b949022306dd53c34ceb8",
+    "approved": true,
+    "checks": {
+      "cpu_tests": {
+        "status": "passed",
+        "tests": 76
+      },
+      "full_unroll_memory": {
+        "status": "passed",
+        "records": "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_5300_preflight/dual/memory_probe/rank0.jsonl"
+      },
+      "overfit": {
+        "status": "completed",
+        "steps": 300,
+        "real_fragments": 16,
+        "before_loss": 0.0711435277480632,
+        "after_loss": 0.022922995063709095,
+        "improved": true,
+        "scope": "No fabricated mandatory accuracy target"
+      },
+      "geometry": {
+        "status": "checked_with_known_depth_mismatch",
+        "correction": false
+      },
+      "cuda_tests": {
+        "status": "passed",
+        "reference_and_10000_steps": true
+      },
+      "ddp": {
+        "status": "passed",
+        "steps": 50,
+        "resume_steps": 3,
+        "all_ranks_restored": true
+      }
+    },
+    "completed": true
+  },
+  "real_numeric_bf16": {
+    "passed": true,
+    "rows": [
+      {
+        "start": 0,
+        "clips": 8,
+        "comparisons": {
+          "unchanged_repeat": {
+            "pose_max_abs": 0.0,
+            "loss_abs": 0.0,
+            "gradient_max_abs": 8.487701416015625e-05,
+            "gradient_relative_l2": 0.0010663744113738544
+          },
+          "batched": {
+            "pose_max_abs": 0.0,
+            "loss_abs": 0.0,
+            "gradient_max_abs": 9.226799011230469e-05,
+            "gradient_relative_l2": 0.001088542074042024
+          }
+        }
+      },
+      {
+        "start": 8,
+        "clips": 8,
+        "comparisons": {
+          "unchanged_repeat": {
+            "pose_max_abs": 0.0,
+            "loss_abs": 0.0,
+            "gradient_max_abs": 0.00012731552124023438,
+            "gradient_relative_l2": 0.000974235481477916
+          },
+          "batched": {
+            "pose_max_abs": 0.0,
+            "loss_abs": 0.0,
+            "gradient_max_abs": 0.000152587890625,
+            "gradient_relative_l2": 0.0009914695504942947
+          }
+        }
+      }
+    ],
+    "real_fragments": 16,
+    "burn_in": 8,
+    "supervised_unroll": 16,
+    "precision": "bf16",
+    "math_fp32": false,
+    "source_sha256": "5ccca80a97c2a50a00819dc3d8d6f86c953eae1e8c7a799e45f85330340708e2",
+    "init_sha256": "42e5628f4d3cbfbd4c72d000a625a8adce516fc70b5b949022306dd53c34ceb8",
+    "manifest": [
+      {
+        "stream": 4541,
+        "start": 21,
+        "seed": 929893138
+      },
+      {
+        "stream": 4179,
+        "start": 2,
+        "seed": 1239425791
+      },
+      {
+        "stream": 1062,
+        "start": 12,
+        "seed": 1429957424
+      },
+      {
+        "stream": 3797,
+        "start": 26,
+        "seed": 1142096426
+      },
+      {
+        "stream": 6081,
+        "start": 3,
+        "seed": 1179509693
+      },
+      {
+        "stream": 4532,
+        "start": 36,
+        "seed": 926230262
+      },
+      {
+        "stream": 2011,
+        "start": 28,
+        "seed": 1447292751
+      },
+      {
+        "stream": 1942,
+        "start": 28,
+        "seed": 99753296
+      },
+      {
+        "stream": 4989,
+        "start": 41,
+        "seed": 1769056079
+      },
+      {
+        "stream": 5999,
+        "start": 15,
+        "seed": 736792417
+      },
+      {
+        "stream": 4450,
+        "start": 28,
+        "seed": 1004012162
+      },
+      {
+        "stream": 485,
+        "start": 35,
+        "seed": 1739172660
+      },
+      {
+        "stream": 1474,
+        "start": 25,
+        "seed": 1087338332
+      },
+      {
+        "stream": 5741,
+        "start": 41,
+        "seed": 475723138
+      },
+      {
+        "stream": 4715,
+        "start": 0,
+        "seed": 2042083684
+      },
+      {
+        "stream": 4518,
+        "start": 21,
+        "seed": 1886310757
+      }
+    ]
+  },
+  "real_numeric_fp32": {
+    "passed": true,
+    "rows": [
+      {
+        "start": 0,
+        "clips": 8,
+        "comparisons": {
+          "unchanged_repeat": {
+            "pose_max_abs": 0.0,
+            "loss_abs": 0.0,
+            "gradient_max_abs": 0.0,
+            "gradient_relative_l2": 0.0
+          },
+          "batched": {
+            "pose_max_abs": 0.0,
+            "loss_abs": 0.0,
+            "gradient_max_abs": 0.0,
+            "gradient_relative_l2": 0.0
+          }
+        }
+      },
+      {
+        "start": 8,
+        "clips": 8,
+        "comparisons": {
+          "unchanged_repeat": {
+            "pose_max_abs": 0.0,
+            "loss_abs": 0.0,
+            "gradient_max_abs": 0.0,
+            "gradient_relative_l2": 0.0
+          },
+          "batched": {
+            "pose_max_abs": 0.0,
+            "loss_abs": 0.0,
+            "gradient_max_abs": 0.0,
+            "gradient_relative_l2": 0.0
+          }
+        }
+      }
+    ],
+    "real_fragments": 16,
+    "burn_in": 8,
+    "supervised_unroll": 16,
+    "precision": "fp32",
+    "math_fp32": true,
+    "source_sha256": "5ccca80a97c2a50a00819dc3d8d6f86c953eae1e8c7a799e45f85330340708e2",
+    "init_sha256": "42e5628f4d3cbfbd4c72d000a625a8adce516fc70b5b949022306dd53c34ceb8",
+    "manifest": [
+      {
+        "stream": 4541,
+        "start": 21,
+        "seed": 929893138
+      },
+      {
+        "stream": 4179,
+        "start": 2,
+        "seed": 1239425791
+      },
+      {
+        "stream": 1062,
+        "start": 12,
+        "seed": 1429957424
+      },
+      {
+        "stream": 3797,
+        "start": 26,
+        "seed": 1142096426
+      },
+      {
+        "stream": 6081,
+        "start": 3,
+        "seed": 1179509693
+      },
+      {
+        "stream": 4532,
+        "start": 36,
+        "seed": 926230262
+      },
+      {
+        "stream": 2011,
+        "start": 28,
+        "seed": 1447292751
+      },
+      {
+        "stream": 1942,
+        "start": 28,
+        "seed": 99753296
+      },
+      {
+        "stream": 4989,
+        "start": 41,
+        "seed": 1769056079
+      },
+      {
+        "stream": 5999,
+        "start": 15,
+        "seed": 736792417
+      },
+      {
+        "stream": 4450,
+        "start": 28,
+        "seed": 1004012162
+      },
+      {
+        "stream": 485,
+        "start": 35,
+        "seed": 1739172660
+      },
+      {
+        "stream": 1474,
+        "start": 25,
+        "seed": 1087338332
+      },
+      {
+        "stream": 5741,
+        "start": 41,
+        "seed": 475723138
+      },
+      {
+        "stream": 4715,
+        "start": 0,
+        "seed": 2042083684
+      },
+      {
+        "stream": 4518,
+        "start": 21,
+        "seed": 1886310757
+      }
+    ]
+  },
+  "overfit_before": {
+    "completed": true,
+    "checkpoint_sha256": "42e5628f4d3cbfbd4c72d000a625a8adce516fc70b5b949022306dd53c34ceb8",
+    "rows": [
+      {
+        "sample": 0,
+        "loss": 0.029073435813188553,
+        "metrics": [
+          0.0006638201884925365,
+          0.03423716872930527,
+          0.011291032657027245,
+          2.185572624206543,
+          1.9616448879241943
+        ],
+        "stream_id": "20201002-subject-08/20201002_105035/932122060861"
+      },
+      {
+        "sample": 1,
+        "loss": 0.04867003858089447,
+        "metrics": [
+          0.004059258848428726,
+          0.042673274874687195,
+          0.023274140432476997,
+          5.196634292602539,
+          2.4449987411499023
+        ],
+        "stream_id": "20200928-subject-07/20200928_153856/841412060263"
+      },
+      {
+        "sample": 2,
+        "loss": 0.1671818196773529,
+        "metrics": [
+          0.012074231170117855,
+          0.16946306824684143,
+          0.07037606835365295,
+          5.159353256225586,
+          9.709517478942871
+        ],
+        "stream_id": "20200813-subject-02/20200813_153839/932122061900"
+      },
+      {
+        "sample": 3,
+        "loss": 0.06865732371807098,
+        "metrics": [
+          0.00880233570933342,
+          0.0477483905851841,
+          0.035980790853500366,
+          7.42733097076416,
+          2.735781192779541
+        ],
+        "stream_id": "20200918-subject-06/20200918_121101/932122060861"
+      },
+      {
+        "sample": 4,
+        "loss": 0.019496314227581024,
+        "metrics": [
+          0.00014095236838329583,
+          0.024309147149324417,
+          0.007200789637863636,
+          1.0047523975372314,
+          1.3928114175796509
+        ],
+        "stream_id": "20201022-subject-10/20201022_112907/839512060362"
+      },
+      {
+        "sample": 5,
+        "loss": 0.07886966317892075,
+        "metrics": [
+          0.008668964728713036,
+          0.06856835633516312,
+          0.0359165258705616,
+          8.146050453186035,
+          3.9286773204803467
+        ],
+        "stream_id": "20201002-subject-08/20201002_105012/932122060857"
+      },
+      {
+        "sample": 6,
+        "loss": 0.06105563044548035,
+        "metrics": [
+          0.006425214931368828,
+          0.04703743755817413,
+          0.0311116985976696,
+          5.6312785148620605,
+          2.6950464248657227
+        ],
+        "stream_id": "20200903-subject-04/20200903_104322/841412060263"
+      },
+      {
+        "sample": 7,
+        "loss": 0.08645842969417572,
+        "metrics": [
+          0.003146659815683961,
+          0.09845137596130371,
+          0.034086089581251144,
+          3.2874152660369873,
+          5.640848159790039
+        ],
+        "stream_id": "20200903-subject-04/20200903_103710/932122061900"
+      },
+      {
+        "sample": 8,
+        "loss": 0.05177450552582741,
+        "metrics": [
+          0.002989708911627531,
+          0.05182908475399017,
+          0.022870253771543503,
+          4.361296653747559,
+          2.969587802886963
+        ],
+        "stream_id": "20201002-subject-08/20201002_112232/932122060861"
+      },
+      {
+        "sample": 9,
+        "loss": 0.08494055271148682,
+        "metrics": [
+          0.010363694280385971,
+          0.059962429106235504,
+          0.044595640152692795,
+          4.6448588371276855,
+          3.435594081878662
+        ],
+        "stream_id": "20201022-subject-10/20201022_112255/932122062010"
+      },
+      {
+        "sample": 10,
+        "loss": 0.14194901287555695,
+        "metrics": [
+          0.011494573205709457,
+          0.1477704793214798,
+          0.05656919628381729,
+          3.9931721687316895,
+          8.46662425994873
+        ],
+        "stream_id": "20200928-subject-07/20200928_155913/840412060917"
+      },
+      {
+        "sample": 11,
+        "loss": 0.052107591181993484,
+        "metrics": [
+          0.002893504686653614,
+          0.05501891300082207,
+          0.02170463278889656,
+          4.299407482147217,
+          3.152351140975952
+        ],
+        "stream_id": "20200709-subject-01/20200709_151724/932122060861"
+      },
+      {
+        "sample": 12,
+        "loss": 0.032187942415475845,
+        "metrics": [
+          0.0029476629570126534,
+          0.020728830248117447,
+          0.018875863403081894,
+          2.5655837059020996,
+          1.1876744031906128
+        ],
+        "stream_id": "20200820-subject-03/20200820_141048/840412060917"
+      },
+      {
+        "sample": 13,
+        "loss": 0.050141848623752594,
+        "metrics": [
+          0.0055707041174173355,
+          0.033888742327690125,
+          0.027626771479845047,
+          2.6599535942077637,
+          1.9416818618774414
+        ],
+        "stream_id": "20201015-subject-09/20201015_151513/932122060861"
+      },
+      {
+        "sample": 14,
+        "loss": 0.12350025773048401,
+        "metrics": [
+          0.028649527579545975,
+          0.03203053027391434,
+          0.07883547246456146,
+          8.983781814575195,
+          1.8352142572402954
+        ],
+        "stream_id": "20201002-subject-08/20201002_110253/841412060263"
+      },
+      {
+        "sample": 15,
+        "loss": 0.042232077568769455,
+        "metrics": [
+          0.0012105792993679643,
+          0.05043279379606247,
+          0.01580510102212429,
+          2.810988664627075,
+          2.8895859718322754
+        ],
+        "stream_id": "20201002-subject-08/20201002_104859/932122061900"
+      }
+    ],
+    "mean_loss": 0.0711435277480632,
+    "mean_metrics": [
+      0.006881337049890135,
+      0.061509376391768456,
+      0.0335075042094104,
+      4.522339418530464,
+      3.52422746270895
+    ],
+    "scope": "Fixed training fragments, known noisy initialization and own autoregressive history; not validation accuracy"
+  },
+  "overfit_after": {
+    "completed": true,
+    "checkpoint_sha256": "7c313f4cc967252e3a94a4c6a75fd1ba10fb8f7f12564754764144f1e4a1a137",
+    "rows": [
+      {
+        "sample": 0,
+        "loss": 0.008250344544649124,
+        "metrics": [
+          5.572983354795724e-05,
+          0.009370103478431702,
+          0.003509563161060214,
+          0.6250540614128113,
+          0.5368673205375671
+        ],
+        "stream_id": "20201002-subject-08/20201002_105035/932122060861"
+      },
+      {
+        "sample": 1,
+        "loss": 0.014339391142129898,
+        "metrics": [
+          0.00036253093276172876,
+          0.013439844362437725,
+          0.007256938144564629,
+          1.571288824081421,
+          0.7700463533401489
+        ],
+        "stream_id": "20200928-subject-07/20200928_153856/841412060263"
+      },
+      {
+        "sample": 2,
+        "loss": 0.04588034003973007,
+        "metrics": [
+          0.002847866155207157,
+          0.040996722877025604,
+          0.022534115239977837,
+          2.0667643547058105,
+          2.3489391803741455
+        ],
+        "stream_id": "20200813-subject-02/20200813_153839/932122061900"
+      },
+      {
+        "sample": 3,
+        "loss": 0.023206543177366257,
+        "metrics": [
+          0.0008830559672787786,
+          0.023044217377901077,
+          0.010801378637552261,
+          1.9680418968200684,
+          1.3203363418579102
+        ],
+        "stream_id": "20200918-subject-06/20200918_121101/932122060861"
+      },
+      {
+        "sample": 4,
+        "loss": 0.0075246975757181644,
+        "metrics": [
+          6.774935900466517e-05,
+          0.00781739316880703,
+          0.0035482514649629593,
+          0.7191502451896667,
+          0.4479036331176758
+        ],
+        "stream_id": "20201022-subject-10/20201022_112907/839512060362"
+      },
+      {
+        "sample": 5,
+        "loss": 0.023805249482393265,
+        "metrics": [
+          0.0010293280938640237,
+          0.02238200046122074,
+          0.011584920808672905,
+          2.5241081714630127,
+          1.2823939323425293
+        ],
+        "stream_id": "20201002-subject-08/20201002_105012/932122060857"
+      },
+      {
+        "sample": 6,
+        "loss": 0.029851624742150307,
+        "metrics": [
+          0.0012775808572769165,
+          0.030740033835172653,
+          0.013204026967287064,
+          2.231574535369873,
+          1.7612740993499756
+        ],
+        "stream_id": "20200903-subject-04/20200903_104322/841412060263"
+      },
+      {
+        "sample": 7,
+        "loss": 0.029575537890195847,
+        "metrics": [
+          0.0004896332393400371,
+          0.03471625968813896,
+          0.011727774515748024,
+          1.266913890838623,
+          1.9890950918197632
+        ],
+        "stream_id": "20200903-subject-04/20200903_103710/932122061900"
+      },
+      {
+        "sample": 8,
+        "loss": 0.014600060880184174,
+        "metrics": [
+          0.0003274291811976582,
+          0.014287475496530533,
+          0.00712889339774847,
+          1.4386510848999023,
+          0.8186120390892029
+        ],
+        "stream_id": "20201002-subject-08/20201002_112232/932122060861"
+      },
+      {
+        "sample": 9,
+        "loss": 0.011211680248379707,
+        "metrics": [
+          0.0002827013377100229,
+          0.00936172902584076,
+          0.006248115096241236,
+          0.6301900148391724,
+          0.53638756275177
+        ],
+        "stream_id": "20201022-subject-10/20201022_112255/932122062010"
+      },
+      {
+        "sample": 10,
+        "loss": 0.04479796811938286,
+        "metrics": [
+          0.002147994702681899,
+          0.04573264345526695,
+          0.01978365145623684,
+          1.4661511182785034,
+          2.6202871799468994
+        ],
+        "stream_id": "20200928-subject-07/20200928_155913/840412060917"
+      },
+      {
+        "sample": 11,
+        "loss": 0.017359038814902306,
+        "metrics": [
+          0.0008872090256772935,
+          0.0121815986931324,
+          0.010381029918789864,
+          2.359015941619873,
+          0.6979541778564453
+        ],
+        "stream_id": "20200709-subject-01/20200709_151724/932122060861"
+      },
+      {
+        "sample": 12,
+        "loss": 0.024740515276789665,
+        "metrics": [
+          0.0016149859875440598,
+          0.017466939985752106,
+          0.014392057433724403,
+          1.9312564134597778,
+          1.0007820129394531
+        ],
+        "stream_id": "20200820-subject-03/20200820_141048/840412060917"
+      },
+      {
+        "sample": 13,
+        "loss": 0.02941739745438099,
+        "metrics": [
+          0.0020405608229339123,
+          0.02237079292535782,
+          0.01619143970310688,
+          1.5543736219406128,
+          1.2817519903182983
+        ],
+        "stream_id": "20201015-subject-09/20201015_151513/932122060861"
+      },
+      {
+        "sample": 14,
+        "loss": 0.025705944746732712,
+        "metrics": [
+          0.0016984917456284165,
+          0.018883708864450455,
+          0.014565599150955677,
+          1.6158822774887085,
+          1.0819568634033203
+        ],
+        "stream_id": "20201002-subject-08/20201002_110253/841412060263"
+      },
+      {
+        "sample": 15,
+        "loss": 0.016501586884260178,
+        "metrics": [
+          0.0005767095135524869,
+          0.014482291415333748,
+          0.008683730848133564,
+          2.075448513031006,
+          0.8297741413116455
+        ],
+        "stream_id": "20201002-subject-08/20201002_104859/932122061900"
+      }
+    ],
+    "mean_loss": 0.022922995063709095,
+    "mean_metrics": [
+      0.0010368472972004383,
+      0.021079609694425017,
+      0.011346342871547677,
+      1.6277415603399277,
+      1.207772620022297
+    ],
+    "scope": "Fixed training fragments, known noisy initialization and own autoregressive history; not validation accuracy"
+  },
+  "ddp_resume_ranks": [
+    {
+      "passed": true,
+      "checkpoint_sha256": "ee8813d2eeef49be736e0bc5d1489f5bc5d609b4e55b8eedd43b550a36354f78",
+      "loaded_step": 50,
+      "scheduler_step": 50,
+      "sampler_position": 3200,
+      "rng_restored": true,
+      "optimizer_state_entries": 149,
+      "parameter_groups_verified": true
+    },
+    {
+      "passed": true,
+      "checkpoint_sha256": "ee8813d2eeef49be736e0bc5d1489f5bc5d609b4e55b8eedd43b550a36354f78",
+      "loaded_step": 50,
+      "scheduler_step": 50,
+      "sampler_position": 3200,
+      "rng_restored": true,
+      "optimizer_state_entries": 149,
+      "parameter_groups_verified": true
+    },
+    {
+      "passed": true,
+      "checkpoint_sha256": "ee8813d2eeef49be736e0bc5d1489f5bc5d609b4e55b8eedd43b550a36354f78",
+      "loaded_step": 50,
+      "scheduler_step": 50,
+      "sampler_position": 3200,
+      "rng_restored": true,
+      "optimizer_state_entries": 149,
+      "parameter_groups_verified": true
+    },
+    {
+      "passed": true,
+      "checkpoint_sha256": "ee8813d2eeef49be736e0bc5d1489f5bc5d609b4e55b8eedd43b550a36354f78",
+      "loaded_step": 50,
+      "scheduler_step": 50,
+      "sampler_position": 3200,
+      "rng_restored": true,
+      "optimizer_state_entries": 149,
+      "parameter_groups_verified": true
+    },
+    {
+      "passed": true,
+      "checkpoint_sha256": "ee8813d2eeef49be736e0bc5d1489f5bc5d609b4e55b8eedd43b550a36354f78",
+      "loaded_step": 50,
+      "scheduler_step": 50,
+      "sampler_position": 3200,
+      "rng_restored": true,
+      "optimizer_state_entries": 149,
+      "parameter_groups_verified": true
+    },
+    {
+      "passed": true,
+      "checkpoint_sha256": "ee8813d2eeef49be736e0bc5d1489f5bc5d609b4e55b8eedd43b550a36354f78",
+      "loaded_step": 50,
+      "scheduler_step": 50,
+      "sampler_position": 3200,
+      "rng_restored": true,
+      "optimizer_state_entries": 149,
+      "parameter_groups_verified": true
+    },
+    {
+      "passed": true,
+      "checkpoint_sha256": "ee8813d2eeef49be736e0bc5d1489f5bc5d609b4e55b8eedd43b550a36354f78",
+      "loaded_step": 50,
+      "scheduler_step": 50,
+      "sampler_position": 3200,
+      "rng_restored": true,
+      "optimizer_state_entries": 149,
+      "parameter_groups_verified": true
+    },
+    {
+      "passed": true,
+      "checkpoint_sha256": "ee8813d2eeef49be736e0bc5d1489f5bc5d609b4e55b8eedd43b550a36354f78",
+      "loaded_step": 50,
+      "scheduler_step": 50,
+      "sampler_position": 3200,
+      "rng_restored": true,
+      "optimizer_state_entries": 149,
+      "parameter_groups_verified": true
+    }
+  ],
+  "tuning": {
+    "original": {
+      "completed": true,
+      "effective_sequences_per_step": 64,
+      "unchanged_source": true,
+      "selected": "b8_a1_w2",
+      "baseline_seconds": 3.6712768132565543,
+      "selected_seconds": 1.6815140959418688,
+      "speedup": 2.1833161090452573,
+      "trials": [
+        {
+          "name": "b2_a4_w1",
+          "command": [
+            "/mnt/why/dexycb_lip/stream_v2/.venv-fp/bin/python",
+            "-m",
+            "torch.distributed.run",
+            "--standalone",
+            "--nproc_per_node=8",
+            "-m",
+            "lip.train_stream",
+            "--config",
+            "runs/stream_v2_dual_5300_tuning/batches/b2_a4_w1/config.yaml",
+            "--init-from",
+            "runs/stream_v2_dual_from_single_5300_init/init.pt",
+            "--data-root",
+            "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+            "--output",
+            "runs/stream_v2_dual_5300_tuning/batches/b2_a4_w1/train",
+            "--max-steps",
+            "16",
+            "--preflight"
+          ],
+          "returncode": 0,
+          "wall_seconds": 92.99026942253113,
+          "config": {
+            "architecture_id": "stream_dual",
+            "source_tokens": 17,
+            "latent_dim": 256,
+            "temporal_layers": 4,
+            "attention_heads": 8,
+            "image_size": 224,
+            "memory_frames": 8,
+            "crop_expansion": 2.0,
+            "time_unit": 0.03333333333333333,
+            "max_gap_seconds": 0.5,
+            "cache_kind": "functional",
+            "dropout": 0.0,
+            "seed": 42,
+            "precision": "bf16",
+            "world_size": 8,
+            "batch_sequences_per_gpu": 2,
+            "grad_accum_steps": 4,
+            "effective_sequences_per_step": 64,
+            "burn_in_frames": 8,
+            "supervised_unroll_frames": 16,
+            "nominal_supervised_updates_per_step": 1024,
+            "lr_loaded_modules": 1e-05,
+            "lr_rgb_backbone": 5e-06,
+            "lr_new_modules": 5e-05,
+            "freeze_rgb_steps": 1000,
+            "warmup_steps": 500,
+            "optimizer": "adamw",
+            "weight_decay": 0.05,
+            "grad_clip_norm": 1.0,
+            "max_stage_steps": 10000,
+            "save_every": 100,
+            "cpu_threads": 2,
+            "num_workers": 1,
+            "prefetch_factor": 1,
+            "decode_threads": 4,
+            "initial_pose_noise": true,
+            "augmentation": false,
+            "preflight_receipt": "runs/stream_v2_preflight/dual/approval.json",
+            "foundationpose_enabled": false,
+            "basin_weight": 0.0,
+            "depth_correction": false
+          },
+          "mean_step_seconds": 3.6712768132565543,
+          "supervised_frames_per_second": 278.92203505397765,
+          "peak_allocated_bytes": 3294714880,
+          "gpu_utilization_mean": 30.465625,
+          "losses": [
+            0.11194104794412851,
+            0.10974888782948256,
+            0.12294396013021469,
+            0.08824849361553788,
+            0.1378033966757357,
+            0.12684787809848785,
+            0.1353559922426939,
+            0.19277335423976183,
+            0.13710966240614653,
+            0.1763494061306119,
+            0.16815979685634375,
+            0.13572244625538588,
+            0.15715929213911295,
+            0.19461038522422314,
+            0.12648610398173332,
+            0.12747037783265114
+          ]
+        },
+        {
+          "name": "b4_a2_w2",
+          "command": [
+            "/mnt/why/dexycb_lip/stream_v2/.venv-fp/bin/python",
+            "-m",
+            "torch.distributed.run",
+            "--standalone",
+            "--nproc_per_node=8",
+            "-m",
+            "lip.train_stream",
+            "--config",
+            "runs/stream_v2_dual_5300_tuning/batches/b4_a2_w2/config.yaml",
+            "--init-from",
+            "runs/stream_v2_dual_from_single_5300_init/init.pt",
+            "--data-root",
+            "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+            "--output",
+            "runs/stream_v2_dual_5300_tuning/batches/b4_a2_w2/train",
+            "--max-steps",
+            "16",
+            "--preflight"
+          ],
+          "returncode": 0,
+          "wall_seconds": 61.22841238975525,
+          "config": {
+            "architecture_id": "stream_dual",
+            "source_tokens": 17,
+            "latent_dim": 256,
+            "temporal_layers": 4,
+            "attention_heads": 8,
+            "image_size": 224,
+            "memory_frames": 8,
+            "crop_expansion": 2.0,
+            "time_unit": 0.03333333333333333,
+            "max_gap_seconds": 0.5,
+            "cache_kind": "functional",
+            "dropout": 0.0,
+            "seed": 42,
+            "precision": "bf16",
+            "world_size": 8,
+            "batch_sequences_per_gpu": 4,
+            "grad_accum_steps": 2,
+            "effective_sequences_per_step": 64,
+            "burn_in_frames": 8,
+            "supervised_unroll_frames": 16,
+            "nominal_supervised_updates_per_step": 1024,
+            "lr_loaded_modules": 1e-05,
+            "lr_rgb_backbone": 5e-06,
+            "lr_new_modules": 5e-05,
+            "freeze_rgb_steps": 1000,
+            "warmup_steps": 500,
+            "optimizer": "adamw",
+            "weight_decay": 0.05,
+            "grad_clip_norm": 1.0,
+            "max_stage_steps": 10000,
+            "save_every": 100,
+            "cpu_threads": 2,
+            "num_workers": 2,
+            "prefetch_factor": 2,
+            "decode_threads": 4,
+            "initial_pose_noise": true,
+            "augmentation": false,
+            "preflight_receipt": "runs/stream_v2_preflight/dual/approval.json",
+            "foundationpose_enabled": false,
+            "basin_weight": 0.0,
+            "depth_correction": false
+          },
+          "mean_step_seconds": 2.303150906062607,
+          "supervised_frames_per_second": 444.6082960975395,
+          "peak_allocated_bytes": 5596647936,
+          "gpu_utilization_mean": 25.8125,
+          "losses": [
+            0.11171773355454206,
+            0.1088657071813941,
+            0.12214162666350603,
+            0.08863283833488822,
+            0.1393571333028376,
+            0.12601300328969955,
+            0.13554178271442652,
+            0.1926095113158226,
+            0.13672084268182516,
+            0.17568961530923843,
+            0.16977370250970125,
+            0.13628139533102512,
+            0.15596437267959118,
+            0.19624163396656513,
+            0.12613554205745459,
+            0.12890561297535896
+          ]
+        },
+        {
+          "name": "b8_a1_w2",
+          "command": [
+            "/mnt/why/dexycb_lip/stream_v2/.venv-fp/bin/python",
+            "-m",
+            "torch.distributed.run",
+            "--standalone",
+            "--nproc_per_node=8",
+            "-m",
+            "lip.train_stream",
+            "--config",
+            "runs/stream_v2_dual_5300_tuning/batches/b8_a1_w2/config.yaml",
+            "--init-from",
+            "runs/stream_v2_dual_from_single_5300_init/init.pt",
+            "--data-root",
+            "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+            "--output",
+            "runs/stream_v2_dual_5300_tuning/batches/b8_a1_w2/train",
+            "--max-steps",
+            "16",
+            "--preflight"
+          ],
+          "returncode": 0,
+          "wall_seconds": 52.439106464385986,
+          "config": {
+            "architecture_id": "stream_dual",
+            "source_tokens": 17,
+            "latent_dim": 256,
+            "temporal_layers": 4,
+            "attention_heads": 8,
+            "image_size": 224,
+            "memory_frames": 8,
+            "crop_expansion": 2.0,
+            "time_unit": 0.03333333333333333,
+            "max_gap_seconds": 0.5,
+            "cache_kind": "functional",
+            "dropout": 0.0,
+            "seed": 42,
+            "precision": "bf16",
+            "world_size": 8,
+            "batch_sequences_per_gpu": 8,
+            "grad_accum_steps": 1,
+            "effective_sequences_per_step": 64,
+            "burn_in_frames": 8,
+            "supervised_unroll_frames": 16,
+            "nominal_supervised_updates_per_step": 1024,
+            "lr_loaded_modules": 1e-05,
+            "lr_rgb_backbone": 5e-06,
+            "lr_new_modules": 5e-05,
+            "freeze_rgb_steps": 1000,
+            "warmup_steps": 500,
+            "optimizer": "adamw",
+            "weight_decay": 0.05,
+            "grad_clip_norm": 1.0,
+            "max_stage_steps": 10000,
+            "save_every": 100,
+            "cpu_threads": 2,
+            "num_workers": 2,
+            "prefetch_factor": 2,
+            "decode_threads": 4,
+            "initial_pose_noise": true,
+            "augmentation": false,
+            "preflight_receipt": "runs/stream_v2_preflight/dual/approval.json",
+            "foundationpose_enabled": false,
+            "basin_weight": 0.0,
+            "depth_correction": false
+          },
+          "mean_step_seconds": 1.6815140959418688,
+          "supervised_frames_per_second": 608.9749723010353,
+          "peak_allocated_bytes": 10369792000,
+          "gpu_utilization_mean": 36.85,
+          "losses": [
+            0.11171773355454206,
+            0.10933217592537403,
+            0.12325367704033852,
+            0.08866642182692885,
+            0.13784529827535152,
+            0.12626438960433006,
+            0.1345264706760645,
+            0.19125871267169714,
+            0.13652250915765762,
+            0.17550656665116549,
+            0.1687685390934348,
+            0.13653946202248335,
+            0.15558746550232172,
+            0.19884436298161745,
+            0.12661063950508833,
+            0.1298745460808277
+          ]
+        },
+        {
+          "name": "b8_a1_w4",
+          "command": [
+            "/mnt/why/dexycb_lip/stream_v2/.venv-fp/bin/python",
+            "-m",
+            "torch.distributed.run",
+            "--standalone",
+            "--nproc_per_node=8",
+            "-m",
+            "lip.train_stream",
+            "--config",
+            "runs/stream_v2_dual_5300_tuning/batches/b8_a1_w4/config.yaml",
+            "--init-from",
+            "runs/stream_v2_dual_from_single_5300_init/init.pt",
+            "--data-root",
+            "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+            "--output",
+            "runs/stream_v2_dual_5300_tuning/batches/b8_a1_w4/train",
+            "--max-steps",
+            "16",
+            "--preflight"
+          ],
+          "returncode": 0,
+          "wall_seconds": 53.54478883743286,
+          "config": {
+            "architecture_id": "stream_dual",
+            "source_tokens": 17,
+            "latent_dim": 256,
+            "temporal_layers": 4,
+            "attention_heads": 8,
+            "image_size": 224,
+            "memory_frames": 8,
+            "crop_expansion": 2.0,
+            "time_unit": 0.03333333333333333,
+            "max_gap_seconds": 0.5,
+            "cache_kind": "functional",
+            "dropout": 0.0,
+            "seed": 42,
+            "precision": "bf16",
+            "world_size": 8,
+            "batch_sequences_per_gpu": 8,
+            "grad_accum_steps": 1,
+            "effective_sequences_per_step": 64,
+            "burn_in_frames": 8,
+            "supervised_unroll_frames": 16,
+            "nominal_supervised_updates_per_step": 1024,
+            "lr_loaded_modules": 1e-05,
+            "lr_rgb_backbone": 5e-06,
+            "lr_new_modules": 5e-05,
+            "freeze_rgb_steps": 1000,
+            "warmup_steps": 500,
+            "optimizer": "adamw",
+            "weight_decay": 0.05,
+            "grad_clip_norm": 1.0,
+            "max_stage_steps": 10000,
+            "save_every": 100,
+            "cpu_threads": 2,
+            "num_workers": 4,
+            "prefetch_factor": 2,
+            "decode_threads": 4,
+            "initial_pose_noise": true,
+            "augmentation": false,
+            "preflight_receipt": "runs/stream_v2_preflight/dual/approval.json",
+            "foundationpose_enabled": false,
+            "basin_weight": 0.0,
+            "depth_correction": false
+          },
+          "mean_step_seconds": 1.6882010743332405,
+          "supervised_frames_per_second": 606.562817408721,
+          "peak_allocated_bytes": 10369792000,
+          "gpu_utilization_mean": 39.775,
+          "losses": [
+            0.11171773355454206,
+            0.10930822137743235,
+            0.12299405876547098,
+            0.08852985594421625,
+            0.13924516225233674,
+            0.12672255001962185,
+            0.13521909434348345,
+            0.19371925853192806,
+            0.13632985670119524,
+            0.1749864313751459,
+            0.16827781684696674,
+            0.1369178146123886,
+            0.13362862635403872,
+            0.19169996120035648,
+            0.12618043459951878,
+            0.12823672592639923
+          ]
+        }
+      ]
+    },
+    "optimized": {
+      "completed": true,
+      "effective_sequences_per_step": 64,
+      "unchanged_source": true,
+      "selected": "b8_a1_w2",
+      "baseline_seconds": 0.9765882166587593,
+      "selected_seconds": 0.9765882166587593,
+      "speedup": 1.0,
+      "trials": [
+        {
+          "name": "b8_a1_w2",
+          "command": [
+            "/mnt/why/dexycb_lip/stream_v2_dual_5300/.venv-fp/bin/python",
+            "-m",
+            "torch.distributed.run",
+            "--standalone",
+            "--nproc_per_node=8",
+            "-m",
+            "lip.train_stream",
+            "--config",
+            "runs/stream_v2_dual_5300_tuning/batched_preparation/b8_a1_w2/config.yaml",
+            "--init-from",
+            "runs/stream_v2_dual_from_single_5300_init/init.pt",
+            "--data-root",
+            "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+            "--output",
+            "runs/stream_v2_dual_5300_tuning/batched_preparation/b8_a1_w2/train",
+            "--max-steps",
+            "16",
+            "--preflight"
+          ],
+          "returncode": 0,
+          "wall_seconds": 43.806071519851685,
+          "config": {
+            "architecture_id": "stream_dual",
+            "source_tokens": 17,
+            "latent_dim": 256,
+            "temporal_layers": 4,
+            "attention_heads": 8,
+            "image_size": 224,
+            "memory_frames": 8,
+            "crop_expansion": 2.0,
+            "time_unit": 0.03333333333333333,
+            "max_gap_seconds": 0.5,
+            "cache_kind": "functional",
+            "dropout": 0.0,
+            "seed": 42,
+            "precision": "bf16",
+            "world_size": 8,
+            "batch_sequences_per_gpu": 8,
+            "grad_accum_steps": 1,
+            "effective_sequences_per_step": 64,
+            "burn_in_frames": 8,
+            "supervised_unroll_frames": 16,
+            "nominal_supervised_updates_per_step": 1024,
+            "lr_loaded_modules": 1e-05,
+            "lr_rgb_backbone": 5e-06,
+            "lr_new_modules": 5e-05,
+            "freeze_rgb_steps": 1000,
+            "warmup_steps": 500,
+            "optimizer": "adamw",
+            "weight_decay": 0.05,
+            "grad_clip_norm": 1.0,
+            "max_stage_steps": 10000,
+            "save_every": 100,
+            "cpu_threads": 2,
+            "num_workers": 2,
+            "prefetch_factor": 2,
+            "decode_threads": 4,
+            "initial_pose_noise": true,
+            "augmentation": false,
+            "preflight_receipt": "runs/stream_v2_dual_5300_preflight/dual/approval.json",
+            "foundationpose_enabled": false,
+            "basin_weight": 0.0,
+            "depth_correction": false,
+            "pin_memory": true,
+            "batch_current_features": true
+          },
+          "mean_step_seconds": 0.9765882166587593,
+          "supervised_frames_per_second": 1048.5483876750557,
+          "peak_allocated_bytes": 10452965888,
+          "gpu_utilization_mean": 37.22115384615385,
+          "losses": [
+            0.11171773355454206,
+            0.10903790034353733,
+            0.12285956833511591,
+            0.08855859003961086,
+            0.1336126448586583,
+            0.1260746419429779,
+            0.13556053396314383,
+            0.1923342403024435,
+            0.1357950260862708,
+            0.17559790425002575,
+            0.17021900787949562,
+            0.13764339592307806,
+            0.15682417899370193,
+            0.19724357407540083,
+            0.12616683449596167,
+            0.12731671705842018
+          ]
+        },
+        {
+          "name": "b8_a1_w4",
+          "command": [
+            "/mnt/why/dexycb_lip/stream_v2_dual_5300/.venv-fp/bin/python",
+            "-m",
+            "torch.distributed.run",
+            "--standalone",
+            "--nproc_per_node=8",
+            "-m",
+            "lip.train_stream",
+            "--config",
+            "runs/stream_v2_dual_5300_tuning/batched_preparation/b8_a1_w4/config.yaml",
+            "--init-from",
+            "runs/stream_v2_dual_from_single_5300_init/init.pt",
+            "--data-root",
+            "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+            "--output",
+            "runs/stream_v2_dual_5300_tuning/batched_preparation/b8_a1_w4/train",
+            "--max-steps",
+            "16",
+            "--preflight"
+          ],
+          "returncode": 0,
+          "wall_seconds": 46.50629019737244,
+          "config": {
+            "architecture_id": "stream_dual",
+            "source_tokens": 17,
+            "latent_dim": 256,
+            "temporal_layers": 4,
+            "attention_heads": 8,
+            "image_size": 224,
+            "memory_frames": 8,
+            "crop_expansion": 2.0,
+            "time_unit": 0.03333333333333333,
+            "max_gap_seconds": 0.5,
+            "cache_kind": "functional",
+            "dropout": 0.0,
+            "seed": 42,
+            "precision": "bf16",
+            "world_size": 8,
+            "batch_sequences_per_gpu": 8,
+            "grad_accum_steps": 1,
+            "effective_sequences_per_step": 64,
+            "burn_in_frames": 8,
+            "supervised_unroll_frames": 16,
+            "nominal_supervised_updates_per_step": 1024,
+            "lr_loaded_modules": 1e-05,
+            "lr_rgb_backbone": 5e-06,
+            "lr_new_modules": 5e-05,
+            "freeze_rgb_steps": 1000,
+            "warmup_steps": 500,
+            "optimizer": "adamw",
+            "weight_decay": 0.05,
+            "grad_clip_norm": 1.0,
+            "max_stage_steps": 10000,
+            "save_every": 100,
+            "cpu_threads": 2,
+            "num_workers": 4,
+            "prefetch_factor": 2,
+            "decode_threads": 4,
+            "initial_pose_noise": true,
+            "augmentation": false,
+            "preflight_receipt": "runs/stream_v2_dual_5300_preflight/dual/approval.json",
+            "foundationpose_enabled": false,
+            "basin_weight": 0.0,
+            "depth_correction": false,
+            "pin_memory": true,
+            "batch_current_features": true
+          },
+          "mean_step_seconds": 0.9851720478327479,
+          "supervised_frames_per_second": 1039.4123567073068,
+          "peak_allocated_bytes": 10452965888,
+          "gpu_utilization_mean": 35.70192307692308,
+          "losses": [
+            0.11171773355454206,
+            0.11000458523631096,
+            0.122772048227489,
+            0.08835809817537665,
+            0.1377512183971703,
+            0.12607056740671396,
+            0.13615404162555933,
+            0.19294633250683546,
+            0.13639437966048717,
+            0.17517798393964767,
+            0.16991489846259356,
+            0.1366124888882041,
+            0.1141592226922512,
+            0.19275375455617905,
+            0.1260539796203375,
+            0.12861387711018324
+          ]
+        }
+      ]
+    },
+    "overall_speedup": 3.7592884602040786
+  },
+  "formal": {
+    "checkpoint_step": 100,
+    "checkpoint_sha256": "470512ea88555db977a0a6ecfeae88c28948ff1d44843fa2631cd1124c996c56",
+    "retained_checkpoint": "/mnt/why/dexycb_lip/stream_v2_dual_5300/runs/stream_v2_dual_5300_tuning/first_formal_checkpoint.pt",
+    "sampler_position": 6400,
+    "mean_step_seconds": 1.0277295666164719,
+    "supervised_frames_per_second": 996.3710622544893,
+    "estimated_remaining_hours": 2.8262563081952976,
+    "mean_loss_last50": 0.11035138862207532,
+    "mean_center_mm_last50": 5.086994364261627,
+    "mean_rotation_deg_last50": 6.4689543479681015,
+    "peak_allocated_bytes": 10452965888
+  },
+  "gpu_snapshot": "0, 51 %, 11575 MiB\n1, 28 %, 11573 MiB\n2, 57 %, 11627 MiB\n3, 28 %, 11573 MiB\n4, 54 %, 11573 MiB\n5, 59 %, 11627 MiB\n6, 26 %, 11573 MiB\n7, 60 %, 11573 MiB\n",
+  "full_validation_completed_for_new_model": false
+}

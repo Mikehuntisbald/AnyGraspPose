@@ -1,0 +1,112 @@
+Warp 1.17.0 initialized:
+   CUDA Toolkit 12.9, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+   Kernel cache:
+     /root/.cache/warp/1.17.0
+[__init__()] welcome
+[__init__()] self.cfg: 
+ lr: 0.0001
+c_in: 6
+zfar: .inf
+debug: null
+w_rot: 0.1
+n_view: 1
+run_id: null
+use_BN: true
+rot_rep: axis_angle
+ckpt_dir: /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+exp_name: 2023-10-28-18-33-37
+save_dir: /tmp/2023-10-28-18-33-37/
+loss_type: l2
+optimizer: adam
+trans_rep: tracknet
+batch_size: 64
+crop_ratio: 1.2
+use_normal: false
+BN_momentum: 0.1
+max_num_key: null
+warmup_step: -1
+input_resize:
+- 160
+- 160
+max_step_val: 1000
+normal_uint8: false
+vis_interval: 1000
+weight_decay: 0
+n_max_objects: null
+normalize_xyz: true
+clip_grad_norm: 'Infinity'
+rot_normalizer: 0.3490658503988659
+trans_normalizer:
+- 0.019999999552965164
+- 0.019999999552965164
+- 0.05000000074505806
+max_step_per_epoch: 25000
+val_epoch_interval: 10
+n_dataloader_workers: 60
+enable_amp: true
+use_mask: false
+
+[__init__()] self.h5_file:
+[__init__()] Using pretrained model from /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+[__init__()] init done
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 0}
+Module Utils 65dffc6 load on device 'cuda:0' took 3.25 ms  (cached)
+/usr/local/lib/python3.12/dist-packages/torch/__init__.py:1264: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /pytorch/torch/csrc/tensor/python_tensor.cpp:434.)
+  _C._set_default_tensor_type(t)
+/mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/predict_pose_refine.py:190: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.amp):
+{"frames": 16}
+{"frames": 32}
+{"frames": 48}
+{"frames": 64}
+{"frames": 80}
+{"frames": 96}
+{"frames": 112}
+{"frames": 128}
+{"frames": 144}
+{"frames": 160}
+{"frames": 176}
+{"frames": 192}
+{"frames": 208}
+{"frames": 224}
+{"frames": 240}
+{"frames": 256}
+{"frames": 272}
+{"frames": 288}
+{"frames": 304}
+{"frames": 320}
+{
+  "passed": true,
+  "checks": {
+    "order": true,
+    "population": true,
+    "converge_nll": true,
+    "converge_brier": true,
+    "converge_auroc": true,
+    "improve_nll": true,
+    "improve_brier": true,
+    "improve_auroc": true
+  },
+  "metrics": {
+    "converge": {
+      "auroc": 0.9135461860610616,
+      "nll": 0.29893001914024353,
+      "brier": 0.09663688391447067
+    },
+    "improve": {
+      "auroc": 0.7814460696796572,
+      "nll": 0.5545958876609802,
+      "brier": 0.1859109252691269
+    },
+    "quality_frames": 300,
+    "quality_pair_accuracy": 0.8836141649298588,
+    "latent_cosine_mean": 0.9677809219807386
+  },
+  "frames": 320,
+  "actor_step": 20000,
+  "actor_sha256": "1858c87f6642c2ecab10dfc7edfdb4e59f263768d86decdb78e4843cae43b649",
+  "scope": "unchanged fresh labeled contexts, new actor z; no refit or threshold tuning"
+}

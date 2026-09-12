@@ -1,0 +1,26 @@
+{
+  "pid": 838731,
+  "command": [
+    "/mnt/why/dexycb_lip/.venv-fp/bin/python",
+    "/mnt/why/dexycb_lip/runs/lip_fp_34700/run_saved_checkpoint_eval.py",
+    "--job",
+    "/mnt/why/dexycb_lip/runs/lip_fp_34700",
+    "--checkpoint",
+    "/mnt/why/dexycb_lip/runs/checkpoint_archive/checkpoint_34700.pt",
+    "--reference",
+    "/mnt/why/dexycb_lip/runs/lip_fp_31000",
+    "--step",
+    "34700",
+    "--methods",
+    "lip_fp"
+  ],
+  "checkpoint_sha256": "b3a7c4fd04d6d8c0fe24301dcfe97b460b508ce74a3d39651579badade2dc646",
+  "checkpoint_step": 34700,
+  "reference": "/mnt/why/dexycb_lip/runs/lip_fp_31000",
+  "methods": [
+    "lip_fp"
+  ],
+  "expected_frames": 23200,
+  "shared_with_training": true,
+  "launched_utc": 1789110399.8314025
+}

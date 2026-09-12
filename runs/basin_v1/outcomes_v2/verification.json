@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "frames": 2048,
+  "candidates": 12288,
+  "recomputed_frames": 32,
+  "recomputed_candidates": 192,
+  "source_unchanged": true,
+  "convergence_labels_unchanged": true,
+  "regressed": 7055,
+  "joint_labels": {
+    "converge_0_improve_0": 861,
+    "converge_0_improve_1": 36,
+    "converge_1_improve_0": 7590,
+    "converge_1_improve_1": 3801
+  },
+  "data_sha256": "d2a4d5c81496db23786dbaf0d1c5f41a86dc550e354f143d8a4ca7e172eca833"
+}

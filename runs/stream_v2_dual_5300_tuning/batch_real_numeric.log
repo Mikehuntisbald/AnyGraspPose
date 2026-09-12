@@ -1,0 +1,12 @@
+/mnt/why/dexycb_lip/stream_v2_dual_5300/tools/verify_stream_batch_real.py:31: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:835.)
+  predictions=before['predictions'].detach().cpu();loss=float(before['loss'])
+{"start": 0, "clips": 8, "pose_max_abs": 0.0, "loss_abs": 0.0, "gradient_max_abs": 7.82012939453125e-05, "gradient_relative_l2": 0.0010626130412933795}
+Traceback (most recent call last):
+  File "/mnt/why/dexycb_lip/stream_v2_dual_5300/tools/verify_stream_batch_real.py", line 55, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/mnt/why/dexycb_lip/stream_v2_dual_5300/tools/verify_stream_batch_real.py", line 48, in main
+    assert pose_error<1e-5 and loss_error<1e-5 and relative<1e-3
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

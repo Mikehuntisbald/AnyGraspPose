@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "additional_synchronized_files_sha256": {
+    "docs/rgbd_alignment_audit.md": "01a955c99d83d4200ecaa0f2028683ceb29ae14ed25f6e2169a449f8a39d757f",
+    "docs/fp_transition_analysis.md": "5b7e645866089e15199d9f255167d9963e34b327f88be4ee91527a082be988f9",
+    "runs/rgbd_alignment_audit/verification.json": "3555ee9b66d564adbc1390ea853d201167a85380de0f9e11135a31f8b1d0ec2f"
+  },
+  "prior_artifacts_receipt": "receipt.json"
+}

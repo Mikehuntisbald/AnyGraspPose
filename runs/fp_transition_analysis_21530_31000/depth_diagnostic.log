@@ -1,0 +1,7 @@
+{
+  "scope": "Oracle diagnostic only, same 20 frames; observed depth minus project CUDA-rendered depth in mm. Object GT segmentation used only for diagnostic pixels; 5x5 erosion removes boundaries. Post-FP comparison uses the same pixels with valid depth in both renders.",
+  "median_GT_interior_signed_residual_mm": 6.425678730010986,
+  "median_GT_interior_absolute_residual_mm": 7.586270570755005,
+  "mean_common_before_median_abs_mm": 8.54416332244873,
+  "mean_common_after_median_abs_mm": 3.1890153884887695
+}

@@ -1,0 +1,91 @@
+{
+  "completed": true,
+  "passed": true,
+  "results": [
+    {
+      "commit": "1986c41",
+      "returncode": 0,
+      "command": [
+        "/mnt/why/dexycb_lip/.venv-fp/bin/python",
+        "-m",
+        "pytest",
+        "tests",
+        "-m",
+        "not cuda and not foundationpose",
+        "-q",
+        "--junitxml=/mnt/why/dexycb_lip/runs/release_stages_20260912/1986c41.xml"
+      ],
+      "log": "/mnt/why/dexycb_lip/runs/release_stages_20260912/1986c41.log",
+      "tests": 44,
+      "failures": 0
+    },
+    {
+      "commit": "1761f5b",
+      "returncode": 0,
+      "command": [
+        "/mnt/why/dexycb_lip/.venv-fp/bin/python",
+        "-m",
+        "pytest",
+        "tests",
+        "-m",
+        "not cuda and not foundationpose",
+        "-q",
+        "--junitxml=/mnt/why/dexycb_lip/runs/release_stages_20260912/1761f5b.xml"
+      ],
+      "log": "/mnt/why/dexycb_lip/runs/release_stages_20260912/1761f5b.log",
+      "tests": 45,
+      "failures": 0
+    },
+    {
+      "commit": "e2a8fac",
+      "returncode": 0,
+      "command": [
+        "/mnt/why/dexycb_lip/.venv-fp/bin/python",
+        "-m",
+        "pytest",
+        "tests",
+        "-m",
+        "not cuda and not foundationpose",
+        "-q",
+        "--junitxml=/mnt/why/dexycb_lip/runs/release_stages_20260912/e2a8fac.xml"
+      ],
+      "log": "/mnt/why/dexycb_lip/runs/release_stages_20260912/e2a8fac.log",
+      "tests": 72,
+      "failures": 0
+    },
+    {
+      "commit": "f1e5f6d",
+      "returncode": 0,
+      "command": [
+        "/mnt/why/dexycb_lip/.venv-fp/bin/python",
+        "-m",
+        "pytest",
+        "tests",
+        "-m",
+        "not cuda and not foundationpose",
+        "-q",
+        "--junitxml=/mnt/why/dexycb_lip/runs/release_stages_20260912/f1e5f6d.xml"
+      ],
+      "log": "/mnt/why/dexycb_lip/runs/release_stages_20260912/f1e5f6d.log",
+      "tests": 76,
+      "failures": 0
+    },
+    {
+      "commit": "1558a62",
+      "returncode": 0,
+      "command": [
+        "/mnt/why/dexycb_lip/.venv-fp/bin/python",
+        "-m",
+        "pytest",
+        "tests",
+        "-m",
+        "not cuda and not foundationpose",
+        "-q",
+        "--junitxml=/mnt/why/dexycb_lip/runs/release_stages_20260912/1558a62.xml"
+      ],
+      "log": "/mnt/why/dexycb_lip/runs/release_stages_20260912/1558a62.log",
+      "tests": 92,
+      "failures": 0
+    }
+  ]
+}

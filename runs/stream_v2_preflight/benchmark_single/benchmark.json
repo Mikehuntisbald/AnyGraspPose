@@ -1,0 +1,730 @@
+{
+  "completed": true,
+  "environment": {
+    "versions": {
+      "torch": "2.8.0+cu128",
+      "torchvision": "0.23.0+cu128",
+      "numpy": "2.5.3",
+      "scipy": "1.16.2",
+      "trimesh": "5.1.0",
+      "opencv-python-headless": "4.12.0.88",
+      "PyYAML": "6.0.3",
+      "pytest": "9.1.1",
+      "nvdiffrast": "0.4.0",
+      "tensorboard": "2.20.0"
+    },
+    "cuda_runtime": "12.8",
+    "gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA H20",
+        "total_bytes": 102085361664
+      }
+    ],
+    "cgroup_limits": {
+      "cpu_quota_us": 12800000,
+      "cpu_period_us": 100000,
+      "memory_limit_bytes": 549755813888
+    },
+    "driver": [
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20",
+      "580.126.20"
+    ],
+    "cpu_affinity": 344,
+    "cpu_count": 344,
+    "disk": {
+      "total": 725677674332160,
+      "used": 528141762879488,
+      "free": 197535911452672
+    },
+    "bf16": true
+  },
+  "stream_id": "20200709-subject-01/20200709_142123/836212060125",
+  "split_hash": "54a35253db5bea988ffea5e41641d3313b31c5568193a186dd4e4359c497804b",
+  "mesh_hash": "359f53a5f41963d3fdfc2542bd640432d820bfc99a055baec8976ad99966d32c",
+  "initial_pose_source": "GT first frame only",
+  "GT_metrics": false,
+  "overlay": false,
+  "compile": false,
+  "mode": "eager",
+  "batch_size": 1,
+  "attention_backend": "PyTorch SDPA automatic dispatch; explicit float mask and is_causal=False",
+  "timing": "CUDA events for GPU sections, synchronize once at each frame boundary; wall-clock latency includes normal API validation",
+  "configurations": {
+    "legacy": {
+      "checkpoint_sha256": "b3a7c4fd04d6d8c0fe24301dcfe97b460b508ce74a3d39651579badade2dc646",
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "core": {
+        "kind": "legacy",
+        "scope": "predecoded GPU input tracker core wall-clock",
+        "latency_ms": {
+          "count": 120,
+          "mean": 13.026586481525252,
+          "p50": 12.98215298447758,
+          "p95": 13.334396498976275,
+          "p99": 13.532940052682534
+        },
+        "components_gpu_ms": {
+          "legacy_network": {
+            "count": 120,
+            "mean": 10.31847681204478,
+            "p50": 10.283440113067627,
+            "p95": 10.637443113327027,
+            "p99": 10.718301429748536
+          },
+          "preprocess": {
+            "count": 120,
+            "mean": 1.950561597198248,
+            "p50": 1.9509760737419128,
+            "p95": 2.0277119785547257,
+            "p99": 2.0578034377098082
+          },
+          "preprocess_including_render": {
+            "count": 120,
+            "mean": 2.4901103993256886,
+            "p50": 2.4836480617523193,
+            "p95": 2.5543471932411195,
+            "p99": 2.5802613496780396
+          },
+          "render": {
+            "count": 120,
+            "mean": 0.5395488021274407,
+            "p50": 0.5323039889335632,
+            "p95": 0.5885071963071823,
+            "p99": 0.5933580905199051
+          }
+        },
+        "encoder_images": {
+          "rgb": 1152,
+          "geometry": 1152
+        },
+        "encoder_images_per_update": {
+          "rgb": 8.0,
+          "geometry": 8.0
+        },
+        "render_calls": 144,
+        "render_calls_per_update": 1.0,
+        "fp_calls": 0,
+        "critic_calls": 0,
+        "cache_bytes": 0,
+        "initial_allocated": 300511744,
+        "peak_allocated": 491269120,
+        "peak_reserved": 553648128,
+        "simulated_queue": {
+          "policy": "process every frame, no drop; measured service times and original dt; no live camera claim",
+          "dropped": 0,
+          "age_ms": {
+            "count": 120,
+            "mean": 40.55220138805453,
+            "p50": 13.017933524679393,
+            "p95": 248.10324755031607,
+            "p99": 344.48386882517184
+          }
+        },
+        "warmup_frames_each_repeat": 8,
+        "repeats": 3,
+        "observed_updates": 144
+      },
+      "end_to_end": {
+        "kind": "legacy",
+        "scope": "decode + H2D + tracker + final pose D2H wall-clock",
+        "latency_ms": {
+          "count": 120,
+          "mean": 22.452746724593453,
+          "p50": 21.734610956627876,
+          "p95": 26.406326354481276,
+          "p99": 31.562459063716233
+        },
+        "components_gpu_ms": {
+          "legacy_network": {
+            "count": 120,
+            "mean": 10.300925906499227,
+            "p50": 10.232656002044678,
+            "p95": 10.812816381454468,
+            "p99": 11.167538213729859
+          },
+          "preprocess": {
+            "count": 120,
+            "mean": 2.01670453697443,
+            "p50": 2.01118403673172,
+            "p95": 2.1266879200935365,
+            "p99": 2.2366074156761173
+          },
+          "preprocess_including_render": {
+            "count": 120,
+            "mean": 2.5748437364896137,
+            "p50": 2.5599679946899414,
+            "p95": 2.7249231576919555,
+            "p99": 2.817920370101929
+          },
+          "render": {
+            "count": 120,
+            "mean": 0.5581391995151838,
+            "p50": 0.5540319979190826,
+            "p95": 0.6006207972764969,
+            "p99": 0.6164057487249375
+          }
+        },
+        "encoder_images": {
+          "rgb": 1152,
+          "geometry": 1152
+        },
+        "encoder_images_per_update": {
+          "rgb": 8.0,
+          "geometry": 8.0
+        },
+        "render_calls": 144,
+        "render_calls_per_update": 1.0,
+        "fp_calls": 0,
+        "critic_calls": 0,
+        "cache_bytes": 0,
+        "initial_allocated": 334066176,
+        "peak_allocated": 741633536,
+        "peak_reserved": 788529152,
+        "simulated_queue": {
+          "policy": "process every frame, no drop; measured service times and original dt; no live camera claim",
+          "dropped": 0,
+          "age_ms": {
+            "count": 120,
+            "mean": 22.452746724593453,
+            "p50": 21.734610956627876,
+            "p95": 26.406326354481276,
+            "p99": 31.562459063716233
+          }
+        },
+        "warmup_frames_each_repeat": 8,
+        "repeats": 3,
+        "observed_updates": 144
+      }
+    },
+    "stream_single": {
+      "checkpoint_sha256": "e09a3c2daaf4b64b8ad198ec3be0b20249fb4648e43b4dbf8ee904aad4ef334a",
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "core": {
+        "kind": "stream_single",
+        "scope": "predecoded GPU input tracker core wall-clock",
+        "latency_ms": {
+          "count": 120,
+          "mean": 16.383348314169172,
+          "p50": 16.359241504687816,
+          "p95": 16.59353069262579,
+          "p99": 16.660056746331975
+        },
+        "components_gpu_ms": {
+          "geometry_encoder": {
+            "count": 120,
+            "mean": 1.3421645333369574,
+            "p50": 1.3378880023956299,
+            "p95": 1.3881231844425201,
+            "p99": 1.4161545193195344
+          },
+          "pose_update": {
+            "count": 120,
+            "mean": 0.47657599970698356,
+            "p50": 0.47356799244880676,
+            "p95": 0.5292896032333374,
+            "p99": 0.5528643023967743
+          },
+          "preprocess_and_state_checks": {
+            "count": 120,
+            "mean": 5.231711565951506,
+            "p50": 5.225871980190277,
+            "p95": 5.333372202515602,
+            "p99": 5.399364833235741
+          },
+          "render": {
+            "count": 120,
+            "mean": 0.5340482654670874,
+            "p50": 0.5313760042190552,
+            "p95": 0.571145623922348,
+            "p99": 0.595550411939621
+          },
+          "rgb_encoder": {
+            "count": 120,
+            "mean": 3.7994255900382994,
+            "p50": 3.7912800312042236,
+            "p95": 3.933780753612518,
+            "p99": 3.966310782432556
+          },
+          "spatial_fusion": {
+            "count": 120,
+            "mean": 1.8037599980831147,
+            "p50": 1.8038079738616943,
+            "p95": 1.8651808559894563,
+            "p99": 1.8814860606193542
+          },
+          "temporal_readout": {
+            "count": 120,
+            "mean": 3.1644677301247914,
+            "p50": 3.1549919843673706,
+            "p95": 3.2676063418388366,
+            "p99": 3.3437663555145263
+          },
+          "tracker_total": {
+            "count": 120,
+            "mean": 16.35215368270874,
+            "p50": 16.323328018188477,
+            "p95": 16.5638427734375,
+            "p99": 16.630199394226075
+          }
+        },
+        "encoder_images": {
+          "rgb": 144,
+          "geometry": 144
+        },
+        "encoder_images_per_update": {
+          "rgb": 1.0,
+          "geometry": 1.0
+        },
+        "render_calls": 144,
+        "render_calls_per_update": 1.0,
+        "fp_calls": 0,
+        "critic_calls": 0,
+        "cache_bytes": 557056,
+        "initial_allocated": 334071808,
+        "peak_allocated": 373792256,
+        "peak_reserved": 398458880,
+        "simulated_queue": {
+          "policy": "process every frame, no drop; measured service times and original dt; no live camera claim",
+          "dropped": 0,
+          "age_ms": {
+            "count": 120,
+            "mean": 16.383348314169172,
+            "p50": 16.359241504687816,
+            "p95": 16.59353069262579,
+            "p99": 16.660056746331975
+          }
+        },
+        "warmup_frames_each_repeat": 8,
+        "repeats": 3,
+        "observed_updates": 144
+      },
+      "end_to_end": {
+        "kind": "stream_single",
+        "scope": "decode + H2D + tracker + final pose D2H wall-clock",
+        "latency_ms": {
+          "count": 120,
+          "mean": 25.58433598508903,
+          "p50": 25.396207987796515,
+          "p95": 27.27489167591557,
+          "p99": 28.027643328532577
+        },
+        "components_gpu_ms": {
+          "geometry_encoder": {
+            "count": 120,
+            "mean": 1.3645322660605113,
+            "p50": 1.3595200181007385,
+            "p95": 1.4157680511474608,
+            "p99": 1.4358144366741181
+          },
+          "pose_update": {
+            "count": 120,
+            "mean": 0.48119120101133983,
+            "p50": 0.4805600047111511,
+            "p95": 0.5182960242033005,
+            "p99": 0.5508640015125276
+          },
+          "preprocess_and_state_checks": {
+            "count": 120,
+            "mean": 5.510369075834751,
+            "p50": 5.504847958683968,
+            "p95": 5.66757345944643,
+            "p99": 5.767322182059289
+          },
+          "render": {
+            "count": 120,
+            "mean": 0.5496943975488345,
+            "p50": 0.5460159778594971,
+            "p95": 0.5903120160102844,
+            "p99": 0.6015430450439453
+          },
+          "rgb_encoder": {
+            "count": 120,
+            "mean": 3.8850122809410097,
+            "p50": 3.8779999017715454,
+            "p95": 4.00480968952179,
+            "p99": 4.035156745910645
+          },
+          "spatial_fusion": {
+            "count": 120,
+            "mean": 1.8314421286185583,
+            "p50": 1.8360320329666138,
+            "p95": 1.881646418571472,
+            "p99": 1.9109695649147034
+          },
+          "temporal_readout": {
+            "count": 120,
+            "mean": 3.204806935787201,
+            "p50": 3.1889599561691284,
+            "p95": 3.299396812915802,
+            "p99": 3.3895898509025573
+          },
+          "tracker_total": {
+            "count": 120,
+            "mean": 16.827048285802206,
+            "p50": 16.81443214416504,
+            "p95": 17.05697383880615,
+            "p99": 17.323079681396486
+          }
+        },
+        "encoder_images": {
+          "rgb": 144,
+          "geometry": 144
+        },
+        "encoder_images_per_update": {
+          "rgb": 1.0,
+          "geometry": 1.0
+        },
+        "render_calls": 144,
+        "render_calls_per_update": 1.0,
+        "fp_calls": 0,
+        "critic_calls": 0,
+        "cache_bytes": 557056,
+        "initial_allocated": 334071808,
+        "peak_allocated": 378514944,
+        "peak_reserved": 398458880,
+        "simulated_queue": {
+          "policy": "process every frame, no drop; measured service times and original dt; no live camera claim",
+          "dropped": 0,
+          "age_ms": {
+            "count": 120,
+            "mean": 25.58433598508903,
+            "p50": 25.396207987796515,
+            "p95": 27.27489167591557,
+            "p99": 28.027643328532577
+          }
+        },
+        "warmup_frames_each_repeat": 8,
+        "repeats": 3,
+        "observed_updates": 144
+      }
+    },
+    "reference": {
+      "checkpoint_sha256": "e09a3c2daaf4b64b8ad198ec3be0b20249fb4648e43b4dbf8ee904aad4ef334a",
+      "frames": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ],
+      "core": {
+        "kind": "reference",
+        "scope": "predecoded GPU input tracker core wall-clock",
+        "latency_ms": {
+          "count": 8,
+          "mean": 18.982691020937636,
+          "p50": 18.811544054187834,
+          "p95": 20.93230466125533,
+          "p99": 21.12491046776995
+        },
+        "components_gpu_ms": {
+          "geometry_encoder": {
+            "count": 8,
+            "mean": 1.4173920005559921,
+            "p50": 1.3562560081481934,
+            "p95": 1.6526992261409759,
+            "p99": 1.7212342727184295
+          },
+          "pose_update": {
+            "count": 8,
+            "mean": 0.4754280038177967,
+            "p50": 0.47625599801540375,
+            "p95": 0.49907041192054746,
+            "p99": 0.5030396950244903
+          },
+          "preprocess": {
+            "count": 8,
+            "mean": 3.4481639191508293,
+            "p50": 3.461551934480667,
+            "p95": 3.500220686197281,
+            "p99": 3.5065464317798614
+          },
+          "preprocess_including_render": {
+            "count": 8,
+            "mean": 3.98909193277359,
+            "p50": 3.9933758974075317,
+            "p95": 4.044748687744141,
+            "p99": 4.051343231201172
+          },
+          "render": {
+            "count": 8,
+            "mean": 0.5409280136227608,
+            "p50": 0.5424320101737976,
+            "p95": 0.5533088147640228,
+            "p99": 0.5569465816020965
+          },
+          "rgb_encoder": {
+            "count": 8,
+            "mean": 3.985468029975891,
+            "p50": 3.9356800317764282,
+            "p95": 4.290203094482422,
+            "p99": 4.3657268524169925
+          },
+          "spatial_fusion": {
+            "count": 8,
+            "mean": 1.8705079853534698,
+            "p50": 1.8403199911117554,
+            "p95": 2.017169588804245,
+            "p99": 2.066691516637802
+          },
+          "temporal_readout": {
+            "count": 8,
+            "mean": 6.799467921257019,
+            "p50": 6.430943965911865,
+            "p95": 8.738503646850585,
+            "p99": 8.914702072143555
+          }
+        },
+        "encoder_images": {
+          "rgb": 16,
+          "geometry": 16
+        },
+        "encoder_images_per_update": {
+          "rgb": 1.0,
+          "geometry": 1.0
+        },
+        "render_calls": 16,
+        "render_calls_per_update": 1.0,
+        "fp_calls": 0,
+        "critic_calls": 0,
+        "cache_bytes": 0,
+        "initial_allocated": 334071808,
+        "peak_allocated": 386676224,
+        "peak_reserved": 419430400,
+        "simulated_queue": {
+          "policy": "process every frame, no drop; measured service times and original dt; no live camera claim",
+          "dropped": 0,
+          "age_ms": {
+            "count": 8,
+            "mean": 18.982691020937636,
+            "p50": 18.811544054187834,
+            "p95": 20.93230466125533,
+            "p99": 21.12491046776995
+          }
+        },
+        "warmup_frames_each_repeat": 8,
+        "repeats": 1,
+        "observed_updates": 16
+      },
+      "end_to_end": {
+        "kind": "reference",
+        "scope": "decode + H2D + tracker + final pose D2H wall-clock",
+        "latency_ms": {
+          "count": 8,
+          "mean": 25.308594005764462,
+          "p50": 24.400682537816465,
+          "p95": 28.53976446785964,
+          "p99": 29.026116012828425
+        },
+        "components_gpu_ms": {
+          "geometry_encoder": {
+            "count": 8,
+            "mean": 1.37738798558712,
+            "p50": 1.374015986919403,
+            "p95": 1.41213116645813,
+            "p99": 1.4199621868133545
+          },
+          "pose_update": {
+            "count": 8,
+            "mean": 0.4586760029196739,
+            "p50": 0.45633600652217865,
+            "p95": 0.47891839891672133,
+            "p99": 0.4797068765759468
+          },
+          "preprocess": {
+            "count": 8,
+            "mean": 3.6661320105195045,
+            "p50": 3.6165599822998047,
+            "p95": 3.9792703330516814,
+            "p99": 4.110516427755356
+          },
+          "preprocess_including_render": {
+            "count": 8,
+            "mean": 4.210532009601593,
+            "p50": 4.154767990112305,
+            "p95": 4.569398427009582,
+            "p99": 4.718474869728088
+          },
+          "render": {
+            "count": 8,
+            "mean": 0.5443999990820885,
+            "p50": 0.5298880040645599,
+            "p95": 0.5991552114486695,
+            "p99": 0.6097638654708862
+          },
+          "rgb_encoder": {
+            "count": 8,
+            "mean": 3.869432032108307,
+            "p50": 3.860032081604004,
+            "p95": 3.933911991119385,
+            "p99": 3.953758373260498
+          },
+          "spatial_fusion": {
+            "count": 8,
+            "mean": 1.838239997625351,
+            "p50": 1.8447839617729187,
+            "p95": 1.8638416051864624,
+            "p99": 1.863993945121765
+          },
+          "temporal_readout": {
+            "count": 8,
+            "mean": 3.3990079760551453,
+            "p50": 3.383247971534729,
+            "p95": 3.4646303772926332,
+            "p99": 3.475543644428253
+          }
+        },
+        "encoder_images": {
+          "rgb": 16,
+          "geometry": 16
+        },
+        "encoder_images_per_update": {
+          "rgb": 1.0,
+          "geometry": 1.0
+        },
+        "render_calls": 16,
+        "render_calls_per_update": 1.0,
+        "fp_calls": 0,
+        "critic_calls": 0,
+        "cache_bytes": 0,
+        "initial_allocated": 334071808,
+        "peak_allocated": 391570432,
+        "peak_reserved": 419430400,
+        "simulated_queue": {
+          "policy": "process every frame, no drop; measured service times and original dt; no live camera claim",
+          "dropped": 0,
+          "age_ms": {
+            "count": 8,
+            "mean": 25.308594005764462,
+            "p50": 24.400682537816465,
+            "p95": 28.53976446785964,
+            "p99": 29.026116012828425
+          }
+        },
+        "warmup_frames_each_repeat": 8,
+        "repeats": 1,
+        "observed_updates": 16
+      }
+    }
+  },
+  "memory_frames_1": "Not trained; intentionally not reported as an accuracy ablation"
+}

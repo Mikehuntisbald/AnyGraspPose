@@ -1,0 +1,8 @@
+{
+  "step": 3700,
+  "architecture": "stream_dual_cross",
+  "sha256": "0d1a49fef8b88ed270a046094a36c02ac436f05e1b3e7eec357b7ca8aaa5dc4d",
+  "path": "/mnt/why/dexycb_lip/stream_v2_cross_dual_8800/runs/stream_v2_cross_archive/checkpoint_3700.pt",
+  "source_sha256": "7fc30d6c2ff7781ab45cfb5339e9dff631338455a4f57b838d636ec234551095",
+  "captured_utc": "2026-09-12T06:16:56Z"
+}

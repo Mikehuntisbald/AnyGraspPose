@@ -1,0 +1,5 @@
+{"test": "cuda_reference", "dual": false, "max_abs": {"fp32": 1.5497207641601562e-06, "bf16": 0.0}, "cache_bytes": 557056}
+.{"test": "cuda_reference", "dual": true, "max_abs": {"fp32": 1.430511474609375e-06, "bf16": 0.0}, "cache_bytes": 557056}
+.{"test": "10000_temporal_steps", "measurements": [{"step": 100, "allocated": 51523072, "reserved": 260046848, "kv_bytes": 557056}, {"step": 1000, "allocated": 51523072, "reserved": 260046848, "kv_bytes": 557056}, {"step": 5000, "allocated": 51523072, "reserved": 260046848, "kv_bytes": 557056}, {"step": 10000, "allocated": 51523072, "reserved": 260046848, "kv_bytes": 557056}]}
+.
+3 passed in 29.72s

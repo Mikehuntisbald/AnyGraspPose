@@ -1,0 +1,130 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "start": 0,
+      "clips": 8,
+      "comparisons": {
+        "unchanged_repeat": {
+          "pose_max_abs": 0.0,
+          "loss_abs": 0.0,
+          "gradient_max_abs": 0.0,
+          "gradient_relative_l2": 0.0
+        },
+        "batched": {
+          "pose_max_abs": 0.0,
+          "loss_abs": 0.0,
+          "gradient_max_abs": 0.0,
+          "gradient_relative_l2": 0.0
+        }
+      }
+    },
+    {
+      "start": 8,
+      "clips": 8,
+      "comparisons": {
+        "unchanged_repeat": {
+          "pose_max_abs": 0.0,
+          "loss_abs": 0.0,
+          "gradient_max_abs": 0.0,
+          "gradient_relative_l2": 0.0
+        },
+        "batched": {
+          "pose_max_abs": 0.0,
+          "loss_abs": 0.0,
+          "gradient_max_abs": 0.0,
+          "gradient_relative_l2": 0.0
+        }
+      }
+    }
+  ],
+  "real_fragments": 16,
+  "burn_in": 8,
+  "supervised_unroll": 16,
+  "precision": "fp32",
+  "math_fp32": true,
+  "source_sha256": "5ccca80a97c2a50a00819dc3d8d6f86c953eae1e8c7a799e45f85330340708e2",
+  "init_sha256": "42e5628f4d3cbfbd4c72d000a625a8adce516fc70b5b949022306dd53c34ceb8",
+  "manifest": [
+    {
+      "stream": 4541,
+      "start": 21,
+      "seed": 929893138
+    },
+    {
+      "stream": 4179,
+      "start": 2,
+      "seed": 1239425791
+    },
+    {
+      "stream": 1062,
+      "start": 12,
+      "seed": 1429957424
+    },
+    {
+      "stream": 3797,
+      "start": 26,
+      "seed": 1142096426
+    },
+    {
+      "stream": 6081,
+      "start": 3,
+      "seed": 1179509693
+    },
+    {
+      "stream": 4532,
+      "start": 36,
+      "seed": 926230262
+    },
+    {
+      "stream": 2011,
+      "start": 28,
+      "seed": 1447292751
+    },
+    {
+      "stream": 1942,
+      "start": 28,
+      "seed": 99753296
+    },
+    {
+      "stream": 4989,
+      "start": 41,
+      "seed": 1769056079
+    },
+    {
+      "stream": 5999,
+      "start": 15,
+      "seed": 736792417
+    },
+    {
+      "stream": 4450,
+      "start": 28,
+      "seed": 1004012162
+    },
+    {
+      "stream": 485,
+      "start": 35,
+      "seed": 1739172660
+    },
+    {
+      "stream": 1474,
+      "start": 25,
+      "seed": 1087338332
+    },
+    {
+      "stream": 5741,
+      "start": 41,
+      "seed": 475723138
+    },
+    {
+      "stream": 4715,
+      "start": 0,
+      "seed": 2042083684
+    },
+    {
+      "stream": 4518,
+      "start": 21,
+      "seed": 1886310757
+    }
+  ]
+}

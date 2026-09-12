@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="3.591" timestamp="2026-09-12T10:13:01.322639+08:00" hostname="nb-1665947968857557760-cnnl9oh5e22o"><testcase classname="tests.test_core" name="test_cuda_cpu_renderer_agreement" time="0.999" /></testsuite></testsuites>

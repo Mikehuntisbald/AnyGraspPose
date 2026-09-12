@@ -1,0 +1,130 @@
+[
+  {
+    "stream": 4541,
+    "start": 21,
+    "seed": 929893138,
+    "stream_id": "20201002-subject-08/20201002_105035/932122060861",
+    "initial_frame": 21,
+    "split": "train"
+  },
+  {
+    "stream": 4179,
+    "start": 2,
+    "seed": 1239425791,
+    "stream_id": "20200928-subject-07/20200928_153856/841412060263",
+    "initial_frame": 2,
+    "split": "train"
+  },
+  {
+    "stream": 1062,
+    "start": 12,
+    "seed": 1429957424,
+    "stream_id": "20200813-subject-02/20200813_153839/932122061900",
+    "initial_frame": 12,
+    "split": "train"
+  },
+  {
+    "stream": 3797,
+    "start": 26,
+    "seed": 1142096426,
+    "stream_id": "20200918-subject-06/20200918_121101/932122060861",
+    "initial_frame": 26,
+    "split": "train"
+  },
+  {
+    "stream": 6081,
+    "start": 3,
+    "seed": 1179509693,
+    "stream_id": "20201022-subject-10/20201022_112907/839512060362",
+    "initial_frame": 3,
+    "split": "train"
+  },
+  {
+    "stream": 4532,
+    "start": 36,
+    "seed": 926230262,
+    "stream_id": "20201002-subject-08/20201002_105012/932122060857",
+    "initial_frame": 36,
+    "split": "train"
+  },
+  {
+    "stream": 2011,
+    "start": 28,
+    "seed": 1447292751,
+    "stream_id": "20200903-subject-04/20200903_104322/841412060263",
+    "initial_frame": 28,
+    "split": "train"
+  },
+  {
+    "stream": 1942,
+    "start": 28,
+    "seed": 99753296,
+    "stream_id": "20200903-subject-04/20200903_103710/932122061900",
+    "initial_frame": 28,
+    "split": "train"
+  },
+  {
+    "stream": 4989,
+    "start": 41,
+    "seed": 1769056079,
+    "stream_id": "20201002-subject-08/20201002_112232/932122060861",
+    "initial_frame": 41,
+    "split": "train"
+  },
+  {
+    "stream": 5999,
+    "start": 15,
+    "seed": 736792417,
+    "stream_id": "20201022-subject-10/20201022_112255/932122062010",
+    "initial_frame": 15,
+    "split": "train"
+  },
+  {
+    "stream": 4450,
+    "start": 28,
+    "seed": 1004012162,
+    "stream_id": "20200928-subject-07/20200928_155913/840412060917",
+    "initial_frame": 28,
+    "split": "train"
+  },
+  {
+    "stream": 485,
+    "start": 35,
+    "seed": 1739172660,
+    "stream_id": "20200709-subject-01/20200709_151724/932122060861",
+    "initial_frame": 35,
+    "split": "train"
+  },
+  {
+    "stream": 1474,
+    "start": 25,
+    "seed": 1087338332,
+    "stream_id": "20200820-subject-03/20200820_141048/840412060917",
+    "initial_frame": 25,
+    "split": "train"
+  },
+  {
+    "stream": 5741,
+    "start": 41,
+    "seed": 475723138,
+    "stream_id": "20201015-subject-09/20201015_151513/932122060861",
+    "initial_frame": 41,
+    "split": "train"
+  },
+  {
+    "stream": 4715,
+    "start": 0,
+    "seed": 2042083684,
+    "stream_id": "20201002-subject-08/20201002_110253/841412060263",
+    "initial_frame": 0,
+    "split": "train"
+  },
+  {
+    "stream": 4518,
+    "start": 21,
+    "seed": 1886310757,
+    "stream_id": "20201002-subject-08/20201002_104859/932122061900",
+    "initial_frame": 21,
+    "split": "train"
+  }
+]

@@ -1,0 +1,32 @@
+..{"event": "stage_start", "utc": "2026-09-12T02:04:51Z", "stage": "failed_preflight", "command": ["/mnt/why/dexycb_lip/stream_v2_dual_5300/.venv-fp/bin/python", "-c", "raise SystemExit(3)"]}
+.................................{"completed_stream": "subject/sequence/camera", "frames": 7}
+{"completed_stream": "subject/sequence/camera", "frames": 7}
+.{"completed_stream": "subject/sequence/camera", "frames": 3}
+.{"completed_stream": "subject/sequence/camera", "frames": 3}
+........{"test": "cache_reference", "frames": 1, "dual": false, "max_abs": 0.0}
+.{"test": "cache_reference", "frames": 2, "dual": false, "max_abs": 7.152557373046875e-07}
+.{"test": "cache_reference", "frames": 8, "dual": false, "max_abs": 7.152557373046875e-07}
+.{"test": "cache_reference", "frames": 9, "dual": false, "max_abs": 9.5367431640625e-07}
+.{"test": "cache_reference", "frames": 32, "dual": false, "max_abs": 9.5367431640625e-07}
+.{"test": "cache_reference", "frames": 1, "dual": true, "max_abs": 0.0}
+.{"test": "cache_reference", "frames": 2, "dual": true, "max_abs": 8.344650268554688e-07}
+.{"test": "cache_reference", "frames": 8, "dual": true, "max_abs": 9.5367431640625e-07}
+.{"test": "cache_reference", "frames": 9, "dual": true, "max_abs": 9.5367431640625e-07}
+.{"test": "cache_reference", "frames": 32, "dual": true, "max_abs": 9.5367431640625e-07}
+.{"test": "cache_gradient_reference", "max_abs": 1.1920928955078125e-07}
+.....batch_feature_errors cpu {'rgb': 0.0, 'geometry': 0.0, 'state_input': 0.0, 'source_xy': 0.0, 'T_base_centered': 0.0, 'object_diameter_m': 0.0, 'mesh_center': 0.0}
+.batch_training_gradient_max_abs 0.0
+......usage: train_stream [-h] --config CONFIG --output OUTPUT
+                    (--init-from INIT_FROM | --resume RESUME)
+                    [--data-root DATA_ROOT] [--index-root INDEX_ROOT]
+                    [--max-steps MAX_STEPS] [--preflight]
+                    [--fixed-manifest FIXED_MANIFEST]
+train_stream: error: --max-steps must be positive; zero must never expand into a long run
+.usage: train_stream [-h] --config CONFIG --output OUTPUT
+                    (--init-from INIT_FROM | --resume RESUME)
+                    [--data-root DATA_ROOT] [--index-root INDEX_ROOT]
+                    [--max-steps MAX_STEPS] [--preflight]
+                    [--fixed-manifest FIXED_MANIFEST]
+train_stream: error: --max-steps must be positive; zero must never expand into a long run
+........
+76 passed, 6 deselected in 18.83s

@@ -1,0 +1,9 @@
+{
+  "target_architecture": "stream_dual",
+  "cache_contract": "lip-v2-source17-block-local-timebias-v1",
+  "optimizer_restored": false,
+  "new_stage_step": 0,
+  "loaded_parameter_numel": 15648142,
+  "total_parameter_numel": 15845519,
+  "coverage": 0.9875436708636681
+}

@@ -1,0 +1,1 @@
+{"completed": true, "checkpoint_sha256": "d7bd5252459a2843580f19f5b96988c9aa55199a96e2e238829f5fe27963998d", "mean_loss": 0.0974862368311733, "mean_metrics": [0.011535504876519553, 0.08131722779944539, 0.04529211949557066, 7.063924007117748, 4.659133724868298], "scope": "Fixed training fragments, known noisy initialization and own autoregressive history; not validation accuracy"}

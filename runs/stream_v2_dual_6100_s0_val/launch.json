@@ -1,0 +1,256 @@
+{
+  "started_utc": "2026-09-12T03:59:56Z",
+  "checkpoint": "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_archive/checkpoint_6100.pt",
+  "checkpoint_sha256": "fe5705e15b3b612e3956195da66bac4c6689712fabe935c46f6a9ad87556df7d",
+  "source_sha256": "5ccca80a97c2a50a00819dc3d8d6f86c953eae1e8c7a799e45f85330340708e2",
+  "gpu_sharing": true,
+  "existing_compute_processes": "860370, /mnt/why/dexycb_lip/.venv-fp/bin/python, 11616 MiB\n860371, /mnt/why/dexycb_lip/.venv-fp/bin/python, 11614 MiB\n860372, /mnt/why/dexycb_lip/.venv-fp/bin/python, 11650 MiB\n860373, /mnt/why/dexycb_lip/.venv-fp/bin/python, 11616 MiB\n860374, /mnt/why/dexycb_lip/.venv-fp/bin/python, 11616 MiB\n860375, /mnt/why/dexycb_lip/.venv-fp/bin/python, 11650 MiB\n860376, /mnt/why/dexycb_lip/.venv-fp/bin/python, 11614 MiB\n860377, /mnt/why/dexycb_lip/.venv-fp/bin/python, 11616 MiB",
+  "free_memory_mib": [
+    [
+      0,
+      85728
+    ],
+    [
+      1,
+      85730
+    ],
+    [
+      2,
+      85694
+    ],
+    [
+      3,
+      85728
+    ],
+    [
+      4,
+      85728
+    ],
+    [
+      5,
+      85694
+    ],
+    [
+      6,
+      85730
+    ],
+    [
+      7,
+      85728
+    ]
+  ],
+  "training_before": {
+    "step": 6154,
+    "mean_recent_seconds": 1.075244327671826
+  },
+  "latency_benchmark": false,
+  "expected_streams": 320,
+  "expected_frames": 23200,
+  "commands": [
+    {
+      "command": [
+        "/mnt/why/dexycb_lip/stream_v2_dual_5300/.venv-fp/bin/python",
+        "-m",
+        "lip.evaluate_stream",
+        "--config",
+        "/mnt/why/dexycb_lip/stream_v2_dual_5300/configs/stream_lip_v2_dual_5300_fast.yaml",
+        "--checkpoint",
+        "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_archive/checkpoint_6100.pt",
+        "--data-root",
+        "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+        "--index-root",
+        "/mnt/why/dexycb_lip/cache/dexycb_s0",
+        "--out",
+        "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_6100_s0_val/rank0",
+        "--rank",
+        "0",
+        "--world-size",
+        "8",
+        "--split",
+        "val"
+      ],
+      "gpu": 0,
+      "pid": 864124
+    },
+    {
+      "command": [
+        "/mnt/why/dexycb_lip/stream_v2_dual_5300/.venv-fp/bin/python",
+        "-m",
+        "lip.evaluate_stream",
+        "--config",
+        "/mnt/why/dexycb_lip/stream_v2_dual_5300/configs/stream_lip_v2_dual_5300_fast.yaml",
+        "--checkpoint",
+        "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_archive/checkpoint_6100.pt",
+        "--data-root",
+        "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+        "--index-root",
+        "/mnt/why/dexycb_lip/cache/dexycb_s0",
+        "--out",
+        "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_6100_s0_val/rank1",
+        "--rank",
+        "1",
+        "--world-size",
+        "8",
+        "--split",
+        "val"
+      ],
+      "gpu": 1,
+      "pid": 864125
+    },
+    {
+      "command": [
+        "/mnt/why/dexycb_lip/stream_v2_dual_5300/.venv-fp/bin/python",
+        "-m",
+        "lip.evaluate_stream",
+        "--config",
+        "/mnt/why/dexycb_lip/stream_v2_dual_5300/configs/stream_lip_v2_dual_5300_fast.yaml",
+        "--checkpoint",
+        "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_archive/checkpoint_6100.pt",
+        "--data-root",
+        "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+        "--index-root",
+        "/mnt/why/dexycb_lip/cache/dexycb_s0",
+        "--out",
+        "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_6100_s0_val/rank2",
+        "--rank",
+        "2",
+        "--world-size",
+        "8",
+        "--split",
+        "val"
+      ],
+      "gpu": 2,
+      "pid": 864126
+    },
+    {
+      "command": [
+        "/mnt/why/dexycb_lip/stream_v2_dual_5300/.venv-fp/bin/python",
+        "-m",
+        "lip.evaluate_stream",
+        "--config",
+        "/mnt/why/dexycb_lip/stream_v2_dual_5300/configs/stream_lip_v2_dual_5300_fast.yaml",
+        "--checkpoint",
+        "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_archive/checkpoint_6100.pt",
+        "--data-root",
+        "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+        "--index-root",
+        "/mnt/why/dexycb_lip/cache/dexycb_s0",
+        "--out",
+        "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_6100_s0_val/rank3",
+        "--rank",
+        "3",
+        "--world-size",
+        "8",
+        "--split",
+        "val"
+      ],
+      "gpu": 3,
+      "pid": 864127
+    },
+    {
+      "command": [
+        "/mnt/why/dexycb_lip/stream_v2_dual_5300/.venv-fp/bin/python",
+        "-m",
+        "lip.evaluate_stream",
+        "--config",
+        "/mnt/why/dexycb_lip/stream_v2_dual_5300/configs/stream_lip_v2_dual_5300_fast.yaml",
+        "--checkpoint",
+        "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_archive/checkpoint_6100.pt",
+        "--data-root",
+        "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+        "--index-root",
+        "/mnt/why/dexycb_lip/cache/dexycb_s0",
+        "--out",
+        "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_6100_s0_val/rank4",
+        "--rank",
+        "4",
+        "--world-size",
+        "8",
+        "--split",
+        "val"
+      ],
+      "gpu": 4,
+      "pid": 864128
+    },
+    {
+      "command": [
+        "/mnt/why/dexycb_lip/stream_v2_dual_5300/.venv-fp/bin/python",
+        "-m",
+        "lip.evaluate_stream",
+        "--config",
+        "/mnt/why/dexycb_lip/stream_v2_dual_5300/configs/stream_lip_v2_dual_5300_fast.yaml",
+        "--checkpoint",
+        "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_archive/checkpoint_6100.pt",
+        "--data-root",
+        "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+        "--index-root",
+        "/mnt/why/dexycb_lip/cache/dexycb_s0",
+        "--out",
+        "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_6100_s0_val/rank5",
+        "--rank",
+        "5",
+        "--world-size",
+        "8",
+        "--split",
+        "val"
+      ],
+      "gpu": 5,
+      "pid": 864129
+    },
+    {
+      "command": [
+        "/mnt/why/dexycb_lip/stream_v2_dual_5300/.venv-fp/bin/python",
+        "-m",
+        "lip.evaluate_stream",
+        "--config",
+        "/mnt/why/dexycb_lip/stream_v2_dual_5300/configs/stream_lip_v2_dual_5300_fast.yaml",
+        "--checkpoint",
+        "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_archive/checkpoint_6100.pt",
+        "--data-root",
+        "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+        "--index-root",
+        "/mnt/why/dexycb_lip/cache/dexycb_s0",
+        "--out",
+        "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_6100_s0_val/rank6",
+        "--rank",
+        "6",
+        "--world-size",
+        "8",
+        "--split",
+        "val"
+      ],
+      "gpu": 6,
+      "pid": 864130
+    },
+    {
+      "command": [
+        "/mnt/why/dexycb_lip/stream_v2_dual_5300/.venv-fp/bin/python",
+        "-m",
+        "lip.evaluate_stream",
+        "--config",
+        "/mnt/why/dexycb_lip/stream_v2_dual_5300/configs/stream_lip_v2_dual_5300_fast.yaml",
+        "--checkpoint",
+        "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_archive/checkpoint_6100.pt",
+        "--data-root",
+        "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+        "--index-root",
+        "/mnt/why/dexycb_lip/cache/dexycb_s0",
+        "--out",
+        "/mnt/why/dexycb_lip/stream_v2/runs/stream_v2_dual_6100_s0_val/rank7",
+        "--rank",
+        "7",
+        "--world-size",
+        "8",
+        "--split",
+        "val"
+      ],
+      "gpu": 7,
+      "pid": 864131
+    }
+  ],
+  "completed_utc": "2026-09-12T04:03:14Z",
+  "training_after": {
+    "step": 6329,
+    "mean_recent_seconds": 1.1084206044534222
+  }
+}

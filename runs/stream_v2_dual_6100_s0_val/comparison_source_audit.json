@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "single_source_sha256": "3d9cd99903161b0ee7b17cc50df80afe5204cb62c0a3674961f87fd161d9d47e",
+  "dual_source_sha256": "5ccca80a97c2a50a00819dc3d8d6f86c953eae1e8c7a799e45f85330340708e2",
+  "differences": {
+    "engine/stream_batch_features.py": {
+      "single_source_sha256": null,
+      "dual_source_sha256": "d287c51629429e84602bfa425f123e38def203829e5c78586808b37f62aa4504"
+    },
+    "engine/stream_training.py": {
+      "single_source_sha256": "41145c34d6fdfc5520a8cba6d836519ad85a1bbaf593c1918bc8b2780fb9a1d9",
+      "dual_source_sha256": "31e1be05b7ae889b523dc01492fb373b1548eca93175fb6fb8d12ef5838eff0b"
+    },
+    "train_stream.py": {
+      "single_source_sha256": "a86a41018f27ae6b3c93beb006573ab95728cb9bee9357bdb4aa70abb438b25f",
+      "dual_source_sha256": "9ef00dd1ad7e4266ab720e565dc9c0df9505a0b124bee7d9ef5c8f79b9a22451"
+    }
+  },
+  "evaluator_runtime_geometry_and_metric_sources_identical": true,
+  "interpretation": "Differences are confined to training preparation and CLI; same evaluator and online features. Architecture flag intentionally selects dual readouts. Training budgets differ."
+}

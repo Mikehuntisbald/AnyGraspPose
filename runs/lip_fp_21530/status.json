@@ -1,0 +1,8 @@
+{
+  "phase": "completed",
+  "utc": 1789095155.88543,
+  "checkpoint_step": 21530,
+  "frames_per_method": 23200,
+  "streams_per_method": 320,
+  "checkpoint_sha256": "60985b08628c7ce8c4cdf6247f3f90b2d292a92b650dd0215a4347e0d2db5150"
+}

@@ -1,0 +1,33 @@
+..{"event": "stage_start", "utc": "2026-09-11T20:03:51Z", "stage": "failed_preflight", "command": ["/mnt/why/dexycb_lip/.venv-fp/bin/python", "-c", "raise SystemExit(3)"]}
+.................................{"completed_stream": "subject/sequence/camera", "frames": 7}
+{"completed_stream": "subject/sequence/camera", "frames": 7}
+..{"completed_stream": "subject/sequence/camera", "frames": 3}
+.{"completed_stream": "subject/sequence/camera", "frames": 3}
+........{"test": "cache_reference", "frames": 1, "dual": false, "max_abs": 0.0}
+.{"test": "cache_reference", "frames": 2, "dual": false, "max_abs": 7.152557373046875e-07}
+.{"test": "cache_reference", "frames": 8, "dual": false, "max_abs": 7.152557373046875e-07}
+.{"test": "cache_reference", "frames": 9, "dual": false, "max_abs": 9.5367431640625e-07}
+.{"test": "cache_reference", "frames": 32, "dual": false, "max_abs": 9.5367431640625e-07}
+.{"test": "cache_reference", "frames": 1, "dual": true, "max_abs": 0.0}
+.{"test": "cache_reference", "frames": 2, "dual": true, "max_abs": 8.344650268554688e-07}
+.{"test": "cache_reference", "frames": 8, "dual": true, "max_abs": 9.5367431640625e-07}
+.{"test": "cache_reference", "frames": 9, "dual": true, "max_abs": 9.5367431640625e-07}
+.{"test": "cache_reference", "frames": 32, "dual": true, "max_abs": 9.5367431640625e-07}
+.{"test": "cache_gradient_reference", "max_abs": 1.1920928955078125e-07}
+........usage: train_stream [-h] --config CONFIG --output OUTPUT
+                    (--init-from INIT_FROM | --resume RESUME)
+                    [--data-root DATA_ROOT] [--index-root INDEX_ROOT]
+                    [--max-steps MAX_STEPS] [--preflight]
+                    [--fixed-manifest FIXED_MANIFEST]
+train_stream: error: --max-steps must be positive; zero must never expand into a long run
+.usage: train_stream [-h] --config CONFIG --output OUTPUT
+                    (--init-from INIT_FROM | --resume RESUME)
+                    [--data-root DATA_ROOT] [--index-root INDEX_ROOT]
+                    [--max-steps MAX_STEPS] [--preflight]
+                    [--fixed-manifest FIXED_MANIFEST]
+train_stream: error: --max-steps must be positive; zero must never expand into a long run
+.{"test": "cuda_reference", "dual": false, "max_abs": {"fp32": 1.5497207641601562e-06, "bf16": 0.0}, "cache_bytes": 557056}
+.{"test": "cuda_reference", "dual": true, "max_abs": {"fp32": 1.430511474609375e-06, "bf16": 0.0}, "cache_bytes": 557056}
+.{"test": "10000_temporal_steps", "measurements": [{"step": 100, "allocated": 51523072, "reserved": 260046848, "kv_bytes": 557056}, {"step": 1000, "allocated": 51523072, "reserved": 260046848, "kv_bytes": 557056}, {"step": 5000, "allocated": 51523072, "reserved": 260046848, "kv_bytes": 557056}, {"step": 10000, "allocated": 51523072, "reserved": 260046848, "kv_bytes": 557056}]}
+........
+76 passed, 1 deselected in 41.46s

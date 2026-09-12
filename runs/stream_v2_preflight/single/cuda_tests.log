@@ -1,0 +1,4 @@
+{"test": "cuda_reference", "max_abs": {"fp32": 1.5497207641601562e-06, "bf16": 0.0}, "cache_bytes": 557056}
+.{"test": "10000_temporal_steps", "measurements": [{"step": 100, "allocated": 51523072, "reserved": 171966464, "kv_bytes": 557056}, {"step": 1000, "allocated": 51523072, "reserved": 171966464, "kv_bytes": 557056}, {"step": 5000, "allocated": 51523072, "reserved": 171966464, "kv_bytes": 557056}, {"step": 10000, "allocated": 51523072, "reserved": 171966464, "kv_bytes": 557056}]}
+.
+2 passed in 31.64s

@@ -1,0 +1,5342 @@
+{
+  "completed": true,
+  "scope": "Read-only background table diagnostic. No object GT poses or hand arrays. Background segmentation, max RGB <65, apriltag XY [.15,1.05] x [.05,.55] m, |Z|<.04 m; 20mm cells with >=5 points, pairs require >=20 shared cells. Absolute table height is not assumed to be GT; only common-cell camera differences are interpreted.",
+  "source_sha256": "3d092d934bca9328ccac4cd7432d835b366d8b55104438e9f54c8cb14c98ce8e",
+  "script_sha256": "f1337c813b7f6915db7b7994c1478203b1ca7752188c88a48f9aad23251848a0",
+  "rows": [
+    {
+      "selection": 0,
+      "camera": "836212060125",
+      "physical_sequence": "20200709-subject-01/20200709_142123",
+      "frame_index": 2,
+      "pixels": 13973,
+      "cells": 271,
+      "median_height_mm": -1.6843997798193162
+    },
+    {
+      "selection": 0,
+      "camera": "839512060362",
+      "physical_sequence": "20200709-subject-01/20200709_142123",
+      "frame_index": 2,
+      "pixels": 22678,
+      "cells": 428,
+      "median_height_mm": -5.220051050888734
+    },
+    {
+      "selection": 0,
+      "camera": "840412060917",
+      "physical_sequence": "20200709-subject-01/20200709_142123",
+      "frame_index": 2,
+      "pixels": 107661,
+      "cells": 828,
+      "median_height_mm": -1.6771847861533629
+    },
+    {
+      "selection": 0,
+      "camera": "841412060263",
+      "physical_sequence": "20200709-subject-01/20200709_142123",
+      "frame_index": 2,
+      "pixels": 98942,
+      "cells": 838,
+      "median_height_mm": -3.5137660549528493
+    },
+    {
+      "selection": 0,
+      "camera": "932122060857",
+      "physical_sequence": "20200709-subject-01/20200709_142123",
+      "frame_index": 2,
+      "pixels": 74305,
+      "cells": 606,
+      "median_height_mm": -7.132117468114873
+    },
+    {
+      "selection": 0,
+      "camera": "932122060861",
+      "physical_sequence": "20200709-subject-01/20200709_142123",
+      "frame_index": 2,
+      "pixels": 59999,
+      "cells": 502,
+      "median_height_mm": -8.33240179638911
+    },
+    {
+      "selection": 0,
+      "camera": "932122061900",
+      "physical_sequence": "20200709-subject-01/20200709_142123",
+      "frame_index": 2,
+      "pixels": 66064,
+      "cells": 651,
+      "median_height_mm": -8.608157215654444
+    },
+    {
+      "selection": 0,
+      "camera": "932122062010",
+      "physical_sequence": "20200709-subject-01/20200709_142123",
+      "frame_index": 2,
+      "pixels": 53651,
+      "cells": 707,
+      "median_height_mm": -6.961835098704738
+    },
+    {
+      "selection": 1,
+      "camera": "836212060125",
+      "physical_sequence": "20200813-subject-02/20200813_145920",
+      "frame_index": 20,
+      "pixels": 20154,
+      "cells": 374,
+      "median_height_mm": 2.2882791531078777
+    },
+    {
+      "selection": 1,
+      "camera": "839512060362",
+      "physical_sequence": "20200813-subject-02/20200813_145920",
+      "frame_index": 20,
+      "pixels": 21378,
+      "cells": 399,
+      "median_height_mm": 1.194079754251065
+    },
+    {
+      "selection": 1,
+      "camera": "840412060917",
+      "physical_sequence": "20200813-subject-02/20200813_145920",
+      "frame_index": 20,
+      "pixels": 105130,
+      "cells": 807,
+      "median_height_mm": 1.7751898175207281
+    },
+    {
+      "selection": 1,
+      "camera": "841412060263",
+      "physical_sequence": "20200813-subject-02/20200813_145920",
+      "frame_index": 20,
+      "pixels": 74274,
+      "cells": 655,
+      "median_height_mm": -1.037158764901347
+    },
+    {
+      "selection": 1,
+      "camera": "932122060857",
+      "physical_sequence": "20200813-subject-02/20200813_145920",
+      "frame_index": 20,
+      "pixels": 65715,
+      "cells": 554,
+      "median_height_mm": -3.7297555535044657
+    },
+    {
+      "selection": 1,
+      "camera": "932122060861",
+      "physical_sequence": "20200813-subject-02/20200813_145920",
+      "frame_index": 20,
+      "pixels": 44575,
+      "cells": 404,
+      "median_height_mm": -6.648688969038863
+    },
+    {
+      "selection": 1,
+      "camera": "932122061900",
+      "physical_sequence": "20200813-subject-02/20200813_145920",
+      "frame_index": 20,
+      "pixels": 70100,
+      "cells": 680,
+      "median_height_mm": -5.404062663585813
+    },
+    {
+      "selection": 1,
+      "camera": "932122062010",
+      "physical_sequence": "20200813-subject-02/20200813_145920",
+      "frame_index": 20,
+      "pixels": 57089,
+      "cells": 652,
+      "median_height_mm": -3.8623680507581803
+    },
+    {
+      "selection": 2,
+      "camera": "836212060125",
+      "physical_sequence": "20200813-subject-02/20200813_150228",
+      "frame_index": 6,
+      "pixels": 17887,
+      "cells": 388,
+      "median_height_mm": 1.9055826398053888
+    },
+    {
+      "selection": 2,
+      "camera": "839512060362",
+      "physical_sequence": "20200813-subject-02/20200813_150228",
+      "frame_index": 6,
+      "pixels": 19661,
+      "cells": 367,
+      "median_height_mm": 2.051841424319793
+    },
+    {
+      "selection": 2,
+      "camera": "840412060917",
+      "physical_sequence": "20200813-subject-02/20200813_150228",
+      "frame_index": 6,
+      "pixels": 79705,
+      "cells": 660,
+      "median_height_mm": 1.7022364094025633
+    },
+    {
+      "selection": 2,
+      "camera": "841412060263",
+      "physical_sequence": "20200813-subject-02/20200813_150228",
+      "frame_index": 6,
+      "pixels": 88322,
+      "cells": 740,
+      "median_height_mm": 2.995968550465633
+    },
+    {
+      "selection": 2,
+      "camera": "932122060857",
+      "physical_sequence": "20200813-subject-02/20200813_150228",
+      "frame_index": 6,
+      "pixels": 54677,
+      "cells": 458,
+      "median_height_mm": -3.9687288013715296
+    },
+    {
+      "selection": 2,
+      "camera": "932122060861",
+      "physical_sequence": "20200813-subject-02/20200813_150228",
+      "frame_index": 6,
+      "pixels": 48347,
+      "cells": 459,
+      "median_height_mm": -6.92189904551177
+    },
+    {
+      "selection": 2,
+      "camera": "932122061900",
+      "physical_sequence": "20200813-subject-02/20200813_150228",
+      "frame_index": 6,
+      "pixels": 71313,
+      "cells": 766,
+      "median_height_mm": -5.879358503578292
+    },
+    {
+      "selection": 2,
+      "camera": "932122062010",
+      "physical_sequence": "20200813-subject-02/20200813_150228",
+      "frame_index": 6,
+      "pixels": 65426,
+      "cells": 799,
+      "median_height_mm": -4.0909036205307725
+    },
+    {
+      "selection": 3,
+      "camera": "836212060125",
+      "physical_sequence": "20200709-subject-01/20200709_143125",
+      "frame_index": 65,
+      "pixels": 16585,
+      "cells": 360,
+      "median_height_mm": -2.906469949289392
+    },
+    {
+      "selection": 3,
+      "camera": "839512060362",
+      "physical_sequence": "20200709-subject-01/20200709_143125",
+      "frame_index": 65,
+      "pixels": 24465,
+      "cells": 488,
+      "median_height_mm": -5.122058521273967
+    },
+    {
+      "selection": 3,
+      "camera": "840412060917",
+      "physical_sequence": "20200709-subject-01/20200709_143125",
+      "frame_index": 65,
+      "pixels": 98981,
+      "cells": 777,
+      "median_height_mm": -2.699761532013234
+    },
+    {
+      "selection": 3,
+      "camera": "841412060263",
+      "physical_sequence": "20200709-subject-01/20200709_143125",
+      "frame_index": 65,
+      "pixels": 78163,
+      "cells": 698,
+      "median_height_mm": -1.3252149165819682
+    },
+    {
+      "selection": 3,
+      "camera": "932122060857",
+      "physical_sequence": "20200709-subject-01/20200709_143125",
+      "frame_index": 65,
+      "pixels": 53839,
+      "cells": 470,
+      "median_height_mm": -9.584464225886602
+    },
+    {
+      "selection": 3,
+      "camera": "932122060861",
+      "physical_sequence": "20200709-subject-01/20200709_143125",
+      "frame_index": 65,
+      "pixels": 61495,
+      "cells": 501,
+      "median_height_mm": -9.660320014507061
+    },
+    {
+      "selection": 3,
+      "camera": "932122061900",
+      "physical_sequence": "20200709-subject-01/20200709_143125",
+      "frame_index": 65,
+      "pixels": 70031,
+      "cells": 707,
+      "median_height_mm": -9.591235857528691
+    },
+    {
+      "selection": 3,
+      "camera": "932122062010",
+      "physical_sequence": "20200709-subject-01/20200709_143125",
+      "frame_index": 65,
+      "pixels": 66203,
+      "cells": 741,
+      "median_height_mm": -8.485648454518547
+    },
+    {
+      "selection": 4,
+      "camera": "836212060125",
+      "physical_sequence": "20200813-subject-02/20200813_150823",
+      "frame_index": 4,
+      "pixels": 19843,
+      "cells": 385,
+      "median_height_mm": 1.0051979773088304
+    },
+    {
+      "selection": 4,
+      "camera": "839512060362",
+      "physical_sequence": "20200813-subject-02/20200813_150823",
+      "frame_index": 4,
+      "pixels": 17473,
+      "cells": 299,
+      "median_height_mm": 0.9268223508776818
+    },
+    {
+      "selection": 4,
+      "camera": "840412060917",
+      "physical_sequence": "20200813-subject-02/20200813_150823",
+      "frame_index": 4,
+      "pixels": 95466,
+      "cells": 824,
+      "median_height_mm": 1.269831338776145
+    },
+    {
+      "selection": 4,
+      "camera": "841412060263",
+      "physical_sequence": "20200813-subject-02/20200813_150823",
+      "frame_index": 4,
+      "pixels": 94475,
+      "cells": 842,
+      "median_height_mm": 1.5878885748421556
+    },
+    {
+      "selection": 4,
+      "camera": "932122060857",
+      "physical_sequence": "20200813-subject-02/20200813_150823",
+      "frame_index": 4,
+      "pixels": 62999,
+      "cells": 552,
+      "median_height_mm": -4.05322743187897
+    },
+    {
+      "selection": 4,
+      "camera": "932122060861",
+      "physical_sequence": "20200813-subject-02/20200813_150823",
+      "frame_index": 4,
+      "pixels": 57982,
+      "cells": 507,
+      "median_height_mm": -7.036104157401802
+    },
+    {
+      "selection": 4,
+      "camera": "932122061900",
+      "physical_sequence": "20200813-subject-02/20200813_150823",
+      "frame_index": 4,
+      "pixels": 65964,
+      "cells": 687,
+      "median_height_mm": -5.92205046447919
+    },
+    {
+      "selection": 4,
+      "camera": "932122062010",
+      "physical_sequence": "20200813-subject-02/20200813_150823",
+      "frame_index": 4,
+      "pixels": 61672,
+      "cells": 745,
+      "median_height_mm": -4.367059290418696
+    },
+    {
+      "selection": 5,
+      "camera": "836212060125",
+      "physical_sequence": "20200813-subject-02/20200813_151117",
+      "frame_index": 2,
+      "pixels": 21907,
+      "cells": 483,
+      "median_height_mm": 0.18519416242489262
+    },
+    {
+      "selection": 5,
+      "camera": "839512060362",
+      "physical_sequence": "20200813-subject-02/20200813_151117",
+      "frame_index": 2,
+      "pixels": 22591,
+      "cells": 425,
+      "median_height_mm": 1.1428653068018684
+    },
+    {
+      "selection": 5,
+      "camera": "840412060917",
+      "physical_sequence": "20200813-subject-02/20200813_151117",
+      "frame_index": 2,
+      "pixels": 116058,
+      "cells": 945,
+      "median_height_mm": 1.1234120793304214
+    },
+    {
+      "selection": 5,
+      "camera": "841412060263",
+      "physical_sequence": "20200813-subject-02/20200813_151117",
+      "frame_index": 2,
+      "pixels": 106462,
+      "cells": 922,
+      "median_height_mm": -0.21179155308179154
+    },
+    {
+      "selection": 5,
+      "camera": "932122060857",
+      "physical_sequence": "20200813-subject-02/20200813_151117",
+      "frame_index": 2,
+      "pixels": 79103,
+      "cells": 636,
+      "median_height_mm": -4.299436035177489
+    },
+    {
+      "selection": 5,
+      "camera": "932122060861",
+      "physical_sequence": "20200813-subject-02/20200813_151117",
+      "frame_index": 2,
+      "pixels": 69483,
+      "cells": 575,
+      "median_height_mm": -7.129374644520792
+    },
+    {
+      "selection": 5,
+      "camera": "932122061900",
+      "physical_sequence": "20200813-subject-02/20200813_151117",
+      "frame_index": 2,
+      "pixels": 80559,
+      "cells": 807,
+      "median_height_mm": -6.685018008178556
+    },
+    {
+      "selection": 5,
+      "camera": "932122062010",
+      "physical_sequence": "20200813-subject-02/20200813_151117",
+      "frame_index": 2,
+      "pixels": 72685,
+      "cells": 855,
+      "median_height_mm": -4.367585663198281
+    },
+    {
+      "selection": 6,
+      "camera": "836212060125",
+      "physical_sequence": "20200709-subject-01/20200709_144313",
+      "frame_index": 5,
+      "pixels": 19363,
+      "cells": 356,
+      "median_height_mm": -2.0336537592118944
+    },
+    {
+      "selection": 6,
+      "camera": "839512060362",
+      "physical_sequence": "20200709-subject-01/20200709_144313",
+      "frame_index": 5,
+      "pixels": 18703,
+      "cells": 343,
+      "median_height_mm": -5.3993842765902995
+    },
+    {
+      "selection": 6,
+      "camera": "840412060917",
+      "physical_sequence": "20200709-subject-01/20200709_144313",
+      "frame_index": 5,
+      "pixels": 92833,
+      "cells": 774,
+      "median_height_mm": -2.1235722888119923
+    },
+    {
+      "selection": 6,
+      "camera": "841412060263",
+      "physical_sequence": "20200709-subject-01/20200709_144313",
+      "frame_index": 5,
+      "pixels": 83658,
+      "cells": 779,
+      "median_height_mm": -3.9866128349387853
+    },
+    {
+      "selection": 6,
+      "camera": "932122060857",
+      "physical_sequence": "20200709-subject-01/20200709_144313",
+      "frame_index": 5,
+      "pixels": 55788,
+      "cells": 492,
+      "median_height_mm": -8.15185132876073
+    },
+    {
+      "selection": 6,
+      "camera": "932122060861",
+      "physical_sequence": "20200709-subject-01/20200709_144313",
+      "frame_index": 5,
+      "pixels": 50582,
+      "cells": 463,
+      "median_height_mm": -9.935872053697892
+    },
+    {
+      "selection": 6,
+      "camera": "932122061900",
+      "physical_sequence": "20200709-subject-01/20200709_144313",
+      "frame_index": 5,
+      "pixels": 51793,
+      "cells": 565,
+      "median_height_mm": -10.325611132725342
+    },
+    {
+      "selection": 6,
+      "camera": "932122062010",
+      "physical_sequence": "20200709-subject-01/20200709_144313",
+      "frame_index": 5,
+      "pixels": 53879,
+      "cells": 564,
+      "median_height_mm": -7.7965236698077085
+    },
+    {
+      "selection": 7,
+      "camera": "836212060125",
+      "physical_sequence": "20200813-subject-02/20200813_152215",
+      "frame_index": 12,
+      "pixels": 22348,
+      "cells": 513,
+      "median_height_mm": -0.29244861328718563
+    },
+    {
+      "selection": 7,
+      "camera": "839512060362",
+      "physical_sequence": "20200813-subject-02/20200813_152215",
+      "frame_index": 12,
+      "pixels": 22688,
+      "cells": 425,
+      "median_height_mm": 1.2728256093713295
+    },
+    {
+      "selection": 7,
+      "camera": "840412060917",
+      "physical_sequence": "20200813-subject-02/20200813_152215",
+      "frame_index": 12,
+      "pixels": 116619,
+      "cells": 935,
+      "median_height_mm": 1.3322909943309647
+    },
+    {
+      "selection": 7,
+      "camera": "841412060263",
+      "physical_sequence": "20200813-subject-02/20200813_152215",
+      "frame_index": 12,
+      "pixels": 93528,
+      "cells": 822,
+      "median_height_mm": -0.8044077840261843
+    },
+    {
+      "selection": 7,
+      "camera": "932122060857",
+      "physical_sequence": "20200813-subject-02/20200813_152215",
+      "frame_index": 12,
+      "pixels": 79964,
+      "cells": 636,
+      "median_height_mm": -4.395439051158217
+    },
+    {
+      "selection": 7,
+      "camera": "932122060861",
+      "physical_sequence": "20200813-subject-02/20200813_152215",
+      "frame_index": 12,
+      "pixels": 69445,
+      "cells": 560,
+      "median_height_mm": -7.585814637708466
+    },
+    {
+      "selection": 7,
+      "camera": "932122061900",
+      "physical_sequence": "20200813-subject-02/20200813_152215",
+      "frame_index": 12,
+      "pixels": 80155,
+      "cells": 790,
+      "median_height_mm": -6.621786460903445
+    },
+    {
+      "selection": 7,
+      "camera": "932122062010",
+      "physical_sequence": "20200813-subject-02/20200813_152215",
+      "frame_index": 12,
+      "pixels": 73145,
+      "cells": 856,
+      "median_height_mm": -4.407824319445114
+    },
+    {
+      "selection": 8,
+      "camera": "836212060125",
+      "physical_sequence": "20200709-subject-01/20200709_145132",
+      "frame_index": 13,
+      "pixels": 15603,
+      "cells": 267,
+      "median_height_mm": 0.12900309579406966
+    },
+    {
+      "selection": 8,
+      "camera": "839512060362",
+      "physical_sequence": "20200709-subject-01/20200709_145132",
+      "frame_index": 13,
+      "pixels": 15930,
+      "cells": 254,
+      "median_height_mm": -6.127789157678691
+    },
+    {
+      "selection": 8,
+      "camera": "840412060917",
+      "physical_sequence": "20200709-subject-01/20200709_145132",
+      "frame_index": 13,
+      "pixels": 97273,
+      "cells": 780,
+      "median_height_mm": -1.5969638301632227
+    },
+    {
+      "selection": 8,
+      "camera": "841412060263",
+      "physical_sequence": "20200709-subject-01/20200709_145132",
+      "frame_index": 13,
+      "pixels": 89095,
+      "cells": 753,
+      "median_height_mm": -1.6597973148243517
+    },
+    {
+      "selection": 8,
+      "camera": "932122060857",
+      "physical_sequence": "20200709-subject-01/20200709_145132",
+      "frame_index": 13,
+      "pixels": 56707,
+      "cells": 511,
+      "median_height_mm": -7.671992622664492
+    },
+    {
+      "selection": 8,
+      "camera": "932122060861",
+      "physical_sequence": "20200709-subject-01/20200709_145132",
+      "frame_index": 13,
+      "pixels": 49996,
+      "cells": 449,
+      "median_height_mm": -8.008116768939088
+    },
+    {
+      "selection": 8,
+      "camera": "932122061900",
+      "physical_sequence": "20200709-subject-01/20200709_145132",
+      "frame_index": 13,
+      "pixels": 53514,
+      "cells": 589,
+      "median_height_mm": -8.062395034421964
+    },
+    {
+      "selection": 8,
+      "camera": "932122062010",
+      "physical_sequence": "20200709-subject-01/20200709_145132",
+      "frame_index": 13,
+      "pixels": 45816,
+      "cells": 599,
+      "median_height_mm": -6.597975869501949
+    },
+    {
+      "selection": 9,
+      "camera": "836212060125",
+      "physical_sequence": "20200709-subject-01/20200709_145743",
+      "frame_index": 20,
+      "pixels": 18619,
+      "cells": 375,
+      "median_height_mm": -0.6282930854051155
+    },
+    {
+      "selection": 9,
+      "camera": "839512060362",
+      "physical_sequence": "20200709-subject-01/20200709_145743",
+      "frame_index": 20,
+      "pixels": 23789,
+      "cells": 459,
+      "median_height_mm": -5.165709923702036
+    },
+    {
+      "selection": 9,
+      "camera": "840412060917",
+      "physical_sequence": "20200709-subject-01/20200709_145743",
+      "frame_index": 20,
+      "pixels": 90369,
+      "cells": 770,
+      "median_height_mm": -2.0014216669091143
+    },
+    {
+      "selection": 9,
+      "camera": "841412060263",
+      "physical_sequence": "20200709-subject-01/20200709_145743",
+      "frame_index": 20,
+      "pixels": 91845,
+      "cells": 782,
+      "median_height_mm": -1.2515042711122581
+    },
+    {
+      "selection": 9,
+      "camera": "932122060857",
+      "physical_sequence": "20200709-subject-01/20200709_145743",
+      "frame_index": 20,
+      "pixels": 58275,
+      "cells": 512,
+      "median_height_mm": -8.518524109295294
+    },
+    {
+      "selection": 9,
+      "camera": "932122060861",
+      "physical_sequence": "20200709-subject-01/20200709_145743",
+      "frame_index": 20,
+      "pixels": 53705,
+      "cells": 505,
+      "median_height_mm": -9.24933867645089
+    },
+    {
+      "selection": 9,
+      "camera": "932122061900",
+      "physical_sequence": "20200709-subject-01/20200709_145743",
+      "frame_index": 20,
+      "pixels": 70546,
+      "cells": 751,
+      "median_height_mm": -9.906407670732698
+    },
+    {
+      "selection": 9,
+      "camera": "932122062010",
+      "physical_sequence": "20200709-subject-01/20200709_145743",
+      "frame_index": 20,
+      "pixels": 63711,
+      "cells": 752,
+      "median_height_mm": -8.304086236559982
+    },
+    {
+      "selection": 10,
+      "camera": "836212060125",
+      "physical_sequence": "20200813-subject-02/20200813_153152",
+      "frame_index": 38,
+      "pixels": 21399,
+      "cells": 409,
+      "median_height_mm": 1.8851784106150848
+    },
+    {
+      "selection": 10,
+      "camera": "839512060362",
+      "physical_sequence": "20200813-subject-02/20200813_153152",
+      "frame_index": 38,
+      "pixels": 16980,
+      "cells": 282,
+      "median_height_mm": 1.110288557736601
+    },
+    {
+      "selection": 10,
+      "camera": "840412060917",
+      "physical_sequence": "20200813-subject-02/20200813_153152",
+      "frame_index": 38,
+      "pixels": 102136,
+      "cells": 783,
+      "median_height_mm": 2.0283395081430178
+    },
+    {
+      "selection": 10,
+      "camera": "841412060263",
+      "physical_sequence": "20200813-subject-02/20200813_153152",
+      "frame_index": 38,
+      "pixels": 65776,
+      "cells": 463,
+      "median_height_mm": 6.74842363926631
+    },
+    {
+      "selection": 10,
+      "camera": "932122060857",
+      "physical_sequence": "20200813-subject-02/20200813_153152",
+      "frame_index": 38,
+      "pixels": 59570,
+      "cells": 527,
+      "median_height_mm": -3.678809637899072
+    },
+    {
+      "selection": 10,
+      "camera": "932122060861",
+      "physical_sequence": "20200813-subject-02/20200813_153152",
+      "frame_index": 38,
+      "pixels": 49586,
+      "cells": 433,
+      "median_height_mm": -7.0754680835734
+    },
+    {
+      "selection": 10,
+      "camera": "932122061900",
+      "physical_sequence": "20200813-subject-02/20200813_153152",
+      "frame_index": 38,
+      "pixels": 64190,
+      "cells": 645,
+      "median_height_mm": -6.0160401830583465
+    },
+    {
+      "selection": 10,
+      "camera": "932122062010",
+      "physical_sequence": "20200813-subject-02/20200813_153152",
+      "frame_index": 38,
+      "pixels": 59175,
+      "cells": 697,
+      "median_height_mm": -4.226456554710101
+    },
+    {
+      "selection": 11,
+      "camera": "836212060125",
+      "physical_sequence": "20200813-subject-02/20200813_153453",
+      "frame_index": 6,
+      "pixels": 20575,
+      "cells": 408,
+      "median_height_mm": 1.6907709279590892
+    },
+    {
+      "selection": 11,
+      "camera": "839512060362",
+      "physical_sequence": "20200813-subject-02/20200813_153453",
+      "frame_index": 6,
+      "pixels": 18004,
+      "cells": 314,
+      "median_height_mm": 0.8993077602527932
+    },
+    {
+      "selection": 11,
+      "camera": "840412060917",
+      "physical_sequence": "20200813-subject-02/20200813_153453",
+      "frame_index": 6,
+      "pixels": 100131,
+      "cells": 807,
+      "median_height_mm": 1.2472596060014163
+    },
+    {
+      "selection": 11,
+      "camera": "841412060263",
+      "physical_sequence": "20200813-subject-02/20200813_153453",
+      "frame_index": 6,
+      "pixels": 84279,
+      "cells": 741,
+      "median_height_mm": 1.4901625066934265
+    },
+    {
+      "selection": 11,
+      "camera": "932122060857",
+      "physical_sequence": "20200813-subject-02/20200813_153453",
+      "frame_index": 6,
+      "pixels": 52586,
+      "cells": 474,
+      "median_height_mm": -3.9188388833643617
+    },
+    {
+      "selection": 11,
+      "camera": "932122060861",
+      "physical_sequence": "20200813-subject-02/20200813_153453",
+      "frame_index": 6,
+      "pixels": 55266,
+      "cells": 494,
+      "median_height_mm": -6.826675818694977
+    },
+    {
+      "selection": 11,
+      "camera": "932122061900",
+      "physical_sequence": "20200813-subject-02/20200813_153453",
+      "frame_index": 6,
+      "pixels": 57964,
+      "cells": 613,
+      "median_height_mm": -6.999068337609993
+    },
+    {
+      "selection": 11,
+      "camera": "932122062010",
+      "physical_sequence": "20200813-subject-02/20200813_153453",
+      "frame_index": 6,
+      "pixels": 60070,
+      "cells": 671,
+      "median_height_mm": -5.310731643000944
+    },
+    {
+      "selection": 12,
+      "camera": "836212060125",
+      "physical_sequence": "20200813-subject-02/20200813_153802",
+      "frame_index": 29,
+      "pixels": 19858,
+      "cells": 413,
+      "median_height_mm": 0.5529924436474404
+    },
+    {
+      "selection": 12,
+      "camera": "839512060362",
+      "physical_sequence": "20200813-subject-02/20200813_153802",
+      "frame_index": 29,
+      "pixels": 19038,
+      "cells": 322,
+      "median_height_mm": 0.9205964787199274
+    },
+    {
+      "selection": 12,
+      "camera": "840412060917",
+      "physical_sequence": "20200813-subject-02/20200813_153802",
+      "frame_index": 29,
+      "pixels": 101585,
+      "cells": 795,
+      "median_height_mm": 1.2560989738522044
+    },
+    {
+      "selection": 12,
+      "camera": "841412060263",
+      "physical_sequence": "20200813-subject-02/20200813_153802",
+      "frame_index": 29,
+      "pixels": 82736,
+      "cells": 722,
+      "median_height_mm": 1.5890315550907697
+    },
+    {
+      "selection": 12,
+      "camera": "932122060857",
+      "physical_sequence": "20200813-subject-02/20200813_153802",
+      "frame_index": 29,
+      "pixels": 65643,
+      "cells": 556,
+      "median_height_mm": -4.335900859316844
+    },
+    {
+      "selection": 12,
+      "camera": "932122060861",
+      "physical_sequence": "20200813-subject-02/20200813_153802",
+      "frame_index": 29,
+      "pixels": 53893,
+      "cells": 476,
+      "median_height_mm": -6.4196887944188985
+    },
+    {
+      "selection": 12,
+      "camera": "932122061900",
+      "physical_sequence": "20200813-subject-02/20200813_153802",
+      "frame_index": 29,
+      "pixels": 70595,
+      "cells": 723,
+      "median_height_mm": -6.00375101734707
+    },
+    {
+      "selection": 12,
+      "camera": "932122062010",
+      "physical_sequence": "20200813-subject-02/20200813_153802",
+      "frame_index": 29,
+      "pixels": 61167,
+      "cells": 733,
+      "median_height_mm": -4.5593436084968015
+    },
+    {
+      "selection": 13,
+      "camera": "836212060125",
+      "physical_sequence": "20200813-subject-02/20200813_154103",
+      "frame_index": 15,
+      "pixels": 15019,
+      "cells": 251,
+      "median_height_mm": 2.998951513220736
+    },
+    {
+      "selection": 13,
+      "camera": "839512060362",
+      "physical_sequence": "20200813-subject-02/20200813_154103",
+      "frame_index": 15,
+      "pixels": 20910,
+      "cells": 396,
+      "median_height_mm": 1.5110273632135893
+    },
+    {
+      "selection": 13,
+      "camera": "840412060917",
+      "physical_sequence": "20200813-subject-02/20200813_154103",
+      "frame_index": 15,
+      "pixels": 86098,
+      "cells": 739,
+      "median_height_mm": 1.0737466207306756
+    },
+    {
+      "selection": 13,
+      "camera": "841412060263",
+      "physical_sequence": "20200813-subject-02/20200813_154103",
+      "frame_index": 15,
+      "pixels": 93996,
+      "cells": 785,
+      "median_height_mm": 0.17069405825376194
+    },
+    {
+      "selection": 13,
+      "camera": "932122060857",
+      "physical_sequence": "20200813-subject-02/20200813_154103",
+      "frame_index": 15,
+      "pixels": 63824,
+      "cells": 533,
+      "median_height_mm": -4.420748453869083
+    },
+    {
+      "selection": 13,
+      "camera": "932122060861",
+      "physical_sequence": "20200813-subject-02/20200813_154103",
+      "frame_index": 15,
+      "pixels": 58810,
+      "cells": 511,
+      "median_height_mm": -7.1215929980253945
+    },
+    {
+      "selection": 13,
+      "camera": "932122061900",
+      "physical_sequence": "20200813-subject-02/20200813_154103",
+      "frame_index": 15,
+      "pixels": 65907,
+      "cells": 695,
+      "median_height_mm": -6.7779780910364185
+    },
+    {
+      "selection": 13,
+      "camera": "932122062010",
+      "physical_sequence": "20200813-subject-02/20200813_154103",
+      "frame_index": 15,
+      "pixels": 58959,
+      "cells": 729,
+      "median_height_mm": -4.6777670705740455
+    },
+    {
+      "selection": 14,
+      "camera": "836212060125",
+      "physical_sequence": "20200813-subject-02/20200813_154408",
+      "frame_index": 8,
+      "pixels": 21050,
+      "cells": 412,
+      "median_height_mm": 0.5047557409526109
+    },
+    {
+      "selection": 14,
+      "camera": "839512060362",
+      "physical_sequence": "20200813-subject-02/20200813_154408",
+      "frame_index": 8,
+      "pixels": 18980,
+      "cells": 331,
+      "median_height_mm": 1.3515287542177346
+    },
+    {
+      "selection": 14,
+      "camera": "840412060917",
+      "physical_sequence": "20200813-subject-02/20200813_154408",
+      "frame_index": 8,
+      "pixels": 106302,
+      "cells": 885,
+      "median_height_mm": 1.0623942685565324
+    },
+    {
+      "selection": 14,
+      "camera": "841412060263",
+      "physical_sequence": "20200813-subject-02/20200813_154408",
+      "frame_index": 8,
+      "pixels": 95903,
+      "cells": 838,
+      "median_height_mm": 0.41133851769276086
+    },
+    {
+      "selection": 14,
+      "camera": "932122060857",
+      "physical_sequence": "20200813-subject-02/20200813_154408",
+      "frame_index": 8,
+      "pixels": 69733,
+      "cells": 595,
+      "median_height_mm": -4.676628439884256
+    },
+    {
+      "selection": 14,
+      "camera": "932122060861",
+      "physical_sequence": "20200813-subject-02/20200813_154408",
+      "frame_index": 8,
+      "pixels": 65995,
+      "cells": 560,
+      "median_height_mm": -7.263917486889204
+    },
+    {
+      "selection": 14,
+      "camera": "932122061900",
+      "physical_sequence": "20200813-subject-02/20200813_154408",
+      "frame_index": 8,
+      "pixels": 77103,
+      "cells": 810,
+      "median_height_mm": -6.393255587446828
+    },
+    {
+      "selection": 14,
+      "camera": "932122062010",
+      "physical_sequence": "20200813-subject-02/20200813_154408",
+      "frame_index": 8,
+      "pixels": 68371,
+      "cells": 817,
+      "median_height_mm": -4.564949312076127
+    },
+    {
+      "selection": 15,
+      "camera": "836212060125",
+      "physical_sequence": "20200813-subject-02/20200813_154729",
+      "frame_index": 18,
+      "pixels": 18308,
+      "cells": 323,
+      "median_height_mm": 2.0662397436740783
+    },
+    {
+      "selection": 15,
+      "camera": "839512060362",
+      "physical_sequence": "20200813-subject-02/20200813_154729",
+      "frame_index": 18,
+      "pixels": 22414,
+      "cells": 425,
+      "median_height_mm": 1.584135729371744
+    },
+    {
+      "selection": 15,
+      "camera": "840412060917",
+      "physical_sequence": "20200813-subject-02/20200813_154729",
+      "frame_index": 18,
+      "pixels": 82254,
+      "cells": 597,
+      "median_height_mm": 2.2795023688957916
+    },
+    {
+      "selection": 15,
+      "camera": "841412060263",
+      "physical_sequence": "20200813-subject-02/20200813_154729",
+      "frame_index": 18,
+      "pixels": 82029,
+      "cells": 636,
+      "median_height_mm": 3.232299891120838
+    },
+    {
+      "selection": 15,
+      "camera": "932122060857",
+      "physical_sequence": "20200813-subject-02/20200813_154729",
+      "frame_index": 18,
+      "pixels": 50714,
+      "cells": 460,
+      "median_height_mm": -4.3635660129907325
+    },
+    {
+      "selection": 15,
+      "camera": "932122060861",
+      "physical_sequence": "20200813-subject-02/20200813_154729",
+      "frame_index": 18,
+      "pixels": 37033,
+      "cells": 360,
+      "median_height_mm": -7.474989519313413
+    },
+    {
+      "selection": 15,
+      "camera": "932122061900",
+      "physical_sequence": "20200813-subject-02/20200813_154729",
+      "frame_index": 18,
+      "pixels": 66939,
+      "cells": 640,
+      "median_height_mm": -7.817970045851608
+    },
+    {
+      "selection": 15,
+      "camera": "932122062010",
+      "physical_sequence": "20200813-subject-02/20200813_154729",
+      "frame_index": 18,
+      "pixels": 58441,
+      "cells": 700,
+      "median_height_mm": -4.704697782974026
+    },
+    {
+      "selection": 16,
+      "camera": "836212060125",
+      "physical_sequence": "20200813-subject-02/20200813_155021",
+      "frame_index": 63,
+      "pixels": 22193,
+      "cells": 458,
+      "median_height_mm": 2.050542858807368
+    },
+    {
+      "selection": 16,
+      "camera": "839512060362",
+      "physical_sequence": "20200813-subject-02/20200813_155021",
+      "frame_index": 63,
+      "pixels": 18307,
+      "cells": 369,
+      "median_height_mm": 2.0939024923402467
+    },
+    {
+      "selection": 16,
+      "camera": "840412060917",
+      "physical_sequence": "20200813-subject-02/20200813_155021",
+      "frame_index": 63,
+      "pixels": 75621,
+      "cells": 587,
+      "median_height_mm": 1.444856074524603
+    },
+    {
+      "selection": 16,
+      "camera": "841412060263",
+      "physical_sequence": "20200813-subject-02/20200813_155021",
+      "frame_index": 63,
+      "pixels": 102309,
+      "cells": 837,
+      "median_height_mm": 1.8355567766806247
+    },
+    {
+      "selection": 16,
+      "camera": "932122060857",
+      "physical_sequence": "20200813-subject-02/20200813_155021",
+      "frame_index": 63,
+      "pixels": 42042,
+      "cells": 333,
+      "median_height_mm": -3.1682899342442283
+    },
+    {
+      "selection": 16,
+      "camera": "932122060861",
+      "physical_sequence": "20200813-subject-02/20200813_155021",
+      "frame_index": 63,
+      "pixels": 49702,
+      "cells": 468,
+      "median_height_mm": -6.838158024537827
+    },
+    {
+      "selection": 16,
+      "camera": "932122061900",
+      "physical_sequence": "20200813-subject-02/20200813_155021",
+      "frame_index": 63,
+      "pixels": 65844,
+      "cells": 718,
+      "median_height_mm": -6.2956462565945674
+    },
+    {
+      "selection": 16,
+      "camera": "932122062010",
+      "physical_sequence": "20200813-subject-02/20200813_155021",
+      "frame_index": 63,
+      "pixels": 65841,
+      "cells": 741,
+      "median_height_mm": -4.309561923606986
+    },
+    {
+      "selection": 17,
+      "camera": "836212060125",
+      "physical_sequence": "20200709-subject-01/20200709_152757",
+      "frame_index": 15,
+      "pixels": 22559,
+      "cells": 514,
+      "median_height_mm": -3.591372268538735
+    },
+    {
+      "selection": 17,
+      "camera": "839512060362",
+      "physical_sequence": "20200709-subject-01/20200709_152757",
+      "frame_index": 15,
+      "pixels": 26727,
+      "cells": 556,
+      "median_height_mm": -4.988044394326346
+    },
+    {
+      "selection": 17,
+      "camera": "840412060917",
+      "physical_sequence": "20200709-subject-01/20200709_152757",
+      "frame_index": 15,
+      "pixels": 111131,
+      "cells": 901,
+      "median_height_mm": -2.3685253344191137
+    },
+    {
+      "selection": 17,
+      "camera": "841412060263",
+      "physical_sequence": "20200709-subject-01/20200709_152757",
+      "frame_index": 15,
+      "pixels": 104529,
+      "cells": 899,
+      "median_height_mm": -4.229070548058211
+    },
+    {
+      "selection": 17,
+      "camera": "932122060857",
+      "physical_sequence": "20200709-subject-01/20200709_152757",
+      "frame_index": 15,
+      "pixels": 75648,
+      "cells": 607,
+      "median_height_mm": -8.460482386768664
+    },
+    {
+      "selection": 17,
+      "camera": "932122060861",
+      "physical_sequence": "20200709-subject-01/20200709_152757",
+      "frame_index": 15,
+      "pixels": 65629,
+      "cells": 568,
+      "median_height_mm": -10.027817810982608
+    },
+    {
+      "selection": 17,
+      "camera": "932122061900",
+      "physical_sequence": "20200709-subject-01/20200709_152757",
+      "frame_index": 15,
+      "pixels": 86065,
+      "cells": 859,
+      "median_height_mm": -10.725450037075145
+    },
+    {
+      "selection": 17,
+      "camera": "932122062010",
+      "physical_sequence": "20200709-subject-01/20200709_152757",
+      "frame_index": 15,
+      "pixels": 76782,
+      "cells": 905,
+      "median_height_mm": -7.818630802150395
+    },
+    {
+      "selection": 18,
+      "camera": "836212060125",
+      "physical_sequence": "20200813-subject-02/20200813_155633",
+      "frame_index": 11,
+      "pixels": 17422,
+      "cells": 322,
+      "median_height_mm": 1.8824688402839136
+    },
+    {
+      "selection": 18,
+      "camera": "839512060362",
+      "physical_sequence": "20200813-subject-02/20200813_155633",
+      "frame_index": 11,
+      "pixels": 16507,
+      "cells": 284,
+      "median_height_mm": 1.343891244712077
+    },
+    {
+      "selection": 18,
+      "camera": "840412060917",
+      "physical_sequence": "20200813-subject-02/20200813_155633",
+      "frame_index": 11,
+      "pixels": 97079,
+      "cells": 772,
+      "median_height_mm": 1.2900823849084364
+    },
+    {
+      "selection": 18,
+      "camera": "841412060263",
+      "physical_sequence": "20200813-subject-02/20200813_155633",
+      "frame_index": 11,
+      "pixels": 82712,
+      "cells": 730,
+      "median_height_mm": -0.018513478099058123
+    },
+    {
+      "selection": 18,
+      "camera": "932122060857",
+      "physical_sequence": "20200813-subject-02/20200813_155633",
+      "frame_index": 11,
+      "pixels": 57436,
+      "cells": 519,
+      "median_height_mm": -4.569519156670365
+    },
+    {
+      "selection": 18,
+      "camera": "932122060861",
+      "physical_sequence": "20200813-subject-02/20200813_155633",
+      "frame_index": 11,
+      "pixels": 53885,
+      "cells": 490,
+      "median_height_mm": -7.049738172229064
+    },
+    {
+      "selection": 18,
+      "camera": "932122061900",
+      "physical_sequence": "20200813-subject-02/20200813_155633",
+      "frame_index": 11,
+      "pixels": 63763,
+      "cells": 704,
+      "median_height_mm": -5.72822268757231
+    },
+    {
+      "selection": 18,
+      "camera": "932122062010",
+      "physical_sequence": "20200813-subject-02/20200813_155633",
+      "frame_index": 11,
+      "pixels": 59277,
+      "cells": 753,
+      "median_height_mm": -3.9997711796110336
+    },
+    {
+      "selection": 19,
+      "camera": "836212060125",
+      "physical_sequence": "20200709-subject-01/20200709_153548",
+      "frame_index": 39,
+      "pixels": 22467,
+      "cells": 459,
+      "median_height_mm": -1.545933998624488
+    },
+    {
+      "selection": 19,
+      "camera": "839512060362",
+      "physical_sequence": "20200709-subject-01/20200709_153548",
+      "frame_index": 39,
+      "pixels": 19397,
+      "cells": 351,
+      "median_height_mm": -5.578899399229398
+    },
+    {
+      "selection": 19,
+      "camera": "840412060917",
+      "physical_sequence": "20200709-subject-01/20200709_153548",
+      "frame_index": 39,
+      "pixels": 100356,
+      "cells": 809,
+      "median_height_mm": -2.1548808376926076
+    },
+    {
+      "selection": 19,
+      "camera": "841412060263",
+      "physical_sequence": "20200709-subject-01/20200709_153548",
+      "frame_index": 39,
+      "pixels": 83409,
+      "cells": 717,
+      "median_height_mm": -1.6929153931066754
+    },
+    {
+      "selection": 19,
+      "camera": "932122060857",
+      "physical_sequence": "20200709-subject-01/20200709_153548",
+      "frame_index": 39,
+      "pixels": 57869,
+      "cells": 519,
+      "median_height_mm": -8.501119281896896
+    },
+    {
+      "selection": 19,
+      "camera": "932122060861",
+      "physical_sequence": "20200709-subject-01/20200709_153548",
+      "frame_index": 39,
+      "pixels": 61583,
+      "cells": 524,
+      "median_height_mm": -10.126526136666897
+    },
+    {
+      "selection": 19,
+      "camera": "932122061900",
+      "physical_sequence": "20200709-subject-01/20200709_153548",
+      "frame_index": 39,
+      "pixels": 71578,
+      "cells": 759,
+      "median_height_mm": -10.385048127291297
+    },
+    {
+      "selection": 19,
+      "camera": "932122062010",
+      "physical_sequence": "20200709-subject-01/20200709_153548",
+      "frame_index": 39,
+      "pixels": 68221,
+      "cells": 753,
+      "median_height_mm": -9.167935331142353
+    }
+  ],
+  "paired": [
+    {
+      "selection": 0,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 90,
+      "b_minus_a_height_mm": -0.09235174194564788
+    },
+    {
+      "selection": 0,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 187,
+      "b_minus_a_height_mm": -1.580183471673477
+    },
+    {
+      "selection": 0,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 214,
+      "b_minus_a_height_mm": -0.5212253401457034
+    },
+    {
+      "selection": 0,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 100,
+      "b_minus_a_height_mm": -6.7623924256486845
+    },
+    {
+      "selection": 0,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 177,
+      "b_minus_a_height_mm": -7.046367757862923
+    },
+    {
+      "selection": 0,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 169,
+      "b_minus_a_height_mm": -7.682661353950557
+    },
+    {
+      "selection": 0,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 201,
+      "b_minus_a_height_mm": -6.899503530785625
+    },
+    {
+      "selection": 0,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 383,
+      "b_minus_a_height_mm": 3.5160316930511746
+    },
+    {
+      "selection": 0,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 323,
+      "b_minus_a_height_mm": -4.979934605604364
+    },
+    {
+      "selection": 0,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 380,
+      "b_minus_a_height_mm": -3.3633607444042046
+    },
+    {
+      "selection": 0,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 100,
+      "b_minus_a_height_mm": -7.426312583491415
+    },
+    {
+      "selection": 0,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 338,
+      "b_minus_a_height_mm": -5.559659417649389
+    },
+    {
+      "selection": 0,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 324,
+      "b_minus_a_height_mm": -3.6995000455836493
+    },
+    {
+      "selection": 0,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 681,
+      "b_minus_a_height_mm": -3.9412765381935393
+    },
+    {
+      "selection": 0,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 552,
+      "b_minus_a_height_mm": -5.908405680656065
+    },
+    {
+      "selection": 0,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 369,
+      "b_minus_a_height_mm": -6.775432689216821
+    },
+    {
+      "selection": 0,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 504,
+      "b_minus_a_height_mm": -7.142821014501811
+    },
+    {
+      "selection": 0,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 578,
+      "b_minus_a_height_mm": -6.207657357702067
+    },
+    {
+      "selection": 0,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 457,
+      "b_minus_a_height_mm": 1.2975317026635569
+    },
+    {
+      "selection": 0,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 446,
+      "b_minus_a_height_mm": -9.911093141648369
+    },
+    {
+      "selection": 0,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 512,
+      "b_minus_a_height_mm": -3.3935534766140187
+    },
+    {
+      "selection": 0,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 522,
+      "b_minus_a_height_mm": -2.963329786277807
+    },
+    {
+      "selection": 0,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 141,
+      "b_minus_a_height_mm": -3.722166312769504
+    },
+    {
+      "selection": 0,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 396,
+      "b_minus_a_height_mm": -2.1389817754993716
+    },
+    {
+      "selection": 0,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 484,
+      "b_minus_a_height_mm": 0.6071226485441228
+    },
+    {
+      "selection": 0,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 343,
+      "b_minus_a_height_mm": 0.4097324368486088
+    },
+    {
+      "selection": 0,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 269,
+      "b_minus_a_height_mm": 1.2765341746350245
+    },
+    {
+      "selection": 0,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 403,
+      "b_minus_a_height_mm": 1.5315582070155047
+    },
+    {
+      "selection": 1,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 69,
+      "b_minus_a_height_mm": 2.0564862306769114
+    },
+    {
+      "selection": 1,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 258,
+      "b_minus_a_height_mm": -2.2138692322347495
+    },
+    {
+      "selection": 1,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 270,
+      "b_minus_a_height_mm": 4.044955856440866
+    },
+    {
+      "selection": 1,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 37,
+      "b_minus_a_height_mm": -5.995640949552669
+    },
+    {
+      "selection": 1,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 213,
+      "b_minus_a_height_mm": -10.305352857749499
+    },
+    {
+      "selection": 1,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 227,
+      "b_minus_a_height_mm": -7.7746236465824206
+    },
+    {
+      "selection": 1,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 310,
+      "b_minus_a_height_mm": -6.609994005389371
+    },
+    {
+      "selection": 1,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 342,
+      "b_minus_a_height_mm": 0.8977335518234599
+    },
+    {
+      "selection": 1,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 231,
+      "b_minus_a_height_mm": -7.180561766814468
+    },
+    {
+      "selection": 1,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 314,
+      "b_minus_a_height_mm": -6.413903138399839
+    },
+    {
+      "selection": 1,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 71,
+      "b_minus_a_height_mm": -9.850030016498673
+    },
+    {
+      "selection": 1,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 295,
+      "b_minus_a_height_mm": -7.629280158011745
+    },
+    {
+      "selection": 1,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 244,
+      "b_minus_a_height_mm": -6.7677030356403165
+    },
+    {
+      "selection": 1,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 488,
+      "b_minus_a_height_mm": -6.921854176904246
+    },
+    {
+      "selection": 1,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 503,
+      "b_minus_a_height_mm": -6.295317629249175
+    },
+    {
+      "selection": 1,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 271,
+      "b_minus_a_height_mm": -6.913094381705509
+    },
+    {
+      "selection": 1,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 485,
+      "b_minus_a_height_mm": -6.12234816812407
+    },
+    {
+      "selection": 1,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 535,
+      "b_minus_a_height_mm": -5.4216789262447325
+    },
+    {
+      "selection": 1,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 302,
+      "b_minus_a_height_mm": 1.943126862830741
+    },
+    {
+      "selection": 1,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 262,
+      "b_minus_a_height_mm": -13.144109375885836
+    },
+    {
+      "selection": 1,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 376,
+      "b_minus_a_height_mm": -6.374492875508148
+    },
+    {
+      "selection": 1,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 426,
+      "b_minus_a_height_mm": -4.524710411857953
+    },
+    {
+      "selection": 1,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 105,
+      "b_minus_a_height_mm": -3.833385970514469
+    },
+    {
+      "selection": 1,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 350,
+      "b_minus_a_height_mm": -0.37799313536565626
+    },
+    {
+      "selection": 1,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 345,
+      "b_minus_a_height_mm": 0.9723091487968105
+    },
+    {
+      "selection": 1,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 304,
+      "b_minus_a_height_mm": 3.33383542443777
+    },
+    {
+      "selection": 1,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 164,
+      "b_minus_a_height_mm": 3.888266975248883
+    },
+    {
+      "selection": 1,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 342,
+      "b_minus_a_height_mm": 0.6744641796639916
+    },
+    {
+      "selection": 2,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 74,
+      "b_minus_a_height_mm": 2.660892274796725
+    },
+    {
+      "selection": 2,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 248,
+      "b_minus_a_height_mm": -1.8907990686186094
+    },
+    {
+      "selection": 2,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 332,
+      "b_minus_a_height_mm": 3.4087291598256453
+    },
+    {
+      "selection": 2,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 119,
+      "b_minus_a_height_mm": -5.625902607060321
+    },
+    {
+      "selection": 2,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 257,
+      "b_minus_a_height_mm": -7.892654875281109
+    },
+    {
+      "selection": 2,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 297,
+      "b_minus_a_height_mm": -9.825364018326399
+    },
+    {
+      "selection": 2,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 335,
+      "b_minus_a_height_mm": -6.3718036497563
+    },
+    {
+      "selection": 2,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 293,
+      "b_minus_a_height_mm": 1.2604741320900448
+    },
+    {
+      "selection": 2,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 220,
+      "b_minus_a_height_mm": -7.594223733140289
+    },
+    {
+      "selection": 2,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 235,
+      "b_minus_a_height_mm": -5.992871188410589
+    },
+    {
+      "selection": 2,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 28,
+      "b_minus_a_height_mm": -11.686998693285094
+    },
+    {
+      "selection": 2,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 284,
+      "b_minus_a_height_mm": -6.972507735508542
+    },
+    {
+      "selection": 2,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 297,
+      "b_minus_a_height_mm": -6.438627152673515
+    },
+    {
+      "selection": 2,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 428,
+      "b_minus_a_height_mm": -1.3643915267277096
+    },
+    {
+      "selection": 2,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 279,
+      "b_minus_a_height_mm": -7.915106432668074
+    },
+    {
+      "selection": 2,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 241,
+      "b_minus_a_height_mm": -7.218112995010018
+    },
+    {
+      "selection": 2,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 459,
+      "b_minus_a_height_mm": -7.481923271969448
+    },
+    {
+      "selection": 2,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 495,
+      "b_minus_a_height_mm": -5.913891428757978
+    },
+    {
+      "selection": 2,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 289,
+      "b_minus_a_height_mm": -1.1660215205380187
+    },
+    {
+      "selection": 2,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 420,
+      "b_minus_a_height_mm": -13.144400684675539
+    },
+    {
+      "selection": 2,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 589,
+      "b_minus_a_height_mm": -9.727917823563025
+    },
+    {
+      "selection": 2,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 526,
+      "b_minus_a_height_mm": -6.992098192015794
+    },
+    {
+      "selection": 2,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 78,
+      "b_minus_a_height_mm": -2.5915215871323563
+    },
+    {
+      "selection": 2,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 243,
+      "b_minus_a_height_mm": -1.8072865259310955
+    },
+    {
+      "selection": 2,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 416,
+      "b_minus_a_height_mm": -0.45396148196055774
+    },
+    {
+      "selection": 2,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 409,
+      "b_minus_a_height_mm": -0.40748572499138547
+    },
+    {
+      "selection": 2,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 295,
+      "b_minus_a_height_mm": 1.3301229700423134
+    },
+    {
+      "selection": 2,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 529,
+      "b_minus_a_height_mm": 2.0779380398756047
+    },
+    {
+      "selection": 3,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 218,
+      "b_minus_a_height_mm": -0.03244358710614126
+    },
+    {
+      "selection": 3,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 230,
+      "b_minus_a_height_mm": 0.779807810302739
+    },
+    {
+      "selection": 3,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 253,
+      "b_minus_a_height_mm": 1.703782002078838
+    },
+    {
+      "selection": 3,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 141,
+      "b_minus_a_height_mm": -6.622298569210566
+    },
+    {
+      "selection": 3,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 181,
+      "b_minus_a_height_mm": -7.764287377211367
+    },
+    {
+      "selection": 3,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 258,
+      "b_minus_a_height_mm": -8.260587360042807
+    },
+    {
+      "selection": 3,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 302,
+      "b_minus_a_height_mm": -6.503888647743743
+    },
+    {
+      "selection": 3,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 416,
+      "b_minus_a_height_mm": 2.859074311596918
+    },
+    {
+      "selection": 3,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 244,
+      "b_minus_a_height_mm": -0.5553333026294474
+    },
+    {
+      "selection": 3,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 290,
+      "b_minus_a_height_mm": -5.613951321270693
+    },
+    {
+      "selection": 3,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 189,
+      "b_minus_a_height_mm": -8.296639646027671
+    },
+    {
+      "selection": 3,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 387,
+      "b_minus_a_height_mm": -6.760966395458963
+    },
+    {
+      "selection": 3,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 379,
+      "b_minus_a_height_mm": -5.496679734568424
+    },
+    {
+      "selection": 3,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 470,
+      "b_minus_a_height_mm": -3.037077927281639
+    },
+    {
+      "selection": 3,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 439,
+      "b_minus_a_height_mm": -8.12792432186571
+    },
+    {
+      "selection": 3,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 338,
+      "b_minus_a_height_mm": -6.608913073424816
+    },
+    {
+      "selection": 3,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 530,
+      "b_minus_a_height_mm": -6.714344689902091
+    },
+    {
+      "selection": 3,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 576,
+      "b_minus_a_height_mm": -6.064904756474476
+    },
+    {
+      "selection": 3,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 245,
+      "b_minus_a_height_mm": 0.7542369646543756
+    },
+    {
+      "selection": 3,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 349,
+      "b_minus_a_height_mm": -10.417011988476332
+    },
+    {
+      "selection": 3,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 423,
+      "b_minus_a_height_mm": -8.598362447172159
+    },
+    {
+      "selection": 3,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 449,
+      "b_minus_a_height_mm": -5.824032282200632
+    },
+    {
+      "selection": 3,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 101,
+      "b_minus_a_height_mm": -2.1298987252134065
+    },
+    {
+      "selection": 3,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 250,
+      "b_minus_a_height_mm": 0.19573589895860444
+    },
+    {
+      "selection": 3,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 366,
+      "b_minus_a_height_mm": 0.757540016681852
+    },
+    {
+      "selection": 3,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 416,
+      "b_minus_a_height_mm": 0.7215815198600719
+    },
+    {
+      "selection": 3,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 363,
+      "b_minus_a_height_mm": 1.9140792612257211
+    },
+    {
+      "selection": 3,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 475,
+      "b_minus_a_height_mm": 1.3091416029308842
+    },
+    {
+      "selection": 4,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 62,
+      "b_minus_a_height_mm": 2.614259423079312
+    },
+    {
+      "selection": 4,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 319,
+      "b_minus_a_height_mm": -1.4340680733038598
+    },
+    {
+      "selection": 4,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 359,
+      "b_minus_a_height_mm": 3.7331345152629636
+    },
+    {
+      "selection": 4,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 86,
+      "b_minus_a_height_mm": -6.607705422489115
+    },
+    {
+      "selection": 4,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 292,
+      "b_minus_a_height_mm": -8.467071104318865
+    },
+    {
+      "selection": 4,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 244,
+      "b_minus_a_height_mm": -7.939412582133945
+    },
+    {
+      "selection": 4,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 325,
+      "b_minus_a_height_mm": -6.419089292841255
+    },
+    {
+      "selection": 4,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 284,
+      "b_minus_a_height_mm": 1.2602245194555972
+    },
+    {
+      "selection": 4,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 215,
+      "b_minus_a_height_mm": -8.534770586968888
+    },
+    {
+      "selection": 4,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 277,
+      "b_minus_a_height_mm": -6.983477780179402
+    },
+    {
+      "selection": 4,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 44,
+      "b_minus_a_height_mm": -9.594454727445669
+    },
+    {
+      "selection": 4,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 216,
+      "b_minus_a_height_mm": -6.690984695755117
+    },
+    {
+      "selection": 4,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 264,
+      "b_minus_a_height_mm": -6.798372035439506
+    },
+    {
+      "selection": 4,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 687,
+      "b_minus_a_height_mm": -3.3760368534367924
+    },
+    {
+      "selection": 4,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 495,
+      "b_minus_a_height_mm": -7.242957250227389
+    },
+    {
+      "selection": 4,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 379,
+      "b_minus_a_height_mm": -7.9640401619625045
+    },
+    {
+      "selection": 4,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 556,
+      "b_minus_a_height_mm": -7.404286431435286
+    },
+    {
+      "selection": 4,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 622,
+      "b_minus_a_height_mm": -5.860983699040256
+    },
+    {
+      "selection": 4,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 408,
+      "b_minus_a_height_mm": 0.11787528023907079
+    },
+    {
+      "selection": 4,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 460,
+      "b_minus_a_height_mm": -12.3089189760682
+    },
+    {
+      "selection": 4,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 537,
+      "b_minus_a_height_mm": -7.960653550258324
+    },
+    {
+      "selection": 4,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 583,
+      "b_minus_a_height_mm": -5.155458113526967
+    },
+    {
+      "selection": 4,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 123,
+      "b_minus_a_height_mm": -3.087740056233912
+    },
+    {
+      "selection": 4,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 348,
+      "b_minus_a_height_mm": -0.1372932840823795
+    },
+    {
+      "selection": 4,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 458,
+      "b_minus_a_height_mm": 1.262381764491616
+    },
+    {
+      "selection": 4,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 397,
+      "b_minus_a_height_mm": 1.2883151235602028
+    },
+    {
+      "selection": 4,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 301,
+      "b_minus_a_height_mm": 2.2358376139078313
+    },
+    {
+      "selection": 4,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 438,
+      "b_minus_a_height_mm": 1.2308539260275637
+    },
+    {
+      "selection": 5,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 165,
+      "b_minus_a_height_mm": 2.9979381305814887
+    },
+    {
+      "selection": 5,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 446,
+      "b_minus_a_height_mm": -1.0002109676132136
+    },
+    {
+      "selection": 5,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 467,
+      "b_minus_a_height_mm": 2.3732449844591486
+    },
+    {
+      "selection": 5,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 196,
+      "b_minus_a_height_mm": -5.479587224408503
+    },
+    {
+      "selection": 5,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 358,
+      "b_minus_a_height_mm": -8.70244994197393
+    },
+    {
+      "selection": 5,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 386,
+      "b_minus_a_height_mm": -8.170854548294873
+    },
+    {
+      "selection": 5,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 428,
+      "b_minus_a_height_mm": -6.267099009059866
+    },
+    {
+      "selection": 5,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 402,
+      "b_minus_a_height_mm": 0.8789930871060947
+    },
+    {
+      "selection": 5,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 336,
+      "b_minus_a_height_mm": -6.948168781566878
+    },
+    {
+      "selection": 5,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 395,
+      "b_minus_a_height_mm": -7.646693742275501
+    },
+    {
+      "selection": 5,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 113,
+      "b_minus_a_height_mm": -9.778193927864818
+    },
+    {
+      "selection": 5,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 337,
+      "b_minus_a_height_mm": -7.856859490112542
+    },
+    {
+      "selection": 5,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 389,
+      "b_minus_a_height_mm": -6.884759999624124
+    },
+    {
+      "selection": 5,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 829,
+      "b_minus_a_height_mm": -1.741930337343045
+    },
+    {
+      "selection": 5,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 604,
+      "b_minus_a_height_mm": -6.9750861924795515
+    },
+    {
+      "selection": 5,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 486,
+      "b_minus_a_height_mm": -7.784610950061082
+    },
+    {
+      "selection": 5,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 696,
+      "b_minus_a_height_mm": -7.560206901162381
+    },
+    {
+      "selection": 5,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 774,
+      "b_minus_a_height_mm": -6.021365634645337
+    },
+    {
+      "selection": 5,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 514,
+      "b_minus_a_height_mm": -0.602148750613235
+    },
+    {
+      "selection": 5,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 551,
+      "b_minus_a_height_mm": -12.125437579513566
+    },
+    {
+      "selection": 5,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 693,
+      "b_minus_a_height_mm": -7.476097705611584
+    },
+    {
+      "selection": 5,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 715,
+      "b_minus_a_height_mm": -3.620272763529167
+    },
+    {
+      "selection": 5,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 177,
+      "b_minus_a_height_mm": -3.7716325339988144
+    },
+    {
+      "selection": 5,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 430,
+      "b_minus_a_height_mm": -0.4101752519005135
+    },
+    {
+      "selection": 5,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 580,
+      "b_minus_a_height_mm": 0.6828379194081524
+    },
+    {
+      "selection": 5,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 517,
+      "b_minus_a_height_mm": 0.9553329706891702
+    },
+    {
+      "selection": 5,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 407,
+      "b_minus_a_height_mm": 2.226112185688855
+    },
+    {
+      "selection": 5,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 609,
+      "b_minus_a_height_mm": 1.5265219689407639
+    },
+    {
+      "selection": 6,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 82,
+      "b_minus_a_height_mm": -0.8764924614103955
+    },
+    {
+      "selection": 6,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 283,
+      "b_minus_a_height_mm": -2.273937408233638
+    },
+    {
+      "selection": 6,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 293,
+      "b_minus_a_height_mm": 2.1914515210220973
+    },
+    {
+      "selection": 6,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 88,
+      "b_minus_a_height_mm": -7.216479509516558
+    },
+    {
+      "selection": 6,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 270,
+      "b_minus_a_height_mm": -8.509237473510959
+    },
+    {
+      "selection": 6,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 235,
+      "b_minus_a_height_mm": -11.103653906148606
+    },
+    {
+      "selection": 6,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 281,
+      "b_minus_a_height_mm": -6.966046129194749
+    },
+    {
+      "selection": 6,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 308,
+      "b_minus_a_height_mm": 4.054244451213156
+    },
+    {
+      "selection": 6,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 240,
+      "b_minus_a_height_mm": -4.417275882557553
+    },
+    {
+      "selection": 6,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 239,
+      "b_minus_a_height_mm": -3.9406824347263942
+    },
+    {
+      "selection": 6,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 77,
+      "b_minus_a_height_mm": -10.075904694760842
+    },
+    {
+      "selection": 6,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 217,
+      "b_minus_a_height_mm": -5.064578527518945
+    },
+    {
+      "selection": 6,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 122,
+      "b_minus_a_height_mm": -5.095515473901905
+    },
+    {
+      "selection": 6,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 594,
+      "b_minus_a_height_mm": -4.126464846464895
+    },
+    {
+      "selection": 6,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 403,
+      "b_minus_a_height_mm": -7.9232224396823545
+    },
+    {
+      "selection": 6,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 330,
+      "b_minus_a_height_mm": -7.449073910448523
+    },
+    {
+      "selection": 6,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 414,
+      "b_minus_a_height_mm": -7.717338136709968
+    },
+    {
+      "selection": 6,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 381,
+      "b_minus_a_height_mm": -5.39155956625903
+    },
+    {
+      "selection": 6,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 355,
+      "b_minus_a_height_mm": 0.8386124144124629
+    },
+    {
+      "selection": 6,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 387,
+      "b_minus_a_height_mm": -10.387577160854477
+    },
+    {
+      "selection": 6,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 424,
+      "b_minus_a_height_mm": -7.023676980233263
+    },
+    {
+      "selection": 6,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 408,
+      "b_minus_a_height_mm": -6.615314591893906
+    },
+    {
+      "selection": 6,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 107,
+      "b_minus_a_height_mm": -3.3275494708509
+    },
+    {
+      "selection": 6,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 218,
+      "b_minus_a_height_mm": 0.4890067672274625
+    },
+    {
+      "selection": 6,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 253,
+      "b_minus_a_height_mm": 1.707324771272555
+    },
+    {
+      "selection": 6,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 284,
+      "b_minus_a_height_mm": -0.5494677673269774
+    },
+    {
+      "selection": 6,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 290,
+      "b_minus_a_height_mm": 1.5899315759824728
+    },
+    {
+      "selection": 6,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 276,
+      "b_minus_a_height_mm": 2.764819578045197
+    },
+    {
+      "selection": 7,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 174,
+      "b_minus_a_height_mm": 2.8654128934523584
+    },
+    {
+      "selection": 7,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 439,
+      "b_minus_a_height_mm": -0.8889207832327091
+    },
+    {
+      "selection": 7,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 467,
+      "b_minus_a_height_mm": 1.419482018405152
+    },
+    {
+      "selection": 7,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 197,
+      "b_minus_a_height_mm": -4.939041818004378
+    },
+    {
+      "selection": 7,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 353,
+      "b_minus_a_height_mm": -9.001218072667156
+    },
+    {
+      "selection": 7,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 354,
+      "b_minus_a_height_mm": -7.87139488439513
+    },
+    {
+      "selection": 7,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 447,
+      "b_minus_a_height_mm": -6.140546954087554
+    },
+    {
+      "selection": 7,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 406,
+      "b_minus_a_height_mm": 0.5969797743198141
+    },
+    {
+      "selection": 7,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 291,
+      "b_minus_a_height_mm": -7.391511089051327
+    },
+    {
+      "selection": 7,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 395,
+      "b_minus_a_height_mm": -7.584264284834552
+    },
+    {
+      "selection": 7,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 111,
+      "b_minus_a_height_mm": -10.385432214470885
+    },
+    {
+      "selection": 7,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 334,
+      "b_minus_a_height_mm": -7.826282431838153
+    },
+    {
+      "selection": 7,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 395,
+      "b_minus_a_height_mm": -7.17927658967829
+    },
+    {
+      "selection": 7,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 713,
+      "b_minus_a_height_mm": -2.582290816643351
+    },
+    {
+      "selection": 7,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 604,
+      "b_minus_a_height_mm": -6.738424563735163
+    },
+    {
+      "selection": 7,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 465,
+      "b_minus_a_height_mm": -7.793610358893477
+    },
+    {
+      "selection": 7,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 661,
+      "b_minus_a_height_mm": -6.883710358449424
+    },
+    {
+      "selection": 7,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 759,
+      "b_minus_a_height_mm": -5.804945211217993
+    },
+    {
+      "selection": 7,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 427,
+      "b_minus_a_height_mm": 0.22697716534453338
+    },
+    {
+      "selection": 7,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 474,
+      "b_minus_a_height_mm": -11.428865536550369
+    },
+    {
+      "selection": 7,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 566,
+      "b_minus_a_height_mm": -6.520708772663115
+    },
+    {
+      "selection": 7,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 620,
+      "b_minus_a_height_mm": -3.3522843278126486
+    },
+    {
+      "selection": 7,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 174,
+      "b_minus_a_height_mm": -3.440633221460432
+    },
+    {
+      "selection": 7,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 448,
+      "b_minus_a_height_mm": -0.756396696193762
+    },
+    {
+      "selection": 7,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 577,
+      "b_minus_a_height_mm": 0.44858967897581925
+    },
+    {
+      "selection": 7,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 477,
+      "b_minus_a_height_mm": 1.3369307916547015
+    },
+    {
+      "selection": 7,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 374,
+      "b_minus_a_height_mm": 2.6499302357067824
+    },
+    {
+      "selection": 7,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 573,
+      "b_minus_a_height_mm": 1.4676067459097322
+    },
+    {
+      "selection": 8,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 186,
+      "b_minus_a_height_mm": -2.608217565876453
+    },
+    {
+      "selection": 8,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 254,
+      "b_minus_a_height_mm": 1.945083334870635
+    },
+    {
+      "selection": 8,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 211,
+      "b_minus_a_height_mm": -7.508026155790576
+    },
+    {
+      "selection": 8,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 93,
+      "b_minus_a_height_mm": -10.955688939371225
+    },
+    {
+      "selection": 8,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 199,
+      "b_minus_a_height_mm": -7.083073167153446
+    },
+    {
+      "selection": 8,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 218,
+      "b_minus_a_height_mm": 4.959319912021764
+    },
+    {
+      "selection": 8,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 118,
+      "b_minus_a_height_mm": -6.522874697475143
+    },
+    {
+      "selection": 8,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 210,
+      "b_minus_a_height_mm": -3.605456254471867
+    },
+    {
+      "selection": 8,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 24,
+      "b_minus_a_height_mm": -6.273615784625389
+    },
+    {
+      "selection": 8,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 172,
+      "b_minus_a_height_mm": -3.7487937088854406
+    },
+    {
+      "selection": 8,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 178,
+      "b_minus_a_height_mm": -3.0692514790689462
+    },
+    {
+      "selection": 8,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 566,
+      "b_minus_a_height_mm": -3.0095300748006757
+    },
+    {
+      "selection": 8,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 447,
+      "b_minus_a_height_mm": -7.046546859524218
+    },
+    {
+      "selection": 8,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 299,
+      "b_minus_a_height_mm": -5.311825772435553
+    },
+    {
+      "selection": 8,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 434,
+      "b_minus_a_height_mm": -7.683956203077907
+    },
+    {
+      "selection": 8,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 457,
+      "b_minus_a_height_mm": -6.681394004647123
+    },
+    {
+      "selection": 8,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 305,
+      "b_minus_a_height_mm": 1.699764012978168
+    },
+    {
+      "selection": 8,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 397,
+      "b_minus_a_height_mm": -9.323993575498568
+    },
+    {
+      "selection": 8,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 382,
+      "b_minus_a_height_mm": -4.7715372172839885
+    },
+    {
+      "selection": 8,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 426,
+      "b_minus_a_height_mm": -4.98295339385718
+    },
+    {
+      "selection": 8,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 81,
+      "b_minus_a_height_mm": -2.580910473618136
+    },
+    {
+      "selection": 8,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 290,
+      "b_minus_a_height_mm": -0.8687055554795764
+    },
+    {
+      "selection": 8,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 331,
+      "b_minus_a_height_mm": 0.6071663112303112
+    },
+    {
+      "selection": 8,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 293,
+      "b_minus_a_height_mm": 0.32797374483073405
+    },
+    {
+      "selection": 8,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 230,
+      "b_minus_a_height_mm": 0.8170900305144166
+    },
+    {
+      "selection": 8,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 289,
+      "b_minus_a_height_mm": 1.4598859175929961
+    },
+    {
+      "selection": 9,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 120,
+      "b_minus_a_height_mm": 0.2819485251445957
+    },
+    {
+      "selection": 9,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 288,
+      "b_minus_a_height_mm": -2.3924850330808227
+    },
+    {
+      "selection": 9,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 337,
+      "b_minus_a_height_mm": 1.4281294739409491
+    },
+    {
+      "selection": 9,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 97,
+      "b_minus_a_height_mm": -7.1881696477256805
+    },
+    {
+      "selection": 9,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 291,
+      "b_minus_a_height_mm": -8.187831664860505
+    },
+    {
+      "selection": 9,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 308,
+      "b_minus_a_height_mm": -10.583513857655234
+    },
+    {
+      "selection": 9,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 317,
+      "b_minus_a_height_mm": -6.983537678328627
+    },
+    {
+      "selection": 9,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 356,
+      "b_minus_a_height_mm": 4.193311627345
+    },
+    {
+      "selection": 9,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 253,
+      "b_minus_a_height_mm": -3.1300408198524083
+    },
+    {
+      "selection": 9,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 318,
+      "b_minus_a_height_mm": -4.888355372160928
+    },
+    {
+      "selection": 9,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 109,
+      "b_minus_a_height_mm": -8.610391179864292
+    },
+    {
+      "selection": 9,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 323,
+      "b_minus_a_height_mm": -6.025088633507579
+    },
+    {
+      "selection": 9,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 358,
+      "b_minus_a_height_mm": -5.233793465069088
+    },
+    {
+      "selection": 9,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 537,
+      "b_minus_a_height_mm": -2.7302096772551803
+    },
+    {
+      "selection": 9,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 383,
+      "b_minus_a_height_mm": -8.38422067970468
+    },
+    {
+      "selection": 9,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 310,
+      "b_minus_a_height_mm": -5.98386337284898
+    },
+    {
+      "selection": 9,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 568,
+      "b_minus_a_height_mm": -8.543045105854823
+    },
+    {
+      "selection": 9,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 547,
+      "b_minus_a_height_mm": -6.655645424084643
+    },
+    {
+      "selection": 9,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 289,
+      "b_minus_a_height_mm": -1.0797030479393621
+    },
+    {
+      "selection": 9,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 488,
+      "b_minus_a_height_mm": -11.079089722459385
+    },
+    {
+      "selection": 9,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 520,
+      "b_minus_a_height_mm": -8.696797407974437
+    },
+    {
+      "selection": 9,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 529,
+      "b_minus_a_height_mm": -6.170592805555319
+    },
+    {
+      "selection": 9,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 82,
+      "b_minus_a_height_mm": -1.8919263160344642
+    },
+    {
+      "selection": 9,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 241,
+      "b_minus_a_height_mm": -1.0129635206990724
+    },
+    {
+      "selection": 9,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 456,
+      "b_minus_a_height_mm": 0.20012257887080853
+    },
+    {
+      "selection": 9,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 429,
+      "b_minus_a_height_mm": -1.0818288854195224
+    },
+    {
+      "selection": 9,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 331,
+      "b_minus_a_height_mm": 0.9027582771982123
+    },
+    {
+      "selection": 9,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 459,
+      "b_minus_a_height_mm": 2.4172261623355284
+    },
+    {
+      "selection": 10,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 77,
+      "b_minus_a_height_mm": 2.628007527412116
+    },
+    {
+      "selection": 10,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 273,
+      "b_minus_a_height_mm": -1.8375119268358997
+    },
+    {
+      "selection": 10,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 321,
+      "b_minus_a_height_mm": 4.392319986529079
+    },
+    {
+      "selection": 10,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 59,
+      "b_minus_a_height_mm": -8.209950226000725
+    },
+    {
+      "selection": 10,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 263,
+      "b_minus_a_height_mm": -9.149531334182246
+    },
+    {
+      "selection": 10,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 231,
+      "b_minus_a_height_mm": -8.502038703453582
+    },
+    {
+      "selection": 10,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 338,
+      "b_minus_a_height_mm": -6.5688379758212925
+    },
+    {
+      "selection": 10,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 228,
+      "b_minus_a_height_mm": 1.308918229118515
+    },
+    {
+      "selection": 10,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 239,
+      "b_minus_a_height_mm": -6.226276918489912
+    },
+    {
+      "selection": 10,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 43,
+      "b_minus_a_height_mm": -8.277398838907894
+    },
+    {
+      "selection": 10,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 202,
+      "b_minus_a_height_mm": -7.191348572881891
+    },
+    {
+      "selection": 10,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 230,
+      "b_minus_a_height_mm": -6.84734722466631
+    },
+    {
+      "selection": 10,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 278,
+      "b_minus_a_height_mm": 4.196061385168177
+    },
+    {
+      "selection": 10,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 481,
+      "b_minus_a_height_mm": -6.4616577064662835
+    },
+    {
+      "selection": 10,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 270,
+      "b_minus_a_height_mm": -6.518150585202137
+    },
+    {
+      "selection": 10,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 447,
+      "b_minus_a_height_mm": -6.258342109343618
+    },
+    {
+      "selection": 10,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 550,
+      "b_minus_a_height_mm": -5.9305561747993725
+    },
+    {
+      "selection": 10,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 44,
+      "b_minus_a_height_mm": -0.21577064739594642
+    },
+    {
+      "selection": 10,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 325,
+      "b_minus_a_height_mm": -12.827665119872655
+    },
+    {
+      "selection": 10,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 273,
+      "b_minus_a_height_mm": -11.947754235302643
+    },
+    {
+      "selection": 10,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 284,
+      "b_minus_a_height_mm": -11.162900181241774
+    },
+    {
+      "selection": 10,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 106,
+      "b_minus_a_height_mm": -3.874448829141037
+    },
+    {
+      "selection": 10,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 346,
+      "b_minus_a_height_mm": -0.34622138875478603
+    },
+    {
+      "selection": 10,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 379,
+      "b_minus_a_height_mm": 1.3798654970484918
+    },
+    {
+      "selection": 10,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 303,
+      "b_minus_a_height_mm": 1.5561956070804808
+    },
+    {
+      "selection": 10,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 228,
+      "b_minus_a_height_mm": 2.241386985903898
+    },
+    {
+      "selection": 10,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 371,
+      "b_minus_a_height_mm": 0.6848158377096292
+    },
+    {
+      "selection": 11,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 77,
+      "b_minus_a_height_mm": 2.2708918211750837
+    },
+    {
+      "selection": 11,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 261,
+      "b_minus_a_height_mm": -1.3085859891114604
+    },
+    {
+      "selection": 11,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 345,
+      "b_minus_a_height_mm": 4.525249655711091
+    },
+    {
+      "selection": 11,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 94,
+      "b_minus_a_height_mm": -6.054766556549927
+    },
+    {
+      "selection": 11,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 272,
+      "b_minus_a_height_mm": -8.208241465914638
+    },
+    {
+      "selection": 11,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 250,
+      "b_minus_a_height_mm": -10.462488104096535
+    },
+    {
+      "selection": 11,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 337,
+      "b_minus_a_height_mm": -6.593699185971017
+    },
+    {
+      "selection": 11,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 257,
+      "b_minus_a_height_mm": 0.7761116711550575
+    },
+    {
+      "selection": 11,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 174,
+      "b_minus_a_height_mm": -9.235725488582979
+    },
+    {
+      "selection": 11,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 199,
+      "b_minus_a_height_mm": -6.819780495113212
+    },
+    {
+      "selection": 11,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 29,
+      "b_minus_a_height_mm": -10.352427036207285
+    },
+    {
+      "selection": 11,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 211,
+      "b_minus_a_height_mm": -7.166711112773977
+    },
+    {
+      "selection": 11,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 194,
+      "b_minus_a_height_mm": -8.331591485721265
+    },
+    {
+      "selection": 11,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 558,
+      "b_minus_a_height_mm": -2.6194864514756944
+    },
+    {
+      "selection": 11,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 407,
+      "b_minus_a_height_mm": -6.2094203340581355
+    },
+    {
+      "selection": 11,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 354,
+      "b_minus_a_height_mm": -7.708324934520423
+    },
+    {
+      "selection": 11,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 439,
+      "b_minus_a_height_mm": -7.211876818545848
+    },
+    {
+      "selection": 11,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 505,
+      "b_minus_a_height_mm": -6.114893196121685
+    },
+    {
+      "selection": 11,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 291,
+      "b_minus_a_height_mm": 0.8132814250498832
+    },
+    {
+      "selection": 11,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 385,
+      "b_minus_a_height_mm": -12.436355131328348
+    },
+    {
+      "selection": 11,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 465,
+      "b_minus_a_height_mm": -10.943780032029839
+    },
+    {
+      "selection": 11,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 491,
+      "b_minus_a_height_mm": -7.470407161635329
+    },
+    {
+      "selection": 11,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 100,
+      "b_minus_a_height_mm": -3.680744979369377
+    },
+    {
+      "selection": 11,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 209,
+      "b_minus_a_height_mm": 1.0745468112480783
+    },
+    {
+      "selection": 11,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 310,
+      "b_minus_a_height_mm": 0.43609774681471736
+    },
+    {
+      "selection": 11,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 328,
+      "b_minus_a_height_mm": -0.2013826715658582
+    },
+    {
+      "selection": 11,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 310,
+      "b_minus_a_height_mm": 1.9748825714131502
+    },
+    {
+      "selection": 11,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 307,
+      "b_minus_a_height_mm": 1.789260123741533
+    },
+    {
+      "selection": 12,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 114,
+      "b_minus_a_height_mm": 3.206925417340748
+    },
+    {
+      "selection": 12,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 268,
+      "b_minus_a_height_mm": 0.11303336554640753
+    },
+    {
+      "selection": 12,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 358,
+      "b_minus_a_height_mm": 3.138512297978118
+    },
+    {
+      "selection": 12,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 119,
+      "b_minus_a_height_mm": -6.525250903834241
+    },
+    {
+      "selection": 12,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 248,
+      "b_minus_a_height_mm": -7.488618659009953
+    },
+    {
+      "selection": 12,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 254,
+      "b_minus_a_height_mm": -9.428463367671474
+    },
+    {
+      "selection": 12,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 345,
+      "b_minus_a_height_mm": -6.380775233971583
+    },
+    {
+      "selection": 12,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 276,
+      "b_minus_a_height_mm": 1.2619495230223805
+    },
+    {
+      "selection": 12,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 172,
+      "b_minus_a_height_mm": -8.735570194546614
+    },
+    {
+      "selection": 12,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 279,
+      "b_minus_a_height_mm": -7.958922587155415
+    },
+    {
+      "selection": 12,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 50,
+      "b_minus_a_height_mm": -9.120370407591341
+    },
+    {
+      "selection": 12,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 235,
+      "b_minus_a_height_mm": -7.5065949687670726
+    },
+    {
+      "selection": 12,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 271,
+      "b_minus_a_height_mm": -7.3421372895629
+    },
+    {
+      "selection": 12,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 502,
+      "b_minus_a_height_mm": -4.8305799941184
+    },
+    {
+      "selection": 12,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 508,
+      "b_minus_a_height_mm": -6.9303299748876555
+    },
+    {
+      "selection": 12,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 307,
+      "b_minus_a_height_mm": -7.831990237142317
+    },
+    {
+      "selection": 12,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 513,
+      "b_minus_a_height_mm": -6.847066220753373
+    },
+    {
+      "selection": 12,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 535,
+      "b_minus_a_height_mm": -6.748881199256484
+    },
+    {
+      "selection": 12,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 300,
+      "b_minus_a_height_mm": 2.3682364054737333
+    },
+    {
+      "selection": 12,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 359,
+      "b_minus_a_height_mm": -12.236838276938222
+    },
+    {
+      "selection": 12,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 441,
+      "b_minus_a_height_mm": -9.681979819603391
+    },
+    {
+      "selection": 12,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 491,
+      "b_minus_a_height_mm": -6.427638051928808
+    },
+    {
+      "selection": 12,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 106,
+      "b_minus_a_height_mm": -3.3821597362221074
+    },
+    {
+      "selection": 12,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 361,
+      "b_minus_a_height_mm": 0.027145290574848158
+    },
+    {
+      "selection": 12,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 450,
+      "b_minus_a_height_mm": 1.3906185372406785
+    },
+    {
+      "selection": 12,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 413,
+      "b_minus_a_height_mm": 0.36907806757185746
+    },
+    {
+      "selection": 12,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 234,
+      "b_minus_a_height_mm": 0.5580984249516923
+    },
+    {
+      "selection": 12,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 427,
+      "b_minus_a_height_mm": 1.256374230843904
+    },
+    {
+      "selection": 13,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 29,
+      "b_minus_a_height_mm": 2.8635284843955837
+    },
+    {
+      "selection": 13,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 155,
+      "b_minus_a_height_mm": -1.4653795006705508
+    },
+    {
+      "selection": 13,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 237,
+      "b_minus_a_height_mm": 2.891515769403197
+    },
+    {
+      "selection": 13,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 186,
+      "b_minus_a_height_mm": -9.039257607135905
+    },
+    {
+      "selection": 13,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 192,
+      "b_minus_a_height_mm": -10.992484323990151
+    },
+    {
+      "selection": 13,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 188,
+      "b_minus_a_height_mm": -6.533792330177427
+    },
+    {
+      "selection": 13,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 282,
+      "b_minus_a_height_mm": 0.8311804805433247
+    },
+    {
+      "selection": 13,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 237,
+      "b_minus_a_height_mm": -7.849283862276762
+    },
+    {
+      "selection": 13,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 285,
+      "b_minus_a_height_mm": -8.522992117783707
+    },
+    {
+      "selection": 13,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 98,
+      "b_minus_a_height_mm": -10.278887508772742
+    },
+    {
+      "selection": 13,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 264,
+      "b_minus_a_height_mm": -7.620405367214376
+    },
+    {
+      "selection": 13,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 275,
+      "b_minus_a_height_mm": -7.862352405150195
+    },
+    {
+      "selection": 13,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 509,
+      "b_minus_a_height_mm": 0.07051932175372588
+    },
+    {
+      "selection": 13,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 384,
+      "b_minus_a_height_mm": -8.053560797373155
+    },
+    {
+      "selection": 13,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 340,
+      "b_minus_a_height_mm": -7.418912617952605
+    },
+    {
+      "selection": 13,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 515,
+      "b_minus_a_height_mm": -6.741289918100357
+    },
+    {
+      "selection": 13,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 517,
+      "b_minus_a_height_mm": -5.762331644191432
+    },
+    {
+      "selection": 13,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 360,
+      "b_minus_a_height_mm": -0.42656301311541633
+    },
+    {
+      "selection": 13,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 445,
+      "b_minus_a_height_mm": -11.36275465658365
+    },
+    {
+      "selection": 13,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 535,
+      "b_minus_a_height_mm": -8.039078960313583
+    },
+    {
+      "selection": 13,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 527,
+      "b_minus_a_height_mm": -4.722315435816748
+    },
+    {
+      "selection": 13,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 145,
+      "b_minus_a_height_mm": -3.4172533275581563
+    },
+    {
+      "selection": 13,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 264,
+      "b_minus_a_height_mm": -0.1446443637622974
+    },
+    {
+      "selection": 13,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 449,
+      "b_minus_a_height_mm": 0.738895561655406
+    },
+    {
+      "selection": 13,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 426,
+      "b_minus_a_height_mm": 0.547049415756645
+    },
+    {
+      "selection": 13,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 295,
+      "b_minus_a_height_mm": 1.680334469175925
+    },
+    {
+      "selection": 13,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 403,
+      "b_minus_a_height_mm": 1.19003894877806
+    },
+    {
+      "selection": 14,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 58,
+      "b_minus_a_height_mm": 3.0591011127930754
+    },
+    {
+      "selection": 14,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 334,
+      "b_minus_a_height_mm": -1.4890825434464956
+    },
+    {
+      "selection": 14,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 380,
+      "b_minus_a_height_mm": 3.211259145989482
+    },
+    {
+      "selection": 14,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 100,
+      "b_minus_a_height_mm": -5.80835152838918
+    },
+    {
+      "selection": 14,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 336,
+      "b_minus_a_height_mm": -9.081496661682007
+    },
+    {
+      "selection": 14,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 317,
+      "b_minus_a_height_mm": -10.088009405773521
+    },
+    {
+      "selection": 14,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 353,
+      "b_minus_a_height_mm": -6.78497826470844
+    },
+    {
+      "selection": 14,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 304,
+      "b_minus_a_height_mm": 1.0320860200603021
+    },
+    {
+      "selection": 14,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 208,
+      "b_minus_a_height_mm": -9.515808009469328
+    },
+    {
+      "selection": 14,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 297,
+      "b_minus_a_height_mm": -7.70495551902417
+    },
+    {
+      "selection": 14,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 45,
+      "b_minus_a_height_mm": -11.483494673616631
+    },
+    {
+      "selection": 14,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 244,
+      "b_minus_a_height_mm": -7.611034984144421
+    },
+    {
+      "selection": 14,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 281,
+      "b_minus_a_height_mm": -7.2257164429045115
+    },
+    {
+      "selection": 14,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 679,
+      "b_minus_a_height_mm": -1.895848629597019
+    },
+    {
+      "selection": 14,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 539,
+      "b_minus_a_height_mm": -7.157692482370304
+    },
+    {
+      "selection": 14,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 433,
+      "b_minus_a_height_mm": -7.521692391213808
+    },
+    {
+      "selection": 14,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 658,
+      "b_minus_a_height_mm": -7.648431513797988
+    },
+    {
+      "selection": 14,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 686,
+      "b_minus_a_height_mm": -5.882071928378224
+    },
+    {
+      "selection": 14,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 411,
+      "b_minus_a_height_mm": 0.36868321003780125
+    },
+    {
+      "selection": 14,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 508,
+      "b_minus_a_height_mm": -12.292230423009448
+    },
+    {
+      "selection": 14,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 598,
+      "b_minus_a_height_mm": -9.405028794020081
+    },
+    {
+      "selection": 14,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 603,
+      "b_minus_a_height_mm": -4.905550277692516
+    },
+    {
+      "selection": 14,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 148,
+      "b_minus_a_height_mm": -3.322936072332472
+    },
+    {
+      "selection": 14,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 390,
+      "b_minus_a_height_mm": -0.45668923999986344
+    },
+    {
+      "selection": 14,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 516,
+      "b_minus_a_height_mm": 0.7835935811055799
+    },
+    {
+      "selection": 14,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 492,
+      "b_minus_a_height_mm": 0.7359261624469151
+    },
+    {
+      "selection": 14,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 361,
+      "b_minus_a_height_mm": 2.123867467165141
+    },
+    {
+      "selection": 14,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 555,
+      "b_minus_a_height_mm": 1.4424003370342442
+    },
+    {
+      "selection": 15,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 47,
+      "b_minus_a_height_mm": 2.3905486946123045
+    },
+    {
+      "selection": 15,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 48,
+      "b_minus_a_height_mm": -0.2559062052041871
+    },
+    {
+      "selection": 15,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 267,
+      "b_minus_a_height_mm": 3.815240277213798
+    },
+    {
+      "selection": 15,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 25,
+      "b_minus_a_height_mm": -5.162085123246437
+    },
+    {
+      "selection": 15,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 161,
+      "b_minus_a_height_mm": -8.885808020498153
+    },
+    {
+      "selection": 15,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 203,
+      "b_minus_a_height_mm": -10.561171889305026
+    },
+    {
+      "selection": 15,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 261,
+      "b_minus_a_height_mm": -6.886535946757283
+    },
+    {
+      "selection": 15,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 350,
+      "b_minus_a_height_mm": 1.2178751772252694
+    },
+    {
+      "selection": 15,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 172,
+      "b_minus_a_height_mm": -7.5484958059018545
+    },
+    {
+      "selection": 15,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 268,
+      "b_minus_a_height_mm": -6.974952580773512
+    },
+    {
+      "selection": 15,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 69,
+      "b_minus_a_height_mm": -10.345369577308848
+    },
+    {
+      "selection": 15,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 331,
+      "b_minus_a_height_mm": -8.136898001877112
+    },
+    {
+      "selection": 15,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 298,
+      "b_minus_a_height_mm": -6.831812049596528
+    },
+    {
+      "selection": 15,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 264,
+      "b_minus_a_height_mm": -4.639796450696204
+    },
+    {
+      "selection": 15,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 399,
+      "b_minus_a_height_mm": -7.718391841697314
+    },
+    {
+      "selection": 15,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 115,
+      "b_minus_a_height_mm": -8.667400547463622
+    },
+    {
+      "selection": 15,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 379,
+      "b_minus_a_height_mm": -8.268391381152874
+    },
+    {
+      "selection": 15,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 406,
+      "b_minus_a_height_mm": -7.950430344452363
+    },
+    {
+      "selection": 15,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 180,
+      "b_minus_a_height_mm": 0.4110024463330755
+    },
+    {
+      "selection": 15,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 330,
+      "b_minus_a_height_mm": -10.567770417054923
+    },
+    {
+      "selection": 15,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 385,
+      "b_minus_a_height_mm": -10.207281170770965
+    },
+    {
+      "selection": 15,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 352,
+      "b_minus_a_height_mm": -7.688554120359681
+    },
+    {
+      "selection": 15,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 47,
+      "b_minus_a_height_mm": -3.7699890929356883
+    },
+    {
+      "selection": 15,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 225,
+      "b_minus_a_height_mm": -0.034817162085643005
+    },
+    {
+      "selection": 15,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 397,
+      "b_minus_a_height_mm": -0.12355772360533868
+    },
+    {
+      "selection": 15,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 266,
+      "b_minus_a_height_mm": -0.7959317729891442
+    },
+    {
+      "selection": 15,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 152,
+      "b_minus_a_height_mm": 1.4326642225754864
+    },
+    {
+      "selection": 15,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 372,
+      "b_minus_a_height_mm": 1.5555486807476704
+    },
+    {
+      "selection": 16,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 101,
+      "b_minus_a_height_mm": 2.832556204362554
+    },
+    {
+      "selection": 16,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 139,
+      "b_minus_a_height_mm": -1.633845174130323
+    },
+    {
+      "selection": 16,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 434,
+      "b_minus_a_height_mm": 3.638200869011298
+    },
+    {
+      "selection": 16,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 110,
+      "b_minus_a_height_mm": -5.635442044668489
+    },
+    {
+      "selection": 16,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 327,
+      "b_minus_a_height_mm": -9.095653889996155
+    },
+    {
+      "selection": 16,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 367,
+      "b_minus_a_height_mm": -9.605869483096303
+    },
+    {
+      "selection": 16,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 401,
+      "b_minus_a_height_mm": -6.889220563291192
+    },
+    {
+      "selection": 16,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 247,
+      "b_minus_a_height_mm": 0.7810708069678416
+    },
+    {
+      "selection": 16,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 225,
+      "b_minus_a_height_mm": -6.158781008707342
+    },
+    {
+      "selection": 16,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 180,
+      "b_minus_a_height_mm": -8.097615095865082
+    },
+    {
+      "selection": 16,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 70,
+      "b_minus_a_height_mm": -11.291050744554042
+    },
+    {
+      "selection": 16,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 274,
+      "b_minus_a_height_mm": -7.942347946944962
+    },
+    {
+      "selection": 16,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 245,
+      "b_minus_a_height_mm": -8.154404553570416
+    },
+    {
+      "selection": 16,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 401,
+      "b_minus_a_height_mm": -4.345456194238817
+    },
+    {
+      "selection": 16,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 223,
+      "b_minus_a_height_mm": -4.795493218775371
+    },
+    {
+      "selection": 16,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 161,
+      "b_minus_a_height_mm": -9.071212566120646
+    },
+    {
+      "selection": 16,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 383,
+      "b_minus_a_height_mm": -6.682376585221639
+    },
+    {
+      "selection": 16,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 344,
+      "b_minus_a_height_mm": -6.6463743071850665
+    },
+    {
+      "selection": 16,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 261,
+      "b_minus_a_height_mm": -0.36038759121698183
+    },
+    {
+      "selection": 16,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 453,
+      "b_minus_a_height_mm": -12.825110629828496
+    },
+    {
+      "selection": 16,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 576,
+      "b_minus_a_height_mm": -9.361394221316573
+    },
+    {
+      "selection": 16,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 588,
+      "b_minus_a_height_mm": -7.397099042456667
+    },
+    {
+      "selection": 16,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 47,
+      "b_minus_a_height_mm": -2.6210428656573965
+    },
+    {
+      "selection": 16,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 242,
+      "b_minus_a_height_mm": -0.8614447633718547
+    },
+    {
+      "selection": 16,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 238,
+      "b_minus_a_height_mm": -0.017514833813431885
+    },
+    {
+      "selection": 16,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 387,
+      "b_minus_a_height_mm": -0.25680497559371673
+    },
+    {
+      "selection": 16,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 309,
+      "b_minus_a_height_mm": 2.171844540740042
+    },
+    {
+      "selection": 16,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 493,
+      "b_minus_a_height_mm": 1.8093292598300725
+    },
+    {
+      "selection": 17,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 302,
+      "b_minus_a_height_mm": -0.11982942023988619
+    },
+    {
+      "selection": 17,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 487,
+      "b_minus_a_height_mm": -1.2730696165130366
+    },
+    {
+      "selection": 17,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 506,
+      "b_minus_a_height_mm": -1.209719737727693
+    },
+    {
+      "selection": 17,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 230,
+      "b_minus_a_height_mm": -7.032787594960416
+    },
+    {
+      "selection": 17,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 348,
+      "b_minus_a_height_mm": -9.030572078142843
+    },
+    {
+      "selection": 17,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 430,
+      "b_minus_a_height_mm": -10.18427478045485
+    },
+    {
+      "selection": 17,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 463,
+      "b_minus_a_height_mm": -7.29163903264561
+    },
+    {
+      "selection": 17,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 526,
+      "b_minus_a_height_mm": 2.4001560166879017
+    },
+    {
+      "selection": 17,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 437,
+      "b_minus_a_height_mm": -5.179374935639219
+    },
+    {
+      "selection": 17,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 393,
+      "b_minus_a_height_mm": -4.686076938282948
+    },
+    {
+      "selection": 17,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 196,
+      "b_minus_a_height_mm": -9.44179947084005
+    },
+    {
+      "selection": 17,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 475,
+      "b_minus_a_height_mm": -7.325521745670401
+    },
+    {
+      "selection": 17,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 515,
+      "b_minus_a_height_mm": -5.518378121539005
+    },
+    {
+      "selection": 17,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 754,
+      "b_minus_a_height_mm": -4.145361700018391
+    },
+    {
+      "selection": 17,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 550,
+      "b_minus_a_height_mm": -7.84965163765869
+    },
+    {
+      "selection": 17,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 434,
+      "b_minus_a_height_mm": -7.815633924365711
+    },
+    {
+      "selection": 17,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 725,
+      "b_minus_a_height_mm": -8.413999613669509
+    },
+    {
+      "selection": 17,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 793,
+      "b_minus_a_height_mm": -6.461571195335248
+    },
+    {
+      "selection": 17,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 448,
+      "b_minus_a_height_mm": 1.3260687551946426
+    },
+    {
+      "selection": 17,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 556,
+      "b_minus_a_height_mm": -10.27437918040011
+    },
+    {
+      "selection": 17,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 718,
+      "b_minus_a_height_mm": -6.095252105212334
+    },
+    {
+      "selection": 17,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 738,
+      "b_minus_a_height_mm": -3.171653520883194
+    },
+    {
+      "selection": 17,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 141,
+      "b_minus_a_height_mm": -2.660302924893221
+    },
+    {
+      "selection": 17,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 430,
+      "b_minus_a_height_mm": -1.665369185214871
+    },
+    {
+      "selection": 17,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 591,
+      "b_minus_a_height_mm": 0.5771026921332911
+    },
+    {
+      "selection": 17,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 534,
+      "b_minus_a_height_mm": 0.22281214303213037
+    },
+    {
+      "selection": 17,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 401,
+      "b_minus_a_height_mm": 1.8738957164872172
+    },
+    {
+      "selection": 17,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 704,
+      "b_minus_a_height_mm": 2.1970364265460063
+    },
+    {
+      "selection": 18,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 27,
+      "b_minus_a_height_mm": 2.387179366880945
+    },
+    {
+      "selection": 18,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 185,
+      "b_minus_a_height_mm": -1.7479273189663083
+    },
+    {
+      "selection": 18,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 266,
+      "b_minus_a_height_mm": 3.2270211043213988
+    },
+    {
+      "selection": 18,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 34,
+      "b_minus_a_height_mm": -7.737776376183364
+    },
+    {
+      "selection": 18,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 216,
+      "b_minus_a_height_mm": -8.790356985808891
+    },
+    {
+      "selection": 18,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 216,
+      "b_minus_a_height_mm": -10.502640211461593
+    },
+    {
+      "selection": 18,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 258,
+      "b_minus_a_height_mm": -6.802791018125545
+    },
+    {
+      "selection": 18,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 245,
+      "b_minus_a_height_mm": 1.0142200208320338
+    },
+    {
+      "selection": 18,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 175,
+      "b_minus_a_height_mm": -10.027449505054783
+    },
+    {
+      "selection": 18,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 250,
+      "b_minus_a_height_mm": -6.213668965638718
+    },
+    {
+      "selection": 18,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 27,
+      "b_minus_a_height_mm": -9.15708975746371
+    },
+    {
+      "selection": 18,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 190,
+      "b_minus_a_height_mm": -6.3769291203058245
+    },
+    {
+      "selection": 18,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 233,
+      "b_minus_a_height_mm": -6.269884885703889
+    },
+    {
+      "selection": 18,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 542,
+      "b_minus_a_height_mm": -5.369068455161802
+    },
+    {
+      "selection": 18,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 454,
+      "b_minus_a_height_mm": -6.845312000443582
+    },
+    {
+      "selection": 18,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 325,
+      "b_minus_a_height_mm": -8.181744185704943
+    },
+    {
+      "selection": 18,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 503,
+      "b_minus_a_height_mm": -6.472248967914096
+    },
+    {
+      "selection": 18,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 552,
+      "b_minus_a_height_mm": -5.882021888823696
+    },
+    {
+      "selection": 18,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 324,
+      "b_minus_a_height_mm": 2.270408260260038
+    },
+    {
+      "selection": 18,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 356,
+      "b_minus_a_height_mm": -12.487591754523185
+    },
+    {
+      "selection": 18,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 471,
+      "b_minus_a_height_mm": -8.904366241603789
+    },
+    {
+      "selection": 18,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 491,
+      "b_minus_a_height_mm": -4.30825334428736
+    },
+    {
+      "selection": 18,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 104,
+      "b_minus_a_height_mm": -2.7138159510299302
+    },
+    {
+      "selection": 18,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 310,
+      "b_minus_a_height_mm": 0.09814129948393391
+    },
+    {
+      "selection": 18,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 448,
+      "b_minus_a_height_mm": 1.1499896309226654
+    },
+    {
+      "selection": 18,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 398,
+      "b_minus_a_height_mm": 0.7975022779268817
+    },
+    {
+      "selection": 18,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 283,
+      "b_minus_a_height_mm": 2.1437079360923095
+    },
+    {
+      "selection": 18,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 449,
+      "b_minus_a_height_mm": 1.1252196764197642
+    },
+    {
+      "selection": 19,
+      "camera_a": "836212060125",
+      "camera_b": "839512060362",
+      "common_cells": 137,
+      "b_minus_a_height_mm": 0.16669725465329144
+    },
+    {
+      "selection": 19,
+      "camera_a": "836212060125",
+      "camera_b": "840412060917",
+      "common_cells": 271,
+      "b_minus_a_height_mm": -3.081966460997787
+    },
+    {
+      "selection": 19,
+      "camera_a": "836212060125",
+      "camera_b": "841412060263",
+      "common_cells": 378,
+      "b_minus_a_height_mm": 2.3552593118826914
+    },
+    {
+      "selection": 19,
+      "camera_a": "836212060125",
+      "camera_b": "932122060857",
+      "common_cells": 115,
+      "b_minus_a_height_mm": -6.843862166012412
+    },
+    {
+      "selection": 19,
+      "camera_a": "836212060125",
+      "camera_b": "932122060861",
+      "common_cells": 333,
+      "b_minus_a_height_mm": -8.590461598185842
+    },
+    {
+      "selection": 19,
+      "camera_a": "836212060125",
+      "camera_b": "932122061900",
+      "common_cells": 349,
+      "b_minus_a_height_mm": -10.491114439798665
+    },
+    {
+      "selection": 19,
+      "camera_a": "836212060125",
+      "camera_b": "932122062010",
+      "common_cells": 391,
+      "b_minus_a_height_mm": -7.772471121969716
+    },
+    {
+      "selection": 19,
+      "camera_a": "839512060362",
+      "camera_b": "840412060917",
+      "common_cells": 304,
+      "b_minus_a_height_mm": 4.057083393884165
+    },
+    {
+      "selection": 19,
+      "camera_a": "839512060362",
+      "camera_b": "841412060263",
+      "common_cells": 233,
+      "b_minus_a_height_mm": -6.292455591704625
+    },
+    {
+      "selection": 19,
+      "camera_a": "839512060362",
+      "camera_b": "932122060857",
+      "common_cells": 250,
+      "b_minus_a_height_mm": -3.8734715522254355
+    },
+    {
+      "selection": 19,
+      "camera_a": "839512060362",
+      "camera_b": "932122060861",
+      "common_cells": 108,
+      "b_minus_a_height_mm": -9.520849860418885
+    },
+    {
+      "selection": 19,
+      "camera_a": "839512060362",
+      "camera_b": "932122061900",
+      "common_cells": 271,
+      "b_minus_a_height_mm": -6.44068731976713
+    },
+    {
+      "selection": 19,
+      "camera_a": "839512060362",
+      "camera_b": "932122062010",
+      "common_cells": 237,
+      "b_minus_a_height_mm": -5.878391761936345
+    },
+    {
+      "selection": 19,
+      "camera_a": "840412060917",
+      "camera_b": "841412060263",
+      "common_cells": 468,
+      "b_minus_a_height_mm": -4.785880217259869
+    },
+    {
+      "selection": 19,
+      "camera_a": "840412060917",
+      "camera_b": "932122060857",
+      "common_cells": 462,
+      "b_minus_a_height_mm": -7.849799948715902
+    },
+    {
+      "selection": 19,
+      "camera_a": "840412060917",
+      "camera_b": "932122060861",
+      "common_cells": 319,
+      "b_minus_a_height_mm": -7.519402098906836
+    },
+    {
+      "selection": 19,
+      "camera_a": "840412060917",
+      "camera_b": "932122061900",
+      "common_cells": 525,
+      "b_minus_a_height_mm": -7.675637130518553
+    },
+    {
+      "selection": 19,
+      "camera_a": "840412060917",
+      "camera_b": "932122062010",
+      "common_cells": 516,
+      "b_minus_a_height_mm": -6.6278540531276295
+    },
+    {
+      "selection": 19,
+      "camera_a": "841412060263",
+      "camera_b": "932122060857",
+      "common_cells": 264,
+      "b_minus_a_height_mm": 4.3133469778852405
+    },
+    {
+      "selection": 19,
+      "camera_a": "841412060263",
+      "camera_b": "932122060861",
+      "common_cells": 393,
+      "b_minus_a_height_mm": -10.725131633364526
+    },
+    {
+      "selection": 19,
+      "camera_a": "841412060263",
+      "camera_b": "932122061900",
+      "common_cells": 503,
+      "b_minus_a_height_mm": -9.069887433543865
+    },
+    {
+      "selection": 19,
+      "camera_a": "841412060263",
+      "camera_b": "932122062010",
+      "common_cells": 502,
+      "b_minus_a_height_mm": -6.5116438891260895
+    },
+    {
+      "selection": 19,
+      "camera_a": "932122060857",
+      "camera_b": "932122060861",
+      "common_cells": 80,
+      "b_minus_a_height_mm": -2.1666185239795364
+    },
+    {
+      "selection": 19,
+      "camera_a": "932122060857",
+      "camera_b": "932122061900",
+      "common_cells": 309,
+      "b_minus_a_height_mm": 0.08650781591695811
+    },
+    {
+      "selection": 19,
+      "camera_a": "932122060857",
+      "camera_b": "932122062010",
+      "common_cells": 383,
+      "b_minus_a_height_mm": 1.6054182673877477
+    },
+    {
+      "selection": 19,
+      "camera_a": "932122060861",
+      "camera_b": "932122061900",
+      "common_cells": 488,
+      "b_minus_a_height_mm": -0.3457548531621555
+    },
+    {
+      "selection": 19,
+      "camera_a": "932122060861",
+      "camera_b": "932122062010",
+      "common_cells": 333,
+      "b_minus_a_height_mm": 0.7192575606610454
+    },
+    {
+      "selection": 19,
+      "camera_a": "932122061900",
+      "camera_b": "932122062010",
+      "common_cells": 487,
+      "b_minus_a_height_mm": 1.803194173431888
+    }
+  ]
+}

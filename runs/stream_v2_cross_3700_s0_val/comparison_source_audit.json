@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "differences": {
+    "engine/stream_checkpoint.py": {
+      "dual": "ec73ce54ffc9ee7eb4738240d30bf9fa2b430fff176f39ac35a43a05fbfced68",
+      "cross": "6239b5fabb7281d448320db0853c4a4d1409a053b14643d589df4aa57bfb036b"
+    },
+    "engine/stream_config.py": {
+      "dual": "83037ca10169ef7c1439fc35732da2beb96edec034a22c919a7d5116112b631a",
+      "cross": "42ba08edb1e3491fee10a0bb4773b4bfa858785fc3c2440a9e35c8a0c4ecdde8"
+    },
+    "engine/stream_runtime.py": {
+      "dual": "f64a819f85d1913f9eba64528cc433c08ffc3447489be2959c95d72738ed2a41",
+      "cross": "da2c50bcbe210de74d265683373e8219010f623977a035582e52be125f5dced3"
+    },
+    "engine/stream_state.py": {
+      "dual": "a143c75b7c086dee59f5c3b51a0576b9d82d87dd326f85a91107a4af84f70b4c",
+      "cross": "0ec13a64d916c6d151051f319c95d587395c071454135784133333c720e371d4"
+    },
+    "engine/stream_training.py": {
+      "dual": "31e1be05b7ae889b523dc01492fb373b1548eca93175fb6fb8d12ef5838eff0b",
+      "cross": "266a80dc90c02b89e6eb79a1282cd166fcacb26dd714277994490bb33c5ecaf6"
+    },
+    "evaluate_stream.py": {
+      "dual": "f71d8931c11cb1288e85e447ff912bc98727ea86777c12819da1d4983215a9ed",
+      "cross": "1e0186b91c7705b6cbbe8345f6769fa1b60e5345ff46c5587432e26d8e16bae4"
+    },
+    "models/stream_cross_readout.py": {
+      "dual": null,
+      "cross": "8da205118259bec50ba5973c8199c8319683595ace7cda06fbc1f002db319fca"
+    },
+    "models/stream_tracker.py": {
+      "dual": "1f2ecc3b444ad34988e400d86289a34500b79ac46d78c77747b4d3fd3ae06627",
+      "cross": "30ff66c34f284b28c4bf747215333341144eb172f167bd2e7361ba93d2f8cc19"
+    },
+    "train_stream.py": {
+      "dual": "9ef00dd1ad7e4266ab720e565dc9c0df9505a0b124bee7d9ef5c8f79b9a22451",
+      "cross": "fa38a80b50a4333a660215f8aebbe8fb6f5868ea3a6b97473375f646df48669c"
+    }
+  },
+  "geometry_and_metric_implementation_unchanged": true,
+  "architecture_and_cache_changed": true,
+  "interpretation": "Cross attention replaces linear context fusion and adds a separate causal context KV cache; checkpoint/cache metadata handling changes. Training budgets are not matched."
+}

@@ -1,0 +1,9 @@
+{
+  "paused": true,
+  "step": 31000,
+  "checkpoint": "runs/lip_fp_31000/resume_31000.pt",
+  "checkpoint_sha256": "4053835d1a7a7b75a78cc6c64d4af269549215a111dbb8723da47ab454bfe6b0",
+  "previous_launcher": 814286,
+  "previous_command": "python -m torch.distributed.run --standalone --nproc_per_node=8 -m lip.train --config runs/basin_speed_v1/threaded.yaml --data-root /mnt/why/dexycb_lip/cache/raw_full_20260910 --index-root cache/dexycb_s0 --output runs/lip_v1_s0 --resume runs/basin_speed_v1/threaded/last.pt ",
+  "utc": "2026-09-11T01:43:20Z"
+}

@@ -1,0 +1,29 @@
+
+==================================== ERRORS ====================================
+___________________ ERROR collecting tests/test_autostart.py ___________________
+tests/test_autostart.py:10: in <module>
+    auto=importlib.util.module_from_spec(spec);spec.loader.exec_module(auto)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap_external>:995: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1132: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1190: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/mnt/why/dexycb_lip/runs/stream_v2_preflight/candidate/tools/auto_full_train.py'
+_________________ ERROR collecting tests/test_fp_comparison.py _________________
+tests/test_fp_comparison.py:5: in <module>
+    m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+<frozen importlib._bootstrap_external>:995: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1132: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1190: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/mnt/why/dexycb_lip/runs/stream_v2_preflight/candidate/tools/compare_foundationpose.py'
+=========================== short test summary info ============================
+ERROR tests/test_autostart.py - FileNotFoundError: [Errno 2] No such file or ...
+ERROR tests/test_fp_comparison.py - FileNotFoundError: [Errno 2] No such file...
+!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
+2 deselected, 2 errors in 5.98s

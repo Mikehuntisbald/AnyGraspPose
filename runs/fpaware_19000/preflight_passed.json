@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "rank_steps": [
+    19006,
+    19006,
+    19006,
+    19006,
+    19006,
+    19006,
+    19006,
+    19006
+  ],
+  "config_sha256": "2265e2a02da98591316bffc642489801ce4dac9bcfd9873a1b542cd8166afbbf",
+  "scope": "34 unit tests plus real batch32 three-mode backward probe and eight-rank six-step resumed FP-aware run"
+}

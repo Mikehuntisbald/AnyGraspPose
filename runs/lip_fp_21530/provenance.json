@@ -1,0 +1,11 @@
+{
+  "source": "runs/basin_speed_v1/threaded/last.pt",
+  "step": 21530,
+  "sha256": "60985b08628c7ce8c4cdf6247f3f90b2d292a92b650dd0215a4347e0d2db5150",
+  "accepted_training_lineage": true,
+  "reference": "runs/lip_fp_31000",
+  "dataset": "official s0 val",
+  "streams": 320,
+  "frames": 23200,
+  "shared_with_training": true
+}

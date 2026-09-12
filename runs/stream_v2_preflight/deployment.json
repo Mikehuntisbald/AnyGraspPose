@@ -1,0 +1,9 @@
+{
+  "runtime": "/mnt/why/dexycb_lip/stream_v2",
+  "source_sha256": "3d9cd99903161b0ee7b17cc50df80afe5204cb62c0a3674961f87fd161d9d47e",
+  "python": "/mnt/why/dexycb_lip/.venv-fp/bin/python",
+  "copied_checkpoints": false,
+  "data_readonly_policy": true,
+  "git_pushed": false,
+  "long_training_started": false
+}

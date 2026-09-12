@@ -1,0 +1,9 @@
+{
+  "target_architecture": "stream_dual_cross",
+  "cache_contract": "lip-v2-source17-context-readout-cross-gated-v1",
+  "optimizer_restored": false,
+  "new_stage_step": 0,
+  "loaded_parameter_numel": 15648398,
+  "total_parameter_numel": 16043151,
+  "coverage": 0.9753942975416737
+}

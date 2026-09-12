@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "bitwise_equal": true,
+  "resume_order_equal": true,
+  "clips": 32,
+  "rows": [
+    {
+      "threads": 1,
+      "clips": 32,
+      "seconds": 8.015837433049455,
+      "clips_per_second": 3.9920969290199637
+    },
+    {
+      "threads": 4,
+      "clips": 32,
+      "seconds": 2.2047022701008245,
+      "clips_per_second": 14.514431464950862
+    },
+    {
+      "threads": 1,
+      "clips": 32,
+      "seconds": 7.724934724043123,
+      "clips_per_second": 4.142429825381313
+    },
+    {
+      "threads": 4,
+      "clips": 32,
+      "seconds": 2.1667309909826145,
+      "clips_per_second": 14.768792311171019
+    }
+  ]
+}

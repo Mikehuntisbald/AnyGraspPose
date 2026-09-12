@@ -1,0 +1,6 @@
+{
+  "passed": true,
+  "streams": 2,
+  "frames": 16,
+  "actual_frozen_FP_calls": 14
+}

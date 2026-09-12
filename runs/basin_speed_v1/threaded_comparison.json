@@ -1,0 +1,53 @@
+{
+  "passed": false,
+  "baseline": {
+    "mean_step_seconds": 8.109910173315173,
+    "median_step_seconds": 8.324545880954247,
+    "modes": {
+      "noisy_gt": {
+        "steps": 9,
+        "mean_seconds": 8.287085285785402
+      },
+      "lip_only": {
+        "steps": 10,
+        "mean_seconds": 7.276101068186108
+      },
+      "lip_fp": {
+        "steps": 3,
+        "mean_seconds": 10.357748519668045
+      }
+    },
+    "peak_gpu_bytes": 23906278400
+  },
+  "optimized": {
+    "mean_step_seconds": 4.044111814138225,
+    "median_step_seconds": 3.5168779069790617,
+    "modes": {
+      "noisy_gt": {
+        "steps": 9,
+        "mean_seconds": 3.5505387521245413
+      },
+      "lip_only": {
+        "steps": 10,
+        "mean_seconds": 3.276278553076554
+      },
+      "lip_fp": {
+        "steps": 3,
+        "mean_seconds": 8.084275203718184
+      }
+    },
+    "peak_gpu_bytes": 23905398272
+  },
+  "speedup": 2.005362498871299,
+  "loss_max_abs_difference": 0.003685479983687401,
+  "model_max_abs_difference": 0.000691315159201622,
+  "optimizer_max_abs_difference": 0.0026123225688934326,
+  "scheduler_equal": true,
+  "sampler_equal": true,
+  "config_sha256": "269072c8c3931e4672532dfcccac2b87e089bd67c8274feb05cce6e4d78beb4d",
+  "peak_container_bytes": 223272665088,
+  "steps_per_rank": 30,
+  "world_size": 8,
+  "selected_config": "threaded.yaml",
+  "selected_checkpoint": "threaded/last.pt"
+}

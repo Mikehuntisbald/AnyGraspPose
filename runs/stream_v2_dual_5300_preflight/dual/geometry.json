@@ -1,0 +1,135 @@
+{
+  "completed": true,
+  "rows": [
+    {
+      "stream_id": "20201002-subject-08/20201002_105035/932122060861",
+      "object_id": 2,
+      "frame": 22,
+      "pixels": 8034,
+      "median_signed_mm": 10.551750183105469,
+      "median_abs_mm": 10.555923461914062
+    },
+    {
+      "stream_id": "20200928-subject-07/20200928_153856/841412060263",
+      "object_id": 11,
+      "frame": 3,
+      "pixels": 12658,
+      "median_signed_mm": -7.0894060134887695,
+      "median_abs_mm": 7.341504096984863
+    },
+    {
+      "stream_id": "20200813-subject-02/20200813_153839/932122061900",
+      "object_id": 14,
+      "frame": 13,
+      "pixels": 2757,
+      "median_signed_mm": 12.933671951293945,
+      "median_abs_mm": 12.933671951293945
+    },
+    {
+      "stream_id": "20200918-subject-06/20200918_121101/932122060861",
+      "object_id": 20,
+      "frame": 27,
+      "pixels": 2496,
+      "median_signed_mm": 16.464441299438477,
+      "median_abs_mm": 16.753435134887695
+    },
+    {
+      "stream_id": "20201022-subject-10/20201022_112907/839512060362",
+      "object_id": 11,
+      "frame": 4,
+      "pixels": 18547,
+      "median_signed_mm": 0.1704692840576172,
+      "median_abs_mm": 1.3829469680786133
+    },
+    {
+      "stream_id": "20201002-subject-08/20201002_105012/932122060857",
+      "object_id": 2,
+      "frame": 37,
+      "pixels": 7813,
+      "median_signed_mm": 4.593610763549805,
+      "median_abs_mm": 6.997823715209961
+    },
+    {
+      "stream_id": "20200903-subject-04/20200903_104322/841412060263",
+      "object_id": 3,
+      "frame": 29,
+      "pixels": 3701,
+      "median_signed_mm": -7.162213325500488,
+      "median_abs_mm": 7.209658622741699
+    },
+    {
+      "stream_id": "20200903-subject-04/20200903_103710/932122061900",
+      "object_id": 1,
+      "frame": 29,
+      "pixels": 7070,
+      "median_signed_mm": 10.195493698120117,
+      "median_abs_mm": 10.198890686035156
+    },
+    {
+      "stream_id": "20201002-subject-08/20201002_112232/932122060861",
+      "object_id": 16,
+      "frame": 42,
+      "pixels": 6908,
+      "median_signed_mm": 14.983922958374023,
+      "median_abs_mm": 15.311300277709961
+    },
+    {
+      "stream_id": "20201022-subject-10/20201022_112255/932122062010",
+      "object_id": 8,
+      "frame": 16,
+      "pixels": 2212,
+      "median_signed_mm": 8.309871673583984,
+      "median_abs_mm": 8.309871673583984
+    },
+    {
+      "stream_id": "20200928-subject-07/20200928_155913/840412060917",
+      "object_id": 21,
+      "frame": 29,
+      "pixels": 1397,
+      "median_signed_mm": 0.16951560974121094,
+      "median_abs_mm": 2.2422075271606445
+    },
+    {
+      "stream_id": "20200709-subject-01/20200709_151724/932122060861",
+      "object_id": 16,
+      "frame": 36,
+      "pixels": 6600,
+      "median_signed_mm": 4.77290153503418,
+      "median_abs_mm": 4.919439315795898
+    },
+    {
+      "stream_id": "20200820-subject-03/20200820_141048/840412060917",
+      "object_id": 7,
+      "frame": 26,
+      "pixels": 1497,
+      "median_signed_mm": 8.513092994689941,
+      "median_abs_mm": 8.753418922424316
+    },
+    {
+      "stream_id": "20201015-subject-09/20201015_151513/932122060861",
+      "object_id": 21,
+      "frame": 42,
+      "pixels": 2674,
+      "median_signed_mm": 4.404783248901367,
+      "median_abs_mm": 5.312114715576172
+    },
+    {
+      "stream_id": "20201002-subject-08/20201002_110253/841412060263",
+      "object_id": 8,
+      "frame": 1,
+      "pixels": 1355,
+      "median_signed_mm": -12.282609939575195,
+      "median_abs_mm": 12.282609939575195
+    },
+    {
+      "stream_id": "20201002-subject-08/20201002_104859/932122061900",
+      "object_id": 2,
+      "frame": 22,
+      "pixels": 10374,
+      "median_signed_mm": 17.59633445739746,
+      "median_abs_mm": 17.59633445739746
+    }
+  ],
+  "depth_correction": false,
+  "scope": "Train-only GT render diagnostic, no input correction. Existing depth/GT mismatch is retained; no fine calibration claim."
+}

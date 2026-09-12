@@ -1,0 +1,58 @@
+{
+  "status": "resumed_and_updating",
+  "ranks": [
+    {
+      "rank": 0,
+      "step": 21031,
+      "basin_weight": 0.01,
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 1,
+      "step": 21031,
+      "basin_weight": 0.01,
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 2,
+      "step": 21031,
+      "basin_weight": 0.01,
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 3,
+      "step": 21031,
+      "basin_weight": 0.01,
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 4,
+      "step": 21031,
+      "basin_weight": 0.01,
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 5,
+      "step": 21031,
+      "basin_weight": 0.01,
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 6,
+      "step": 21031,
+      "basin_weight": 0.01,
+      "nonfinite_count": 0
+    },
+    {
+      "rank": 7,
+      "step": 21031,
+      "basin_weight": 0.01,
+      "nonfinite_count": 0
+    }
+  ],
+  "sampled_peak_container_gib": 133.83290481567383,
+  "tests": "43 passed, 1 skipped",
+  "probe_steps": 30,
+  "source_checkpoint_step": 21000,
+  "main_resume_step": 21030
+}

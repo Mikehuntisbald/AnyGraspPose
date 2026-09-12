@@ -1,0 +1,51 @@
+{
+  "architecture_id": "stream_single",
+  "config_hash": "9177a737fb922551d6d0bb5f0760b43f9438580e139336de79b46ebfc7d12d97",
+  "source_sha256": "3d9cd99903161b0ee7b17cc50df80afe5204cb62c0a3674961f87fd161d9d47e",
+  "cache_contract": "lip-v2-source17-block-local-timebias-v1",
+  "split_hash": "54a35253db5bea988ffea5e41641d3313b31c5568193a186dd4e4359c497804b",
+  "mesh_hash": "359f53a5f41963d3fdfc2542bd640432d820bfc99a055baec8976ad99966d32c",
+  "init_sha256": "3141e0171611ddd60f43c8c4a41130b93df89e58491732623115f1210ea7786c",
+  "approved": true,
+  "checks": {
+    "cpu_tests": {
+      "status": "passed",
+      "tests": 68
+    },
+    "full_unroll_memory": {
+      "status": "passed",
+      "records": "/mnt/why/dexycb_lip/runs/stream_v2_preflight/single/memory_probe/rank0.jsonl"
+    },
+    "overfit": {
+      "status": "completed",
+      "steps": 300,
+      "real_fragments": 16,
+      "before_loss": 0.18768427171744406,
+      "after_loss": 0.06516792485490441,
+      "improved": true,
+      "scope": "No fabricated mandatory accuracy target"
+    },
+    "geometry": {
+      "status": "checked_with_known_depth_mismatch",
+      "correction": false
+    },
+    "cuda_tests": {
+      "status": "passed",
+      "reference_and_10000_steps": true
+    },
+    "ddp": {
+      "status": "passed",
+      "steps": 50,
+      "resume_steps": 3,
+      "all_ranks_restored": true
+    }
+  },
+  "completed": true,
+  "preflight_source_sha256": "626abef7a9a6e2fb915fc891227f42efcad63a56cb514cad0f36e0360c21332d",
+  "source_revalidation": {
+    "historical_digest_reconstructed": true,
+    "final_tests_sha256": "faef379812406a88a59ac8dd5c5d2d25f3425cc0a5f1e86203f83176f618935e",
+    "scope": "Final source adds FP32 evaluation and strict population checks, metadata/CLI guards; dual partial-query migration accounting/LR was present in dual trials and does not change single groups."
+  },
+  "final_tests_passed": 76
+}

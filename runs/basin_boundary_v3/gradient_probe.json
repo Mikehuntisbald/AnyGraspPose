@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "scope": "engineering-only probe; validated critic gradient probe; no production update",
+  "actor_step": 20000,
+  "batch": 32,
+  "rollout": 4,
+  "weight": 0.01,
+  "peak_bytes": 22908137984,
+  "critic_frozen": true,
+  "fp_frozen": true,
+  "values": {
+    "loss": 0.14726326428353786,
+    "translation": 0.016237942734733224,
+    "rotation": 0.1377602070569992,
+    "points": 0.06115079205483198,
+    "pose_loss": 0.1462688334286213,
+    "basin_loss": 0.09944297932088375,
+    "update_rotation_rad": 0.1352079026401043,
+    "update_center_norm": 0.15613862872123718,
+    "render_time": 0.6749335749773309,
+    "forward_time": 0.6482353968312964,
+    "backward_time": 0.7118698599515483,
+    "fp_transition_time": 84.97412086091936,
+    "rotation_clipped": 0.01171875,
+    "translation_clipped": 0.0
+  },
+  "gradient_diagnostic": {
+    "pose_head_gradient_norm": 1.4588842391967773,
+    "basin_head_gradient_norm": 0.6029589176177979,
+    "weighted_gradient_ratio_at_0_01": 0.004133014008402824,
+    "gradient_cosine": 0.03829346224665642
+  }
+}

@@ -1,0 +1,93 @@
+{"sampler_available_buckets": ["moving", "occluded", "uniform"], "weights": [0.5, 0.25, 0.25], "rank": 0}
+Warp 1.17.0 initialized:
+   CUDA Toolkit 12.9, Driver 13.0
+   Devices:
+     "cpu"      : "x86_64"
+     "cuda:0"   : "NVIDIA H20" (95 GiB, sm_90, mempool enabled)
+   Kernel cache:
+     /root/.cache/warp/1.17.0
+[__init__()] welcome
+[__init__()] self.cfg: 
+ lr: 0.0001
+c_in: 6
+zfar: .inf
+debug: null
+w_rot: 0.1
+n_view: 1
+run_id: null
+use_BN: true
+rot_rep: axis_angle
+ckpt_dir: /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+exp_name: 2023-10-28-18-33-37
+save_dir: /tmp/2023-10-28-18-33-37/
+loss_type: l2
+optimizer: adam
+trans_rep: tracknet
+batch_size: 64
+crop_ratio: 1.2
+use_normal: false
+BN_momentum: 0.1
+max_num_key: null
+warmup_step: -1
+input_resize:
+- 160
+- 160
+max_step_val: 1000
+normal_uint8: false
+vis_interval: 1000
+weight_decay: 0
+n_max_objects: null
+normalize_xyz: true
+clip_grad_norm: 'Infinity'
+rot_normalizer: 0.3490658503988659
+trans_normalizer:
+- 0.019999999552965164
+- 0.019999999552965164
+- 0.05000000074505806
+max_step_per_epoch: 25000
+val_epoch_interval: 10
+n_dataloader_workers: 60
+enable_amp: true
+use_mask: false
+
+[__init__()] self.h5_file:
+[__init__()] Using pretrained model from /mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/../../weights/2023-10-28-18-33-37/model_best.pth
+[__init__()] init done
+Module Utils 65dffc6 load on device 'cuda:0' took 3.01 ms  (cached)
+/usr/local/lib/python3.12/dist-packages/torch/__init__.py:1264: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at /pytorch/torch/csrc/tensor/python_tensor.cpp:434.)
+  _C._set_default_tensor_type(t)
+/mnt/why/dexycb_lip/third_party/FoundationPose/learning/training/predict_pose_refine.py:190: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.amp):
+{"rank": 2, "frames": 16, "total_owned": 538, "seconds": 83.73029899597168}
+{"rank": 2, "frames": 32, "total_owned": 538, "seconds": 144.008136510849}
+{"rank": 2, "frames": 48, "total_owned": 538, "seconds": 165.03834438323975}
+{"rank": 2, "frames": 64, "total_owned": 538, "seconds": 185.99042296409607}
+{"rank": 2, "frames": 80, "total_owned": 538, "seconds": 197.7894208431244}
+{"rank": 2, "frames": 96, "total_owned": 538, "seconds": 210.6318871974945}
+{"rank": 2, "frames": 112, "total_owned": 538, "seconds": 222.34292125701904}
+{"rank": 2, "frames": 128, "total_owned": 538, "seconds": 232.65821743011475}
+{"rank": 2, "frames": 144, "total_owned": 538, "seconds": 242.68456172943115}
+{"rank": 2, "frames": 160, "total_owned": 538, "seconds": 257.2440037727356}
+{"rank": 2, "frames": 176, "total_owned": 538, "seconds": 269.06121802330017}
+{"rank": 2, "frames": 192, "total_owned": 538, "seconds": 279.81770396232605}
+{"rank": 2, "frames": 208, "total_owned": 538, "seconds": 290.5176658630371}
+{"rank": 2, "frames": 224, "total_owned": 538, "seconds": 300.7750861644745}
+{"rank": 2, "frames": 240, "total_owned": 538, "seconds": 312.10657787323}
+{"rank": 2, "frames": 256, "total_owned": 538, "seconds": 322.14207339286804}
+{"rank": 2, "frames": 272, "total_owned": 538, "seconds": 331.97515654563904}
+{"rank": 2, "frames": 288, "total_owned": 538, "seconds": 342.5223069190979}
+{"rank": 2, "frames": 304, "total_owned": 538, "seconds": 352.54612159729004}
+{"rank": 2, "frames": 320, "total_owned": 538, "seconds": 361.459349155426}
+{"rank": 2, "frames": 336, "total_owned": 538, "seconds": 371.6837878227234}
+{"rank": 2, "frames": 352, "total_owned": 538, "seconds": 382.2714886665344}
+{"rank": 2, "frames": 368, "total_owned": 538, "seconds": 392.8417580127716}
+{"rank": 2, "frames": 384, "total_owned": 538, "seconds": 403.2274875640869}
+{"rank": 2, "frames": 400, "total_owned": 538, "seconds": 415.05061054229736}
+{"rank": 2, "frames": 416, "total_owned": 538, "seconds": 426.6206467151642}
+{"rank": 2, "frames": 432, "total_owned": 538, "seconds": 438.2110970020294}
+{"rank": 2, "frames": 448, "total_owned": 538, "seconds": 448.9764404296875}
+{"rank": 2, "frames": 464, "total_owned": 538, "seconds": 462.2200915813446}
+{"rank": 2, "frames": 480, "total_owned": 538, "seconds": 478.0643563270569}
+{"rank": 2, "frames": 496, "total_owned": 538, "seconds": 493.3580861091614}
+{"rank": 2, "frames": 512, "total_owned": 538, "seconds": 508.52420687675476}
+{"rank": 2, "frames": 528, "total_owned": 538, "seconds": 522.5050625801086}

@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "steps_per_rank": 30,
+  "world_size": 8,
+  "config_sha256": "6a12d1afe34f1bbf4b5e731bd3d44a0bf6fde7fb9515128240c1451bf99d9980",
+  "memory": {
+    "utc": 1789040356.4855325,
+    "usage": 37531901952,
+    "limit": 549755813888,
+    "rss": 2205786112,
+    "shmem": 0
+  }
+}
