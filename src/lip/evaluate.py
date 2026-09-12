@@ -43,11 +43,18 @@ def overlay(path,rgb,pred,gt,mesh,k):
 
 
 @torch.no_grad()
-def evaluate(model,c,root,index_root,out,split='val',mode='closed-loop',limit_streams=None,max_frames=None,allow_verified_subset=False,checkpoint_info=None):
+def evaluate(model,c,root,index_root,out,split='val',mode='closed-loop',limit_streams=None,max_frames=None,allow_verified_subset=False,checkpoint_info=None,
+             fp_transition=None,stream_ids=None):
     index=Path(index_root);out=Path(out);out.mkdir(parents=True,exist_ok=True)
     audit=check_data_gate(index,allow_verified_subset);model.eval();device=next(model.parameters()).device;renderer=Renderer(device)
     streams=[json.loads(x) for x in (index/'streams.jsonl').read_text().splitlines() if json.loads(x)['split']==split]
     streams=fixed_balanced_subset(sorted(streams,key=lambda x:x['stream_id']),limit_streams,lambda s:s['object_id'],c['seed'])
+    if stream_ids is not None:
+        requested=set(stream_ids)
+        if len(requested)!=len(stream_ids):raise ValueError('Duplicate requested streams')
+        streams=[s for s in streams if s['stream_id'] in requested]
+        if {s['stream_id'] for s in streams}!=requested:raise ValueError('Requested stream not in selected split')
+    if fp_transition is not None and mode!='closed-loop':raise ValueError('FP transition requires closed-loop evaluation')
     rows=[];manifest=dict(seed=c['seed'],mode=mode,split=split,split_hash=audit['split_hash'],mesh_hash=audit['mesh_hash'],
                          initial_pose_source='gt_first_frame' if mode=='closed-loop' else 'noisy_strict_past_gt',
                          full_sequences=max_frames is None,quick_subset=limit_streams is not None,
@@ -56,6 +63,10 @@ def evaluate(model,c,root,index_root,out,split='val',mode='closed-loop',limit_st
     manifest['diagnostic_train_subset']=allow_verified_subset and split=='train'
     manifest['checkpoint']=checkpoint_info or {'source':'live model in caller'}
     manifest['config']=c
+    manifest.update(method='LIP+FP' if fp_transition is not None else 'LIP',
+                    history_state_source='post_FP' if fp_transition is not None else 'LIP',
+                    fp_iterations=2 if fp_transition is not None else 0,
+                    precision='LIP bf16; official FP float16' if fp_transition is not None else c['precision'])
     thresholds=motion_thresholds(index,c.get('motion_speed_quantile',.75))
     manifest['moving_thresholds']=thresholds
     predictions=(out/'predictions.jsonl').open('w');first_failure={};latencies=[]
@@ -89,7 +100,7 @@ def evaluate(model,c,root,index_root,out,split='val',mode='closed-loop',limit_st
             for j,frame in enumerate(frames[:max_frames]):
                 sync(device);begin=time.perf_counter();rgb,depth=read_frame(root,s,int(frame),audit['depth_scale_to_m'])
                 rgbs.append(torch.from_numpy(rgb).to(device));depths.append(torch.from_numpy(depth).to(device));ts.append(float(frame/audit['fps']))
-                preprocess=time.perf_counter()-begin;rt=nt=0.;nonfinite_output=False
+                preprocess=time.perf_counter()-begin;rt=nt=ft=0.;nonfinite_output=False;proposal=None
                 if j==0:pred=centered[0].to(device)  # Only allowed GT -> state boundary.
                 else:
                     l=c['clip_length'];n=min(l,len(rgbs));pad=l-n
@@ -104,6 +115,12 @@ def evaluate(model,c,root,index_root,out,split='val',mode='closed-loop',limit_st
                         pred=model(**stack_features([f]))['pose_centered'][0]
                     sync(device);nt=time.perf_counter()-start
                     if not torch.isfinite(pred).all():pred=accepted[-1].clone();nonfinite_output=True
+                    if fp_transition is not None:
+                        if nonfinite_output:raise FloatingPointError('Nonfinite LIP proposal in hybrid evaluation')
+                        proposal=pred.detach().clone();sync(device);start=time.perf_counter()
+                        pred=fp_transition(proposal,torch.from_numpy(rgb),torch.from_numpy(depth),k,s['mesh_path'],mesh['center'])
+                        if not torch.isfinite(pred).all():raise FloatingPointError('Nonfinite refined state')
+                        sync(device);ft=time.perf_counter()-start
                 accepted.append(pred.detach());sync(device);end_to_end=time.perf_counter()-begin
                 # GT becomes available only in this metric branch, after state commit.
                 gt=centered[j];v=visibility(root,s,int(frame),gt.to(device),k,mesh,renderer)
@@ -117,16 +134,19 @@ def evaluate(model,c,root,index_root,out,split='val',mode='closed-loop',limit_st
                                 angle(gt[:3,:3]@centered[j-1,:3,:3].T)/dt>thresholds['rotation_rad_per_sec'])
                 row=dict(**e,object_id=s['object_id'],stream_id=s['stream_id'],frame_index=int(frame),visibility=v,visibility_bin=visibility_bin(v),
                          moving=moving,lost=streak>=5 or nonfinite_output,nonfinite_output=nonfinite_output,pose_centered=pred.cpu().tolist(),pose_original=original_pose(pred,torch.as_tensor(mesh['center'],device=device)).cpu().tolist())
+                if proposal is not None:row['lip_proposal_centered']=proposal.cpu().tolist()
                 predictions.write(json.dumps(row)+'\n');predictions.flush();rows.append(row)
-                if j:latencies.append(dict(preprocess=preprocess,render=rt,network=nt,optional_fp=0.,end_to_end=end_to_end))
+                if j:latencies.append(dict(preprocess=preprocess,render=rt,network=nt,optional_fp=ft,end_to_end=end_to_end))
                 if j<4 or j%30==0 or j==len(frames[:max_frames])-1 or streak==5:overlay(out/(s['stream_id'].replace('/','_')+f'_{frame:06d}.jpg'),rgb,pred.cpu().numpy(),gt.numpy(),mesh,np.array(s['intrinsics']))
                 # Bound observation memory; accepted poses are small and retained for audit.
                 if len(rgbs)>c['clip_length']:rgbs.pop(0);depths.pop(0)
+            print(json.dumps(dict(completed_stream=s['stream_id'],frames=len(rows))),flush=True)
     predictions.close();manifest['first_five_consecutive_adds_failures']=first_failure
     if mode=='one-step':report={m:summarize([r for r in rows if r['method']==m]) for m in ['zero-motion','constant-velocity','learned']}
     else:report=summarize(rows)
     report['latency_seconds']={k:dict(mean=float(np.mean([x[k] for x in latencies])),p95=float(np.quantile([x[k] for x in latencies],.95))) for k in latencies[0]} if latencies else {}
-    report['latency_scope']='batch=1 synchronized; excludes GT metrics and visualization; includes raw decode; no FoundationPose'
+    report['latency_scope']='batch=1 synchronized; excludes GT metrics and visualization; includes raw decode and lazy FP object setup when enabled'
+    manifest.update(completed=True,frames=len(rows))
     (out/'manifest.json').write_text(json.dumps(manifest,indent=2));(out/'metrics.json').write_text(json.dumps(report,indent=2))
     return report
 

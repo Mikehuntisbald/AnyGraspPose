@@ -7,7 +7,8 @@ version = "0.1.0"
 requires-python = ">=3.10"
 dependencies = ["torch>=2.5", "torchvision>=0.20", "numpy", "scipy", "trimesh", "opencv-python-headless", "PyYAML", "tensorboard"]
 [project.optional-dependencies]
-test = ["pytest"]
+test = ["pytest", "scikit-learn"]
+analysis = ["matplotlib", "scikit-learn"]
 [tool.setuptools.packages.find]
 where = ["src"]
 [tool.pytest.ini_options]

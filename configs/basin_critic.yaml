@@ -1,0 +1,34 @@
+seed: 731
+source_checkpoint: runs/fpaware_19000/resume.pt
+source_config: runs/fpaware_19000/candidate/configs/fpaware_19000.yaml
+frames: 2048
+candidates_per_frame: 6
+history_probabilities:
+- 0.4
+- 0.3
+- 0.3
+label_success: adds_less_than_0.1_diameter_after_two_fp_iterations
+split_scope: physical_sequence_within_official_s0_train
+split_ratios:
+- 0.8
+- 0.1
+- 0.1
+max_epochs: 120
+patience: 15
+learning_rate: 0.001
+weight_decay: 0.001
+batch_frames: 64
+min_test_positive: 30
+min_test_negative: 30
+min_test_mixed_frames: 30
+min_test_auroc: 0.7
+min_test_pair_accuracy: 0.6
+require_better_than_constant_brier: true
+require_better_than_constant_nll: true
+basin_lambda_max: 0.01
+basin_lambda_warmup_steps: 1000
+latent_stop_gradient: true
+targets_schema_version: 2
+target_metric: adds_over_d
+target_tau: 0.1
+target_margin: 0.005

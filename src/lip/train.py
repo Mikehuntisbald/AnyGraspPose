@@ -60,19 +60,36 @@ def main():
                       **(dict(persistent_workers=True,prefetch_factor=2,multiprocessing_context='spawn') if workers else {}))
     iterator=iter(loader);writer=SummaryWriter(str(output/'tensorboard')) if rank==0 else None
     logfile=(output/f'rank{rank}.jsonl').open('a');model.train()
+    fp_transition=None
+    if c.get('fpaware_enabled'):
+        from lip.integrations.frozen_fp import FrozenFoundationPose
+        fp_transition=FrozenFoundationPose(c['foundationpose_root'],a.data_root,device,c['foundationpose_refiner_sha256'])
+        print(json.dumps(dict(fp_refiner_sha256=fp_transition.weight_sha256,fp_frozen=True,rank=rank)),flush=True)
+    basin_critic=None
+    if c.get('basin_enabled'):
+        from lip.models.basin import load_frozen_basin
+        experimental=c.get('basin_quality_policy')=='experimental_user_authorized'
+        with torch.random.fork_rng(devices=[local] if device.type=='cuda' else []):
+            basin_critic=load_frozen_basin(c['basin_checkpoint'],device,c['basin_checkpoint_sha256'],experimental)
+        print(json.dumps(dict(basin_critic_frozen=True,basin_checkpoint_sha256=c['basin_checkpoint_sha256'],basin_quality_policy=c.get('basin_quality_policy','validated'),rank=rank)),flush=True)
     while step<limit:
         optimizer.zero_grad(set_to_none=True);records=[];begin=time.perf_counter()
         rng=np.random.default_rng(c['seed']+step)
+        history_mode='lip_only';history_probs=None
         u=a.force_rollout or (4 if step>=c['rollout_start_step'] and rng.random()<.5 else 1)
+        if c.get('fpaware_enabled') and step>=c['fpaware_start_step']:
+            from lip.engine.rollout import choose
+            history_mode,history_probs=choose(c,step);u=4
+        basin_weight=c.get('basin_lambda_max',0.)*min(1.,max(0.,(step-c.get('basin_start_step',step))/max(1,c.get('basin_warmup_steps',1000)))) if basin_critic is not None else 0.
         for micro in range(accum):
             t=time.perf_counter();items=next(iterator);data_time=time.perf_counter()-t
-            values,_=batch_step(model,items,renderer,c,u,c.get('history_noise',True),True,1/accum,micro==accum-1)
+            values,_=batch_step(model,items,renderer,c,u,c.get('history_noise',True),True,1/accum,micro==accum-1,history_mode,fp_transition,basin_critic,basin_weight)
             values['data_time']=data_time;records.append(values);position+=1
         norm=torch.nn.utils.clip_grad_norm_(model.parameters(),c['grad_clip_norm'],error_if_nonfinite=True)
         optimizer.step();scheduler.step();step+=1
         elapsed=time.perf_counter()-begin
         values={k:sum(r[k] for r in records)/accum for k in records[0]}
-        values.update(step=step,rank=rank,rollout=u,grad_norm=float(norm),scheduler_step=scheduler.last_epoch,
+        values.update(step=step,rank=rank,run_id=c.get("run_id","legacy"),rollout=u,history_mode=history_mode,history_probs=history_probs,basin_weight=basin_weight,grad_norm=float(norm),scheduler_step=scheduler.last_epoch,
                       sampler_position=position,samples_seen=position*batch*world,effective_batch=batch*accum*world,
                       clips_per_sec=batch*accum/elapsed,observed_frames_per_sec=batch*accum*c['clip_length']*u/elapsed,
                       peak_memory_bytes=torch.cuda.max_memory_allocated(device) if device.type=='cuda' else 0,

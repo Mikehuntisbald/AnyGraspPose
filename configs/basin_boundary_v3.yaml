@@ -1,0 +1,18 @@
+seed: 731
+data: runs/basin_boundary_v3/data
+source_actor: runs/fpaware_19000/resume.pt
+batch_frames: 64
+max_epochs: 150
+patience: 20
+learning_rate: 0.0005
+weight_decay: 0.001
+log_after_weight: 0.3
+pair_weight: 0.5
+pair_margin_d: 0.005
+min_quality_frames: 30
+min_quality_pair_accuracy: 0.6
+min_auroc: 0.7
+basin_lambda_max: 0.01
+basin_warmup_steps: 1000
+validation_scope: 320 fresh frames from 70 physical sequences absent from all v1/v2
+  critic data; previous validation/test excluded from training
