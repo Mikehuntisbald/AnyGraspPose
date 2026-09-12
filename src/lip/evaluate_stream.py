@@ -9,7 +9,7 @@ import torch
 from lip.engine.config import check_data_gate
 from lip.engine.stream_config import load_stream_config,make_model
 from lip.engine.stream_checkpoint import load_init,sha,source_hash
-from lip.engine.stream_state import CACHE_CONTRACT
+from lip.engine.stream_state import cache_contract_for
 from lip.data.index import read_frame
 from lip.geometry.renderer import Renderer
 from lip.geometry.so3 import center_pose,angle
@@ -71,7 +71,7 @@ def main():
     expected_frames=sum(min(s['num_frames'],a.max_frames) if a.max_frames is not None else s['num_frames'] for s in streams)
     streams=streams[a.rank::a.world_size]
     manifest=dict(completed=False,architecture_id=c['architecture_id'],checkpoint_sha256=sha(a.checkpoint),
-        checkpoint_stage_step=ck.get('new_stage_step',0),checkpoint_parent=ck.get('parent'),cache_contract=CACHE_CONTRACT,
+        checkpoint_stage_step=ck.get('new_stage_step',0),checkpoint_parent=ck.get('parent'),cache_contract=cache_contract_for(c['architecture_id']),
         source_sha256=source_hash(),split=a.split,split_hash=audit['split_hash'],mesh_hash=audit['mesh_hash'],config=c,
         initial_pose_source='GT first frame only',history_state_source='own committed prediction',fp_calls=0,critic_calls=0,
         depth_correction=False,full_sequences=a.max_frames is None,subset=a.limit_streams is not None,

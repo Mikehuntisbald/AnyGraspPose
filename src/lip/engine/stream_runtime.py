@@ -3,7 +3,7 @@ from dataclasses import replace
 import hashlib
 import math
 import torch
-from lip.engine.stream_state import FrameMeta,TemporalCache,RingCache,StreamState,SourceGeometry
+from lip.engine.stream_state import FrameMeta,TemporalCache,RingCache,CrossCache,StreamState,SourceGeometry
 from lip.engine.stream_features import build_current_features,stack_current,mesh_to_device
 from lip.geometry.renderer import Renderer
 from lip.geometry.so3 import center_pose,original_pose
@@ -30,8 +30,9 @@ def initialize(model,T0_original,mesh,K,stream_id,timestamp0,*,object_id='object
     resident=mesh_to_device(mesh,device)
     pose=center_pose(pose,resident['center'].float())
     cache=RingCache.empty(model.memory_frames) if model.cache_kind=='ring' else TemporalCache(capacity=model.memory_frames)
+    if model.architecture_id=='stream_dual_cross':cache=CrossCache(cache)
     return StreamState(cache,pose,float(timestamp0),None,None,0,str(stream_id),str(object_id),str(camera_id),
-        str(mesh_hash),resident,k,tuple(image_shape),model.weights_version,model.parameter_versions(),generation=generation)
+        str(mesh_hash),resident,k,tuple(image_shape),model.weights_version,model.parameter_versions(),generation=generation,cache_contract=model.cache_contract)
 
 
 def failure(state,status,needs_reinit=True,diagnostics=None):
@@ -43,6 +44,7 @@ def failure(state,status,needs_reinit=True,diagnostics=None):
 def step(model,rgb,depth,timestamp,state,*,renderer=None,precision='fp32',image_size=224,crop_expansion=2.,
          stream_id=None,object_id=None,camera_id=None,mesh_hash=None,K=None,profiler=None):
     if not isinstance(state,StreamState):raise TypeError('Expected independent StreamState')
+    if state.cache_contract!=model.cache_contract:return failure(state,'cache_contract_changed')
     if state.pending_pose is not None:return failure(state,'uncommitted_proposal')
     if state.weights_version!=model.weights_version or state.parameter_versions!=model.parameter_versions():
         return failure(state,'weights_changed')
@@ -73,6 +75,8 @@ def step(model,rgb,depth,timestamp,state,*,renderer=None,precision='fp32',image_
         proposal,next_cache=model(stack_current([features]),meta,cache,profiler)
     checks=[torch.isfinite(t).all() for t in proposal.values() if isinstance(t,torch.Tensor)]
     checks += [torch.isfinite(t).all() for layer in next_cache.layers for b in layer[-1:] for t in (b.key,b.value)]
+    if isinstance(next_cache,CrossCache):
+        checks += [torch.isfinite(t).all() for b in next_cache.contexts[-1:] for t in (b.key,b.value)]
     finite=bool(torch.stack(checks).all()) # One host decision, not one synchronization per layer.
     if not finite:return failure(state,'nonfinite_proposal',diagnostics=diag)
     proposal={k:(v[0] if isinstance(v,torch.Tensor) else v) for k,v in proposal.items()}

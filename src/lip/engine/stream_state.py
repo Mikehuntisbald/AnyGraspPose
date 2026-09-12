@@ -4,6 +4,11 @@ from typing import Optional
 import torch
 
 CACHE_CONTRACT = 'lip-v2-source17-block-local-timebias-v1'
+CROSS_CACHE_CONTRACT = 'lip-v2-source17-context-readout-cross-gated-v1'
+
+
+def cache_contract_for(architecture):
+    return CROSS_CACHE_CONTRACT if architecture=='stream_dual_cross' else CACHE_CONTRACT
 
 
 @dataclass(frozen=True)
@@ -63,6 +68,44 @@ class TemporalCache:
 
 
 @dataclass(frozen=True)
+class ContextBlock:
+    key: torch.Tensor             # [B,8,1,32], context readout only
+    value: torch.Tensor
+    metadata: FrameMeta
+
+    def detach(self):
+        return ContextBlock(self.key.detach(),self.value.detach(),self.metadata.detach())
+
+
+@dataclass(frozen=True)
+class CrossCache:
+    """Separate source and context KV; updated object readout enters neither."""
+    source: TemporalCache
+    contexts: tuple[ContextBlock,...] = ()
+    contract: str = CROSS_CACHE_CONTRACT
+
+    def __post_init__(self):
+        if self.contract!=CROSS_CACHE_CONTRACT or len(self.contexts)!=len(self.source.metadata):
+            raise ValueError('Source and context cache must have aligned frame blocks')
+
+    @property
+    def layers(self):return self.source.layers
+
+    @property
+    def metadata(self):return self.source.metadata
+
+    @property
+    def capacity(self):return self.source.capacity
+
+    @property
+    def kv_bytes(self):
+        return self.source.kv_bytes+sum(t.numel()*t.element_size() for b in self.contexts for t in (b.key,b.value))
+
+    def detach(self):
+        return CrossCache(self.source.detach(),tuple(b.detach() for b in self.contexts))
+
+
+@dataclass(frozen=True)
 class RingCache:
     """Persistent ring of tensor references; bounded storage, no in-place autograd writes.
 
@@ -111,7 +154,7 @@ class SourceGeometry:
 
 @dataclass(frozen=True)
 class StreamState:
-    cache: TemporalCache | RingCache
+    cache: TemporalCache | RingCache | CrossCache
     pose_centered: torch.Tensor
     timestamp: float
     previous_pose: Optional[torch.Tensor]

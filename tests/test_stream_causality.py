@@ -17,9 +17,11 @@ def sample():
 
 
 @pytest.mark.parametrize('batched',[False,True])
-def test_gt_and_future_rgbd_do_not_enter_past_prediction(batched):
+@pytest.mark.parametrize('architecture',['stream_single','stream_dual_cross'])
+def test_gt_and_future_rgbd_do_not_enter_past_prediction(batched,architecture):
     c=dict(burn_in_frames=1,supervised_unroll_frames=3,initial_pose_noise=False,image_size=32,crop_expansion=2.,precision='fp32',batch_current_features=batched)
-    m=StreamTracker(dropout=0.).eval();torch.nn.init.normal_(m.head[-1].weight,std=.001)
+    m=StreamTracker(architecture,dropout=0.).eval();torch.nn.init.normal_(m.head[-1].weight,std=.001)
+    if architecture=='stream_dual_cross':torch.nn.init.normal_(m.readout.cross_attn.out_proj.weight,std=.02)
     runner=StreamTrainingModule(m,c,Renderer('cpu'));s=sample();features=[]
     handle=m.register_forward_pre_hook(lambda m,a:features.append({k:v.detach().clone() for k,v in a[0].items()}))
     with torch.no_grad():
@@ -54,9 +56,11 @@ def test_dual_context_does_not_change_source_cache_and_gate_not_confidence():
 
 
 @pytest.mark.parametrize('batched',[False,True])
-def test_last_loss_reaches_earlier_rgb_encoder_through_kv_only(batched):
+@pytest.mark.parametrize('architecture',['stream_single','stream_dual_cross'])
+def test_last_loss_reaches_earlier_rgb_encoder_through_kv_only(batched,architecture):
     c=dict(burn_in_frames=1,supervised_unroll_frames=3,initial_pose_noise=False,image_size=32,crop_expansion=2.,precision='fp32',batch_current_features=batched)
-    m=StreamTracker(dropout=0.).train();torch.nn.init.normal_(m.head[-1].weight,std=.001)
+    m=StreamTracker(architecture,dropout=0.).train();torch.nn.init.normal_(m.head[-1].weight,std=.001)
+    if architecture=='stream_dual_cross':torch.nn.init.normal_(m.readout.cross_attn.out_proj.weight,std=.02)
     original=m.encode_current;sources=[]
     def encode(features,profiler=None):
         source=original(features,profiler)

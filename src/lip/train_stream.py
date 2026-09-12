@@ -101,6 +101,9 @@ def main():
                 grad_norm=float(grad),seconds=time.perf_counter()-started,lrs=[g['lr'] for g in optimizer.param_groups],
                 allocated=torch.cuda.memory_allocated(device) if device.type=='cuda' else None,
                 peak_allocated=torch.cuda.max_memory_allocated(device) if device.type=='cuda' else None)
+            if 'cross_diagnostics' in result:
+                row.update(zip(('cross_gate_mean','cross_update_norm','object_latent_norm'),result['cross_diagnostics'].cpu().tolist()))
+                row['context_kv_has_training_graph']=result['context_kv_has_training_graph']
             log.write(json.dumps(row)+'\n');log.flush()
             if step%c['save_every']==0 or step==stop:
                 checkpoint.save(output/'last.pt',model,optimizer,scheduler,step,c,audit,position,parent)

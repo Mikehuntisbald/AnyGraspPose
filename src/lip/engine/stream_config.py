@@ -4,12 +4,13 @@ import math
 from pathlib import Path
 import torch
 import yaml
-from lip.engine.stream_state import CACHE_CONTRACT
+from lip.engine.stream_state import cache_contract_for
 
 
 def load_stream_config(path):
     c=yaml.safe_load(Path(path).read_text())
-    if c['architecture_id'] not in ('stream_single','stream_dual'):raise ValueError('Unknown architecture')
+    if c['architecture_id'] not in ('stream_single','stream_dual','stream_dual_cross'):raise ValueError('Unknown architecture')
+    if c['architecture_id']=='stream_dual_cross' and c.get('cache_kind','functional')!='functional':raise ValueError('Cross cache requires functional mode')
     fixed=dict(source_tokens=17,latent_dim=256,temporal_layers=4,attention_heads=8,image_size=224)
     for k,v in fixed.items():
         if c.get(k)!=v:raise ValueError(f'v2 contract requires {k}={v}')
@@ -63,7 +64,7 @@ def verify_preflight(c,audit):
     receipt=json.loads(path.read_text())
     from lip.engine.stream_checkpoint import source_hash
     expected=dict(architecture_id=c['architecture_id'],config_hash=config_hash(c),split_hash=audit['split_hash'],
-                  mesh_hash=audit['mesh_hash'],cache_contract=CACHE_CONTRACT,source_sha256=source_hash())
+                  mesh_hash=audit['mesh_hash'],cache_contract=cache_contract_for(c['architecture_id']),source_sha256=source_hash())
     for key,val in expected.items():
         if receipt.get(key)!=val:raise RuntimeError('Stale streaming preflight: '+key)
     if not receipt.get('approved'):raise RuntimeError('Streaming preflight has unresolved requirements')

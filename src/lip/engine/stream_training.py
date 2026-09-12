@@ -19,7 +19,7 @@ class StreamTrainingModule(nn.Module):
         if c['initial_pose_noise']:
             accepted=torch.stack([noisy_history(p[None],meshes[i]['diameter'],torch.Generator().manual_seed(samples[i]['sample']['seed']))[0][0] for i,p in enumerate(accepted)])
         times=torch.stack([s['timestamps'].to(device,dtype=torch.float64) for s in samples])
-        k=[s['k'].to(device).float() for s in samples];cache=None;losses=[];metrics=[];predictions=[]
+        k=[s['k'].to(device).float() for s in samples];cache=None;losses=[];metrics=[];predictions=[];cross_diagnostics=[]
         diameter=torch.stack([m['diameter'].float() for m in meshes]);points=torch.stack([m['points'].float() for m in meshes])
         batched=c.get('batch_current_features',False)
         if batched:
@@ -55,6 +55,9 @@ class StreamTrainingModule(nn.Module):
                     out,cache=self.tracker(features,meta,cache)
             # The current GT is accessed only after input, source and prediction exist.
             if i>=burn:
+                if 'cross_attention_output' in out:
+                    h=out['cross_attention_output'].detach();g=out['context_gate'].detach()
+                    cross_diagnostics.append(torch.stack((g.mean(),(g*h).norm(dim=-1).mean(),out['latent_object'].detach().norm(dim=-1).mean())))
                 target=torch.stack([s['targets'][i].to(device) for s in samples]).float()
                 loss,detail=pose_loss(out['pose_centered'],target,points,diameter)
                 losses.append(loss)
@@ -68,4 +71,7 @@ class StreamTrainingModule(nn.Module):
         result=dict(loss=torch.stack(losses).mean(),metrics=torch.stack(metrics).mean(0),supervised_frames=b*unroll,
                     cache_bytes=cache.kv_bytes,kv_has_training_graph=any(block.key.grad_fn is not None for layer in cache.layers for block in layer))
         if return_predictions:result['predictions']=torch.stack(predictions,1)
+        if cross_diagnostics:
+            result['cross_diagnostics']=torch.stack(cross_diagnostics).mean(0)
+            result['context_kv_has_training_graph']=all(b.key.grad_fn is not None and b.value.grad_fn is not None for b in cache.contexts[-1:])
         return result

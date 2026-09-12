@@ -6,15 +6,18 @@ from lip.models.tracker import Tracker,spatial_position
 from lip.models.stream_attention import StreamTemporal
 from lip.models.stream_readout import StreamReadout
 from lip.geometry.so3 import update,original_pose
+from lip.engine.stream_state import CrossCache,TemporalCache,cache_contract_for
 
 
 class StreamTracker(nn.Module):
     def __init__(self,architecture_id='stream_single',memory_frames=8,dropout=0.,pretrained=False,
                  time_unit=1/30,max_gap_seconds=.5,cache_kind='functional'):
         super().__init__()
-        if architecture_id not in ('stream_single','stream_dual'):raise ValueError('Unknown streaming architecture')
+        if architecture_id not in ('stream_single','stream_dual','stream_dual_cross'):raise ValueError('Unknown streaming architecture')
         if cache_kind not in ('functional','ring'):raise ValueError('Unknown cache implementation')
+        if architecture_id=='stream_dual_cross' and cache_kind!='functional':raise ValueError('Cross context cache currently requires functional mode')
         self.architecture_id=architecture_id;self.memory_frames=memory_frames
+        self.cache_contract=cache_contract_for(architecture_id)
         self.max_gap_seconds=max_gap_seconds;self.cache_kind=cache_kind;self.weights_version=0
         legacy=Tracker(pretrained,dropout)
         for name in ('rgb','rgb_proj','geometry','fusion','head'):setattr(self,name,getattr(legacy,name))
@@ -23,7 +26,10 @@ class StreamTracker(nn.Module):
         self.source_position=nn.Linear(2,256)
         nn.init.zeros_(self.source_position.weight);nn.init.zeros_(self.source_position.bias)
         self.temporal=StreamTemporal(memory_frames,dropout,time_unit)
-        self.readout=StreamReadout(architecture_id=='stream_dual')
+        if architecture_id=='stream_dual_cross':
+            from lip.models.stream_cross_readout import StreamCrossReadout
+            self.readout=StreamCrossReadout(memory_frames)
+        else:self.readout=StreamReadout(architecture_id=='stream_dual')
         self.migration_status={};self.train()
 
     def train(self,mode=True):
@@ -60,8 +66,17 @@ class StreamTracker(nn.Module):
         source=self.encode_current(features,profiler)
         query=self.readout.query.expand(len(source),-1,-1)+self.token_type[2]
         with scope('temporal_readout'):
-            z,next_cache=self.temporal(source,query,metadata,cache,self.readout.dual)
-            result=self.readout(z);delta=self.head(result['latent']).float()
+            if self.architecture_id=='stream_dual_cross':
+                cache=cache or CrossCache(TemporalCache(capacity=self.memory_frames))
+                if not isinstance(cache,CrossCache):raise ValueError('Cross architecture requires its own cache contract')
+                z,next_source=self.temporal(source,query,metadata,cache.source,True)
+                result,contexts=self.readout(z,metadata,cache.contexts)
+                next_cache=CrossCache(next_source,contexts)
+            else:
+                if isinstance(cache,CrossCache):raise ValueError('Cannot use cross-context cache in a legacy architecture')
+                z,next_cache=self.temporal(source,query,metadata,cache,self.readout.dual)
+                result=self.readout(z)
+            delta=self.head(result['latent']).float()
         with scope('pose_update'),torch.autocast(source.device.type,enabled=False):
             pose=update(features['T_base_centered'].float(),delta[:,:3],delta[:,3:],features['object_diameter_m'].float())
             result.update(pose_centered=pose,pose_original=original_pose(pose,features['mesh_center'].float()),

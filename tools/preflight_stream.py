@@ -15,7 +15,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
 from lip.engine.config import check_data_gate,environment
 from lip.engine.stream_config import load_stream_config,make_model,config_hash
 from lip.engine.stream_checkpoint import load_init,sha,source_hash
-from lip.engine.stream_state import CACHE_CONTRACT
+from lip.engine.stream_state import cache_contract_for
 from lip.engine.stream_training import StreamTrainingModule
 from lip.data.stream_clips import StreamClips
 from lip.geometry.renderer import Renderer
@@ -66,9 +66,9 @@ def main():
     if a.mode=='geometry':geometry_check(a.data_root,a.index_root,json.loads(Path(a.manifest).read_text()),a.out);return
     project=Path(__file__).resolve().parents[1];os.chdir(project)
     data=Path(a.data_root).resolve();index=Path(a.index_root).resolve();init=Path(a.init_from).resolve()
-    base=Path(a.out).resolve();out=base/('dual' if c['architecture_id']=='stream_dual' else 'single');out.mkdir(parents=True,exist_ok=True)
+    base=Path(a.out).resolve();out=base/{'stream_single':'single','stream_dual':'dual','stream_dual_cross':'dual_cross'}[c['architecture_id']];out.mkdir(parents=True,exist_ok=True)
     audit=check_data_gate(index);python=sys.executable
-    report=dict(architecture_id=c['architecture_id'],config_hash=config_hash(c),source_sha256=source_hash(),cache_contract=CACHE_CONTRACT,
+    report=dict(architecture_id=c['architecture_id'],config_hash=config_hash(c),source_sha256=source_hash(),cache_contract=cache_contract_for(c['architecture_id']),
         split_hash=audit['split_hash'],mesh_hash=audit['mesh_hash'],init_sha256=sha(init),approved=False,checks={})
     def record():
         (out/'approval.json').write_text(json.dumps(report,indent=2))
@@ -134,7 +134,9 @@ def main():
         run([python,str(__file__),'--mode','geometry','--config',str(out/'overfit.yaml'),'--init-from',str(init),*common,'--manifest',str(manifest),'--out',str(out/'geometry.json')],'geometry.log',env)
         report['checks']['geometry']=dict(status='checked_with_known_depth_mismatch',correction=False)
         if not free_required('cuda_tests'):return
-        run([python,'-m','pytest','tests/test_stream_cuda.py','-q','-s','--junitxml='+str(out/'cuda_tests.xml')],'cuda_tests.log',env)
+        cuda_tests=['tests/test_stream_cuda.py']
+        if c['architecture_id']=='stream_dual_cross':cuda_tests+=['tests/test_stream_cross_cuda.py']
+        run([python,'-m','pytest',*cuda_tests,'-q','-s','--junitxml='+str(out/'cuda_tests.xml')],'cuda_tests.log',env)
         report['checks']['cuda_tests']=dict(status='passed',reference_and_10000_steps=True);record()
         if torch.cuda.device_count()<8:
             report['checks']['ddp']=dict(status='not_run',reason='Fewer than 8 visible CUDA GPUs');record();return
