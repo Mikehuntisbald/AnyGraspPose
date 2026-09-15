@@ -9,6 +9,28 @@ from lip.geometry.renderer import Renderer
 from lip.geometry.so3 import center_pose,original_pose
 
 
+def valid_pose(pose):
+    """A finite proper rigid transform with positive camera-space depth."""
+    if pose.shape != (4,4):return False
+    r=pose[:3,:3].float()
+    checks=[torch.isfinite(pose).all(),
+        ((r.T@r-torch.eye(3,device=r.device)).abs()<=2e-3).all(),
+        (torch.linalg.det(r)-1).abs()<=2e-3,
+        ((pose[3]-pose.new_tensor([0,0,0,1])).abs()<=1e-6).all(),
+        pose[2,3]>0]
+    return bool(torch.stack(checks).all()) # One host decision for the whole transform.
+
+
+
+def default_renderer(model,device):
+    # Runtime-only resource: never part of weights or per-stream KV state.
+    device=torch.device(device)
+    cached=getattr(model,'_online_renderer',None)
+    if cached is None or cached[0]!=device:
+        cached=(device,Renderer(device));model._online_renderer=cached
+    return cached[1]
+
+
 def initialize(model,T0_original,mesh,K,stream_id,timestamp0,*,object_id='object',camera_id='camera',
                mesh_hash=None,image_shape=(480,640),generation=0):
     if T0_original is None:raise ValueError('An explicit known initial pose is required')
@@ -18,9 +40,7 @@ def initialize(model,T0_original,mesh,K,stream_id,timestamp0,*,object_id='object
     k=torch.as_tensor(K,dtype=torch.float32,device=device).detach().clone()
     if pose.shape!=(4,4) or k.shape!=(3,3):raise ValueError('Expected 4x4 initial pose and 3x3 K')
     if not torch.isfinite(pose).all() or not torch.isfinite(k).all():raise ValueError('Nonfinite initialization')
-    eye=torch.eye(3,device=device)
-    if not torch.allclose(pose[:3,:3].T@pose[:3,:3],eye,atol=2e-3) or pose[2,3]<=0 or not torch.allclose(pose[3],pose.new_tensor([0,0,0,1])):
-        raise ValueError('Initial pose must be a valid object-to-camera transform in meters')
+    if not valid_pose(pose):raise ValueError('Initial pose must be a valid object-to-camera transform in meters')
     if k[0,0]<=0 or k[1,1]<=0:raise ValueError('Invalid focal length')
     if mesh_hash is None:
         digest=hashlib.sha256()
@@ -29,8 +49,9 @@ def initialize(model,T0_original,mesh,K,stream_id,timestamp0,*,object_id='object
         mesh_hash=digest.hexdigest()
     resident=mesh_to_device(mesh,device)
     pose=center_pose(pose,resident['center'].float())
+    if not valid_pose(pose):raise ValueError('Object center must be finite and in front of the camera')
     cache=RingCache.empty(model.memory_frames) if model.cache_kind=='ring' else TemporalCache(capacity=model.memory_frames)
-    if model.architecture_id=='stream_dual_cross':cache=CrossCache(cache)
+    if model.architecture_id in ('stream_dual_cross','stream_dual_cross_residual','stream_rk_factorial','stream_rk_spatial','stream_rk_aligned','stream_rk_direct_pose','stream_rk_pose_reference','stream_rk_adaptive_reference','stream_rk_rotation_anchor','stream_rk_rotation_anchor_smooth'):cache=CrossCache(cache)
     return StreamState(cache,pose,float(timestamp0),None,None,0,str(stream_id),str(object_id),str(camera_id),
         str(mesh_hash),resident,k,tuple(image_shape),model.weights_version,model.parameter_versions(),generation=generation,cache_contract=model.cache_contract)
 
@@ -42,7 +63,7 @@ def failure(state,status,needs_reinit=True,diagnostics=None):
 
 
 def step(model,rgb,depth,timestamp,state,*,renderer=None,precision='fp32',image_size=224,crop_expansion=2.,
-         stream_id=None,object_id=None,camera_id=None,mesh_hash=None,K=None,profiler=None):
+         stream_id=None,object_id=None,camera_id=None,mesh_hash=None,K=None,profiler=None,refinement_base=None):
     if not isinstance(state,StreamState):raise TypeError('Expected independent StreamState')
     if state.cache_contract!=model.cache_contract:return failure(state,'cache_contract_changed')
     if state.pending_pose is not None:return failure(state,'uncommitted_proposal')
@@ -59,13 +80,18 @@ def step(model,rgb,depth,timestamp,state,*,renderer=None,precision='fp32',image_
     if now-state.timestamp>model.max_gap_seconds:return failure(state,'time_gap')
     if precision not in ('bf16','fp32'):raise ValueError('Explicit fp32 or bf16 required')
     if precision=='bf16' and state.K.device.type!='cuda':raise ValueError('BF16 online path requires CUDA')
-    renderer=renderer or Renderer(state.K.device)
+    if not valid_pose(state.pose_centered):return failure(state,'invalid_state_pose')
+    base=state.pose_centered if refinement_base is None else refinement_base
+    if refinement_base is not None:
+        if model.cache_kind!='functional':raise ValueError('Inner refinement requires immutable functional caches')
+        if not valid_pose(base):return failure(state,'invalid_refinement_base')
+    if renderer is None:renderer=default_renderer(model,state.K.device)
     rgb=torch.as_tensor(rgb,device=state.K.device)
     depth=torch.as_tensor(depth,device=state.K.device)
     if rgb.dtype==torch.uint8:rgb=rgb.float()/255
     try:
-        features,diag=build_current_features(rgb,depth,state.pose_centered,state.K,state.mesh,renderer,
-            now,state.timestamp,state.previous_pose,state.previous_timestamp,image_size,crop_expansion)
+        features,diag=build_current_features(rgb,depth,base,state.K,state.mesh,renderer,
+            now,state.timestamp,state.previous_pose,state.previous_timestamp,image_size,crop_expansion,motion_base=state.pose_centered)
     except ValueError as exc:return failure(state,'invalid_input',diagnostics={'error':str(exc)})
     device=state.K.device;frame_id=state.frame_id+1
     meta=FrameMeta(torch.tensor([now],dtype=torch.float64,device=device),torch.tensor([frame_id],device=device),
@@ -80,12 +106,14 @@ def step(model,rgb,depth,timestamp,state,*,renderer=None,precision='fp32',image_
     finite=bool(torch.stack(checks).all()) # One host decision, not one synchronization per layer.
     if not finite:return failure(state,'nonfinite_proposal',diagnostics=diag)
     proposal={k:(v[0] if isinstance(v,torch.Tensor) else v) for k,v in proposal.items()}
+    if not valid_pose(proposal['pose_centered']) or not valid_pose(proposal['pose_original']):
+        return failure(state,'invalid_proposal_pose',diagnostics=diag)
     proposal.update(status='ok',needs_reinit=False,diagnostics=diag,frame_id=frame_id,timestamp=now,
                     stream_id=state.stream_id,weights_version=model.weights_version)
     if isinstance(state.cache,RingCache):
         next_cache=state.cache.append([l[-1] for l in next_cache.layers],meta)
     source=SourceGeometry(now,frame_id,state.stream_id,state.object_id,state.camera_id,
-        diag['A'].detach().clone(),diag['K_crop'].detach().clone(),state.pose_centered.detach().clone(),state.image_shape,
+        diag['A'].detach().clone(),diag['K_crop'].detach().clone(),base.detach().clone(),state.image_shape,
         features['object_diameter_m'].detach().clone(),state.mesh_hash,meta.key_valid.detach().clone(),diag['silhouette_token_fraction'].detach().clone())
     next_state=replace(state,cache=next_cache,pending_pose=proposal['pose_centered'],pending_timestamp=now,
         frame_id=frame_id,source_metadata=(state.source_metadata+(source,))[-model.memory_frames:])
@@ -98,7 +126,8 @@ def commit(model,proposal,next_state):
         raise ValueError('Proposal does not belong to this pending state')
     if model.weights_version!=next_state.weights_version or model.parameter_versions()!=next_state.parameter_versions:
         raise ValueError('Weights changed before commit; reset required')
-    if not torch.isfinite(next_state.pending_pose).all():raise ValueError('Nonfinite pose at commit')
+    if not valid_pose(next_state.pending_pose) or not valid_pose(original_pose(next_state.pending_pose,next_state.mesh['center'].float())):
+        raise ValueError('Invalid pose at commit')
     return replace(next_state,previous_pose=next_state.pose_centered.detach(),previous_timestamp=next_state.timestamp,
         pose_centered=next_state.pending_pose.detach(),timestamp=next_state.pending_timestamp,pending_pose=None,pending_timestamp=None)
 

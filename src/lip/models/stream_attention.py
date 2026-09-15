@@ -26,8 +26,16 @@ class StreamLayer(nn.Module):
         return q,self.heads(k),self.heads(v)
 
     def residual(self,x,q,k,v,bias):
-        y=F.scaled_dot_product_attention(q,k,v,attn_mask=bias,
-            dropout_p=self.self_attn.dropout if self.training else 0.,is_causal=False)
+        from contextlib import nullcontext
+        from torch.nn.attention import sdpa_kernel,SDPBackend
+        # PyTorch's efficient CUDA backend omits the needed LSE buffer when
+        # only the additive bias needs gradients (frozen Q/K/V). Its backward
+        # then fails with "LSE is not correctly aligned (strideH)". Preserve
+        # mask gradients using math attention for exactly that case.
+        bias_only=torch.is_grad_enabled() and bias.requires_grad and not any(t.requires_grad for t in (q,k,v))
+        with sdpa_kernel(SDPBackend.MATH) if bias_only else nullcontext():
+            y=F.scaled_dot_product_attention(q,k,v,attn_mask=bias,
+                dropout_p=self.self_attn.dropout if self.training else 0.,is_causal=False)
         y=y.transpose(1,2).reshape(x.shape)
         x=x+self.dropout1(self.self_attn.out_proj(y))
         return x+self.dropout2(self.linear2(self.dropout(F.gelu(self.linear1(self.norm2(x))))))

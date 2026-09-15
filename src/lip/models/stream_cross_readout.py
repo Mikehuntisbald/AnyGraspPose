@@ -47,7 +47,7 @@ class StreamCrossReadout(nn.Module):
         h=self.cross_attn.out_proj(h.transpose(1,2).reshape_as(objects))
         h=torch.where(has_key[...,None],h,0.)
         # One O and H token per frame: pooling is the identity.
-        gate=torch.sigmoid(self.gate(torch.cat((objects,h),-1)))
+        gate=torch.sigmoid(getattr(self,'cross_gate',self.gate)(torch.cat((objects,h),-1)))
         updated=torch.where(qvalid[...,None],objects+gate*h,0.)
         return updated,h,gate
 
@@ -63,3 +63,31 @@ class StreamCrossReadout(nn.Module):
         """All prefix contexts with an explicit causal/local/identity mask."""
         blocks=tuple(self.project_context(z[:,i,1:2],m) for i,m in enumerate(metadata))
         return self.attend(z[:,:,0],metadata,blocks)
+
+
+class StreamResidualCrossReadout(StreamCrossReadout):
+    """Keep the learned dual function, then add an initially zero cross update."""
+    def __init__(self,memory_frames=8):
+        super().__init__(memory_frames)
+        from lip.models.stream_readout import StreamReadout
+        parent=StreamReadout(dual=True)
+        self.cross_gate=self.gate
+        self.gate=parent.gate
+        self.context_projection=parent.context_projection
+
+    def parent_latent(self,objects,contexts):
+        gate=torch.sigmoid(self.gate(torch.cat((objects,contexts),-1)))
+        return objects+gate*self.context_projection(contexts)
+
+    def forward(self,z,metadata,previous=()):
+        result,blocks=super().forward(z,metadata,previous)
+        base=self.parent_latent(z[:,0],z[:,1])
+        result['latent_parent']=base
+        result['latent']=torch.where(metadata.key_valid.any(-1)[:,None],base+result['context_gate']*result['cross_attention_output'],0.)
+        return result,blocks
+
+    def full_reference(self,z,metadata):
+        _,h,gate=super().full_reference(z,metadata)
+        base=self.parent_latent(z[:,:,0],z[:,:,1])
+        valid=torch.stack([m.key_valid.any(-1) for m in metadata],1)
+        return torch.where(valid[...,None],base+gate*h,0.),h,gate

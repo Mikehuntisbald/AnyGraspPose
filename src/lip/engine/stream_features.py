@@ -12,7 +12,7 @@ def mesh_to_device(mesh,device):
 @torch.no_grad()
 def build_current_features(rgb,depth,base,k,mesh,renderer,timestamp,last_accepted_timestamp,
                            previous_pose=None,previous_timestamp=None,size=224,expansion=2.,
-                           beta=1.,epsilon=.1):
+                           beta=1.,epsilon=.1,motion_base=None):
     """No current pose/label/GT inputs. Geometry remains FP32 under autocast."""
     if rgb.ndim!=3 or depth.ndim!=3 or rgb.shape[0]!=3 or depth.shape[0]!=1 or rgb.shape[-2:]!=depth.shape[-2:]:
         raise ValueError('One RGB CHW and depth 1HW frame required')
@@ -45,8 +45,9 @@ def build_current_features(rgb,depth,base,k,mesh,renderer,timestamp,last_accepte
         if previous_pose is not None and previous_timestamp is not None:
             past=torch.as_tensor(previous_timestamp,dtype=torch.float64,device=device)
             if bool(last>past):
-                previous_pose=previous_pose.float();delta=log(base[:3,:3]@previous_pose[:3,:3].T)
-                motion=(base[:3,3]-previous_pose[:3,3])/d;dt=(last-past).float().reshape(1);motion_valid.fill_(1)
+                previous_pose=previous_pose.float();accepted=base if motion_base is None else motion_base.float()
+                delta=log(accepted[:3,:3]@previous_pose[:3,:3].T)
+                motion=(accepted[:3,3]-previous_pose[:3,3])/d;dt=(last-past).float().reshape(1);motion_valid.fill_(1)
         valid_depth=(crop_depth>0).float().mean().reshape(1)
         state=torch.cat((base[:3,:2].T.flatten(),base[:3,3]/d,d.log().reshape(1),
             torch.stack((kc[0,0],kc[1,1],kc[0,2],kc[1,2]))/size,delta,motion,dt,(now-last).float().reshape(1),motion_valid,valid_depth))

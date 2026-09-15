@@ -27,7 +27,7 @@ def migrate(model,checkpoint,allow_untrained_single=False):
     if model.architecture_id=='stream_dual':
         if old_arch!='stream_single':raise ValueError('Dual warm-start requires stream_single')
         if old.get('new_stage_step',0)<1 and not allow_untrained_single:raise ValueError('Dual requires a trained single checkpoint')
-    if model.architecture_id=='stream_dual_cross':
+    if model.architecture_id in ('stream_dual_cross','stream_dual_cross_residual'):
         if old_arch!='stream_dual' or old.get('new_stage_step',0)<1:raise ValueError('Cross readout requires a trained dual checkpoint')
     elif old_arch not in ('legacy_v1','stream_single'):raise ValueError('Use --resume within an existing architecture')
     target=model.state_dict();report={};used=set()
@@ -78,9 +78,19 @@ def save_init(path,model,config,migration):
 
 def load_init(path,model,audit,config):
     obj=torch.load(path,map_location='cpu',weights_only=False)
+    if obj.get('config',{}).get('rotation_alignment',False)!=config.get('rotation_alignment',False):raise ValueError('Rotation alignment initialization mismatch')
+    if obj.get('config',{}).get('alignment_use_parent_latent',True)!=config.get('alignment_use_parent_latent',True):raise ValueError('Alignment latent route initialization mismatch; prepare an explicit warm-start')
     for key,value in [('architecture_id',model.architecture_id),('cache_contract',cache_contract_for(model.architecture_id)),('split_hash',audit['split_hash']),('mesh_hash',audit['mesh_hash'])]:
         if obj.get(key)!=value:raise ValueError('Initialization mismatch: '+key)
     if obj.get('config',{}).get('memory_frames')!=config['memory_frames']:raise ValueError('Initialization memory capacity mismatch')
+    if model.architecture_id in ('stream_rk_factorial','stream_rk_spatial','stream_rk_aligned','stream_rk_direct_pose','stream_rk_pose_reference','stream_rk_adaptive_reference','stream_rk_rotation_anchor','stream_rk_rotation_anchor_smooth'):
+        for name in ('observation_reliability','keyframe_memory','keyframe_slots','keyframe_min_gap','keyframe_max_age','support_tolerance'):
+            if obj.get('config',{}).get(name)!=config[name]:raise ValueError('Factorial initialization mismatch: '+name)
+    if model.architecture_id in ('stream_rk_spatial','stream_rk_aligned','stream_rk_direct_pose','stream_rk_pose_reference','stream_rk_adaptive_reference','stream_rk_rotation_anchor','stream_rk_rotation_anchor_smooth') and obj.get('config',{}).get('spatial_memory_side')!=config['spatial_memory_side']:raise ValueError('Spatial memory grid mismatch')
+    if model.architecture_id=='stream_rk_aligned':
+        for name in ('aligned_query_side','aligned_sigma'):
+            if obj.get('config',{}).get(name)!=config[name]:raise ValueError('Aligned initialization mismatch: '+name)
+    if model.architecture_id in ('stream_rk_adaptive_reference','stream_rk_rotation_anchor','stream_rk_rotation_anchor_smooth') and obj.get('config',{}).get('reference_write_limit')!=config['reference_write_limit']:raise ValueError('Adaptive reference write limit mismatch')
     model.load_state_dict(obj['model'],strict=True);model.migration_status=obj.get('migration_status',{})
     return obj
 

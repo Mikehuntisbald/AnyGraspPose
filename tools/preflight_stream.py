@@ -66,7 +66,7 @@ def main():
     if a.mode=='geometry':geometry_check(a.data_root,a.index_root,json.loads(Path(a.manifest).read_text()),a.out);return
     project=Path(__file__).resolve().parents[1];os.chdir(project)
     data=Path(a.data_root).resolve();index=Path(a.index_root).resolve();init=Path(a.init_from).resolve()
-    base=Path(a.out).resolve();out=base/{'stream_single':'single','stream_dual':'dual','stream_dual_cross':'dual_cross'}[c['architecture_id']];out.mkdir(parents=True,exist_ok=True)
+    base=Path(a.out).resolve();out=base/{'stream_single':'single','stream_dual':'dual','stream_dual_cross':'dual_cross','stream_dual_cross_residual':'dual_cross_residual','stream_rk_factorial':'rk','stream_rk_spatial':'rk_spatial','stream_rk_aligned':'rk_aligned','stream_rk_direct_pose':'rk_direct_pose','stream_rk_pose_reference':'rk_pose_reference'}[c['architecture_id']];out.mkdir(parents=True,exist_ok=True)
     audit=check_data_gate(index);python=sys.executable
     report=dict(architecture_id=c['architecture_id'],config_hash=config_hash(c),source_sha256=source_hash(),cache_contract=cache_contract_for(c['architecture_id']),
         split_hash=audit['split_hash'],mesh_hash=audit['mesh_hash'],init_sha256=sha(init),approved=False,checks={})
@@ -135,7 +135,12 @@ def main():
         report['checks']['geometry']=dict(status='checked_with_known_depth_mismatch',correction=False)
         if not free_required('cuda_tests'):return
         cuda_tests=['tests/test_stream_cuda.py']
-        if c['architecture_id']=='stream_dual_cross':cuda_tests+=['tests/test_stream_cross_cuda.py']
+        if c['architecture_id'] in ('stream_dual_cross','stream_dual_cross_residual'):cuda_tests+=['tests/test_stream_cross_cuda.py']
+        if c['architecture_id']=='stream_dual_cross_residual':cuda_tests+=['tests/test_stream_residual_cross.py']
+        if c['architecture_id'].startswith('stream_rk'):cuda_tests+=['tests/test_stream_rk_cuda.py']
+        if c['architecture_id']=='stream_rk_aligned':cuda_tests+=['tests/test_aligned_memory.py','tests/test_stream_aligned_memory.py']
+        if c['architecture_id']=='stream_rk_direct_pose':cuda_tests+=['tests/test_direct_pose_residual.py','tests/test_stream_direct_pose.py']
+        if c['architecture_id']=='stream_rk_pose_reference':cuda_tests+=['tests/test_pose_reference.py','tests/test_stream_pose_reference.py']
         run([python,'-m','pytest',*cuda_tests,'-q','-s','--junitxml='+str(out/'cuda_tests.xml')],'cuda_tests.log',env)
         report['checks']['cuda_tests']=dict(status='passed',reference_and_10000_steps=True);record()
         if torch.cuda.device_count()<8:

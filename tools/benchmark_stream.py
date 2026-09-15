@@ -43,6 +43,16 @@ def distribution(values):
     return dict(count=len(a),mean=float(a.mean()),p50=float(np.percentile(a,50)),p95=float(np.percentile(a,95)),p99=float(np.percentile(a,99)))
 
 
+def reference_latent(model,sources,metadata):
+    """Recompute the prefix with the same readout masks as the online model."""
+    q=(model.readout.query+model.token_type[2])[:,None].expand(len(sources[0]),len(sources),-1,-1)
+    zs,_=model.temporal.full_reference(torch.stack(sources,1),q,metadata,model.readout.dual)
+    if model.architecture_id in ('stream_dual_cross','stream_dual_cross_residual'):
+        latent,_,_=model.readout.full_reference(zs,metadata)
+        return latent[:,-1]
+    return model.readout(zs[:,-1])['latent']
+
+
 def benchmark(model,kind,config,stream,frames,times,initial,mesh,root,audit,predecoded,warmup,repeats,core):
     renderer=CountRenderer(Renderer('cuda'));counts=dict(rgb=0,geometry=0)
     def hook(name):
@@ -98,14 +108,12 @@ def benchmark(model,kind,config,stream,frames,times,initial,mesh,root,audit,pred
                     base=out['pose_centered'][0];accepted.append(base);pose=out['pose_original'][0]
                 elif kind=='reference':
                     with events.section('preprocess_including_render'):
-                        f,d=build_current_features(rgb,depth,last_pose,k,resident,renderer,times[j],times[j-1],previous,None if j<2 else times[j-2])
+                        f,d=build_current_features(rgb,depth,last_pose,k,resident,renderer,times[j],times[j-1],previous,None if j<2 else times[j-2],config['image_size'],config['crop_expansion'])
                     meta=FrameMeta(torch.tensor([times[j]],device='cuda',dtype=torch.float64),torch.tensor([j],device='cuda'),torch.zeros(1,device='cuda',dtype=torch.long),torch.ones(1,17,device='cuda',dtype=torch.bool),d['role_bias'][None])
                     with torch.autocast('cuda',dtype=torch.bfloat16,enabled=config['precision']=='bf16'):
                         sources.append(model.encode_current(stack_current([f]),events));metas.append(meta)
-                        q=(model.readout.query+model.token_type[2])[:,None].expand(1,len(sources),-1,-1)
                         with events.section('temporal_readout'):
-                            zs,_=model.temporal.full_reference(torch.stack(sources,1),q,metas)
-                            z=model.readout(zs[:,-1]);delta=model.head(z['latent']).float()
+                            delta=model.head(reference_latent(model,sources,metas)).float()
                     with events.section('pose_update'):
                         next_pose=update(last_pose[None],delta[:,:3],delta[:,3:],f['object_diameter_m'][None])[0]
                         previous=last_pose;last_pose=next_pose;pose=original_pose(last_pose,resident['center'])
@@ -113,7 +121,7 @@ def benchmark(model,kind,config,stream,frames,times,initial,mesh,root,audit,pred
                     # Feature construction contains its own event-timed render. The
                     # total core wall clock includes transactional state checks.
                     with events.section('tracker_total'):
-                        proposal,next_state=model.step(rgb,depth,times[j],state,renderer=renderer,precision=config['precision'],profiler=events)
+                        proposal,next_state=model.step(rgb,depth,times[j],state,renderer=renderer,precision=config['precision'],image_size=config['image_size'],crop_expansion=config['crop_expansion'],profiler=events)
                         if proposal['status']!='ok':raise RuntimeError('Timing sequence needs external reinit: '+proposal['status'])
                         state=model.commit(proposal,next_state);pose=proposal['pose_original'];cache_bytes=state.cache.kv_bytes
                 if not core:pose=pose.cpu() # Explicit output boundary included in E2E.
@@ -122,7 +130,8 @@ def benchmark(model,kind,config,stream,frames,times,initial,mesh,root,audit,pred
                 if 'preprocess_including_render' in values:values['preprocess']=max(0.,values['preprocess_including_render']-values.get('render',0.))
                 elif kind not in ('legacy','reference'):
                     accounted=sum(values.get(k,0.) for k in ['render','rgb_encoder','geometry_encoder','spatial_fusion','compiled_encoder_fusion','temporal_readout','pose_update'])
-                    values['preprocess_and_state_checks']=max(0.,values['tracker_total']-accounted)
+                    label='tracker_unattributed' if model.architecture_id.startswith('stream_rk') else 'preprocess_and_state_checks'
+                    values[label]=max(0.,values['tracker_total']-accounted)
                 arrival=(float(times[j])-start_timestamp)*1000;finish=max(finish,arrival)+elapsed
                 if j>warmup:latency.append(elapsed);parts.append(values);ages.append(finish-arrival)
     for h in handles:h.remove()
@@ -146,6 +155,8 @@ def main():
     if not torch.cuda.is_available():raise RuntimeError('A free CUDA GPU is required for timing')
     torch.cuda.set_device(0);torch.set_num_threads(2);out=Path(a.out);out.mkdir(parents=True,exist_ok=False)
     c=load_stream_config(a.config);audit=check_data_gate(a.index_root)
+    if a.reference and c['architecture_id'].startswith('stream_rk'):raise ValueError('Full-prefix reference does not replay keyframe admission; use ordinary online timing for memory trackers')
+    if a.compile_stream and c['architecture_id'] in ('stream_rk_spatial','stream_rk_aligned','stream_rk_direct_pose','stream_rk_pose_reference','stream_rk_adaptive_reference','stream_rk_rotation_anchor','stream_rk_rotation_anchor_smooth'):raise ValueError('The compile path wraps encode_current, while this architecture uses encode_dense; compilation is not supported by this benchmark')
     streams=sorted([s for s in map(json.loads,(Path(a.index_root)/'streams.jsonl').read_text().splitlines()) if s['split']=='val'],key=lambda s:s['stream_id'])
     stream=dict(streams[0]);stream['mesh_sha256']=sha(Path(a.index_root)/stream['mesh_cache'])
     with np.load(Path(a.index_root)/stream['pose_cache']) as z:frames=z['frames'][:a.frames+1].copy();pose=torch.from_numpy(z['poses'][0].copy());times=z['timestamps'][:len(frames)].copy() if 'timestamps' in z else frames.astype('f8')/audit['fps']
@@ -154,12 +165,17 @@ def main():
     initial=center_pose(pose,torch.tensor(mesh['center']));data=[]
     for frame in frames[1:]:
         rgb,depth=read_frame(a.data_root,stream,int(frame),audit['depth_scale_to_m']);data.append((torch.from_numpy(rgb).cuda(),torch.from_numpy(depth).cuda()))
-    reports={};configs=[('stream_single',a.checkpoint,c)]
+    reports={};configs=[(c['architecture_id'],a.checkpoint,c)]
     if a.legacy_checkpoint:configs.insert(0,('legacy',a.legacy_checkpoint,c))
-    if a.dual_checkpoint:configs.append(('stream_dual',a.dual_checkpoint,load_stream_config(a.dual_config)))
+    if a.dual_checkpoint:
+        dual_config=load_stream_config(a.dual_config)
+        if dual_config['architecture_id'] in {kind for kind,_,_ in configs}:raise ValueError('Duplicate benchmark architecture; use separate output directories')
+        configs.append((dual_config['architecture_id'],a.dual_checkpoint,dual_config))
     if a.reference:configs.append(('reference',a.checkpoint,c))
     compilation={}
     for kind,path,config in configs:
+        if a.compile_stream and kind not in ('legacy','reference') and config['architecture_id'] in ('stream_rk_spatial','stream_rk_aligned','stream_rk_direct_pose','stream_rk_pose_reference','stream_rk_adaptive_reference','stream_rk_rotation_anchor','stream_rk_rotation_anchor_smooth'):
+            raise ValueError('Dense-memory encode_dense compilation is unsupported, including additional comparison checkpoints')
         if kind=='legacy':
             model=Tracker(False,dropout=0.).cuda();model.load_state_dict(torch.load(path,map_location='cpu',weights_only=False)['model'])
         else:model=make_model(config).cuda();load_init(path,model,audit,config)
@@ -167,7 +183,7 @@ def main():
             from lip.engine.stream_features import mesh_to_device
             model.eval();original_encoder=model.encode_current
             resident=mesh_to_device(mesh,'cuda')
-            features,_=build_current_features(data[0][0],data[0][1],initial.cuda(),torch.tensor(stream['intrinsics'],device='cuda'),resident,Renderer('cuda'),times[1],times[0])
+            features,_=build_current_features(data[0][0],data[0][1],initial.cuda(),torch.tensor(stream['intrinsics'],device='cuda'),resident,Renderer('cuda'),times[1],times[0],size=config['image_size'],expansion=config['crop_expansion'])
             features=stack_current([features])
             with torch.no_grad(),torch.autocast('cuda',dtype=torch.bfloat16,enabled=config['precision']=='bf16'):
                 expected=original_encoder(features)
@@ -190,7 +206,7 @@ def main():
         # Reference is intentionally bounded to a separate short correctness/timing scope.
         length=min(len(frames),17) if kind=='reference' else len(frames)
         warm=min(a.warmup,length-2);repeat=1 if kind=='reference' else a.repeats
-        reports[kind]=dict(checkpoint_sha256=sha(path),frames=frames[:length].tolist(),
+        reports[kind]=dict(architecture_id='legacy' if kind=='legacy' else model.architecture_id,config=config,checkpoint_sha256=sha(path),frames=frames[:length].tolist(),
             core=benchmark(model,kind,config,stream,frames[:length],times[:length],initial,mesh,a.data_root,audit,data[:length-1],warm,repeat,True),
             end_to_end=benchmark(model,kind,config,stream,frames[:length],times[:length],initial,mesh,a.data_root,audit,data[:length-1],warm,repeat,False))
         del model;torch.cuda.empty_cache()

@@ -14,7 +14,7 @@ def main():
     p.add_argument('--run', type=Path, required=True)
     p.add_argument('--archive', type=Path, required=True)
     p.add_argument('--step', type=int, required=True)
-    p.add_argument('--architecture', default='stream_single', choices=['stream_single','stream_dual','stream_dual_cross'])
+    p.add_argument('--architecture', default='stream_single', choices=['stream_single','stream_dual','stream_dual_cross','stream_dual_cross_residual'])
     p.add_argument('--receipt', type=Path, required=True)
     p.add_argument('--timeout', type=float, default=900)
     a = p.parse_args()

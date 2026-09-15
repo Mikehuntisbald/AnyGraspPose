@@ -8,6 +8,15 @@ CROSS_CACHE_CONTRACT = 'lip-v2-source17-context-readout-cross-gated-v1'
 
 
 def cache_contract_for(architecture):
+    if architecture=='stream_rk_rotation_anchor_smooth':return 'lip-rk-rotation-anchor-smooth-v1'
+    if architecture=='stream_rk_rotation_anchor':return 'lip-rk-rotation-anchor-v1'
+    if architecture=='stream_rk_adaptive_reference':return 'lip-rk-adaptive-reference-v1'
+    if architecture=='stream_rk_pose_reference':return 'lip-rk-spatial-pose-reference-v1'
+    if architecture=='stream_rk_direct_pose':return 'lip-rk-spatial-direct-pose-v1'
+    if architecture=='stream_rk_aligned':return 'lip-rk-aligned-memory-v1'
+    if architecture=='stream_rk_spatial':return 'lip-rk-spatial-memory-v1'
+    if architecture=='stream_rk_factorial':return 'lip-rk-factorial-v1'
+    if architecture=='stream_dual_cross_residual':return 'lip-v2-source17-context-cross-parent-residual-v1'
     return CROSS_CACHE_CONTRACT if architecture=='stream_dual_cross' else CACHE_CONTRACT
 
 

@@ -11,7 +11,9 @@ from lip.geometry.so3 import center_pose
 
 class StreamClips(Dataset):
     def __init__(self,root,index_root,burn_in=8,unroll=16,split='train',seed=42,length=1000000,
-                 start_sample=0,rank=0,world=1,fixed=None,decode_threads=4):
+                 start_sample=0,rank=0,world=1,fixed=None,decode_threads=4,
+                 external_initializers=None,external_initializers_sha256=None,real_initialization_probability=0.,
+                 include_initial_observation=False):
         self.root=Path(root);self.index=Path(index_root);self.total=burn_in+unroll;self.seed=seed
         self.length=length;self.start_sample=start_sample;self.rank=rank;self.world=world
         self.decode_threads=decode_threads;self._pool=None
@@ -29,6 +31,15 @@ class StreamClips(Dataset):
                 with np.load(self.index/s['mesh_cache']) as z:self.meshes[s['mesh_cache']]={k:z[k].copy() for k in z.files}
         self.fixed=fixed
         if not self.groups:raise RuntimeError('No continuous fragments in requested official split')
+        self.real_initialization_probability=float(real_initialization_probability)
+        if not 0<=self.real_initialization_probability<=1:raise ValueError('Invalid real initialization probability')
+        self.include_initial_observation=bool(include_initial_observation);self.external=None
+        if external_initializers:
+            from lip.data.external_initializers import load_train_initializers
+            if split!='train':raise ValueError('External training initializers cannot load into val/test clips')
+            self.external=load_train_initializers(external_initializers,external_initializers_sha256,self.streams,self.audit)['initializers']
+        if self.real_initialization_probability and (self.external is None or not self.include_initial_observation):
+            raise ValueError('Real training initialization requires bound predictions and initial observation')
 
     def __len__(self):return self.length
 
@@ -69,12 +80,30 @@ class StreamClips(Dataset):
             return cv2.cvtColor(rgb,cv2.COLOR_BGR2RGB).transpose(2,0,1),depth[None]
         if self._pool is None and self.decode_threads>1:
             cv2.setNumThreads(1);self._pool=ThreadPoolExecutor(self.decode_threads)
-        images=list(self._pool.map(decode,frames[1:])) if self._pool else [decode(f) for f in frames[1:]]
-        return dict(rgb=torch.from_numpy(np.stack([v[0] for v in images])),depth=torch.from_numpy(np.stack([v[1] for v in images])),
+        requested_frames=frames if self.include_initial_observation else frames[1:]
+        images=list(self._pool.map(decode,requested_frames)) if self._pool else [decode(f) for f in requested_frames]
+        initial_image=images[0] if self.include_initial_observation else None
+        if self.include_initial_observation:images=images[1:]
+        result=dict(rgb=torch.from_numpy(np.stack([v[0] for v in images])),depth=torch.from_numpy(np.stack([v[1] for v in images])),
             initial_pose=poses[0].clone(),targets=poses[1:],timestamps=torch.from_numpy(times),frames=torch.from_numpy(frames),
             mesh=mesh,k=torch.tensor(s['intrinsics']),stream=s,sample=item,
             timestamp_source='captured timestamps' if 'timestamps' in p else 'frame_index / official FPS; release has no measured frame clock',
-            depth_scale=float(self.audit['depth_scale_to_m']))
+            depth_scale=float(self.audit['depth_scale_to_m']),nominal_frame_interval=1/float(self.audit['fps']))
+        if initial_image is not None:
+            result.update(initial_rgb=torch.from_numpy(initial_image[0]),initial_depth=torch.from_numpy(initial_image[1]))
+        if self.external is not None:
+            from lip.data.external_initializers import request_real_initializer,initializer_key
+            requested=request_real_initializer(item['seed'],self.real_initialization_probability)
+            result.update(real_initialization_requested=requested,real_initialization_missing=False)
+            if requested:
+                key=initializer_key(s['stream_id'],int(frames[0]))
+                if key not in self.external:raise ValueError('Missing requested initializer record: '+key)
+                entry=self.external[key];result['real_initialization_missing']=entry is None
+                if entry is not None:
+                    result['real_initial_pose_original']=torch.tensor(entry['pose_original'],dtype=torch.float32)
+                    result['real_initial_pose']=center_pose(result['real_initial_pose_original'],torch.from_numpy(mesh['center']).float())
+                    result['real_initializer_key']=key
+        return result
 
 
 def collate(samples):return samples

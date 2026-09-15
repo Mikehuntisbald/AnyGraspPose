@@ -24,8 +24,8 @@ def merge_shards(root,world):
         folder=root/f'rank{rank}';m=json.loads((folder/'manifest.json').read_text())
         if not m['completed']:raise RuntimeError('Incomplete shard')
         manifests.append(m);rows.extend(map(json.loads,(folder/'predictions.jsonl').read_text().splitlines()))
-    compare=('checkpoint_sha256','architecture_id','cache_contract','config','split_hash','mesh_hash','split','source_sha256')
-    assert all(all(m[k]==manifests[0][k] for k in compare) for m in manifests)
+    compare=('checkpoint_sha256','architecture_id','cache_contract','config','split_hash','mesh_hash','split','source_sha256','initial_pose_source','initial_poses_sha256')
+    assert all(all(m.get(k)==manifests[0].get(k) for k in compare) for m in manifests)
     keys={(r['stream_id'],r['frame_index']) for r in rows};assert len(keys)==len(rows)
     rows.sort(key=lambda r:(r['stream_id'],r['frame_index']))
     save_reports(root,rows)
@@ -36,6 +36,23 @@ def merge_shards(root,world):
     (root/'manifest.json').write_text(json.dumps(m,indent=2))
 
 
+def recovery_count(rows):
+    """Count successful recovery within a stream episode, never across resets."""
+    episodes={};count=0
+    for r in sorted(rows,key=lambda r:(r['stream_id'],r['frame_index'])):
+        stream=r['stream_id']
+        if r['initialization']:
+            episodes[stream]=False
+            continue
+        pending=episodes.get(stream,False)
+        success=(r['status']=='ok' and not r.get('needs_reinit',False) and
+                 not r['lost'] and bool(r['adds_01']))
+        if pending and success:count+=1;pending=False
+        if r['lost']:pending=True
+        episodes[stream]=pending
+    return count
+
+
 def save_reports(out,rows):
     report=summarize(rows)
     tracked=[r for r in rows if not r['initialization']]
@@ -44,8 +61,8 @@ def save_reports(out,rows):
     report['moving_and_visibility_lt_03']=summarize(hard) if hard else dict(count=0)
     report['per_camera']={c:summarize([r for r in tracked if r['camera_id']==c]) for c in sorted(set(r['camera_id'] for r in tracked))}
     report['status_counts']={s:sum(r['status']==s for r in rows) for s in sorted(set(r['status'] for r in rows))}
-    report['recovery']=dict(lost_to_not_lost=sum(bool(rows[i-1]['lost']) and not r['lost'] for i,r in enumerate(rows) if i and rows[i-1]['stream_id']==r['stream_id']),
-        gt_resets_after_initialization=0,definition='lost streak >=5 ADD-S@.1d failures or explicit invalid state; recovery requires later valid successful outputs')
+    report['recovery']=dict(lost_to_not_lost=recovery_count(rows),
+        gt_resets_after_initialization=0,metric_version=2,definition='lost streak >=5 ADD-S@.1d failures or explicit invalid state; count one later status=ok, needs_reinit=false, lost=false, ADD-S@.1d success per lost episode; initialization and stream boundaries do not count')
     (out/'metrics.json').write_text(json.dumps(report,indent=2))
     (out/'predictions.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in rows))
 
@@ -55,6 +72,7 @@ def main():
     p.add_argument('--data-root',default=os.environ.get('DEX_YCB_DIR'));p.add_argument('--index-root',default='cache/dexycb_s0')
     p.add_argument('--split',choices=('val','test'),default='val');p.add_argument('--test-finalized',action='store_true')
     p.add_argument('--rank',type=int,default=0);p.add_argument('--world-size',type=int,default=1)
+    p.add_argument('--initial-poses',type=Path,help='Fixed original-coordinate poses with split/mesh hashes and explicit provenance')
     p.add_argument('--limit-streams',type=int);p.add_argument('--max-frames',type=int);p.add_argument('--merge',action='store_true');a=p.parse_args()
     out=Path(a.out)
     if a.merge:merge_shards(out,a.world_size);return
@@ -70,10 +88,19 @@ def main():
     expected_streams=[s['stream_id'] for s in streams]
     expected_frames=sum(min(s['num_frames'],a.max_frames) if a.max_frames is not None else s['num_frames'] for s in streams)
     streams=streams[a.rank::a.world_size]
+    initials=json.loads(a.initial_poses.read_text()) if a.initial_poses else None
+    if initials:
+        for key,value in [('split',a.split),('split_hash',audit['split_hash']),('mesh_hash',audit['mesh_hash'])]:
+            if initials.get(key)!=value:raise ValueError('Initialization manifest mismatch: '+key)
+        if not initials.get('protocol') or type(initials.get('uses_gt_pose')) is not bool:raise ValueError('Explicit initializer provenance required')
+        if any(sid not in initials['poses'] for sid in expected_streams):raise ValueError('Missing fixed initial poses')
     manifest=dict(completed=False,architecture_id=c['architecture_id'],checkpoint_sha256=sha(a.checkpoint),
         checkpoint_stage_step=ck.get('new_stage_step',0),checkpoint_parent=ck.get('parent'),cache_contract=cache_contract_for(c['architecture_id']),
         source_sha256=source_hash(),split=a.split,split_hash=audit['split_hash'],mesh_hash=audit['mesh_hash'],config=c,
-        initial_pose_source='GT first frame only',history_state_source='own committed prediction',fp_calls=0,critic_calls=0,
+        initial_pose_source=initials['protocol'] if initials else 'GT first frame only',
+        initialization_uses_gt_pose=initials['uses_gt_pose'] if initials else True,
+        initial_poses_sha256=sha(a.initial_poses) if initials else None,
+        history_state_source='own committed prediction',fp_calls=0,critic_calls=0,
         depth_correction=False,full_sequences=a.max_frames is None,subset=a.limit_streams is not None,
         shard_rank=a.rank,shard_count=a.world_size,streams=[s['stream_id'] for s in streams],
         expected_streams=expected_streams,expected_frames=expected_frames,metric_pose_precision='fp32; SciPy nearest-neighbor search internal float64')
@@ -83,9 +110,11 @@ def main():
         for s in streams:
             with np.load(Path(a.index_root)/s['mesh_cache']) as z:mesh={k:z[k].copy() for k in z.files}
             with np.load(Path(a.index_root)/s['pose_cache']) as z:poses=z['poses'].copy();frames=z['frames'].copy();times=z['timestamps'].copy() if 'timestamps' in z else frames.astype('f8')/audit['fps']
-            state=model.initialize(poses[0],mesh,s['intrinsics'],s['stream_id'],times[0],object_id=s['object_id'],camera_id=s['camera_serial'],mesh_hash=sha(Path(a.index_root)/s['mesh_cache']))
+            initial=initials['poses'][s['stream_id']] if initials else poses[0]
+            state=model.initialize(initial,mesh,s['intrinsics'],s['stream_id'],times[0],object_id=s['object_id'],camera_id=s['camera_serial'],mesh_hash=sha(Path(a.index_root)/s['mesh_cache']))
             centered=center_pose(torch.from_numpy(poses),torch.from_numpy(mesh['center']));streak=0
             for j,frame in enumerate(frames[:a.max_frames]):
+                started=time.perf_counter()
                 if j:
                     rgb,depth=read_frame(a.data_root,s,int(frame),audit['depth_scale_to_m'])
                     proposal,candidate=model.step(torch.from_numpy(rgb),torch.from_numpy(depth),times[j],state,renderer=renderer,
@@ -93,6 +122,8 @@ def main():
                     if proposal['status']=='ok':state=model.commit(proposal,candidate)
                     pred=proposal['pose_centered'];status=proposal['status'];needs=proposal['needs_reinit']
                 else:pred=state.pose_centered;status='initialized';needs=False
+                if device.type=='cuda':torch.cuda.synchronize(device)
+                inference_seconds=time.perf_counter()-started
                 # Current GT does not enter the predictor or its state transaction.
                 gt=centered[j];v=visibility(a.data_root,s,int(frame),gt.to(device),state.K,mesh,renderer)
                 e=errors(pred.float().cpu(),gt.float(),mesh['vertices'],float(mesh['diameter']),dtype='f4')
@@ -103,7 +134,28 @@ def main():
                         angle(gt[:3,:3]@centered[j-1,:3,:3].T)/dt>thresholds['rotation_rad_per_sec'])
                 row=dict(**e,stream_id=s['stream_id'],object_id=s['object_id'],camera_id=s['camera_serial'],frame_index=int(frame),
                     initialization=j==0,status=status,needs_reinit=needs,visibility=v,visibility_bin=visibility_bin(v),moving=moving,
-                    lost=streak>=5 or needs,pose_centered=pred.cpu().tolist(),timestamp=float(times[j]),cache_bytes=state.cache.kv_bytes)
+                    lost=streak>=5 or needs,pose_centered=pred.cpu().tolist(),timestamp=float(times[j]),cache_bytes=state.cache.kv_bytes,
+                    inference_seconds=inference_seconds,latency_scope='frame read plus online step; excludes scoring; shared GPU timing is not standalone latency')
+                if j and 'observation_support' in proposal:
+                    row.update(observation_support=float(proposal['observation_support']),anchors_read=int(proposal['anchors_read']))
+                if j and 'spatial_update_norm' in proposal:
+                    row.update(spatial_update_norm=float(proposal['spatial_update_norm']),spatial_tokens_read=int(proposal['spatial_tokens_read']))
+                if j and 'aligned_update_norm' in proposal:
+                    row.update(aligned_update_norm=float(proposal['aligned_update_norm']),aligned_tokens_read=int(proposal['aligned_tokens_read']),aligned_queries=int(proposal['aligned_queries']))
+                if j and 'direct_rotation_norm' in proposal:
+                    row.update(direct_rotation_norm=float(proposal['direct_rotation_norm']),direct_center_norm=float(proposal['direct_center_norm']))
+                if j and 'reference_rotation_coefficient' in proposal:
+                    for name in ('reference_rotation_coefficient','reference_center_coefficient','reference_rotation_residual_norm','reference_center_residual_norm','reference_age_frames'):
+                        row[name]=float(proposal[name])
+                if j and 'reference_write_rotation_coefficient' in proposal:
+                    for name in ('reference_write_rotation_coefficient','reference_write_center_coefficient','reference_write_rotation_norm','reference_write_center_norm','reference_write_valid_target'):
+                        row[name]=float(proposal[name])
+                if j and 'rotation_anchor_fraction' in proposal:
+                    for name in ('rotation_anchor_fraction','rotation_anchor_gap_norm'):
+                        row[name]=float(proposal[name])
+                if j and 'rotation_anchor_coefficient' in proposal:
+                    row['rotation_anchor_coefficient']=float(proposal['rotation_anchor_coefficient'])
+                    row['rotation_anchor_gap_norm']=float(proposal['rotation_anchor_gap_norm'])
                 writer.write(json.dumps(row)+'\n');writer.flush();rows.append(row)
             print(json.dumps(dict(completed_stream=s['stream_id'],frames=len(rows))),flush=True)
     save_reports(out,rows);manifest.update(completed=True,frames=len(rows));(out/'manifest.json').write_text(json.dumps(manifest,indent=2))

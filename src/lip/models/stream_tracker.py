@@ -13,9 +13,9 @@ class StreamTracker(nn.Module):
     def __init__(self,architecture_id='stream_single',memory_frames=8,dropout=0.,pretrained=False,
                  time_unit=1/30,max_gap_seconds=.5,cache_kind='functional'):
         super().__init__()
-        if architecture_id not in ('stream_single','stream_dual','stream_dual_cross'):raise ValueError('Unknown streaming architecture')
+        if architecture_id not in ('stream_single','stream_dual','stream_dual_cross','stream_dual_cross_residual'):raise ValueError('Unknown streaming architecture')
         if cache_kind not in ('functional','ring'):raise ValueError('Unknown cache implementation')
-        if architecture_id=='stream_dual_cross' and cache_kind!='functional':raise ValueError('Cross context cache currently requires functional mode')
+        if architecture_id in ('stream_dual_cross','stream_dual_cross_residual') and cache_kind!='functional':raise ValueError('Cross context cache currently requires functional mode')
         self.architecture_id=architecture_id;self.memory_frames=memory_frames
         self.cache_contract=cache_contract_for(architecture_id)
         self.max_gap_seconds=max_gap_seconds;self.cache_kind=cache_kind;self.weights_version=0
@@ -26,9 +26,10 @@ class StreamTracker(nn.Module):
         self.source_position=nn.Linear(2,256)
         nn.init.zeros_(self.source_position.weight);nn.init.zeros_(self.source_position.bias)
         self.temporal=StreamTemporal(memory_frames,dropout,time_unit)
-        if architecture_id=='stream_dual_cross':
-            from lip.models.stream_cross_readout import StreamCrossReadout
-            self.readout=StreamCrossReadout(memory_frames)
+        if architecture_id in ('stream_dual_cross','stream_dual_cross_residual'):
+            from lip.models.stream_cross_readout import StreamCrossReadout,StreamResidualCrossReadout
+            cls=StreamResidualCrossReadout if architecture_id=='stream_dual_cross_residual' else StreamCrossReadout
+            self.readout=cls(memory_frames)
         else:self.readout=StreamReadout(architecture_id=='stream_dual')
         self.migration_status={};self.train()
 
@@ -44,7 +45,7 @@ class StreamTracker(nn.Module):
     def parameter_versions(self):
         return tuple(p._version for p in self.parameters())
 
-    def encode_current(self,features,profiler=None):
+    def encode_current(self,features,profiler=None,return_dense=False):
         from contextlib import nullcontext
         scope=lambda name:profiler.section(name) if profiler is not None else nullcontext()
         rgb=features['rgb'];geometry=features['geometry']
@@ -55,18 +56,23 @@ class StreamTracker(nn.Module):
             side=x.shape[-1];pos=spatial_position(side,x.device).to(x.dtype)
             x=x.flatten(2).transpose(1,2)+pos;g=g.flatten(2).transpose(1,2)+pos
             for block in self.fusion:x=block(x,g)
+            dense=x
             x=F.adaptive_avg_pool2d(x.transpose(1,2).reshape(len(rgb),256,side,side),4).flatten(2).transpose(1,2)
             x=x+spatial_position(4,x.device).to(x.dtype)+self.token_type[0]+self.source_position(features['source_xy'])
             state=self.state(features['state_input'])+self.token_type[1]
-            return torch.cat((x,state[:,None]),1)
+            source=torch.cat((x,state[:,None]),1)
+            return (source,dense) if return_dense else source
 
     def forward(self,features,metadata,cache=None,profiler=None):
+        source=self.encode_current(features,profiler)
+        return self.forward_encoded(source,features,metadata,cache,profiler)
+
+    def forward_encoded(self,source,features,metadata,cache=None,profiler=None):
         from contextlib import nullcontext
         scope=lambda name:profiler.section(name) if profiler is not None else nullcontext()
-        source=self.encode_current(features,profiler)
         query=self.readout.query.expand(len(source),-1,-1)+self.token_type[2]
         with scope('temporal_readout'):
-            if self.architecture_id=='stream_dual_cross':
+            if self.architecture_id in ('stream_dual_cross','stream_dual_cross_residual'):
                 cache=cache or CrossCache(TemporalCache(capacity=self.memory_frames))
                 if not isinstance(cache,CrossCache):raise ValueError('Cross architecture requires its own cache contract')
                 z,next_source=self.temporal(source,query,metadata,cache.source,True)
