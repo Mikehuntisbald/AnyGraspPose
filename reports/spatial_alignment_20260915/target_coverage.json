@@ -1,0 +1,407 @@
+{
+  "completed": true,
+  "split": "train",
+  "frames": 16,
+  "scope": "One unaugmented first-update frame per pre-fixed diagnostic clip; no optimization, tolerance change or dataset edits. CPU renderer diagnostic.",
+  "entrypoint_sha256": "68e229135bf183117b73116a57e088849cdacc4c4383805beae32268b9300ec0",
+  "rows": [
+    {
+      "object_id": 8,
+      "stream_id": "20201002-subject-08/20201002_110253/932122062010",
+      "manifest_index": 1,
+      "symmetric": false,
+      "cad_keys": 30,
+      "projected_inside": 30,
+      "self_visible": 30,
+      "observed_depth_valid": 30,
+      "depth_consistent": 0,
+      "observed_minus_gt_mm_quantiles": [
+        5.200803279876709,
+        11.437162399291992,
+        12.771248817443848,
+        13.965502738952637,
+        19.301355361938477
+      ],
+      "depth_tolerance_mm": 5.0,
+      "gt_self_error_mm_quantiles": [
+        0.004112720489501953,
+        0.15316903591156006,
+        0.24768710136413574,
+        0.3708451986312866,
+        0.5385875701904297
+      ]
+    },
+    {
+      "object_id": 15,
+      "stream_id": "20201022-subject-10/20201022_113729/932122060861",
+      "manifest_index": 5,
+      "symmetric": false,
+      "cad_keys": 18,
+      "projected_inside": 18,
+      "self_visible": 16,
+      "observed_depth_valid": 16,
+      "depth_consistent": 2,
+      "observed_minus_gt_mm_quantiles": [
+        -5.030989646911621,
+        9.06783390045166,
+        13.072431564331055,
+        15.130878448486328,
+        19.74737548828125
+      ],
+      "depth_tolerance_mm": 5.0,
+      "gt_self_error_mm_quantiles": [
+        0.008285045623779297,
+        0.1347959041595459,
+        0.3782510757446289,
+        0.5247592926025391,
+        67.09075164794922
+      ]
+    },
+    {
+      "object_id": 11,
+      "stream_id": "20201015-subject-09/20201015_145410/840412060917",
+      "manifest_index": 11,
+      "symmetric": false,
+      "cad_keys": 22,
+      "projected_inside": 22,
+      "self_visible": 21,
+      "observed_depth_valid": 21,
+      "depth_consistent": 12,
+      "observed_minus_gt_mm_quantiles": [
+        -205.15072631835938,
+        -0.42748451232910156,
+        2.0874738693237305,
+        4.926085472106934,
+        208.51075744628906
+      ],
+      "depth_tolerance_mm": 5.190681219100953,
+      "gt_self_error_mm_quantiles": [
+        0.0730752944946289,
+        0.1424849033355713,
+        0.3421902656555176,
+        0.8887946605682373,
+        1129.899658203125
+      ]
+    },
+    {
+      "object_id": 17,
+      "stream_id": "20200908-subject-05/20200908_151724/932122060857",
+      "manifest_index": 19,
+      "symmetric": false,
+      "cad_keys": 4,
+      "projected_inside": 4,
+      "self_visible": 2,
+      "observed_depth_valid": 0,
+      "depth_consistent": 0,
+      "observed_minus_gt_mm_quantiles": null,
+      "depth_tolerance_mm": 5.0,
+      "gt_self_error_mm_quantiles": [
+        0.04178285598754883,
+        0.10932981967926025,
+        388.8262023925781,
+        781.870361328125,
+        794.9197998046875
+      ]
+    },
+    {
+      "object_id": 21,
+      "stream_id": "20200820-subject-03/20200820_145223/932122062010",
+      "manifest_index": 9,
+      "symmetric": true,
+      "cad_keys": 30,
+      "projected_inside": 30,
+      "self_visible": 19,
+      "observed_depth_valid": 18,
+      "depth_consistent": 5,
+      "observed_minus_gt_mm_quantiles": [
+        -0.5387663841247559,
+        4.831820487976074,
+        7.151097297668457,
+        10.49169921875,
+        13.324499130249023
+      ],
+      "depth_tolerance_mm": 5.0,
+      "gt_self_error_mm_quantiles": [
+        0.0034570693969726562,
+        0.17061829566955566,
+        0.4425942897796631,
+        16.665861129760742,
+        75.909912109375
+      ]
+    },
+    {
+      "object_id": 18,
+      "stream_id": "20200813-subject-02/20200813_155206/836212060125",
+      "manifest_index": 149,
+      "symmetric": true,
+      "cad_keys": 7,
+      "projected_inside": 7,
+      "self_visible": 5,
+      "observed_depth_valid": 5,
+      "depth_consistent": 5,
+      "observed_minus_gt_mm_quantiles": [
+        -1.7213821411132812,
+        -0.2574920654296875,
+        0.5546212196350098,
+        0.7908344268798828,
+        2.515137195587158
+      ],
+      "depth_tolerance_mm": 5.0,
+      "gt_self_error_mm_quantiles": [
+        0.06091594696044922,
+        0.1150965690612793,
+        0.16313791275024414,
+        6.624073028564453,
+        13.76146125793457
+      ]
+    },
+    {
+      "object_id": 21,
+      "stream_id": "20200908-subject-05/20200908_152716/932122060861",
+      "manifest_index": 13,
+      "symmetric": true,
+      "cad_keys": 30,
+      "projected_inside": 30,
+      "self_visible": 0,
+      "observed_depth_valid": 0,
+      "depth_consistent": 0,
+      "observed_minus_gt_mm_quantiles": null,
+      "depth_tolerance_mm": 5.0,
+      "gt_self_error_mm_quantiles": [
+        6.32244348526001,
+        23.391916275024414,
+        38.955570220947266,
+        50.28018569946289,
+        52.03819274902344
+      ]
+    },
+    {
+      "object_id": 16,
+      "stream_id": "20200813-subject-02/20200813_154526/839512060362",
+      "manifest_index": 33,
+      "symmetric": true,
+      "cad_keys": 25,
+      "projected_inside": 25,
+      "self_visible": 1,
+      "observed_depth_valid": 0,
+      "depth_consistent": 0,
+      "observed_minus_gt_mm_quantiles": null,
+      "depth_tolerance_mm": 5.0,
+      "gt_self_error_mm_quantiles": [
+        0.5217790603637695,
+        84.49846649169922,
+        86.39854431152344,
+        87.51815795898438,
+        88.58954620361328
+      ]
+    },
+    {
+      "object_id": 9,
+      "stream_id": "20200918-subject-06/20200918_114840/841412060263",
+      "manifest_index": 6,
+      "symmetric": false,
+      "cad_keys": 36,
+      "projected_inside": 36,
+      "self_visible": 34,
+      "observed_depth_valid": 33,
+      "depth_consistent": 3,
+      "observed_minus_gt_mm_quantiles": [
+        -37.30404281616211,
+        -16.492843627929688,
+        -12.56108283996582,
+        -10.001301765441895,
+        24.0476131439209
+      ],
+      "depth_tolerance_mm": 5.0,
+      "gt_self_error_mm_quantiles": [
+        0.006556510925292969,
+        0.10278820991516113,
+        0.26595592498779297,
+        0.48032402992248535,
+        2.657651901245117
+      ]
+    },
+    {
+      "object_id": 1,
+      "stream_id": "20200918-subject-06/20200918_113049/841412060263",
+      "manifest_index": 10,
+      "symmetric": true,
+      "cad_keys": 26,
+      "projected_inside": 26,
+      "self_visible": 25,
+      "observed_depth_valid": 25,
+      "depth_consistent": 8,
+      "observed_minus_gt_mm_quantiles": [
+        -239.8142852783203,
+        -20.903825759887695,
+        -6.78098201751709,
+        -3.864884376525879,
+        264.2655334472656
+      ],
+      "depth_tolerance_mm": 5.0,
+      "gt_self_error_mm_quantiles": [
+        0.03695487976074219,
+        0.19413232803344727,
+        0.29733777046203613,
+        0.5706548690795898,
+        1043.1051025390625
+      ]
+    },
+    {
+      "object_id": 4,
+      "stream_id": "20200813-subject-02/20200813_150418/839512060362",
+      "manifest_index": 20,
+      "symmetric": false,
+      "cad_keys": 27,
+      "projected_inside": 27,
+      "self_visible": 20,
+      "observed_depth_valid": 18,
+      "depth_consistent": 8,
+      "observed_minus_gt_mm_quantiles": [
+        -247.3192138671875,
+        -207.7937469482422,
+        -189.98768615722656,
+        0.2862215042114258,
+        1.8582940101623535
+      ],
+      "depth_tolerance_mm": 5.0,
+      "gt_self_error_mm_quantiles": [
+        0.0030994415283203125,
+        0.06601214408874512,
+        0.1544356346130371,
+        2.3100078105926514,
+        773.0384521484375
+      ]
+    },
+    {
+      "object_id": 7,
+      "stream_id": "20200820-subject-03/20200820_141116/932122060857",
+      "manifest_index": 28,
+      "symmetric": false,
+      "cad_keys": 36,
+      "projected_inside": 36,
+      "self_visible": 36,
+      "observed_depth_valid": 36,
+      "depth_consistent": 24,
+      "observed_minus_gt_mm_quantiles": [
+        -113.15375518798828,
+        1.6758143901824951,
+        3.478497266769409,
+        5.225002765655518,
+        9.660900115966797
+      ],
+      "depth_tolerance_mm": 5.0,
+      "gt_self_error_mm_quantiles": [
+        0.0026226043701171875,
+        0.04020333290100098,
+        0.126570463180542,
+        0.24873018264770508,
+        0.5363225936889648
+      ]
+    },
+    {
+      "object_id": 15,
+      "stream_id": "20200709-subject-01/20200709_151502/932122062010",
+      "manifest_index": 163,
+      "symmetric": false,
+      "cad_keys": 20,
+      "projected_inside": 20,
+      "self_visible": 15,
+      "observed_depth_valid": 15,
+      "depth_consistent": 9,
+      "observed_minus_gt_mm_quantiles": [
+        -19.07801628112793,
+        -5.458146095275879,
+        0.9578466415405273,
+        2.2407174110412598,
+        5.4756999015808105
+      ],
+      "depth_tolerance_mm": 5.0,
+      "gt_self_error_mm_quantiles": [
+        0.003933906555175781,
+        0.1672506332397461,
+        0.5570352077484131,
+        2.161905288696289,
+        10.31351089477539
+      ]
+    },
+    {
+      "object_id": 12,
+      "stream_id": "20200813-subject-02/20200813_153339/841412060263",
+      "manifest_index": 219,
+      "symmetric": false,
+      "cad_keys": 17,
+      "projected_inside": 17,
+      "self_visible": 9,
+      "observed_depth_valid": 9,
+      "depth_consistent": 5,
+      "observed_minus_gt_mm_quantiles": [
+        -14.006614685058594,
+        -3.767251968383789,
+        0.8980035781860352,
+        2.9294490814208984,
+        6.639838218688965
+      ],
+      "depth_tolerance_mm": 5.191320776939392,
+      "gt_self_error_mm_quantiles": [
+        0.024557113647460938,
+        0.5180835723876953,
+        2.5838613510131836,
+        31.223655700683594,
+        1127.6650390625
+      ]
+    },
+    {
+      "object_id": 18,
+      "stream_id": "20200903-subject-04/20200903_113335/840412060917",
+      "manifest_index": 65,
+      "symmetric": true,
+      "cad_keys": 10,
+      "projected_inside": 10,
+      "self_visible": 4,
+      "observed_depth_valid": 4,
+      "depth_consistent": 1,
+      "observed_minus_gt_mm_quantiles": [
+        4.994511604309082,
+        6.512641906738281,
+        7.304489612579346,
+        9.739279747009277,
+        16.186237335205078
+      ],
+      "depth_tolerance_mm": 5.0,
+      "gt_self_error_mm_quantiles": [
+        0.06663799285888672,
+        0.5086958408355713,
+        16.927658081054688,
+        19.14870834350586,
+        19.807100296020508
+      ]
+    },
+    {
+      "object_id": 5,
+      "stream_id": "20200820-subject-03/20200820_140606/932122060857",
+      "manifest_index": 67,
+      "symmetric": false,
+      "cad_keys": 18,
+      "projected_inside": 18,
+      "self_visible": 9,
+      "observed_depth_valid": 9,
+      "depth_consistent": 4,
+      "observed_minus_gt_mm_quantiles": [
+        -7.458388805389404,
+        -1.5274882316589355,
+        1.7279386520385742,
+        5.913496017456055,
+        139.8665313720703
+      ],
+      "depth_tolerance_mm": 5.0,
+      "gt_self_error_mm_quantiles": [
+        0.04291534423828125,
+        0.19940733909606934,
+        5.777746200561523,
+        91.5512924194336,
+        772.2857055664062
+      ]
+    }
+  ]
+}

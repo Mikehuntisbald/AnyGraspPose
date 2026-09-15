@@ -1,13 +1,19 @@
 # AnyGraspPose: RGB-D temporal object pose estimation
 
-This repository contains the original LIP/FP experiments and three independently trainable streaming architectures: `stream_single`, `stream_dual`, and `stream_dual_cross` (object-to-context cross-attention with a gated residual). No MANO or explicit hand supervision is required. Streaming defaults disable FoundationPose and the basin critic.
+This repository contains the original LIP/FP experiments and four independently trainable streaming architectures: `stream_single`, `stream_dual`, `stream_dual_cross`, and `stream_dual_cross_residual` (object-to-context cross-attention with a gated residual). No MANO or explicit hand supervision is required. Streaming defaults disable FoundationPose and the basin critic.
 
 See [release stages](docs/RELEASE_STAGES.md) for the ordered implementation history and [artifact policy](docs/EXPERIMENT_ARTIFACTS.md) for what is included in Git. Experiment reports are dated snapshots: their original Git state, checkpoint availability, and running-job statements describe the time of the experiment, not a live deployment status.
 
 - [Streaming implementation and preflight](docs/STREAMING_LIP_V2.md)
 - [Eight-GPU training optimization](docs/STREAM_DUAL_5300_TRAINING.md)
 - [Cross-attention architecture, migration, and training](docs/STREAM_CROSS_8800_TRAINING.md)
+- [Function-preserving parent plus cross residual experiment](docs/STREAM_RESIDUAL_8800_TRAINING.md)
+- [Spatial supervision × parent-latent factorial: completed results](docs/SPATIAL_ALIGNMENT_FACTORIAL_RESULTS_20260915.md)
+- [Non-GT initialization and factorial training protocol](docs/SPATIAL_ALIGNMENT_FACTORIAL_20260915.md)
+- [Rotation-branch diagnosis](docs/ROTATION_ALIGNMENT_DIAGNOSIS_20260915.md)
 - [Matched 320-stream / 23,200-frame validation](runs/stream_v2_cross_3700_s0_val/report.md)
+
+The latest four-arm experiment uses real PoseCNN initialization and zero-FP causal tracking. Spatial supervision improves its auxiliary training task, but does not establish better startup recovery; the retained parent checkpoint has not been replaced. Compact paired statistics, plots, and hash receipts are published under [reports/spatial_alignment_20260915](reports/spatial_alignment_20260915/). These native-val metrics are not official test BOP AR or a SOTA claim.
 
 Saved standalone s0 val results, excluding initialization and using object-macro averages:
 

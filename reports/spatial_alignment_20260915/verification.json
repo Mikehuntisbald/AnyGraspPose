@@ -1,0 +1,116 @@
+{
+  "completed": true,
+  "source_sha256": "87d4591a3fceee004d1a43a099fba958e6115579f283dffada2f06d7aa0fca6f",
+  "experiment_sha256": "a3b5c92593dedd49a6c3a694e7f9a435eeddb0f9aaa0f25edd486e577c9f3526",
+  "analysis_sha256": "eb755c7c660258971d2c8317ee22169a2f2ae0bbba82a2268c2975fee6271079",
+  "tests": {
+    "tests": {
+      "tests": 61,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "extended_tests": {
+      "tests": 13,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "cuda_tests": {
+      "tests": 4,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    }
+  },
+  "cpu_unique": 65,
+  "training": {
+    "s0_l1": {
+      "completed": true,
+      "steps": 1000,
+      "checkpoint_sha256": "3df92265e7bf05b86aa9d3470d987e47771050d19563a8386eb08b3f2c25fd56",
+      "rgb_bitwise_unchanged": true,
+      "all_rank_logs_verified": true,
+      "initialization_totals": {
+        "real_initializations_rank": 30956,
+        "real_initializations_requested_rank": 32124,
+        "real_initializations_missing_rank": 1168,
+        "primed_observations_rank": 64000
+      }
+    },
+    "s0_l0": {
+      "completed": true,
+      "steps": 1000,
+      "checkpoint_sha256": "0a107b3021eb540db9ae6ee11efc5ffc67be3058d3d4d99c27f07cd2a8ecdb34",
+      "rgb_bitwise_unchanged": true,
+      "all_rank_logs_verified": true,
+      "initialization_totals": {
+        "real_initializations_rank": 30956,
+        "real_initializations_requested_rank": 32124,
+        "real_initializations_missing_rank": 1168,
+        "primed_observations_rank": 64000
+      }
+    },
+    "s1_l1": {
+      "completed": true,
+      "steps": 1000,
+      "checkpoint_sha256": "53f8b5c8003743c0948693cf0a8569ee7938f3e61276afc3dbc3cdd4c1922122",
+      "rgb_bitwise_unchanged": true,
+      "all_rank_logs_verified": true,
+      "initialization_totals": {
+        "real_initializations_rank": 30956,
+        "real_initializations_requested_rank": 32124,
+        "real_initializations_missing_rank": 1168,
+        "primed_observations_rank": 64000
+      }
+    },
+    "s1_l0": {
+      "completed": true,
+      "steps": 1000,
+      "checkpoint_sha256": "c8100411e104bc8b68ce7acd08eab3babb92ba45b7246559bc519cd18387e1b2",
+      "rgb_bitwise_unchanged": true,
+      "all_rank_logs_verified": true,
+      "initialization_totals": {
+        "real_initializations_rank": 30956,
+        "real_initializations_requested_rank": 32124,
+        "real_initializations_missing_rank": 1168,
+        "primed_observations_rank": 64000
+      }
+    }
+  },
+  "timing": {
+    "residual": {
+      "frames": 480,
+      "mean_ms": 21.993290728035692,
+      "p50_ms": 21.891217911615968,
+      "p95_ms": 23.437576449941844
+    },
+    "s0_l1": {
+      "frames": 480,
+      "mean_ms": 25.397340280081455,
+      "p50_ms": 25.073517579585314,
+      "p95_ms": 27.043398260138925
+    },
+    "s0_l0": {
+      "frames": 480,
+      "mean_ms": 25.58299234175744,
+      "p50_ms": 25.37512208800763,
+      "p95_ms": 26.94898338522762
+    },
+    "s1_l1": {
+      "frames": 480,
+      "mean_ms": 25.55422082708295,
+      "p50_ms": 25.43136407621205,
+      "p95_ms": 27.58808393264189
+    },
+    "s1_l0": {
+      "frames": 480,
+      "mean_ms": 25.153002003692865,
+      "p50_ms": 25.011080550029874,
+      "p95_ms": 26.485854573547833
+    }
+  },
+  "parent_reproduction_exact": true,
+  "candidate_promoted": false,
+  "official_test_launched": false
+}

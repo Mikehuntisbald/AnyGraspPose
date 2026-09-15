@@ -1,0 +1,86 @@
+{
+  "archive_sha256": "759c8f501f489e195a66720bd72bacd70a043cc3d82eb30551946907b023cdea",
+  "files": {
+    "analysis.json": {
+      "source": "runs/spatial_alignment_factorial_20260915_completed/evidence/runs/factorial/analysis/report.json",
+      "sha256": "eb755c7c660258971d2c8317ee22169a2f2ae0bbba82a2268c2975fee6271079",
+      "bytes": 283883
+    },
+    "contrasts.csv": {
+      "source": "runs/spatial_alignment_factorial_20260915_completed/evidence/runs/factorial/analysis/contrasts.csv",
+      "sha256": "708c4fa533f0e08309ca70c7ba4b0e09ee1b910534c5b1a973137772b9685c4e",
+      "bytes": 109043
+    },
+    "sequence_object_sums.csv": {
+      "source": "runs/spatial_alignment_factorial_20260915_completed/evidence/runs/factorial/analysis/sequence_object_sums.csv",
+      "sha256": "af7ff2f9e31d4dd3d7d5e45fc327e33c312c1fdb7dd224747111556bc08653db",
+      "bytes": 916655
+    },
+    "occlusion_events.csv": {
+      "source": "runs/spatial_alignment_factorial_20260915_completed/evidence/runs/factorial/analysis/occlusion_events.csv",
+      "sha256": "2967eed32bb578be0fe0d3c06581e2e4939888dcf3e35f2e8a89c8d62439d4da",
+      "bytes": 83332
+    },
+    "training_windows.csv": {
+      "source": "runs/spatial_alignment_factorial_20260915_completed/evidence/runs/completion/training_windows.csv",
+      "sha256": "d643d21092148a22012758e8c01c51baca84ac0027a1e699caf3e1609eb83781",
+      "bytes": 14148
+    },
+    "verification.json": {
+      "source": "runs/spatial_alignment_factorial_20260915_completed/evidence/runs/completion/verification.json",
+      "sha256": "bec6c71c56a64d7142fafeccaf0ac5b765bd209b163cbb8eab3f9ae73248ba3c",
+      "bytes": 3413
+    },
+    "archive_verification.json": {
+      "source": "runs/spatial_alignment_factorial_20260915_completed/verification.json",
+      "sha256": "539fea5b23bcfd968eefe098c642e5a96cf4d262c56e63fb49809b5c39b45b97",
+      "bytes": 254
+    },
+    "parent_reproduction.json": {
+      "source": "runs/spatial_alignment_factorial_20260915_completed/evidence/runs/factorial/evaluation/parent_reproduction.json",
+      "sha256": "f60dbecaf4f011d4cc12cbefd5719ae446a6cd5f857778d4e0712e2c8d0eb24f",
+      "bytes": 169
+    },
+    "experiment.json": {
+      "source": "runs/spatial_alignment_factorial_20260915_completed/evidence/runs/factorial/experiment.json",
+      "sha256": "a3b5c92593dedd49a6c3a694e7f9a435eeddb0f9aaa0f25edd486e577c9f3526",
+      "bytes": 5282
+    },
+    "target_coverage.json": {
+      "source": "runs/spatial_alignment_factorial_20260915_completed/evidence/runs/target_audit/coverage.json",
+      "sha256": "6950c6444e9ac87fee57d291af31230233156d9e57f28ff5f86f0f68536f3e53",
+      "bytes": 11243
+    },
+    "figures/accuracy.pdf": {
+      "source": "runs/spatial_alignment_factorial_20260915_completed/evidence/runs/completion/figures/accuracy.pdf",
+      "sha256": "3565a68bc8702eb017b074dcbb2be3607d6041214ad4fa188a6cc48895d79f31",
+      "bytes": 17741
+    },
+    "figures/accuracy.png": {
+      "source": "runs/spatial_alignment_factorial_20260915_completed/evidence/runs/completion/figures/accuracy.png",
+      "sha256": "b1299dbe01b8b4e05f57c9d5056f9c30ef8b0566b00e11034e4e0d89a11ed3c7",
+      "bytes": 70606
+    },
+    "figures/factorial_intervals.pdf": {
+      "source": "runs/spatial_alignment_factorial_20260915_completed/evidence/runs/completion/figures/factorial_intervals.pdf",
+      "sha256": "f999b2bfa6d2eb1d95cfbc10961808e805b84d67cd97d459dcef51b2c98e34a9",
+      "bytes": 16740
+    },
+    "figures/factorial_intervals.png": {
+      "source": "runs/spatial_alignment_factorial_20260915_completed/evidence/runs/completion/figures/factorial_intervals.png",
+      "sha256": "58303964c7edf64bb1e7f557e0032b0b36aa9b2d8fbd899f8b22a1f6bbd05455",
+      "bytes": 64155
+    },
+    "figures/training.png": {
+      "source": "runs/spatial_alignment_factorial_20260915_completed/evidence/runs/completion/figures/training.png",
+      "sha256": "2b6430e7d9dcd690794c81dc1e1798b51a779c23c0ae36b8b61f9227f789644f",
+      "bytes": 128992
+    },
+    "figures/training.pdf": {
+      "source": "runs/spatial_alignment_factorial_20260915_completed/evidence/runs/completion/figures/training.pdf",
+      "sha256": "2b456147e0941454259377b1f514d3c9121e48f2ab35706e3a6b201917c475d9",
+      "bytes": 18530
+    }
+  },
+  "scope": "Compact copies of completed experiment evidence. Full traces and checkpoints remain external; no re-evaluation performed for publication."
+}

@@ -1,5 +1,7 @@
 # Experiment artifacts
 
+The September 16 publication keeps new `runs/` trees ignored and publishes selected completed evidence under `reports/`. Existing tracked run records remain untouched. The latest [spatial-supervision factorial](../reports/spatial_alignment_20260915/) includes sequence/object sums for paired analysis, contrasts, event records, plots, and checkpoint/archive hash receipts. Full per-frame traces, checkpoint files, and duplicate runtime source archives remain external. Its [provenance manifest](../reports/spatial_alignment_20260915/provenance.json) identifies each copied artifact without rewriting the experiment's original paths or hashes.
+
 Git contains implementation, configs, tests, analysis/launch tools, and the available compact experiment records: metrics, manifests, migration and preflight receipts, test logs/XML, per-stream comparison CSVs, and reports. The streaming summary plot is included explicitly.
 
 Raw datasets, model/optimizer checkpoints, image overlays, full prediction/training JSONL files, tensorboard event files, runtime source copies, and temporary worktree patches are excluded from new commits. Original tracked bring-up records remain in history. Some report links target these external files and therefore work only in the complete experiment workspace, not in a fresh GitHub checkout.

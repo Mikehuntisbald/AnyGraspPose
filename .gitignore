@@ -23,3 +23,19 @@ runs/**/candidate/
 runs/**/tensorboard/
 runs/**/events.out.tfevents.*
 runs/**/worktree_before.patch
+# Full official pose submissions stay available locally; publish receipts and summaries.
+runs/official_s0_test/csv/
+runs/official_s0_test/**/bop-*.csv
+runs/official_s0_test/**/matches_*.json
+runs/official_s0_test/**/errors_*.json
+runs/streaming_s0_test/csv/
+runs/streaming_s0_test/**/bop-*.csv
+runs/streaming_s0_test/**/matches_*.json
+runs/streaming_s0_test/**/errors_*.json
+runs/lip_only_s0_test/csv/
+runs/lip_only_s0_test/**/bop-*.csv
+runs/lip_only_s0_test/**/matches_*.json
+runs/lip_only_s0_test/**/errors_*.json
+# New runtime trees stay external; selected public evidence lives in reports/.
+# Previously tracked run records remain tracked.
+/runs/

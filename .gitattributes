@@ -1,0 +1,2 @@
+# Preserve captured CSV bytes so published provenance hashes remain valid.
+reports/spatial_alignment_20260915/*.csv -text whitespace=cr-at-eol

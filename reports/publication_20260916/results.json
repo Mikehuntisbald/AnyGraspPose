@@ -1,0 +1,40 @@
+{
+  "completed": true,
+  "base_commit": "51d72c2",
+  "stages": [
+    {
+      "stage": 1,
+      "commit": "02e00c708d50c01781dabccefd7ed50762591572",
+      "tree": "69706509ed8b05174ce1d33f04704f0ef1fe17ff",
+      "passed": 179,
+      "tests": 179,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "command": "python -m pytest tests -m \"not cuda and not foundationpose\" -q",
+      "log": "stage1.log",
+      "junit": "stage1.xml"
+    },
+    {
+      "stage": 2,
+      "commit": "159be89d4254b078e9a33dbfcb053755fb6d511c",
+      "tree": "34e83317d9f7f3c2eb47e57556d6fc9a99ec2646",
+      "passed": 284,
+      "tests": 284,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0,
+      "command": "python -m pytest tests -m \"not cuda and not foundationpose\" -q",
+      "log": "stage2_final.log",
+      "junit": "stage2_final.xml"
+    }
+  ],
+  "files_sha256": {
+    "stage2_final.log": "632b587f474a1002e6130d09db8dadc89a990b3dff0e734cbf6008026ed7d183",
+    "stage1.log": "44c067d7d2e778ada617b4b96ba2117078d15111acff6cc6331fbf1be03e2ce8",
+    "stage1.xml": "ddce47aa2fc80f013e7556cfca94b1b5882089e44034de6956e772e6eac2d96f",
+    "stage2_final.xml": "8ed0ad73cdff76c638b7bdcaa4de267c4bf4fe2d9b284687f6d800650f94ecda"
+  },
+  "core_source_sha256": "87d4591a3fceee004d1a43a099fba958e6115579f283dffada2f06d7aa0fca6f",
+  "scope": "Publication CPU checks in isolated directories. Stage2 supersets stage1; do not add test counts. No GPU tests or training re-run for publication."
+}

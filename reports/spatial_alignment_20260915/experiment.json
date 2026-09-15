@@ -1,0 +1,81 @@
+{
+  "source_sha256": "87d4591a3fceee004d1a43a099fba958e6115579f283dffada2f06d7aa0fca6f",
+  "parent": "/mnt/why/dexycb_lip/smooth_val_evaluation_20260915/runs/full/selected.pt",
+  "parent_sha256": "89d5a66bc72d8afc5eb57d20b4a4ba52964dc7706dc7058af8bb9a01cde15868",
+  "split_hash": "54a35253db5bea988ffea5e41641d3313b31c5568193a186dd4e4359c497804b",
+  "mesh_hash": "359f53a5f41963d3fdfc2542bd640432d820bfc99a055baec8976ad99966d32c",
+  "data_root": "/mnt/why/dexycb_lip/cache/raw_full_20260910",
+  "index_root": "/mnt/why/dexycb_lip/cache/dexycb_s0",
+  "training_manifest": "/mnt/why/dexycb_lip/real_init_training_20260915_v2/runs/pair/training_samples.json",
+  "training_manifest_sha256": "604c5b370ee5d72dbd86c8a36b1edba0766e6867d772aa8ef605ef4eee062852",
+  "train_initializers": "/mnt/why/dexycb_lip/posecnn_train_20260915/runs/full/initializers.json",
+  "train_initializers_sha256": "3c4bd539702506d8a05d8172783e948bdd73b72dd850a3b301bf109a831ba3bd",
+  "val_initializers": "/mnt/why/dexycb_lip/posecnn_val_20260915/runs/full/initializers.json",
+  "val_initializers_sha256": "ea33a4668526d2305f5a23d4e789d579094f0f2639ac81386c93766329e574bf",
+  "steps": 1000,
+  "seed": 42,
+  "arms": {
+    "s0_l1": {
+      "config": "/mnt/why/dexycb_lip/spatial_alignment_2x2_20260915/runs/factorial/s0_l1/config.yaml",
+      "init": "/mnt/why/dexycb_lip/spatial_alignment_2x2_20260915/runs/factorial/s0_l1/init.pt",
+      "init_sha256": "0940845bc13d8f9c01b475344219a6ed815bbb44985fab6c24ecd4c27a6274a2",
+      "spatial": false,
+      "parent_latent": true
+    },
+    "s0_l0": {
+      "config": "/mnt/why/dexycb_lip/spatial_alignment_2x2_20260915/runs/factorial/s0_l0/config.yaml",
+      "init": "/mnt/why/dexycb_lip/spatial_alignment_2x2_20260915/runs/factorial/s0_l0/init.pt",
+      "init_sha256": "5b27c7607673e1daaac34ecbee610bdeb91262f2438555404b762c4c72413537",
+      "spatial": false,
+      "parent_latent": false
+    },
+    "s1_l1": {
+      "config": "/mnt/why/dexycb_lip/spatial_alignment_2x2_20260915/runs/factorial/s1_l1/config.yaml",
+      "init": "/mnt/why/dexycb_lip/spatial_alignment_2x2_20260915/runs/factorial/s1_l1/init.pt",
+      "init_sha256": "fe737939a8e28e69e77dc4849f7277b735f7d1944beec012ff5627097b33599a",
+      "spatial": true,
+      "parent_latent": true
+    },
+    "s1_l0": {
+      "config": "/mnt/why/dexycb_lip/spatial_alignment_2x2_20260915/runs/factorial/s1_l0/config.yaml",
+      "init": "/mnt/why/dexycb_lip/spatial_alignment_2x2_20260915/runs/factorial/s1_l0/init.pt",
+      "init_sha256": "d115d21e2e0bb65e9be41272e87574ca5d26ad3e870cee25b1f3a6776179f848",
+      "spatial": true,
+      "parent_latent": false
+    }
+  },
+  "requested_real_draws": 32124,
+  "used_real_draws": 30956,
+  "missing_real_draws": 1168,
+  "probe_indices": [
+    1,
+    5,
+    6,
+    9,
+    10,
+    11,
+    13,
+    15
+  ],
+  "protocol": "2x2 seed42: auxiliary spatial attention supervision 0/.05 x direct parent latent on/off. Same zero-branch checkpoint, retained residual, all 64000 fixed train draws, effective batch64, final1000, S1O1, .5 real PoseCNN request, fresh Adam and frozen RGB. Each arm two H20 with two microbatches. No val-driven checkpoint selection.",
+  "intervention": "Alignment additionally retains 14x14 fused observation tokens, independently encodes five CAD-only depth/silhouette/XYZ channels and cross-attends observation to CAD; zero-output rotation residual, unchanged center-head architecture. No rendered RGB texture in this first implementation.",
+  "evaluation": "Full real non-GT initialization native s0 val, 320 streams/23200 frames per arm, zero FP, one correction/frame. Paired conditional supervision and latent effects plus interaction. Separate original parent/control references. No new official test.",
+  "promotion": "Protect retained-parent overall ADD and strict ADD-S, severe strict, and first8 center. Require paired first8 rotation improvement versus both matched control and retained parent. Final1000 only. No new official test launch.",
+  "old_experiment": "/mnt/why/dexycb_lip/intraframe_alignment_20260915/runs/alignment_pair/experiment.json",
+  "old_experiment_sha256": "c47bfb207097fc32280c7c858ce0e77b58e26bccf8a69437fd54dab0e5efbe47",
+  "initial_branch_checkpoint": "/mnt/why/dexycb_lip/intraframe_alignment_20260915/runs/alignment_pair/alignment/init.pt",
+  "initial_branch_sha256": "6114f78422168a9a23cfc4f42a8706cb1365aace4bc93824a08e63870083e4af",
+  "models_info": "/mnt/why/dexycb_lip/cache/raw_full_20260910/bop/models/models_info.json",
+  "models_info_sha256": "13978298d8c37f089a7e0c421ed8be867fa836818936f5499786175da2c4c4cb",
+  "symmetric_object_ids": [
+    1,
+    13,
+    16,
+    18,
+    19,
+    20,
+    21
+  ],
+  "auxiliary": "Mean-head actual cross-attention distribution supervised by base-visible CAD representative points projected with training GT; bilinear target splat to observation grid; GT self-depth and augmented sensor-depth consistency; no object masks or hands. Symmetric objects from bound BOP metadata excluded from auxiliary only, remain in pose training and all evaluation.",
+  "limits": "No direct parent latent does not remove geometry already in fused observation tokens. Auxiliary visibility can shrink with bad priors; coverage must be reported. One seed and one fixed loss weight; no sweep."
+}
