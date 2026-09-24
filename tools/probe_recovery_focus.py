@@ -53,7 +53,9 @@ def geometry_score(output,teacher,weight,diameter):
 def main():
     p=argparse.ArgumentParser();p.add_argument('--config',type=Path,required=True);p.add_argument('--checkpoint',type=Path,required=True)
     p.add_argument('--out',type=Path,required=True);p.add_argument('--rank',type=int,required=True);p.add_argument('--world',type=int,default=8)
-    p.add_argument('--smoke',action='store_true');p.add_argument('--rope-ablation',action='store_true');a=p.parse_args()
+    p.add_argument('--smoke',action='store_true');p.add_argument('--rope-ablation',action='store_true')
+    p.add_argument('--normal-audit',action='store_true');a=p.parse_args()
+    if a.normal_audit and a.rope_ablation:raise ValueError('Choose one diagnostic intervention')
     torch.cuda.set_device(0 if torch.cuda.device_count()==1 else a.rank);torch.set_num_threads(2);torch.manual_seed(42);cv2.setNumThreads(0)
     c=yaml.safe_load(a.config.read_text());m=build_model(c);record=torch.load(a.checkpoint,map_location='cpu',weights_only=False)
     load_core(m,record['model']);m.requires_grad_(False).eval();m.weights_version=sha(a.checkpoint)
@@ -105,6 +107,12 @@ def main():
     manifest['feature_layer_weights']=list(layer_weights)
     manifest['fixed_feature_teacher']=fixed_teacher
     manifest['local_structure_diagnostics']=bool(c.get('local_structure'))
+    if a.normal_audit:
+        assert m.disable_history
+        manifest.update(normal_audit=True,policies=['off'],optimizer_updates=0,
+            normal_contract=dict(tangent_threshold_d=1e-4,sine_threshold=.05,strides=[1,2],
+                sign_flip='negative unit-normal dot; not necessarily pure orientation reversal',
+                near_opposite_degrees=150,unit_angle_denominator='nondegenerate prediction on eligible target stencils'))
     if switch is not None:
         manifest.update(rope_ablation=True,policies=['rope_on','rope_off'],optimizer_updates=0,
                         history_intervention='history disabled in both arms',
@@ -159,7 +167,7 @@ def main():
                         from lip.unified.cad_surface_targets import surface_targets,correspondence_score
                         target=surface_targets(m,[scene],target)
                     incoming=memories.get((case,'on'))
-                    for policy in (('rope_on','rope_off') if switch is not None else ('on','off','scrambled')):
+                    for policy in (('off',) if a.normal_audit else (('rope_on','rope_off') if switch is not None else ('on','off','scrambled'))):
                         read_memory=scramble_history(incoming) if policy=='scrambled' else incoming
                         intervention=switch.arm(policy=='rope_on') if switch is not None else nullcontext()
                         with intervention,torch.autocast('cuda',dtype=torch.bfloat16):
@@ -191,6 +199,10 @@ def main():
                             from lip.unified.surface_normals import normal_diagnostics
                             row.update(normal_real=normal_diagnostics(out,target,target.geometry_real_weight),
                                        normal_proxy=normal_diagnostics(out,target,target.geometry_proxy_weight))
+                        if a.normal_audit:
+                            from lip.unified.normal_audit import audit_normals
+                            row['normal_audit']={name:audit_normals(out['surface_xyz'],target.surface_xyz,mask)
+                                for name,mask in [('real',target.geometry_real_weight),('proxy',target.geometry_proxy_weight)]}
                         if c.get('dino_layers'):
                             row['spatial_hidden_real_mid']=feature_diagnostics(out,target,target.hidden_real_weight,middle=True)
                             row['spatial_cad_proxy_mid']=feature_diagnostics(out,target,target.proxy_weight,True,middle=True)
