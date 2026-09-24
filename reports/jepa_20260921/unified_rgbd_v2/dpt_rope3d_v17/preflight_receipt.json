@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "config_sha256": "7c971041f158b068a1dee6326fcd18ba9b59a557b4b7a519d9e573c89cf29310",
+  "source_sha256": "3f708470c890e98760f9d2a3107bd318f88eef860bd12af74bd8d741d0995e67",
+  "batch": 4,
+  "frames": 40,
+  "loss": 1.2089509963989258,
+  "seconds": 2.8248476691078395,
+  "first_seconds_including_compile": 314.86053783702664,
+  "component_cuda_seconds": {
+    "crop_and_student_render": 0.5624861459732053,
+    "textured_rgbd_occlusion": 0.05731328009814023,
+    "fixed_crop_reference": 0.6825400009155275,
+    "dino_observation_and_reference": 0.07636492824554443,
+    "teacher": 0.520927520751953,
+    "jepa_and_pose": 0.10164569664001466,
+    "loss": 0.1610299491882324,
+    "backward": 0.35966812896728517
+  },
+  "gradient_norms": {
+    "cad_surface.rope3d.gain": 0.018508538603782654,
+    "surface_head.output.6.weight": 14.924739837646484,
+    "surface_head.projects.0.weight": 0.6566747426986694,
+    "surface_head.projects.1.weight": 0.33009254932403564,
+    "surface_head.projects.2.weight": 0.16851314902305603,
+    "surface_head.projects.3.weight": 0.12009923905134201,
+    "core.blocks.0.spatial.q.weight": 0.25290778279304504,
+    "core.blocks.1.spatial.q.weight": 0.22631889581680298,
+    "core.blocks.2.spatial.q.weight": 0.13628701865673065,
+    "core.blocks.3.spatial.q.weight": 0.02913319319486618,
+    "encoder.backbone.patch_embed.proj.weight": 11.261409759521484,
+    "encoder.backbone.blocks.10.mlp.fc1.weight": 0.44988033175468445
+  },
+  "normal_metrics": {
+    "surface_normal_real": 0.7135113477706909,
+    "surface_normal_proxy": 0.72355055809021,
+    "normal_angle_deg_real": 66.8143081665039,
+    "normal_angle_deg_proxy": 71.50650024414062,
+    "normal_valid_fraction_real": 0.6734877824783325,
+    "normal_valid_fraction_proxy": 0.5034262537956238
+  },
+  "crop_reference_unchanged": true,
+  "teacher_no_gradient": true,
+  "pose_no_gradient": true,
+  "history_no_gradient": true,
+  "shared_source_exact": true,
+  "full_model_restore_exact": true,
+  "ema_source_updates": 13650,
+  "persisted_optimizer_updates": 0,
+  "discarded_preflight_updates": 1,
+  "peak_gpu_gb": 9.741114368
+}

@@ -1,0 +1,18 @@
+{
+  "previous_runtime": "/mnt/why/dexycb_lip/unified_jepa_20260921/execution_speed_v16",
+  "previous_controller_stopped": true,
+  "step": 23400,
+  "sha256": "3f708470c890e98760f9d2a3107bd318f88eef860bd12af74bd8d741d0995e67",
+  "all_rank_steps": [
+    23400,
+    23400,
+    23400,
+    23400,
+    23400,
+    23400,
+    23400,
+    23400
+  ],
+  "completed_updates_lost": 0,
+  "source": "/mnt/why/dexycb_lip/unified_jepa_20260921/dpt_rope3d_v17/source/parent.pt"
+}

@@ -16,7 +16,15 @@ def main():
     record = torch.load(path, map_location='cpu', weights_only=False)
     initial = torch.load(directory / 'initial.pt', map_location='cpu', weights_only=False)
     assert initial['step'] == source['step'] and not initial['optimizer']['state']
-    assert all(torch.equal(v, initial['model'][k]) for k, v in source['model'].items())
+    replaced = c.get('surface_decoder',{}).get('kind')=='dpt'
+    assert all(torch.equal(v, initial['model'][k]) for k, v in source['model'].items()
+               if not (replaced and k.startswith('surface_head.')))
+    if replaced:
+        assert 'surface_head.3.weight' not in record['model']
+        assert 'surface_head.output.6.weight' in record['model']
+        assert 'cad_surface.rope3d.gain' in record['model']
+        assert not initial['model']['cad_surface.rope3d.gain'].any()
+        assert record['model']['cad_surface.rope3d.gain'].abs().sum()>0
     assert all(torch.equal(v, record['model'][k]) for k, v in source['model'].items() if is_pose_parameter(k))
     assert len(record['rng']) == 8 and record['sampler_position'] == record['step'] * 32
     names = [n for g in record['optimizer']['param_groups'] for n in g['names']]
@@ -52,7 +60,7 @@ def main():
                 assert d['local_difference_real_mid'] > 0 and d['local_difference_real_last'] > 0
     assert min(latest) >= record['step']
     result = dict(passed=True, completed=True, step=record['step'], checkpoint_sha256=sha(path),
-        initial_core_exact=True, initial_optimizer_empty=True, frozen_pose_tensors_exact=True,
+        initial_shared_core_exact=True, replaced_surface_mlp=replaced, initial_optimizer_empty=True, frozen_pose_tensors_exact=True,
         optimizer_excludes_pose=True, changed_trainable_tensors=len(changed), all_rank_steps=latest,
         optimizer_updates_since_migration=record['step']-source['step'], sampler_position=record['sampler_position'])
     (a.out or root / 'startup_receipt.json').write_text(json.dumps(result, indent=2)); print(json.dumps(result))
