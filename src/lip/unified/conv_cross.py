@@ -149,6 +149,12 @@ class ConvCrossTracker(TwoStreamTracker):
     def read_surface(self,patch,valid,inputs,layer):
         return patch,{}
 
+    def prepare_surface_read(self,patch,valid,inputs,levels,layer):
+        return inputs,{}
+
+    def refine_surface(self,patch,valid,inputs,levels,before_last,mem,mv,mb):
+        return patch,levels,{}
+
     def read_object(self, patch, valid, surface, geometry_image, base, cad_valid,
                     evidence_logits, readout_inputs):
         obj = self.query.expand(len(patch), -1, -1)
@@ -170,11 +176,17 @@ class ConvCrossTracker(TwoStreamTracker):
         surface_metrics={}
         dense_levels=[]
         use_dpt=getattr(self,'surface_decoder_kind','mlp')=='dpt'
+        before_last=patch
         for layer,block in enumerate(self.core.blocks):
-            patch,read_metrics=self.read_surface(patch,valid,cad_inputs,layer)
+            if layer==3:before_last=patch
+            read_inputs,stage_metrics=self.prepare_surface_read(patch,valid,cad_inputs,dense_levels,layer)
+            surface_metrics.update(stage_metrics)
+            patch,read_metrics=self.read_surface(patch,valid,read_inputs,layer)
             surface_metrics.update(read_metrics)
             patch = block(patch, valid, mem, mv, mb)
             if use_dpt:dense_levels.append(patch)
+        patch,dense_levels,refined_metrics=self.refine_surface(patch,valid,cad_inputs,dense_levels,before_last,mem,mv,mb)
+        surface_metrics.update(refined_metrics)
         patch = self.core.final_norm(patch)
         if use_dpt:
             dense_levels[-1]=patch

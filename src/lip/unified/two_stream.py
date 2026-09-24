@@ -200,7 +200,12 @@ def encode_two_stream(model,scenes,masks=None,cad_enabled=None,frame_id=0,occlus
     if hasattr(model,'cad_surface'):
         from .cad_surface import encode_surface
         local_cad=encode_surface(model,scenes,depth,cad_enabled)
+    rays=depth_stats=None
+    if getattr(model,'staged_rope',None):
+        from .staged_rope import measured_depth_stats
+        rays=torch.stack([point_fn(torch.ones_like(s.depth),s.k_crop).permute(2,0,1) for s in scenes])
+        depth_stats=measured_depth_stats(depth,base,diameter)
     return Observation(packet,mid[:b],last[:b],mid[b:],last[b:],pixel_valid&cad_enabled[:,None],
         torch.stack(cad),empty,empty_mask,empty_mask,torch.stack(xyz),torch.stack(depth_valid),
         torch.stack([s.state for s in scenes]),base,diameter,torch.stack([s.center for s in scenes]),metadata,
-        geometry_image=torch.cat(geometry),cad_surface_features=local_cad[0],cad_surface_geometry=local_cad[1],cad_surface_valid=local_cad[2])
+        geometry_image=torch.cat(geometry),cad_surface_features=local_cad[0],cad_surface_geometry=local_cad[1],cad_surface_valid=local_cad[2],crop_rays=rays,rope_depth_stats=depth_stats)

@@ -50,6 +50,9 @@ def build_model(config,device='cuda'):
         if config.get('surface_decoder',{}).get('kind')=='dpt':
             from .dpt_surface import enable_dpt_surface
             enable_dpt_surface(model,config['surface_decoder'])
+        if config.get('staged_rope',{}).get('enabled',False):
+            from .staged_rope import enable_staged_rope
+            enable_staged_rope(model,config['staged_rope'])
         model.disable_history=config['runtime'].get('disable_history',False)
         for block in model.core.blocks:block.disable_history=model.disable_history
         model.enable_compilation(config['runtime'].get('compile_frame',False))

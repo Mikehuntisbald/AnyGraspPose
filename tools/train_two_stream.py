@@ -110,6 +110,14 @@ def main():
         adaptation=v11_receipt  # New seed42 stage; do not inherit parent RNG/sampler.
     elif recovery_source is not None:
         adaptation=recovery_receipt
+        if not c['reconstruction_only'].get('optimizer_reset',True):
+            from lip.unified.staged_rope import preserve_adam
+            preserve_adam(optimizer,recovery_source)
+            # Scheduler starts at the new stage boundary; Adam moments/steps and
+            # the boundary learning rates are inherited exactly from the source.
+            if any(abs(g['lr']-lr)>1e-12 for g,lr in zip(optimizer.param_groups,scheduler.get_last_lr())):
+                raise ValueError('Continuation boundary learning rate changed')
+            adaptation.update(optimizer_exact=True,scheduler_reset=True)
         restore_rng(recovery_source['rng'][rank])
     elif a.history_from:
         from lip.unified.history_repair import adapt_history
@@ -195,6 +203,9 @@ def main():
                 if t['loss_weights'].get('surface_normal',0):
                     from lip.unified.surface_normals import NORMAL_METRICS
                     names += NORMAL_METRICS
+                if t['loss_weights'].get('coarse_surface',0):
+                    from lip.unified.staged_rope import STAGED_METRICS
+                    names += STAGED_METRICS
                 row['recovery_metrics']={k:float(statistics[i+1]) for i,k in enumerate(names)}
                 row['recovery_focus']=c['recovery_focus']['version']
                 row['history_supported_target_fraction']=float(statistics[-1])

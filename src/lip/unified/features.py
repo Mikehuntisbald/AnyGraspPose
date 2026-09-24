@@ -63,6 +63,8 @@ class Observation:
     cad_surface_features: torch.Tensor|None=None
     cad_surface_geometry: torch.Tensor|None=None
     cad_surface_valid: torch.Tensor|None=None
+    crop_rays: torch.Tensor|None=None
+    rope_depth_stats: torch.Tensor|None=None
 
 
 @dataclass(frozen=True)

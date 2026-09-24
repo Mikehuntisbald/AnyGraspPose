@@ -30,16 +30,18 @@ class Gated3DRoPE(nn.Module):
         self.register_buffer('frequencies',torch.tensor(frequencies,dtype=torch.float32),persistent=False)
         self.gain=nn.Parameter(torch.zeros(heads))
 
-    def forward(self,logits,q,k,observed_xyz,observed_valid,cad_xyz,cad_available,base,confidence,patch_valid):
+    def forward(self,logits,q,k,observed_xyz,observed_valid,cad_xyz,cad_available,base,confidence,patch_valid,query_camera_xyz=None):
         # Observation XYZ was inverse-transformed by the estimated base pose.
         # Rotate both streams into current camera axes, centered at base t / d.
         # q=(X_observed-t_base)/d; k=R_base X_CAD/d. Their difference retains
         # the current estimated translation/rotation error. Never use GT here.
         with torch.autocast(q.device.type,enabled=False):
-            qvalid=observed_valid & patch_valid & torch.isfinite(observed_xyz).all(-1)
+            coordinate=observed_xyz if query_camera_xyz is None else query_camera_xyz
+            qvalid=observed_valid & patch_valid & torch.isfinite(coordinate).all(-1)
             kvalid=cad_available & torch.isfinite(cad_xyz).all(-1)
             rotation=base[:,:3,:3].detach().float().transpose(-1,-2)
-            query_xyz=torch.where(qvalid[...,None],observed_xyz.detach().float(),0.)@rotation
+            query_xyz=torch.where(qvalid[...,None],coordinate.detach().float(),0.)
+            if query_camera_xyz is None:query_xyz=query_xyz@rotation
             key_xyz=torch.where(kvalid[...,None],cad_xyz.detach().float(),0.)@rotation
             # Confidence only weights this positional residual. It cannot learn
             # to escape the RoPE loss by suppressing visibility through this edge.

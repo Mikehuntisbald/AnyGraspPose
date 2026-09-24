@@ -19,7 +19,7 @@ class SurfaceRead(nn.Module):
         y,x=torch.meshgrid(torch.arange(16),torch.arange(16),indexing='ij')
         self.register_buffer('patch_uv',torch.stack(((x.flatten()+.5)/16,(y.flatten()+.5)/16),-1))
 
-    def forward(self,patch,valid,features,geometry,available,observed_xyz=None,observed_valid=None,base=None,confidence=None):
+    def forward(self,patch,valid,features,geometry,available,observed_xyz=None,observed_valid=None,base=None,confidence=None,query_camera_xyz=None):
         b,n,_=patch.shape;k=features.shape[1]
         # Mask raw inputs as well: dropped CAD cannot leak NaNs or biased values.
         features=torch.where(available[...,None],features,0.)
@@ -32,7 +32,7 @@ class SurfaceRead(nn.Module):
         if hasattr(self,'rope3d'):
             if observed_xyz is None or observed_valid is None or base is None or confidence is None:
                 raise ValueError('CAD RoPE requires explicit measured geometry and confidence')
-            logits=self.rope3d(logits,q,keys,observed_xyz,observed_valid,geometry[:,:,:3],available,base,confidence,valid)
+            logits=self.rope3d(logits,q,keys,observed_xyz,observed_valid,geometry[:,:,:3],available,base,confidence,valid,query_camera_xyz)
         # Soft prior only. No hard image-radius or back-face rejection.
         distance=(self.patch_uv[None,:,None]-geometry[:,None,:,15:17]).square().sum(-1)
         logits=logits-.5*distance[:,None].clamp_max(8.)
@@ -88,7 +88,33 @@ class CADSurfaceTracker(RecoveredRelationTracker):
                 real=self.core.src_proj(torch.cat((obs.mid,obs.last),-1))
                 confidence=self.visibility(real).float().squeeze(-1).sigmoid()
             cad_inputs+=(obs.object_xyz,obs.depth_valid,obs.base,confidence)
+        if getattr(self,'staged_rope',None):
+            if obs.crop_rays is None or obs.rope_depth_stats is None:raise ValueError('Staged RoPE requires explicit student crop calibration and measured depth statistics')
+            cad_inputs+=(obs.crop_rays,obs.rope_depth_stats,obs.diameter)
         return obs.state,(),(obs.object_xyz,obs.depth_valid),cad_inputs
+
+    def prepare_surface_read(self,patch,valid,inputs,levels,layer):
+        if not getattr(self,'staged_rope',None) or layer not in (1,3):return inputs,{}
+        from .staged_rope import route_surface
+        features,geometry,available,observed_xyz,observed_valid,base,confidence,rays,stats,diameter=inputs
+        xyz,chosen,trust,_=route_surface(observed_xyz,observed_valid,confidence,stats,base,diameter,rays,valid,self.staged_rope)
+        return (features,geometry,available,observed_xyz,chosen,base,trust,xyz),{}
+
+    def refine_surface(self,patch,valid,inputs,levels,before_last,mem,mv,mb):
+        if not getattr(self,'staged_rope',None):return patch,levels,{}
+        from .staged_rope import route_surface
+        features,geometry,available,observed_xyz,observed_valid,base,confidence,rays,stats,diameter=inputs
+        # Preserve the trained DPT's four-level input distribution. Decode a
+        # complete coarse pass, then recompute only the last shared JEPA block
+        # from its original input with recovered-position CAD reading.
+        coarse_patch=self.core.final_norm(patch)
+        coarse=self.surface_head([*levels[:-1],coarse_patch],valid)
+        support=self.core.support(coarse_patch).float().squeeze(-1).sigmoid()
+        xyz,chosen,trust,routing=route_surface(observed_xyz,observed_valid,confidence,stats,base,diameter,rays,valid,self.staged_rope,coarse,support)
+        updated,metrics=self.cad_surface(before_last,valid,features,geometry,available,observed_xyz,chosen,base,trust,xyz)
+        refined=self.core.blocks[-1](updated,valid,mem,mv,mb)
+        metrics.update(routing,coarse_surface=coarse,rope_patch_valid=valid)
+        return refined,[*levels[:-1],refined],metrics
 
     def read_surface(self,patch,valid,inputs,layer):
         if layer not in (1,3):return patch,{}

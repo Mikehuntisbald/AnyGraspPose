@@ -47,6 +47,11 @@ def recovery_objective(output, teacher, truth, points, diameter, weights):
         normal,diagnostics=surface_normal_loss(output,teacher,weights)
         loss=loss+weights['surface_normal']*normal
         extra += [diagnostics[key] for key in NORMAL_METRICS]
+    if weights.get('coarse_surface',0):
+        from .staged_rope import coarse_surface_loss,STAGED_METRICS
+        coarse,diagnostics=coarse_surface_loss(output,teacher,weights)
+        loss=loss+weights['coarse_surface']*coarse
+        extra += [diagnostics[key] for key in STAGED_METRICS]
     return loss, torch.stack([loss.detach().new_zeros(()) for _ in range(4)] +
                             [parts[key] for key in RECONSTRUCTION_METRICS] + extra)
 
@@ -75,7 +80,11 @@ def initialize_training(model, config, world):
     if config['runtime'].get('pose_pair_frames') or config['training']['loss_weights'].get('pose_error', 0):
         raise ValueError('Pose objectives are forbidden in recovery-only training')
     replaced=[]
-    if config.get('surface_decoder',{}).get('kind')=='dpt':
+    if config.get('staged_rope',{}).get('enabled',False):
+        if source['config'].get('surface_decoder',{}).get('kind')!='dpt' or not source['config'].get('cad_rope3d',{}).get('enabled'):
+            raise ValueError('Staged continuation requires a trained DPT/RoPE source')
+        load_core(model,source['model'])
+    elif config.get('surface_decoder',{}).get('kind')=='dpt':
         from .dpt_surface import migrate_dpt_surface
         replaced=migrate_dpt_surface(model,source['model'])
     elif surface_migration:
@@ -105,6 +114,7 @@ def initialize_training(model, config, world):
     reference_config.pop('dino_layers', None)
     reference_config.pop('cad_rope3d', None)
     reference_config.pop('surface_decoder', None)
+    reference_config.pop('staged_rope', None)
     reference_config['runtime']=dict(config['runtime'],disable_history=False,compile_dino=False)
     reference = build_model(reference_config)
     load_core(reference, reference_source['model'])
@@ -113,7 +123,7 @@ def initialize_training(model, config, world):
     reference.trusted_training_inputs = True
     receipt = dict(kind='jepa_recovery_only', source_sha256=plan['source_sha256'],
                    source_step=source['step'], source_sampler_position=source['sampler_position'],
-                   optimizer_reset=True, scheduler_reset=True, rng_reset=False,
+                   optimizer_reset=plan.get('optimizer_reset',True), scheduler_reset=True, rng_reset=False,
                    memory_reset=True, pose_loss_enabled=False, pose_parameters_frozen=True,
                    crop_reference='immutable source V11; same causal student observations; no GT input',
                    teacher_target_max_radius_d=config['supervision']['real_geometry_max_radius_d'])
@@ -123,6 +133,8 @@ def initialize_training(model, config, world):
                        dpt_initialization='random; four JEPA levels only',cad_rope3d=True)
     if config.get('dino_layers'):
         receipt.update(dino_layers=config['dino_layers'],ema_source_updates=int(model.ema_updates),
-                       readout_initialization='all source tensors retained; feature heads adapt to new target layers')
+                       readout_initialization='all shared source tensors retained; DINO layer configuration explicit')
+    if config.get('staged_rope',{}).get('enabled'):
+        receipt.update(staged_rope=config['staged_rope'],dpt_initialization='existing shared DPT retained; complete coarse pass then last shared block recomputed; four-level DPT in both passes',new_parameter_count=0)
     model.migration.update(receipt)
     return source, receipt, reference
