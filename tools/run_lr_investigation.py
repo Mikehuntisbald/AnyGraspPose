@@ -6,7 +6,8 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
 from lip.engine.jepa_checkpoint import sha
 from lip.unified.checkpoint import atomic_json
 
-ROOT=Path(__file__).resolve().parents[1]
+EXEC_ROOT=Path(__file__).resolve().parents[1]
+ROOT=Path(os.environ.get('LIP_ARTIFACT_ROOT',str(EXEC_ROOT)))
 OLD=Path('/mnt/why/dexycb_lip/unified_jepa_20260921/staged_rope_v18_extend10k')
 
 def main():
@@ -25,8 +26,8 @@ def main():
         p=ROOT/'configs/jepa'/('lr_'+name+'.yaml');p.write_text(yaml.safe_dump(c,sort_keys=False));return str(p)
     probe=config('low03',25400,Path(base['reconstruction_only']['source_checkpoint']),base['reconstruction_only']['source_sha256'],.3)
     continuations={scale:config('continue_'+str(scale),26500,OLD/'milestones/lr_investigation_pause.pt',source['sha256'],scale) for scale in (.3,1.)}
-    files={str(f.relative_to(ROOT)):sha(f) for folder in ('src','tools','configs','tests') for f in (ROOT/folder).rglob('*') if f.is_file() and '__pycache__' not in f.parts}
-    atomic_json(ROOT/'runtime_receipt.json',dict(files=files))
+    files={str(f.relative_to(EXEC_ROOT)):sha(f) for folder in ('src','tools','configs','tests') for f in (EXEC_ROOT/folder).rglob('*') if f.is_file() and '__pycache__' not in f.parts}
+    atomic_json(ROOT/'runtime_receipt.json',dict(files=files,execution_root=str(EXEC_ROOT),artifact_root=str(ROOT)))
     state=dict(completed=False,pid=os.getpid(),target_step=35400,paused_step=26500,probe_scale=.3)
     child=None
     def status(value,**kw):state.update(status=value,heartbeat_unix=time.time(),**kw);atomic_json(directory/'status.json',state)
@@ -34,17 +35,22 @@ def main():
         if child is not None and child.poll() is None:os.killpg(child.pid,signal.SIGTERM)
         status('interrupted');raise SystemExit(128+sig)
     signal.signal(signal.SIGTERM,stop);signal.signal(signal.SIGINT,stop)
-    env=dict(os.environ,PYTHONPATH=str(ROOT/'src'),CUDA_VISIBLE_DEVICES='0,1,2,3,4,5,6,7',OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2',TORCHINDUCTOR_COMPILE_THREADS='1',CUBLAS_WORKSPACE_CONFIG=':4096:8',TORCHINDUCTOR_CACHE_DIR='/tmp/dexycb_staged_rope_v18_inductor',TRITON_CACHE_DIR='/tmp/dexycb_staged_rope_v18_triton')
+    env=dict(os.environ,PYTHONPATH=str(EXEC_ROOT/'src'),CUDA_VISIBLE_DEVICES='0,1,2,3,4,5,6,7',OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2',TORCHINDUCTOR_COMPILE_THREADS='1',CUBLAS_WORKSPACE_CONFIG=':4096:8',TORCHINDUCTOR_CACHE_DIR='/tmp/dexycb_staged_rope_v18_inductor',TRITON_CACHE_DIR='/tmp/dexycb_staged_rope_v18_triton')
     def run(name,args):
         nonlocal child
-        assert all(sha(ROOT/f)==digest for f,digest in files.items()),'Pinned runtime changed'
+        assert all(sha(EXEC_ROOT/f)==digest for f,digest in files.items()),'Pinned runtime changed'
         with (directory/(name+'.log')).open('a') as log:
-            child=subprocess.Popen([sys.executable]+args,cwd=ROOT,env=env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+            child=subprocess.Popen([sys.executable]+args,cwd=EXEC_ROOT,env=env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
             while child.poll() is None:status('running',job=name,child_pid=child.pid);time.sleep(5)
             if child.returncode:raise RuntimeError(name+' failed')
     def train(name,cfg,end):
         c=yaml.safe_load(Path(cfg).read_text());out=Path(c['paths']['output']);args=['-m','torch.distributed.run','--standalone','--nproc_per_node=8','tools/fp_worker.py','tools/train_two_stream.py','--config',cfg,'--stop-at',str(end)]
-        if (out/'last.pt').exists():args+=['--resume',str(out/'last.pt')]
+        if (out/'last.pt').exists():
+            saved=json.loads((out/'last.receipt.json').read_text())
+            if saved['step']>=end:
+                assert sha(out/'last.pt')==saved['sha256']
+                return out/'last.pt'
+            args+=['--resume',str(out/'last.pt')]
         run(name,args)
         record=json.loads((out/'last.receipt.json').read_text());assert record['step']==end and record['all_rank_rng']==8
         return out/'last.pt'
