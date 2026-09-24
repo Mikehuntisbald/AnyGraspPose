@@ -5,6 +5,7 @@ scores here are conditional one-step refinements, not closed-loop tracking.
 Full native tracking is measured separately by infer_unified_jepa_val.py.
 """
 import argparse,json,sys,time,hashlib
+from contextlib import nullcontext
 from pathlib import Path
 from dataclasses import replace
 import numpy as np
@@ -52,10 +53,14 @@ def geometry_score(output,teacher,weight,diameter):
 def main():
     p=argparse.ArgumentParser();p.add_argument('--config',type=Path,required=True);p.add_argument('--checkpoint',type=Path,required=True)
     p.add_argument('--out',type=Path,required=True);p.add_argument('--rank',type=int,required=True);p.add_argument('--world',type=int,default=8)
-    p.add_argument('--smoke',action='store_true');a=p.parse_args()
+    p.add_argument('--smoke',action='store_true');p.add_argument('--rope-ablation',action='store_true');a=p.parse_args()
     torch.cuda.set_device(0 if torch.cuda.device_count()==1 else a.rank);torch.set_num_threads(2);torch.manual_seed(42);cv2.setNumThreads(0)
     c=yaml.safe_load(a.config.read_text());m=build_model(c);record=torch.load(a.checkpoint,map_location='cpu',weights_only=False)
     load_core(m,record['model']);m.requires_grad_(False).eval();m.weights_version=sha(a.checkpoint)
+    switch=None
+    if a.rope_ablation:
+        from lip.unified.rope_ablation import FrozenRoPESwitch
+        switch=FrozenRoPESwitch(m)
     teacher_encoder=getattr(m,'ema_teacher',m.encoder)
     fixed_teacher=c.get('validation',{}).get('fixed_feature_teacher')
     if fixed_teacher:
@@ -100,6 +105,11 @@ def main():
     manifest['feature_layer_weights']=list(layer_weights)
     manifest['fixed_feature_teacher']=fixed_teacher
     manifest['local_structure_diagnostics']=bool(c.get('local_structure'))
+    if switch is not None:
+        manifest.update(rope_ablation=True,policies=['rope_on','rope_off'],optimizer_updates=0,
+                        history_intervention='history disabled in both arms',
+                        rope_intervention='same model and encoded observation; set only cad_surface.rope3d.gain to zero for off; restore after every forward',
+                        config_sha256=sha(a.config),source_step=record['step'])
     if fixed_teacher:manifest['feature_teacher']='fixed source-checkpoint EMA; independent of checkpoint under evaluation'
     with torch.no_grad(),(a.out/'frames.jsonl').open('w') as f:
         for physical,sid in selected:
@@ -149,10 +159,11 @@ def main():
                         from lip.unified.cad_surface_targets import surface_targets,correspondence_score
                         target=surface_targets(m,[scene],target)
                     incoming=memories.get((case,'on'))
-                    for policy in ('on','off','scrambled'):
+                    for policy in (('rope_on','rope_off') if switch is not None else ('on','off','scrambled')):
                         read_memory=scramble_history(incoming) if policy=='scrambled' else incoming
-                        with torch.autocast('cuda',dtype=torch.bfloat16):
-                            out,next_memory=m(obs,read_memory,torch.tensor([policy!='off'],device='cuda'))
+                        intervention=switch.arm(policy=='rope_on') if switch is not None else nullcontext()
+                        with intervention,torch.autocast('cuda',dtype=torch.bfloat16):
+                            out,next_memory=m(obs,read_memory,torch.tensor([False if switch is not None else policy!='off'],device='cuda'))
                         if policy=='on':memories[(case,'on')]=next_memory
                         pred=out['pose_centered'][0];pred_points=points@pred[:3,:3].T+pred[:3,3]
                         adds=torch.cdist(pred_points[None],gt_points[None]).amin(-1).mean()/float(mesh['diameter'])
@@ -169,6 +180,13 @@ def main():
                             spatial_cad_proxy=feature_diagnostics(out,target,target.proxy_weight,True),
                             geometry_focus_real=geometry_diagnostics(out,target,target.geometry_real_weight,float(mesh['diameter'])),
                             geometry_focus_proxy=geometry_diagnostics(out,target,target.geometry_proxy_weight,float(mesh['diameter'])))
+                        if switch is not None:
+                            row.update(history='off',rope=policy.removeprefix('rope_'))
+                            if policy=='rope_on':
+                                on_outputs={key:out[key].detach().clone() for key in ('patch_latent','surface_xyz','surface_depth_m','f_predicted','cad_match_log_prob')}
+                            else:
+                                row['output_change']={key+'_rms':float((out[key].float()-value.float()).square().mean().sqrt()) for key,value in on_outputs.items()}
+                                row['output_change']['surface_xyz_max_abs_d']=float((out['surface_xyz']-on_outputs['surface_xyz']).abs().max())
                         if c['training']['loss_weights'].get('surface_normal',0):
                             from lip.unified.surface_normals import normal_diagnostics
                             row.update(normal_real=normal_diagnostics(out,target,target.geometry_real_weight),
@@ -224,6 +242,7 @@ def main():
                                 cv2.imwrite(str(a.out/(stem+'_normals.png')),np.concatenate((caption,normals),axis=0))
                 f.flush()
             print(json.dumps(dict(physical_sequence=physical,rows=rows,seconds=time.monotonic()-begun)),flush=True)
+    if switch is not None:manifest['intervention_receipt']=switch.verify(m)
     manifest.update(completed=True,rows=rows,frames_sha256=sha(a.out/'frames.jsonl'),seconds=time.monotonic()-begun)
     atomic_json(a.out/'manifest.json',manifest)
 if __name__=='__main__':main()
