@@ -1,0 +1,22 @@
+{
+  "completed": true,
+  "physical_sequences": 40,
+  "rows_per_checkpoint": 8000,
+  "optimizer_updates": 0,
+  "checkpoints": {
+    "source_mlp": "3f708470c890e98760f9d2a3107bd318f88eef860bd12af74bd8d741d0995e67",
+    "update1000": "ec0732f609fd04dc7aee50a42c1ae7b9830a9e9acf8f1ac9a614efc45e50add5"
+  },
+  "paired_protocol_verified": true,
+  "normal_contract": {
+    "tangent_threshold_d": 0.0001,
+    "sine_threshold": 0.05,
+    "strides": [
+      1,
+      2
+    ],
+    "sign_flip": "negative unit-normal dot; not necessarily pure orientation reversal",
+    "near_opposite_degrees": 150,
+    "unit_angle_denominator": "nondegenerate prediction on eligible target stencils"
+  }
+}

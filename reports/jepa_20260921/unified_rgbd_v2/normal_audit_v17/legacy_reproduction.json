@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "model": "source_mlp",
+      "case": "natural",
+      "source": "proxy",
+      "legacy_angle_difference_deg": 2.1861794152755465e-07
+    },
+    {
+      "model": "source_mlp",
+      "case": "light",
+      "source": "real",
+      "legacy_angle_difference_deg": 1.6056873164416174e-08
+    },
+    {
+      "model": "source_mlp",
+      "case": "light",
+      "source": "proxy",
+      "legacy_angle_difference_deg": 6.217862420498932e-07
+    },
+    {
+      "model": "source_mlp",
+      "case": "heavy_pooled",
+      "source": "real",
+      "legacy_angle_difference_deg": 6.360826887430449e-08
+    },
+    {
+      "model": "source_mlp",
+      "case": "heavy_pooled",
+      "source": "proxy",
+      "legacy_angle_difference_deg": 3.9459897038796043e-07
+    },
+    {
+      "model": "update1000",
+      "case": "natural",
+      "source": "proxy",
+      "legacy_angle_difference_deg": 1.3113364616401668e-07
+    },
+    {
+      "model": "update1000",
+      "case": "light",
+      "source": "real",
+      "legacy_angle_difference_deg": 4.5766824996462674e-08
+    },
+    {
+      "model": "update1000",
+      "case": "light",
+      "source": "proxy",
+      "legacy_angle_difference_deg": 3.3640048968663905e-08
+    },
+    {
+      "model": "update1000",
+      "case": "heavy_pooled",
+      "source": "real",
+      "legacy_angle_difference_deg": 3.633203959907405e-08
+    },
+    {
+      "model": "update1000",
+      "case": "heavy_pooled",
+      "source": "proxy",
+      "legacy_angle_difference_deg": 3.5146669574714906e-08
+    }
+  ]
+}
