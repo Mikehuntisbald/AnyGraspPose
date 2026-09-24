@@ -1,0 +1,287 @@
+architecture_id: stream_cad_surface_jepa_v12
+augmentation:
+  bank_sha256: 49b3fd6d573da3f983bb95141e10e8f63c0fccc6348e21c2d1c8d4e298764341
+  depth: offset donor relief in front; absent donor depth invalid
+  hand_probability: 0.5
+  kind: train-real-rgbd-cutouts-v1
+  other_object_excludes_target: true
+  temporal: fixed donor and smooth crop-space motion per episode
+migration:
+  kind: staged_rope_v18
+  source_step: 25400
+  source_sampler_position: 812800
+  memory: history disabled
+  optimizer_reset: false
+paths:
+  baseline_scored: /mnt/why/dexycb_lip/jepa_object_fusion_20260921/formal_v1/validation/step2000_scored
+  cad_cache: /mnt/why/dexycb_lip/unified_jepa_20260921/cad_cache
+  data_root: /mnt/why/dexycb_lip/cache/raw_full_20260910
+  dino_checkpoint: /mnt/why/models/dinov2_reg_small/dinov2_vits14_reg4_pretrain.pth
+  dino_repo: /mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa
+  index_root: /mnt/why/dexycb_lip/cache/dexycb_s0
+  occluder_bank: /mnt/why/dexycb_lip/unified_jepa_20260921/occluder_bank_v1
+  output: /mnt/why/dexycb_lip/unified_jepa_20260921/staged_rope_v18_extend10k/runs/seed42
+  rigid_frame_cache: /tmp/dexycb_jepa_rigid_train_cache_v1
+  utonia_checkpoint: /mnt/why/models/utonia/utonia.pth
+  val_initializers: /mnt/why/dexycb_lip/posecnn_val_20260915/runs/full/initializers.json
+  visibility_reference: /mnt/why/dexycb_lip/adaptive_reference_20260914/runs/adaptive_pair/adaptive_reference/s0_val
+runtime:
+  accumulation: 1
+  checkpoint_every: 50
+  compile_frame: true
+  compile_loss: true
+  deterministic_algorithms: true
+  fill_uninitialized_memory: false
+  formal: true
+  fused_optimizer: true
+  gradient_reduction: once_per_episode_fp32
+  microbatch: 4
+  reuse_teacher_real: false
+  segmented_backward: true
+  world: 8
+  pose_pair_frames: []
+  history_pair_frames: []
+  phase_relative_schedule: true
+  compile_dino: false
+  disable_history: true
+  frame_batch: 8
+  reference_dino_graph: true
+  teacher_dino_graph: true
+  fast_geometry: true
+  batch_teacher_render: true
+  vectorized_teacher: true
+  vector_geometry: true
+seed: 42
+supervision:
+  geometry_proxy: same GT rendering, centered XYZ/diameter and (depth-base_z)/diameter
+  geometry_resolution: 224
+  loss_regions: natural-hidden CAD proxy; artificially-hidden original-visible real
+    targets only
+  real_features: 'originally visible then artificially hidden: original real features
+    and valid real depth take precedence; disjoint CAD proxy regions'
+  rgb_proxy: full GT silhouette overlay
+  texture_filter: linear-mipmap-linear
+  unmasked_visible_reconstruction: none; student input and pose/visibility objectives
+    only
+  version: fullcad-rgbd-v2-physical-target-v1
+  real_geometry_max_radius_d: 1.0
+  invalid_real_geometry: exclude target beyond one diameter from GT mesh center; validity
+    unknown; no CAD substitution
+training:
+  anchor_frames: 8
+  history_pair_weight: 0
+  effective_batch: 32
+  episode_frames: 40
+  heavy_cad_dropout: 0.5
+  heavy_durations:
+  - 8
+  - 16
+  - 32
+  learning_rates:
+    new: 0.0001
+    predictor: 1.0e-05
+    pose: 3.0e-06
+    encoder: 1.0e-06
+  loss_weights:
+    cad_feature: 0.5
+    feature_error: 0.05
+    geometry_validity: 0.1
+    real_feature: 1.0
+    surface_depth: 0.5
+    surface_xyz: 0.5
+    visibility_support: 0.1
+    spatial_centered: 0.05
+    spatial_correspondence: 0.05
+    camera_consistency: 0.25
+    geometry_beta: 0.05
+    cad_surface_correspondence: 0.1
+    feature_mid_weight: 0.625
+    feature_last_weight: 0.625
+    log_feature_layers: true
+    local_difference: 0.2
+    local_correspondence: 0.05
+    surface_normal: 0.1
+    coarse_surface: 0.25
+  lr_warmup_steps: 200
+  max_steps: 35400
+  perturb_probability: 0.3
+  tbptt_frames: 4
+  warmup_steps: 0
+  weight_decay: 0.01
+validation:
+  acceptance_history_reconstruction_relative_gain: 0.05
+  acceptance_regression_pp: 0.3
+  history_off_steps: []
+  history_reconstruction_region: hidden_real
+  official_test: false
+  steps:
+  - 26400
+  - 30400
+  - 35400
+  stop_after_step: 35401
+  stop_regression_pp: 2.0
+  mode: fixed40 recovery +1000/+5000/+10000; final RoPE switch
+  fixed_feature_teacher:
+    checkpoint: /mnt/why/dexycb_lip/unified_jepa_20260921/local_difference_v15/source/step11000.pt
+    sha256: 49d49a51d58ec566000a9050465b7304989a2d5be74ad78f3d76bc6aae1166ac
+  source_recovery_evaluation: /mnt/why/dexycb_lip/unified_jepa_20260921/staged_rope_v18/diagnostics/update1000
+weights:
+  dino_checkpoint: 0780fb2ef3aba09334219244f99620e3495922fd0a4fef47ec3eafb3bc68ef8e
+  utonia_checkpoint: a0a2e5e234ce943082ae9ba26bcff74e285f16ed8d04fed5c36ffe8dc30ea353
+comparison:
+  baseline_checkpoint_sha256: 30cb743454655900da4d09373d762c6fb47760a17415591c15b0b346d7f24b41
+  use: evaluation only; never model initialization
+initialization:
+  transferred: all step25400 tensors including DPT/RoPE/online DINO/EMA exact
+  new: no new parameters; shared DPT used at intermediate and final stages
+  frozen: pose/query/relation, static Utonia, teacher by gradient; history disabled
+  trainable: 'same V17 groups: new1e-4, predictor1e-5, encoder1e-6'
+  optimizer: Adam moments and steps exact; 200-step continuous rewarm from0.1 to1
+    then 10000-step cosine
+budget:
+  max_steps: 35400
+  stage_start: 25400
+  updates: 10000
+  seed_count: 1
+  automatic_launch: true
+  metric_early_stop: false
+  authorization: User requested 10000 additional steps and restoring reduced learning
+    rates
+architecture:
+  appearance: trainable shared DINO blocks4/11 -> same spatial pair fusion
+  geometry: observed 2-channel and rendered 5-channel stems -> shared CNN and residual
+    blocks -> pair with explicit 2-channel residual -> residual CNN
+  fusion: one 8-head appearance-query / geometry-key-value attention; positions on
+    both sides; null option and residual; 256 patches by 256 channels
+  jepa: four unique JEPA blocks; measured-only coarse CAD reads; late measured/recovered
+    CAD read recomputes shared block4
+  fp_scope: architecture idea only; no FP parameters, old project checkpoint or bypass
+  history: disabled student read/write and replay loss; independent frames batched8
+  readout: shared DPT with taps1/2/3/4 for both coarse and refined passes; recovered
+    depth detached for positional feedback; pose frozen
+  geometry_readout: canonical soft CAD correspondence, measured target support, inferred
+    confidence capped at 0.5 and reduced by measured support
+reconstruction_only:
+  source_checkpoint: /mnt/why/dexycb_lip/unified_jepa_20260921/staged_rope_v18_extend10k/source/parent.pt
+  source_sha256: b202bc812230c6ecb7b9fd61f1a4e1d522dfa4fa848953880342842154a36879
+  source_step: 25400
+  warmup_steps: 200
+  pose_loss: false
+  pose_parameters: frozen
+  crop_reference: immutable source model; causal RGB-D only
+  continuation_target: 35400
+  reference:
+    checkpoint: /mnt/why/dexycb_lip/unified_jepa_20260921/cad_surface_jepa_v12/source/crop_reference05900.pt
+    sha256: 8c252e895d4bea975bc844ab4df8de3be0a7ff6c3f06a144c8b15670bd5886ae
+  optimizer_reset: false
+recovery_focus:
+  enabled: true
+  version: staged-rope-v18
+  spatial: 1/2/4-patch differences, locally centered5x5 soft correspondence, retained
+    global soft correspondence and weak global centering
+  geometry: V17 objectives plus0.25 coarse XYZ/depth/validity/camera supervision
+  history: disabled
+  reference: retain original immutable joint5900 crop model
+  status: 10000 additional JEPA-only updates
+cad_surface:
+  tokens: 256
+  cache: /mnt/why/dexycb_lip/unified_jepa_20260921/cad_surface_jepa_v12/cad_surface_cache
+  models_info: /mnt/why/dexycb_lip/cache/raw_full_20260910/bop/models/models_info.json
+  models_info_sha256: 13978298d8c37f089a7e0c421ed8be867fa836818936f5499786175da2c4c4cb
+  read_layers:
+  - 1
+  - 3
+  supervision: actual CAD-read probabilities; dense-target samples; declared BOP symmetry
+    orbits
+  dpt: true
+ema_encoder:
+  enabled: true
+  momentum: 0.996
+  update: once after synchronized successful optimizer step
+  initialization: preserve step25400 EMA weights and counter15650; no reset
+  scope: all online DINO parameters; shared observed and rendered RGB
+  target: independent stop-gradient EMA DINO; never reuse online features
+dino_layers:
+  student:
+  - 4
+  - 11
+  teacher:
+  - 4
+  - 11
+local_structure:
+  scales:
+  - 1
+  - 2
+  - 4
+  directions:
+  - horizontal
+  - vertical
+  - diagonal
+  - anti-diagonal
+  target_rms_floor: 0.1
+  local_radius: 2
+  temperature: 0.1
+  source_isolation: real and CAD computed independently; non-query endpoints use detached
+    same-source teacher anchors
+  masks: gradient on missing queries only; long edges require valid intermediate sites;
+    no predicted confidence masks
+  evaluation: fixed source11000 EMA targets; no training-time frozen-teacher forward
+surface_decoder:
+  kind: dpt
+  width: 64
+  levels:
+  - 1
+  - 2
+  - 3
+  - 4
+  pyramid_sizes:
+  - 64
+  - 32
+  - 16
+  - 8
+  output_size: 224
+  inputs: JEPA block outputs only; no encoder/RGB bypass
+cad_rope3d:
+  enabled: true
+  cycles_per_diameter:
+  - 0.5
+  - 1.0
+  - 2.0
+  - 4.0
+  - 8.0
+surface_normals:
+  derived_from: canonical XYZ finite differences; no separate normal head
+  strides:
+  - 1
+  - 2
+  weight: 0.1
+  minimum_tangent_d: 0.0001
+  minimum_sine: 0.05
+  maximum_neighbor_distance_d_per_stride: 0.05
+  mask: all stencil pixels within one eligible teacher source; no prediction mask
+staged_rope:
+  enabled: true
+  visible_threshold: 0.7
+  measured_min_mass: 0.5
+  measured_max_std_d: 0.05
+  recovered_threshold: 0.5
+  recovered_max_trust: 0.5
+  early_read_block: 2
+  late_read_block: 4
+  coarse_taps:
+  - 1
+  - 2
+  - 3
+  - 4
+  final_taps:
+  - 1
+  - 2
+  - 3
+  - 4
+  shared_dpt: true
+  coordinates: measured camera surface; recovered depth lifted through crop rays;
+    centered at estimated translation / diameter
+  position_gradient: detached; coarse geometry receives direct teacher-only losses
+  refinement: recompute the final shared block from its pre-CAD-read input after a
+    complete coarse pass
+  recovered_support_threshold: 0.7
