@@ -1,0 +1,20 @@
+{
+  "completed": true,
+  "checkpoint_sha256": "ec0732f609fd04dc7aee50a42c1ae7b9830a9e9acf8f1ac9a614efc45e50add5",
+  "step": 24400,
+  "optimizer_updates": 0,
+  "paired_frames": 8000,
+  "physical_sequences": 40,
+  "all8rank_model_state_unchanged": true,
+  "on_reproduces_previous_evaluation_exactly": true,
+  "compared_aggregate_values": 363,
+  "maximum_on_reproduction_error": 0.0,
+  "effective_gains": [
+    0.006997653748840094,
+    0.014345402829349041,
+    0.008647594600915909,
+    0.009114092215895653
+  ],
+  "local_raw_shards_sha256_verified": 8,
+  "raw_pair_evidence_sha256": "a12d5b0d7c2b2c87c60271dcb4e74c496d60e3a302090e7bac7b4dce06028c35"
+}
