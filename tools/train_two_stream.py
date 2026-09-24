@@ -26,6 +26,9 @@ def main():
     parser.add_argument('--performance-from',type=Path)
     a=parser.parse_args();c=yaml.safe_load(a.config.read_text());rt=c['runtime'];t=c['training']
     if sum(v is not None for v in (a.resume,a.repair_from,a.curriculum_from,a.extend_from,a.history_from,a.performance_from))>1:raise ValueError('Choose one resume/adaptation path')
+    if 'lr_intervention' in c:
+        import faulthandler
+        faulthandler.dump_traceback_later(180,repeat=True)
     rank=int(os.environ.get('RANK',0));world=int(os.environ.get('WORLD_SIZE',1));local=int(os.environ.get('LOCAL_RANK',0))
     if c['architecture_id'] not in ('stream_two_input_jepa_v9','stream_conv_cross_jepa_v10','stream_conv_cross_geohistory_jepa_v10','stream_conv_cross_supported_history_jepa_v10','stream_conv_cross_dense_history_jepa_v10','stream_recovered_relation_jepa_v11','stream_cad_surface_jepa_v12'):raise ValueError('Two-stream architecture required')
     if a.repair_from or a.curriculum_from:raise ValueError('Clean training forbids migration flags')
@@ -159,6 +162,7 @@ def main():
     if rt.get('reference_dino_graph') or rt.get('teacher_dino_graph'):
         from lip.unified.execution_speed import prime_execution_graphs
         prime_execution_graphs(episode)
+    if 'lr_intervention' in c:faulthandler.cancel_dump_traceback_later()
     ids=lambda step:[c['seed']*1000033+(step*world+rank)*rt['microbatch']+i for i in range(rt['microbatch'])]
     factory.prefetch_rigid(ids(start),supervised=t['episode_frames'],burn=0)
     with (out/f'rank{rank}.jsonl').open('a') as log:
