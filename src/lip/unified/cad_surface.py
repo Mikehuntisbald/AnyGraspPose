@@ -19,7 +19,7 @@ class SurfaceRead(nn.Module):
         y,x=torch.meshgrid(torch.arange(16),torch.arange(16),indexing='ij')
         self.register_buffer('patch_uv',torch.stack(((x.flatten()+.5)/16,(y.flatten()+.5)/16),-1))
 
-    def forward(self,patch,valid,features,geometry,available):
+    def forward(self,patch,valid,features,geometry,available,observed_xyz=None,observed_valid=None,base=None,confidence=None):
         b,n,_=patch.shape;k=features.shape[1]
         # Mask raw inputs as well: dropped CAD cannot leak NaNs or biased values.
         features=torch.where(available[...,None],features,0.)
@@ -29,6 +29,10 @@ class SurfaceRead(nn.Module):
         keys=self.k(tokens).reshape(b,k,4,32).transpose(1,2)
         values=self.v(tokens).reshape(b,k,4,64).transpose(1,2)
         logits=(q@keys.transpose(-1,-2)).float()/math.sqrt(32)
+        if hasattr(self,'rope3d'):
+            if observed_xyz is None or observed_valid is None or base is None or confidence is None:
+                raise ValueError('CAD RoPE requires explicit measured geometry and confidence')
+            logits=self.rope3d(logits,q,keys,observed_xyz,observed_valid,geometry[:,:,:3],available,base,confidence,valid)
         # Soft prior only. No hard image-radius or back-face rejection.
         distance=(self.patch_uv[None,:,None]-geometry[:,None,:,15:17]).square().sum(-1)
         logits=logits-.5*distance[:,None].clamp_max(8.)
@@ -78,7 +82,13 @@ class CADSurfaceTracker(RecoveredRelationTracker):
     def extra_frame_inputs(self,obs,memory=None,history_enabled=None):
         if obs.cad_surface_features is None:raise ValueError('Explicit local CAD surface inputs required')
         available=obs.cad_surface_valid&obs.cad_valid.any(-1)[:,None]
-        return obs.state,(),(obs.object_xyz,obs.depth_valid),(obs.cad_surface_features,obs.cad_surface_geometry,available)
+        cad_inputs=(obs.cad_surface_features,obs.cad_surface_geometry,available)
+        if getattr(self,'cad_rope3d_enabled',False):
+            with torch.no_grad():
+                real=self.core.src_proj(torch.cat((obs.mid,obs.last),-1))
+                confidence=self.visibility(real).float().squeeze(-1).sigmoid()
+            cad_inputs+=(obs.object_xyz,obs.depth_valid,obs.base,confidence)
+        return obs.state,(),(obs.object_xyz,obs.depth_valid),cad_inputs
 
     def read_surface(self,patch,valid,inputs,layer):
         if layer not in (1,3):return patch,{}

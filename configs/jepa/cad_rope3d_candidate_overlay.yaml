@@ -1,0 +1,5 @@
+# Overlay only: merge into a separately budgeted candidate configuration.
+# Existing run configurations omit this key, so their model is unchanged.
+cad_rope3d:
+  enabled: true
+  cycles_per_diameter: [0.5, 1.0, 2.0, 4.0, 8.0]

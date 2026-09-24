@@ -74,7 +74,9 @@ def initialize_training(model, config, world):
         migrate_surface(model,source['model'])
     elif getattr(model, "trainable_encoder", False):
         status = model.load_state_dict(source["model"], strict=False)
-        if status.unexpected_keys or any(not k.startswith(("encoder.", "ema_teacher.", "ema_updates")) for k in status.missing_keys):
+        from .rope3d import allowed_migration_keys
+        allowed=allowed_migration_keys(config)
+        if status.unexpected_keys or any(k not in allowed and not k.startswith(("encoder.", "ema_teacher.", "ema_updates")) for k in status.missing_keys):
             raise ValueError("EMA migration state mismatch")
     else:load_core(model, source['model'])
     configure_reconstruction_only(model)
@@ -92,6 +94,7 @@ def initialize_training(model, config, world):
     reference_config=dict(config,architecture_id=reference_source['architecture_id'])
     reference_config.pop('ema_encoder', None)
     reference_config.pop('dino_layers', None)
+    reference_config.pop('cad_rope3d', None)
     reference_config['runtime']=dict(config['runtime'],disable_history=False,compile_dino=False)
     reference = build_model(reference_config)
     load_core(reference, reference_source['model'])
