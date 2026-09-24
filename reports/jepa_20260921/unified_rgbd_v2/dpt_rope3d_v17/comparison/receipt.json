@@ -1,0 +1,13 @@
+{
+  "completed": true,
+  "updates": 1000,
+  "physical_sequences": 40,
+  "checkpoints": {
+    "source_mlp": "3f708470c890e98760f9d2a3107bd318f88eef860bd12af74bd8d741d0995e67",
+    "update500": "ba3f432fe36477339a2f482845f57709c3e92fe344c4d1025725c0c9eb69a755",
+    "update1000": "ec0732f609fd04dc7aee50a42c1ae7b9830a9e9acf8f1ac9a614efc45e50add5"
+  },
+  "fixed_targets_verified": true,
+  "individual_component_causality_established": false,
+  "pose_training": false
+}

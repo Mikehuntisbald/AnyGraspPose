@@ -1,0 +1,10 @@
+{
+  "complete": true,
+  "terminal_sha256": "ec0732f609fd04dc7aee50a42c1ae7b9830a9e9acf8f1ac9a614efc45e50add5",
+  "local_terminal_checkpoint_verified": true,
+  "collected_evaluations": [
+    "source_mlp",
+    "update1000",
+    "update500"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "completed": true,
+  "step": 24400,
+  "checkpoint_sha256": "ec0732f609fd04dc7aee50a42c1ae7b9830a9e9acf8f1ac9a614efc45e50add5",
+  "initial_shared_core_exact": true,
+  "replaced_surface_mlp": true,
+  "initial_optimizer_empty": true,
+  "frozen_pose_tensors_exact": true,
+  "optimizer_excludes_pose": true,
+  "changed_trainable_tensors": 426,
+  "all_rank_steps": [
+    24400,
+    24400,
+    24400,
+    24400,
+    24400,
+    24400,
+    24400,
+    24400
+  ],
+  "optimizer_updates_since_migration": 1000,
+  "sampler_position": 780800
+}
