@@ -19,7 +19,12 @@ def main():
     preserved_adam=not c['reconstruction_only'].get('optimizer_reset',True)
     if preserved_adam:
         from lip.unified.horizon_resume import exact
-        assert exact(initial['optimizer'],source['optimizer'])
+        if 'lr_intervention' in c:
+            from copy import deepcopy
+            check=deepcopy(initial['optimizer'])
+            for group,saved in zip(check['param_groups'],source['optimizer']['param_groups']):group['lr']=saved['lr']
+            assert exact(check,source['optimizer'])
+        else:assert exact(initial['optimizer'],source['optimizer'])
     else:assert not initial['optimizer']['state']
     replaced = c.get('surface_decoder',{}).get('kind')=='dpt' and source['config'].get('surface_decoder',{}).get('kind')!='dpt'
     assert all(torch.equal(v, initial['model'][k]) for k, v in source['model'].items()
@@ -75,7 +80,8 @@ def main():
     assert min(latest) >= record['step']
     result = dict(passed=True, completed=True, step=record['step'], checkpoint_sha256=sha(path),
         initial_shared_core_exact=True, replaced_surface_mlp=replaced, initial_optimizer_empty=not preserved_adam,
-        initial_optimizer_preserved_exactly=preserved_adam, frozen_pose_tensors_exact=True,
+        initial_optimizer_preserved_exactly=preserved_adam and 'lr_intervention' not in c,
+        initial_non_lr_optimizer_preserved_exactly=preserved_adam, frozen_pose_tensors_exact=True,
         optimizer_excludes_pose=True, changed_trainable_tensors=len(changed), all_rank_steps=latest,
         optimizer_updates_since_migration=record['step']-source['step'], sampler_position=record['sampler_position'])
     (a.out or root / 'startup_receipt.json').write_text(json.dumps(result, indent=2)); print(json.dumps(result))

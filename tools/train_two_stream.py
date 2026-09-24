@@ -54,6 +54,9 @@ def main():
     factory=Factory(c,model,make_store(c,model))
     optimizer=make_optimizer(model,c,fused=rt['fused_optimizer'])
     def rate(offset):
+        if "lr_intervention" in c:
+            from lip.unified.lr_intervention import rate_factor
+            return rate_factor(c, offset)
         if 'horizon_continuation' in c:
             from lip.unified.horizon_resume import extension_factor,scheduler_origin
             h=c['horizon_continuation']
@@ -115,9 +118,12 @@ def main():
             preserve_adam(optimizer,recovery_source)
             # Scheduler starts at the new stage boundary; Adam moments/steps and
             # the boundary learning rates are inherited exactly from the source.
+            if 'lr_intervention' in c:
+                from lip.unified.lr_intervention import apply_rates
+                adaptation['lr_intervention'] = apply_rates(optimizer, scheduler, recovery_source, c)
             if any(abs(g['lr']-lr)>1e-12 for g,lr in zip(optimizer.param_groups,scheduler.get_last_lr())):
                 raise ValueError('Continuation boundary learning rate changed')
-            adaptation.update(optimizer_exact=True,scheduler_reset=True)
+            adaptation.update(optimizer_exact="lr_intervention" not in c,non_lr_optimizer_exact=True,scheduler_reset=True)
         restore_rng(recovery_source['rng'][rank])
     elif a.history_from:
         from lip.unified.history_repair import adapt_history
