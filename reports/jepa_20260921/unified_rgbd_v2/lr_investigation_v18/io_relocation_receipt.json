@@ -1,0 +1,17 @@
+{
+  "source": "/mnt/why/dexycb_lip/unified_jepa_20260921/lr_investigation_v18",
+  "execution": "/tmp/dexycb_lr_investigation_v18_local",
+  "changed_files": [
+    "tools/run_lr_investigation.py"
+  ],
+  "model_training_source_exact": true,
+  "files": 516,
+  "checkpoint": {
+    "completed": true,
+    "step": 26100,
+    "sha256": "e039f0a7e8fd5ee2f6854a53efc26cd64b6dd8a30ad30065bfc23aa35e888956",
+    "sampler_position": 835200,
+    "config_hash": "f95c67ae42357ef18faff1c1ca3afb4930c4c0bb98ae26dca7848b3bed638e1d",
+    "all_rank_rng": 8
+  }
+}

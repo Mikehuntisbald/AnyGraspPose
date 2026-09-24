@@ -1,0 +1,48 @@
+{
+  "before": {
+    "n": 100,
+    "step_start": 26001,
+    "step_end": 26100,
+    "seconds_mean": 6.083985930448398,
+    "seconds_median": 5.6577887705061585,
+    "components": {
+      "crop_and_student_render": 0.6510328751277924,
+      "textured_rgbd_occlusion": 0.07749384664483368,
+      "fixed_crop_reference": 0.7634054584789276,
+      "dino_observation_and_reference": 0.07250133808135986,
+      "teacher": 1.663937862854004,
+      "jepa_and_pose": 0.10838736837387085,
+      "loss": 0.17282667650222777,
+      "backward": 0.38441723693847657,
+      "gradient_communication": 0.44183071823596953,
+      "clip_and_optimizer": 0.006783231372833252,
+      "ema_update": 0.0015295958423614503
+    }
+  },
+  "after": {
+    "n": 30,
+    "step_start": 26120,
+    "step_end": 26149,
+    "seconds_mean": 3.221142099215649,
+    "seconds_median": 3.0515529895201325,
+    "components": {
+      "crop_and_student_render": 0.6671340892473856,
+      "textured_rgbd_occlusion": 0.07875344950109721,
+      "fixed_crop_reference": 0.8001954785029094,
+      "dino_observation_and_reference": 0.07379255555470784,
+      "teacher": 0.3973245485941569,
+      "jepa_and_pose": 0.11214544944763183,
+      "loss": 0.167250164604187,
+      "backward": 0.39448441162109377,
+      "gradient_communication": 0.27658026739756264,
+      "clip_and_optimizer": 0.007125628821055095,
+      "ema_update": 0.0016712192018826803
+    }
+  },
+  "execution_root": "/tmp/dexycb_lr_investigation_v18_local",
+  "same_training_source": true,
+  "strict_resume": true,
+  "source_step": 26100,
+  "scope": "neighboring windows, different sampled episodes; excludes compile and initial warmup; observed throughput not paired benchmark",
+  "measured_unix": 1790247919.5856638
+}
