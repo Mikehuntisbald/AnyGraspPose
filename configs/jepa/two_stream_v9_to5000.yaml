@@ -1,0 +1,126 @@
+architecture_id: stream_two_input_jepa_v9
+augmentation:
+  bank_sha256: 49b3fd6d573da3f983bb95141e10e8f63c0fccc6348e21c2d1c8d4e298764341
+  depth: offset donor relief in front; absent donor depth invalid
+  hand_probability: 0.5
+  kind: train-real-rgbd-cutouts-v1
+  other_object_excludes_target: true
+  temporal: fixed donor and smooth crop-space motion per episode
+migration:
+  kind: clean_random
+  source_step: 0
+  source_sampler_position: 0
+  optimizer: fresh
+  memory: empty
+  previous_experiment_weights_loaded: false
+paths:
+  baseline_scored: /mnt/why/dexycb_lip/jepa_object_fusion_20260921/formal_v1/validation/step2000_scored
+  cad_cache: /mnt/why/dexycb_lip/unified_jepa_20260921/cad_cache
+  data_root: /mnt/why/dexycb_lip/cache/raw_full_20260910
+  dino_checkpoint: /mnt/why/models/dinov2_reg_small/dinov2_vits14_reg4_pretrain.pth
+  dino_repo: /mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa
+  index_root: /mnt/why/dexycb_lip/cache/dexycb_s0
+  occluder_bank: /mnt/why/dexycb_lip/unified_jepa_20260921/occluder_bank_v1
+  output: /mnt/why/dexycb_lip/unified_jepa_20260921/two_stream_v9_to5000/runs/seed42
+  rigid_frame_cache: /tmp/dexycb_jepa_rigid_train_cache_v1
+  utonia_checkpoint: /mnt/why/models/utonia/utonia.pth
+  val_initializers: /mnt/why/dexycb_lip/posecnn_val_20260915/runs/full/initializers.json
+  visibility_reference: /mnt/why/dexycb_lip/adaptive_reference_20260914/runs/adaptive_pair/adaptive_reference/s0_val
+runtime:
+  accumulation: 1
+  checkpoint_every: 50
+  compile_frame: true
+  compile_loss: true
+  deterministic_algorithms: true
+  fill_uninitialized_memory: false
+  formal: true
+  fused_optimizer: true
+  gradient_reduction: once_per_episode_fp32
+  microbatch: 4
+  reuse_teacher_real: true
+  segmented_backward: true
+  world: 8
+  pose_pair_frames: []
+seed: 42
+supervision:
+  geometry_proxy: same GT rendering, centered XYZ/diameter and (depth-base_z)/diameter
+  geometry_resolution: 224
+  loss_regions: natural-hidden CAD proxy; artificially-hidden original-visible real
+    targets only
+  real_features: 'originally visible then artificially hidden: original real features
+    and valid real depth take precedence; disjoint CAD proxy regions'
+  rgb_proxy: full GT silhouette overlay
+  texture_filter: linear-mipmap-linear
+  unmasked_visible_reconstruction: none; student input and pose/visibility objectives
+    only
+  version: fullcad-rgbd-v2
+training:
+  anchor_frames: 8
+  effective_batch: 32
+  episode_frames: 40
+  heavy_cad_dropout: 0.5
+  heavy_durations:
+  - 8
+  - 16
+  - 32
+  learning_rates:
+    new: 0.0001
+    predictor: 0.0001
+    pose: 0.0001
+  loss_weights:
+    cad_feature: 0.5
+    feature_error: 0.05
+    geometry_validity: 0.1
+    real_feature: 1.0
+    surface_depth: 0.5
+    surface_xyz: 0.5
+    visibility_support: 0.1
+  lr_warmup_steps: 25
+  max_steps: 5000
+  perturb_probability: 0.3
+  tbptt_frames: 4
+  warmup_steps: 0
+  weight_decay: 0.01
+validation:
+  acceptance_history_reconstruction_relative_gain: 0.05
+  acceptance_regression_pp: 0.3
+  history_off_steps:
+  - 2500
+  - 5000
+  history_reconstruction_region: hidden_real
+  official_test: false
+  steps:
+  - 2500
+  - 5000
+  stop_after_step: 5001
+  stop_regression_pp: 2.0
+weights:
+  dino_checkpoint: 0780fb2ef3aba09334219244f99620e3495922fd0a4fef47ec3eafb3bc68ef8e
+  utonia_checkpoint: a0a2e5e234ce943082ae9ba26bcff74e285f16ed8d04fed5c36ffe8dc30ea353
+comparison:
+  baseline_checkpoint_sha256: 30cb743454655900da4d09373d762c6fb47760a17415591c15b0b346d7f24b41
+  use: evaluation only; never model initialization
+initialization:
+  frozen: original DINOv2 pretrained encoder; original Utonia cached CAD features
+  trainable: seed42 independent random initialization
+  pose_last_weight_std: 0.0001
+  experiment_checkpoint_loads: false
+budget:
+  total_optimizer_updates: 5000
+  additional_optimizer_updates: 4500
+  seed_count: 1
+  evaluation_steps:
+  - 2500
+  - 5000
+  stop_rule: User explicitly requested continuation to2500/5000;2500 is an evaluation
+    checkpoint, terminal budget5000; no automatic expansion.
+  authorization: 'User: 继续训到2500/5000步'
+horizon_continuation:
+  source_step: 500
+  source_checkpoint: /mnt/why/dexycb_lip/unified_jepa_20260921/two_stream_v9_clean/milestones/step0500.pt
+  source_sha256: 8223721bdb8ee1de3120704cab1f74731763057f2fa55bc97a32525356736033
+  source_config_hash: 5d90fcc773548ec975425c981999bb0ae0843d2a8b1217e9f9f4987a8481a900
+  rewarm_steps: 100
+  floor: 0.1
+  preserve: model, Adam moments/steps, scheduler epoch, all-rank RNG and sampler
+  change: budget/evaluation and future LR lambda only
