@@ -39,6 +39,7 @@ def analyze(root, world):
     if any('cad_match_real' in r for r in records):regions+=('cad_match_real','cad_match_proxy')
     if any('spatial_hidden_real_mid' in r for r in records):regions+=('spatial_hidden_real_mid','spatial_cad_proxy_mid')
     if any('local_real_mid' in r for r in records):regions+=('local_real_mid','local_real_last','local_proxy_mid','local_proxy_last')
+    if any('normal_real' in r for r in records):regions+=('normal_real','normal_proxy')
     grouped=defaultdict(list)
     for row in records:
         if row['phase']!='occlusion': continue

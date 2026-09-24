@@ -47,6 +47,9 @@ def build_model(config,device='cuda'):
         if config.get('cad_rope3d',{}).get('enabled',False):
             from .rope3d import enable_cad_rope3d
             enable_cad_rope3d(model,config['cad_rope3d'])
+        if config.get('surface_decoder',{}).get('kind')=='dpt':
+            from .dpt_surface import enable_dpt_surface
+            enable_dpt_surface(model,config['surface_decoder'])
         model.disable_history=config['runtime'].get('disable_history',False)
         for block in model.core.blocks:block.disable_history=model.disable_history
         model.enable_compilation(config['runtime'].get('compile_frame',False))

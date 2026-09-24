@@ -168,13 +168,20 @@ class ConvCrossTracker(TwoStreamTracker):
         mem, mv, mb = self.history_sources(mem, mv, mb)
         patch = patch + position + prompt[:, None] + dt[:, None]
         surface_metrics={}
+        dense_levels=[]
+        use_dpt=getattr(self,'surface_decoder_kind','mlp')=='dpt'
         for layer,block in enumerate(self.core.blocks):
             patch,read_metrics=self.read_surface(patch,valid,cad_inputs,layer)
             surface_metrics.update(read_metrics)
             patch = block(patch, valid, mem, mv, mb)
+            if use_dpt:dense_levels.append(patch)
         patch = self.core.final_norm(patch)
-        surface = self.surface_head(patch).reshape(batch, 16, 16, 14, 14, 5)
-        surface = surface.permute(0, 5, 1, 3, 2, 4).reshape(batch, 5, 224, 224).float()
+        if use_dpt:
+            dense_levels[-1]=patch
+            surface=self.surface_head(dense_levels,valid)
+        else:
+            surface = self.surface_head(patch).reshape(batch, 16, 16, 14, 14, 5)
+            surface = surface.permute(0, 5, 1, 3, 2, 4).reshape(batch, 5, 224, 224).float()
         surface_xyz, surface_depth, surface_validity = surface[:, :3], surface[:, 3:4], surface[:, 4:5]
         logits = self.visibility(real).squeeze(-1)
         obj, relation_metrics = self.read_object(

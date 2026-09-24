@@ -169,6 +169,10 @@ def main():
                             spatial_cad_proxy=feature_diagnostics(out,target,target.proxy_weight,True),
                             geometry_focus_real=geometry_diagnostics(out,target,target.geometry_real_weight,float(mesh['diameter'])),
                             geometry_focus_proxy=geometry_diagnostics(out,target,target.geometry_proxy_weight,float(mesh['diameter'])))
+                        if c['training']['loss_weights'].get('surface_normal',0):
+                            from lip.unified.surface_normals import normal_diagnostics
+                            row.update(normal_real=normal_diagnostics(out,target,target.geometry_real_weight),
+                                       normal_proxy=normal_diagnostics(out,target,target.geometry_proxy_weight))
                         if c.get('dino_layers'):
                             row['spatial_hidden_real_mid']=feature_diagnostics(out,target,target.hidden_real_weight,middle=True)
                             row['spatial_cad_proxy_mid']=feature_diagnostics(out,target,target.proxy_weight,True,middle=True)
@@ -203,6 +207,21 @@ def main():
                             for column,label in enumerate(('Student RGB','Original RGB','Full CAD teacher','Hidden real error [0,2]','Proxy error [0,2]')):
                                 cv2.putText(header,label,(224*column+6,19),cv2.FONT_HERSHEY_SIMPLEX,.45,(255,255,255),1,cv2.LINE_AA)
                             cv2.imwrite(str(a.out/(stem+'_teacher_error.png')),np.concatenate([header,picture],axis=0))
+                            if c['training']['loss_weights'].get('surface_normal',0):
+                                from lip.unified.surface_normals import normal_field,normal_terms
+                                normal_panels=[]
+                                for normal_mask in (target.geometry_real_weight,target.geometry_proxy_weight):
+                                    _,known,_=normal_terms(out['surface_xyz'],target.surface_xyz,normal_mask,1)
+                                    for xyz in (out['surface_xyz'],target.surface_xyz):
+                                        vectors=normal_field(xyz.float(),1)[0]
+                                        rgb_normal=((vectors[0].permute(1,2,0).cpu().numpy()+1)*127.5).clip(0,255).astype('uint8')
+                                        rgb_normal[~known[0,0].cpu().numpy()]=128
+                                        panel=np.full((224,224,3),128,dtype='uint8');panel[1:-1,1:-1]=rgb_normal
+                                        normal_panels.append(cv2.cvtColor(panel,cv2.COLOR_RGB2BGR))
+                                normals=np.concatenate(normal_panels,axis=1);caption=np.zeros((28,normals.shape[1],3),dtype='uint8')
+                                for column,label in enumerate(('Pred normal / real','Target normal / real','Pred normal / CAD','Target normal / CAD')):
+                                    cv2.putText(caption,label,(224*column+6,19),cv2.FONT_HERSHEY_SIMPLEX,.45,(255,255,255),1,cv2.LINE_AA)
+                                cv2.imwrite(str(a.out/(stem+'_normals.png')),np.concatenate((caption,normals),axis=0))
                 f.flush()
             print(json.dumps(dict(physical_sequence=physical,rows=rows,seconds=time.monotonic()-begun)),flush=True)
     manifest.update(completed=True,rows=rows,frames_sha256=sha(a.out/'frames.jsonl'),seconds=time.monotonic()-begun)

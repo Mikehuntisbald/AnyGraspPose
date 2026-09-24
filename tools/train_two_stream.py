@@ -192,9 +192,14 @@ def main():
                 if t['loss_weights'].get('local_difference',0) or t['loss_weights'].get('local_correspondence',0):
                     from lip.unified.local_structure import LOCAL_METRICS
                     names += LOCAL_METRICS
+                if t['loss_weights'].get('surface_normal',0):
+                    from lip.unified.surface_normals import NORMAL_METRICS
+                    names += NORMAL_METRICS
                 row['recovery_metrics']={k:float(statistics[i+1]) for i,k in enumerate(names)}
                 row['recovery_focus']=c['recovery_focus']['version']
                 row['history_supported_target_fraction']=float(statistics[-1])
+            if hasattr(model.cad_surface if hasattr(model,'cad_surface') else model,'rope3d'):
+                row['cad_rope3d_gains']=model.cad_surface.rope3d.gain.detach().tanh().cpu().tolist()
             if rt.get('jepa_pose_geometry',False):row['pose_error_aux_loss']=float(statistics[len(parts)])
             if rt.get('pose_pair_frames'):
                 row['pose_pair_response_loss']=float(statistics[-2]);row['pose_pair_absolute_loss']=float(statistics[-1])

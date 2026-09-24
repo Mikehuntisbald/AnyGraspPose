@@ -42,6 +42,11 @@ def recovery_objective(output, teacher, truth, points, diameter, weights):
         local, diagnostics = local_structure_loss(output, teacher, weights)
         loss = loss + local
         extra += [diagnostics[key] for key in LOCAL_METRICS]
+    if weights.get('surface_normal',0):
+        from .surface_normals import surface_normal_loss,NORMAL_METRICS
+        normal,diagnostics=surface_normal_loss(output,teacher,weights)
+        loss=loss+weights['surface_normal']*normal
+        extra += [diagnostics[key] for key in NORMAL_METRICS]
     return loss, torch.stack([loss.detach().new_zeros(()) for _ in range(4)] +
                             [parts[key] for key in RECONSTRUCTION_METRICS] + extra)
 
@@ -69,7 +74,11 @@ def initialize_training(model, config, world):
         raise ValueError('Recovery-only sampler/world/frozen-encoder mismatch')
     if config['runtime'].get('pose_pair_frames') or config['training']['loss_weights'].get('pose_error', 0):
         raise ValueError('Pose objectives are forbidden in recovery-only training')
-    if surface_migration:
+    replaced=[]
+    if config.get('surface_decoder',{}).get('kind')=='dpt':
+        from .dpt_surface import migrate_dpt_surface
+        replaced=migrate_dpt_surface(model,source['model'])
+    elif surface_migration:
         from .cad_surface import migrate_surface
         migrate_surface(model,source['model'])
     elif getattr(model, "trainable_encoder", False):
@@ -81,7 +90,7 @@ def initialize_training(model, config, world):
     else:load_core(model, source['model'])
     configure_reconstruction_only(model)
     current = core_state(model)
-    if not all(torch.equal(v.cpu(), current[k].cpu()) for k, v in source['model'].items()):
+    if not all(torch.equal(v.cpu(), current[k].cpu()) for k, v in source['model'].items() if k not in replaced):
         raise ValueError('Source tensors changed during recovery-only initialization')
     # This fixed model produces training crop/base trajectories only. It is not
     # attached to the student, optimizer, checkpoint, or deployed inference path.
@@ -95,6 +104,7 @@ def initialize_training(model, config, world):
     reference_config.pop('ema_encoder', None)
     reference_config.pop('dino_layers', None)
     reference_config.pop('cad_rope3d', None)
+    reference_config.pop('surface_decoder', None)
     reference_config['runtime']=dict(config['runtime'],disable_history=False,compile_dino=False)
     reference = build_model(reference_config)
     load_core(reference, reference_source['model'])
@@ -108,6 +118,9 @@ def initialize_training(model, config, world):
                    crop_reference='immutable source V11; same causal student observations; no GT input',
                    teacher_target_max_radius_d=config['supervision']['real_geometry_max_radius_d'])
     receipt['crop_reference_sha256'] = reference_plan['sha256']
+    if replaced:
+        receipt.update(surface_decoder='dpt',replaced_source_keys=replaced,
+                       dpt_initialization='random; four JEPA levels only',cad_rope3d=True)
     if config.get('dino_layers'):
         receipt.update(dino_layers=config['dino_layers'],ema_source_updates=int(model.ema_updates),
                        readout_initialization='all source tensors retained; feature heads adapt to new target layers')

@@ -214,6 +214,8 @@ def make_optimizer(model,config,*,fused=True):
             category="encoder"
         if category not in (None, 'encoder') and model.architecture_id in ('stream_recovered_relation_jepa_v11','stream_cad_surface_jepa_v12'):
             category='new' if name.startswith(('geometry_readout.','cad_surface.')) else ('pose' if name.startswith('head.') else 'predictor')
+        if getattr(model,'surface_decoder_kind','mlp')=='dpt' and name.startswith('surface_head.'):
+            category='new'
         if category is not None:
             groups.setdefault((category,p.ndim>1),[]).append((name,p))
     t=config['training']
