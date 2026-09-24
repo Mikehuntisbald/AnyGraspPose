@@ -24,7 +24,13 @@ def main():
     c=yaml.safe_load(a.config.read_text());torch.set_num_threads(2);torch.manual_seed(42)
     torch.use_deterministic_algorithms(True);torch.utils.deterministic.fill_uninitialized_memory=False
     model=build_model(c);source,migration,reference=initialize_training(model,c,8)
-    before_ema=int(model.ema_updates);assert before_ema==int(source['model']['ema_updates']);del source
+    before_ema=int(model.ema_updates);assert before_ema==int(source['model']['ema_updates'])
+    optimizer=make_optimizer(model,c)
+    preserve=not c['reconstruction_only'].get('optimizer_reset',True)
+    if preserve:
+        from lip.unified.staged_rope import preserve_adam
+        preserve_adam(optimizer,source)
+    del source
     assert model.surface_decoder_kind=='dpt' and model.cad_rope3d_enabled
     assert not hasattr(reference,'surface_decoder_kind') and not getattr(reference,'cad_rope3d_enabled',False)
     teacher_before=digest(model.ema_teacher);reference_before=digest(reference)
@@ -49,11 +55,17 @@ def main():
     assert all(p.grad is None for p in model.writer.parameters())
     assert all(p.grad is None for n,p in model.named_parameters() if is_pose_parameter(n))
     assert digest(model.ema_teacher)==teacher_before and digest(reference)==reference_before
-    # Normal loss appended last: both target sources must have eligible stencils.
+    # Staged geometry diagnostics, when enabled, follow normal diagnostics.
     from lip.unified.surface_normals import NORMAL_METRICS
-    normal_metrics={n:float(v) for n,v in zip(NORMAL_METRICS,metrics[-len(NORMAL_METRICS):])}
+    tail=0;staged_metrics={}
+    if c.get('staged_rope',{}).get('enabled'):
+        from lip.unified.staged_rope import STAGED_METRICS
+        tail=len(STAGED_METRICS)
+        staged_metrics={n:float(v) for n,v in zip(STAGED_METRICS,metrics[-tail:])}
+        assert staged_metrics['rope_measured_fraction']>0 and staged_metrics['rope_recovered_fraction']>0
+        assert staged_metrics['rope_recovered_trust']<=c['staged_rope']['recovered_max_trust']
+    normal_metrics={n:float(v) for n,v in zip(NORMAL_METRICS,metrics[len(metrics)-tail-len(NORMAL_METRICS):len(metrics)-tail])}
     assert normal_metrics['normal_valid_fraction_real']>0 and normal_metrics['normal_valid_fraction_proxy']>0
-    optimizer=make_optimizer(model,c)
     assert all(g['category']=='new' for g in optimizer.param_groups if any(n.startswith('surface_head.') for n in g['names']))
     torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.grad is not None],1.,foreach=True)
     optimizer.step();update_ema(model)
@@ -64,6 +76,7 @@ def main():
     result=dict(passed=True,config_sha256=sha(a.config),source_sha256=c['reconstruction_only']['source_sha256'],
         batch=4,frames=40,loss=float(loss),seconds=seconds,first_seconds_including_compile=first_seconds,
         component_cuda_seconds=episode.profile.seconds(),gradient_norms=grads,normal_metrics=normal_metrics,
+        staged_metrics=staged_metrics,optimizer_preserved_exactly=preserve,
         crop_reference_unchanged=True,teacher_no_gradient=True,pose_no_gradient=True,history_no_gradient=True,
         shared_source_exact=True,full_model_restore_exact=True,ema_source_updates=before_ema,
         persisted_optimizer_updates=0,discarded_preflight_updates=1,peak_gpu_gb=torch.cuda.max_memory_allocated()/1e9)

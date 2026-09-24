@@ -199,6 +199,16 @@ def main():
                             from lip.unified.surface_normals import normal_diagnostics
                             row.update(normal_real=normal_diagnostics(out,target,target.geometry_real_weight),
                                        normal_proxy=normal_diagnostics(out,target,target.geometry_proxy_weight))
+                        if 'coarse_surface' in out:
+                            coarse=out['coarse_surface']
+                            coarse_output=dict(surface_xyz=coarse[:,:3],surface_depth_residual=coarse[:,3:4],geometry_valid_logits=coarse[:,4:5],
+                                surface_depth_m=obs.base[:,2,3,None,None,None]+coarse[:,3:4]*obs.diameter[:,None,None,None])
+                            row.update(coarse_geometry_real=geometry_diagnostics(coarse_output,target,target.geometry_real_weight,float(mesh['diameter'])),
+                                       coarse_geometry_proxy=geometry_diagnostics(coarse_output,target,target.geometry_proxy_weight,float(mesh['diameter'])))
+                            for name,weight in [('real',target.hidden_real_weight),('proxy',target.proxy_weight)]:
+                                weight=weight*out['cad_surface_available'].any(-1)[:,None]
+                                mass=weight.sum()
+                                row['rope_routing_'+name]=({kind+'_fraction':float((out['rope_'+kind+'_mask']*weight).sum()/mass) for kind in ('measured','recovered','fallback')} if mass>0 else None)
                         if a.normal_audit:
                             from lip.unified.normal_audit import audit_normals
                             row['normal_audit']={name:audit_normals(out['surface_xyz'],target.surface_xyz,mask)

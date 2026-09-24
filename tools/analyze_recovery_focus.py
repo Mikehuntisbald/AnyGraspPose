@@ -40,6 +40,7 @@ def analyze(root, world):
     if any('spatial_hidden_real_mid' in r for r in records):regions+=('spatial_hidden_real_mid','spatial_cad_proxy_mid')
     if any('local_real_mid' in r for r in records):regions+=('local_real_mid','local_real_last','local_proxy_mid','local_proxy_last')
     if any('normal_real' in r for r in records):regions+=('normal_real','normal_proxy')
+    if any('coarse_geometry_real' in r for r in records):regions+=('coarse_geometry_real','coarse_geometry_proxy','rope_routing_real','rope_routing_proxy')
     grouped=defaultdict(list)
     for row in records:
         if row['phase']!='occlusion': continue

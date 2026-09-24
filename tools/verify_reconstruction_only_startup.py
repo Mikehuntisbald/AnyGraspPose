@@ -1,5 +1,5 @@
 """Audit exact frozen tensors, optimizer ownership and all-rank recovery logs."""
-import argparse, json, sys
+import argparse, json, sys, math
 from pathlib import Path
 import torch, yaml
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
@@ -15,8 +15,13 @@ def main():
     source = torch.load(c['reconstruction_only']['source_checkpoint'], map_location='cpu', weights_only=False)
     record = torch.load(path, map_location='cpu', weights_only=False)
     initial = torch.load(directory / 'initial.pt', map_location='cpu', weights_only=False)
-    assert initial['step'] == source['step'] and not initial['optimizer']['state']
-    replaced = c.get('surface_decoder',{}).get('kind')=='dpt'
+    assert initial['step'] == source['step']
+    preserved_adam=not c['reconstruction_only'].get('optimizer_reset',True)
+    if preserved_adam:
+        from lip.unified.horizon_resume import exact
+        assert exact(initial['optimizer'],source['optimizer'])
+    else:assert not initial['optimizer']['state']
+    replaced = c.get('surface_decoder',{}).get('kind')=='dpt' and source['config'].get('surface_decoder',{}).get('kind')!='dpt'
     assert all(torch.equal(v, initial['model'][k]) for k, v in source['model'].items()
                if not (replaced and k.startswith('surface_head.')))
     if replaced:
@@ -43,6 +48,9 @@ def main():
         assert any(k.startswith('cad_surface.') for k in changed)
     if c['runtime'].get('disable_history',False):
         assert all(torch.equal(v,record['model'][k]) for k,v in source['model'].items() if k.startswith('writer.') or '.history.' in k)
+    if c.get('staged_rope',{}).get('enabled'):
+        assert set(initial['model'])==set(source['model'])
+        assert all(torch.equal(v,initial['model'][k]) for k,v in source['model'].items())
     latest = []
     for rank in range(8):
         rows = [json.loads(v) for v in (directory / f'rank{rank}.jsonl').read_text().splitlines()]
@@ -58,9 +66,16 @@ def main():
                 import math
                 assert all(math.isfinite(d[key]) for key in LOCAL_METRICS)
                 assert d['local_difference_real_mid'] > 0 and d['local_difference_real_last'] > 0
+            if c.get('staged_rope',{}).get('enabled'):
+                from lip.unified.staged_rope import STAGED_METRICS
+                assert all(math.isfinite(d[k]) for k in STAGED_METRICS)
+                # Frames with all CAD references dropped have zero eligible
+                # routing mass, so the episode average can sum to less than1.
+                assert 0<=sum(d['rope_'+name+'_fraction'] for name in ('measured','recovered','fallback'))<=1+1e-5
     assert min(latest) >= record['step']
     result = dict(passed=True, completed=True, step=record['step'], checkpoint_sha256=sha(path),
-        initial_shared_core_exact=True, replaced_surface_mlp=replaced, initial_optimizer_empty=True, frozen_pose_tensors_exact=True,
+        initial_shared_core_exact=True, replaced_surface_mlp=replaced, initial_optimizer_empty=not preserved_adam,
+        initial_optimizer_preserved_exactly=preserved_adam, frozen_pose_tensors_exact=True,
         optimizer_excludes_pose=True, changed_trainable_tensors=len(changed), all_rank_steps=latest,
         optimizer_updates_since_migration=record['step']-source['step'], sampler_position=record['sampler_position'])
     (a.out or root / 'startup_receipt.json').write_text(json.dumps(result, indent=2)); print(json.dumps(result))
