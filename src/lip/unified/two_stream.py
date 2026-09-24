@@ -158,6 +158,10 @@ def encode_two_stream(model,scenes,masks=None,cad_enabled=None,frame_id=0,occlus
     if masks is not None and (occlusions is not None or any(bool(m.any()) for m in masks)):
         raise ValueError('Artificial occlusion requires textured RGB-D donors')
     from lip.geometry.crop import geometry_channels
+    point_fn=camera_points
+    if getattr(model,'fast_geometry',False):
+        from .execution_speed import camera_points_fast
+        point_fn=camera_points_fast
     b=len(scenes);device=scenes[0].rgb.device
     occlusions=[None]*b if occlusions is None else occlusions
     cad_enabled=torch.ones(b,device=device,dtype=torch.bool) if cad_enabled is None else cad_enabled
@@ -169,12 +173,17 @@ def encode_two_stream(model,scenes,masks=None,cad_enabled=None,frame_id=0,occlus
     timing=getattr(model,'profile_timing',None);scope=timing.record('dino_observation_and_reference') if timing is not None else nullcontext()
     with scope,torch.autocast(device.type,dtype=torch.bfloat16):mid,last=model.encoder(normalize_rgb(torch.cat((rgb,render_rgb))))
     geometry=[];xyz=[];depth_valid=[];cad=[]
-    for i,s in enumerate(scenes):
+    vector_geometry=getattr(model,'vector_geometry',False)
+    if vector_geometry:
+        from .execution_speed import geometry_inputs_fast
+        g,x,dv,cd=geometry_inputs_fast(scenes,depth,bounds,base,diameter,cad_enabled)
+        geometry=[g];xyz=list(x.unbind());depth_valid=list(dv.unbind());cad=list(cd.unbind())
+    for i,s in enumerate(() if vector_geometry else scenes):
         rd=torch.where(bounds[i],s.render['depth'],0.)
         g=geometry_channels(depth[i:i+1],rd[None],s.render['xyz'][None],diameter[i],base[i,2,3])
         # Keep only measured depth/validity when the CAD reference is dropped.
         g[:,2:]*=cad_enabled[i];geometry.append(g)
-        camera=camera_points(depth[i:i+1],s.k_crop)
+        camera=point_fn(depth[i:i+1],s.k_crop)
         local=(camera-base[i,:3,3])@base[i,:3,:3]/diameter[i]
         valid=depth[i:i+1]>0;mass=F.avg_pool2d(valid.float(),14,14)
         pooled=F.avg_pool2d(local.permute(2,0,1)[None]*valid,14,14)/mass.clamp_min(1e-6)

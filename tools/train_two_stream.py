@@ -31,7 +31,7 @@ def main():
     if a.repair_from or a.curriculum_from:raise ValueError('Clean training forbids migration flags')
     if world!=rt['world'] or world*rt['microbatch']!=t['effective_batch'] or rt['accumulation']!=1:raise ValueError('Fixed effective batch contract')
     start=c['migration']['source_step']
-    if 'horizon_continuation' in c and not (a.extend_from or a.resume):raise ValueError('Extension requires --extend-from or --resume')
+    if 'horizon_continuation' in c and not (a.extend_from or a.resume or a.performance_from):raise ValueError('Extension requires an explicit resume source')
     if a.stop_at>t['max_steps'] or a.stop_at<=start:raise ValueError('Explicit stop must fit remaining declared budget')
     torch.cuda.set_device(local);torch.set_num_threads(2)
     if torch.cuda.device_count()!=1:raise ValueError('Launch v3 workers through tools/fp_worker.py (one visible GPU per worker)')
@@ -142,6 +142,9 @@ def main():
     if not a.resume:
         save(out/('extension_start.pt' if a.extend_from else 'initial.pt'),model,optimizer,scheduler,start,c,provenance)
     episode=OptimizedEpisode(model,factory.renderer,c,reference_model=reference_model)
+    if rt.get('reference_dino_graph') or rt.get('teacher_dino_graph'):
+        from lip.unified.execution_speed import prime_execution_graphs
+        prime_execution_graphs(episode)
     ids=lambda step:[c['seed']*1000033+(step*world+rank)*rt['microbatch']+i for i in range(rt['microbatch'])]
     factory.prefetch_rigid(ids(start),supervised=t['episode_frames'],burn=0)
     with (out/f'rank{rank}.jsonl').open('a') as log:

@@ -5,6 +5,35 @@ from lip.geometry.appearance_renderer import AppearanceRenderer
 
 class FullTextureRenderer(AppearanceRenderer):
     @torch.no_grad()
+    def render_many(self,meshes,poses,intrinsics,size=224):
+        """Group identical assets, retaining single-view vertex arithmetic."""
+        groups={};result=[None]*len(meshes)
+        for i,mesh in enumerate(meshes):groups.setdefault(id(mesh),[]).append(i)
+        with torch.autocast(self.device.type,enabled=False):
+            for ids in groups.values():
+                mesh=meshes[ids[0]];v=mesh['vertices'].float();f=mesh['faces'].int()
+                clips=[];attributes=[];near,far=.001,100.
+                for i in ids:
+                    pose=poses[i].float();k=intrinsics[i].float()
+                    camera=v@pose[:3,:3].T+pose[:3,3];z=camera[:,2];pixel=camera@k.T
+                    clips.append(torch.stack((2*(pixel[:,0]+.5*z)/size-z,2*(pixel[:,1]+.5*z)/size-z,
+                        (far+near)/(far-near)*z-2*far*near/(far-near),z),-1))
+                    attributes.append(torch.cat((camera[:,2:],v,mesh['uv'].float(),mesh['normals'].float()@pose[:3,:3].T),-1))
+                rast,db=self.dr.rasterize(self.context,torch.stack(clips).contiguous(),f,resolution=[size,size])
+                value,uv_da=self.dr.interpolate(torch.stack(attributes).contiguous(),rast,f,rast_db=db,diff_attrs=[4,5])
+                texture=mesh['texture'].float().contiguous();key=(texture.data_ptr(),texture._version)
+                if mesh.get('_mip_identity')!=key:
+                    mesh['_mip']=self.dr.texture_construct_mip(texture);mesh['_mip_identity']=key
+                color=self.dr.texture(texture,value[...,4:6].contiguous(),uv_da=uv_da.contiguous(),mip=mesh['_mip'],
+                    filter_mode='linear-mipmap-linear',boundary_mode='clamp')
+                normal=torch.nn.functional.normalize(value[...,6:9],dim=-1)
+                color=color*(.8+.2*normal[...,2:].abs());mask=rast[...,3]>0
+                rgb=torch.where(mask[...,None],color,torch.full_like(color,.5)).permute(0,3,1,2)
+                geometry=torch.where(mask[...,None],value[...,:4],0).permute(0,3,1,2)
+                for lane,i in enumerate(ids):result[i]=dict(rgb=rgb[lane],depth=geometry[lane,:1],xyz=geometry[lane,1:],mask=mask[lane])
+        return result
+
+    @torch.no_grad()
     def __call__(self, mesh, pose, k, size=224):
         with torch.autocast(self.device.type, enabled=False):
             v=mesh['vertices'].float();f=mesh['faces'].int();pose=pose.float();k=k.float()

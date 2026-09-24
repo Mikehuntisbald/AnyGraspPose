@@ -1,0 +1,100 @@
+{
+  "passed": true,
+  "checkpoint_sha256": "b60c1bbc2535233ea4531df37b5898cce8352326c0f6c1a10ea57984ee1394df",
+  "persisted_updates": 0,
+  "world": 8,
+  "arms": {
+    "baseline": {
+      "seconds": [
+        34.234004974365234,
+        3.741657257080078,
+        3.7861714363098145,
+        3.740908622741699
+      ],
+      "warm_seconds": 3.756245772043864,
+      "losses": [
+        1.0169345140457153,
+        1.0169345140457153,
+        1.0169345140457153,
+        1.0169345140457153
+      ],
+      "flags": {},
+      "gradient_cosine": 1.0,
+      "gradient_relative_error": 0.0,
+      "crop_exact": true,
+      "components": {
+        "crop_and_student_render": 0.6248644771575929,
+        "textured_rgbd_occlusion": 0.0558747529387474,
+        "fixed_crop_reference": 1.1278270397186279,
+        "dino_observation_and_reference": 0.06784790420532226,
+        "teacher": 0.7515877990722657,
+        "jepa_and_pose": 0.06847043323516845,
+        "loss": 0.12823590469360352,
+        "backward": 0.28782402801513673
+      },
+      "peak_gpu_gb": 9.16697088
+    },
+    "vector_geometry": {
+      "seconds": [
+        8.897056579589844,
+        2.8647525310516357,
+        2.862264394760132,
+        2.8975014686584473
+      ],
+      "warm_seconds": 2.874839464823405,
+      "losses": [
+        1.0169345140457153,
+        1.0169345140457153,
+        1.0169345140457153,
+        1.0169345140457153
+      ],
+      "flags": {
+        "reference_dino_graph": true,
+        "teacher_dino_graph": true,
+        "fast_geometry": true,
+        "batch_teacher_render": true,
+        "vectorized_teacher": true,
+        "vector_geometry": true
+      },
+      "gradient_cosine": 1.0,
+      "gradient_relative_error": 0.0,
+      "crop_exact": true,
+      "components": {
+        "crop_and_student_render": 0.5972403192520142,
+        "textured_rgbd_occlusion": 0.05755222422629595,
+        "fixed_crop_reference": 0.7009478359222415,
+        "dino_observation_and_reference": 0.06672793579101562,
+        "teacher": 0.5075365371704101,
+        "jepa_and_pose": 0.0700502405166626,
+        "loss": 0.12947487831115723,
+        "backward": 0.2912057228088379
+      },
+      "peak_gpu_gb": 9.682848768
+    }
+  },
+  "best": "vector_geometry",
+  "speedup": 1.3065932265106852,
+  "target_max_errors": {
+    "real_mid": 0.0,
+    "real_last": 0.0,
+    "proxy_mid": 0.0,
+    "proxy_last": 0.0,
+    "visible_weight": 0.0,
+    "visible_label": 0.0,
+    "support_label": 0.0,
+    "proxy_rgb": 0.0,
+    "real_rgb": 0.0,
+    "surface_xyz": 0.0,
+    "surface_depth_residual": 0.0,
+    "surface_depth_m": 0.0,
+    "geometry_valid_label": 0.0,
+    "camera_rotation": 0.0,
+    "camera_translation_d": 0.0,
+    "camera_rays": 0.0,
+    "base_depth_d": 0.0
+  },
+  "graph_ema_update_checks": [
+    true,
+    true
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "step": 22253,
+  "source_step": 22250,
+  "all_rank_steps": [
+    22253,
+    22253,
+    22253,
+    22253,
+    22253,
+    22253,
+    22253,
+    22253
+  ],
+  "model_optimizer_scheduler_rng_exact_at_migration": true,
+  "optimizer_reset": false,
+  "ema_updates": 12503,
+  "frozen_pose_history_exact": true,
+  "schedule_unchanged": true,
+  "checkpoint_sha256": "9c4f45ff75cb1a96c9698046caea5b7127976742b0f8caf36c6320b48c45411e"
+}

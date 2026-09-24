@@ -29,7 +29,7 @@ class FrozenDINO(nn.Module):
 
     def forward(self, rgb):
         with torch.set_grad_enabled(torch.is_grad_enabled() and getattr(self, "trainable_encoder", False)):
-            mid, last = getattr(self, "compiled_features", self.backbone.get_intermediate_layers)(rgb, n=[i-1 for i in self.feature_layers], reshape=False, norm=True)
+            mid, last = getattr(self, "graphed_features", getattr(self, "compiled_features", self.backbone.get_intermediate_layers))(rgb, n=[i-1 for i in self.feature_layers], reshape=False, norm=True)
         if mid.shape[1:] != (256, 384) or last.shape != mid.shape:
             raise RuntimeError('DINO CLS/register exclusion or patch contract changed')
         return mid, last

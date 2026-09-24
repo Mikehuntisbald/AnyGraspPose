@@ -102,13 +102,17 @@ class TeacherTargets:
 
 @torch.no_grad()
 @torch.autocast("cuda",enabled=False)
-def prepare_scene(rgb,depth,base,mesh,k,timestamp,stream,cad,renderer,previous=None,last_timestamp=None):
+def prepare_scene(rgb,depth,base,mesh,k,timestamp,stream,cad,renderer,previous=None,last_timestamp=None,fast=False):
     device=base.device;d=float(mesh['diameter']);base=base.float();k=k.float()
-    affine,k_crop=crop_matrix(torch.as_tensor(mesh['vertices'],device=device),base,k,224,2.)
-    crop=crop_images(rgb[None].float(),affine)
-    observed=crop_images(depth[None].float(),affine,mode='nearest')
+    matrix_fn,image_fn=crop_matrix,crop_images
+    if fast:
+        from .execution_speed import crop_matrix_fast,crop_images_fast
+        matrix_fn,image_fn=crop_matrix_fast,crop_images_fast
+    affine,k_crop=matrix_fn(torch.as_tensor(mesh['vertices'],device=device),base,k,224,2.)
+    crop=image_fn(rgb[None].float(),affine)
+    observed=image_fn(depth[None].float(),affine,mode='nearest')
     observed=usable_depth(observed)
-    bounds=crop_images(torch.ones_like(rgb[None,:1]),affine)>=.999
+    bounds=image_fn(torch.ones_like(rgb[None,:1]),affine)>=.999
     rendered=renderer(cad['appearance'],base,k_crop,224)
     motion=base.new_zeros(3);rot=motion.clone();dt=base.new_zeros(1);mv=dt.clone()
     if previous is not None and last_timestamp is not None:
@@ -230,12 +234,21 @@ def valid_real_geometry(depth, canonical_xyz, max_radius_d=None):
 
 @torch.no_grad()
 @torch.autocast("cuda",enabled=False)
-def build_teachers(encoder,scenes,gt_poses,visible_masks,added_masks,renderer,encoded_targets=None,real_features=None,reuse_real=None,real_geometry_max_radius_d=None):
+def build_teachers(encoder,scenes,gt_poses,visible_masks,added_masks,renderer,encoded_targets=None,real_features=None,reuse_real=None,real_geometry_max_radius_d=None,fast=False,batch_render=False,vectorized=False):
+    if vectorized:
+        if encoded_targets is not None or real_features is not None:raise ValueError('Vector teacher expects fresh EMA targets')
+        from .fast_teacher import build_fast_teacher
+        return build_fast_teacher(encoder,scenes,gt_poses,visible_masks,added_masks,renderer,real_geometry_max_radius_d,batch_render)
+    image_fn,point_fn=crop_images,camera_points
+    if fast:
+        from .execution_speed import crop_images_fast,camera_points_fast
+        image_fn,point_fn=crop_images_fast,camera_points_fast
+    renders=renderer.render_many([s.cad['appearance'] for s in scenes],gt_poses,[s.k_crop for s in scenes],224) if batch_render else None
     proxies=[];visible=[];support=[];interior=[];xyz=[];depth=[];residual=[];geometry=[];geo_visible=[];geo_hidden=[];geo_valid=[]
     geometry_real=[];geometry_proxy=[];proxy_eligible=[];real_eligible=[]
-    for s,pose,mask,added in zip(scenes,gt_poses,visible_masks,added_masks):
-        render=renderer(s.cad['appearance'],pose.float(),s.k_crop,224)
-        v=crop_images(mask[None].float(),s.affine,mode='nearest')>.5
+    for lane,(s,pose,mask,added) in enumerate(zip(scenes,gt_poses,visible_masks,added_masks)):
+        render=renders[lane] if renders is not None else renderer(s.cad['appearance'],pose.float(),s.k_crop,224)
+        v=image_fn(mask[None].float(),s.affine,mode='nearest')>.5
         silhouette=render['mask'][None,None]
         hidden=silhouette&~v
         # The entire GT silhouette uses one consistent CAD appearance/depth source.
@@ -251,7 +264,7 @@ def build_teachers(encoder,scenes,gt_poses,visible_masks,added_masks,renderer,en
         # A measured target takes precedence wherever the original object was
         # visible and then synthetically hidden. Do not replace missing real
         # depth with a CAD measurement in that region.
-        real_xyz=((camera_points(s.depth,s.k_crop)-pose[:3,3])@pose[:3,:3]/s.diameter).permute(2,0,1)[None]
+        real_xyz=((point_fn(s.depth,s.k_crop)-pose[:3,3])@pose[:3,:3]/s.diameter).permute(2,0,1)[None]
         real_valid,rejected_depth=valid_real_geometry(s.depth,real_xyz,real_geometry_max_radius_d)
         real_good=artificial_interior&erode(real_valid)
         # The full-CAD image defines the feature target's context, not the loss
@@ -308,5 +321,5 @@ def build_teachers(encoder,scenes,gt_poses,visible_masks,added_masks,renderer,en
         torch.cat(geometry),torch.cat(geo_visible),torch.cat(geo_hidden),torch.cat(geo_valid),torch.cat(geometry_real),torch.cat(geometry_proxy),
         torch.stack([p[:3,:3].float() for p in gt_poses]),
         torch.stack([p[:3,3].float()/s.diameter for p,s in zip(gt_poses,scenes)]),
-        torch.stack([camera_points(torch.ones_like(s.depth),s.k_crop).permute(2,0,1) for s in scenes]),
+        torch.stack([point_fn(torch.ones_like(s.depth),s.k_crop).permute(2,0,1) for s in scenes]),
         torch.stack([s.pose[2,3]/s.diameter for s in scenes]))

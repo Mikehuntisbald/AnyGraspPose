@@ -52,6 +52,28 @@ def resume_performance(path,model,optimizer,scheduler,config,rank,world):
         raise ValueError('Performance source hash mismatch')
     source=torch.load(path,map_location='cpu',weights_only=False)
     expected=copy.deepcopy(source['config']);actual=copy.deepcopy(config)
+    if config['performance_resume'].get('kind')=='execution_v16':
+        actual.pop('performance_resume');actual['paths']['output']=expected['paths']['output']
+        for key in ('frame_batch','reference_dino_graph','teacher_dino_graph','fast_geometry','batch_teacher_render','vectorized_teacher','vector_geometry'):
+            if key in expected['runtime']:actual['runtime'][key]=expected['runtime'][key]
+            else:actual['runtime'].pop(key,None)
+        if actual!=expected:raise ValueError('Execution migration changed training semantics')
+        from lip.jepa.config import config_hash
+        from .horizon_resume import exact
+        from lip.engine.jepa_checkpoint import rng_state
+        import numpy as np
+        assert source['config_hash']==config_hash(source['config'])
+        assert source['software_environment']==software_environment()
+        assert len(source['rng'])==world and source['step']==config['performance_resume']['step']
+        assert source['sampler_position']==source['step']*config['training']['effective_batch']
+        assert [g['names'] for g in optimizer.param_groups]==[g['names'] for g in source['optimizer']['param_groups']]
+        load_core(model,source['model']);optimizer.load_state_dict(source['optimizer']);scheduler.load_state_dict(source['scheduler'])
+        restore_rng(source['rng'][rank])
+        assert exact(core_state(model),source['model']) and exact(optimizer.state_dict(),source['optimizer']) and exact(scheduler.state_dict(),source['scheduler'])
+        current=rng_state();saved=source['rng'][rank]
+        assert current['python']==saved['python'] and np.array_equal(current['numpy'][1],saved['numpy'][1]) and current['numpy'][2:]==saved['numpy'][2:]
+        assert exact(current['torch'],saved['torch']) and exact(current['cuda'],saved['cuda'])
+        return source
     actual.pop('performance_resume');actual['runtime'].pop('compile_dino')
     actual['runtime'].pop('frame_batch',None)
     if actual['runtime'].pop('disable_history',False):

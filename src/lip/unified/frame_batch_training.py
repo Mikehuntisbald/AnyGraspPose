@@ -7,6 +7,8 @@ from .timing import Timings
 
 def independent_episode(runner,episodes,targets,backward=True):
     model=runner.model;c=runner.config;reference=runner.reference_model
+    from .execution_speed import configure_execution
+    configure_execution(runner)
     assert model.disable_history and reference is not None
     assert not c['runtime']['history_pair_frames'] and c['training']['history_pair_weight']==0
     assert not c['runtime']['pose_pair_frames']
@@ -27,7 +29,7 @@ def independent_episode(runner,episodes,targets,backward=True):
             for frame in range(count):
                 with profile.record('crop_and_student_render'):
                     scenes=[prepare_scene(e.rgb[frame],e.depth[frame],poses[i],e.mesh,e.k,e.times[frame],e.stream,e.cad,
-                        runner.renderer,None if previous is None else previous[i],None if frame==0 else e.times[frame-1]) for i,e in enumerate(episodes)]
+                        runner.renderer,None if previous is None else previous[i],None if frame==0 else e.times[frame-1],fast=c['runtime'].get('fast_geometry',False)) for i,e in enumerate(episodes)]
                 with profile.record('textured_rgbd_occlusion'):
                     occlusions=[e.occlusion_plan.render(s,frame) for e,s in zip(episodes,scenes)]
                 with profile.record('fixed_crop_reference'),torch.autocast(device.type,dtype=torch.bfloat16):
@@ -46,7 +48,9 @@ def independent_episode(runner,episodes,targets,backward=True):
             obs=encode_scenes(model,scenes,cad_enabled=cad_enabled.repeat(frames),frame_id=start,occlusions=occlusions)
             with profile.record('teacher'):
                 target=build_teachers(model.ema_teacher,scenes,truth,masks,[o.mask for o in occlusions],runner.renderer,
-                    real_geometry_max_radius_d=c['supervision'].get('real_geometry_max_radius_d'))
+                    real_geometry_max_radius_d=c['supervision'].get('real_geometry_max_radius_d'),
+                    fast=c['runtime'].get('fast_geometry',False),batch_render=c['runtime'].get('batch_teacher_render',False),
+                    vectorized=c['runtime'].get('vectorized_teacher',False))
                 from .cad_surface_targets import surface_targets
                 target=surface_targets(model,scenes,target)
             with profile.record('jepa_and_pose'),torch.autocast(device.type,dtype=torch.bfloat16):
