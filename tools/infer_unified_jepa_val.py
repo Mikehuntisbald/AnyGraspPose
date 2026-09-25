@@ -13,7 +13,7 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
 from lip.unified.build import build_model,make_store
 from lip.engine.jepa_checkpoint import load_core,sha
 from lip.engine.object_jepa_checkpoint import atomic_json
-from lip.unified.runtime import initialize,step
+from unified_native_runtime import initialize,step
 from lip.engine.config import check_data_gate
 from lip.engine.stream_checkpoint import source_hash
 from lip.jepa.config import config_hash
