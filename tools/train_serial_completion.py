@@ -27,8 +27,8 @@ from lip.geometry.so3 import update
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--config',required=True);p.add_argument('--oracle',required=True)
-    p.add_argument('--stop-at',type=int);p.add_argument('--resume');p.add_argument('--adapt-from');p.add_argument('--preflight',action='store_true');a=p.parse_args()
-    if a.resume and a.adapt_from:raise ValueError('Choose exact resume or explicit code adaptation')
+    p.add_argument('--stop-at',type=int);p.add_argument('--resume');p.add_argument('--adapt-from');p.add_argument('--fidelity-from');p.add_argument('--preflight',action='store_true');a=p.parse_args()
+    if sum(bool(x) for x in (a.resume,a.adapt_from,a.fidelity_from))>1:raise ValueError('Choose one continuation mechanism')
     c=yaml.safe_load(Path(a.config).read_text());rank=int(os.environ.get('RANK',0));world=int(os.environ.get('WORLD_SIZE',1))
     if a.preflight:c['runtime']['formal']=False
     torch.cuda.set_device(0);torch.set_num_threads(2);torch.manual_seed(c['seed']);random.seed(c['seed']+rank);np.random.seed(c['seed']+rank)
@@ -58,7 +58,11 @@ def main():
     opt=torch.optim.AdamW(list(groups.values()),weight_decay=.01,fused=True)
     maximum=c['serial_completion']['joint_steps'];stop=a.stop_at or maximum
     if not 0<stop<=maximum:raise ValueError('Stop exceeds bounded budget')
-    def rate(step):return min(1.,(step+1)/50)*(.3+.7*.5*(1+math.cos(math.pi*min(step,maximum)/maximum)))
+    def rate(step):
+        if 'geometry_priority' in c:
+            origin=c['geometry_priority']['source_step'];progress=max(0,step-origin)
+            return (.3+.7*min(1.,progress/50))*(.5+.5*.5*(1+math.cos(math.pi*min(progress,maximum-origin)/(maximum-origin))))
+        return min(1.,(step+1)/50)*(.3+.7*.5*(1+math.cos(math.pi*min(step,maximum)/maximum)))
     scheduler=torch.optim.lr_scheduler.LambdaLR(opt,rate)
     factory=Factory(c,model,make_store(c,model));audit=check_data_gate(c['paths']['index_root'])
     source_files={str(f.relative_to(Path(__file__).resolve().parents[1])):sha(f) for d in ('src','tools','configs') for f in (Path(__file__).resolve().parents[1]/d).rglob('*') if f.is_file() and '__pycache__' not in f.parts}
@@ -70,7 +74,29 @@ def main():
     if rank==0:out.mkdir(parents=True,exist_ok=bool(a.resume or a.adapt_from));atomic_json(out/'provenance.json',provenance)
     if world>1:dist.barrier()
     start=0
-    if a.adapt_from:
+    if a.fidelity_from:
+        plan=c['geometry_priority']
+        if sha(a.fidelity_from)!=plan['source_sha256']:raise ValueError('Fidelity source hash mismatch')
+        previous=torch.load(a.fidelity_from,map_location='cpu',weights_only=False)
+        if previous['step']!=plan['source_step']:raise ValueError('Fidelity source step mismatch')
+        old=previous['provenance'];parent_config=previous['config'];del previous
+        for key in ('weights','seed','architecture_id','supervision','surface_decoder','dino_layers','cad_surface','staged_rope'):
+            if c[key]!=parent_config[key]:raise ValueError('Fidelity changed non-objective identity: '+key)
+        for key in ('split_hash','mesh_hash','initializers_sha256','weights'):
+            if old[key]!=provenance[key]:raise ValueError('Fidelity data identity changed')
+        if c['training']['loss_weights']!=parent_config['training']['loss_weights'] or c['training']['learning_rates']!=parent_config['training']['learning_rates']:
+            raise ValueError('Paired fidelity test must retain identical scalar losses and peak rates')
+        start=resume(a.fidelity_from,model,opt,scheduler,parent_config,old,rank,world)['step']
+        # Adam parameters/moments and RNG were restored exactly above. Only the
+        # declared continuation schedule starts a new 1000-update horizon.
+        scheduler.base_lrs=[g['initial_lr'] for g in opt.param_groups]
+        scheduler.last_epoch=start;scheduler._step_count=1
+        for group,base_lr in zip(opt.param_groups,scheduler.base_lrs):group['lr']=base_lr*rate(start)
+        scheduler._last_lr=[g['lr'] for g in opt.param_groups]
+        if rank==0:atomic_json(out/'fidelity_start.json',dict(source_step=start,source_sha256=plan['source_sha256'],model_adam_rng_exact=True,
+            schedule_reset=True,boundary_factor=rate(start),gradient_budget_enabled=plan['enabled'],maximum_secondary_ratio=plan['ratio']))
+        save(out/'stage_start.pt',model,opt,scheduler,start,c,provenance)
+    elif a.adapt_from:
         previous=torch.load(a.adapt_from,map_location='cpu',weights_only=False)
         old=previous['provenance'];previous_config=previous['config'];del previous
         if {k:v for k,v in old.items() if k!='source_sha256'}!={k:v for k,v in provenance.items() if k!='source_sha256'}:
@@ -85,7 +111,7 @@ def main():
     else:save(out/'initial.pt',model,opt,scheduler,0,c,provenance)
     batch=1 if a.preflight else c['runtime']['microbatch']
     # Keep rank model initialization equal; rank RNG differs only afterwards.
-    if not (a.resume or a.adapt_from):torch.manual_seed(c['seed']+rank)
+    if not (a.resume or a.adapt_from or a.fidelity_from):torch.manual_seed(c['seed']+rank)
     rehearsal_weight=c['serial_completion'].get('oracle_rehearsal_weight',0.)
     oracle_pack=oracle_truth=oracle_diameter=None
     if rehearsal_weight:
@@ -106,9 +132,10 @@ def main():
                 if not heldout(sample[0].stream):result.append(sample);break
             else:raise RuntimeError('Cannot draw training sequence outside gate holdout')
         return result
-    def forward(episodes,targets,bases,frame,paired_source=None):
+    def forward(episodes,targets,bases,frame,paired_source=None,previous_bases=None):
         if paired_source is None:
-            scenes=[prepare_scene(e.rgb[frame],e.depth[frame],bases[i],e.mesh,e.k,e.times[frame],e.stream+f'/lane{i}',e.cad,factory.renderer,fast=True) for i,e in enumerate(episodes)]
+            scenes=[prepare_scene(e.rgb[frame],e.depth[frame],bases[i],e.mesh,e.k,e.times[frame],e.stream+f'/lane{i}',e.cad,factory.renderer,
+                None if previous_bases is None else previous_bases[i],None if previous_bases is None else e.times[frame-1],fast=True) for i,e in enumerate(episodes)]
             occ=[e.occlusion_plan.render(s,frame) for e,s in zip(episodes,scenes)]
         else:
             source_scenes,occ=paired_source;scenes=[]
@@ -123,7 +150,11 @@ def main():
         visible_measurement=torch.cat([(crop_images_fast(mask[i:i+1].float(),s.affine,mode='nearest')>.5)&~o.mask&s.bounds for i,(s,o) in enumerate(zip(scenes,occ))])
         with torch.autocast('cuda',dtype=torch.bfloat16):output,_=model(obs)
         points=torch.stack([torch.as_tensor(e.mesh['points'],device='cuda') for e in episodes])
-        with torch.autocast('cuda',dtype=torch.bfloat16):loss,metrics=objective(output,teacher,truth,points,obs.diameter,bases,obs.measured_depth_m,c['training']['loss_weights'],visible_measurement)
+        with torch.autocast('cuda',dtype=torch.bfloat16):
+            if 'geometry_priority' in c:
+                from lip.unified.serial_objective import objective_components
+                loss,metrics=objective_components(output,teacher,truth,points,obs.diameter,bases,obs.measured_depth_m,c['training']['loss_weights'],visible_measurement)
+            else:loss,metrics=objective(output,teacher,truth,points,obs.diameter,bases,obs.measured_depth_m,c['training']['loss_weights'],visible_measurement)
         return output,loss,metrics,obs,teacher,(scenes,occ)
     path_norms=None
     with (out/f'rank{rank}.jsonl').open('a') as log:
@@ -156,10 +187,27 @@ def main():
             expected=delta_target(bases,truth,diam)-delta_target(alternative,truth,diam)
             scale=truth.new_tensor([.174533]*3+[.05]*3)
             pair=F.smooth_l1_loss((pred1-pred2)/scale,expected/scale,beta=.1)
-            combined=(l1+l2)/3+.1*pair
-            combined.backward();del first,second,obs,paired_obs,target,pair_source,l1,l2,combined,pred1,pred2
-            third,l3,m3,_,_,_=forward(ep,targets,feedback,frame+1)
-            (l3/3).backward();loss_value=float(l3.detach());del third,l3
+            balance=[]
+            if 'geometry_priority' in c:
+                geometry=(l1['geometry']+l2['geometry'])/3
+                secondary=(l1['pose']+l2['pose']+l1['appearance']+l2['appearance'])/3+.1*pair
+                if c['geometry_priority']['enabled']:
+                    from lip.unified.geometry_priority import backward_primary_geometry
+                    balance.append(backward_primary_geometry(geometry,secondary,[first['patch_latent'],second['patch_latent']],model.named_parameters(),c['geometry_priority']['ratio']))
+                else:(geometry+secondary).backward()
+                del geometry,secondary
+            else:
+                combined=(l1+l2)/3+.1*pair;combined.backward();del combined
+            del first,second,obs,paired_obs,target,pair_source,l1,l2,pred1,pred2
+            third,l3,m3,_,_,_=forward(ep,targets,feedback,frame+1,previous_bases=bases if 'geometry_priority' in c else None)
+            if 'geometry_priority' in c:
+                geometry=l3['geometry']/3;secondary=(l3['appearance']+l3['pose'])/3
+                if c['geometry_priority']['enabled']:
+                    balance.append(backward_primary_geometry(geometry,secondary,[third['patch_latent']],model.named_parameters(),c['geometry_priority']['ratio']))
+                else:(geometry+secondary).backward()
+                loss_value=float(sum(l3.values()).detach());del geometry,secondary
+            else:(l3/3).backward();loss_value=float(l3.detach())
+            del third,l3
             rehearsal=truth.new_zeros(())
             if rehearsal_weight:
                 from lip.unified.serial_objective import oracle_readout_loss
@@ -171,9 +219,10 @@ def main():
             if not torch.isfinite(norm):raise FloatingPointError('Nonfinite gradient; do not advance')
             opt.step();scheduler.step();update_ema(model)
             torch.cuda.synchronize();metrics={k:float((m1[k]+m2[k]+m3[k])/3) for k in m1}
-            row=dict(step=step+1,source_step=45400,seconds=time.monotonic()-begun,loss_feedback=loss_value,pair=float(pair.detach()),
+            row=dict(step=step+1,source_step=c.get('geometry_priority',{}).get('source_step',45400),seconds=time.monotonic()-begun,loss_feedback=loss_value,pair=float(pair.detach()),
                 metrics=metrics,oracle_rehearsal=float(rehearsal.detach()),gradient_norm=float(norm),communication_seconds=communication,
                 learning_rates={g['category']:g['lr'] for g in opt.param_groups},peak_gpu_gb=torch.cuda.max_memory_allocated()/1e9)
+            if balance:row['gradient_balance']={k:float(torch.stack([x[k] for x in balance]).mean()) for k in balance[0]}
             log.write(json.dumps(row,allow_nan=False)+'\n');log.flush()
             if rank==0 and (step<3 or (step+1)%25==0):print(json.dumps(row),flush=True)
             if (step+1)%c['serial_completion']['checkpoint_every']==0 or step+1==stop:save(out/'last.pt',model,opt,scheduler,step+1,c,provenance)

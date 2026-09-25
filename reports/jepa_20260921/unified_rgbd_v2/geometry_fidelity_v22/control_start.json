@@ -1,0 +1,9 @@
+{
+  "source_step": 1000,
+  "source_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+  "model_adam_rng_exact": true,
+  "schedule_reset": true,
+  "boundary_factor": 0.3,
+  "gradient_budget_enabled": false,
+  "maximum_secondary_ratio": 0.5
+}

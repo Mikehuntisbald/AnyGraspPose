@@ -1,4 +1,7 @@
-"""Serial completion supervision; GT never enters student forward/readout."""
+"""Serial completion losses; GT is excluded from the main student forward.
+
+An explicitly separate oracle rehearsal supervises only the pose readout.
+"""
 import torch
 from torch.nn import functional as F
 from lip.losses import pose_loss
@@ -15,7 +18,7 @@ def delta_target(base, truth, diameter):
         (truth[:,:3,3].float()-base[:,:3,3].float())/diameter[:,None]),-1).detach()
 
 
-def objective(output,target,truth,points,diameter,base,observed_depth,weights,visible_measurement_mask):
+def objective_components(output,target,truth,points,diameter,base,observed_depth,weights,visible_measurement_mask):
     pose,parts=pose_loss(output['pose_centered'],truth,points,diameter)
     recovery,rec=reconstruction_loss(output,target,weights)
     local,_=local_structure_loss(output,target,weights)
@@ -34,13 +37,22 @@ def objective(output,target,truth,points,diameter,base,observed_depth,weights,vi
     expected=delta_target(base,truth,diameter)
     scale=delta.new_tensor([.174533]*3+[.05]*3)
     direct=F.smooth_l1_loss(delta/scale,expected/scale,beta=.1)
-    total=pose+recovery+local+.1*cad+.25*camloss+.5*visible_corr+.1*direct+weights['coarse_surface']*coarse
+    feature_weights=dict(weights,surface_xyz=0.,surface_depth=0.,geometry_validity=0.,visibility_support=0.)
+    feature,_=reconstruction_loss(output,target,feature_weights)
+    geometry=recovery-feature+.1*cad+.25*camloss+.5*visible_corr+weights['coarse_surface']*coarse
+    appearance=feature+local
+    pose_objective=pose+.1*direct
     stats=dict(pose=pose,rotation=parts['rotation'],translation=parts['translation'],
         real_feature=rec['real_hidden_feature'],proxy_feature=rec['cad_proxy_feature'],
         xyz_real=rec['surface_xyz_real'],xyz_proxy=rec['surface_xyz_proxy'],
         depth_real=rec['surface_depth_real'],depth_proxy=rec['surface_depth_proxy'],
         visible_correspondence=visible_corr,camera_consistency=camloss,cad=cad,delta=direct)
-    return total,{k:v.detach() for k,v in stats.items()}
+    return dict(geometry=geometry,appearance=appearance,pose=pose_objective),{k:v.detach() for k,v in stats.items()}
+
+
+def objective(*args,**kwargs):
+    parts,stats=objective_components(*args,**kwargs)
+    return sum(parts.values()),stats
 
 
 def oracle_readout_loss(model,packet,truth,diameter):

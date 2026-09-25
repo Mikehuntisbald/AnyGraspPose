@@ -1,0 +1,119 @@
+{
+  "completed": true,
+  "production_parameters_changed": false,
+  "source_checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+  "training_records": 46,
+  "heldout_records": 18,
+  "training_split_only": true,
+  "scope": "Cached frozen JEPA and fixed coarse routing; decoder capacity diagnostic, not native accuracy",
+  "measurements": [
+    {
+      "step": 0,
+      "train": {
+        "real_xyz_mm": 14.565248572308084,
+        "real_depth_mm": 10.084257208782693,
+        "proxy_xyz_mm": 14.68473252006199,
+        "proxy_depth_mm": 11.331446772036346,
+        "visible_xyz_mm": 17.8073208850363
+      },
+      "heldout": {
+        "real_xyz_mm": 19.915033128526474,
+        "real_depth_mm": 14.30577172173394,
+        "proxy_xyz_mm": 19.10805786980523,
+        "proxy_depth_mm": 17.09760920206706,
+        "visible_xyz_mm": 25.42320505777995
+      }
+    },
+    {
+      "step": 100,
+      "train": {
+        "real_xyz_mm": 10.350488248078719,
+        "real_depth_mm": 7.125863095988398,
+        "proxy_xyz_mm": 10.897131712540336,
+        "proxy_depth_mm": 8.413081791089928,
+        "visible_xyz_mm": 12.911403365757154
+      },
+      "heldout": {
+        "real_xyz_mm": 22.801137288411457,
+        "real_depth_mm": 12.373167249891493,
+        "proxy_xyz_mm": 21.078115887112087,
+        "proxy_depth_mm": 15.129476971096462,
+        "visible_xyz_mm": 28.256335788302952
+      },
+      "seconds": 2.018922256072983
+    },
+    {
+      "step": 200,
+      "train": {
+        "real_xyz_mm": 7.666854112044625,
+        "real_depth_mm": 5.875236158785612,
+        "proxy_xyz_mm": 10.189134183137313,
+        "proxy_depth_mm": 7.505506598431131,
+        "visible_xyz_mm": 9.72329044342041
+      },
+      "heldout": {
+        "real_xyz_mm": 22.829933166503906,
+        "real_depth_mm": 15.847440931532118,
+        "proxy_xyz_mm": 20.363376405504013,
+        "proxy_depth_mm": 15.547923617892796,
+        "visible_xyz_mm": 27.661480373806423
+      },
+      "seconds": 3.372561532072723
+    },
+    {
+      "step": 300,
+      "train": {
+        "real_xyz_mm": 7.7218187995578935,
+        "real_depth_mm": 4.674483693164328,
+        "proxy_xyz_mm": 9.47464138528575,
+        "proxy_depth_mm": 6.8551547838293985,
+        "visible_xyz_mm": 9.933889264645783
+      },
+      "heldout": {
+        "real_xyz_mm": 22.412781185574,
+        "real_depth_mm": 16.807015736897785,
+        "proxy_xyz_mm": 21.734531614515518,
+        "proxy_depth_mm": 16.343418969048393,
+        "visible_xyz_mm": 27.347549438476562
+      },
+      "seconds": 4.726385249989107
+    },
+    {
+      "step": 400,
+      "train": {
+        "real_xyz_mm": 6.838435421819272,
+        "real_depth_mm": 4.128613700037417,
+        "proxy_xyz_mm": 9.536453578783119,
+        "proxy_depth_mm": 6.747889726058297,
+        "visible_xyz_mm": 9.719021631323773
+      },
+      "heldout": {
+        "real_xyz_mm": 22.654478285047745,
+        "real_depth_mm": 15.860687679714626,
+        "proxy_xyz_mm": 24.355023701985676,
+        "proxy_depth_mm": 17.040896945529514,
+        "visible_xyz_mm": 27.536455790201824
+      },
+      "seconds": 6.085018398007378
+    },
+    {
+      "step": 500,
+      "train": {
+        "real_xyz_mm": 7.346193894096043,
+        "real_depth_mm": 4.9822568064150605,
+        "proxy_xyz_mm": 9.126195327095363,
+        "proxy_depth_mm": 7.049018362294072,
+        "visible_xyz_mm": 9.141565364340078
+      },
+      "heldout": {
+        "real_xyz_mm": 23.831951565212673,
+        "real_depth_mm": 15.601913452148438,
+        "proxy_xyz_mm": 27.48370573255751,
+        "proxy_depth_mm": 15.396619584825304,
+        "visible_xyz_mm": 29.561514960394966
+      },
+      "seconds": 7.434700516052544
+    }
+  ],
+  "seconds": 7.825210963143036
+}

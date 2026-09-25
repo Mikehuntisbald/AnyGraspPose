@@ -1,0 +1,21 @@
+{
+  "records": 64,
+  "summary": {
+    "xyz": {
+      "median_gradient_ratio": 2.106868966282658,
+      "median_cosine": 0.18855800535908818,
+      "conflict_fraction": 0.140625
+    },
+    "depth": {
+      "median_gradient_ratio": 1.5464850999088373,
+      "median_cosine": 0.12580427872143596,
+      "conflict_fraction": 0.25
+    },
+    "patch": {
+      "median_gradient_ratio": 7.510337417858865,
+      "median_cosine": 0.08678129923538577,
+      "conflict_fraction": 0.171875
+    }
+  },
+  "optimizer_updates": 0
+}
