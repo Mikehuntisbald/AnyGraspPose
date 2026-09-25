@@ -35,6 +35,27 @@ def main():
     for f in sorted((r/'runs/seed42').glob('rank*.jsonl')):
         rows=list(map(json.loads,f.read_text().splitlines()));logs.append(dict(rank=f.stem,step=rows[-1]['step'],seconds_recent50=statistics.mean(x['seconds'] for x in rows[-50:])))
     result['training']=logs
+    if (r/'oracle_retention1000.json').exists():result['oracle_retention']=json.loads((r/'oracle_retention1000.json').read_text())
+    if (r/'recovery/step1000/summary.json').exists():
+        rec=json.loads((r/'recovery/step1000/summary.json').read_text())
+        result['heavy_recovery']={k:v['arms'].get('off',{}) for k,v in rec['tables']['heavy_pooled'].items() if k in ('geometry_focus_real','geometry_focus_proxy','spatial_hidden_real_mid','spatial_cad_proxy_mid','cad_match_real','cad_match_proxy')}
+    if (r/'recovery/v20_same_crops/summary.json').exists():
+        before=json.loads((r/'recovery/v20_same_crops/summary.json').read_text())
+        for rank in range(8):
+            a=json.loads((r/f'recovery/v20_same_crops/rank{rank}/manifest.json').read_text())
+            b=json.loads((r/f'recovery/step1000/rank{rank}/manifest.json').read_text())
+            for key in ('reference_sha256','physical_sequences','occluder_bank_sha256','fixed_feature_teacher','dino_layers','feature_layer_weights'):
+                assert a[key]==b[key],key
+            aa=[json.loads(x) for x in (r/f'recovery/v20_same_crops/rank{rank}/frames.jsonl').read_text().splitlines()]
+            bb=[json.loads(x) for x in (r/f'recovery/step1000/rank{rank}/frames.jsonl').read_text().splitlines()]
+            assert len(aa)==len(bb)
+            for left,right in zip(aa,bb):
+                for key in ('physical_sequence','case','relative_frame','history'):assert left[key]==right[key]
+                for key in ('geometry_focus_real','geometry_focus_proxy'):
+                    assert (left[key] is None)==(right[key] is None)
+                    if left[key] is not None:assert left[key]['pixels']==right[key]['pixels']
+        result['paired_recovery']=dict(protocol_verified=True,before={k:v['arms'].get('off',{}) for k,v in before['tables']['heavy_pooled'].items() if k in result['heavy_recovery']},after=result['heavy_recovery'])
+    result['lip_acceptance_met']=bool('1000' in result['native'] and result['native']['1000']['all']['adds_005']>=83.66415-.3 and result['native']['1000']['visibility_lt_05']['adds_005']>=53.46829-.3)
     (r/'outcome.json').write_text(json.dumps(result,indent=2)+'\n')
     lines=['# V21 串行补全到位姿：实测结果','',
         '位姿读出只接收恢复外观特征和物体/相机表面对应；没有原始 patch latent 或 FP/LIP 旁路。',
@@ -51,8 +72,25 @@ def main():
         for key,v in m['interventions'].items():
             lines.append(f"  - {key}：{v['rotation_after_deg']:.3f}°，对应原预测 {v['paired_predicted_rotation_deg']:.3f}°；{v['cases']} 个配对样本。")
     lines+=['','当前控制器状态：`'+result['status']['job']+'`。',
-        '这些结果不构成达到旧 LIP 水平的承诺；以表内实际 native 指标判断。',
+        '达到旧 LIP 回退不超过0.3个百分点的标准：'+('通过。' if result['lip_acceptance_met'] else '**未达到。**'),
+        '旧 LIP 使用历史，新模型按用户此前选择关闭历史；同输入、无历史的旧 LIP 旋转诊断仍为6.82°，故历史不能解释全部差距。',
+        '1000步的最重遮挡分数低于500步；不能只根据总体指标宣称全部改善。关闭补全/外观的干预证明读出对它们敏感，也存在输入分布变化，不能单独证明恢复正确。',
         '训练为单 seed42、1000步上限；40帧旧episode与本次每episode三次前向的步数不可直接等同。']
+    if 'oracle_retention' in result:
+        m=result['oracle_retention'];v=m['cached_student_appearance']['rotation']
+        lines+=['',f"读出回放后，训练开发集的理想几何＋缓存学生外观测试为10°→{v['rotation_deg']:.3f}°。它与native val上的GT几何替换不是同一输入/数据条件，不能据此把剩余差距全部归因于几何恢复。"]
+    if 'paired_recovery' in result:
+        lines+=['','同crop、相同遮挡、同固定teacher的重遮挡恢复对照：','',
+                '| 指标（越低越好） | V20 | V21 1000 |','|---|---:|---:|']
+        for region,title in [('geometry_focus_real','人工遮挡真实目标'),('geometry_focus_proxy','自然遮挡CAD代理')]:
+            for metric,label in [('xyz_mm','XYZ mm'),('depth_mm','深度 mm')]:
+                vals=[result['paired_recovery'][key][region][metric]['mean'] for key in ('before','after')]
+                lines.append(f'| {title} {label} | {vals[0]:.2f} | {vals[1]:.2f} |')
+        lines+=['','**几何恢复没有随位姿一起改善。** 不能把本轮位姿收益解释为补全更准确。当前完成的是串行消费链路与读出的修复；恢复精度及最重遮挡稳定性仍未达到目标。']
+    lines+=['','主路径：JEPA → 恢复的DINO4/11特征及XYZ/深度 → 完整相机关系 → object query → 位姿；没有原始patch或FP/LIP旁路。',
+        '可见RGB/深度保持观测，人工遮挡用原始真实目标，自然遮挡用CAD代理；可见点另有CAD对应监督。纹理输出是局部DINO特征，不是RGB生成图。',
+        '训练在350步修正成对crop，在700步加入读出回放及精确可见像素mask；均保存了完整边界断点和精确状态恢复回执。主JEPA不读取GT；读出专用回放明确读取训练GT几何，部署不包含该分支。',
+        '22项检查通过，位姿对恢复特征/XYZ/深度有非零梯度；新模型未替换默认模型。']
     (r/'REPORT_ZH.md').write_text('\n'.join(lines)+'\n')
     if result['native']:
         import matplotlib;matplotlib.use('Agg')

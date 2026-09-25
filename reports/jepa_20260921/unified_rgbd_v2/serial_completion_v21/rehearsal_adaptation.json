@@ -1,0 +1,8 @@
+{
+  "step": 700,
+  "checkpoint_sha256": "baa1b44dd51ea4f711f3042598dcc372be0035355a27389b8148efef95179a64",
+  "previous_source_sha256": "7e5ffe2054f5cd05b9487b24161eb6fbeefeefd74b56821b55f6bafa8e54ba3f",
+  "source_sha256": "8f9ec0bd87eb8db488cf0371e72693362b2d392b7e628932d2f069d6a1c80c57",
+  "model_optimizer_scheduler_rng_exact": true,
+  "reason": "Preserve readout oracle response; exact visible correspondence mask; paired observations remain identical"
+}

@@ -1,0 +1,13 @@
+{
+  "completed": true,
+  "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+  "evidence_sha256": "a164c27375e044e0b998d0e4fa3816bc877181759e8628280071599833555371",
+  "source_sha256": "85ac26de4b3ce27b8e1ffc3382bca215fc0d865bcdfa1f2de577002c4d7157a8",
+  "verified_files": 396,
+  "remote_runtime": "/tmp/dexycb_serial_v21_rehearsal",
+  "remote_artifacts": "/mnt/why/dexycb_lip/unified_jepa_20260921/serial_completion_v21",
+  "remote_git": "artifact/runtime source snapshots; /mnt/why/dexycb_lip is not a Git checkout",
+  "training_active": false,
+  "default_model_changed": false,
+  "baseline_acceptance_met": false
+}

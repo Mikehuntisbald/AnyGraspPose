@@ -37,16 +37,21 @@ def main():
                 value=(pred-teacher).norm(dim=-1)[0].reshape(16,16).cpu().numpy()
                 selected=weight[0].reshape(16,16).cpu().numpy()>0;feature[selected]=value[selected]
             image=lambda x:x[0].permute(1,2,0).cpu().numpy().clip(0,1)
-            obj=prediction['support_logits'][0].sigmoid().reshape(16,16).repeat_interleave(14,0).repeat_interleave(14,1).cpu().numpy()>.5
+            obj=prediction['support_logits'][0].float().sigmoid().reshape(16,16).repeat_interleave(14,0).repeat_interleave(14,1).cpu().numpy()>.5
             panels=[('Student RGB-D occluded RGB',image(occ.rgb),'rgb'),('Estimated-pose CAD RGB',image(scene.render['rgb'][None]),'rgb'),
                 ('Full CAD teacher overlay',image(target.proxy_rgb),'rgb'),('Predicted depth (m)',np.where(obj,prediction['surface_depth_m'][0,0].cpu().numpy(),np.nan),'depth'),
                 ('Hidden target depth (m)',np.where(hidden,target.surface_depth_m[0,0].cpu().numpy(),np.nan),'depth'),
                 ('Hidden depth error (mm)',np.where(hidden,depth,np.nan),'error'),('Hidden canonical XYZ error (mm)',np.where(hidden,xyz,np.nan),'error'),
                 ('Layer4 centered feature error',feature,'feature')]
             fig,axes=plt.subplots(2,4,figsize=(14,7))
+            depths=np.concatenate([v[np.isfinite(v)] for _,v,kind in panels if kind=='depth'])
             for ax,(title,values,kind) in zip(axes.flat,panels):
-                im=ax.imshow(values) if kind=='rgb' else ax.imshow(values,cmap='viridis' if kind=='depth' else 'magma')
                 ax.set_title(title,fontsize=9);ax.axis('off')
+                if not np.isfinite(values).any():
+                    ax.text(.5,.5,'No eligible hidden feature patch',ha='center',va='center',transform=ax.transAxes,fontsize=9)
+                    continue
+                options=dict(vmin=float(depths.min()),vmax=float(depths.max())) if kind=='depth' and len(depths) else {}
+                im=ax.imshow(values) if kind=='rgb' else ax.imshow(values,cmap='viridis' if kind=='depth' else 'magma',**options)
                 if kind!='rgb':fig.colorbar(im,ax=ax,fraction=.046,pad=.02)
             fig.suptitle('V21: train-development frame, native initializer; teacher/error panels use GT\nTexture recovery is DINO features, not generated RGB',fontsize=11)
             fig.tight_layout();fig.savefig(out/f'example{i}.png',dpi=160);plt.close(fig)

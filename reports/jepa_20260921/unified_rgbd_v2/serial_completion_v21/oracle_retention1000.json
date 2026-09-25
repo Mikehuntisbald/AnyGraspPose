@@ -1,0 +1,49 @@
+{
+  "step": 1000,
+  "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+  "oracle_appearance": {
+    "zero": {
+      "rotation_deg": 0.002053389675438666,
+      "center_d": 1.3525338074416027e-05,
+      "signed_gain": null,
+      "cases": 384
+    },
+    "rotation": {
+      "rotation_deg": 3.3552264685276896,
+      "center_d": 0.008774557776177971,
+      "signed_gain": 0.7131799486717986,
+      "cases": 384
+    },
+    "translation": {
+      "rotation_deg": 1.440453118722265,
+      "center_d": 0.01582615312509006,
+      "signed_gain": 0.7246757393028626,
+      "cases": 384
+    }
+  },
+  "cached_student_appearance": {
+    "zero": {
+      "rotation_deg": 0.0019695936161951977,
+      "center_d": 1.3312040505475409e-05,
+      "signed_gain": null,
+      "cases": 384
+    },
+    "rotation": {
+      "rotation_deg": 3.2100297211048505,
+      "center_d": 0.008592776049226813,
+      "signed_gain": 0.7339330096389555,
+      "cases": 384
+    },
+    "translation": {
+      "rotation_deg": 1.464647973421961,
+      "center_d": 0.015142059845553982,
+      "signed_gain": 0.7398057184861196,
+      "cases": 384
+    }
+  },
+  "seconds": 10.6313310819678,
+  "precision": "CPU FP32",
+  "official_test_access": false,
+  "optimizer_updates": 0,
+  "scope": "Both use ideal geometry; development sequences excluded from readout training/rehearsal. Not native accuracy."
+}

@@ -1,7 +1,8 @@
 """Bounded V21 training: paired estimates, exact-zero examples, student feedback.
 
 Independent RNG per rank, one packed gradient collective, complete resumable
-checkpoints. Oracle completion is never used as an input in this stage.
+checkpoints. Main JEPA forwards use predicted completion only. The optional,
+explicit oracle rehearsal trains pose-readout parameters on detached targets.
 """
 import argparse,hashlib,json,math,os,random,sys,time
 from pathlib import Path

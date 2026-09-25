@@ -97,3 +97,29 @@ The legacy checkpoint provenance field `teacher_input:false` refers to the main
 student JEPA forward. It does **not** describe this explicit readout-only oracle
 training branch. The config's `oracle_rehearsal_weight` and adaptation receipt
 record that branch; GT-free native inference has neither teacher nor rehearsal.
+
+## Terminal result and acceptance
+
+All eight ranks completed step1000. Full23,200-frame native val: ADD-S@0.05d
+52.47% overall,29.25% at visibility<50%,5.27% at visibility<30%. The latter
+regressed from step500's7.58%. Old pure LIP remains83.66/53.47/29.28%; the
+requested baseline acceptance is not met. The default model remains unchanged.
+
+The corrected readout retains its ideal-geometry capability: fixed CPU FP32
+development replay with cached student appearance gives10 degrees to3.21.
+Actual val completion gives10 degrees to9.62, so this is not equivalent to
+successful recovery of rotation on real inputs.
+
+Paired recovery was rerun for V20 with exactly the same pure-LIP reference crops,
+occlusion donors, fixed teacher, frames and eligible pixel counts as V21. Heavy
+real-target XYZ/depth errors are36.01/16.46mm for V20 and38.47/17.62mm for V21.
+CAD-proxy XYZ/depth are37.62/22.26mm and37.23/24.61mm. Reconstruction accuracy did
+not improve with pose. Do not attribute the pose gain to more accurate geometry,
+or claim the user's complete restoration-quality goal has been achieved.
+
+The terminal full checkpoint SHA256 is
+`c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867`.
+Model/Adam/scheduler/eight-rank RNG are included. The local delivery verifies396
+evidence files plus the full checkpoint and source archives. Remote execution
+used isolated source snapshots; `/mnt/why/dexycb_lip` is not a Git checkout.
+GitHub commits and copied runtime snapshots are distinct provenance records.

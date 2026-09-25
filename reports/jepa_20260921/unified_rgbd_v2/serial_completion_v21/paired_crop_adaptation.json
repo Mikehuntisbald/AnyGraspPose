@@ -1,0 +1,8 @@
+{
+  "step": 350,
+  "checkpoint_sha256": "b8b6cf76ccdfbee04d9a96672051458a862d46ff0d56fc927b87b1105b7c61b5",
+  "previous_source_sha256": "5f96710b3a949797295e15e83c2a1bbc1efca4f2f70023ce18f8ae2278b9f615",
+  "source_sha256": "7e5ffe2054f5cd05b9487b24161eb6fbeefeefd74b56821b55f6bafa8e54ba3f",
+  "model_optimizer_scheduler_rng_exact": true,
+  "reason": "Same RGB-D crop/occluder for paired estimated poses"
+}

@@ -1,0 +1,25 @@
+{
+  "step": 0,
+  "metrics": {
+    "zero": {
+      "rotation_deg": 0.005100240223328001,
+      "center_d": 2.2607250554251834e-05,
+      "signed_gain": null,
+      "cases": 384
+    },
+    "rotation": {
+      "rotation_deg": 3.171253902837634,
+      "center_d": 0.012648650661806945,
+      "signed_gain": 0.777302493826331,
+      "cases": 384
+    },
+    "translation": {
+      "rotation_deg": 2.5226636750157923,
+      "center_d": 0.013743198723508007,
+      "signed_gain": 0.8283522743731737,
+      "cases": 384
+    }
+  },
+  "seconds": 4.82678827107884,
+  "precision": "CPU FP32, diagnostic oracle retention; not native"
+}
