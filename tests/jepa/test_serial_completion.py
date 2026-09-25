@@ -54,3 +54,22 @@ def test_no_evidence_tokens_invalid_and_finite():
     args=fixture();args['valid'].zero_();p=pack_completion(**args)
     tokens,valid,moments,_=CompletionRelations()(p,args['base'])
     assert not valid.any() and tokens.isfinite().all() and moments.isfinite().all()
+
+
+def test_decoded_visible_features_receive_pose_gradients_with_real_depth_retained():
+    args=fixture()
+    for key in ('mid','last'):args[key].requires_grad_()
+    p=pack_completion(**args,feature_source='decoded')
+    torch.testing.assert_close(p['feature'][...,:384],args['mid'])
+    torch.testing.assert_close(p['camera'][:,2],torch.full((1,224,224),3.))
+    tokens,_,_,_=CompletionRelations()(p,args['base'])
+    tokens[...,0].sum().backward()
+    for key in ('mid','last'):assert args[key].grad is not None and args[key].grad.abs().sum()>0
+
+
+def test_decoded_readout_has_no_direct_observed_feature_input():
+    args=fixture();a=pack_completion(**args,feature_source='decoded')
+    args['observed_mid']=torch.randn_like(args['observed_mid'])*1000
+    args['observed_last']=torch.randn_like(args['observed_last'])*1000
+    b=pack_completion(**args,feature_source='decoded')
+    torch.testing.assert_close(a['feature'],b['feature'],rtol=0,atol=0)

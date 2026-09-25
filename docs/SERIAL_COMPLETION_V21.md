@@ -123,3 +123,12 @@ Model/Adam/scheduler/eight-rank RNG are included. The local delivery verifies396
 evidence files plus the full checkpoint and source archives. Remote execution
 used isolated source snapshots; `/mnt/why/dexycb_lip` is not a Git checkout.
 GitHub commits and copied runtime snapshots are distinct provenance records.
+
+## Later feature-path audit (V26)
+
+The V21 description of decoded appearance has an important exception: its
+`pack_completion` uses pre-JEPA observation DINO features at predicted-visible
+patches, and decoded features only elsewhere. Thus it was not an all-JEPA visual
+readout. Real-RGB preservation at the input/teacher does not require replacing the
+fused internal features. V26 adds explicit all-decoded routing and tests gradients
+at visible patches; old configurations preserve V21's original path and metrics.

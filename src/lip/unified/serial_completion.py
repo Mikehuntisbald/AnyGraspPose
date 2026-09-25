@@ -1,8 +1,8 @@
 """V21: decoded completion is the only visual input to the pose readout.
 
 The pose branch has no access to JEPA patch latents, FP features or teacher
-tensors. Measured camera depth/appearance have priority at predicted visible
-object pixels. Canonical surface coordinates are always predicted: observed
+tensors. Measured camera depth has priority at predicted visible object pixels.
+Appearance routing is explicit: legacy observed-visible or all JEPA-decoded. Canonical surface coordinates are always predicted: observed
 camera XYZ transformed by the *estimated* pose is not a correspondence target.
 """
 import torch
@@ -12,8 +12,11 @@ from .cad_surface import CADSurfaceTracker
 
 
 def pack_completion(mid, last, surface, geometry, rays, base, diameter,
-                    visibility, support, observed_mid, observed_last, valid, measured_depth_m):
+                    visibility, support, observed_mid, observed_last, valid, measured_depth_m,
+                    feature_source='observed_visible'):
     """Prediction-only dense correspondences, camera points centered at base t/d."""
+    if feature_source not in ('observed_visible','decoded'):
+        raise ValueError('Unknown serial readout feature source')
     with torch.autocast(surface.device.type, enabled=False):
         bounds = valid.reshape(-1, 1, 16, 16).repeat_interleave(14, -2).repeat_interleave(14, -1)
         expand = lambda x: x.reshape(-1, 1, 16, 16).repeat_interleave(14, -2).repeat_interleave(14, -1)
@@ -32,11 +35,16 @@ def pack_completion(mid, last, surface, geometry, rays, base, diameter,
         weight = weight * finite
         xyz = torch.nan_to_num(surface[:, :3].float())
         camera = torch.nan_to_num(camera)
-        # Appearance interpolation is only at the observed/predicted ownership
-        # boundary; no hidden target or render feature enters this readout.
-        vm = (vis[..., None] >= .7) & valid[..., None]
-        feature = torch.cat((torch.where(vm, observed_mid, mid),
-                             torch.where(vm, observed_last, last)), -1)
+        # Feature routing never introduces a teacher or a direct render feature.
+        if feature_source == 'decoded':
+            # Every visual feature has passed through the unified JEPA. Keeping
+            # real RGB input does not require overwriting its fused output.
+            feature = torch.where(valid[...,None],torch.cat((mid,last),-1),0.)
+        else:
+            # Legacy path retained only for exact older-experiment reproduction.
+            vm = (vis[..., None] >= .7) & valid[..., None]
+            feature = torch.cat((torch.where(vm, observed_mid, mid),
+                                 torch.where(vm, observed_last, last)), -1)
     return dict(feature=feature, xyz=xyz, camera=camera, weight=weight,
                 measured_weight=measured, completed_weight=completed)
 
@@ -138,7 +146,8 @@ class SerialCompletionTracker(CADSurfaceTracker):
         rays, diameter, mid, last, measured_depth = readout_inputs
         packet = pack_completion(decoded_mid, decoded_last,
             surface, geometry_image, rays, base, diameter, evidence_logits,
-            self.core.support(patch).squeeze(-1), mid, last, valid, measured_depth)
+            self.core.support(patch).squeeze(-1), mid, last, valid, measured_depth,
+            feature_source=getattr(self,'readout_feature_source','observed_visible'))
         return self.read_completion(packet, base)
 
 

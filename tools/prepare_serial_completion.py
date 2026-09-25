@@ -66,7 +66,7 @@ def main():
             valid=F.avg_pool2d(obs.packet.pixel_valid.float(),14,14).flatten(1)>=.999
             predicted=pack_completion(prediction['f_mid_predicted'],prediction['f_predicted'],
                 torch.cat((prediction['surface_xyz'],prediction['surface_depth_residual'],prediction['geometry_valid_logits']),1),
-                obs.geometry_image,obs.crop_rays,obs.base,obs.diameter,prediction['evidence_logits'],prediction['support_logits'],obs.mid,obs.last,valid,obs.measured_depth_m)
+                obs.geometry_image,obs.crop_rays,obs.base,obs.diameter,prediction['evidence_logits'],prediction['support_logits'],obs.mid,obs.last,valid,obs.measured_depth_m,feature_source=getattr(m,'readout_feature_source','observed_visible'))
             cpu=lambda p:{k:v.detach().float().cpu() for k,v in p.items()}
             records.append(dict(split=kind,physical=physical(e.stream),stream=e.stream,seed=seed,frame=frame,
                 truth=gt.cpu(),diameter=scene.diameter,oracle=cpu(packet),predicted=cpu(predicted)))

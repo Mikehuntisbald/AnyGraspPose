@@ -93,7 +93,7 @@ def main():
                     obs=encode_scenes(model,[scene]);valid=F.avg_pool2d(obs.packet.pixel_valid.float(),14,14).flatten(1)>=.999
                     with torch.autocast('cuda',dtype=torch.bfloat16):result,_=model(obs)
                     packet=pack_completion(result['f_mid_predicted'],result['f_predicted'],torch.cat((result['surface_xyz'],result['surface_depth_residual'],result['geometry_valid_logits']),1),
-                        obs.geometry_image,obs.crop_rays,obs.base,obs.diameter,result['evidence_logits'],result['support_logits'],obs.mid,obs.last,valid,obs.measured_depth_m)
+                        obs.geometry_image,obs.crop_rays,obs.base,obs.diameter,result['evidence_logits'],result['support_logits'],obs.mid,obs.last,valid,obs.measured_depth_m,feature_source=getattr(model,'readout_feature_source','observed_visible'))
                     def read(pack):
                         with torch.autocast('cuda',dtype=torch.bfloat16):
                             obj,metrics=model.read_completion(pack,obs.base)

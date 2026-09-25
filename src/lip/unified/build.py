@@ -67,6 +67,10 @@ def build_model(config,device='cuda'):
             compile_encoders(model)
         if isinstance(model,SerialCompletionTracker):
             model.model_version='shape-conditioned-serial-completion-v24' if config.get('readout_adaptation') else 'serial-decoded-completion-pose-v21'
+            model.readout_feature_source=config.get('serial_completion',{}).get('readout_feature_source','observed_visible')
+            if model.readout_feature_source not in ('observed_visible','decoded'):
+                raise ValueError('Unknown serial readout feature source')
+            if model.readout_feature_source=='decoded':model.model_version='serial-decoded-all-patches-v26'
         return model
     if config['architecture_id']=='stream_dino_fp_staticutonia_jepa_rgbd_v3':
         return build_fp_model(config,device)

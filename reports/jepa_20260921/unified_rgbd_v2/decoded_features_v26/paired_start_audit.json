@@ -1,0 +1,27 @@
+{
+  "completed": true,
+  "model_adam_schedule_rng_identical": true,
+  "only_output_and_feature_source_differ": true,
+  "records": {
+    "amp_control": {
+      "step": 1000,
+      "hashes": {
+        "model": "3e23b85fb7eb8c3b84d89ff0c7f492863f8b013e114a818209c50ffafa58d3f3",
+        "optimizer": "fb7d9649fd2d4e963aac3f65ef2a3954169f2c105eabc90f415ef0d764885fcc",
+        "scheduler": "c175a72e16bb0a4df7b5915bffc6d150fcbfb4c740f5f755015a577fc7ad0b17",
+        "rng": "5e7fb0fa9da447d8c741b332184891e5ec87a1eeb76509ed7097f2095c638adf",
+        "normalized_config": "d0a252adf3d2a319d809d8335cf332ab265cefa1a0841329d175f508a8ae7ce4"
+      }
+    },
+    "decoded": {
+      "step": 1000,
+      "hashes": {
+        "model": "3e23b85fb7eb8c3b84d89ff0c7f492863f8b013e114a818209c50ffafa58d3f3",
+        "optimizer": "fb7d9649fd2d4e963aac3f65ef2a3954169f2c105eabc90f415ef0d764885fcc",
+        "scheduler": "c175a72e16bb0a4df7b5915bffc6d150fcbfb4c740f5f755015a577fc7ad0b17",
+        "rng": "5e7fb0fa9da447d8c741b332184891e5ec87a1eeb76509ed7097f2095c638adf",
+        "normalized_config": "d0a252adf3d2a319d809d8335cf332ab265cefa1a0841329d175f508a8ae7ce4"
+      }
+    }
+  }
+}
