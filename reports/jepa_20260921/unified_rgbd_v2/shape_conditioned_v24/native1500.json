@@ -1,0 +1,1658 @@
+{
+  "completed": true,
+  "checkpoint_sha256": "453a248428ba0239ba5ccd7c4309b249032e03650997314e0f7d0029bb10b39d",
+  "initializers_sha256": "ea33a4668526d2305f5a23d4e789d579094f0f2639ac81386c93766329e574bf",
+  "frames": 23200,
+  "streams": 320,
+  "initial_quality": {
+    "20200709-subject-01/20200709_142123/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_142123/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142123/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142123/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142123/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142123/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142123/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142123/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142446/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142446/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142446/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142446/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142446/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142446/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142446/932122061900": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142446/932122062010": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142802/836212060125": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142802/839512060362": {
+      "frame": 46,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_142802/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142802/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142802/932122060857": {
+      "frame": 25,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_142802/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142802/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_142802/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_143125/836212060125": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_143125/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_143125/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_143125/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_143125/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_143125/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_143125/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_143125/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_143531/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_143531/839512060362": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_143531/840412060917": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_143531/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_143531/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_143531/932122060861": {
+      "frame": 23,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_143531/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_143531/932122062010": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_143907/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_143907/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_143907/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_143907/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_143907/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_143907/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_143907/932122061900": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_143907/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_144313/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_144313/839512060362": {
+      "frame": 71,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_144313/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_144313/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_144313/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_144313/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_144313/932122061900": {
+      "frame": 49,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_144313/932122062010": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_144735/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_144735/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_144735/840412060917": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_144735/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_144735/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_144735/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_144735/932122061900": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_144735/932122062010": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_145132/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_145132/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_145132/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_145132/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_145132/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_145132/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_145132/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_145132/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_145743/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_145743/839512060362": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_145743/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_145743/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_145743/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_145743/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_145743/932122061900": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_145743/932122062010": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150144/836212060125": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150144/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_150144/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150144/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150144/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150144/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150144/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150144/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150524/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_150524/839512060362": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150524/840412060917": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150524/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150524/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150524/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150524/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150524/932122062010": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150906/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150906/839512060362": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150906/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_150906/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_150906/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150906/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150906/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_150906/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151246/836212060125": null,
+    "20200709-subject-01/20200709_151246/839512060362": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151246/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151246/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151246/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151246/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151246/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151246/932122062010": {
+      "frame": 45,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151632/836212060125": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151632/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151632/840412060917": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151632/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151632/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151632/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151632/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151632/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151948/836212060125": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151948/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_151948/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151948/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151948/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151948/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151948/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_151948/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_152420/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_152420/839512060362": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_152420/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_152420/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_152420/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_152420/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_152420/932122061900": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_152420/932122062010": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_152757/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_152757/839512060362": {
+      "frame": 4,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_152757/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_152757/841412060263": {
+      "frame": 11,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_152757/932122060857": {
+      "frame": 53,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_152757/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_152757/932122061900": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_152757/932122062010": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_153148/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_153148/839512060362": {
+      "frame": 51,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_153148/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_153148/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_153148/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_153148/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_153148/932122061900": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_153148/932122062010": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_153548/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_153548/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_153548/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_153548/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_153548/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200709-subject-01/20200709_153548/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_153548/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200709-subject-01/20200709_153548/932122062010": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_145612/836212060125": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_145612/839512060362": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_145612/840412060917": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_145612/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_145612/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_145612/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_145612/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_145612/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_145920/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_145920/839512060362": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_145920/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_145920/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_145920/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_145920/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_145920/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_145920/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150228/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_150228/839512060362": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150228/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150228/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_150228/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_150228/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150228/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150228/932122062010": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150535/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_150535/839512060362": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150535/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_150535/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150535/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150535/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150535/932122061900": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150535/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150823/836212060125": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150823/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150823/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_150823/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150823/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150823/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150823/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_150823/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_151117/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_151117/839512060362": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_151117/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_151117/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_151117/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_151117/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_151117/932122061900": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_151117/932122062010": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_151925/836212060125": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_151925/839512060362": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_151925/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_151925/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_151925/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_151925/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_151925/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_151925/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152215/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_152215/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_152215/840412060917": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152215/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_152215/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152215/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152215/932122061900": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_152215/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152513/836212060125": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152513/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152513/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_152513/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152513/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152513/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152513/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152513/932122062010": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152842/836212060125": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152842/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_152842/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152842/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152842/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152842/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152842/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_152842/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153152/836212060125": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153152/839512060362": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153152/840412060917": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153152/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153152/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153152/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153152/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153152/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153453/836212060125": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153453/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153453/840412060917": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153453/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153453/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_153453/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153453/932122061900": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153453/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153802/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_153802/839512060362": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153802/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_153802/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_153802/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153802/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153802/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_153802/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154103/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154103/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154103/840412060917": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154103/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154103/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154103/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154103/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154103/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154408/836212060125": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154408/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_154408/840412060917": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154408/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154408/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_154408/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154408/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154408/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154729/836212060125": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154729/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154729/840412060917": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154729/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154729/932122060857": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154729/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154729/932122061900": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_154729/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_155021/836212060125": {
+      "frame": 33,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155021/839512060362": {
+      "frame": 36,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155021/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155021/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155021/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155021/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155021/932122061900": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155021/932122062010": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155314/836212060125": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_155314/839512060362": {
+      "frame": 29,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155314/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155314/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155314/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155314/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155314/932122061900": {
+      "frame": 28,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_155314/932122062010": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155633/836212060125": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_155633/839512060362": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_155633/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_155633/841412060263": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_155633/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_155633/932122060861": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_155633/932122061900": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_155633/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_155953/836212060125": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155953/839512060362": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_155953/840412060917": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155953/841412060263": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155953/932122060857": {
+      "frame": 0,
+      "good": false,
+      "very_bad": true
+    },
+    "20200813-subject-02/20200813_155953/932122060861": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_155953/932122061900": {
+      "frame": 0,
+      "good": false,
+      "very_bad": false
+    },
+    "20200813-subject-02/20200813_155953/932122062010": {
+      "frame": 0,
+      "good": true,
+      "very_bad": false
+    }
+  },
+  "populations": {
+    "all": {
+      "frames": 23200,
+      "objects": 20,
+      "missing_pose_frames": 578,
+      "add_01": 27.06345903734452,
+      "adds_01": 74.80155660853825,
+      "adds_005": 50.39689507745081
+    },
+    "excluding_initialization": {
+      "frames": 22881,
+      "objects": 20,
+      "missing_pose_frames": 578,
+      "add_01": 27.030244131413493,
+      "adds_01": 74.83432239327475,
+      "adds_005": 50.43888192061801
+    },
+    "visibility_lt_05": {
+      "frames": 2366,
+      "objects": 20,
+      "missing_pose_frames": 463,
+      "add_01": 7.23987366327063,
+      "adds_01": 46.62493563204882,
+      "adds_005": 26.779656839384554
+    },
+    "visibility_lt_03": {
+      "frames": 902,
+      "objects": 17,
+      "missing_pose_frames": 407,
+      "add_01": 1.0285204991087342,
+      "adds_01": 26.42223089798148,
+      "adds_005": 7.217806041335452
+    },
+    "after_initialization": {
+      "frames": 22303,
+      "objects": 20,
+      "missing_pose_frames": 0,
+      "add_01": 27.73608602186501,
+      "adds_01": 76.51976933477518,
+      "adds_005": 51.5084313332605
+    },
+    "bad_initial_first8": {
+      "frames": 1336,
+      "objects": 20,
+      "missing_pose_frames": 0,
+      "add_01": 43.536154817404814,
+      "adds_01": 88.47386814574317,
+      "adds_005": 66.39985535298034
+    }
+  },
+  "scope": "Native full s0 val with real non-GT initialization. Object-macro ADD thresholds, not official test BOP AR. Primary all-frame scores include initialization and every missing-pose failure. Continuous errors are conditional on an emitted pose.",
+  "visibility_definition": "Reused fixed native-val segmentation/silhouette visibility after inference; not official BOP visib_fract.",
+  "visibility_reference_sha256": "2596f9830c3ebe401d7d4e6f30b6a17a17f887a546ccbb649c86005223b3d851"
+}

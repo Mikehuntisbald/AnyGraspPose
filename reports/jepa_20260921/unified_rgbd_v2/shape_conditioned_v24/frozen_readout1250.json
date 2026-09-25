@@ -1,0 +1,7 @@
+{
+  "step": 1250,
+  "readout_tensors_unchanged": 35,
+  "readout_absent_from_optimizer": true,
+  "rng_ranks": 8,
+  "sampler_position": 40000
+}

@@ -71,3 +71,14 @@ into the tracker or promoted to a default. The frozen-backbone, small-data resul
 does not prove that a jointly trained CAD-conditioned decoder cannot work.
 It rejects treating this particular500-update prototype as an achieved repair.
 All cache/fit processes terminated successfully; production weights unchanged.
+
+A subsequent CPU geometric-coverage audit sampled up to2048 target points per
+region on all256 cached training records. Nearest-point distance to the256 CAD
+anchors averages7.586mm for real hidden targets,5.224mm for CAD proxy targets and
+9.479mm for visible sensor-derived canonical targets. Fractions over20mm are
+1.20%,0% and5.05%, respectively. These are quantization/coverage statistics, not
+learned correspondence scores or a guarantee of pose accuracy; local interpolation
+can outperform nearest-anchor quantization. The bank is not missing every local
+surface needed by the proxy targets. The measured-target gap also includes sensor
+noise and sensor/render disagreement, so those targets are not silently snapped
+to CAD. Full audit records are in`anchor_resolution.json`.

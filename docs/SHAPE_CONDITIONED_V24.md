@@ -52,7 +52,7 @@ errors. The original head's attenuation can partly be an adaptation to noisy
 inputs. None of these readout-only checkpoints is promoted. Ideal-cache retention
 alone is explicitly insufficient evidence of native improvement.
 
-## Bounded restoration training now running
+## Bounded restoration training (completed)
 
 Run500 additional restoration updates, source step1000 to1500, seed42,
 8H20/effective batch32, history off. The shape-conditioned readout above is
@@ -87,3 +87,32 @@ or overwritten. Training source snapshots remain pinned and separately archived.
 Validation so far:15 tests passed (shape/sign/degeneracy, legacy identity, exact
 named Adam migration, serial restoration gradients, geometry-priority helpers
 and pose geometry), plus the actual eight-GPU preflight and strict resume.
+
+## Terminal result: not adopted
+
+After500 restoration updates (global step1500), full native23,200-frame
+ADD-S@0.05d is50.397% overall,26.780% visibility<50%,7.218% visibility<30%.
+The V21 parent is52.473/29.254/5.266%. At1250 this run was48.962/20.612/8.505%.
+Thus overall/heavy regress despite an extreme-occlusion improvement; acceptance
+fails and the controller does not extend beyond1500.
+
+On fixed40 heavy reconstruction, real XYZ/depth is40.501/16.740mm and proxy
+XYZ/depth38.002/23.854mm. Parent is38.471/17.624 and37.232/24.606mm: depth improves,
+canonical XYZ worsens. Controlled non-symmetric10-degree rotation ends at9.869
+rather than parent9.434 degrees. Robust rigid-fit error changes17.753→16.369
+degrees, insufficient to establish usable correspondence recovery.
+
+All35 readout tensors remain BITWISE identical at1250 and1500 and are absent
+from Adam. Nonetheless the ideal-CAD intervention changes0.686→3.829 degrees.
+In that intervention geometry/support are fixed, so changing restored/observed
+appearance inputs can alter the fixed readout's response. Freezing weights does
+not make the mapping immune to appearance-distribution changes; the network can
+compensate for geometric error through another input. This is another reason not
+to call the frozen-readout experiment a successful physical restoration fix.
+
+Terminal SHA256:453a248428ba0239ba5ccd7c4309b249032e03650997314e0f7d0029bb10b39d.
+The1250 and1500 complete checkpoints are preserved separately. V24 used the
+then-pinned source. A subsequent AMP preview-gradient bug was reproduced in the
+shared projection and visibility Linear layers; seeAMP_PREVIEW_V25.md. Therefore
+these results do not establish intrinsic failure of the architecture with a
+correct training graph. V25 tests that bug fix separately from V24's readout change.

@@ -1,0 +1,8 @@
+{
+  "step": 1500,
+  "checkpoint_sha256": "453a248428ba0239ba5ccd7c4309b249032e03650997314e0f7d0029bb10b39d",
+  "readout_tensors_unchanged": 35,
+  "readout_absent_from_optimizer": true,
+  "rng_ranks": 8,
+  "sampler_position": 48000
+}

@@ -1,0 +1,5308 @@
+{
+  "scope": "Training-split cache only; geometric quantization, not learned matching or native pose",
+  "records": 256,
+  "max_points_per_region": 2048,
+  "regions": {
+    "real": {
+      "nonempty_records": 249,
+      "mean_frame_nearest_anchor_mm": 7.585554883183246,
+      "mean_frame_fraction_gt20mm": 0.012017391318404845
+    },
+    "proxy": {
+      "nonempty_records": 81,
+      "mean_frame_nearest_anchor_mm": 5.223503866313417,
+      "mean_frame_fraction_gt20mm": 0.0
+    },
+    "visible": {
+      "nonempty_records": 252,
+      "mean_frame_nearest_anchor_mm": 9.478658255130526,
+      "mean_frame_fraction_gt20mm": 0.0505120682840546
+    }
+  },
+  "rows": [
+    {
+      "seed": 19000000,
+      "stream": "20200928-subject-07/20200928_144931/932122060857|draw19000000",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.30502700805664,
+        "median_mm": 9.821246147155762,
+        "p90_mm": 12.410665512084961,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1288,
+        "nearest_anchor_mm": 7.499585151672363,
+        "median_mm": 7.2329301834106445,
+        "p90_mm": 10.786446571350098,
+        "fraction_gt20mm": 0.003881987649947405
+      }
+    },
+    {
+      "seed": 19000008,
+      "stream": "20201022-subject-10/20201022_113558/841412060263|draw19000008",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.492634773254395,
+        "median_mm": 8.419219017028809,
+        "p90_mm": 12.175680160522461,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1653,
+        "nearest_anchor_mm": 12.134044647216797,
+        "median_mm": 8.963661193847656,
+        "p90_mm": 17.992477416992188,
+        "fraction_gt20mm": 0.08953417837619781
+      }
+    },
+    {
+      "seed": 19000016,
+      "stream": "20200820-subject-03/20200820_135648/932122062010|draw19000016",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 14.980777740478516,
+        "median_mm": 14.389008522033691,
+        "p90_mm": 21.02619743347168,
+        "fraction_gt20mm": 0.13720703125
+      },
+      "proxy": {
+        "points": 39,
+        "nearest_anchor_mm": 7.839714050292969,
+        "median_mm": 8.489469528198242,
+        "p90_mm": 10.590974807739258,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1278,
+        "nearest_anchor_mm": 21.541641235351562,
+        "median_mm": 12.497907638549805,
+        "p90_mm": 66.26878356933594,
+        "fraction_gt20mm": 0.24960877001285553
+      }
+    },
+    {
+      "seed": 19000024,
+      "stream": "20200928-subject-07/20200928_155709/839512060362|draw19000024",
+      "real": {
+        "points": 763,
+        "nearest_anchor_mm": 5.239902973175049,
+        "median_mm": 5.370161056518555,
+        "p90_mm": 7.361399173736572,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 562,
+        "nearest_anchor_mm": 8.915483474731445,
+        "median_mm": 5.910192012786865,
+        "p90_mm": 8.664202690124512,
+        "fraction_gt20mm": 0.030249109491705894
+      }
+    },
+    {
+      "seed": 19000032,
+      "stream": "20200709-subject-01/20200709_144608/839512060362|draw19000032",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 3.9925646781921387,
+        "median_mm": 3.975229263305664,
+        "p90_mm": 5.708071708679199,
+        "fraction_gt20mm": 0.00048828125
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1720,
+        "nearest_anchor_mm": 4.025460243225098,
+        "median_mm": 4.096441745758057,
+        "p90_mm": 5.516021251678467,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000040,
+      "stream": "20200820-subject-03/20200820_144554/932122062010|draw19000040",
+      "real": null,
+      "proxy": {
+        "points": 165,
+        "nearest_anchor_mm": 1.988815188407898,
+        "median_mm": 2.058865547180176,
+        "p90_mm": 2.9196271896362305,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1566,
+        "nearest_anchor_mm": 6.3261847496032715,
+        "median_mm": 4.259854316711426,
+        "p90_mm": 11.86430549621582,
+        "fraction_gt20mm": 0.039591316133737564
+      }
+    },
+    {
+      "seed": 19000048,
+      "stream": "20200928-subject-07/20200928_145826/841412060263|draw19000048",
+      "real": {
+        "points": 317,
+        "nearest_anchor_mm": 17.794294357299805,
+        "median_mm": 13.199479103088379,
+        "p90_mm": 36.232826232910156,
+        "fraction_gt20mm": 0.3817034661769867
+      },
+      "proxy": {
+        "points": 563,
+        "nearest_anchor_mm": 3.657874345779419,
+        "median_mm": 3.74522066116333,
+        "p90_mm": 5.380691051483154,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 316,
+        "nearest_anchor_mm": 17.986812591552734,
+        "median_mm": 5.605514049530029,
+        "p90_mm": 102.57987976074219,
+        "fraction_gt20mm": 0.12341772019863129
+      }
+    },
+    {
+      "seed": 19000056,
+      "stream": "20200908-subject-05/20200908_150326/932122060861|draw19000056",
+      "real": {
+        "points": 1167,
+        "nearest_anchor_mm": 9.574557304382324,
+        "median_mm": 9.67529010772705,
+        "p90_mm": 11.677271842956543,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 557,
+        "nearest_anchor_mm": 8.993264198303223,
+        "median_mm": 8.51554012298584,
+        "p90_mm": 11.549720764160156,
+        "fraction_gt20mm": 0.026929982006549835
+      }
+    },
+    {
+      "seed": 19000064,
+      "stream": "20200928-subject-07/20200928_155709/836212060125|draw19000064",
+      "real": {
+        "points": 782,
+        "nearest_anchor_mm": 5.7970404624938965,
+        "median_mm": 6.0259833335876465,
+        "p90_mm": 7.83880615234375,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 305,
+        "nearest_anchor_mm": 7.987771511077881,
+        "median_mm": 6.37164306640625,
+        "p90_mm": 8.618319511413574,
+        "fraction_gt20mm": 0.013114754110574722
+      }
+    },
+    {
+      "seed": 19000072,
+      "stream": "20200908-subject-05/20200908_145748/932122060857|draw19000072",
+      "real": {
+        "points": 1181,
+        "nearest_anchor_mm": 8.584699630737305,
+        "median_mm": 8.585729598999023,
+        "p90_mm": 11.364777565002441,
+        "fraction_gt20mm": 0.0008467400330118835
+      },
+      "proxy": {
+        "points": 772,
+        "nearest_anchor_mm": 3.5342953205108643,
+        "median_mm": 3.523084878921509,
+        "p90_mm": 5.424248218536377,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 637,
+        "nearest_anchor_mm": 10.859392166137695,
+        "median_mm": 8.702245712280273,
+        "p90_mm": 17.86994171142578,
+        "fraction_gt20mm": 0.0863422304391861
+      }
+    },
+    {
+      "seed": 19000080,
+      "stream": "20201022-subject-10/20201022_113326/839512060362|draw19000080",
+      "real": {
+        "points": 1738,
+        "nearest_anchor_mm": 5.386958122253418,
+        "median_mm": 5.456046104431152,
+        "p90_mm": 7.264667987823486,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 702,
+        "nearest_anchor_mm": 5.618683815002441,
+        "median_mm": 5.553877830505371,
+        "p90_mm": 8.206457138061523,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000088,
+      "stream": "20200820-subject-03/20200820_141752/841412060263|draw19000088",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.80309009552002,
+        "median_mm": 8.29184627532959,
+        "p90_mm": 13.440896987915039,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1879,
+        "nearest_anchor_mm": 7.9203338623046875,
+        "median_mm": 6.944797039031982,
+        "p90_mm": 10.166227340698242,
+        "fraction_gt20mm": 0.042043641209602356
+      }
+    },
+    {
+      "seed": 19000096,
+      "stream": "20201022-subject-10/20201022_111323/932122062010|draw19000096",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.742464065551758,
+        "median_mm": 8.562423706054688,
+        "p90_mm": 11.749342918395996,
+        "fraction_gt20mm": 0.00390625
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1085,
+        "nearest_anchor_mm": 8.339834213256836,
+        "median_mm": 8.165029525756836,
+        "p90_mm": 12.199504852294922,
+        "fraction_gt20mm": 0.008294930681586266
+      }
+    },
+    {
+      "seed": 19000104,
+      "stream": "20201022-subject-10/20201022_111258/841412060263|draw19000104",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.619571208953857,
+        "median_mm": 7.097244739532471,
+        "p90_mm": 10.297486305236816,
+        "fraction_gt20mm": 0.0234375
+      },
+      "proxy": {
+        "points": 303,
+        "nearest_anchor_mm": 6.136427879333496,
+        "median_mm": 6.268701076507568,
+        "p90_mm": 8.87022876739502,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1127,
+        "nearest_anchor_mm": 8.744000434875488,
+        "median_mm": 7.282785892486572,
+        "p90_mm": 10.990391731262207,
+        "fraction_gt20mm": 0.02573203109204769
+      }
+    },
+    {
+      "seed": 19000112,
+      "stream": "20200813-subject-02/20200813_145418/932122062010|draw19000112",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.512505054473877,
+        "median_mm": 7.278439998626709,
+        "p90_mm": 10.070157051086426,
+        "fraction_gt20mm": 0.015625
+      },
+      "proxy": {
+        "points": 718,
+        "nearest_anchor_mm": 5.5312957763671875,
+        "median_mm": 5.7174553871154785,
+        "p90_mm": 8.271411895751953,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 823,
+        "nearest_anchor_mm": 24.172826766967773,
+        "median_mm": 8.898796081542969,
+        "p90_mm": 113.04737854003906,
+        "fraction_gt20mm": 0.20777642726898193
+      }
+    },
+    {
+      "seed": 19000120,
+      "stream": "20200820-subject-03/20200820_140927/839512060362|draw19000120",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.1528754234313965,
+        "median_mm": 4.168287754058838,
+        "p90_mm": 5.896770000457764,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 2048,
+        "nearest_anchor_mm": 3.3937134742736816,
+        "median_mm": 3.456836223602295,
+        "p90_mm": 5.126485824584961,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 209,
+        "nearest_anchor_mm": 4.676639556884766,
+        "median_mm": 4.675728797912598,
+        "p90_mm": 5.691998481750488,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000128,
+      "stream": "20200813-subject-02/20200813_154029/932122060861|draw19000128",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.175266265869141,
+        "median_mm": 6.152121067047119,
+        "p90_mm": 8.689589500427246,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 836,
+        "nearest_anchor_mm": 4.815550804138184,
+        "median_mm": 4.886734962463379,
+        "p90_mm": 7.25880241394043,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 720,
+        "nearest_anchor_mm": 12.114441871643066,
+        "median_mm": 7.0479559898376465,
+        "p90_mm": 35.341087341308594,
+        "fraction_gt20mm": 0.18888889253139496
+      }
+    },
+    {
+      "seed": 19000136,
+      "stream": "20201022-subject-10/20201022_114241/841412060263|draw19000136",
+      "real": {
+        "points": 1165,
+        "nearest_anchor_mm": 3.64174485206604,
+        "median_mm": 3.6600966453552246,
+        "p90_mm": 5.062433242797852,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 410,
+        "nearest_anchor_mm": 4.734374046325684,
+        "median_mm": 4.286904811859131,
+        "p90_mm": 8.396896362304688,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000144,
+      "stream": "20200820-subject-03/20200820_142319/932122062010|draw19000144",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 10.20687484741211,
+        "median_mm": 10.265606880187988,
+        "p90_mm": 14.066352844238281,
+        "fraction_gt20mm": 0.0009765625
+      },
+      "proxy": {
+        "points": 503,
+        "nearest_anchor_mm": 9.503561019897461,
+        "median_mm": 9.908785820007324,
+        "p90_mm": 13.0026273727417,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 937,
+        "nearest_anchor_mm": 9.575546264648438,
+        "median_mm": 9.465690612792969,
+        "p90_mm": 13.390215873718262,
+        "fraction_gt20mm": 0.0202774815261364
+      }
+    },
+    {
+      "seed": 19000152,
+      "stream": "20201002-subject-08/20201002_105708/932122061900|draw19000152",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.462481498718262,
+        "median_mm": 8.344921112060547,
+        "p90_mm": 11.825553894042969,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 985,
+        "nearest_anchor_mm": 7.993723392486572,
+        "median_mm": 7.566947937011719,
+        "p90_mm": 10.753678321838379,
+        "fraction_gt20mm": 0.023350253701210022
+      }
+    },
+    {
+      "seed": 19000160,
+      "stream": "20201002-subject-08/20201002_113100/836212060125|draw19000160",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 3.8752353191375732,
+        "median_mm": 3.9453179836273193,
+        "p90_mm": 5.594859600067139,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1591,
+        "nearest_anchor_mm": 4.370394229888916,
+        "median_mm": 4.029977321624756,
+        "p90_mm": 7.194947242736816,
+        "fraction_gt20mm": 0.0006285355193540454
+      }
+    },
+    {
+      "seed": 19000168,
+      "stream": "20201015-subject-09/20201015_142724/841412060263|draw19000168",
+      "real": {
+        "points": 38,
+        "nearest_anchor_mm": 10.252586364746094,
+        "median_mm": 10.108495712280273,
+        "p90_mm": 11.39236068725586,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 306,
+        "nearest_anchor_mm": 6.135935306549072,
+        "median_mm": 6.250174522399902,
+        "p90_mm": 9.274700164794922,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 2048,
+        "nearest_anchor_mm": 11.629254341125488,
+        "median_mm": 11.776168823242188,
+        "p90_mm": 14.874075889587402,
+        "fraction_gt20mm": 0.01953125
+      }
+    },
+    {
+      "seed": 19000176,
+      "stream": "20201015-subject-09/20201015_144902/841412060263|draw19000176",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.8683624267578125,
+        "median_mm": 4.774655818939209,
+        "p90_mm": 6.8971123695373535,
+        "fraction_gt20mm": 0.00146484375
+      },
+      "proxy": {
+        "points": 526,
+        "nearest_anchor_mm": 4.455933094024658,
+        "median_mm": 4.6187567710876465,
+        "p90_mm": 6.6859846115112305,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 871,
+        "nearest_anchor_mm": 15.90916633605957,
+        "median_mm": 5.929192543029785,
+        "p90_mm": 56.66399002075195,
+        "fraction_gt20mm": 0.1974741667509079
+      }
+    },
+    {
+      "seed": 19000184,
+      "stream": "20200903-subject-04/20200903_104655/932122060861|draw19000184",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.011241912841797,
+        "median_mm": 6.0954766273498535,
+        "p90_mm": 8.454692840576172,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 914,
+        "nearest_anchor_mm": 5.9832563400268555,
+        "median_mm": 6.123906135559082,
+        "p90_mm": 8.067476272583008,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000192,
+      "stream": "20200908-subject-05/20200908_143353/836212060125|draw19000192",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.35213041305542,
+        "median_mm": 6.396698951721191,
+        "p90_mm": 9.186483383178711,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1370,
+        "nearest_anchor_mm": 6.551780700683594,
+        "median_mm": 6.575948715209961,
+        "p90_mm": 9.345643997192383,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000200,
+      "stream": "20200918-subject-06/20200918_121129/932122060857|draw19000200",
+      "real": {
+        "points": 1745,
+        "nearest_anchor_mm": 6.425200462341309,
+        "median_mm": 6.317139625549316,
+        "p90_mm": 9.300985336303711,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 843,
+        "nearest_anchor_mm": 8.544600486755371,
+        "median_mm": 6.8704833984375,
+        "p90_mm": 17.33753776550293,
+        "fraction_gt20mm": 0.06642942130565643
+      }
+    },
+    {
+      "seed": 19000208,
+      "stream": "20201002-subject-08/20201002_105203/932122060857|draw19000208",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.5975165367126465,
+        "median_mm": 6.715621471405029,
+        "p90_mm": 8.841165542602539,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 745,
+        "nearest_anchor_mm": 6.101256370544434,
+        "median_mm": 6.165287017822266,
+        "p90_mm": 8.79296875,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000216,
+      "stream": "20200820-subject-03/20200820_135400/841412060263|draw19000216",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 17.506208419799805,
+        "median_mm": 10.761276245117188,
+        "p90_mm": 47.40635299682617,
+        "fraction_gt20mm": 0.19384765625
+      },
+      "proxy": {
+        "points": 1606,
+        "nearest_anchor_mm": 6.2413177490234375,
+        "median_mm": 6.337876319885254,
+        "p90_mm": 9.386316299438477,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 929,
+        "nearest_anchor_mm": 31.47281837463379,
+        "median_mm": 14.231765747070312,
+        "p90_mm": 77.61748504638672,
+        "fraction_gt20mm": 0.4445640444755554
+      }
+    },
+    {
+      "seed": 19000224,
+      "stream": "20200820-subject-03/20200820_144515/840412060917|draw19000224",
+      "real": {
+        "points": 1200,
+        "nearest_anchor_mm": 5.496459484100342,
+        "median_mm": 3.922800064086914,
+        "p90_mm": 7.9422383308410645,
+        "fraction_gt20mm": 0.032499998807907104
+      },
+      "proxy": null,
+      "visible": {
+        "points": 535,
+        "nearest_anchor_mm": 4.707437515258789,
+        "median_mm": 3.095707416534424,
+        "p90_mm": 5.046729564666748,
+        "fraction_gt20mm": 0.018691588193178177
+      }
+    },
+    {
+      "seed": 19000232,
+      "stream": "20200908-subject-05/20200908_152338/932122062010|draw19000232",
+      "real": {
+        "points": 1734,
+        "nearest_anchor_mm": 6.671704292297363,
+        "median_mm": 6.327204704284668,
+        "p90_mm": 9.921545028686523,
+        "fraction_gt20mm": 0.005767012480646372
+      },
+      "proxy": null,
+      "visible": {
+        "points": 642,
+        "nearest_anchor_mm": 9.020143508911133,
+        "median_mm": 7.252967357635498,
+        "p90_mm": 16.251361846923828,
+        "fraction_gt20mm": 0.07009346038103104
+      }
+    },
+    {
+      "seed": 19000240,
+      "stream": "20200928-subject-07/20200928_155026/932122060857|draw19000240",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 10.829002380371094,
+        "median_mm": 10.98144245147705,
+        "p90_mm": 13.511731147766113,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 728,
+        "nearest_anchor_mm": 12.029644012451172,
+        "median_mm": 11.005941390991211,
+        "p90_mm": 13.639205932617188,
+        "fraction_gt20mm": 0.020604396238923073
+      }
+    },
+    {
+      "seed": 19000248,
+      "stream": "20201002-subject-08/20201002_112558/932122060861|draw19000248",
+      "real": {
+        "points": 1475,
+        "nearest_anchor_mm": 4.090662002563477,
+        "median_mm": 3.664501905441284,
+        "p90_mm": 6.827181816101074,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 509,
+        "nearest_anchor_mm": 6.252498626708984,
+        "median_mm": 6.025664806365967,
+        "p90_mm": 10.524763107299805,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000001,
+      "stream": "20200820-subject-03/20200820_142053/841412060263|draw19000001",
+      "real": {
+        "points": 2041,
+        "nearest_anchor_mm": 5.115309238433838,
+        "median_mm": 5.111534595489502,
+        "p90_mm": 7.291524410247803,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 515,
+        "nearest_anchor_mm": 4.830125331878662,
+        "median_mm": 4.81016731262207,
+        "p90_mm": 7.471836090087891,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000009,
+      "stream": "20200820-subject-03/20200820_143359/932122061900|draw19000009",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.071284770965576,
+        "median_mm": 6.926943778991699,
+        "p90_mm": 10.126508712768555,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1651,
+        "nearest_anchor_mm": 13.146749496459961,
+        "median_mm": 13.259098052978516,
+        "p90_mm": 18.93670654296875,
+        "fraction_gt20mm": 0.0339188352227211
+      }
+    },
+    {
+      "seed": 19000017,
+      "stream": "20200709-subject-01/20200709_145446/841412060263|draw19000017",
+      "real": {
+        "points": 335,
+        "nearest_anchor_mm": 5.595151424407959,
+        "median_mm": 5.056955337524414,
+        "p90_mm": 8.62256908416748,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 1654,
+        "nearest_anchor_mm": 3.576625347137451,
+        "median_mm": 3.610124111175537,
+        "p90_mm": 5.38792610168457,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 719,
+        "nearest_anchor_mm": 8.325882911682129,
+        "median_mm": 4.525217056274414,
+        "p90_mm": 25.2141056060791,
+        "fraction_gt20mm": 0.11961057037115097
+      }
+    },
+    {
+      "seed": 19000025,
+      "stream": "20201022-subject-10/20201022_113756/841412060263|draw19000025",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.853394985198975,
+        "median_mm": 6.908952713012695,
+        "p90_mm": 9.867290496826172,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 738,
+        "nearest_anchor_mm": 10.001777648925781,
+        "median_mm": 9.537762641906738,
+        "p90_mm": 13.453352928161621,
+        "fraction_gt20mm": 0.031165311112999916
+      }
+    },
+    {
+      "seed": 19000033,
+      "stream": "20200709-subject-01/20200709_143626/932122062010|draw19000033",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.9564104080200195,
+        "median_mm": 5.337701797485352,
+        "p90_mm": 9.376826286315918,
+        "fraction_gt20mm": 0.00732421875
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1953,
+        "nearest_anchor_mm": 5.149959564208984,
+        "median_mm": 5.221163272857666,
+        "p90_mm": 6.980586051940918,
+        "fraction_gt20mm": 0.002048131078481674
+      }
+    },
+    {
+      "seed": 19000041,
+      "stream": "20200903-subject-04/20200903_110009/932122062010|draw19000041",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.34051513671875,
+        "median_mm": 8.150386810302734,
+        "p90_mm": 12.280658721923828,
+        "fraction_gt20mm": 0.001953125
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1511,
+        "nearest_anchor_mm": 12.549162864685059,
+        "median_mm": 5.4669928550720215,
+        "p90_mm": 34.526519775390625,
+        "fraction_gt20mm": 0.1257445365190506
+      }
+    },
+    {
+      "seed": 19000049,
+      "stream": "20200813-subject-02/20200813_150150/836212060125|draw19000049",
+      "real": {
+        "points": 1488,
+        "nearest_anchor_mm": 6.142440319061279,
+        "median_mm": 6.2318644523620605,
+        "p90_mm": 8.590895652770996,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 494,
+        "nearest_anchor_mm": 5.555449962615967,
+        "median_mm": 5.323890209197998,
+        "p90_mm": 7.583132266998291,
+        "fraction_gt20mm": 0.010121457278728485
+      }
+    },
+    {
+      "seed": 19000057,
+      "stream": "20201002-subject-08/20201002_111029/932122061900|draw19000057",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 11.458456993103027,
+        "median_mm": 11.561628341674805,
+        "p90_mm": 15.156877517700195,
+        "fraction_gt20mm": 0.00048828125
+      },
+      "proxy": null,
+      "visible": {
+        "points": 944,
+        "nearest_anchor_mm": 10.456969261169434,
+        "median_mm": 10.031455039978027,
+        "p90_mm": 13.611260414123535,
+        "fraction_gt20mm": 0.024364406242966652
+      }
+    },
+    {
+      "seed": 19000065,
+      "stream": "20200813-subject-02/20200813_150714/932122062010|draw19000065",
+      "real": {
+        "points": 1567,
+        "nearest_anchor_mm": 6.8729023933410645,
+        "median_mm": 7.013591289520264,
+        "p90_mm": 9.03700065612793,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 317,
+        "nearest_anchor_mm": 4.996804714202881,
+        "median_mm": 5.22435188293457,
+        "p90_mm": 7.400192737579346,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 708,
+        "nearest_anchor_mm": 7.543610095977783,
+        "median_mm": 7.480218887329102,
+        "p90_mm": 10.664765357971191,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000073,
+      "stream": "20201022-subject-10/20201022_114045/932122061900|draw19000073",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 11.413723945617676,
+        "median_mm": 11.420945167541504,
+        "p90_mm": 14.298896789550781,
+        "fraction_gt20mm": 0.0009765625
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1199,
+        "nearest_anchor_mm": 11.7578763961792,
+        "median_mm": 9.726655960083008,
+        "p90_mm": 13.464356422424316,
+        "fraction_gt20mm": 0.056713927537202835
+      }
+    },
+    {
+      "seed": 19000081,
+      "stream": "20200918-subject-06/20200918_114548/932122060857|draw19000081",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.836851119995117,
+        "median_mm": 7.043278217315674,
+        "p90_mm": 9.842435836791992,
+        "fraction_gt20mm": 0.00341796875
+      },
+      "proxy": null,
+      "visible": {
+        "points": 945,
+        "nearest_anchor_mm": 8.376179695129395,
+        "median_mm": 5.387137413024902,
+        "p90_mm": 22.510704040527344,
+        "fraction_gt20mm": 0.11428571492433548
+      }
+    },
+    {
+      "seed": 19000089,
+      "stream": "20201002-subject-08/20201002_110017/932122060861|draw19000089",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.124015808105469,
+        "median_mm": 7.343062877655029,
+        "p90_mm": 13.234626770019531,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 918,
+        "nearest_anchor_mm": 9.433272361755371,
+        "median_mm": 7.057994842529297,
+        "p90_mm": 17.51514434814453,
+        "fraction_gt20mm": 0.08061002194881439
+      }
+    },
+    {
+      "seed": 19000097,
+      "stream": "20201002-subject-08/20201002_111710/932122060861|draw19000097",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.952178955078125,
+        "median_mm": 7.375136375427246,
+        "p90_mm": 12.42834758758545,
+        "fraction_gt20mm": 0.0107421875
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1641,
+        "nearest_anchor_mm": 9.180708885192871,
+        "median_mm": 6.996539115905762,
+        "p90_mm": 15.897711753845215,
+        "fraction_gt20mm": 0.0895795226097107
+      }
+    },
+    {
+      "seed": 19000105,
+      "stream": "20200709-subject-01/20200709_145038/932122060861|draw19000105",
+      "real": {
+        "points": 369,
+        "nearest_anchor_mm": 7.295304298400879,
+        "median_mm": 7.353561878204346,
+        "p90_mm": 8.981477737426758,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 112,
+        "nearest_anchor_mm": 5.336000919342041,
+        "median_mm": 5.188584804534912,
+        "p90_mm": 7.900853157043457,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000113,
+      "stream": "20201022-subject-10/20201022_112510/932122060857|draw19000113",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.398735046386719,
+        "median_mm": 6.41671895980835,
+        "p90_mm": 8.871149063110352,
+        "fraction_gt20mm": 0.00390625
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1060,
+        "nearest_anchor_mm": 10.428500175476074,
+        "median_mm": 6.589441299438477,
+        "p90_mm": 24.861263275146484,
+        "fraction_gt20mm": 0.15754717588424683
+      }
+    },
+    {
+      "seed": 19000121,
+      "stream": "20201022-subject-10/20201022_112447/932122061900|draw19000121",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.274335861206055,
+        "median_mm": 8.015909194946289,
+        "p90_mm": 13.366436004638672,
+        "fraction_gt20mm": 0.03125
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1240,
+        "nearest_anchor_mm": 9.150825500488281,
+        "median_mm": 8.733546257019043,
+        "p90_mm": 14.618972778320312,
+        "fraction_gt20mm": 0.003225806402042508
+      }
+    },
+    {
+      "seed": 19000129,
+      "stream": "20201015-subject-09/20201015_150506/932122062010|draw19000129",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 17.193523406982422,
+        "median_mm": 13.431609153747559,
+        "p90_mm": 26.7681827545166,
+        "fraction_gt20mm": 0.3232421875
+      },
+      "proxy": {
+        "points": 154,
+        "nearest_anchor_mm": 7.4293718338012695,
+        "median_mm": 7.756294250488281,
+        "p90_mm": 10.995278358459473,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 947,
+        "nearest_anchor_mm": 18.858291625976562,
+        "median_mm": 11.052957534790039,
+        "p90_mm": 67.04318237304688,
+        "fraction_gt20mm": 0.12988384068012238
+      }
+    },
+    {
+      "seed": 19000137,
+      "stream": "20200918-subject-06/20200918_120016/841412060263|draw19000137",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 10.474512100219727,
+        "median_mm": 10.123187065124512,
+        "p90_mm": 13.869976997375488,
+        "fraction_gt20mm": 0.0068359375
+      },
+      "proxy": {
+        "points": 35,
+        "nearest_anchor_mm": 6.516870021820068,
+        "median_mm": 6.619885444641113,
+        "p90_mm": 7.930070877075195,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1614,
+        "nearest_anchor_mm": 9.101101875305176,
+        "median_mm": 9.065576553344727,
+        "p90_mm": 12.818482398986816,
+        "fraction_gt20mm": 0.00495662959292531
+      }
+    },
+    {
+      "seed": 19000145,
+      "stream": "20201002-subject-08/20201002_105035/932122060861|draw19000145",
+      "real": {
+        "points": 1999,
+        "nearest_anchor_mm": 12.53262996673584,
+        "median_mm": 12.590554237365723,
+        "p90_mm": 15.534101486206055,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 730,
+        "nearest_anchor_mm": 14.702798843383789,
+        "median_mm": 10.160293579101562,
+        "p90_mm": 15.701617240905762,
+        "fraction_gt20mm": 0.05890411138534546
+      }
+    },
+    {
+      "seed": 19000153,
+      "stream": "20200820-subject-03/20200820_142909/932122062010|draw19000153",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.100063800811768,
+        "median_mm": 6.452411651611328,
+        "p90_mm": 9.961945533752441,
+        "fraction_gt20mm": 0.0166015625
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1526,
+        "nearest_anchor_mm": 13.494674682617188,
+        "median_mm": 8.977946281433105,
+        "p90_mm": 26.839401245117188,
+        "fraction_gt20mm": 0.12844036519527435
+      }
+    },
+    {
+      "seed": 19000161,
+      "stream": "20200820-subject-03/20200820_142608/841412060263|draw19000161",
+      "real": {
+        "points": 1956,
+        "nearest_anchor_mm": 7.404333114624023,
+        "median_mm": 7.43796968460083,
+        "p90_mm": 10.355195045471191,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 448,
+        "nearest_anchor_mm": 6.840418338775635,
+        "median_mm": 6.938358783721924,
+        "p90_mm": 9.709266662597656,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000169,
+      "stream": "20200709-subject-01/20200709_150949/839512060362|draw19000169",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.972825050354004,
+        "median_mm": 5.074489593505859,
+        "p90_mm": 7.1525349617004395,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1101,
+        "nearest_anchor_mm": 5.515530586242676,
+        "median_mm": 5.606984615325928,
+        "p90_mm": 7.635433197021484,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000177,
+      "stream": "20201002-subject-08/20201002_112207/839512060362|draw19000177",
+      "real": {
+        "points": 1724,
+        "nearest_anchor_mm": 7.361604690551758,
+        "median_mm": 7.342893123626709,
+        "p90_mm": 10.93564224243164,
+        "fraction_gt20mm": 0.002900232095271349
+      },
+      "proxy": {
+        "points": 1510,
+        "nearest_anchor_mm": 7.17292594909668,
+        "median_mm": 7.281846046447754,
+        "p90_mm": 10.767772674560547,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1326,
+        "nearest_anchor_mm": 8.75209903717041,
+        "median_mm": 8.277807235717773,
+        "p90_mm": 12.182971954345703,
+        "fraction_gt20mm": 0.022624434903264046
+      }
+    },
+    {
+      "seed": 19000185,
+      "stream": "20200709-subject-01/20200709_143747/932122061900|draw19000185",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.59738540649414,
+        "median_mm": 6.108570575714111,
+        "p90_mm": 19.883699417114258,
+        "fraction_gt20mm": 0.09912109375
+      },
+      "proxy": {
+        "points": 1403,
+        "nearest_anchor_mm": 3.404240131378174,
+        "median_mm": 3.461369276046753,
+        "p90_mm": 5.073253154754639,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1820,
+        "nearest_anchor_mm": 6.053328514099121,
+        "median_mm": 5.847851753234863,
+        "p90_mm": 9.454914093017578,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000193,
+      "stream": "20201002-subject-08/20201002_110545/932122062010|draw19000193",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.0040998458862305,
+        "median_mm": 6.081123352050781,
+        "p90_mm": 8.019292831420898,
+        "fraction_gt20mm": 0.00048828125
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1900,
+        "nearest_anchor_mm": 5.137365341186523,
+        "median_mm": 5.155515670776367,
+        "p90_mm": 7.104642391204834,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000201,
+      "stream": "20201015-subject-09/20201015_151610/932122061900|draw19000201",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.174630165100098,
+        "median_mm": 5.924795150756836,
+        "p90_mm": 13.290928840637207,
+        "fraction_gt20mm": 0.005859375
+      },
+      "proxy": {
+        "points": 1321,
+        "nearest_anchor_mm": 3.4650185108184814,
+        "median_mm": 3.5513064861297607,
+        "p90_mm": 5.125813961029053,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 195,
+        "nearest_anchor_mm": 6.836494445800781,
+        "median_mm": 5.713620185852051,
+        "p90_mm": 12.406135559082031,
+        "fraction_gt20mm": 0.03076923079788685
+      }
+    },
+    {
+      "seed": 19000209,
+      "stream": "20200813-subject-02/20200813_152107/932122062010|draw19000209",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.9306440353393555,
+        "median_mm": 5.646971225738525,
+        "p90_mm": 9.24074935913086,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 1423,
+        "nearest_anchor_mm": 3.5952446460723877,
+        "median_mm": 3.700198173522949,
+        "p90_mm": 5.30598258972168,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 540,
+        "nearest_anchor_mm": 10.308484077453613,
+        "median_mm": 9.787308692932129,
+        "p90_mm": 16.32305335998535,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000217,
+      "stream": "20201015-subject-09/20201015_143755/932122061900|draw19000217",
+      "real": {
+        "points": 1365,
+        "nearest_anchor_mm": 8.774103164672852,
+        "median_mm": 8.65396785736084,
+        "p90_mm": 11.698352813720703,
+        "fraction_gt20mm": 0.002197802299633622
+      },
+      "proxy": {
+        "points": 675,
+        "nearest_anchor_mm": 5.146014213562012,
+        "median_mm": 5.150390625,
+        "p90_mm": 8.025776863098145,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1061,
+        "nearest_anchor_mm": 7.648975849151611,
+        "median_mm": 6.9199724197387695,
+        "p90_mm": 11.243416786193848,
+        "fraction_gt20mm": 0.019792648032307625
+      }
+    },
+    {
+      "seed": 19000225,
+      "stream": "20201015-subject-09/20201015_144747/836212060125|draw19000225",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.106596946716309,
+        "median_mm": 5.194629669189453,
+        "p90_mm": 7.187790870666504,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1862,
+        "nearest_anchor_mm": 5.445660591125488,
+        "median_mm": 5.456806659698486,
+        "p90_mm": 7.475394248962402,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000233,
+      "stream": "20200918-subject-06/20200918_114346/932122062010|draw19000233",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.639654636383057,
+        "median_mm": 4.739681720733643,
+        "p90_mm": 6.582943439483643,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 50,
+        "nearest_anchor_mm": 3.6481332778930664,
+        "median_mm": 3.586663246154785,
+        "p90_mm": 5.528825283050537,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1050,
+        "nearest_anchor_mm": 5.102431774139404,
+        "median_mm": 5.005400657653809,
+        "p90_mm": 6.870375156402588,
+        "fraction_gt20mm": 0.0028571428265422583
+      }
+    },
+    {
+      "seed": 19000241,
+      "stream": "20201022-subject-10/20201022_111832/836212060125|draw19000241",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.105869293212891,
+        "median_mm": 3.9621424674987793,
+        "p90_mm": 6.3802490234375,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1403,
+        "nearest_anchor_mm": 4.068657875061035,
+        "median_mm": 4.104526519775391,
+        "p90_mm": 5.761683940887451,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000249,
+      "stream": "20201015-subject-09/20201015_143145/836212060125|draw19000249",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 12.419832229614258,
+        "median_mm": 11.747243881225586,
+        "p90_mm": 19.907670974731445,
+        "fraction_gt20mm": 0.09619140625
+      },
+      "proxy": {
+        "points": 335,
+        "nearest_anchor_mm": 8.322673797607422,
+        "median_mm": 8.504252433776855,
+        "p90_mm": 12.390713691711426,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1439,
+        "nearest_anchor_mm": 8.419635772705078,
+        "median_mm": 8.495986938476562,
+        "p90_mm": 12.36151123046875,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000002,
+      "stream": "20200903-subject-04/20200903_112902/932122061900|draw19000002",
+      "real": {
+        "points": 10,
+        "nearest_anchor_mm": 9.114392280578613,
+        "median_mm": 9.127446174621582,
+        "p90_mm": 10.085148811340332,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 2048,
+        "nearest_anchor_mm": 11.119634628295898,
+        "median_mm": 10.79964828491211,
+        "p90_mm": 13.904226303100586,
+        "fraction_gt20mm": 0.00537109375
+      }
+    },
+    {
+      "seed": 19000010,
+      "stream": "20200709-subject-01/20200709_152541/840412060917|draw19000010",
+      "real": {
+        "points": 1333,
+        "nearest_anchor_mm": 5.193729877471924,
+        "median_mm": 4.8057403564453125,
+        "p90_mm": 7.542471885681152,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 459,
+        "nearest_anchor_mm": 3.1673953533172607,
+        "median_mm": 2.835137367248535,
+        "p90_mm": 5.126089096069336,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000018,
+      "stream": "20200820-subject-03/20200820_143850/932122062010|draw19000018",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.9690470695495605,
+        "median_mm": 8.014841079711914,
+        "p90_mm": 11.238940238952637,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 715,
+        "nearest_anchor_mm": 7.057094097137451,
+        "median_mm": 7.206236362457275,
+        "p90_mm": 10.678287506103516,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 987,
+        "nearest_anchor_mm": 15.974495887756348,
+        "median_mm": 7.567892551422119,
+        "p90_mm": 11.740991592407227,
+        "fraction_gt20mm": 0.08308003842830658
+      }
+    },
+    {
+      "seed": 19000026,
+      "stream": "20200813-subject-02/20200813_151204/932122060857|draw19000026",
+      "real": null,
+      "proxy": {
+        "points": 1815,
+        "nearest_anchor_mm": 4.254765510559082,
+        "median_mm": 4.413822650909424,
+        "p90_mm": 6.27944803237915,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 80,
+        "nearest_anchor_mm": 26.129837036132812,
+        "median_mm": 19.056657791137695,
+        "p90_mm": 64.58566284179688,
+        "fraction_gt20mm": 0.48750001192092896
+      }
+    },
+    {
+      "seed": 19000034,
+      "stream": "20201015-subject-09/20201015_143524/932122062010|draw19000034",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.261438369750977,
+        "median_mm": 8.513509750366211,
+        "p90_mm": 14.434722900390625,
+        "fraction_gt20mm": 0.00390625
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1265,
+        "nearest_anchor_mm": 6.70444917678833,
+        "median_mm": 5.968541622161865,
+        "p90_mm": 10.73411750793457,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000042,
+      "stream": "20200813-subject-02/20200813_155058/932122062010|draw19000042",
+      "real": {
+        "points": 1185,
+        "nearest_anchor_mm": 6.306746482849121,
+        "median_mm": 4.3534321784973145,
+        "p90_mm": 8.1209716796875,
+        "fraction_gt20mm": 0.03628692030906677
+      },
+      "proxy": null,
+      "visible": {
+        "points": 470,
+        "nearest_anchor_mm": 3.836514711380005,
+        "median_mm": 3.4788880348205566,
+        "p90_mm": 6.577670574188232,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000050,
+      "stream": "20200813-subject-02/20200813_150308/840412060917|draw19000050",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.471083164215088,
+        "median_mm": 5.77955436706543,
+        "p90_mm": 14.0302734375,
+        "fraction_gt20mm": 0.05126953125
+      },
+      "proxy": {
+        "points": 743,
+        "nearest_anchor_mm": 4.1549553871154785,
+        "median_mm": 4.264035701751709,
+        "p90_mm": 6.175144672393799,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1720,
+        "nearest_anchor_mm": 5.819443702697754,
+        "median_mm": 5.044549942016602,
+        "p90_mm": 7.571990489959717,
+        "fraction_gt20mm": 0.018023256212472916
+      }
+    },
+    {
+      "seed": 19000058,
+      "stream": "20200908-subject-05/20200908_152451/839512060362|draw19000058",
+      "real": {
+        "points": 997,
+        "nearest_anchor_mm": 7.0017242431640625,
+        "median_mm": 6.4071455001831055,
+        "p90_mm": 10.92245101928711,
+        "fraction_gt20mm": 0.0030090271029621363
+      },
+      "proxy": {
+        "points": 602,
+        "nearest_anchor_mm": 5.001387119293213,
+        "median_mm": 5.087100505828857,
+        "p90_mm": 7.413998126983643,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": null
+    },
+    {
+      "seed": 19000066,
+      "stream": "20200903-subject-04/20200903_104010/932122061900|draw19000066",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.817801475524902,
+        "median_mm": 8.91382122039795,
+        "p90_mm": 12.608495712280273,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1373,
+        "nearest_anchor_mm": 10.209795951843262,
+        "median_mm": 10.368021965026855,
+        "p90_mm": 14.088147163391113,
+        "fraction_gt20mm": 0.0021849963814020157
+      }
+    },
+    {
+      "seed": 19000074,
+      "stream": "20200908-subject-05/20200908_150147/932122060861|draw19000074",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 11.106768608093262,
+        "median_mm": 11.14692497253418,
+        "p90_mm": 14.627618789672852,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1230,
+        "nearest_anchor_mm": 13.497916221618652,
+        "median_mm": 11.387293815612793,
+        "p90_mm": 17.381738662719727,
+        "fraction_gt20mm": 0.06585365533828735
+      }
+    },
+    {
+      "seed": 19000082,
+      "stream": "20201015-subject-09/20201015_150441/836212060125|draw19000082",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 11.712751388549805,
+        "median_mm": 8.6950101852417,
+        "p90_mm": 17.344816207885742,
+        "fraction_gt20mm": 0.091796875
+      },
+      "proxy": {
+        "points": 1153,
+        "nearest_anchor_mm": 7.305294036865234,
+        "median_mm": 7.498176574707031,
+        "p90_mm": 10.678216934204102,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1988,
+        "nearest_anchor_mm": 24.639379501342773,
+        "median_mm": 13.174722671508789,
+        "p90_mm": 62.75084686279297,
+        "fraction_gt20mm": 0.40744465589523315
+      }
+    },
+    {
+      "seed": 19000090,
+      "stream": "20200709-subject-01/20200709_143211/932122061900|draw19000090",
+      "real": {
+        "points": 18,
+        "nearest_anchor_mm": 6.717397212982178,
+        "median_mm": 6.251734256744385,
+        "p90_mm": 8.255967140197754,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.230989456176758,
+        "median_mm": 7.228355884552002,
+        "p90_mm": 10.16186237335205,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000098,
+      "stream": "20200813-subject-02/20200813_150608/932122060857|draw19000098",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.871634006500244,
+        "median_mm": 5.970251560211182,
+        "p90_mm": 8.087813377380371,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 683,
+        "nearest_anchor_mm": 8.508779525756836,
+        "median_mm": 5.8359174728393555,
+        "p90_mm": 9.03167724609375,
+        "fraction_gt20mm": 0.07759882509708405
+      }
+    },
+    {
+      "seed": 19000106,
+      "stream": "20200813-subject-02/20200813_145951/932122060857|draw19000106",
+      "real": {
+        "points": 310,
+        "nearest_anchor_mm": 9.470406532287598,
+        "median_mm": 8.434537887573242,
+        "p90_mm": 14.912506103515625,
+        "fraction_gt20mm": 0.05483870953321457
+      },
+      "proxy": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.41014289855957,
+        "median_mm": 5.552678108215332,
+        "p90_mm": 8.025476455688477,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 724,
+        "nearest_anchor_mm": 8.778687477111816,
+        "median_mm": 7.555591106414795,
+        "p90_mm": 9.261490821838379,
+        "fraction_gt20mm": 0.016574585810303688
+      }
+    },
+    {
+      "seed": 19000114,
+      "stream": "20201002-subject-08/20201002_112404/836212060125|draw19000114",
+      "real": {
+        "points": 793,
+        "nearest_anchor_mm": 5.121371746063232,
+        "median_mm": 4.504955768585205,
+        "p90_mm": 8.672459602355957,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 159,
+        "nearest_anchor_mm": 3.710125684738159,
+        "median_mm": 3.6832923889160156,
+        "p90_mm": 5.358933448791504,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000122,
+      "stream": "20201002-subject-08/20201002_112114/932122062010|draw19000122",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 10.161005020141602,
+        "median_mm": 10.24068546295166,
+        "p90_mm": 13.686995506286621,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 777,
+        "nearest_anchor_mm": 9.707600593566895,
+        "median_mm": 9.596382141113281,
+        "p90_mm": 12.855854034423828,
+        "fraction_gt20mm": 0.009009009227156639
+      }
+    },
+    {
+      "seed": 19000130,
+      "stream": "20200903-subject-04/20200903_104746/839512060362|draw19000130",
+      "real": {
+        "points": 1037,
+        "nearest_anchor_mm": 6.62913703918457,
+        "median_mm": 6.69545316696167,
+        "p90_mm": 8.895572662353516,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.18840217590332,
+        "median_mm": 5.297299861907959,
+        "p90_mm": 7.822175979614258,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1015,
+        "nearest_anchor_mm": 7.658271312713623,
+        "median_mm": 7.6132097244262695,
+        "p90_mm": 10.38640308380127,
+        "fraction_gt20mm": 0.001970443408936262
+      }
+    },
+    {
+      "seed": 19000138,
+      "stream": "20200918-subject-06/20200918_120239/932122061900|draw19000138",
+      "real": {
+        "points": 1754,
+        "nearest_anchor_mm": 7.745810031890869,
+        "median_mm": 7.812307834625244,
+        "p90_mm": 10.237354278564453,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 791,
+        "nearest_anchor_mm": 7.251097679138184,
+        "median_mm": 7.3850297927856445,
+        "p90_mm": 10.319931983947754,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000146,
+      "stream": "20201015-subject-09/20201015_143455/836212060125|draw19000146",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.339927673339844,
+        "median_mm": 5.156935214996338,
+        "p90_mm": 7.150677680969238,
+        "fraction_gt20mm": 0.0009765625
+      },
+      "proxy": {
+        "points": 86,
+        "nearest_anchor_mm": 4.992852687835693,
+        "median_mm": 5.171902656555176,
+        "p90_mm": 6.571706295013428,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 935,
+        "nearest_anchor_mm": 5.504629135131836,
+        "median_mm": 5.125559329986572,
+        "p90_mm": 7.544194221496582,
+        "fraction_gt20mm": 0.006417112424969673
+      }
+    },
+    {
+      "seed": 19000154,
+      "stream": "20200709-subject-01/20200709_151543/932122061900|draw19000154",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.18073558807373,
+        "median_mm": 9.175126075744629,
+        "p90_mm": 12.46827220916748,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 121,
+        "nearest_anchor_mm": 5.693661212921143,
+        "median_mm": 5.769240856170654,
+        "p90_mm": 8.118900299072266,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1074,
+        "nearest_anchor_mm": 9.417816162109375,
+        "median_mm": 8.394695281982422,
+        "p90_mm": 11.457139015197754,
+        "fraction_gt20mm": 0.03631284832954407
+      }
+    },
+    {
+      "seed": 19000162,
+      "stream": "20201002-subject-08/20201002_104719/841412060263|draw19000162",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.84446907043457,
+        "median_mm": 7.891650199890137,
+        "p90_mm": 10.701196670532227,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1385,
+        "nearest_anchor_mm": 7.419364929199219,
+        "median_mm": 7.267324447631836,
+        "p90_mm": 11.134786605834961,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000170,
+      "stream": "20200820-subject-03/20200820_142909/836212060125|draw19000170",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.9204936027526855,
+        "median_mm": 5.030857086181641,
+        "p90_mm": 7.098810195922852,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 949,
+        "nearest_anchor_mm": 6.3842644691467285,
+        "median_mm": 5.081314563751221,
+        "p90_mm": 7.437976837158203,
+        "fraction_gt20mm": 0.017913592979311943
+      }
+    },
+    {
+      "seed": 19000178,
+      "stream": "20201022-subject-10/20201022_114354/932122062010|draw19000178",
+      "real": {
+        "points": 1177,
+        "nearest_anchor_mm": 4.461050033569336,
+        "median_mm": 4.490108489990234,
+        "p90_mm": 6.494317531585693,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 324,
+        "nearest_anchor_mm": 3.5652201175689697,
+        "median_mm": 3.2426350116729736,
+        "p90_mm": 6.285589218139648,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000186,
+      "stream": "20200820-subject-03/20200820_140425/840412060917|draw19000186",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.702599048614502,
+        "median_mm": 6.8152241706848145,
+        "p90_mm": 9.404356956481934,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1044,
+        "nearest_anchor_mm": 7.689336776733398,
+        "median_mm": 6.793733596801758,
+        "p90_mm": 10.510101318359375,
+        "fraction_gt20mm": 0.04022988677024841
+      }
+    },
+    {
+      "seed": 19000194,
+      "stream": "20200918-subject-06/20200918_120154/932122060857|draw19000194",
+      "real": {
+        "points": 867,
+        "nearest_anchor_mm": 16.52802276611328,
+        "median_mm": 10.635066032409668,
+        "p90_mm": 15.377086639404297,
+        "fraction_gt20mm": 0.07151095569133759
+      },
+      "proxy": {
+        "points": 764,
+        "nearest_anchor_mm": 5.8145670890808105,
+        "median_mm": 5.923090934753418,
+        "p90_mm": 8.761771202087402,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 356,
+        "nearest_anchor_mm": 130.17247009277344,
+        "median_mm": 147.69314575195312,
+        "p90_mm": 163.1009063720703,
+        "fraction_gt20mm": 1.0
+      }
+    },
+    {
+      "seed": 19000202,
+      "stream": "20201002-subject-08/20201002_104945/840412060917|draw19000202",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.164458274841309,
+        "median_mm": 9.225265502929688,
+        "p90_mm": 13.238326072692871,
+        "fraction_gt20mm": 0.00146484375
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1629,
+        "nearest_anchor_mm": 10.747823715209961,
+        "median_mm": 9.535110473632812,
+        "p90_mm": 13.718138694763184,
+        "fraction_gt20mm": 0.04481276869773865
+      }
+    },
+    {
+      "seed": 19000210,
+      "stream": "20201002-subject-08/20201002_111059/932122062010|draw19000210",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 10.3460111618042,
+        "median_mm": 10.418462753295898,
+        "p90_mm": 13.861011505126953,
+        "fraction_gt20mm": 0.0009765625
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1310,
+        "nearest_anchor_mm": 10.538012504577637,
+        "median_mm": 10.291825294494629,
+        "p90_mm": 14.28487777709961,
+        "fraction_gt20mm": 0.005343511234968901
+      }
+    },
+    {
+      "seed": 19000218,
+      "stream": "20200813-subject-02/20200813_145653/836212060125|draw19000218",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.625852584838867,
+        "median_mm": 8.797842025756836,
+        "p90_mm": 12.324594497680664,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1736,
+        "nearest_anchor_mm": 8.940340042114258,
+        "median_mm": 8.945411682128906,
+        "p90_mm": 12.440851211547852,
+        "fraction_gt20mm": 0.0017281105974689126
+      }
+    },
+    {
+      "seed": 19000226,
+      "stream": "20200908-subject-05/20200908_151405/932122062010|draw19000226",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 10.359699249267578,
+        "median_mm": 10.452445030212402,
+        "p90_mm": 13.422821044921875,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1113,
+        "nearest_anchor_mm": 17.315641403198242,
+        "median_mm": 9.995933532714844,
+        "p90_mm": 26.214916229248047,
+        "fraction_gt20mm": 0.10422281920909882
+      }
+    },
+    {
+      "seed": 19000234,
+      "stream": "20200928-subject-07/20200928_144906/840412060917|draw19000234",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.281680583953857,
+        "median_mm": 5.981123924255371,
+        "p90_mm": 9.506427764892578,
+        "fraction_gt20mm": 0.00244140625
+      },
+      "proxy": {
+        "points": 163,
+        "nearest_anchor_mm": 4.2688212394714355,
+        "median_mm": 4.39994478225708,
+        "p90_mm": 6.146901607513428,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1482,
+        "nearest_anchor_mm": 5.409775733947754,
+        "median_mm": 5.416297912597656,
+        "p90_mm": 7.332585334777832,
+        "fraction_gt20mm": 0.0006747638108208776
+      }
+    },
+    {
+      "seed": 19000242,
+      "stream": "20200709-subject-01/20200709_151110/840412060917|draw19000242",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.79843282699585,
+        "median_mm": 6.099564075469971,
+        "p90_mm": 9.858516693115234,
+        "fraction_gt20mm": 0.05224609375
+      },
+      "proxy": {
+        "points": 852,
+        "nearest_anchor_mm": 4.943881511688232,
+        "median_mm": 5.0977630615234375,
+        "p90_mm": 7.365883827209473,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.610698699951172,
+        "median_mm": 5.838626384735107,
+        "p90_mm": 9.374671936035156,
+        "fraction_gt20mm": 0.0205078125
+      }
+    },
+    {
+      "seed": 19000250,
+      "stream": "20200928-subject-07/20200928_155937/932122060857|draw19000250",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.2186198234558105,
+        "median_mm": 6.941361904144287,
+        "p90_mm": 11.122138023376465,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1489,
+        "nearest_anchor_mm": 7.443303108215332,
+        "median_mm": 5.088142395019531,
+        "p90_mm": 15.993432998657227,
+        "fraction_gt20mm": 0.04633982479572296
+      }
+    },
+    {
+      "seed": 19000003,
+      "stream": "20200820-subject-03/20200820_135648/932122060861|draw19000003",
+      "real": {
+        "points": 735,
+        "nearest_anchor_mm": 13.296396255493164,
+        "median_mm": 13.66878604888916,
+        "p90_mm": 16.66321563720703,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 1225,
+        "nearest_anchor_mm": 8.029587745666504,
+        "median_mm": 8.150885581970215,
+        "p90_mm": 12.05239200592041,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 372,
+        "nearest_anchor_mm": 11.948838233947754,
+        "median_mm": 11.937223434448242,
+        "p90_mm": 16.0465087890625,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000011,
+      "stream": "20200908-subject-05/20200908_144740/932122060861|draw19000011",
+      "real": {
+        "points": 751,
+        "nearest_anchor_mm": 6.516654014587402,
+        "median_mm": 6.65247917175293,
+        "p90_mm": 9.360492706298828,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1404,
+        "nearest_anchor_mm": 7.768515586853027,
+        "median_mm": 6.5379204750061035,
+        "p90_mm": 12.58228874206543,
+        "fraction_gt20mm": 0.04415954276919365
+      }
+    },
+    {
+      "seed": 19000019,
+      "stream": "20200908-subject-05/20200908_151724/932122061900|draw19000019",
+      "real": {
+        "points": 782,
+        "nearest_anchor_mm": 6.844207763671875,
+        "median_mm": 4.4321417808532715,
+        "p90_mm": 14.687893867492676,
+        "fraction_gt20mm": 0.03069053776562214
+      },
+      "proxy": null,
+      "visible": {
+        "points": 420,
+        "nearest_anchor_mm": 16.455692291259766,
+        "median_mm": 16.3294677734375,
+        "p90_mm": 25.063798904418945,
+        "fraction_gt20mm": 0.2857142984867096
+      }
+    },
+    {
+      "seed": 19000027,
+      "stream": "20200928-subject-07/20200928_144226/932122061900|draw19000027",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.964264869689941,
+        "median_mm": 9.677962303161621,
+        "p90_mm": 14.245854377746582,
+        "fraction_gt20mm": 0.0029296875
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1038,
+        "nearest_anchor_mm": 18.911909103393555,
+        "median_mm": 8.959125518798828,
+        "p90_mm": 70.15906524658203,
+        "fraction_gt20mm": 0.16859345138072968
+      }
+    },
+    {
+      "seed": 19000035,
+      "stream": "20200908-subject-05/20200908_150406/840412060917|draw19000035",
+      "real": {
+        "points": 1960,
+        "nearest_anchor_mm": 7.615512371063232,
+        "median_mm": 7.784919261932373,
+        "p90_mm": 10.556134223937988,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 140,
+        "nearest_anchor_mm": 6.835655212402344,
+        "median_mm": 7.011980056762695,
+        "p90_mm": 10.47658920288086,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 727,
+        "nearest_anchor_mm": 7.139748573303223,
+        "median_mm": 6.6071271896362305,
+        "p90_mm": 9.648541450500488,
+        "fraction_gt20mm": 0.01925722137093544
+      }
+    },
+    {
+      "seed": 19000043,
+      "stream": "20200709-subject-01/20200709_145837/836212060125|draw19000043",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.901937484741211,
+        "median_mm": 9.051348686218262,
+        "p90_mm": 12.917145729064941,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 86,
+        "nearest_anchor_mm": 9.491317749023438,
+        "median_mm": 10.054790496826172,
+        "p90_mm": 12.396480560302734,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1201,
+        "nearest_anchor_mm": 9.117085456848145,
+        "median_mm": 9.162008285522461,
+        "p90_mm": 13.419533729553223,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000051,
+      "stream": "20200820-subject-03/20200820_144829/839512060362|draw19000051",
+      "real": {
+        "points": 816,
+        "nearest_anchor_mm": 5.941105365753174,
+        "median_mm": 6.083571910858154,
+        "p90_mm": 8.025809288024902,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 138,
+        "nearest_anchor_mm": 5.168182849884033,
+        "median_mm": 5.172731399536133,
+        "p90_mm": 7.044588565826416,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000059,
+      "stream": "20200908-subject-05/20200908_150929/932122061900|draw19000059",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.070103645324707,
+        "median_mm": 8.275982856750488,
+        "p90_mm": 12.069244384765625,
+        "fraction_gt20mm": 0.03564453125
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1123,
+        "nearest_anchor_mm": 17.276473999023438,
+        "median_mm": 11.228181838989258,
+        "p90_mm": 36.55862045288086,
+        "fraction_gt20mm": 0.14870882034301758
+      }
+    },
+    {
+      "seed": 19000067,
+      "stream": "20200709-subject-01/20200709_142553/841412060263|draw19000067",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.397963523864746,
+        "median_mm": 6.410994052886963,
+        "p90_mm": 9.053607940673828,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1462,
+        "nearest_anchor_mm": 5.832845687866211,
+        "median_mm": 5.903315544128418,
+        "p90_mm": 8.248893737792969,
+        "fraction_gt20mm": 0.000683994556311518
+      }
+    },
+    {
+      "seed": 19000075,
+      "stream": "20201022-subject-10/20201022_114623/836212060125|draw19000075",
+      "real": {
+        "points": 905,
+        "nearest_anchor_mm": 5.728302001953125,
+        "median_mm": 5.814988136291504,
+        "p90_mm": 7.776627540588379,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 306,
+        "nearest_anchor_mm": 6.664728164672852,
+        "median_mm": 5.758524417877197,
+        "p90_mm": 9.476863861083984,
+        "fraction_gt20mm": 0.029411764815449715
+      }
+    },
+    {
+      "seed": 19000083,
+      "stream": "20201002-subject-08/20201002_110741/839512060362|draw19000083",
+      "real": {
+        "points": 1195,
+        "nearest_anchor_mm": 4.129002094268799,
+        "median_mm": 4.185325622558594,
+        "p90_mm": 5.804793357849121,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 492,
+        "nearest_anchor_mm": 4.875572681427002,
+        "median_mm": 4.64323091506958,
+        "p90_mm": 7.11025857925415,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000091,
+      "stream": "20200903-subject-04/20200903_104655/839512060362|draw19000091",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.999266624450684,
+        "median_mm": 6.071509838104248,
+        "p90_mm": 8.443326950073242,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 411,
+        "nearest_anchor_mm": 8.624686241149902,
+        "median_mm": 8.529853820800781,
+        "p90_mm": 11.266183853149414,
+        "fraction_gt20mm": 0.007299270015209913
+      }
+    },
+    {
+      "seed": 19000099,
+      "stream": "20200918-subject-06/20200918_112947/840412060917|draw19000099",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.606065273284912,
+        "median_mm": 6.697393894195557,
+        "p90_mm": 9.481223106384277,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1531,
+        "nearest_anchor_mm": 6.6231513023376465,
+        "median_mm": 6.767344951629639,
+        "p90_mm": 9.310983657836914,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000107,
+      "stream": "20201015-subject-09/20201015_143700/932122061900|draw19000107",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.099672317504883,
+        "median_mm": 8.262566566467285,
+        "p90_mm": 10.927995681762695,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 11,
+        "nearest_anchor_mm": 6.818416118621826,
+        "median_mm": 6.877076625823975,
+        "p90_mm": 7.512787818908691,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 791,
+        "nearest_anchor_mm": 8.642860412597656,
+        "median_mm": 7.359078407287598,
+        "p90_mm": 10.542205810546875,
+        "fraction_gt20mm": 0.015170670114457607
+      }
+    },
+    {
+      "seed": 19000115,
+      "stream": "20201022-subject-10/20201022_114133/932122062010|draw19000115",
+      "real": {
+        "points": 1469,
+        "nearest_anchor_mm": 5.258365631103516,
+        "median_mm": 4.49885368347168,
+        "p90_mm": 9.33542251586914,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 873,
+        "nearest_anchor_mm": 11.134922981262207,
+        "median_mm": 9.742083549499512,
+        "p90_mm": 21.34303855895996,
+        "fraction_gt20mm": 0.14432989060878754
+      }
+    },
+    {
+      "seed": 19000123,
+      "stream": "20201002-subject-08/20201002_104859/840412060917|draw19000123",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 11.518244743347168,
+        "median_mm": 11.682875633239746,
+        "p90_mm": 15.662527084350586,
+        "fraction_gt20mm": 0.001953125
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1656,
+        "nearest_anchor_mm": 9.796582221984863,
+        "median_mm": 10.070478439331055,
+        "p90_mm": 13.098535537719727,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000131,
+      "stream": "20201022-subject-10/20201022_112907/932122062010|draw19000131",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.211238861083984,
+        "median_mm": 9.237506866455078,
+        "p90_mm": 13.258208274841309,
+        "fraction_gt20mm": 0.001953125
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1104,
+        "nearest_anchor_mm": 9.596348762512207,
+        "median_mm": 9.503101348876953,
+        "p90_mm": 13.772826194763184,
+        "fraction_gt20mm": 0.0036231884732842445
+      }
+    },
+    {
+      "seed": 19000139,
+      "stream": "20200908-subject-05/20200908_143508/932122061900|draw19000139",
+      "real": {
+        "points": 1165,
+        "nearest_anchor_mm": 7.909873962402344,
+        "median_mm": 7.809381008148193,
+        "p90_mm": 11.110652923583984,
+        "fraction_gt20mm": 0.001716738217510283
+      },
+      "proxy": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.996641635894775,
+        "median_mm": 6.1070332527160645,
+        "p90_mm": 9.137959480285645,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 124,
+        "nearest_anchor_mm": 7.197596549987793,
+        "median_mm": 7.388481616973877,
+        "p90_mm": 9.61163330078125,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000147,
+      "stream": "20200813-subject-02/20200813_153544/836212060125|draw19000147",
+      "real": {
+        "points": 2044,
+        "nearest_anchor_mm": 5.509622097015381,
+        "median_mm": 5.578619480133057,
+        "p90_mm": 7.588616847991943,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 299,
+        "nearest_anchor_mm": 11.335649490356445,
+        "median_mm": 6.86909818649292,
+        "p90_mm": 17.015016555786133,
+        "fraction_gt20mm": 0.08026755601167679
+      }
+    },
+    {
+      "seed": 19000155,
+      "stream": "20201015-subject-09/20201015_151252/840412060917|draw19000155",
+      "real": {
+        "points": 1697,
+        "nearest_anchor_mm": 6.166956901550293,
+        "median_mm": 6.1255621910095215,
+        "p90_mm": 8.871140480041504,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 804,
+        "nearest_anchor_mm": 7.089847564697266,
+        "median_mm": 6.359175205230713,
+        "p90_mm": 11.386813163757324,
+        "fraction_gt20mm": 0.018656715750694275
+      }
+    },
+    {
+      "seed": 19000163,
+      "stream": "20200709-subject-01/20200709_142022/932122061900|draw19000163",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.523140907287598,
+        "median_mm": 8.59341812133789,
+        "p90_mm": 11.157960891723633,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1280,
+        "nearest_anchor_mm": 7.18093729019165,
+        "median_mm": 7.230337142944336,
+        "p90_mm": 9.875877380371094,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000171,
+      "stream": "20200928-subject-07/20200928_155026/932122061900|draw19000171",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 11.927038192749023,
+        "median_mm": 11.815247535705566,
+        "p90_mm": 14.710250854492188,
+        "fraction_gt20mm": 0.00244140625
+      },
+      "proxy": null,
+      "visible": {
+        "points": 875,
+        "nearest_anchor_mm": 15.224810600280762,
+        "median_mm": 12.14582633972168,
+        "p90_mm": 15.725703239440918,
+        "fraction_gt20mm": 0.03314285725355148
+      }
+    },
+    {
+      "seed": 19000179,
+      "stream": "20200908-subject-05/20200908_143931/932122061900|draw19000179",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 10.330572128295898,
+        "median_mm": 10.621179580688477,
+        "p90_mm": 12.7965669631958,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1578,
+        "nearest_anchor_mm": 9.965397834777832,
+        "median_mm": 9.99641227722168,
+        "p90_mm": 14.563047409057617,
+        "fraction_gt20mm": 0.012674271129071712
+      }
+    },
+    {
+      "seed": 19000187,
+      "stream": "20201022-subject-10/20201022_114559/836212060125|draw19000187",
+      "real": {
+        "points": 844,
+        "nearest_anchor_mm": 5.467313289642334,
+        "median_mm": 5.494808197021484,
+        "p90_mm": 7.57066535949707,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 358,
+        "nearest_anchor_mm": 6.535723686218262,
+        "median_mm": 6.121318817138672,
+        "p90_mm": 8.708100318908691,
+        "fraction_gt20mm": 0.013966480270028114
+      }
+    },
+    {
+      "seed": 19000195,
+      "stream": "20200709-subject-01/20200709_150449/841412060263|draw19000195",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.04746150970459,
+        "median_mm": 7.103023529052734,
+        "p90_mm": 10.13489818572998,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1133,
+        "nearest_anchor_mm": 7.340376377105713,
+        "median_mm": 7.362795352935791,
+        "p90_mm": 10.73691463470459,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000203,
+      "stream": "20200918-subject-06/20200918_114548/836212060125|draw19000203",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 3.790412425994873,
+        "median_mm": 3.8081040382385254,
+        "p90_mm": 5.499736785888672,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1651,
+        "nearest_anchor_mm": 4.05947732925415,
+        "median_mm": 4.127811908721924,
+        "p90_mm": 5.645288467407227,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000211,
+      "stream": "20200813-subject-02/20200813_152608/839512060362|draw19000211",
+      "real": {
+        "points": 814,
+        "nearest_anchor_mm": 3.9523208141326904,
+        "median_mm": 3.9601657390594482,
+        "p90_mm": 5.703396320343018,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 356,
+        "nearest_anchor_mm": 3.7017745971679688,
+        "median_mm": 3.742144823074341,
+        "p90_mm": 5.601919174194336,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": null
+    },
+    {
+      "seed": 19000219,
+      "stream": "20200908-subject-05/20200908_144239/841412060263|draw19000219",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.8700432777404785,
+        "median_mm": 4.93984842300415,
+        "p90_mm": 6.748961925506592,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1219,
+        "nearest_anchor_mm": 5.928117752075195,
+        "median_mm": 6.0456061363220215,
+        "p90_mm": 8.02934741973877,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000227,
+      "stream": "20200928-subject-07/20200928_145455/932122062010|draw19000227",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.779388904571533,
+        "median_mm": 7.3615827560424805,
+        "p90_mm": 11.308785438537598,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1830,
+        "nearest_anchor_mm": 8.344109535217285,
+        "median_mm": 6.68986177444458,
+        "p90_mm": 9.117231369018555,
+        "fraction_gt20mm": 0.03169398754835129
+      }
+    },
+    {
+      "seed": 19000235,
+      "stream": "20200908-subject-05/20200908_143617/841412060263|draw19000235",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.253793716430664,
+        "median_mm": 9.247715950012207,
+        "p90_mm": 13.286796569824219,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 600,
+        "nearest_anchor_mm": 8.42061996459961,
+        "median_mm": 8.604634284973145,
+        "p90_mm": 12.350508689880371,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000243,
+      "stream": "20200908-subject-05/20200908_144409/932122060861|draw19000243",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.667667388916016,
+        "median_mm": 7.724628448486328,
+        "p90_mm": 10.628966331481934,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1770,
+        "nearest_anchor_mm": 10.133086204528809,
+        "median_mm": 6.132587909698486,
+        "p90_mm": 9.500019073486328,
+        "fraction_gt20mm": 0.06214689090847969
+      }
+    },
+    {
+      "seed": 19000251,
+      "stream": "20200928-subject-07/20200928_155212/932122062010|draw19000251",
+      "real": {
+        "points": 828,
+        "nearest_anchor_mm": 4.719048023223877,
+        "median_mm": 4.230892181396484,
+        "p90_mm": 7.125946044921875,
+        "fraction_gt20mm": 0.001207729452289641
+      },
+      "proxy": null,
+      "visible": {
+        "points": 355,
+        "nearest_anchor_mm": 19.889375686645508,
+        "median_mm": 6.173909664154053,
+        "p90_mm": 59.11647415161133,
+        "fraction_gt20mm": 0.14084507524967194
+      }
+    },
+    {
+      "seed": 19000004,
+      "stream": "20201015-subject-09/20201015_145144/841412060263|draw19000004",
+      "real": {
+        "points": 1469,
+        "nearest_anchor_mm": 5.4285759925842285,
+        "median_mm": 4.753660202026367,
+        "p90_mm": 7.222346782684326,
+        "fraction_gt20mm": 0.022464262321591377
+      },
+      "proxy": {
+        "points": 102,
+        "nearest_anchor_mm": 3.6531925201416016,
+        "median_mm": 3.8732409477233887,
+        "p90_mm": 5.456747531890869,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 307,
+        "nearest_anchor_mm": 5.445119857788086,
+        "median_mm": 4.730240345001221,
+        "p90_mm": 7.189237117767334,
+        "fraction_gt20mm": 0.009771986864507198
+      }
+    },
+    {
+      "seed": 19000012,
+      "stream": "20200928-subject-07/20200928_144808/932122062010|draw19000012",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.959314346313477,
+        "median_mm": 9.054600715637207,
+        "p90_mm": 12.654211044311523,
+        "fraction_gt20mm": 0.0029296875
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1889,
+        "nearest_anchor_mm": 6.981172561645508,
+        "median_mm": 5.898802757263184,
+        "p90_mm": 11.385030746459961,
+        "fraction_gt20mm": 0.038644786924123764
+      }
+    },
+    {
+      "seed": 19000020,
+      "stream": "20201022-subject-10/20201022_113844/932122062010|draw19000020",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 10.677480697631836,
+        "median_mm": 10.614383697509766,
+        "p90_mm": 14.574545860290527,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1162,
+        "nearest_anchor_mm": 10.266972541809082,
+        "median_mm": 9.192669868469238,
+        "p90_mm": 14.200891494750977,
+        "fraction_gt20mm": 0.05163511261343956
+      }
+    },
+    {
+      "seed": 19000028,
+      "stream": "20200709-subject-01/20200709_143008/839512060362|draw19000028",
+      "real": {
+        "points": 9,
+        "nearest_anchor_mm": 3.9213743209838867,
+        "median_mm": 4.3508477210998535,
+        "p90_mm": 5.367468357086182,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.407537460327148,
+        "median_mm": 4.3955817222595215,
+        "p90_mm": 6.361312389373779,
+        "fraction_gt20mm": 0.001953125
+      }
+    },
+    {
+      "seed": 19000036,
+      "stream": "20200928-subject-07/20200928_144133/932122060857|draw19000036",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.859194278717041,
+        "median_mm": 6.9097418785095215,
+        "p90_mm": 9.669013977050781,
+        "fraction_gt20mm": 0.00244140625
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1586,
+        "nearest_anchor_mm": 12.699090957641602,
+        "median_mm": 6.010872840881348,
+        "p90_mm": 43.379634857177734,
+        "fraction_gt20mm": 0.19861286878585815
+      }
+    },
+    {
+      "seed": 19000044,
+      "stream": "20200709-subject-01/20200709_142853/932122060861|draw19000044",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.85343074798584,
+        "median_mm": 6.030383110046387,
+        "p90_mm": 10.653390884399414,
+        "fraction_gt20mm": 0.0224609375
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1670,
+        "nearest_anchor_mm": 12.387015342712402,
+        "median_mm": 7.89818811416626,
+        "p90_mm": 31.525346755981445,
+        "fraction_gt20mm": 0.12035927921533585
+      }
+    },
+    {
+      "seed": 19000052,
+      "stream": "20200903-subject-04/20200903_105903/841412060263|draw19000052",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.386207103729248,
+        "median_mm": 5.458444595336914,
+        "p90_mm": 7.558778762817383,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1211,
+        "nearest_anchor_mm": 9.662091255187988,
+        "median_mm": 6.286827564239502,
+        "p90_mm": 22.073293685913086,
+        "fraction_gt20mm": 0.12221305072307587
+      }
+    },
+    {
+      "seed": 19000060,
+      "stream": "20201022-subject-10/20201022_112037/841412060263|draw19000060",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.652663230895996,
+        "median_mm": 5.577680587768555,
+        "p90_mm": 8.048407554626465,
+        "fraction_gt20mm": 0.00146484375
+      },
+      "proxy": {
+        "points": 17,
+        "nearest_anchor_mm": 6.460611820220947,
+        "median_mm": 6.935946464538574,
+        "p90_mm": 8.183387756347656,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 982,
+        "nearest_anchor_mm": 8.684969902038574,
+        "median_mm": 6.80946683883667,
+        "p90_mm": 14.685837745666504,
+        "fraction_gt20mm": 0.06517311930656433
+      }
+    },
+    {
+      "seed": 19000068,
+      "stream": "20201002-subject-08/20201002_110940/841412060263|draw19000068",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.858763694763184,
+        "median_mm": 9.945740699768066,
+        "p90_mm": 14.280200958251953,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1296,
+        "nearest_anchor_mm": 9.279603004455566,
+        "median_mm": 9.54466438293457,
+        "p90_mm": 13.189735412597656,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000076,
+      "stream": "20200820-subject-03/20200820_144554/839512060362|draw19000076",
+      "real": {
+        "points": 2017,
+        "nearest_anchor_mm": 3.280959367752075,
+        "median_mm": 3.127295970916748,
+        "p90_mm": 5.112982273101807,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 462,
+        "nearest_anchor_mm": 2.8385579586029053,
+        "median_mm": 2.708460569381714,
+        "p90_mm": 4.333423614501953,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000084,
+      "stream": "20200918-subject-06/20200918_121338/932122060861|draw19000084",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.993781089782715,
+        "median_mm": 6.09564733505249,
+        "p90_mm": 8.635725021362305,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1496,
+        "nearest_anchor_mm": 5.696964263916016,
+        "median_mm": 4.562420845031738,
+        "p90_mm": 11.70450210571289,
+        "fraction_gt20mm": 0.010695187374949455
+      }
+    },
+    {
+      "seed": 19000092,
+      "stream": "20200928-subject-07/20200928_154707/932122062010|draw19000092",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.243989944458008,
+        "median_mm": 8.224267959594727,
+        "p90_mm": 11.295733451843262,
+        "fraction_gt20mm": 0.00341796875
+      },
+      "proxy": null,
+      "visible": {
+        "points": 969,
+        "nearest_anchor_mm": 6.647833824157715,
+        "median_mm": 6.283395290374756,
+        "p90_mm": 8.921142578125,
+        "fraction_gt20mm": 0.016511868685483932
+      }
+    },
+    {
+      "seed": 19000100,
+      "stream": "20200908-subject-05/20200908_150929/932122060857|draw19000100",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.783267974853516,
+        "median_mm": 7.134817600250244,
+        "p90_mm": 15.107355117797852,
+        "fraction_gt20mm": 0.0654296875
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1548,
+        "nearest_anchor_mm": 11.548227310180664,
+        "median_mm": 7.233792781829834,
+        "p90_mm": 25.317163467407227,
+        "fraction_gt20mm": 0.12080103158950806
+      }
+    },
+    {
+      "seed": 19000108,
+      "stream": "20200918-subject-06/20200918_113738/932122061900|draw19000108",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.825292587280273,
+        "median_mm": 7.0120954513549805,
+        "p90_mm": 8.771942138671875,
+        "fraction_gt20mm": 0.0009765625
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1607,
+        "nearest_anchor_mm": 6.200462818145752,
+        "median_mm": 6.023341178894043,
+        "p90_mm": 8.58191967010498,
+        "fraction_gt20mm": 0.0018668326083570719
+      }
+    },
+    {
+      "seed": 19000116,
+      "stream": "20201002-subject-08/20201002_113203/932122062010|draw19000116",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.726127624511719,
+        "median_mm": 6.832775115966797,
+        "p90_mm": 10.089669227600098,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1341,
+        "nearest_anchor_mm": 5.454598903656006,
+        "median_mm": 5.152510643005371,
+        "p90_mm": 8.403071403503418,
+        "fraction_gt20mm": 0.0029828485567122698
+      }
+    },
+    {
+      "seed": 19000124,
+      "stream": "20200908-subject-05/20200908_145254/839512060362|draw19000124",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.026261806488037,
+        "median_mm": 4.090261936187744,
+        "p90_mm": 5.771858215332031,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1160,
+        "nearest_anchor_mm": 4.212788105010986,
+        "median_mm": 4.0130462646484375,
+        "p90_mm": 6.53879451751709,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000132,
+      "stream": "20201002-subject-08/20201002_105343/932122062010|draw19000132",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.7533464431762695,
+        "median_mm": 6.846372127532959,
+        "p90_mm": 12.733338356018066,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1025,
+        "nearest_anchor_mm": 6.56620979309082,
+        "median_mm": 6.241042137145996,
+        "p90_mm": 10.698321342468262,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000140,
+      "stream": "20200908-subject-05/20200908_145912/839512060362|draw19000140",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.408011436462402,
+        "median_mm": 4.436091899871826,
+        "p90_mm": 6.051072120666504,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 180,
+        "nearest_anchor_mm": 3.8884527683258057,
+        "median_mm": 4.002665042877197,
+        "p90_mm": 5.654285907745361,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1173,
+        "nearest_anchor_mm": 4.732879638671875,
+        "median_mm": 3.985478162765503,
+        "p90_mm": 7.199329853057861,
+        "fraction_gt20mm": 0.011082693934440613
+      }
+    },
+    {
+      "seed": 19000148,
+      "stream": "20200813-subject-02/20200813_150024/932122060861|draw19000148",
+      "real": {
+        "points": 909,
+        "nearest_anchor_mm": 8.507451057434082,
+        "median_mm": 8.447125434875488,
+        "p90_mm": 10.802755355834961,
+        "fraction_gt20mm": 0.007700770162045956
+      },
+      "proxy": {
+        "points": 838,
+        "nearest_anchor_mm": 5.79784631729126,
+        "median_mm": 5.893759250640869,
+        "p90_mm": 8.793717384338379,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": null
+    },
+    {
+      "seed": 19000156,
+      "stream": "20201002-subject-08/20201002_104945/836212060125|draw19000156",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.257851600646973,
+        "median_mm": 8.405763626098633,
+        "p90_mm": 12.081792831420898,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1334,
+        "nearest_anchor_mm": 9.74760627746582,
+        "median_mm": 9.267776489257812,
+        "p90_mm": 12.864757537841797,
+        "fraction_gt20mm": 0.00599700165912509
+      }
+    },
+    {
+      "seed": 19000164,
+      "stream": "20200918-subject-06/20200918_114433/839512060362|draw19000164",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.11284065246582,
+        "median_mm": 5.252651691436768,
+        "p90_mm": 7.355153560638428,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1740,
+        "nearest_anchor_mm": 5.66474723815918,
+        "median_mm": 5.662543773651123,
+        "p90_mm": 8.086779594421387,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000172,
+      "stream": "20201002-subject-08/20201002_105831/840412060917|draw19000172",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.18154239654541,
+        "median_mm": 7.230096817016602,
+        "p90_mm": 14.250898361206055,
+        "fraction_gt20mm": 0.03515625
+      },
+      "proxy": {
+        "points": 76,
+        "nearest_anchor_mm": 3.987955093383789,
+        "median_mm": 4.098477363586426,
+        "p90_mm": 5.014786243438721,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1202,
+        "nearest_anchor_mm": 13.688913345336914,
+        "median_mm": 10.44049072265625,
+        "p90_mm": 28.33224105834961,
+        "fraction_gt20mm": 0.2046588957309723
+      }
+    },
+    {
+      "seed": 19000180,
+      "stream": "20200918-subject-06/20200918_115701/840412060917|draw19000180",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.579522132873535,
+        "median_mm": 7.318852424621582,
+        "p90_mm": 12.888998031616211,
+        "fraction_gt20mm": 0.03271484375
+      },
+      "proxy": {
+        "points": 207,
+        "nearest_anchor_mm": 4.718952178955078,
+        "median_mm": 4.869456768035889,
+        "p90_mm": 6.654539108276367,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 902,
+        "nearest_anchor_mm": 30.91484832763672,
+        "median_mm": 15.705034255981445,
+        "p90_mm": 80.60607147216797,
+        "fraction_gt20mm": 0.47006651759147644
+      }
+    },
+    {
+      "seed": 19000188,
+      "stream": "20201022-subject-10/20201022_112340/932122060857|draw19000188",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.72917366027832,
+        "median_mm": 6.770157337188721,
+        "p90_mm": 8.93570613861084,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1971,
+        "nearest_anchor_mm": 5.423405647277832,
+        "median_mm": 5.5081329345703125,
+        "p90_mm": 7.800101280212402,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000196,
+      "stream": "20200709-subject-01/20200709_145038/839512060362|draw19000196",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.7079877853393555,
+        "median_mm": 4.753398418426514,
+        "p90_mm": 6.868802070617676,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1438,
+        "nearest_anchor_mm": 4.507271766662598,
+        "median_mm": 4.54784631729126,
+        "p90_mm": 6.474645137786865,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000204,
+      "stream": "20201015-subject-09/20201015_142724/836212060125|draw19000204",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.553967475891113,
+        "median_mm": 6.633724212646484,
+        "p90_mm": 9.337671279907227,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1697,
+        "nearest_anchor_mm": 6.765957832336426,
+        "median_mm": 6.406760215759277,
+        "p90_mm": 10.277265548706055,
+        "fraction_gt20mm": 0.005303476937115192
+      }
+    },
+    {
+      "seed": 19000212,
+      "stream": "20201002-subject-08/20201002_104620/840412060917|draw19000212",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.282027244567871,
+        "median_mm": 8.102054595947266,
+        "p90_mm": 11.739700317382812,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1147,
+        "nearest_anchor_mm": 10.097078323364258,
+        "median_mm": 8.858287811279297,
+        "p90_mm": 11.964853286743164,
+        "fraction_gt20mm": 0.04010462015867233
+      }
+    },
+    {
+      "seed": 19000220,
+      "stream": "20200820-subject-03/20200820_144515/932122060857|draw19000220",
+      "real": null,
+      "proxy": {
+        "points": 1607,
+        "nearest_anchor_mm": 2.109117031097412,
+        "median_mm": 2.170290946960449,
+        "p90_mm": 3.1213865280151367,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": null
+    },
+    {
+      "seed": 19000228,
+      "stream": "20200709-subject-01/20200709_143826/932122060861|draw19000228",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.924914360046387,
+        "median_mm": 8.046757698059082,
+        "p90_mm": 11.643248558044434,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1490,
+        "nearest_anchor_mm": 6.47927713394165,
+        "median_mm": 6.563183307647705,
+        "p90_mm": 9.020371437072754,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000236,
+      "stream": "20200918-subject-06/20200918_114527/840412060917|draw19000236",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.648366451263428,
+        "median_mm": 6.415740013122559,
+        "p90_mm": 9.056687355041504,
+        "fraction_gt20mm": 0.00732421875
+      },
+      "proxy": {
+        "points": 699,
+        "nearest_anchor_mm": 3.333735942840576,
+        "median_mm": 3.4492480754852295,
+        "p90_mm": 4.92711067199707,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1576,
+        "nearest_anchor_mm": 8.262335777282715,
+        "median_mm": 6.027618408203125,
+        "p90_mm": 16.86994171142578,
+        "fraction_gt20mm": 0.04695431515574455
+      }
+    },
+    {
+      "seed": 19000244,
+      "stream": "20200820-subject-03/20200820_142319/932122060861|draw19000244",
+      "real": null,
+      "proxy": null,
+      "visible": {
+        "points": 2048,
+        "nearest_anchor_mm": 10.573138236999512,
+        "median_mm": 9.914204597473145,
+        "p90_mm": 14.322351455688477,
+        "fraction_gt20mm": 0.01806640625
+      }
+    },
+    {
+      "seed": 19000252,
+      "stream": "20201022-subject-10/20201022_114022/932122060861|draw19000252",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.382887840270996,
+        "median_mm": 9.184473037719727,
+        "p90_mm": 14.153281211853027,
+        "fraction_gt20mm": 0.00048828125
+      },
+      "proxy": null,
+      "visible": {
+        "points": 880,
+        "nearest_anchor_mm": 19.716327667236328,
+        "median_mm": 10.661415100097656,
+        "p90_mm": 15.584715843200684,
+        "fraction_gt20mm": 0.08522727340459824
+      }
+    },
+    {
+      "seed": 19000005,
+      "stream": "20200820-subject-03/20200820_140425/932122061900|draw19000005",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 10.325724601745605,
+        "median_mm": 10.514084815979004,
+        "p90_mm": 13.577473640441895,
+        "fraction_gt20mm": 0.00146484375
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1117,
+        "nearest_anchor_mm": 8.846858978271484,
+        "median_mm": 8.212959289550781,
+        "p90_mm": 13.535823822021484,
+        "fraction_gt20mm": 0.011638317257165909
+      }
+    },
+    {
+      "seed": 19000013,
+      "stream": "20200813-subject-02/20200813_151822/932122061900|draw19000013",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.32697868347168,
+        "median_mm": 8.602593421936035,
+        "p90_mm": 10.605069160461426,
+        "fraction_gt20mm": 0.00048828125
+      },
+      "proxy": {
+        "points": 54,
+        "nearest_anchor_mm": 4.846096038818359,
+        "median_mm": 5.129734039306641,
+        "p90_mm": 6.514366626739502,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1323,
+        "nearest_anchor_mm": 10.093137741088867,
+        "median_mm": 7.974933624267578,
+        "p90_mm": 22.7540283203125,
+        "fraction_gt20mm": 0.12849584221839905
+      }
+    },
+    {
+      "seed": 19000021,
+      "stream": "20201022-subject-10/20201022_111808/839512060362|draw19000021",
+      "real": {
+        "points": 1941,
+        "nearest_anchor_mm": 4.312950134277344,
+        "median_mm": 4.308043479919434,
+        "p90_mm": 6.123790740966797,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 920,
+        "nearest_anchor_mm": 3.430341958999634,
+        "median_mm": 3.52836012840271,
+        "p90_mm": 5.066254615783691,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 519,
+        "nearest_anchor_mm": 4.5591840744018555,
+        "median_mm": 4.497310161590576,
+        "p90_mm": 6.525496006011963,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000029,
+      "stream": "20200908-subject-05/20200908_145320/840412060917|draw19000029",
+      "real": {
+        "points": 24,
+        "nearest_anchor_mm": 4.5328497886657715,
+        "median_mm": 4.549770832061768,
+        "p90_mm": 5.652149200439453,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 2048,
+        "nearest_anchor_mm": 3.4618802070617676,
+        "median_mm": 3.5197982788085938,
+        "p90_mm": 5.263114929199219,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 17,
+        "nearest_anchor_mm": 4.225964546203613,
+        "median_mm": 4.023441791534424,
+        "p90_mm": 7.243602752685547,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000037,
+      "stream": "20200918-subject-06/20200918_115701/932122060861|draw19000037",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 10.411004066467285,
+        "median_mm": 9.972966194152832,
+        "p90_mm": 14.03078556060791,
+        "fraction_gt20mm": 0.01611328125
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1898,
+        "nearest_anchor_mm": 22.053579330444336,
+        "median_mm": 13.392876625061035,
+        "p90_mm": 51.91160202026367,
+        "fraction_gt20mm": 0.36459431052207947
+      }
+    },
+    {
+      "seed": 19000045,
+      "stream": "20201015-subject-09/20201015_143313/932122060857|draw19000045",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.309831142425537,
+        "median_mm": 7.456499099731445,
+        "p90_mm": 9.921936988830566,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 979,
+        "nearest_anchor_mm": 5.262866973876953,
+        "median_mm": 5.483643054962158,
+        "p90_mm": 7.861758232116699,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 208,
+        "nearest_anchor_mm": 17.894935607910156,
+        "median_mm": 6.607511520385742,
+        "p90_mm": 64.82611846923828,
+        "fraction_gt20mm": 0.26923078298568726
+      }
+    },
+    {
+      "seed": 19000053,
+      "stream": "20201002-subject-08/20201002_111735/932122061900|draw19000053",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.096550464630127,
+        "median_mm": 7.157539367675781,
+        "p90_mm": 10.010124206542969,
+        "fraction_gt20mm": 0.00146484375
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1462,
+        "nearest_anchor_mm": 9.116120338439941,
+        "median_mm": 7.603368282318115,
+        "p90_mm": 14.601472854614258,
+        "fraction_gt20mm": 0.02872776985168457
+      }
+    },
+    {
+      "seed": 19000061,
+      "stream": "20200813-subject-02/20200813_154917/932122061900|draw19000061",
+      "real": {
+        "points": 937,
+        "nearest_anchor_mm": 4.545101165771484,
+        "median_mm": 4.4258012771606445,
+        "p90_mm": 6.629596710205078,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 23,
+        "nearest_anchor_mm": 2.8610854148864746,
+        "median_mm": 2.8103954792022705,
+        "p90_mm": 3.9882028102874756,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 280,
+        "nearest_anchor_mm": 18.738656997680664,
+        "median_mm": 15.893707275390625,
+        "p90_mm": 29.1887264251709,
+        "fraction_gt20mm": 0.3035714328289032
+      }
+    },
+    {
+      "seed": 19000069,
+      "stream": "20200918-subject-06/20200918_114647/932122062010|draw19000069",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 10.252599716186523,
+        "median_mm": 10.366342544555664,
+        "p90_mm": 14.170231819152832,
+        "fraction_gt20mm": 0.04345703125
+      },
+      "proxy": null,
+      "visible": {
+        "points": 964,
+        "nearest_anchor_mm": 10.420804977416992,
+        "median_mm": 11.046216011047363,
+        "p90_mm": 14.455282211303711,
+        "fraction_gt20mm": 0.00518672214820981
+      }
+    },
+    {
+      "seed": 19000077,
+      "stream": "20200820-subject-03/20200820_142319/839512060362|draw19000077",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.891338348388672,
+        "median_mm": 9.843412399291992,
+        "p90_mm": 14.1385498046875,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 683,
+        "nearest_anchor_mm": 9.108363151550293,
+        "median_mm": 9.297290802001953,
+        "p90_mm": 13.50666618347168,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 651,
+        "nearest_anchor_mm": 8.896112442016602,
+        "median_mm": 8.980546951293945,
+        "p90_mm": 12.867019653320312,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000085,
+      "stream": "20200709-subject-01/20200709_151502/932122060861|draw19000085",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.249882698059082,
+        "median_mm": 8.006434440612793,
+        "p90_mm": 11.769372940063477,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 580,
+        "nearest_anchor_mm": 6.3290510177612305,
+        "median_mm": 6.317063331604004,
+        "p90_mm": 8.558363914489746,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000093,
+      "stream": "20200928-subject-07/20200928_155709/836212060125|draw19000093",
+      "real": {
+        "points": 301,
+        "nearest_anchor_mm": 5.866944789886475,
+        "median_mm": 5.930314064025879,
+        "p90_mm": 8.06348991394043,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 920,
+        "nearest_anchor_mm": 5.729494094848633,
+        "median_mm": 5.783502101898193,
+        "p90_mm": 7.93847131729126,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000101,
+      "stream": "20200928-subject-07/20200928_145548/840412060917|draw19000101",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.370125770568848,
+        "median_mm": 5.194852352142334,
+        "p90_mm": 7.59630823135376,
+        "fraction_gt20mm": 0.00390625
+      },
+      "proxy": null,
+      "visible": {
+        "points": 916,
+        "nearest_anchor_mm": 5.699392318725586,
+        "median_mm": 4.956883430480957,
+        "p90_mm": 7.190038204193115,
+        "fraction_gt20mm": 0.009825327433645725
+      }
+    },
+    {
+      "seed": 19000109,
+      "stream": "20200928-subject-07/20200928_144133/841412060263|draw19000109",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.633186340332031,
+        "median_mm": 8.276717185974121,
+        "p90_mm": 12.244641304016113,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1037,
+        "nearest_anchor_mm": 9.003877639770508,
+        "median_mm": 8.871617317199707,
+        "p90_mm": 13.378375053405762,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000117,
+      "stream": "20201015-subject-09/20201015_145800/841412060263|draw19000117",
+      "real": {
+        "points": 1015,
+        "nearest_anchor_mm": 6.312559127807617,
+        "median_mm": 6.307743072509766,
+        "p90_mm": 9.089592933654785,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 557,
+        "nearest_anchor_mm": 9.727301597595215,
+        "median_mm": 7.643878936767578,
+        "p90_mm": 18.96190071105957,
+        "fraction_gt20mm": 0.08617594093084335
+      }
+    },
+    {
+      "seed": 19000125,
+      "stream": "20201015-subject-09/20201015_145515/932122062010|draw19000125",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.181246757507324,
+        "median_mm": 8.340460777282715,
+        "p90_mm": 11.01073169708252,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 92,
+        "nearest_anchor_mm": 5.402026653289795,
+        "median_mm": 5.517885208129883,
+        "p90_mm": 7.832632541656494,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 403,
+        "nearest_anchor_mm": 7.563335418701172,
+        "median_mm": 7.8491997718811035,
+        "p90_mm": 10.468279838562012,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000133,
+      "stream": "20201002-subject-08/20201002_105506/932122062010|draw19000133",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 11.11369514465332,
+        "median_mm": 12.009657859802246,
+        "p90_mm": 14.906132698059082,
+        "fraction_gt20mm": 0.00146484375
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1275,
+        "nearest_anchor_mm": 13.751933097839355,
+        "median_mm": 7.243615627288818,
+        "p90_mm": 41.40496826171875,
+        "fraction_gt20mm": 0.18117646872997284
+      }
+    },
+    {
+      "seed": 19000141,
+      "stream": "20200820-subject-03/20200820_143539/840412060917|draw19000141",
+      "real": {
+        "points": 817,
+        "nearest_anchor_mm": 7.23952054977417,
+        "median_mm": 7.36591100692749,
+        "p90_mm": 9.860143661499023,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1368,
+        "nearest_anchor_mm": 7.063655853271484,
+        "median_mm": 7.034344673156738,
+        "p90_mm": 9.376594543457031,
+        "fraction_gt20mm": 0.001461988314986229
+      }
+    },
+    {
+      "seed": 19000149,
+      "stream": "20201015-subject-09/20201015_144902/839512060362|draw19000149",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.641479015350342,
+        "median_mm": 5.82475471496582,
+        "p90_mm": 8.668798446655273,
+        "fraction_gt20mm": 0.03173828125
+      },
+      "proxy": {
+        "points": 2019,
+        "nearest_anchor_mm": 4.3354268074035645,
+        "median_mm": 4.442870140075684,
+        "p90_mm": 6.352294445037842,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1042,
+        "nearest_anchor_mm": 13.535968780517578,
+        "median_mm": 7.043399810791016,
+        "p90_mm": 36.566463470458984,
+        "fraction_gt20mm": 0.23416507244110107
+      }
+    },
+    {
+      "seed": 19000157,
+      "stream": "20200918-subject-06/20200918_115049/932122062010|draw19000157",
+      "real": {
+        "points": 1727,
+        "nearest_anchor_mm": 7.792299747467041,
+        "median_mm": 7.803018569946289,
+        "p90_mm": 10.604024887084961,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 699,
+        "nearest_anchor_mm": 9.26606273651123,
+        "median_mm": 8.398784637451172,
+        "p90_mm": 17.011714935302734,
+        "fraction_gt20mm": 0.05007153004407883
+      }
+    },
+    {
+      "seed": 19000165,
+      "stream": "20201022-subject-10/20201022_112037/841412060263|draw19000165",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.796934127807617,
+        "median_mm": 5.59879732131958,
+        "p90_mm": 8.222551345825195,
+        "fraction_gt20mm": 0.00439453125
+      },
+      "proxy": {
+        "points": 24,
+        "nearest_anchor_mm": 6.154283046722412,
+        "median_mm": 6.925724506378174,
+        "p90_mm": 8.112245559692383,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1306,
+        "nearest_anchor_mm": 7.3872599601745605,
+        "median_mm": 6.393360614776611,
+        "p90_mm": 11.727776527404785,
+        "fraction_gt20mm": 0.02373659983277321
+      }
+    },
+    {
+      "seed": 19000173,
+      "stream": "20200918-subject-06/20200918_120016/839512060362|draw19000173",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.042154788970947,
+        "median_mm": 5.119021892547607,
+        "p90_mm": 7.320708751678467,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.867894172668457,
+        "median_mm": 4.8059401512146,
+        "p90_mm": 7.350327014923096,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000181,
+      "stream": "20200709-subject-01/20200709_142642/836212060125|draw19000181",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.088633060455322,
+        "median_mm": 6.257546901702881,
+        "p90_mm": 8.571160316467285,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.824709415435791,
+        "median_mm": 5.969008445739746,
+        "p90_mm": 8.387469291687012,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000189,
+      "stream": "20200918-subject-06/20200918_121101/836212060125|draw19000189",
+      "real": null,
+      "proxy": {
+        "points": 906,
+        "nearest_anchor_mm": 4.9153733253479,
+        "median_mm": 5.048071384429932,
+        "p90_mm": 7.233417510986328,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 293,
+        "nearest_anchor_mm": 8.70682144165039,
+        "median_mm": 8.41250228881836,
+        "p90_mm": 13.223856925964355,
+        "fraction_gt20mm": 0.0034129691775888205
+      }
+    },
+    {
+      "seed": 19000197,
+      "stream": "20201002-subject-08/20201002_110227/836212060125|draw19000197",
+      "real": {
+        "points": 1896,
+        "nearest_anchor_mm": 3.8691494464874268,
+        "median_mm": 3.858562469482422,
+        "p90_mm": 5.539457321166992,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 480,
+        "nearest_anchor_mm": 3.875519275665283,
+        "median_mm": 3.878417491912842,
+        "p90_mm": 5.530278205871582,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000205,
+      "stream": "20200928-subject-07/20200928_155050/841412060263|draw19000205",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.540328979492188,
+        "median_mm": 8.648807525634766,
+        "p90_mm": 11.803567886352539,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1180,
+        "nearest_anchor_mm": 9.63284683227539,
+        "median_mm": 8.911992073059082,
+        "p90_mm": 12.67142105102539,
+        "fraction_gt20mm": 0.027966102585196495
+      }
+    },
+    {
+      "seed": 19000213,
+      "stream": "20200928-subject-07/20200928_145626/836212060125|draw19000213",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.776483058929443,
+        "median_mm": 4.783994674682617,
+        "p90_mm": 6.766723155975342,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1026,
+        "nearest_anchor_mm": 6.143483638763428,
+        "median_mm": 5.434030532836914,
+        "p90_mm": 11.269046783447266,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000221,
+      "stream": "20200903-subject-04/20200903_112940/841412060263|draw19000221",
+      "real": {
+        "points": 1780,
+        "nearest_anchor_mm": 8.125198364257812,
+        "median_mm": 8.212420463562012,
+        "p90_mm": 11.128813743591309,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.983275413513184,
+        "median_mm": 9.102154731750488,
+        "p90_mm": 12.201512336730957,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000229,
+      "stream": "20200813-subject-02/20200813_153307/839512060362|draw19000229",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.310898303985596,
+        "median_mm": 6.469779968261719,
+        "p90_mm": 9.347861289978027,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 819,
+        "nearest_anchor_mm": 6.901145935058594,
+        "median_mm": 6.775693893432617,
+        "p90_mm": 10.520916938781738,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000237,
+      "stream": "20200928-subject-07/20200928_143806/932122060861|draw19000237",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.23912239074707,
+        "median_mm": 9.041377067565918,
+        "p90_mm": 13.655509948730469,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 645,
+        "nearest_anchor_mm": 9.287052154541016,
+        "median_mm": 7.34041166305542,
+        "p90_mm": 13.323749542236328,
+        "fraction_gt20mm": 0.06976744532585144
+      }
+    },
+    {
+      "seed": 19000245,
+      "stream": "20200903-subject-04/20200903_105752/932122060861|draw19000245",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 11.368045806884766,
+        "median_mm": 12.371683120727539,
+        "p90_mm": 14.14309310913086,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 968,
+        "nearest_anchor_mm": 5.359242916107178,
+        "median_mm": 5.251414775848389,
+        "p90_mm": 8.216837882995605,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000253,
+      "stream": "20200918-subject-06/20200918_115923/840412060917|draw19000253",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.054411888122559,
+        "median_mm": 6.854172706604004,
+        "p90_mm": 16.53139305114746,
+        "fraction_gt20mm": 0.06591796875
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1657,
+        "nearest_anchor_mm": 9.022431373596191,
+        "median_mm": 7.220554828643799,
+        "p90_mm": 10.891374588012695,
+        "fraction_gt20mm": 0.05069402605295181
+      }
+    },
+    {
+      "seed": 19000006,
+      "stream": "20201022-subject-10/20201022_113729/932122060857|draw19000006",
+      "real": {
+        "points": 694,
+        "nearest_anchor_mm": 10.159588813781738,
+        "median_mm": 10.299747467041016,
+        "p90_mm": 12.71953296661377,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 152,
+        "nearest_anchor_mm": 7.303083896636963,
+        "median_mm": 7.470767498016357,
+        "p90_mm": 10.855079650878906,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000014,
+      "stream": "20200928-subject-07/20200928_155050/932122060861|draw19000014",
+      "real": {
+        "points": 1785,
+        "nearest_anchor_mm": 11.852794647216797,
+        "median_mm": 12.009639739990234,
+        "p90_mm": 14.368758201599121,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 627,
+        "nearest_anchor_mm": 11.680421829223633,
+        "median_mm": 11.258581161499023,
+        "p90_mm": 15.07513427734375,
+        "fraction_gt20mm": 0.0717703327536583
+      }
+    },
+    {
+      "seed": 19000022,
+      "stream": "20200918-subject-06/20200918_113049/932122060861|draw19000022",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 11.731492042541504,
+        "median_mm": 12.109962463378906,
+        "p90_mm": 16.340742111206055,
+        "fraction_gt20mm": 0.00634765625
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1523,
+        "nearest_anchor_mm": 10.624748229980469,
+        "median_mm": 7.832113742828369,
+        "p90_mm": 11.641422271728516,
+        "fraction_gt20mm": 0.051214706152677536
+      }
+    },
+    {
+      "seed": 19000030,
+      "stream": "20200928-subject-07/20200928_153831/932122062010|draw19000030",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 10.182323455810547,
+        "median_mm": 10.222838401794434,
+        "p90_mm": 13.81051254272461,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 1069,
+        "nearest_anchor_mm": 8.867112159729004,
+        "median_mm": 9.027921676635742,
+        "p90_mm": 13.134018898010254,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1066,
+        "nearest_anchor_mm": 13.397067070007324,
+        "median_mm": 11.799185752868652,
+        "p90_mm": 15.302173614501953,
+        "fraction_gt20mm": 0.014071294106543064
+      }
+    },
+    {
+      "seed": 19000038,
+      "stream": "20200928-subject-07/20200928_154707/839512060362|draw19000038",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.142336845397949,
+        "median_mm": 5.271947860717773,
+        "p90_mm": 7.281159400939941,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1327,
+        "nearest_anchor_mm": 5.610571384429932,
+        "median_mm": 5.650246620178223,
+        "p90_mm": 7.772247791290283,
+        "fraction_gt20mm": 0.0007535794866271317
+      }
+    },
+    {
+      "seed": 19000046,
+      "stream": "20200918-subject-06/20200918_113112/932122060861|draw19000046",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 10.289649963378906,
+        "median_mm": 10.214438438415527,
+        "p90_mm": 13.545435905456543,
+        "fraction_gt20mm": 0.0048828125
+      },
+      "proxy": {
+        "points": 189,
+        "nearest_anchor_mm": 5.818392753601074,
+        "median_mm": 6.054653644561768,
+        "p90_mm": 8.691920280456543,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1054,
+        "nearest_anchor_mm": 10.825556755065918,
+        "median_mm": 7.838195323944092,
+        "p90_mm": 23.586599349975586,
+        "fraction_gt20mm": 0.10531309247016907
+      }
+    },
+    {
+      "seed": 19000054,
+      "stream": "20200709-subject-01/20200709_151148/932122060861|draw19000054",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.942710876464844,
+        "median_mm": 7.321446895599365,
+        "p90_mm": 11.985762596130371,
+        "fraction_gt20mm": 0.02001953125
+      },
+      "proxy": {
+        "points": 67,
+        "nearest_anchor_mm": 5.021927833557129,
+        "median_mm": 5.331706523895264,
+        "p90_mm": 6.458010196685791,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.666966438293457,
+        "median_mm": 7.748193740844727,
+        "p90_mm": 18.6934871673584,
+        "fraction_gt20mm": 0.09228515625
+      }
+    },
+    {
+      "seed": 19000062,
+      "stream": "20201022-subject-10/20201022_114415/932122061900|draw19000062",
+      "real": {
+        "points": 1638,
+        "nearest_anchor_mm": 4.576602458953857,
+        "median_mm": 3.4290201663970947,
+        "p90_mm": 9.423468589782715,
+        "fraction_gt20mm": 0.0018315018387511373
+      },
+      "proxy": null,
+      "visible": {
+        "points": 364,
+        "nearest_anchor_mm": 4.834112644195557,
+        "median_mm": 4.489546775817871,
+        "p90_mm": 7.664965629577637,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000070,
+      "stream": "20200820-subject-03/20200820_135913/932122062010|draw19000070",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.098245620727539,
+        "median_mm": 8.035043716430664,
+        "p90_mm": 11.340246200561523,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 3,
+        "nearest_anchor_mm": 6.568136215209961,
+        "median_mm": 6.382805824279785,
+        "p90_mm": 6.958977699279785,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 766,
+        "nearest_anchor_mm": 7.146147727966309,
+        "median_mm": 7.030620098114014,
+        "p90_mm": 10.659223556518555,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000078,
+      "stream": "20200908-subject-05/20200908_144638/932122061900|draw19000078",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.583916664123535,
+        "median_mm": 7.91224479675293,
+        "p90_mm": 12.855222702026367,
+        "fraction_gt20mm": 0.03076171875
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1805,
+        "nearest_anchor_mm": 7.624136447906494,
+        "median_mm": 6.756345272064209,
+        "p90_mm": 12.91456413269043,
+        "fraction_gt20mm": 0.013296399265527725
+      }
+    },
+    {
+      "seed": 19000086,
+      "stream": "20200813-subject-02/20200813_153339/836212060125|draw19000086",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.977747440338135,
+        "median_mm": 7.011971950531006,
+        "p90_mm": 9.857263565063477,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 733,
+        "nearest_anchor_mm": 6.620360851287842,
+        "median_mm": 6.649084568023682,
+        "p90_mm": 9.558423042297363,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000094,
+      "stream": "20200918-subject-06/20200918_115049/932122060857|draw19000094",
+      "real": {
+        "points": 1337,
+        "nearest_anchor_mm": 7.86370325088501,
+        "median_mm": 7.684675216674805,
+        "p90_mm": 11.218255996704102,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 763,
+        "nearest_anchor_mm": 9.257786750793457,
+        "median_mm": 9.498594284057617,
+        "p90_mm": 15.163530349731445,
+        "fraction_gt20mm": 0.01310615986585617
+      }
+    },
+    {
+      "seed": 19000102,
+      "stream": "20201022-subject-10/20201022_111323/932122060857|draw19000102",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.914743423461914,
+        "median_mm": 9.852416038513184,
+        "p90_mm": 13.09619426727295,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1171,
+        "nearest_anchor_mm": 7.656972885131836,
+        "median_mm": 7.892486572265625,
+        "p90_mm": 10.233428001403809,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000110,
+      "stream": "20200903-subject-04/20200903_104457/840412060917|draw19000110",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.229849815368652,
+        "median_mm": 5.006246089935303,
+        "p90_mm": 7.322538375854492,
+        "fraction_gt20mm": 0.005859375
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1185,
+        "nearest_anchor_mm": 6.350348472595215,
+        "median_mm": 5.025994777679443,
+        "p90_mm": 10.940272331237793,
+        "fraction_gt20mm": 0.03375527262687683
+      }
+    },
+    {
+      "seed": 19000118,
+      "stream": "20201022-subject-10/20201022_113006/932122060861|draw19000118",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 11.863799095153809,
+        "median_mm": 11.840371131896973,
+        "p90_mm": 15.25473403930664,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 848,
+        "nearest_anchor_mm": 10.612957954406738,
+        "median_mm": 9.691765785217285,
+        "p90_mm": 13.268343925476074,
+        "fraction_gt20mm": 0.014150943607091904
+      }
+    },
+    {
+      "seed": 19000126,
+      "stream": "20200813-subject-02/20200813_153307/932122062010|draw19000126",
+      "real": {
+        "points": 394,
+        "nearest_anchor_mm": 9.178939819335938,
+        "median_mm": 9.27784538269043,
+        "p90_mm": 11.718462944030762,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 358,
+        "nearest_anchor_mm": 6.286631107330322,
+        "median_mm": 6.425274848937988,
+        "p90_mm": 9.369868278503418,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1629,
+        "nearest_anchor_mm": 9.591444969177246,
+        "median_mm": 8.601787567138672,
+        "p90_mm": 13.327836036682129,
+        "fraction_gt20mm": 0.03437691926956177
+      }
+    },
+    {
+      "seed": 19000134,
+      "stream": "20201022-subject-10/20201022_112741/836212060125|draw19000134",
+      "real": {
+        "points": 881,
+        "nearest_anchor_mm": 5.487674713134766,
+        "median_mm": 5.646283149719238,
+        "p90_mm": 7.447291851043701,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 411,
+        "nearest_anchor_mm": 4.5686845779418945,
+        "median_mm": 4.516512870788574,
+        "p90_mm": 6.578516006469727,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000142,
+      "stream": "20200903-subject-04/20200903_103710/839512060362|draw19000142",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.480820178985596,
+        "median_mm": 6.537023544311523,
+        "p90_mm": 9.22635269165039,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1775,
+        "nearest_anchor_mm": 8.563884735107422,
+        "median_mm": 6.472424030303955,
+        "p90_mm": 19.05052947998047,
+        "fraction_gt20mm": 0.09014084190130234
+      }
+    },
+    {
+      "seed": 19000150,
+      "stream": "20201015-subject-09/20201015_143524/932122060861|draw19000150",
+      "real": {
+        "points": 428,
+        "nearest_anchor_mm": 8.987068176269531,
+        "median_mm": 5.892564296722412,
+        "p90_mm": 20.59840202331543,
+        "fraction_gt20mm": 0.11915887892246246
+      },
+      "proxy": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.068408489227295,
+        "median_mm": 4.227086067199707,
+        "p90_mm": 5.852466583251953,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 279,
+        "nearest_anchor_mm": 8.187568664550781,
+        "median_mm": 7.760519027709961,
+        "p90_mm": 11.434983253479004,
+        "fraction_gt20mm": 0.017921147868037224
+      }
+    },
+    {
+      "seed": 19000158,
+      "stream": "20201002-subject-08/20201002_113129/932122060861|draw19000158",
+      "real": {
+        "points": 853,
+        "nearest_anchor_mm": 6.177465438842773,
+        "median_mm": 6.284220218658447,
+        "p90_mm": 8.979729652404785,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 342,
+        "nearest_anchor_mm": 5.88091516494751,
+        "median_mm": 5.603677749633789,
+        "p90_mm": 8.9832181930542,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000166,
+      "stream": "20201022-subject-10/20201022_111832/840412060917|draw19000166",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 3.9354376792907715,
+        "median_mm": 4.010085582733154,
+        "p90_mm": 5.5770583152771,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 865,
+        "nearest_anchor_mm": 4.8245954513549805,
+        "median_mm": 4.835958003997803,
+        "p90_mm": 7.147624492645264,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000174,
+      "stream": "20200709-subject-01/20200709_143008/840412060917|draw19000174",
+      "real": {
+        "points": 294,
+        "nearest_anchor_mm": 4.774544715881348,
+        "median_mm": 4.793742656707764,
+        "p90_mm": 6.645230770111084,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 1743,
+        "nearest_anchor_mm": 4.061556816101074,
+        "median_mm": 4.177985191345215,
+        "p90_mm": 5.995321273803711,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1834,
+        "nearest_anchor_mm": 5.102364540100098,
+        "median_mm": 4.876654624938965,
+        "p90_mm": 7.220185279846191,
+        "fraction_gt20mm": 0.0032715376000851393
+      }
+    },
+    {
+      "seed": 19000182,
+      "stream": "20201015-subject-09/20201015_143403/932122062010|draw19000182",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 10.334611892700195,
+        "median_mm": 10.414764404296875,
+        "p90_mm": 14.747572898864746,
+        "fraction_gt20mm": 0.00244140625
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1140,
+        "nearest_anchor_mm": 9.203339576721191,
+        "median_mm": 5.836907863616943,
+        "p90_mm": 11.3148193359375,
+        "fraction_gt20mm": 0.0736842080950737
+      }
+    },
+    {
+      "seed": 19000190,
+      "stream": "20200813-subject-02/20200813_152107/932122061900|draw19000190",
+      "real": {
+        "points": 1213,
+        "nearest_anchor_mm": 7.03850793838501,
+        "median_mm": 7.089048385620117,
+        "p90_mm": 9.602865219116211,
+        "fraction_gt20mm": 0.009068425744771957
+      },
+      "proxy": {
+        "points": 548,
+        "nearest_anchor_mm": 3.479466676712036,
+        "median_mm": 3.596515417098999,
+        "p90_mm": 5.066981792449951,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 378,
+        "nearest_anchor_mm": 6.631293296813965,
+        "median_mm": 5.183968544006348,
+        "p90_mm": 8.248661041259766,
+        "fraction_gt20mm": 0.0396825410425663
+      }
+    },
+    {
+      "seed": 19000198,
+      "stream": "20201002-subject-08/20201002_112501/836212060125|draw19000198",
+      "real": {
+        "points": 75,
+        "nearest_anchor_mm": 4.067169189453125,
+        "median_mm": 4.046774864196777,
+        "p90_mm": 5.377537250518799,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 96,
+        "nearest_anchor_mm": 4.5625691413879395,
+        "median_mm": 4.006890296936035,
+        "p90_mm": 8.110963821411133,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000206,
+      "stream": "20200820-subject-03/20200820_142944/932122060857|draw19000206",
+      "real": {
+        "points": 452,
+        "nearest_anchor_mm": 10.136472702026367,
+        "median_mm": 6.038222312927246,
+        "p90_mm": 9.255802154541016,
+        "fraction_gt20mm": 0.07300885021686554
+      },
+      "proxy": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.628378868103027,
+        "median_mm": 4.736130714416504,
+        "p90_mm": 6.845561981201172,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 744,
+        "nearest_anchor_mm": 5.56929349899292,
+        "median_mm": 5.2118449211120605,
+        "p90_mm": 7.620195388793945,
+        "fraction_gt20mm": 0.004032257944345474
+      }
+    },
+    {
+      "seed": 19000214,
+      "stream": "20200908-subject-05/20200908_144706/839512060362|draw19000214",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 3.8001627922058105,
+        "median_mm": 3.6928718090057373,
+        "p90_mm": 5.723071575164795,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 967,
+        "nearest_anchor_mm": 4.082822322845459,
+        "median_mm": 4.170262336730957,
+        "p90_mm": 5.817777156829834,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000222,
+      "stream": "20200820-subject-03/20200820_144158/932122060861|draw19000222",
+      "real": {
+        "points": 1364,
+        "nearest_anchor_mm": 6.968855857849121,
+        "median_mm": 5.787114143371582,
+        "p90_mm": 12.686899185180664,
+        "fraction_gt20mm": 0.0036656891461461782
+      },
+      "proxy": {
+        "points": 1,
+        "nearest_anchor_mm": 3.586845636367798,
+        "median_mm": 3.586845636367798,
+        "p90_mm": 3.586845636367798,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 995,
+        "nearest_anchor_mm": 10.882528305053711,
+        "median_mm": 11.115967750549316,
+        "p90_mm": 17.140676498413086,
+        "fraction_gt20mm": 0.028140703216195107
+      }
+    },
+    {
+      "seed": 19000230,
+      "stream": "20200813-subject-02/20200813_152723/841412060263|draw19000230",
+      "real": {
+        "points": 1269,
+        "nearest_anchor_mm": 5.842586040496826,
+        "median_mm": 5.681766986846924,
+        "p90_mm": 8.384568214416504,
+        "fraction_gt20mm": 0.0015760441310703754
+      },
+      "proxy": null,
+      "visible": {
+        "points": 460,
+        "nearest_anchor_mm": 5.170938968658447,
+        "median_mm": 5.257266998291016,
+        "p90_mm": 7.153645038604736,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000238,
+      "stream": "20200709-subject-01/20200709_142642/932122062010|draw19000238",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.211242198944092,
+        "median_mm": 6.336517333984375,
+        "p90_mm": 8.710890769958496,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 944,
+        "nearest_anchor_mm": 6.441417217254639,
+        "median_mm": 6.56500768661499,
+        "p90_mm": 8.90588092803955,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000246,
+      "stream": "20200908-subject-05/20200908_152012/840412060917|draw19000246",
+      "real": {
+        "points": 961,
+        "nearest_anchor_mm": 4.746511459350586,
+        "median_mm": 3.9272592067718506,
+        "p90_mm": 9.970451354980469,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 340,
+        "nearest_anchor_mm": 6.097586631774902,
+        "median_mm": 4.289129257202148,
+        "p90_mm": 14.387837409973145,
+        "fraction_gt20mm": 0.0058823530562222
+      }
+    },
+    {
+      "seed": 19000254,
+      "stream": "20200709-subject-01/20200709_150326/932122062010|draw19000254",
+      "real": {
+        "points": 1888,
+        "nearest_anchor_mm": 9.192524909973145,
+        "median_mm": 9.254578590393066,
+        "p90_mm": 11.862754821777344,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 409,
+        "nearest_anchor_mm": 10.324355125427246,
+        "median_mm": 8.838837623596191,
+        "p90_mm": 11.637146949768066,
+        "fraction_gt20mm": 0.014669926837086678
+      }
+    },
+    {
+      "seed": 19000007,
+      "stream": "20200918-subject-06/20200918_113049/840412060917|draw19000007",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.524227619171143,
+        "median_mm": 6.5898542404174805,
+        "p90_mm": 9.357009887695312,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1324,
+        "nearest_anchor_mm": 6.732415199279785,
+        "median_mm": 6.750799179077148,
+        "p90_mm": 9.501852035522461,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000015,
+      "stream": "20201015-subject-09/20201015_145737/841412060263|draw19000015",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.302581787109375,
+        "median_mm": 5.329188346862793,
+        "p90_mm": 7.507149696350098,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 107,
+        "nearest_anchor_mm": 4.199804782867432,
+        "median_mm": 4.222628116607666,
+        "p90_mm": 6.2406325340271,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1135,
+        "nearest_anchor_mm": 7.011837482452393,
+        "median_mm": 5.7392730712890625,
+        "p90_mm": 9.116294860839844,
+        "fraction_gt20mm": 0.015859030187129974
+      }
+    },
+    {
+      "seed": 19000023,
+      "stream": "20200918-subject-06/20200918_113532/932122060861|draw19000023",
+      "real": {
+        "points": 1460,
+        "nearest_anchor_mm": 8.397045135498047,
+        "median_mm": 8.255025863647461,
+        "p90_mm": 11.312193870544434,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 448,
+        "nearest_anchor_mm": 10.218572616577148,
+        "median_mm": 8.562945365905762,
+        "p90_mm": 10.849170684814453,
+        "fraction_gt20mm": 0.02901785634458065
+      }
+    },
+    {
+      "seed": 19000031,
+      "stream": "20200813-subject-02/20200813_152608/836212060125|draw19000031",
+      "real": {
+        "points": 1624,
+        "nearest_anchor_mm": 4.174954891204834,
+        "median_mm": 4.214665412902832,
+        "p90_mm": 5.892358303070068,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 234,
+        "nearest_anchor_mm": 3.9752743244171143,
+        "median_mm": 4.098588943481445,
+        "p90_mm": 5.523947715759277,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000039,
+      "stream": "20200908-subject-05/20200908_145216/932122062010|draw19000039",
+      "real": {
+        "points": 144,
+        "nearest_anchor_mm": 7.1376800537109375,
+        "median_mm": 5.407822132110596,
+        "p90_mm": 15.869909286499023,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 1650,
+        "nearest_anchor_mm": 3.4505228996276855,
+        "median_mm": 3.5338547229766846,
+        "p90_mm": 5.153539657592773,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1233,
+        "nearest_anchor_mm": 9.975639343261719,
+        "median_mm": 6.8018927574157715,
+        "p90_mm": 17.398372650146484,
+        "fraction_gt20mm": 0.07704784721136093
+      }
+    },
+    {
+      "seed": 19000047,
+      "stream": "20200903-subject-04/20200903_105306/840412060917|draw19000047",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.364867687225342,
+        "median_mm": 7.104711055755615,
+        "p90_mm": 9.815827369689941,
+        "fraction_gt20mm": 0.01123046875
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1421,
+        "nearest_anchor_mm": 5.082496643066406,
+        "median_mm": 5.15590238571167,
+        "p90_mm": 7.215327262878418,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000055,
+      "stream": "20200709-subject-01/20200709_141931/839512060362|draw19000055",
+      "real": null,
+      "proxy": {
+        "points": 1017,
+        "nearest_anchor_mm": 6.015978813171387,
+        "median_mm": 6.069190502166748,
+        "p90_mm": 9.320907592773438,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 2048,
+        "nearest_anchor_mm": 6.674622535705566,
+        "median_mm": 6.626322269439697,
+        "p90_mm": 9.668174743652344,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000063,
+      "stream": "20200918-subject-06/20200918_121252/840412060917|draw19000063",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.9131011962890625,
+        "median_mm": 4.695675849914551,
+        "p90_mm": 6.622286319732666,
+        "fraction_gt20mm": 0.00341796875
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1311,
+        "nearest_anchor_mm": 5.397176265716553,
+        "median_mm": 4.287746429443359,
+        "p90_mm": 6.373204231262207,
+        "fraction_gt20mm": 0.02822273038327694
+      }
+    },
+    {
+      "seed": 19000071,
+      "stream": "20201022-subject-10/20201022_112907/840412060917|draw19000071",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.014138221740723,
+        "median_mm": 9.065532684326172,
+        "p90_mm": 13.161137580871582,
+        "fraction_gt20mm": 0.00048828125
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1177,
+        "nearest_anchor_mm": 9.481497764587402,
+        "median_mm": 9.608088493347168,
+        "p90_mm": 13.748684883117676,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000079,
+      "stream": "20200908-subject-05/20200908_151001/932122061900|draw19000079",
+      "real": null,
+      "proxy": null,
+      "visible": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.670624732971191,
+        "median_mm": 7.778045654296875,
+        "p90_mm": 12.727283477783203,
+        "fraction_gt20mm": 0.02734375
+      }
+    },
+    {
+      "seed": 19000087,
+      "stream": "20201015-subject-09/20201015_145240/836212060125|draw19000087",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.809154510498047,
+        "median_mm": 8.881817817687988,
+        "p90_mm": 13.146317481994629,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 32,
+        "nearest_anchor_mm": 9.04680061340332,
+        "median_mm": 10.240986824035645,
+        "p90_mm": 11.522296905517578,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1074,
+        "nearest_anchor_mm": 9.539400100708008,
+        "median_mm": 9.040642738342285,
+        "p90_mm": 13.209617614746094,
+        "fraction_gt20mm": 0.03165735676884651
+      }
+    },
+    {
+      "seed": 19000095,
+      "stream": "20201002-subject-08/20201002_105558/932122060861|draw19000095",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.046781539916992,
+        "median_mm": 7.560303688049316,
+        "p90_mm": 11.977702140808105,
+        "fraction_gt20mm": 0.00341796875
+      },
+      "proxy": null,
+      "visible": {
+        "points": 748,
+        "nearest_anchor_mm": 9.121262550354004,
+        "median_mm": 6.092881202697754,
+        "p90_mm": 9.591325759887695,
+        "fraction_gt20mm": 0.026737967506051064
+      }
+    },
+    {
+      "seed": 19000103,
+      "stream": "20200903-subject-04/20200903_113734/932122061900|draw19000103",
+      "real": {
+        "points": 1670,
+        "nearest_anchor_mm": 6.350125312805176,
+        "median_mm": 6.294543743133545,
+        "p90_mm": 9.433321952819824,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.481250762939453,
+        "median_mm": 6.7705512046813965,
+        "p90_mm": 18.124794006347656,
+        "fraction_gt20mm": 0.0927734375
+      }
+    },
+    {
+      "seed": 19000111,
+      "stream": "20200820-subject-03/20200820_141338/932122060861|draw19000111",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.197864532470703,
+        "median_mm": 9.252403259277344,
+        "p90_mm": 13.41234016418457,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1509,
+        "nearest_anchor_mm": 7.643060207366943,
+        "median_mm": 6.9161200523376465,
+        "p90_mm": 12.835975646972656,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000119,
+      "stream": "20200903-subject-04/20200903_113048/932122061900|draw19000119",
+      "real": {
+        "points": 1237,
+        "nearest_anchor_mm": 8.201701164245605,
+        "median_mm": 5.17732572555542,
+        "p90_mm": 16.930870056152344,
+        "fraction_gt20mm": 0.08084074407815933
+      },
+      "proxy": null,
+      "visible": {
+        "points": 464,
+        "nearest_anchor_mm": 12.632050514221191,
+        "median_mm": 12.369138717651367,
+        "p90_mm": 18.400510787963867,
+        "fraction_gt20mm": 0.05818965658545494
+      }
+    },
+    {
+      "seed": 19000127,
+      "stream": "20200928-subject-07/20200928_155648/932122062010|draw19000127",
+      "real": {
+        "points": 1764,
+        "nearest_anchor_mm": 6.520824909210205,
+        "median_mm": 6.338857173919678,
+        "p90_mm": 9.780577659606934,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 732,
+        "nearest_anchor_mm": 8.765721321105957,
+        "median_mm": 7.663424491882324,
+        "p90_mm": 14.283684730529785,
+        "fraction_gt20mm": 0.03961748629808426
+      }
+    },
+    {
+      "seed": 19000135,
+      "stream": "20200903-subject-04/20200903_112610/932122062010|draw19000135",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.254170417785645,
+        "median_mm": 8.17579174041748,
+        "p90_mm": 11.403480529785156,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 954,
+        "nearest_anchor_mm": 9.913769721984863,
+        "median_mm": 8.350929260253906,
+        "p90_mm": 12.556193351745605,
+        "fraction_gt20mm": 0.058700211346149445
+      }
+    },
+    {
+      "seed": 19000143,
+      "stream": "20200709-subject-01/20200709_153103/840412060917|draw19000143",
+      "real": {
+        "points": 183,
+        "nearest_anchor_mm": 6.423468112945557,
+        "median_mm": 6.1297454833984375,
+        "p90_mm": 9.961645126342773,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 216,
+        "nearest_anchor_mm": 4.667789936065674,
+        "median_mm": 4.761653900146484,
+        "p90_mm": 6.985858917236328,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1740,
+        "nearest_anchor_mm": 16.232444763183594,
+        "median_mm": 6.04776668548584,
+        "p90_mm": 11.845097541809082,
+        "fraction_gt20mm": 0.08448275923728943
+      }
+    },
+    {
+      "seed": 19000151,
+      "stream": "20201015-subject-09/20201015_143403/932122061900|draw19000151",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 11.35163402557373,
+        "median_mm": 11.628936767578125,
+        "p90_mm": 17.707109451293945,
+        "fraction_gt20mm": 0.03466796875
+      },
+      "proxy": {
+        "points": 849,
+        "nearest_anchor_mm": 3.9936835765838623,
+        "median_mm": 4.110126495361328,
+        "p90_mm": 5.929230213165283,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 391,
+        "nearest_anchor_mm": 6.335189342498779,
+        "median_mm": 5.91779088973999,
+        "p90_mm": 9.62814712524414,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000159,
+      "stream": "20200918-subject-06/20200918_115517/932122060857|draw19000159",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 8.010382652282715,
+        "median_mm": 8.045573234558105,
+        "p90_mm": 11.491557121276855,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 649,
+        "nearest_anchor_mm": 11.144600868225098,
+        "median_mm": 7.383764266967773,
+        "p90_mm": 10.913450241088867,
+        "fraction_gt20mm": 0.04468413069844246
+      }
+    },
+    {
+      "seed": 19000167,
+      "stream": "20201015-subject-09/20201015_145902/840412060917|draw19000167",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.0432610511779785,
+        "median_mm": 6.473599433898926,
+        "p90_mm": 9.640625953674316,
+        "fraction_gt20mm": 0.01904296875
+      },
+      "proxy": {
+        "points": 858,
+        "nearest_anchor_mm": 4.382517337799072,
+        "median_mm": 4.449153423309326,
+        "p90_mm": 6.5039896965026855,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1538,
+        "nearest_anchor_mm": 16.332618713378906,
+        "median_mm": 8.480157852172852,
+        "p90_mm": 45.32905960083008,
+        "fraction_gt20mm": 0.23146943747997284
+      }
+    },
+    {
+      "seed": 19000175,
+      "stream": "20200903-subject-04/20200903_105022/932122061900|draw19000175",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 7.740946292877197,
+        "median_mm": 7.507115364074707,
+        "p90_mm": 12.181090354919434,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 1882,
+        "nearest_anchor_mm": 6.6900787353515625,
+        "median_mm": 5.608770370483398,
+        "p90_mm": 11.062665939331055,
+        "fraction_gt20mm": 0.026567481458187103
+      }
+    },
+    {
+      "seed": 19000183,
+      "stream": "20200908-subject-05/20200908_145818/840412060917|draw19000183",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 4.451812744140625,
+        "median_mm": 4.399141788482666,
+        "p90_mm": 6.35653018951416,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 330,
+        "nearest_anchor_mm": 11.033119201660156,
+        "median_mm": 6.418452739715576,
+        "p90_mm": 27.544082641601562,
+        "fraction_gt20mm": 0.20909090340137482
+      }
+    },
+    {
+      "seed": 19000191,
+      "stream": "20200820-subject-03/20200820_143850/932122060857|draw19000191",
+      "real": {
+        "points": 1503,
+        "nearest_anchor_mm": 11.97368049621582,
+        "median_mm": 10.799919128417969,
+        "p90_mm": 13.301082611083984,
+        "fraction_gt20mm": 0.01264138426631689
+      },
+      "proxy": {
+        "points": 1457,
+        "nearest_anchor_mm": 7.2904863357543945,
+        "median_mm": 7.502091884613037,
+        "p90_mm": 10.80872631072998,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 398,
+        "nearest_anchor_mm": 15.22596263885498,
+        "median_mm": 11.91302490234375,
+        "p90_mm": 31.30594253540039,
+        "fraction_gt20mm": 0.17336682975292206
+      }
+    },
+    {
+      "seed": 19000199,
+      "stream": "20201015-subject-09/20201015_150105/836212060125|draw19000199",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.159067153930664,
+        "median_mm": 5.107184410095215,
+        "p90_mm": 7.592346668243408,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 1256,
+        "nearest_anchor_mm": 4.777818202972412,
+        "median_mm": 4.863192558288574,
+        "p90_mm": 7.094731330871582,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 804,
+        "nearest_anchor_mm": 5.820899963378906,
+        "median_mm": 5.8549113273620605,
+        "p90_mm": 8.150708198547363,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000207,
+      "stream": "20200928-subject-07/20200928_155212/839512060362|draw19000207",
+      "real": {
+        "points": 281,
+        "nearest_anchor_mm": 7.6811933517456055,
+        "median_mm": 7.411556243896484,
+        "p90_mm": 10.727675437927246,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 7,
+        "nearest_anchor_mm": 11.342588424682617,
+        "median_mm": 10.717557907104492,
+        "p90_mm": 15.050308227539062,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000215,
+      "stream": "20200820-subject-03/20200820_142608/839512060362|draw19000215",
+      "real": {
+        "points": 1864,
+        "nearest_anchor_mm": 6.864235877990723,
+        "median_mm": 6.92003059387207,
+        "p90_mm": 9.730610847473145,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 927,
+        "nearest_anchor_mm": 7.136941432952881,
+        "median_mm": 7.146213531494141,
+        "p90_mm": 10.41354751586914,
+        "fraction_gt20mm": 0.0021574972197413445
+      }
+    },
+    {
+      "seed": 19000223,
+      "stream": "20200820-subject-03/20200820_140008/932122061900|draw19000223",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 9.361857414245605,
+        "median_mm": 8.031684875488281,
+        "p90_mm": 11.995548248291016,
+        "fraction_gt20mm": 0.015625
+      },
+      "proxy": {
+        "points": 444,
+        "nearest_anchor_mm": 5.749110698699951,
+        "median_mm": 5.757681369781494,
+        "p90_mm": 8.852176666259766,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 552,
+        "nearest_anchor_mm": 9.691202163696289,
+        "median_mm": 6.513714790344238,
+        "p90_mm": 25.213939666748047,
+        "fraction_gt20mm": 0.12318840622901917
+      }
+    },
+    {
+      "seed": 19000231,
+      "stream": "20200820-subject-03/20200820_135323/932122060857|draw19000231",
+      "real": {
+        "points": 2048,
+        "nearest_anchor_mm": 16.239694595336914,
+        "median_mm": 18.431795120239258,
+        "p90_mm": 21.709823608398438,
+        "fraction_gt20mm": 0.29541015625
+      },
+      "proxy": {
+        "points": 2048,
+        "nearest_anchor_mm": 5.995720386505127,
+        "median_mm": 6.14604377746582,
+        "p90_mm": 8.974039077758789,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 1405,
+        "nearest_anchor_mm": 12.523237228393555,
+        "median_mm": 8.450448989868164,
+        "p90_mm": 17.253948211669922,
+        "fraction_gt20mm": 0.05338078364729881
+      }
+    },
+    {
+      "seed": 19000239,
+      "stream": "20200928-subject-07/20200928_155648/840412060917|draw19000239",
+      "real": {
+        "points": 1964,
+        "nearest_anchor_mm": 6.196203231811523,
+        "median_mm": 5.907517910003662,
+        "p90_mm": 9.548120498657227,
+        "fraction_gt20mm": 0.0010183299891650677
+      },
+      "proxy": null,
+      "visible": {
+        "points": 486,
+        "nearest_anchor_mm": 6.3331427574157715,
+        "median_mm": 5.926922798156738,
+        "p90_mm": 8.725051879882812,
+        "fraction_gt20mm": 0.016460904851555824
+      }
+    },
+    {
+      "seed": 19000247,
+      "stream": "20200928-subject-07/20200928_155239/841412060263|draw19000247",
+      "real": {
+        "points": 1233,
+        "nearest_anchor_mm": 4.001343250274658,
+        "median_mm": 4.00603723526001,
+        "p90_mm": 5.607460975646973,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": null,
+      "visible": {
+        "points": 369,
+        "nearest_anchor_mm": 3.4682881832122803,
+        "median_mm": 3.4823076725006104,
+        "p90_mm": 4.665153980255127,
+        "fraction_gt20mm": 0.0
+      }
+    },
+    {
+      "seed": 19000255,
+      "stream": "20201015-subject-09/20201015_151115/932122061900|draw19000255",
+      "real": {
+        "points": 1310,
+        "nearest_anchor_mm": 3.8090507984161377,
+        "median_mm": 3.451155185699463,
+        "p90_mm": 6.263827323913574,
+        "fraction_gt20mm": 0.0
+      },
+      "proxy": {
+        "points": 674,
+        "nearest_anchor_mm": 1.9515413045883179,
+        "median_mm": 1.990791916847229,
+        "p90_mm": 2.914189577102661,
+        "fraction_gt20mm": 0.0
+      },
+      "visible": {
+        "points": 539,
+        "nearest_anchor_mm": 4.47026252746582,
+        "median_mm": 2.693936586380005,
+        "p90_mm": 10.011162757873535,
+        "fraction_gt20mm": 0.0352504625916481
+      }
+    }
+  ]
+}
