@@ -44,7 +44,9 @@ def main():
    for log in logs:log.close()
  def train(step):
   args=['-m','torch.distributed.run','--standalone','--nproc_per_node=8','tools/fp_worker.py','tools/train_two_stream.py','--config',a.config,'--stop-at',str(step)]
-  if (out/'last.pt').exists():args+=['--resume',str(out/'last.pt')]
+  if (out/'last.pt').exists():
+   if json.loads((out/'last.receipt.json').read_text())['step']>=step:return
+   args+=['--resume',str(out/'last.pt')]
   run('train_to'+str(step),[args]);assert json.loads((out/'last.receipt.json').read_text())['step']==step
  def audit(name):run(name,[['tools/audit_joint_pose.py','--config',a.config,'--out',str(root/(name+'.json'))]])
  def native(name,checkpoint):
