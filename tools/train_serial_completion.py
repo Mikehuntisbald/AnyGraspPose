@@ -5,6 +5,7 @@ checkpoints. Oracle completion is never used as an input in this stage.
 """
 import argparse,hashlib,json,math,os,random,sys,time
 from pathlib import Path
+from dataclasses import replace
 import numpy as np,torch,torch.distributed as dist,yaml
 from torch.nn import functional as F
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
@@ -25,7 +26,8 @@ from lip.geometry.so3 import update
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--config',required=True);p.add_argument('--oracle',required=True)
-    p.add_argument('--stop-at',type=int);p.add_argument('--resume');p.add_argument('--preflight',action='store_true');a=p.parse_args()
+    p.add_argument('--stop-at',type=int);p.add_argument('--resume');p.add_argument('--adapt-from');p.add_argument('--preflight',action='store_true');a=p.parse_args()
+    if a.resume and a.adapt_from:raise ValueError('Choose exact resume or explicit code adaptation')
     c=yaml.safe_load(Path(a.config).read_text());rank=int(os.environ.get('RANK',0));world=int(os.environ.get('WORLD_SIZE',1))
     if a.preflight:c['runtime']['formal']=False
     torch.cuda.set_device(0);torch.set_num_threads(2);torch.manual_seed(c['seed']);random.seed(c['seed']+rank);np.random.seed(c['seed']+rank)
@@ -64,14 +66,21 @@ def main():
         oracle_readout_sha256=gate['checkpoint_sha256'],training_split='train',official_test_access=False,teacher_input=False,
         crop_reference='student own detached feedback; GT noisy/zero pose curricula are training-only',paired_estimates=True)
     out=Path(c['paths']['output']);out=out.parent.parent/'preflight_run' if a.preflight else out
-    if rank==0:out.mkdir(parents=True,exist_ok=bool(a.resume));atomic_json(out/'provenance.json',provenance)
+    if rank==0:out.mkdir(parents=True,exist_ok=bool(a.resume or a.adapt_from));atomic_json(out/'provenance.json',provenance)
     if world>1:dist.barrier()
     start=0
-    if a.resume:start=resume(a.resume,model,opt,scheduler,c,provenance,rank,world)['step']
+    if a.adapt_from:
+        previous=torch.load(a.adapt_from,map_location='cpu',weights_only=False)
+        old=previous['provenance'];del previous
+        if {k:v for k,v in old.items() if k!='source_sha256'}!={k:v for k,v in provenance.items() if k!='source_sha256'}:
+            raise ValueError('Code-only adaptation changed data or initialization identity')
+        start=resume(a.adapt_from,model,opt,scheduler,c,old,rank,world)['step']
+        if rank==0:atomic_json(out/'code_adaptation.json',dict(step=start,checkpoint_sha256=sha(a.adapt_from),previous_source_sha256=old['source_sha256'],source_sha256=provenance['source_sha256'],model_optimizer_scheduler_rng_exact=True,reason='Same RGB-D crop/occluder for paired estimated poses'))
+    elif a.resume:start=resume(a.resume,model,opt,scheduler,c,provenance,rank,world)['step']
     else:save(out/'initial.pt',model,opt,scheduler,0,c,provenance)
     batch=1 if a.preflight else c['runtime']['microbatch']
     # Keep rank model initialization equal; rank RNG differs only afterwards.
-    if not a.resume:torch.manual_seed(c['seed']+rank)
+    if not (a.resume or a.adapt_from):torch.manual_seed(c['seed']+rank)
     def episodes(step):
         result=[]
         for lane in range(batch):
@@ -81,9 +90,15 @@ def main():
                 if not heldout(sample[0].stream):result.append(sample);break
             else:raise RuntimeError('Cannot draw training sequence outside gate holdout')
         return result
-    def forward(episodes,targets,bases,frame):
-        scenes=[prepare_scene(e.rgb[frame],e.depth[frame],bases[i],e.mesh,e.k,e.times[frame],e.stream+f'/lane{i}',e.cad,factory.renderer,fast=True) for i,e in enumerate(episodes)]
-        occ=[e.occlusion_plan.render(s,frame) for e,s in zip(episodes,scenes)]
+    def forward(episodes,targets,bases,frame,paired_source=None):
+        if paired_source is None:
+            scenes=[prepare_scene(e.rgb[frame],e.depth[frame],bases[i],e.mesh,e.k,e.times[frame],e.stream+f'/lane{i}',e.cad,factory.renderer,fast=True) for i,e in enumerate(episodes)]
+            occ=[e.occlusion_plan.render(s,frame) for e,s in zip(episodes,scenes)]
+        else:
+            source_scenes,occ=paired_source;scenes=[]
+            for i,s in enumerate(source_scenes):
+                state=s.state.clone();state[:6]=bases[i,:3,:2].T.flatten();state[6:9]=bases[i,:3,3]/s.diameter
+                scenes.append(replace(s,pose=bases[i],state=state,render=factory.renderer(s.cad['appearance'],bases[i],s.k_crop,224)))
         obs=encode_scenes(model,scenes,occlusions=occ,frame_id=frame)
         truth=torch.stack([t[0][frame] for t in targets]);mask=torch.stack([t[1][frame] for t in targets])
         teacher=build_teachers(model.ema_teacher,scenes,truth,mask,[o.mask for o in occ],factory.renderer,real_geometry_max_radius_d=1.,fast=True,batch_render=True,vectorized=True)
@@ -91,7 +106,7 @@ def main():
         with torch.autocast('cuda',dtype=torch.bfloat16):output,_=model(obs)
         points=torch.stack([torch.as_tensor(e.mesh['points'],device='cuda') for e in episodes])
         with torch.autocast('cuda',dtype=torch.bfloat16):loss,metrics=objective(output,teacher,truth,points,obs.diameter,bases,obs.measured_depth_m,c['training']['loss_weights'])
-        return output,loss,metrics,obs,teacher
+        return output,loss,metrics,obs,teacher,(scenes,occ)
     path_norms=None
     with (out/f'rank{rank}.jsonl').open('a') as log:
         for step in range(start,stop):
@@ -104,7 +119,7 @@ def main():
             # immutable reference trajectory or inspect GT during deployment.
             if step%4 in (2,3):bases=torch.stack([e.initial for e in ep])
             opt.zero_grad(set_to_none=True)
-            first,l1,m1,obs,target=forward(ep,targets,bases,frame)
+            first,l1,m1,obs,target,pair_source=forward(ep,targets,bases,frame)
             if a.preflight:
                 from lip.losses import pose_loss
                 pure_pose,_=pose_loss(first['pose_centered'],truth,torch.stack([torch.as_tensor(e.mesh['points'],device='cuda') for e in ep]),diam)
@@ -115,15 +130,17 @@ def main():
             # Same RGB-D observation, alternate estimated pose. Every fourth
             # example is an exact-zero base; its target is always a zero update.
             alternative=truth if step%4==0 else update(bases,-noise[:,:3],-noise[:,3:],diam)
-            second,l2,m2,_,_=forward(ep,targets,alternative,frame)
+            second,l2,m2,paired_obs,_,_=forward(ep,targets,alternative,frame,paired_source=pair_source)
+            if not torch.equal(obs.packet.rgb_crop,paired_obs.packet.rgb_crop) or not torch.equal(obs.measured_depth_m,paired_obs.measured_depth_m):
+                raise AssertionError('Paired estimates changed the RGB-D observation')
             pred1=torch.cat((first['delta_rotvec'],first['delta_center_norm']),-1)
             pred2=torch.cat((second['delta_rotvec'],second['delta_center_norm']),-1)
             expected=delta_target(bases,truth,diam)-delta_target(alternative,truth,diam)
             scale=truth.new_tensor([.174533]*3+[.05]*3)
             pair=F.smooth_l1_loss((pred1-pred2)/scale,expected/scale,beta=.1)
             combined=(l1+l2)/3+.1*pair
-            combined.backward();del first,second,obs,target,l1,l2,combined,pred1,pred2
-            third,l3,m3,_,_=forward(ep,targets,feedback,frame+1)
+            combined.backward();del first,second,obs,paired_obs,target,pair_source,l1,l2,combined,pred1,pred2
+            third,l3,m3,_,_,_=forward(ep,targets,feedback,frame+1)
             (l3/3).backward();loss_value=float(l3.detach());del third,l3
             communication=time.monotonic();synchronize_gradients(model.parameters());communication=time.monotonic()-communication
             norm=torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.grad is not None],1.)

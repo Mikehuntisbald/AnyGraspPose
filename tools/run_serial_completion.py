@@ -8,7 +8,7 @@ from lip.engine.jepa_checkpoint import sha
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--config',required=True);a=p.parse_args();c=yaml.safe_load(Path(a.config).read_text())
+    p=argparse.ArgumentParser();p.add_argument('--config',required=True);p.add_argument('--adapt-from');a=p.parse_args();c=yaml.safe_load(Path(a.config).read_text())
     exe=Path(__file__).resolve().parents[1];out=Path(c['paths']['output']);root=out.parents[1]
     controller=root/'controller';controller.mkdir(exist_ok=False)
     lock=(controller/'lock').open('w');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
@@ -43,9 +43,13 @@ def main():
                 if x.poll() is None:os.killpg(x.pid,signal.SIGTERM)
             for log in logs:log.close()
     def train(step):
+        nonlocal a
+        if (out/'last.receipt.json').exists() and json.loads((out/'last.receipt.json').read_text())['step']>=step:return
         args=['-m','torch.distributed.run','--standalone','--nproc_per_node=8','tools/fp_worker.py','tools/train_serial_completion.py','--config',a.config,'--oracle',str(oracle),'--stop-at',str(step)]
-        if (out/'last.pt').exists():args+=['--resume',str(out/'last.pt')]
+        if a.adapt_from:args+=['--adapt-from',a.adapt_from]
+        elif (out/'last.pt').exists():args+=['--resume',str(out/'last.pt')]
         run('train'+str(step),[args]);assert json.loads((out/'last.receipt.json').read_text())['step']==step
+        a.adapt_from=None
     def native(step,checkpoint):
         pred=root/'validation'/f'step{step}';scored=root/'validation'/f'step{step}_scored'
         run('native'+str(step),[['tools/infer_unified_jepa_val.py','--config',a.config,'--checkpoint',str(checkpoint),'--out',str(pred/f'rank{r}'),'--rank',str(r),'--world','8','--disable-history'] for r in range(8)],True)

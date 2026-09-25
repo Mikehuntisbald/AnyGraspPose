@@ -51,6 +51,12 @@ produce a large appearance-driven update. No evidence gives zero update.
    paired with different estimated poses; regular exact-GT bases train zero
    updates. A third forward uses the student's detached pose on the next frame.
    GT-based starts are training-only; native inference retains PoseCNN starts.
+   A review found the first implementation generated cutouts independently in
+   each estimated-pose crop. At complete checkpoint350, training was explicitly
+   adapted to reuse exactly the same RGB-D crop and cutout for both estimates,
+   re-rendering only CAD and updating the estimated-pose state. Every pair now
+   asserts identical RGB and raw depth. Model/Adam/scheduler/all-rank RNG were
+   restored exactly; the earlier source and checkpoint remain archived.
 5. Native validation uses own feedback, no GT access, 23,200 frames. Compare to
    old pure LIP (83.66% ADD-S@0.05d) and V20 (31.33%), keeping conditional/oracle
    scores separate. Never replace the default model based on the oracle gate.
