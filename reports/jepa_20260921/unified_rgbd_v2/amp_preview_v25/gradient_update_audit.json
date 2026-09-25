@@ -1,0 +1,26 @@
+{
+  "completed": true,
+  "step": 1200,
+  "parameters": {
+    "core.src_proj.weight": {
+      "delta_l2": 0.03760287165641785,
+      "relative_l2": 0.0038949239533394575,
+      "adam_steps": 200.0
+    },
+    "core.src_proj.bias": {
+      "delta_l2": 0.0005626328638754785,
+      "relative_l2": 0.0016206145519390702,
+      "adam_steps": 200.0
+    },
+    "visibility.1.weight": {
+      "delta_l2": 0.0036440459080040455,
+      "relative_l2": 0.003608470084145665,
+      "adam_steps": 200.0
+    },
+    "visibility.1.bias": {
+      "delta_l2": 7.674284279346466e-05,
+      "relative_l2": 0.0031680865213274956,
+      "adam_steps": 200.0
+    }
+  }
+}

@@ -69,3 +69,32 @@ all-rank RNG against V22 control: all four are identical. After excluding only
 the output directory and the new preflight-gradient assertion flag, normalized
 configurations are identical as well. This is a paired software-gradient fix,
 not a changed learning-rate or loss-weight experiment.
+
+## Completed result
+
+All200 updates and evaluations completed. Each formerly disconnected parameter
+now has exactly200 Adam steps and a nonzero parameter change. Native/recovery
+protocol identities, fixed crop/teacher/donor inputs and supervision pixel counts
+were checked against V22 control.
+
+|Checkpoint|All ADD-S@0.05d|Visibility<50%|Visibility<30%|
+|---|---:|---:|---:|
+|V21 parent1000|52.473%|29.254%|5.266%|
+|Old-control1200|50.930%|28.726%|7.575%|
+|AMP-fixed1200|50.520%|27.196%|7.968%|
+
+Relative to old control:−0.409pp overall,−1.531pp heavy,+0.393pp extreme. The bug
+is real and the gradient repair is retained, but this200-step checkpoint does
+not improve native accuracy and is not promoted. Do not call this the entire
+cause of the LIP gap or extend this pilot on a training-loss argument.
+
+Heavy reconstruction after the fix: real XYZ/depth39.936/17.740mm; CAD proxy
+38.361/24.185mm. Old control:40.033/17.418 and38.625/24.251mm. Controlled positive
+10-degree rotation ends at9.018 degrees (parent9.434); this small controlled
+change is not a substitute for the native result. Terminal checkpoint SHA256:
+31da058ad89405d4f5b939dffa2c8f36b132aa15ff932209181670870870da3f.
+
+The next isolated change addresses feature ownership: V21's visible patch
+features were overwritten with pre-JEPA DINO observations before pose reading.
+V26 keeps real RGB/depth inputs but routes all pose appearance features through
+JEPA's decoder. This is distinct from the repaired gradient-cache bug.
