@@ -42,7 +42,7 @@ through restored XYZ/depth, both feature heads and the shared JEPA patch. CPU
 regression tests cover AMP on/off, detached confidence and identical forward
 values.11 relevant regression tests passed; no environment packages changed.
 
-## Same-parent performance control now running
+## Same-parent performance control (completed)
 
 Start from the exact V21 step1000 model, optimizer and all-rank RNG. Restore the
 LEGACY joint-trained pose head, not V24's frozen shape-conditioned readout. Run

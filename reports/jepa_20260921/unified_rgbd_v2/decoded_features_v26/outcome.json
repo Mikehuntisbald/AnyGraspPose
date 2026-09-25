@@ -1,0 +1,194 @@
+{
+  "goal_complete": false,
+  "paired_start": {
+    "completed": true,
+    "model_adam_schedule_rng_identical": true,
+    "only_output_and_feature_source_differ": true,
+    "records": {
+      "amp_control": {
+        "step": 1000,
+        "hashes": {
+          "model": "3e23b85fb7eb8c3b84d89ff0c7f492863f8b013e114a818209c50ffafa58d3f3",
+          "optimizer": "fb7d9649fd2d4e963aac3f65ef2a3954169f2c105eabc90f415ef0d764885fcc",
+          "scheduler": "c175a72e16bb0a4df7b5915bffc6d150fcbfb4c740f5f755015a577fc7ad0b17",
+          "rng": "5e7fb0fa9da447d8c741b332184891e5ec87a1eeb76509ed7097f2095c638adf",
+          "normalized_config": "d0a252adf3d2a319d809d8335cf332ab265cefa1a0841329d175f508a8ae7ce4"
+        }
+      },
+      "decoded": {
+        "step": 1000,
+        "hashes": {
+          "model": "3e23b85fb7eb8c3b84d89ff0c7f492863f8b013e114a818209c50ffafa58d3f3",
+          "optimizer": "fb7d9649fd2d4e963aac3f65ef2a3954169f2c105eabc90f415ef0d764885fcc",
+          "scheduler": "c175a72e16bb0a4df7b5915bffc6d150fcbfb4c740f5f755015a577fc7ad0b17",
+          "rng": "5e7fb0fa9da447d8c741b332184891e5ec87a1eeb76509ed7097f2095c638adf",
+          "normalized_config": "d0a252adf3d2a319d809d8335cf332ab265cefa1a0841329d175f508a8ae7ce4"
+        }
+      }
+    }
+  },
+  "native": {
+    "observed_visible": {
+      "all": 50.52038878300967,
+      "visibility_lt_05": 27.195679626468284,
+      "visibility_lt_03": 7.967749174748431
+    },
+    "decoded": {
+      "all": 50.824916681094635,
+      "visibility_lt_05": 21.94712770105661,
+      "visibility_lt_03": 7.7194233087755055
+    }
+  },
+  "recovery": {
+    "observed_visible": {
+      "geometry_focus_real": {
+        "xyz_mm": 39.93632038414629,
+        "depth_mm": 17.73966852552361,
+        "xyz_depth_inconsistency_mm": 23.041773838872338
+      },
+      "geometry_focus_proxy": {
+        "xyz_mm": 38.36094850501337,
+        "depth_mm": 24.185372168749563,
+        "xyz_depth_inconsistency_mm": 20.841552961899897
+      }
+    },
+    "decoded": {
+      "geometry_focus_real": {
+        "xyz_mm": 40.51375468495142,
+        "depth_mm": 17.243421068321727,
+        "xyz_depth_inconsistency_mm": 23.92624798308324
+      },
+      "geometry_focus_proxy": {
+        "xyz_mm": 39.84766593161564,
+        "depth_mm": 24.310906733214747,
+        "xyz_depth_inconsistency_mm": 21.795898470592494
+      }
+    }
+  },
+  "protocol_verified": true,
+  "delta_pp": {
+    "all": 0.30452789808496306,
+    "visibility_lt_05": -5.248551925411675,
+    "visibility_lt_03": -0.24832586597292572
+  },
+  "controlled": {
+    "checkpoint_sha256": "159c50048f08ffaca4111080ccb83a80cfb4967c9227bbbf39741b52223fc977",
+    "rows": 476,
+    "groups": {
+      "nonsym_rotation": {
+        "cases": 249,
+        "physical_sequences": 28,
+        "rotation_deg": {
+          "base": 10.000000126390573,
+          "predicted": 9.14417466102355,
+          "oracle_geometry": 8.721314627482709,
+          "completion_off": 11.692246433721488,
+          "appearance_off": 14.353964104231103,
+          "gt_xyz_fixed_support": 8.639364068287922,
+          "gt_missing_depth_fixed_support": 9.094735651131137,
+          "gt_both_fixed_support": 8.588407125817724,
+          "gt_support_only": 9.188477062317261,
+          "gt_both_pruned_support": 8.420354877609805,
+          "gt_support_reject_false_measured": 9.221312801043192,
+          "gt_both_pruned_true_measured": 8.212060472572663,
+          "cad_missing_depth_fixed_support": 9.097862721447006,
+          "gt_xyz_cad_missing_depth_fixed_support": 8.553767670589279,
+          "gt_sensor_consistent_fixed_weight": 8.72885657793068,
+          "gt_error_quality_only": 9.088115950664841,
+          "rigid_sensor_consistent_oracle": 0.00022098422923992774,
+          "robust_rigid_sensor_consistent_oracle": 0.00022015242944620417,
+          "rigid_gt_error_quality_only": 13.448669456095102,
+          "robust_rigid_gt_error_quality_only": 14.928206237983034,
+          "rigid_predicted": 31.987503575512683,
+          "robust_rigid_predicted": 19.33456444453044,
+          "rigid_oracle_geometry": 0.0005578058334610677,
+          "robust_rigid_oracle_geometry": 0.0005550050023322479,
+          "rigid_gt_both_pruned_support": 25.493862934322383,
+          "robust_rigid_gt_both_pruned_support": 5.0681819724749255
+        },
+        "contamination": {
+          "outside_support_weight": 0.13745819780990542,
+          "false_measured_weight": 0.14934029843729274,
+          "quality_retained_weight": 0.28547700074217075
+        }
+      },
+      "nonsym_zero": {
+        "cases": 83,
+        "physical_sequences": 28,
+        "rotation_deg": {
+          "base": 0.0,
+          "predicted": 2.3701737250190185,
+          "oracle_geometry": 0.0004572697670734768,
+          "completion_off": 5.699522373906101,
+          "appearance_off": 12.711506441415075,
+          "gt_xyz_fixed_support": 2.085084920995925,
+          "gt_missing_depth_fixed_support": 2.248687901769776,
+          "gt_both_fixed_support": 1.7767988255314797,
+          "gt_support_only": 2.712373025625585,
+          "gt_both_pruned_support": 1.69863876450985,
+          "gt_support_reject_false_measured": 2.6108057987259095,
+          "gt_both_pruned_true_measured": 2.291536145181541,
+          "cad_missing_depth_fixed_support": 2.248687901769776,
+          "gt_xyz_cad_missing_depth_fixed_support": 1.7767988255314797,
+          "gt_sensor_consistent_fixed_weight": 0.0002706338179001272,
+          "gt_error_quality_only": 1.1664847903941051,
+          "rigid_sensor_consistent_oracle": 0.0002217891333846484,
+          "robust_rigid_sensor_consistent_oracle": 0.00022089397937617768,
+          "rigid_gt_error_quality_only": 10.761544003544083,
+          "robust_rigid_gt_error_quality_only": 11.907427938587695,
+          "rigid_predicted": 32.37698751903442,
+          "robust_rigid_predicted": 15.906777249761374,
+          "rigid_oracle_geometry": 0.0005528936016304784,
+          "robust_rigid_oracle_geometry": 0.0005490988817775843,
+          "rigid_gt_both_pruned_support": 26.36844616028002,
+          "robust_rigid_gt_both_pruned_support": 5.669214156507837
+        },
+        "contamination": {
+          "outside_support_weight": 0.1344538358634854,
+          "false_measured_weight": 0.14927418870817735,
+          "quality_retained_weight": 0.31511431433967346
+        }
+      },
+      "nonsym_heavy_rotation": {
+        "cases": 54,
+        "physical_sequences": 9,
+        "rotation_deg": {
+          "base": 10.000000176606354,
+          "predicted": 9.728212974689624,
+          "oracle_geometry": 8.388490005775735,
+          "completion_off": 14.524559550815159,
+          "appearance_off": 13.241752096900234,
+          "gt_xyz_fixed_support": 9.44500129311173,
+          "gt_missing_depth_fixed_support": 9.460768743797585,
+          "gt_both_fixed_support": 8.814283106062147,
+          "gt_support_only": 10.073591554606402,
+          "gt_both_pruned_support": 8.865109743895355,
+          "gt_support_reject_false_measured": 10.14592315311785,
+          "gt_both_pruned_true_measured": 9.091158769748828,
+          "cad_missing_depth_fixed_support": 9.55634613390322,
+          "gt_xyz_cad_missing_depth_fixed_support": 9.014299189602887,
+          "gt_sensor_consistent_fixed_weight": 8.865037679672241,
+          "gt_error_quality_only": 9.316355290236297,
+          "rigid_sensor_consistent_oracle": 0.00031147266391026615,
+          "robust_rigid_sensor_consistent_oracle": 0.00031095607354708827,
+          "rigid_gt_error_quality_only": 16.56807149781121,
+          "robust_rigid_gt_error_quality_only": 17.009276871328,
+          "rigid_predicted": 44.28060159859834,
+          "robust_rigid_predicted": 36.044449417679395,
+          "rigid_oracle_geometry": 0.00040873303964030194,
+          "robust_rigid_oracle_geometry": 0.00040679558646338084,
+          "rigid_gt_both_pruned_support": 34.488882852022975,
+          "robust_rigid_gt_both_pruned_support": 12.142768085072964
+        },
+        "contamination": {
+          "outside_support_weight": 0.27557432399717746,
+          "false_measured_weight": 0.3656221046026244,
+          "quality_retained_weight": 0.17256266417206023
+        }
+      }
+    },
+    "production_model_changed": false,
+    "scope": "Controlled positive-axis 10-degree perturbations; interventions include unavailable GT; rigid fit is a diagnostic only"
+  },
+  "conclusion": "Feature ownership now follows JEPA, but heavy native pose and XYZ did not improve. Preserve experiment; do not promote or extend blindly."
+}

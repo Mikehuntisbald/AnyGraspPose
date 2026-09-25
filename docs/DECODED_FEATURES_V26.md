@@ -1,7 +1,7 @@
 # V26: retain JEPA's fused features at visible as well as hidden patches
 
-Status: implemented, tests passed, paired200-update experiment started. No model
-promotion or accuracy claim yet. AMP gradient fix from V25 is retained.
+Status: implemented, tests and paired200-update experiment completed. The heavy
+pose/reconstruction gate failed; no model promotion. AMP gradient fix from V25 is retained.
 
 ## Why this change follows the intended pipeline
 
@@ -48,3 +48,35 @@ shape conditioning and optimizer migration.
 
 Runtime `/tmp/dexycb_decoded_features_v26`; artifacts
 `/mnt/why/dexycb_lip/unified_jepa_20260921/decoded_features_v26`.
+
+## Completed result: architecture path corrected, checkpoint not adopted
+
+Both training and all evaluations completed. Initial model, Adam, scheduler and
+all-rank RNG hashes match V25 exactly; normalized config differs only in output
+path and feature source. Native and recovery frame/teacher/crop/donor/pixel
+identities were verified after evaluation.
+
+|Route|All ADD-S@0.05d|Visibility<50%|Visibility<30%|
+|---|---:|---:|---:|
+|V25 observed-visible|50.520%|27.196%|7.968%|
+|V26 all-decoded|50.825%|21.947%|7.719%|
+
+All-frame changes+0.305pp, but heavy−5.249pp and extreme−0.248pp. This does NOT
+pass the restoration/pose objective. The terminal weights are retained for audit,
+not promoted; the budget is not expanded because a wiring test passed.
+
+Heavy real XYZ/depth40.514/17.243mm (control39.936/17.740); proxy39.848/24.311mm
+(control38.361/24.185). Canonical XYZ worsens. Controlled non-symmetric positive
+10-degree rotation ends at9.144 degrees (control9.018), zero-base drift2.370
+(control2.479). Restoration quality remains inadequate for reliable pose.
+Terminal SHA256:159c50048f08ffaca4111080ccb83a80cfb4967c9227bbbf39741b52223fc977.
+
+The two stacked256→384 feature projections have full column rank256, condition
+number21.13 (parent23.22). This is a linear algebra result BEFORE AMP quantization,
+normalization and source substitution; it does not prove accurate pose information
+or that a finite learned readout can recover it. Do not blame a dimensional rank
+collapse without evidence. The next bounded probe should read actual predicted
+latents/geometry on independent sequences, rather than substituting ideal geometry
+and treating oracle success as usable restoration. Any later raw-patch readout
+choice must remain consistent with the user's main JEPA flow and restoration-use
+requirement; no FP or independent encoder shortcut is authorized by this result.

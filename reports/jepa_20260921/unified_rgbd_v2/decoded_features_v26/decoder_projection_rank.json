@@ -1,0 +1,23 @@
+{
+  "parent": {
+    "smallest": 0.06427185985855947,
+    "largest": 1.4923872013067312,
+    "condition": 23.219916221359835,
+    "numerical_rank": 256,
+    "width": 256
+  },
+  "amp_fixed": {
+    "smallest": 0.07026198467370459,
+    "largest": 1.4962410262349761,
+    "condition": 21.295171680439896,
+    "numerical_rank": 256,
+    "width": 256
+  },
+  "decoded": {
+    "smallest": 0.07084480012581842,
+    "largest": 1.4970539415118007,
+    "condition": 21.1314583265543,
+    "numerical_rank": 256,
+    "width": 256
+  }
+}
