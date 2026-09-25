@@ -1,0 +1,7 @@
+{
+  "source_archive_sha256": "e78c74ce2e149c334f326aebc9842430d58ae988b101ff2585467f7417ac90da",
+  "source_receipt_sha256": "1c4e0be385ca2acf56f503e3932630d2825c01f8540543524d111881472586c4",
+  "scope": "Launch snapshot only; original full runtime preserved; candidate still training",
+  "runtime": "/tmp/dexycb_shared_patch_v32",
+  "remote_git_checkout": false
+}

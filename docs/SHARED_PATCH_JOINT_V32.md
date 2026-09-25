@@ -68,3 +68,22 @@ same-weight patch-off results will be reported separately.
 Runtime: `/tmp/dexycb_shared_patch_v32`; artifact root:
 `/mnt/why/dexycb_lip/unified_jepa_20260921/shared_patch_joint_v32`.
 Remote runtime is a pinned source copy, not a Git checkout.
+
+## Verified launch snapshot (not terminal results)
+
+Both eight-GPU preflights pass. The new projection's actual-loss gradient norm
+is0 in control and0.80736 in candidate, while decoded feature/XYZ/depth and
+shared-patch gradients remain nonzero. Migration verifies695 existing model
+tensors and455 existing named Adam states. The1202→1203 process restart passed
+strict restoration checks. `paired_start_identity.json` confirms both arms'
+model, optimizer, scheduler, RNG, step and sampler position are identical.
+
+Control1450 full native validation: all52.2201%, visibility<50%22.1558%,
+visibility<30%7.6848%. Parent1200 was50.8249%/21.9471%/7.7194%. This is the
+control without oracle rehearsal, NOT a gain attributable to direct patch
+reading. The candidate is training; final conclusions remain pending.
+
+An independent CPU audit found that this inherited serial curriculum reaches
+only18.53% of frames in eligible training streams, all no later than absolute
+frame28. See `SERIAL_TIME_COVERAGE_AUDIT.md`. V32 leaves sampling unchanged;
+coverage and closed-loop stability must be repaired/tested independently.

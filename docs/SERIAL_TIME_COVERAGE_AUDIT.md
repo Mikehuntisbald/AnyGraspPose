@@ -13,10 +13,10 @@ supervised absolute frame is28.
 
 After applying the actual physical-sequence holdout exclusion:
 
--20,930 initializer options from4,813 streams;
--64,851 distinct frames can be reached by offsets0/1/8/9;
--350,018 total frames in those eligible streams;
--reachable fraction18.53%, before considering actual finite sampling frequency.
+- 20,930 initializer options from4,813 streams;
+- 64,851 distinct frames can be reached by offsets0/1/8/9;
+- 350,018 total frames in those eligible streams;
+- reachable fraction18.53%, before considering actual finite sampling frequency.
 
 This describes the serial pose curriculum, not every earlier JEPA pretraining
 stage. It does not mean only18.53% of objects or sequences have been trained.
