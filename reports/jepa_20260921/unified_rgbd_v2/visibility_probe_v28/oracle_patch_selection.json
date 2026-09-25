@@ -1,0 +1,62 @@
+{
+  "all": {
+    "original": {
+      "precision": 0.9328830916594937,
+      "recall": 0.6439856783728194,
+      "true_pixels": 126804.0,
+      "false_pixels": 9123.0
+    },
+    "oracle_rgb_patch": {
+      "precision": 0.9555050320629013,
+      "recall": 0.7555674056016861,
+      "true_pixels": 148775.0,
+      "false_pixels": 6927.9999923706055
+    },
+    "oracle_depth_patch": {
+      "precision": 0.9525679815538027,
+      "recall": 0.7722861278281404,
+      "true_pixels": 152067.0,
+      "false_pixels": 7571.9999923706055
+    }
+  },
+  "augmented": {
+    "original": {
+      "precision": 0.7765935642549703,
+      "recall": 0.12970252969568344,
+      "true_pixels": 3789.0,
+      "false_pixels": 1090.0
+    },
+    "oracle_rgb_patch": {
+      "precision": 0.8694730687714682,
+      "recall": 0.4072501968301783,
+      "true_pixels": 11897.0,
+      "false_pixels": 1786.0
+    },
+    "oracle_depth_patch": {
+      "precision": 0.8690100233420294,
+      "recall": 0.4333002430424811,
+      "true_pixels": 12658.0,
+      "false_pixels": 1908.0
+    }
+  },
+  "natural": {
+    "original": {
+      "precision": 0.9387018497039252,
+      "recall": 0.733577034086301,
+      "true_pixels": 123015.0,
+      "false_pixels": 8033.0
+    },
+    "oracle_rgb_patch": {
+      "precision": 0.9637938319064439,
+      "recall": 0.816246451828352,
+      "true_pixels": 136878.0,
+      "false_pixels": 5141.9999923706055
+    },
+    "oracle_depth_patch": {
+      "precision": 0.9609575869205953,
+      "recall": 0.8313395987882547,
+      "true_pixels": 139409.0,
+      "false_pixels": 5663.9999923706055
+    }
+  }
+}

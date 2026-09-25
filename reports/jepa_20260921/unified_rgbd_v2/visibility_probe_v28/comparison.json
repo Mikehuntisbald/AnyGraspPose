@@ -1,0 +1,1631 @@
+{
+  "raw": {
+    "completed": true,
+    "source": "raw",
+    "steps": 1000,
+    "cache_sha256": {
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank0/records.pt": "1347c682487c23bbf588607730ac7705b4af140d5fb738ab2f48af4b25454b5f",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank1/records.pt": "f4af72aa2a65155352c14e9daed8a1e946208d42659b1b34be340846b0cb8e77",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank2/records.pt": "c4b5a97fb4de8b0ed13524b438007ee59f280a3db53e643f6848196db7da6cd9",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank3/records.pt": "5ddf5c37219523cc38bcc68d4c0f28fb2b564cdf5141ae252302e0e7ff6fdf93",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank4/records.pt": "ad3960138a83e92c9a34364129bedd774a127aaddd61c3111e64ef0309dc6c21",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank5/records.pt": "709eb154e222d3f428ecaa12f69720d3fb69a0b6814e85538690d33bf3c7fe5c",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank6/records.pt": "7b25589373de7f013d56f8eee7d9cd5ae4ae867537ccbeab6e13b453dfc68e27",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank7/records.pt": "262521ebc200bd10413ddcb7343bfa8f2f2be38dbe50e2f0e06617495b7da1fd"
+    },
+    "metrics": [
+      {
+        "step": 0,
+        "heldout": {
+          "all": {
+            "original": {
+              "bce": 0.06434636967641102,
+              "measurement_precision": 0.9328830916594937,
+              "measurement_recall": 0.6439856783728194,
+              "selected_patch_fraction": 0.05003474635163308,
+              "true_selected_depth_pixels": 507216.0,
+              "false_selected_depth_pixels": 36492.0
+            },
+            "probe": {
+              "bce": 0.9293787189454482,
+              "measurement_precision": 0.004308965963793894,
+              "measurement_recall": 0.005677864960260024,
+              "selected_patch_fraction": 0.0969423210562891,
+              "true_selected_depth_pixels": 4472.0,
+              "false_selected_depth_pixels": 1033364.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.04680010941142645,
+              "measurement_precision": 0.7765935642549703,
+              "measurement_recall": 0.12970252969568344,
+              "selected_patch_fraction": 0.003701594533029613,
+              "true_selected_depth_pixels": 15156.0,
+              "false_selected_depth_pixels": 4360.0
+            },
+            "probe": {
+              "bce": 0.9443832432218999,
+              "measurement_precision": 1.7241379310344828e-05,
+              "measurement_recall": 0.0001026940060931777,
+              "selected_patch_fraction": 0.1326879271070615,
+              "true_selected_depth_pixels": 12.0,
+              "false_selected_depth_pixels": 695988.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.08107795891410917,
+              "measurement_precision": 0.9387018497039252,
+              "measurement_recall": 0.733577034086301,
+              "selected_patch_fraction": 0.09421667119196307,
+              "true_selected_depth_pixels": 492060.0,
+              "false_selected_depth_pixels": 32132.0
+            },
+            "probe": {
+              "bce": 0.9150708147018395,
+              "measurement_precision": 0.013047192220831042,
+              "measurement_recall": 0.006649094768981227,
+              "selected_patch_fraction": 0.06285636709204453,
+              "true_selected_depth_pixels": 4460.0,
+              "false_selected_depth_pixels": 337376.0
+            }
+          }
+        }
+      },
+      {
+        "step": 250,
+        "training": {
+          "all": {
+            "original": {
+              "bce": 0.06414295538153189,
+              "measurement_precision": 0.9275786167569864,
+              "measurement_recall": 0.6319404372495199,
+              "selected_patch_fraction": 0.04719970179852763,
+              "true_selected_depth_pixels": 1441216.0,
+              "false_selected_depth_pixels": 112524.0
+            },
+            "probe": {
+              "bce": 0.0645743574370499,
+              "measurement_precision": 0.9088948891311547,
+              "measurement_recall": 0.659466285483772,
+              "selected_patch_fraction": 0.05046128040257199,
+              "true_selected_depth_pixels": 1503992.0,
+              "false_selected_depth_pixels": 150756.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.048489263424080324,
+              "measurement_precision": 0.8780058968324813,
+              "measurement_recall": 0.29617227063278434,
+              "selected_patch_fraction": 0.009063865389978618,
+              "true_selected_depth_pixels": 129836.0,
+              "false_selected_depth_pixels": 18040.0
+            },
+            "probe": {
+              "bce": 0.048853289873790395,
+              "measurement_precision": 0.8132605174633498,
+              "measurement_recall": 0.35736119348510426,
+              "selected_patch_fraction": 0.011852747048433579,
+              "true_selected_depth_pixels": 156660.0,
+              "false_selected_depth_pixels": 35972.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.0798726872493596,
+              "measurement_precision": 0.9327929301838584,
+              "measurement_recall": 0.7118399339933993,
+              "selected_patch_fraction": 0.08552078468005604,
+              "true_selected_depth_pixels": 1311380.0,
+              "false_selected_depth_pixels": 94484.0
+            },
+            "probe": {
+              "bce": 0.08037179147790716,
+              "measurement_precision": 0.9214946009755723,
+              "measurement_recall": 0.73135530658329,
+              "selected_patch_fraction": 0.08925735637552545,
+              "true_selected_depth_pixels": 1347332.0,
+              "false_selected_depth_pixels": 114784.0
+            }
+          }
+        },
+        "heldout": {
+          "all": {
+            "original": {
+              "bce": 0.06434636967641102,
+              "measurement_precision": 0.9328830916594937,
+              "measurement_recall": 0.6439856783728194,
+              "selected_patch_fraction": 0.05003474635163308,
+              "true_selected_depth_pixels": 507216.0,
+              "false_selected_depth_pixels": 36492.0
+            },
+            "probe": {
+              "bce": 0.06553602503603577,
+              "measurement_precision": 0.9174126912752593,
+              "measurement_recall": 0.6838627764658084,
+              "selected_patch_fraction": 0.05413481584433635,
+              "true_selected_depth_pixels": 538624.0,
+              "false_selected_depth_pixels": 48488.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.04680010941142645,
+              "measurement_precision": 0.7765935642549703,
+              "measurement_recall": 0.12970252969568344,
+              "selected_patch_fraction": 0.003701594533029613,
+              "true_selected_depth_pixels": 15156.0,
+              "false_selected_depth_pixels": 4360.0
+            },
+            "probe": {
+              "bce": 0.04740536022837993,
+              "measurement_precision": 0.7274930102516309,
+              "measurement_recall": 0.26720980385444837,
+              "selected_patch_fraction": 0.00811503416856492,
+              "true_selected_depth_pixels": 31224.0,
+              "false_selected_depth_pixels": 11696.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.08107795891410917,
+              "measurement_precision": 0.9387018497039252,
+              "measurement_recall": 0.733577034086301,
+              "selected_patch_fraction": 0.09421667119196307,
+              "true_selected_depth_pixels": 492060.0,
+              "false_selected_depth_pixels": 32132.0
+            },
+            "probe": {
+              "bce": 0.08282489346771696,
+              "measurement_precision": 0.9323915088792191,
+              "measurement_recall": 0.75644634210338,
+              "selected_patch_fraction": 0.09801792017377138,
+              "true_selected_depth_pixels": 507400.0,
+              "false_selected_depth_pixels": 36792.0
+            }
+          }
+        },
+        "seconds": 0.7175071621313691
+      },
+      {
+        "step": 500,
+        "training": {
+          "all": {
+            "original": {
+              "bce": 0.06414295538153189,
+              "measurement_precision": 0.9275786167569864,
+              "measurement_recall": 0.6319404372495199,
+              "selected_patch_fraction": 0.04719970179852763,
+              "true_selected_depth_pixels": 1441216.0,
+              "false_selected_depth_pixels": 112524.0
+            },
+            "probe": {
+              "bce": 0.06304995130041796,
+              "measurement_precision": 0.9071101050824352,
+              "measurement_recall": 0.6838912225622857,
+              "selected_patch_fraction": 0.05246482154505638,
+              "true_selected_depth_pixels": 1559696.0,
+              "false_selected_depth_pixels": 159716.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.048489263424080324,
+              "measurement_precision": 0.8780058968324813,
+              "measurement_recall": 0.29617227063278434,
+              "selected_patch_fraction": 0.009063865389978618,
+              "true_selected_depth_pixels": 129836.0,
+              "false_selected_depth_pixels": 18040.0
+            },
+            "probe": {
+              "bce": 0.048120526140636256,
+              "measurement_precision": 0.8069142512077294,
+              "measurement_recall": 0.3901637848441991,
+              "selected_patch_fraction": 0.013014781072789812,
+              "true_selected_depth_pixels": 171040.0,
+              "false_selected_depth_pixels": 40928.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.0798726872493596,
+              "measurement_precision": 0.9327929301838584,
+              "measurement_recall": 0.7118399339933993,
+              "selected_patch_fraction": 0.08552078468005604,
+              "true_selected_depth_pixels": 1311380.0,
+              "false_selected_depth_pixels": 94484.0
+            },
+            "probe": {
+              "bce": 0.07805189678792583,
+              "measurement_precision": 0.9211990627844219,
+              "measurement_recall": 0.7537866944589195,
+              "selected_patch_fraction": 0.09210649229332088,
+              "true_selected_depth_pixels": 1388656.0,
+              "false_selected_depth_pixels": 118788.0
+            }
+          }
+        },
+        "heldout": {
+          "all": {
+            "original": {
+              "bce": 0.06434636967641102,
+              "measurement_precision": 0.9328830916594937,
+              "measurement_recall": 0.6439856783728194,
+              "selected_patch_fraction": 0.05003474635163308,
+              "true_selected_depth_pixels": 507216.0,
+              "false_selected_depth_pixels": 36492.0
+            },
+            "probe": {
+              "bce": 0.06423492855790425,
+              "measurement_precision": 0.9162840242950339,
+              "measurement_recall": 0.7033290165308144,
+              "selected_patch_fraction": 0.055941626129256426,
+              "true_selected_depth_pixels": 553956.0,
+              "false_selected_depth_pixels": 50612.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.04680010941142645,
+              "measurement_precision": 0.7765935642549703,
+              "measurement_recall": 0.12970252969568344,
+              "selected_patch_fraction": 0.003701594533029613,
+              "true_selected_depth_pixels": 15156.0,
+              "false_selected_depth_pixels": 4360.0
+            },
+            "probe": {
+              "bce": 0.04645676058897397,
+              "measurement_precision": 0.7111566781619909,
+              "measurement_recall": 0.26118508883031527,
+              "selected_patch_fraction": 0.00811503416856492,
+              "true_selected_depth_pixels": 30520.0,
+              "false_selected_depth_pixels": 12396.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.08107795891410917,
+              "measurement_precision": 0.9387018497039252,
+              "measurement_recall": 0.733577034086301,
+              "selected_patch_fraction": 0.09421667119196307,
+              "true_selected_depth_pixels": 492060.0,
+              "false_selected_depth_pixels": 32132.0
+            },
+            "probe": {
+              "bce": 0.08118766641733344,
+              "measurement_precision": 0.9319578671490532,
+              "measurement_recall": 0.7803532667032417,
+              "selected_patch_fraction": 0.10154765137116481,
+              "true_selected_depth_pixels": 523436.0,
+              "false_selected_depth_pixels": 38216.0
+            }
+          }
+        },
+        "seconds": 1.1539778320584446
+      },
+      {
+        "step": 750,
+        "training": {
+          "all": {
+            "original": {
+              "bce": 0.06414295538153189,
+              "measurement_precision": 0.9275786167569864,
+              "measurement_recall": 0.6319404372495199,
+              "selected_patch_fraction": 0.04719970179852763,
+              "true_selected_depth_pixels": 1441216.0,
+              "false_selected_depth_pixels": 112524.0
+            },
+            "probe": {
+              "bce": 0.062412764617063916,
+              "measurement_precision": 0.911059520567882,
+              "measurement_recall": 0.680718401136533,
+              "selected_patch_fraction": 0.05197558475444972,
+              "true_selected_depth_pixels": 1552460.0,
+              "false_selected_depth_pixels": 151556.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.048489263424080324,
+              "measurement_precision": 0.8780058968324813,
+              "measurement_recall": 0.29617227063278434,
+              "selected_patch_fraction": 0.009063865389978618,
+              "true_selected_depth_pixels": 129836.0,
+              "false_selected_depth_pixels": 18040.0
+            },
+            "probe": {
+              "bce": 0.047685701718303344,
+              "measurement_precision": 0.8082011350649854,
+              "measurement_recall": 0.3807199233541676,
+              "selected_patch_fraction": 0.012689411545970065,
+              "true_selected_depth_pixels": 166900.0,
+              "false_selected_depth_pixels": 39608.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.0798726872493596,
+              "measurement_precision": 0.9327929301838584,
+              "measurement_recall": 0.7118399339933993,
+              "selected_patch_fraction": 0.08552078468005604,
+              "true_selected_depth_pixels": 1311380.0,
+              "false_selected_depth_pixels": 94484.0
+            },
+            "probe": {
+              "bce": 0.0772113620093469,
+              "measurement_precision": 0.9252438050414422,
+              "measurement_recall": 0.7521061316657982,
+              "selected_patch_fraction": 0.09145259224661373,
+              "true_selected_depth_pixels": 1385560.0,
+              "false_selected_depth_pixels": 111948.0
+            }
+          }
+        },
+        "heldout": {
+          "all": {
+            "original": {
+              "bce": 0.06434636967641102,
+              "measurement_precision": 0.9328830916594937,
+              "measurement_recall": 0.6439856783728194,
+              "selected_patch_fraction": 0.05003474635163308,
+              "true_selected_depth_pixels": 507216.0,
+              "false_selected_depth_pixels": 36492.0
+            },
+            "probe": {
+              "bce": 0.06383006696986025,
+              "measurement_precision": 0.9216770500084189,
+              "measurement_recall": 0.6949848911911836,
+              "selected_patch_fraction": 0.05496872828353023,
+              "true_selected_depth_pixels": 547384.0,
+              "false_selected_depth_pixels": 46516.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.04680010941142645,
+              "measurement_precision": 0.7765935642549703,
+              "measurement_recall": 0.12970252969568344,
+              "selected_patch_fraction": 0.003701594533029613,
+              "true_selected_depth_pixels": 15156.0,
+              "false_selected_depth_pixels": 4360.0
+            },
+            "probe": {
+              "bce": 0.04595618584704562,
+              "measurement_precision": 0.7207907159716759,
+              "measurement_recall": 0.2508814568856331,
+              "selected_patch_fraction": 0.0076879271070615035,
+              "true_selected_depth_pixels": 29316.0,
+              "false_selected_depth_pixels": 11356.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.08107795891410917,
+              "measurement_precision": 0.9387018497039252,
+              "measurement_recall": 0.733577034086301,
+              "selected_patch_fraction": 0.09421667119196307,
+              "true_selected_depth_pixels": 492060.0,
+              "false_selected_depth_pixels": 32132.0
+            },
+            "probe": {
+              "bce": 0.08087407613687467,
+              "measurement_precision": 0.9364457330431576,
+              "measurement_recall": 0.7723504997256876,
+              "selected_patch_fraction": 0.10005430355688298,
+              "true_selected_depth_pixels": 518068.0,
+              "false_selected_depth_pixels": 35160.0
+            }
+          }
+        },
+        "seconds": 1.5834143061656505
+      },
+      {
+        "step": 1000,
+        "training": {
+          "all": {
+            "original": {
+              "bce": 0.06414295538153189,
+              "measurement_precision": 0.9275786167569864,
+              "measurement_recall": 0.6319404372495199,
+              "selected_patch_fraction": 0.04719970179852763,
+              "true_selected_depth_pixels": 1441216.0,
+              "false_selected_depth_pixels": 112524.0
+            },
+            "probe": {
+              "bce": 0.0618928460147905,
+              "measurement_precision": 0.9089044899162936,
+              "measurement_recall": 0.691882032078996,
+              "selected_patch_fraction": 0.05297735532569192,
+              "true_selected_depth_pixels": 1577920.0,
+              "false_selected_depth_pixels": 158148.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.048489263424080324,
+              "measurement_precision": 0.8780058968324813,
+              "measurement_recall": 0.29617227063278434,
+              "selected_patch_fraction": 0.009063865389978618,
+              "true_selected_depth_pixels": 129836.0,
+              "false_selected_depth_pixels": 18040.0
+            },
+            "probe": {
+              "bce": 0.04754383838607818,
+              "measurement_precision": 0.8100566994926888,
+              "measurement_recall": 0.39629545143482825,
+              "selected_patch_fraction": 0.01320070651668681,
+              "true_selected_depth_pixels": 173728.0,
+              "false_selected_depth_pixels": 40736.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.0798726872493596,
+              "measurement_precision": 0.9327929301838584,
+              "measurement_recall": 0.7118399339933993,
+              "selected_patch_fraction": 0.08552078468005604,
+              "true_selected_depth_pixels": 1311380.0,
+              "false_selected_depth_pixels": 94484.0
+            },
+            "probe": {
+              "bce": 0.07631155528068988,
+              "measurement_precision": 0.922836690755282,
+              "measurement_recall": 0.7622199062011464,
+              "selected_patch_fraction": 0.0929472209248015,
+              "true_selected_depth_pixels": 1404192.0,
+              "false_selected_depth_pixels": 117412.0
+            }
+          }
+        },
+        "heldout": {
+          "all": {
+            "original": {
+              "bce": 0.06434636967641102,
+              "measurement_precision": 0.9328830916594937,
+              "measurement_recall": 0.6439856783728194,
+              "selected_patch_fraction": 0.05003474635163308,
+              "true_selected_depth_pixels": 507216.0,
+              "false_selected_depth_pixels": 36492.0
+            },
+            "probe": {
+              "bce": 0.06375923077210194,
+              "measurement_precision": 0.9168577714851669,
+              "measurement_recall": 0.7005053198242808,
+              "selected_patch_fraction": 0.0556636553161918,
+              "true_selected_depth_pixels": 551732.0,
+              "false_selected_depth_pixels": 50032.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.04680010941142645,
+              "measurement_precision": 0.7765935642549703,
+              "measurement_recall": 0.12970252969568344,
+              "selected_patch_fraction": 0.003701594533029613,
+              "true_selected_depth_pixels": 15156.0,
+              "false_selected_depth_pixels": 4360.0
+            },
+            "probe": {
+              "bce": 0.045962915876731784,
+              "measurement_precision": 0.726360478579699,
+              "measurement_recall": 0.2576934926231472,
+              "selected_patch_fraction": 0.007830296127562643,
+              "true_selected_depth_pixels": 30112.0,
+              "false_selected_depth_pixels": 11344.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.08107795891410917,
+              "measurement_precision": 0.9387018497039252,
+              "measurement_recall": 0.733577034086301,
+              "selected_patch_fraction": 0.09421667119196307,
+              "true_selected_depth_pixels": 492060.0,
+              "false_selected_depth_pixels": 32132.0
+            },
+            "probe": {
+              "bce": 0.08072926886147078,
+              "measurement_precision": 0.9309522619702021,
+              "measurement_recall": 0.777645922286096,
+              "selected_patch_fraction": 0.10127613358674993,
+              "true_selected_depth_pixels": 521620.0,
+              "false_selected_depth_pixels": 38688.0
+            }
+          }
+        },
+        "seconds": 2.0074174210894853
+      }
+    ],
+    "checkpoint_sha256": "7ca86d09c03ddf709cb3eaff524c298fa3c0ca1036ccf03dd89fa55571755a75",
+    "production_changed": false,
+    "scope": "Training-sequence holdout calibration only; threshold0.7 unchanged; precision AND recall required, no pose claim"
+  },
+  "fused": {
+    "completed": true,
+    "source": "fused",
+    "steps": 1000,
+    "cache_sha256": {
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank0/records.pt": "1347c682487c23bbf588607730ac7705b4af140d5fb738ab2f48af4b25454b5f",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank1/records.pt": "f4af72aa2a65155352c14e9daed8a1e946208d42659b1b34be340846b0cb8e77",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank2/records.pt": "c4b5a97fb4de8b0ed13524b438007ee59f280a3db53e643f6848196db7da6cd9",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank3/records.pt": "5ddf5c37219523cc38bcc68d4c0f28fb2b564cdf5141ae252302e0e7ff6fdf93",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank4/records.pt": "ad3960138a83e92c9a34364129bedd774a127aaddd61c3111e64ef0309dc6c21",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank5/records.pt": "709eb154e222d3f428ecaa12f69720d3fb69a0b6814e85538690d33bf3c7fe5c",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank6/records.pt": "7b25589373de7f013d56f8eee7d9cd5ae4ae867537ccbeab6e13b453dfc68e27",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank7/records.pt": "262521ebc200bd10413ddcb7343bfa8f2f2be38dbe50e2f0e06617495b7da1fd"
+    },
+    "metrics": [
+      {
+        "step": 0,
+        "heldout": {
+          "all": {
+            "original": {
+              "bce": 0.06434636967641102,
+              "measurement_precision": 0.9328830916594937,
+              "measurement_recall": 0.6439856783728194,
+              "selected_patch_fraction": 0.05003474635163308,
+              "true_selected_depth_pixels": 507216.0,
+              "false_selected_depth_pixels": 36492.0
+            },
+            "probe": {
+              "bce": 0.5546635185702962,
+              "measurement_precision": 0.47487844408427876,
+              "measurement_recall": 0.0033480612478098575,
+              "selected_patch_fraction": 0.0005038220986796386,
+              "true_selected_depth_pixels": 2637.0,
+              "false_selected_depth_pixels": 2916.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.04680010941142645,
+              "measurement_precision": 0.7765935642549703,
+              "measurement_recall": 0.12970252969568344,
+              "selected_patch_fraction": 0.003701594533029613,
+              "true_selected_depth_pixels": 15156.0,
+              "false_selected_depth_pixels": 4360.0
+            },
+            "probe": {
+              "bce": 0.5439829554807624,
+              "measurement_precision": 0.023542600896860985,
+              "measurement_recall": 0.00017971451066306097,
+              "selected_patch_fraction": 0.0001779612756264237,
+              "true_selected_depth_pixels": 21.0,
+              "false_selected_depth_pixels": 871.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.08107795891410917,
+              "measurement_precision": 0.9387018497039252,
+              "measurement_recall": 0.733577034086301,
+              "selected_patch_fraction": 0.09421667119196307,
+              "true_selected_depth_pixels": 492060.0,
+              "false_selected_depth_pixels": 32132.0
+            },
+            "probe": {
+              "bce": 0.5648482045886506,
+              "measurement_precision": 0.5612529500107273,
+              "measurement_recall": 0.003900007155976433,
+              "selected_patch_fraction": 0.0008145533532446375,
+              "true_selected_depth_pixels": 2616.0,
+              "false_selected_depth_pixels": 2045.0
+            }
+          }
+        }
+      },
+      {
+        "step": 250,
+        "training": {
+          "all": {
+            "original": {
+              "bce": 0.06414295538153189,
+              "measurement_precision": 0.9275786167569864,
+              "measurement_recall": 0.6319404372495199,
+              "selected_patch_fraction": 0.04719970179852763,
+              "true_selected_depth_pixels": 1441216.0,
+              "false_selected_depth_pixels": 112524.0
+            },
+            "probe": {
+              "bce": 0.08006065261296219,
+              "measurement_precision": 0.9123977673378479,
+              "measurement_recall": 0.48803570958774367,
+              "selected_patch_fraction": 0.03697232317584568,
+              "true_selected_depth_pixels": 1113024.0,
+              "false_selected_depth_pixels": 106865.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.048489263424080324,
+              "measurement_precision": 0.8780058968324813,
+              "measurement_recall": 0.29617227063278434,
+              "selected_patch_fraction": 0.009063865389978618,
+              "true_selected_depth_pixels": 129836.0,
+              "false_selected_depth_pixels": 18040.0
+            },
+            "probe": {
+              "bce": 0.06656458848380706,
+              "measurement_precision": 0.8116945741201465,
+              "measurement_recall": 0.26494593731465854,
+              "selected_patch_fraction": 0.0086687738216975,
+              "true_selected_depth_pixels": 116147.0,
+              "false_selected_depth_pixels": 26945.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.0798726872493596,
+              "measurement_precision": 0.9327929301838584,
+              "measurement_recall": 0.7118399339933993,
+              "selected_patch_fraction": 0.08552078468005604,
+              "true_selected_depth_pixels": 1311380.0,
+              "false_selected_depth_pixels": 94484.0
+            },
+            "probe": {
+              "bce": 0.09362227516940463,
+              "measurement_precision": 0.9257798823733722,
+              "measurement_recall": 0.5411222207747091,
+              "selected_patch_fraction": 0.06541335824381131,
+              "true_selected_depth_pixels": 996877.0,
+              "false_selected_depth_pixels": 79920.0
+            }
+          }
+        },
+        "heldout": {
+          "all": {
+            "original": {
+              "bce": 0.06434636967641102,
+              "measurement_precision": 0.9328830916594937,
+              "measurement_recall": 0.6439856783728194,
+              "selected_patch_fraction": 0.05003474635163308,
+              "true_selected_depth_pixels": 507216.0,
+              "false_selected_depth_pixels": 36492.0
+            },
+            "probe": {
+              "bce": 0.08502242649653623,
+              "measurement_precision": 0.9166589327146172,
+              "measurement_recall": 0.438910896117417,
+              "selected_patch_fraction": 0.03452050034746352,
+              "true_selected_depth_pixels": 345695.0,
+              "false_selected_depth_pixels": 31430.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.04680010941142645,
+              "measurement_precision": 0.7765935642549703,
+              "measurement_recall": 0.12970252969568344,
+              "selected_patch_fraction": 0.003701594533029613,
+              "true_selected_depth_pixels": 15156.0,
+              "false_selected_depth_pixels": 4360.0
+            },
+            "probe": {
+              "bce": 0.06531389970714248,
+              "measurement_precision": 0.75363839717213,
+              "measurement_recall": 0.23354328552356826,
+              "selected_patch_fraction": 0.006726936218678816,
+              "true_selected_depth_pixels": 27290.0,
+              "false_selected_depth_pixels": 8921.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.08107795891410917,
+              "measurement_precision": 0.9387018497039252,
+              "measurement_recall": 0.733577034086301,
+              "selected_patch_fraction": 0.09421667119196307,
+              "true_selected_depth_pixels": 492060.0,
+              "false_selected_depth_pixels": 32132.0
+            },
+            "probe": {
+              "bce": 0.10381588714458746,
+              "measurement_precision": 0.933974550766469,
+              "measurement_recall": 0.47468722419674164,
+              "selected_patch_fraction": 0.0610236220472441,
+              "true_selected_depth_pixels": 318405.0,
+              "false_selected_depth_pixels": 22509.0
+            }
+          }
+        },
+        "seconds": 0.7753178989514709
+      },
+      {
+        "step": 500,
+        "training": {
+          "all": {
+            "original": {
+              "bce": 0.06414295538153189,
+              "measurement_precision": 0.9275786167569864,
+              "measurement_recall": 0.6319404372495199,
+              "selected_patch_fraction": 0.04719970179852763,
+              "true_selected_depth_pixels": 1441216.0,
+              "false_selected_depth_pixels": 112524.0
+            },
+            "probe": {
+              "bce": 0.07250749408315606,
+              "measurement_precision": 0.9070706933497245,
+              "measurement_recall": 0.5855955836570758,
+              "selected_patch_fraction": 0.04486417854813158,
+              "true_selected_depth_pixels": 1335521.0,
+              "false_selected_depth_pixels": 136824.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.048489263424080324,
+              "measurement_precision": 0.8780058968324813,
+              "measurement_recall": 0.29617227063278434,
+              "selected_patch_fraction": 0.009063865389978618,
+              "true_selected_depth_pixels": 129836.0,
+              "false_selected_depth_pixels": 18040.0
+            },
+            "probe": {
+              "bce": 0.0602726288707081,
+              "measurement_precision": 0.8308168795973674,
+              "measurement_recall": 0.2741365938227109,
+              "selected_patch_fraction": 0.00877335688388956,
+              "true_selected_depth_pixels": 120176.0,
+              "false_selected_depth_pixels": 24472.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.0798726872493596,
+              "measurement_precision": 0.9327929301838584,
+              "measurement_recall": 0.7118399339933993,
+              "selected_patch_fraction": 0.08552078468005604,
+              "true_selected_depth_pixels": 1311380.0,
+              "false_selected_depth_pixels": 94484.0
+            },
+            "probe": {
+              "bce": 0.08480178996927545,
+              "measurement_precision": 0.9153782828461614,
+              "measurement_recall": 0.6597104611776967,
+              "selected_patch_fraction": 0.08113031293787949,
+              "true_selected_depth_pixels": 1215345.0,
+              "false_selected_depth_pixels": 112352.0
+            }
+          }
+        },
+        "heldout": {
+          "all": {
+            "original": {
+              "bce": 0.06434636967641102,
+              "measurement_precision": 0.9328830916594937,
+              "measurement_recall": 0.6439856783728194,
+              "selected_patch_fraction": 0.05003474635163308,
+              "true_selected_depth_pixels": 507216.0,
+              "false_selected_depth_pixels": 36492.0
+            },
+            "probe": {
+              "bce": 0.07675888771974353,
+              "measurement_precision": 0.908,
+              "measurement_recall": 0.5611449683857698,
+              "selected_patch_fraction": 0.04510076441973593,
+              "true_selected_depth_pixels": 441969.0,
+              "false_selected_depth_pixels": 44781.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.04680010941142645,
+              "measurement_precision": 0.7765935642549703,
+              "measurement_recall": 0.12970252969568344,
+              "selected_patch_fraction": 0.003701594533029613,
+              "true_selected_depth_pixels": 15156.0,
+              "false_selected_depth_pixels": 4360.0
+            },
+            "probe": {
+              "bce": 0.058891813412885734,
+              "measurement_precision": 0.7545265828624149,
+              "measurement_recall": 0.22395851162153835,
+              "selected_patch_fraction": 0.006442198177676537,
+              "true_selected_depth_pixels": 26170.0,
+              "false_selected_depth_pixels": 8514.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.08107795891410917,
+              "measurement_precision": 0.9387018497039252,
+              "measurement_recall": 0.733577034086301,
+              "selected_patch_fraction": 0.09421667119196307,
+              "true_selected_depth_pixels": 492060.0,
+              "false_selected_depth_pixels": 32132.0
+            },
+            "probe": {
+              "bce": 0.09379640610814256,
+              "measurement_precision": 0.9197749886078581,
+              "measurement_recall": 0.6198849676788398,
+              "selected_patch_fraction": 0.08196443117024164,
+              "true_selected_depth_pixels": 415799.0,
+              "false_selected_depth_pixels": 36267.0
+            }
+          }
+        },
+        "seconds": 1.3175281169824302
+      },
+      {
+        "step": 750,
+        "training": {
+          "all": {
+            "original": {
+              "bce": 0.06414295538153189,
+              "measurement_precision": 0.9275786167569864,
+              "measurement_recall": 0.6319404372495199,
+              "selected_patch_fraction": 0.04719970179852763,
+              "true_selected_depth_pixels": 1441216.0,
+              "false_selected_depth_pixels": 112524.0
+            },
+            "probe": {
+              "bce": 0.06934249795457433,
+              "measurement_precision": 0.9163097956409122,
+              "measurement_recall": 0.5892853697678702,
+              "selected_patch_fraction": 0.044654505637871586,
+              "true_selected_depth_pixels": 1343936.0,
+              "false_selected_depth_pixels": 122747.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.048489263424080324,
+              "measurement_precision": 0.8780058968324813,
+              "measurement_recall": 0.29617227063278434,
+              "selected_patch_fraction": 0.009063865389978618,
+              "true_selected_depth_pixels": 129836.0,
+              "false_selected_depth_pixels": 18040.0
+            },
+            "probe": {
+              "bce": 0.05660094533964439,
+              "measurement_precision": 0.8507514673623051,
+              "measurement_recall": 0.2618664172635613,
+              "selected_patch_fraction": 0.008180719531467881,
+              "true_selected_depth_pixels": 114797.0,
+              "false_selected_depth_pixels": 20139.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.0798726872493596,
+              "measurement_precision": 0.9327929301838584,
+              "measurement_recall": 0.7118399339933993,
+              "selected_patch_fraction": 0.08552078468005604,
+              "true_selected_depth_pixels": 1311380.0,
+              "false_selected_depth_pixels": 94484.0
+            },
+            "probe": {
+              "bce": 0.08214594107373525,
+              "measurement_precision": 0.9229523325376366,
+              "measurement_recall": 0.6671980849400729,
+              "selected_patch_fraction": 0.08130546473610463,
+              "true_selected_depth_pixels": 1229139.0,
+              "false_selected_depth_pixels": 102608.0
+            }
+          }
+        },
+        "heldout": {
+          "all": {
+            "original": {
+              "bce": 0.06434636967641102,
+              "measurement_precision": 0.9328830916594937,
+              "measurement_recall": 0.6439856783728194,
+              "selected_patch_fraction": 0.05003474635163308,
+              "true_selected_depth_pixels": 507216.0,
+              "false_selected_depth_pixels": 36492.0
+            },
+            "probe": {
+              "bce": 0.0737725815232882,
+              "measurement_precision": 0.9135350315157745,
+              "measurement_recall": 0.5573779233640588,
+              "selected_patch_fraction": 0.04457956914523975,
+              "true_selected_depth_pixels": 439002.0,
+              "false_selected_depth_pixels": 41551.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.04680010941142645,
+              "measurement_precision": 0.7765935642549703,
+              "measurement_recall": 0.12970252969568344,
+              "selected_patch_fraction": 0.003701594533029613,
+              "true_selected_depth_pixels": 15156.0,
+              "false_selected_depth_pixels": 4360.0
+            },
+            "probe": {
+              "bce": 0.05443511302487454,
+              "measurement_precision": 0.7865760888794537,
+              "measurement_recall": 0.19024920412145277,
+              "selected_patch_fraction": 0.005267653758542141,
+              "true_selected_depth_pixels": 22231.0,
+              "false_selected_depth_pixels": 6032.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.08107795891410917,
+              "measurement_precision": 0.9387018497039252,
+              "measurement_recall": 0.733577034086301,
+              "selected_patch_fraction": 0.09421667119196307,
+              "true_selected_depth_pixels": 492060.0,
+              "false_selected_depth_pixels": 32132.0
+            },
+            "probe": {
+              "bce": 0.09221222230412537,
+              "measurement_precision": 0.9214685268301311,
+              "measurement_recall": 0.6213340529065191,
+              "selected_patch_fraction": 0.08206625033939723,
+              "true_selected_depth_pixels": 416771.0,
+              "false_selected_depth_pixels": 35519.0
+            }
+          }
+        },
+        "seconds": 1.797509032068774
+      },
+      {
+        "step": 1000,
+        "training": {
+          "all": {
+            "original": {
+              "bce": 0.06414295538153189,
+              "measurement_precision": 0.9275786167569864,
+              "measurement_recall": 0.6319404372495199,
+              "selected_patch_fraction": 0.04719970179852763,
+              "true_selected_depth_pixels": 1441216.0,
+              "false_selected_depth_pixels": 112524.0
+            },
+            "probe": {
+              "bce": 0.0675049180054018,
+              "measurement_precision": 0.9040208060389211,
+              "measurement_recall": 0.6501999456288202,
+              "selected_patch_fraction": 0.05007688006709533,
+              "true_selected_depth_pixels": 1482859.0,
+              "false_selected_depth_pixels": 157434.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.048489263424080324,
+              "measurement_precision": 0.8780058968324813,
+              "measurement_recall": 0.29617227063278434,
+              "selected_patch_fraction": 0.009063865389978618,
+              "true_selected_depth_pixels": 129836.0,
+              "false_selected_depth_pixels": 18040.0
+            },
+            "probe": {
+              "bce": 0.05627760639352028,
+              "measurement_precision": 0.8181282385010191,
+              "measurement_recall": 0.30398284593275243,
+              "selected_patch_fraction": 0.009900529887515106,
+              "true_selected_depth_pixels": 133260.0,
+              "false_selected_depth_pixels": 29624.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.0798726872493596,
+              "measurement_precision": 0.9327929301838584,
+              "measurement_recall": 0.7118399339933993,
+              "selected_patch_fraction": 0.08552078468005604,
+              "true_selected_depth_pixels": 1311380.0,
+              "false_selected_depth_pixels": 94484.0
+            },
+            "probe": {
+              "bce": 0.07878676819389305,
+              "measurement_precision": 0.9134904417124845,
+              "measurement_recall": 0.7325858737189509,
+              "selected_patch_fraction": 0.09044838860345633,
+              "true_selected_depth_pixels": 1349599.0,
+              "false_selected_depth_pixels": 127810.0
+            }
+          }
+        },
+        "heldout": {
+          "all": {
+            "original": {
+              "bce": 0.06434636967641102,
+              "measurement_precision": 0.9328830916594937,
+              "measurement_recall": 0.6439856783728194,
+              "selected_patch_fraction": 0.05003474635163308,
+              "true_selected_depth_pixels": 507216.0,
+              "false_selected_depth_pixels": 36492.0
+            },
+            "probe": {
+              "bce": 0.07235023228139659,
+              "measurement_precision": 0.9004390502887439,
+              "measurement_recall": 0.630923541809502,
+              "selected_patch_fraction": 0.05130298818624045,
+              "true_selected_depth_pixels": 496928.0,
+              "false_selected_depth_pixels": 54945.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.04680010941142645,
+              "measurement_precision": 0.7765935642549703,
+              "measurement_recall": 0.12970252969568344,
+              "selected_patch_fraction": 0.003701594533029613,
+              "true_selected_depth_pixels": 15156.0,
+              "false_selected_depth_pixels": 4360.0
+            },
+            "probe": {
+              "bce": 0.05485568122603084,
+              "measurement_precision": 0.7485826369669775,
+              "measurement_recall": 0.23842125081299423,
+              "selected_patch_fraction": 0.007011674259681093,
+              "true_selected_depth_pixels": 27860.0,
+              "false_selected_depth_pixels": 9357.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.08107795891410917,
+              "measurement_precision": 0.9387018497039252,
+              "measurement_recall": 0.733577034086301,
+              "selected_patch_fraction": 0.09421667119196307,
+              "true_selected_depth_pixels": 492060.0,
+              "false_selected_depth_pixels": 32132.0
+            },
+            "probe": {
+              "bce": 0.08903252350193244,
+              "measurement_precision": 0.9114204439470248,
+              "measurement_recall": 0.6992999069723064,
+              "selected_patch_fraction": 0.09353787673092588,
+              "true_selected_depth_pixels": 469068.0,
+              "false_selected_depth_pixels": 45588.0
+            }
+          }
+        },
+        "seconds": 2.2610444619785994
+      }
+    ],
+    "checkpoint_sha256": "108ec905c1e5ecd57791291d2fd03f599cebca30fdc85bcf9663727fb5b7bff1",
+    "production_changed": false,
+    "scope": "Training-sequence holdout calibration only; threshold0.7 unchanged; precision AND recall required, no pose claim"
+  },
+  "patch": {
+    "completed": true,
+    "source": "patch",
+    "steps": 1000,
+    "cache_sha256": {
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank0/records.pt": "1347c682487c23bbf588607730ac7705b4af140d5fb738ab2f48af4b25454b5f",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank1/records.pt": "f4af72aa2a65155352c14e9daed8a1e946208d42659b1b34be340846b0cb8e77",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank2/records.pt": "c4b5a97fb4de8b0ed13524b438007ee59f280a3db53e643f6848196db7da6cd9",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank3/records.pt": "5ddf5c37219523cc38bcc68d4c0f28fb2b564cdf5141ae252302e0e7ff6fdf93",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank4/records.pt": "ad3960138a83e92c9a34364129bedd774a127aaddd61c3111e64ef0309dc6c21",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank5/records.pt": "709eb154e222d3f428ecaa12f69720d3fb69a0b6814e85538690d33bf3c7fe5c",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank6/records.pt": "7b25589373de7f013d56f8eee7d9cd5ae4ae867537ccbeab6e13b453dfc68e27",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/visibility_probe_v28/cache/rank7/records.pt": "262521ebc200bd10413ddcb7343bfa8f2f2be38dbe50e2f0e06617495b7da1fd"
+    },
+    "metrics": [
+      {
+        "step": 0,
+        "heldout": {
+          "all": {
+            "original": {
+              "bce": 0.06434636967641102,
+              "measurement_precision": 0.9328830916594937,
+              "measurement_recall": 0.6439856783728194,
+              "selected_patch_fraction": 0.05003474635163308,
+              "true_selected_depth_pixels": 507216.0,
+              "false_selected_depth_pixels": 36492.0
+            },
+            "probe": {
+              "bce": 0.7579479055822186,
+              "measurement_precision": 0.20727936552302426,
+              "measurement_recall": 0.030130011934689317,
+              "selected_patch_fraction": 0.010927727588603197,
+              "true_selected_depth_pixels": 23731.0,
+              "false_selected_depth_pixels": 90757.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.04680010941142645,
+              "measurement_precision": 0.7765935642549703,
+              "measurement_recall": 0.12970252969568344,
+              "selected_patch_fraction": 0.003701594533029613,
+              "true_selected_depth_pixels": 15156.0,
+              "false_selected_depth_pixels": 4360.0
+            },
+            "probe": {
+              "bce": 0.7713843412985835,
+              "measurement_precision": 0.0404453335652779,
+              "measurement_recall": 0.015917570944442544,
+              "selected_patch_fraction": 0.009040432801822323,
+              "true_selected_depth_pixels": 1860.0,
+              "false_selected_depth_pixels": 44128.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.08107795891410917,
+              "measurement_precision": 0.9387018497039252,
+              "measurement_recall": 0.733577034086301,
+              "selected_patch_fraction": 0.09421667119196307,
+              "true_selected_depth_pixels": 492060.0,
+              "false_selected_depth_pixels": 32132.0
+            },
+            "probe": {
+              "bce": 0.7451352511221321,
+              "measurement_precision": 0.31928467153284673,
+              "measurement_recall": 0.032605908451208164,
+              "selected_patch_fraction": 0.012727396144447461,
+              "true_selected_depth_pixels": 21871.0,
+              "false_selected_depth_pixels": 46629.0
+            }
+          }
+        }
+      },
+      {
+        "step": 250,
+        "training": {
+          "all": {
+            "original": {
+              "bce": 0.06414295538153189,
+              "measurement_precision": 0.9275786167569864,
+              "measurement_recall": 0.6319404372495199,
+              "selected_patch_fraction": 0.04719970179852763,
+              "true_selected_depth_pixels": 1441216.0,
+              "false_selected_depth_pixels": 112524.0
+            },
+            "probe": {
+              "bce": 0.09467009388937242,
+              "measurement_precision": 0.8622125202514714,
+              "measurement_recall": 0.33182906402644896,
+              "selected_patch_fraction": 0.026587689870468736,
+              "true_selected_depth_pixels": 756776.0,
+              "false_selected_depth_pixels": 120938.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.048489263424080324,
+              "measurement_precision": 0.8780058968324813,
+              "measurement_recall": 0.29617227063278434,
+              "selected_patch_fraction": 0.009063865389978618,
+              "true_selected_depth_pixels": 129836.0,
+              "false_selected_depth_pixels": 18040.0
+            },
+            "probe": {
+              "bce": 0.08684672779162333,
+              "measurement_precision": 0.5010784162686797,
+              "measurement_recall": 0.2077421415210548,
+              "selected_patch_fraction": 0.01101608255089709,
+              "true_selected_depth_pixels": 91070.0,
+              "false_selected_depth_pixels": 90678.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.0798726872493596,
+              "measurement_precision": 0.9327929301838584,
+              "measurement_recall": 0.7118399339933993,
+              "selected_patch_fraction": 0.08552078468005604,
+              "true_selected_depth_pixels": 1311380.0,
+              "false_selected_depth_pixels": 94484.0
+            },
+            "probe": {
+              "bce": 0.10253146375133189,
+              "measurement_precision": 0.9565208645249912,
+              "measurement_recall": 0.3613568264721209,
+              "selected_patch_fraction": 0.04223493694535264,
+              "true_selected_depth_pixels": 665706.0,
+              "false_selected_depth_pixels": 30260.0
+            }
+          }
+        },
+        "heldout": {
+          "all": {
+            "original": {
+              "bce": 0.06434636967641102,
+              "measurement_precision": 0.9328830916594937,
+              "measurement_recall": 0.6439856783728194,
+              "selected_patch_fraction": 0.05003474635163308,
+              "true_selected_depth_pixels": 507216.0,
+              "false_selected_depth_pixels": 36492.0
+            },
+            "probe": {
+              "bce": 0.09972236426527753,
+              "measurement_precision": 0.8463656912539659,
+              "measurement_recall": 0.3156661842005028,
+              "selected_patch_fraction": 0.026702571230020847,
+              "true_selected_depth_pixels": 248625.0,
+              "false_selected_depth_pixels": 45131.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.04680010941142645,
+              "measurement_precision": 0.7765935642549703,
+              "measurement_recall": 0.12970252969568344,
+              "selected_patch_fraction": 0.003701594533029613,
+              "true_selected_depth_pixels": 15156.0,
+              "false_selected_depth_pixels": 4360.0
+            },
+            "probe": {
+              "bce": 0.08701547783436699,
+              "measurement_precision": 0.45292799881510004,
+              "measurement_recall": 0.20935884708862493,
+              "selected_patch_fraction": 0.010250569476082005,
+              "true_selected_depth_pixels": 24464.0,
+              "false_selected_depth_pixels": 29549.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.08107795891410917,
+              "measurement_precision": 0.9387018497039252,
+              "measurement_recall": 0.733577034086301,
+              "selected_patch_fraction": 0.09421667119196307,
+              "true_selected_depth_pixels": 492060.0,
+              "false_selected_depth_pixels": 32132.0
+            },
+            "probe": {
+              "bce": 0.11183926750388186,
+              "measurement_precision": 0.9350054016175655,
+              "measurement_recall": 0.33418559024878947,
+              "selected_patch_fraction": 0.04239071409177301,
+              "true_selected_depth_pixels": 224161.0,
+              "false_selected_depth_pixels": 15582.0
+            }
+          }
+        },
+        "seconds": 0.740782282082364
+      },
+      {
+        "step": 500,
+        "training": {
+          "all": {
+            "original": {
+              "bce": 0.06414295538153189,
+              "measurement_precision": 0.9275786167569864,
+              "measurement_recall": 0.6319404372495199,
+              "selected_patch_fraction": 0.04719970179852763,
+              "true_selected_depth_pixels": 1441216.0,
+              "false_selected_depth_pixels": 112524.0
+            },
+            "probe": {
+              "bce": 0.0882356576312567,
+              "measurement_precision": 0.8868958826608778,
+              "measurement_recall": 0.4048609588620638,
+              "selected_patch_fraction": 0.031596542726679715,
+              "true_selected_depth_pixels": 923334.0,
+              "false_selected_depth_pixels": 117751.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.048489263424080324,
+              "measurement_precision": 0.8780058968324813,
+              "measurement_recall": 0.29617227063278434,
+              "selected_patch_fraction": 0.009063865389978618,
+              "true_selected_depth_pixels": 129836.0,
+              "false_selected_depth_pixels": 18040.0
+            },
+            "probe": {
+              "bce": 0.07886902377476222,
+              "measurement_precision": 0.6072227764147637,
+              "measurement_recall": 0.2055066380765546,
+              "selected_patch_fraction": 0.008959282327786557,
+              "true_selected_depth_pixels": 90090.0,
+              "false_selected_depth_pixels": 58274.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.0798726872493596,
+              "measurement_precision": 0.9327929301838584,
+              "measurement_recall": 0.7118399339933993,
+              "selected_patch_fraction": 0.08552078468005604,
+              "true_selected_depth_pixels": 1311380.0,
+              "false_selected_depth_pixels": 94484.0
+            },
+            "probe": {
+              "bce": 0.09764779174177517,
+              "measurement_precision": 0.9333756011116575,
+              "measurement_recall": 0.45229937467430953,
+              "selected_patch_fraction": 0.05434376459598318,
+              "true_selected_depth_pixels": 833244.0,
+              "false_selected_depth_pixels": 59477.0
+            }
+          }
+        },
+        "heldout": {
+          "all": {
+            "original": {
+              "bce": 0.06434636967641102,
+              "measurement_precision": 0.9328830916594937,
+              "measurement_recall": 0.6439856783728194,
+              "selected_patch_fraction": 0.05003474635163308,
+              "true_selected_depth_pixels": 507216.0,
+              "false_selected_depth_pixels": 36492.0
+            },
+            "probe": {
+              "bce": 0.09410974689454482,
+              "measurement_precision": 0.8627511313793393,
+              "measurement_recall": 0.3773520225489449,
+              "selected_patch_fraction": 0.03158443363446838,
+              "true_selected_depth_pixels": 297210.0,
+              "false_selected_depth_pixels": 47281.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.04680010941142645,
+              "measurement_precision": 0.7765935642549703,
+              "measurement_recall": 0.12970252969568344,
+              "selected_patch_fraction": 0.003701594533029613,
+              "true_selected_depth_pixels": 15156.0,
+              "false_selected_depth_pixels": 4360.0
+            },
+            "probe": {
+              "bce": 0.07900459185276597,
+              "measurement_precision": 0.5267675483214649,
+              "measurement_recall": 0.2127049601204943,
+              "selected_patch_fraction": 0.0088624715261959,
+              "true_selected_depth_pixels": 24855.0,
+              "false_selected_depth_pixels": 22329.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.08107795891410917,
+              "measurement_precision": 0.9387018497039252,
+              "measurement_recall": 0.733577034086301,
+              "selected_patch_fraction": 0.09421667119196307,
+              "true_selected_depth_pixels": 492060.0,
+              "false_selected_depth_pixels": 32132.0
+            },
+            "probe": {
+              "bce": 0.1085135848050269,
+              "measurement_precision": 0.9160732845173507,
+              "measurement_recall": 0.4060345752927987,
+              "selected_patch_fraction": 0.053251425468368176,
+              "true_selected_depth_pixels": 272355.0,
+              "false_selected_depth_pixels": 24952.0
+            }
+          }
+        },
+        "seconds": 1.1886173880193383
+      },
+      {
+        "step": 750,
+        "training": {
+          "all": {
+            "original": {
+              "bce": 0.06414295538153189,
+              "measurement_precision": 0.9275786167569864,
+              "measurement_recall": 0.6319404372495199,
+              "selected_patch_fraction": 0.04719970179852763,
+              "true_selected_depth_pixels": 1441216.0,
+              "false_selected_depth_pixels": 112524.0
+            },
+            "probe": {
+              "bce": 0.08506659085703255,
+              "measurement_precision": 0.90693834311504,
+              "measurement_recall": 0.3836443598670537,
+              "selected_patch_fraction": 0.029261019476283665,
+              "true_selected_depth_pixels": 874947.0,
+              "false_selected_depth_pixels": 89779.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.048489263424080324,
+              "measurement_precision": 0.8780058968324813,
+              "measurement_recall": 0.29617227063278434,
+              "selected_patch_fraction": 0.009063865389978618,
+              "true_selected_depth_pixels": 129836.0,
+              "false_selected_depth_pixels": 18040.0
+            },
+            "probe": {
+              "bce": 0.07182330523125022,
+              "measurement_precision": 0.6759769094138544,
+              "measurement_recall": 0.1736279027327889,
+              "selected_patch_fraction": 0.006797899042483964,
+              "true_selected_depth_pixels": 76115.0,
+              "false_selected_depth_pixels": 36485.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.0798726872493596,
+              "measurement_precision": 0.9327929301838584,
+              "measurement_recall": 0.7118399339933993,
+              "selected_patch_fraction": 0.08552078468005604,
+              "true_selected_depth_pixels": 1311380.0,
+              "false_selected_depth_pixels": 94484.0
+            },
+            "probe": {
+              "bce": 0.09837420132604507,
+              "measurement_precision": 0.9374576060347883,
+              "measurement_recall": 0.43361994094146256,
+              "selected_patch_fraction": 0.051833255488089675,
+              "true_selected_depth_pixels": 798832.0,
+              "false_selected_depth_pixels": 53294.0
+            }
+          }
+        },
+        "heldout": {
+          "all": {
+            "original": {
+              "bce": 0.06434636967641102,
+              "measurement_precision": 0.9328830916594937,
+              "measurement_recall": 0.6439856783728194,
+              "selected_patch_fraction": 0.05003474635163308,
+              "true_selected_depth_pixels": 507216.0,
+              "false_selected_depth_pixels": 36492.0
+            },
+            "probe": {
+              "bce": 0.09203011073363664,
+              "measurement_precision": 0.8939454288583636,
+              "measurement_recall": 0.33339935501891776,
+              "selected_patch_fraction": 0.027015288394718555,
+              "true_selected_depth_pixels": 262592.0,
+              "false_selected_depth_pixels": 31153.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.04680010941142645,
+              "measurement_precision": 0.7765935642549703,
+              "measurement_recall": 0.12970252969568344,
+              "selected_patch_fraction": 0.003701594533029613,
+              "true_selected_depth_pixels": 15156.0,
+              "false_selected_depth_pixels": 4360.0
+            },
+            "probe": {
+              "bce": 0.07103218521778568,
+              "measurement_precision": 0.6470031439099422,
+              "measurement_recall": 0.16378838188477732,
+              "selected_patch_fraction": 0.005481207289293849,
+              "true_selected_depth_pixels": 19139.0,
+              "false_selected_depth_pixels": 10442.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.08107795891410917,
+              "measurement_precision": 0.9387018497039252,
+              "measurement_recall": 0.733577034086301,
+              "selected_patch_fraction": 0.09421667119196307,
+              "true_selected_depth_pixels": 492060.0,
+              "false_selected_depth_pixels": 32132.0
+            },
+            "probe": {
+              "bce": 0.11205311427451721,
+              "measurement_precision": 0.9215979467300617,
+              "measurement_recall": 0.3629466521956921,
+              "selected_patch_fraction": 0.04754955199565571,
+              "true_selected_depth_pixels": 243453.0,
+              "false_selected_depth_pixels": 20711.0
+            }
+          }
+        },
+        "seconds": 1.6680667570326477
+      },
+      {
+        "step": 1000,
+        "training": {
+          "all": {
+            "original": {
+              "bce": 0.06414295538153189,
+              "measurement_precision": 0.9275786167569864,
+              "measurement_recall": 0.6319404372495199,
+              "selected_patch_fraction": 0.04719970179852763,
+              "true_selected_depth_pixels": 1441216.0,
+              "false_selected_depth_pixels": 112524.0
+            },
+            "probe": {
+              "bce": 0.08197367547909441,
+              "measurement_precision": 0.8916498823072629,
+              "measurement_recall": 0.4833422490375424,
+              "selected_patch_fraction": 0.037554747926567884,
+              "true_selected_depth_pixels": 1102320.0,
+              "false_selected_depth_pixels": 133950.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.048489263424080324,
+              "measurement_precision": 0.8780058968324813,
+              "measurement_recall": 0.29617227063278434,
+              "selected_patch_fraction": 0.009063865389978618,
+              "true_selected_depth_pixels": 129836.0,
+              "false_selected_depth_pixels": 18040.0
+            },
+            "probe": {
+              "bce": 0.07286128091736777,
+              "measurement_precision": 0.6586375323127949,
+              "measurement_recall": 0.21562799397782745,
+              "selected_patch_fraction": 0.008645533141210375,
+              "true_selected_depth_pixels": 94527.0,
+              "false_selected_depth_pixels": 48992.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.0798726872493596,
+              "measurement_precision": 0.9327929301838584,
+              "measurement_recall": 0.7118399339933993,
+              "selected_patch_fraction": 0.08552078468005604,
+              "true_selected_depth_pixels": 1311380.0,
+              "false_selected_depth_pixels": 94484.0
+            },
+            "probe": {
+              "bce": 0.09113033460379204,
+              "measurement_precision": 0.9222531024908693,
+              "measurement_recall": 0.5470476159458051,
+              "selected_patch_fraction": 0.06660439047174217,
+              "true_selected_depth_pixels": 1007793.0,
+              "false_selected_depth_pixels": 84958.0
+            }
+          }
+        },
+        "heldout": {
+          "all": {
+            "original": {
+              "bce": 0.06434636967641102,
+              "measurement_precision": 0.9328830916594937,
+              "measurement_recall": 0.6439856783728194,
+              "selected_patch_fraction": 0.05003474635163308,
+              "true_selected_depth_pixels": 507216.0,
+              "false_selected_depth_pixels": 36492.0
+            },
+            "probe": {
+              "bce": 0.0902148577469434,
+              "measurement_precision": 0.8809223568064488,
+              "measurement_recall": 0.4248508163835352,
+              "selected_patch_fraction": 0.03528492008339124,
+              "true_selected_depth_pixels": 334621.0,
+              "false_selected_depth_pixels": 45232.0
+            }
+          },
+          "augmented": {
+            "original": {
+              "bce": 0.04680010941142645,
+              "measurement_precision": 0.7765935642549703,
+              "measurement_recall": 0.12970252969568344,
+              "selected_patch_fraction": 0.003701594533029613,
+              "true_selected_depth_pixels": 15156.0,
+              "false_selected_depth_pixels": 4360.0
+            },
+            "probe": {
+              "bce": 0.0741261327999871,
+              "measurement_precision": 0.6172365930599369,
+              "measurement_recall": 0.20930750008557833,
+              "selected_patch_fraction": 0.007403189066059226,
+              "true_selected_depth_pixels": 24458.0,
+              "false_selected_depth_pixels": 15167.0
+            }
+          },
+          "natural": {
+            "original": {
+              "bce": 0.08107795891410917,
+              "measurement_precision": 0.9387018497039252,
+              "measurement_recall": 0.733577034086301,
+              "selected_patch_fraction": 0.09421667119196307,
+              "true_selected_depth_pixels": 492060.0,
+              "false_selected_depth_pixels": 32132.0
+            },
+            "probe": {
+              "bce": 0.1055565864341336,
+              "measurement_precision": 0.9116327874249033,
+              "measurement_recall": 0.4623998163299382,
+              "selected_patch_fraction": 0.06187211512354059,
+              "true_selected_depth_pixels": 310163.0,
+              "false_selected_depth_pixels": 30065.0
+            }
+          }
+        },
+        "seconds": 2.1193015701137483
+      }
+    ],
+    "checkpoint_sha256": "85591888890f5dcc99ce5f23b3345f50bf3edbb7aa7e24355faa1acdcfc738e2",
+    "production_changed": false,
+    "scope": "Training-sequence holdout calibration only; threshold0.7 unchanged; precision AND recall required, no pose claim"
+  }
+}

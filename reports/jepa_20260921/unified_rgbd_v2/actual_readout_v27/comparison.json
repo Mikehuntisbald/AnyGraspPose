@@ -1,0 +1,1397 @@
+{
+  "observed_visible": {
+    "completed": true,
+    "source": "observed_visible",
+    "steps": 1000,
+    "train_records": 768,
+    "heldout_records": 256,
+    "cache_sha256": {
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank0/records.pt": "715f7a962766a4eb7088b4774760fd50dcaab222d1c4e9172abbd60cd1ee5d1c",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank1/records.pt": "2e827c31010780689d396975cd06dd4264183728767b5754a017a3be098ee040",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank2/records.pt": "378aa502f3e86db5e63031be8b93f16868f7a9174b6e7ae7bf52dacd2298031e",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank3/records.pt": "8122a9932aff5a70d5df6a4d91484e7e5cc34e4dce751e4684eb015fdf0df40d",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank4/records.pt": "2c8f3176d89fba05ba7f07086e175dace89875910c50a8d72f1f6507f6dc5be9",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank5/records.pt": "03b5c5fea6e51fbd45cea612648c0aff56a789ac046f50b02fe6e0f4d373acee",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank6/records.pt": "a83781723dc66f1d448d8e22ec4f7cc4047359cd97693c84a1e4ad8a92fbc2e0",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank7/records.pt": "c1d5057a583b70d7aa5176ec6f681093e88d24b363ba96a48f7680ad401d7b30"
+    },
+    "teacher_geometry_input": false,
+    "production_changed": false,
+    "metrics": [
+      {
+        "step": 0,
+        "heldout": {
+          "rotation": {
+            "cases": 128,
+            "physical_sequences": 55,
+            "rotation": 9.999931380152702,
+            "before": 10.000000171363354,
+            "original": 8.998718235641718,
+            "center_d": 0.0006575621626723205,
+            "gain": 1.5067768444509966e-05
+          },
+          "nonsym_rotation": {
+            "cases": 90,
+            "physical_sequences": 38,
+            "rotation": 9.999771224127876,
+            "before": 10.000000254313152,
+            "original": 9.025431680679322,
+            "center_d": 0.0006914060847015612,
+            "gain": 3.0954043844152086e-05
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 48,
+            "physical_sequences": 22,
+            "rotation": 9.999708553155264,
+            "before": 10.000000357627869,
+            "original": 9.340946346521378,
+            "center_d": 0.0006367333686133255,
+            "gain": 3.803205955440111e-05
+          },
+          "zero": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 0.04629136617586482,
+            "before": 0.0,
+            "original": 2.088719943771139,
+            "center_d": 0.0006597686655140933,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 13.906257120892406,
+            "before": 13.902871660888195,
+            "original": 11.856817495077848,
+            "center_d": 0.05584249473758973,
+            "gain": -0.0005040094953301377
+          }
+        }
+      },
+      {
+        "step": 250,
+        "training": {
+          "rotation": {
+            "cases": 384,
+            "physical_sequences": 169,
+            "rotation": 9.676554046571255,
+            "before": 10.000000042219957,
+            "original": 9.24426792934537,
+            "center_d": 0.0038634881655070785,
+            "gain": 0.03651473273442226
+          },
+          "nonsym_rotation": {
+            "cases": 264,
+            "physical_sequences": 116,
+            "rotation": 9.658786576805692,
+            "before": 10.000000003612403,
+            "original": 8.772363812634438,
+            "center_d": 0.0037886618942359223,
+            "gain": 0.03841549024059532
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 128,
+            "physical_sequences": 59,
+            "rotation": 9.758142337203026,
+            "before": 10.000000096857548,
+            "original": 9.209937466308475,
+            "center_d": 0.0035550263801269466,
+            "gain": 0.028342814950875095
+          },
+          "zero": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 0.8180465137120336,
+            "before": 0.0,
+            "original": 2.7222274767700583,
+            "center_d": 0.003334709296420139,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 12.246600780015191,
+            "before": 13.396118431041637,
+            "original": 11.608083742981156,
+            "center_d": 0.05171063534119943,
+            "gain": 0.0995212576623506
+          }
+        },
+        "heldout": {
+          "rotation": {
+            "cases": 128,
+            "physical_sequences": 55,
+            "rotation": 9.754632651805878,
+            "before": 10.000000171363354,
+            "original": 8.998718235641718,
+            "center_d": 0.004570957220494165,
+            "gain": 0.030479298608895533
+          },
+          "nonsym_rotation": {
+            "cases": 90,
+            "physical_sequences": 38,
+            "rotation": 9.76908343103197,
+            "before": 10.000000254313152,
+            "original": 9.025431680679322,
+            "center_d": 0.004521102729874353,
+            "gain": 0.028680125163373305
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 48,
+            "physical_sequences": 22,
+            "rotation": 9.817556321620941,
+            "before": 10.000000357627869,
+            "original": 9.340946346521378,
+            "center_d": 0.004020814179966692,
+            "gain": 0.022854059915061953
+          },
+          "zero": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 0.9266271146479994,
+            "before": 0.0,
+            "original": 2.088719943771139,
+            "center_d": 0.004006180814030813,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 13.430180603638291,
+            "before": 13.902871660888195,
+            "original": 11.856817495077848,
+            "center_d": 0.05441137304296717,
+            "gain": 0.0420325758313993
+          }
+        },
+        "seconds": 2.244391924003139
+      },
+      {
+        "step": 500,
+        "training": {
+          "rotation": {
+            "cases": 384,
+            "physical_sequences": 169,
+            "rotation": 8.818381613120437,
+            "before": 10.000000042219957,
+            "original": 9.24426792934537,
+            "center_d": 0.004162674966513198,
+            "gain": 0.1582424347282867
+          },
+          "nonsym_rotation": {
+            "cases": 264,
+            "physical_sequences": 116,
+            "rotation": 8.662008933497198,
+            "before": 10.000000003612403,
+            "original": 8.772363812634438,
+            "center_d": 0.004465706328946081,
+            "gain": 0.1803738330054364
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 128,
+            "physical_sequences": 59,
+            "rotation": 9.027478364296257,
+            "before": 10.000000096857548,
+            "original": 9.209937466308475,
+            "center_d": 0.00430985855336985,
+            "gain": 0.13384555276934407
+          },
+          "zero": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 1.576228016987443,
+            "before": 0.0,
+            "original": 2.7222274767700583,
+            "center_d": 0.0028863697607448557,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 9.996028842404485,
+            "before": 13.396118431041637,
+            "original": 11.608083742981156,
+            "center_d": 0.04501133207425786,
+            "gain": 0.3428556677522465
+          }
+        },
+        "heldout": {
+          "rotation": {
+            "cases": 128,
+            "physical_sequences": 55,
+            "rotation": 9.502686761319637,
+            "before": 10.000000171363354,
+            "original": 8.998718235641718,
+            "center_d": 0.005200585280817904,
+            "gain": 0.09282712579227592
+          },
+          "nonsym_rotation": {
+            "cases": 90,
+            "physical_sequences": 38,
+            "rotation": 9.512566465801664,
+            "before": 10.000000254313152,
+            "original": 9.025431680679322,
+            "center_d": 0.005810295119105528,
+            "gain": 0.08917384286777531
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 48,
+            "physical_sequences": 22,
+            "rotation": 9.824572930733362,
+            "before": 10.000000357627869,
+            "original": 9.340946346521378,
+            "center_d": 0.005896253205719404,
+            "gain": 0.06124924794526502
+          },
+          "zero": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 2.1066804509609938,
+            "before": 0.0,
+            "original": 2.088719943771139,
+            "center_d": 0.004371474292383937,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 13.006672648712993,
+            "before": 13.902871660888195,
+            "original": 11.856817495077848,
+            "center_d": 0.05362043691275176,
+            "gain": 0.17231641526632302
+          }
+        },
+        "seconds": 3.9825778380036354
+      },
+      {
+        "step": 750,
+        "training": {
+          "rotation": {
+            "cases": 384,
+            "physical_sequences": 169,
+            "rotation": 7.593411040841602,
+            "before": 10.000000042219957,
+            "original": 9.24426792934537,
+            "center_d": 0.00467206317974463,
+            "gain": 0.2996980358364567
+          },
+          "nonsym_rotation": {
+            "cases": 264,
+            "physical_sequences": 116,
+            "rotation": 7.384982156764829,
+            "before": 10.000000003612403,
+            "original": 8.772363812634438,
+            "center_d": 0.005230669789660059,
+            "gain": 0.3283025030567925
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 128,
+            "physical_sequences": 59,
+            "rotation": 8.03478749608621,
+            "before": 10.000000096857548,
+            "original": 9.209937466308475,
+            "center_d": 0.00489370554623747,
+            "gain": 0.2466195028346192
+          },
+          "zero": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 1.4549906524674345,
+            "before": 0.0,
+            "original": 2.7222274767700583,
+            "center_d": 0.002828714639235841,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 8.037924122065306,
+            "before": 13.396118431041637,
+            "original": 11.608083742981156,
+            "center_d": 0.03677894049421108,
+            "gain": 0.4986321366620056
+          }
+        },
+        "heldout": {
+          "rotation": {
+            "cases": 128,
+            "physical_sequences": 55,
+            "rotation": 9.666764193214476,
+            "before": 10.000000171363354,
+            "original": 8.998718235641718,
+            "center_d": 0.00886500082128805,
+            "gain": 0.14035008659357118
+          },
+          "nonsym_rotation": {
+            "cases": 90,
+            "physical_sequences": 38,
+            "rotation": 9.792872299088373,
+            "before": 10.000000254313152,
+            "original": 9.025431680679322,
+            "center_d": 0.00954138079638748,
+            "gain": 0.1314605461123089
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 48,
+            "physical_sequences": 22,
+            "rotation": 9.890663534402847,
+            "before": 10.000000357627869,
+            "original": 9.340946346521378,
+            "center_d": 0.008462504618970948,
+            "gain": 0.08584613340402332
+          },
+          "zero": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 2.7459900178946555,
+            "before": 0.0,
+            "original": 2.088719943771139,
+            "center_d": 0.006966820809566343,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 12.719542713835835,
+            "before": 13.902871660888195,
+            "original": 11.856817495077848,
+            "center_d": 0.053864791290834546,
+            "gain": 0.25932092441871646
+          }
+        },
+        "seconds": 5.701501620002091
+      },
+      {
+        "step": 1000,
+        "training": {
+          "rotation": {
+            "cases": 384,
+            "physical_sequences": 169,
+            "rotation": 6.527800405941282,
+            "before": 10.000000042219957,
+            "original": 9.24426792934537,
+            "center_d": 0.005019884283380331,
+            "gain": 0.4800478163074331
+          },
+          "nonsym_rotation": {
+            "cases": 264,
+            "physical_sequences": 116,
+            "rotation": 6.188663621404857,
+            "before": 10.000000003612403,
+            "original": 8.772363812634438,
+            "center_d": 0.005160000660081013,
+            "gain": 0.5248282397892168
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 128,
+            "physical_sequences": 59,
+            "rotation": 6.580065662972629,
+            "before": 10.000000096857548,
+            "original": 9.209937466308475,
+            "center_d": 0.005328731711870205,
+            "gain": 0.4280272878108917
+          },
+          "zero": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 1.976101363465811,
+            "before": 0.0,
+            "original": 2.7222274767700583,
+            "center_d": 0.004083436640939908,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 6.934386418045809,
+            "before": 13.396118431041637,
+            "original": 11.608083742981156,
+            "center_d": 0.03221722247690195,
+            "gain": 0.6306324312705934
+          }
+        },
+        "heldout": {
+          "rotation": {
+            "cases": 128,
+            "physical_sequences": 55,
+            "rotation": 10.046908657997847,
+            "before": 10.000000171363354,
+            "original": 8.998718235641718,
+            "center_d": 0.009774804597327602,
+            "gain": 0.21159625647726443
+          },
+          "nonsym_rotation": {
+            "cases": 90,
+            "physical_sequences": 38,
+            "rotation": 10.00255135960049,
+            "before": 10.000000254313152,
+            "original": 9.025431680679322,
+            "center_d": 0.01012389185036429,
+            "gain": 0.21046962562201468
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 48,
+            "physical_sequences": 22,
+            "rotation": 10.066726331909498,
+            "before": 10.000000357627869,
+            "original": 9.340946346521378,
+            "center_d": 0.010967294794681948,
+            "gain": 0.16872387665262067
+          },
+          "zero": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 4.2249791249632835,
+            "before": 0.0,
+            "original": 2.088719943771139,
+            "center_d": 0.007479061726144209,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 12.483439786359668,
+            "before": 13.902871660888195,
+            "original": 11.856817495077848,
+            "center_d": 0.05166349484352395,
+            "gain": 0.3458766614785418
+          }
+        },
+        "seconds": 7.425486872904003
+      }
+    ],
+    "checkpoint_sha256": "55d86f0dcb3470dfa07360d5da49558fdd33986b5dd7e1aec0344d3c79a59154",
+    "scope": "Frozen actual-prediction readout probe; physical-sequence-disjoint training-data holdout; not native pose accuracy"
+  },
+  "decoded": {
+    "completed": true,
+    "source": "decoded",
+    "steps": 1000,
+    "train_records": 768,
+    "heldout_records": 256,
+    "cache_sha256": {
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank0/records.pt": "715f7a962766a4eb7088b4774760fd50dcaab222d1c4e9172abbd60cd1ee5d1c",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank1/records.pt": "2e827c31010780689d396975cd06dd4264183728767b5754a017a3be098ee040",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank2/records.pt": "378aa502f3e86db5e63031be8b93f16868f7a9174b6e7ae7bf52dacd2298031e",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank3/records.pt": "8122a9932aff5a70d5df6a4d91484e7e5cc34e4dce751e4684eb015fdf0df40d",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank4/records.pt": "2c8f3176d89fba05ba7f07086e175dace89875910c50a8d72f1f6507f6dc5be9",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank5/records.pt": "03b5c5fea6e51fbd45cea612648c0aff56a789ac046f50b02fe6e0f4d373acee",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank6/records.pt": "a83781723dc66f1d448d8e22ec4f7cc4047359cd97693c84a1e4ad8a92fbc2e0",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank7/records.pt": "c1d5057a583b70d7aa5176ec6f681093e88d24b363ba96a48f7680ad401d7b30"
+    },
+    "teacher_geometry_input": false,
+    "production_changed": false,
+    "metrics": [
+      {
+        "step": 0,
+        "heldout": {
+          "rotation": {
+            "cases": 128,
+            "physical_sequences": 55,
+            "rotation": 9.999939151108265,
+            "before": 10.000000171363354,
+            "original": 8.998718235641718,
+            "center_d": 0.000624002034754767,
+            "gain": 1.4012537491225885e-05
+          },
+          "nonsym_rotation": {
+            "cases": 90,
+            "physical_sequences": 38,
+            "rotation": 9.999670134650337,
+            "before": 10.000000254313152,
+            "original": 9.025431680679322,
+            "center_d": 0.0006343116150674177,
+            "gain": 4.095455365637059e-05
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 48,
+            "physical_sequences": 22,
+            "rotation": 9.999759793281555,
+            "before": 10.000000357627869,
+            "original": 9.340946346521378,
+            "center_d": 0.000632166663535827,
+            "gain": 3.290587414994661e-05
+          },
+          "zero": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 0.04555773593892809,
+            "before": 0.0,
+            "original": 2.088719943771139,
+            "center_d": 0.0006267694886901154,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 13.905693661421537,
+            "before": 13.902871660888195,
+            "original": 11.856817495077848,
+            "center_d": 0.0558416839921847,
+            "gain": -0.0004170906777076766
+          }
+        }
+      },
+      {
+        "step": 250,
+        "training": {
+          "rotation": {
+            "cases": 384,
+            "physical_sequences": 169,
+            "rotation": 9.772645828624567,
+            "before": 10.000000042219957,
+            "original": 9.24426792934537,
+            "center_d": 0.00326678535566316,
+            "gain": 0.026423143717345
+          },
+          "nonsym_rotation": {
+            "cases": 264,
+            "physical_sequences": 116,
+            "rotation": 9.750140045628402,
+            "before": 10.000000003612403,
+            "original": 8.772363812634438,
+            "center_d": 0.0033384049990369626,
+            "gain": 0.028975218380947586
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 128,
+            "physical_sequences": 59,
+            "rotation": 9.827759057283401,
+            "before": 10.000000096857548,
+            "original": 9.209937466308475,
+            "center_d": 0.0033722213011060376,
+            "gain": 0.022292198480499792
+          },
+          "zero": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 0.7869473819155246,
+            "before": 0.0,
+            "original": 2.7222274767700583,
+            "center_d": 0.003054269195975697,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 12.56174728150169,
+            "before": 13.396118431041637,
+            "original": 11.608083742981156,
+            "center_d": 0.05190756151569076,
+            "gain": 0.08096840108358568
+          }
+        },
+        "heldout": {
+          "rotation": {
+            "cases": 128,
+            "physical_sequences": 55,
+            "rotation": 9.785733468830585,
+            "before": 10.000000171363354,
+            "original": 8.998718235641718,
+            "center_d": 0.0035174813260709925,
+            "gain": 0.02537754407921966
+          },
+          "nonsym_rotation": {
+            "cases": 90,
+            "physical_sequences": 38,
+            "rotation": 9.79253749317593,
+            "before": 10.000000254313152,
+            "original": 9.025431680679322,
+            "center_d": 0.003694872951988752,
+            "gain": 0.025407056670196146
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 48,
+            "physical_sequences": 22,
+            "rotation": 9.843962093194326,
+            "before": 10.000000357627869,
+            "original": 9.340946346521378,
+            "center_d": 0.003708561632568793,
+            "gain": 0.020601555857865606
+          },
+          "zero": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 0.846322616096586,
+            "before": 0.0,
+            "original": 2.088719943771139,
+            "center_d": 0.0032671965554982307,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 13.715978924185038,
+            "before": 13.902871660888195,
+            "original": 11.856817495077848,
+            "center_d": 0.05530921144236345,
+            "gain": 0.022752779852453386
+          }
+        },
+        "seconds": 2.132976963184774
+      },
+      {
+        "step": 500,
+        "training": {
+          "rotation": {
+            "cases": 384,
+            "physical_sequences": 169,
+            "rotation": 9.219133999198675,
+            "before": 10.000000042219957,
+            "original": 9.24426792934537,
+            "center_d": 0.0043122953096220345,
+            "gain": 0.10221220445225754
+          },
+          "nonsym_rotation": {
+            "cases": 264,
+            "physical_sequences": 116,
+            "rotation": 9.153280664574016,
+            "before": 10.000000003612403,
+            "original": 8.772363812634438,
+            "center_d": 0.003934608928940372,
+            "gain": 0.10163069815511831
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 128,
+            "physical_sequences": 59,
+            "rotation": 9.38242333009839,
+            "before": 10.000000096857548,
+            "original": 9.209937466308475,
+            "center_d": 0.003712540295055078,
+            "gain": 0.07173055674866191
+          },
+          "zero": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 1.0746751183954377,
+            "before": 0.0,
+            "original": 2.7222274767700583,
+            "center_d": 0.0035733154151481963,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 10.798769400144616,
+            "before": 13.396118431041637,
+            "original": 11.608083742981156,
+            "center_d": 0.04715220855481069,
+            "gain": 0.2979916267822773
+          }
+        },
+        "heldout": {
+          "rotation": {
+            "cases": 128,
+            "physical_sequences": 55,
+            "rotation": 9.563436144962907,
+            "before": 10.000000171363354,
+            "original": 8.998718235641718,
+            "center_d": 0.0044823790663031104,
+            "gain": 0.067034319962886
+          },
+          "nonsym_rotation": {
+            "cases": 90,
+            "physical_sequences": 38,
+            "rotation": 9.61814439561632,
+            "before": 10.000000254313152,
+            "original": 9.025431680679322,
+            "center_d": 0.004632281457048117,
+            "gain": 0.058698748128760296
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 48,
+            "physical_sequences": 22,
+            "rotation": 9.775009900331497,
+            "before": 10.000000357627869,
+            "original": 9.340946346521378,
+            "center_d": 0.004237654449146551,
+            "gain": 0.033937017041049934
+          },
+          "zero": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 1.413155283080414,
+            "before": 0.0,
+            "original": 2.088719943771139,
+            "center_d": 0.004124681591747503,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 13.662472743541002,
+            "before": 13.902871660888195,
+            "original": 11.856817495077848,
+            "center_d": 0.0554211921262322,
+            "gain": 0.06559397204455308
+          }
+        },
+        "seconds": 3.8390283540356904
+      },
+      {
+        "step": 750,
+        "training": {
+          "rotation": {
+            "cases": 384,
+            "physical_sequences": 169,
+            "rotation": 8.270035941464206,
+            "before": 10.000000042219957,
+            "original": 9.24426792934537,
+            "center_d": 0.00502517326852588,
+            "gain": 0.2166734754728168
+          },
+          "nonsym_rotation": {
+            "cases": 264,
+            "physical_sequences": 116,
+            "rotation": 8.13494028534853,
+            "before": 10.000000003612403,
+            "original": 8.772363812634438,
+            "center_d": 0.0053718429169913925,
+            "gain": 0.23670498420886527
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 128,
+            "physical_sequences": 59,
+            "rotation": 8.599414854776114,
+            "before": 10.000000096857548,
+            "original": 9.209937466308475,
+            "center_d": 0.00511423048828874,
+            "gain": 0.18198668597915457
+          },
+          "zero": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 1.284765236157303,
+            "before": 0.0,
+            "original": 2.7222274767700583,
+            "center_d": 0.0036275144996883077,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 9.128709503139058,
+            "before": 13.396118431041637,
+            "original": 11.608083742981156,
+            "center_d": 0.04048846395987008,
+            "gain": 0.4514047123819367
+          }
+        },
+        "heldout": {
+          "rotation": {
+            "cases": 128,
+            "physical_sequences": 55,
+            "rotation": 9.3398009929806,
+            "before": 10.000000171363354,
+            "original": 8.998718235641718,
+            "center_d": 0.006337895811839189,
+            "gain": 0.1269561937851904
+          },
+          "nonsym_rotation": {
+            "cases": 90,
+            "physical_sequences": 38,
+            "rotation": 9.431687127219305,
+            "before": 10.000000254313152,
+            "original": 9.025431680679322,
+            "center_d": 0.007005977839839438,
+            "gain": 0.11438082719169972
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 48,
+            "physical_sequences": 22,
+            "rotation": 9.413947929938635,
+            "before": 10.000000357627869,
+            "original": 9.340946346521378,
+            "center_d": 0.0070802333478544215,
+            "gain": 0.09179067566098335
+          },
+          "zero": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 2.0909907924942672,
+            "before": 0.0,
+            "original": 2.088719943771139,
+            "center_d": 0.005174603509658482,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 12.501624453812838,
+            "before": 13.902871660888195,
+            "original": 11.856817495077848,
+            "center_d": 0.05403438530629501,
+            "gain": 0.22057929639368012
+          }
+        },
+        "seconds": 5.556234954157844
+      },
+      {
+        "step": 1000,
+        "training": {
+          "rotation": {
+            "cases": 384,
+            "physical_sequences": 169,
+            "rotation": 7.6663632514731335,
+            "before": 10.000000042219957,
+            "original": 9.24426792934537,
+            "center_d": 0.0036997313259992857,
+            "gain": 0.26746604113971745
+          },
+          "nonsym_rotation": {
+            "cases": 264,
+            "physical_sequences": 116,
+            "rotation": 7.487944370417884,
+            "before": 10.000000003612403,
+            "original": 8.772363812634438,
+            "center_d": 0.003823389572062297,
+            "gain": 0.2813781573870184
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 128,
+            "physical_sequences": 59,
+            "rotation": 7.884906706400216,
+            "before": 10.000000096857548,
+            "original": 9.209937466308475,
+            "center_d": 0.0032807430684442807,
+            "gain": 0.22564433792558702
+          },
+          "zero": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 0.9995582116534933,
+            "before": 0.0,
+            "original": 2.7222274767700583,
+            "center_d": 0.002232938777827561,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 8.278350673615932,
+            "before": 13.396118431041637,
+            "original": 11.608083742981156,
+            "center_d": 0.038654621992463944,
+            "gain": 0.450333659358004
+          }
+        },
+        "heldout": {
+          "rotation": {
+            "cases": 128,
+            "physical_sequences": 55,
+            "rotation": 9.707402212545276,
+            "before": 10.000000171363354,
+            "original": 8.998718235641718,
+            "center_d": 0.004537196058436166,
+            "gain": 0.09627688070088425
+          },
+          "nonsym_rotation": {
+            "cases": 90,
+            "physical_sequences": 38,
+            "rotation": 9.771369859907363,
+            "before": 10.000000254313152,
+            "original": 9.025431680679322,
+            "center_d": 0.004477656180258944,
+            "gain": 0.07762736153300567
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 48,
+            "physical_sequences": 22,
+            "rotation": 9.737152084708214,
+            "before": 10.000000357627869,
+            "original": 9.340946346521378,
+            "center_d": 0.004227697101669037,
+            "gain": 0.06968606477948924
+          },
+          "zero": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 1.8959102190565318,
+            "before": 0.0,
+            "original": 2.088719943771139,
+            "center_d": 0.0034714984885795275,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 12.908788993954659,
+            "before": 13.902871660888195,
+            "original": 11.856817495077848,
+            "center_d": 0.056389324308838695,
+            "gain": 0.14234626617826507
+          }
+        },
+        "seconds": 7.226884033996612
+      }
+    ],
+    "checkpoint_sha256": "504fbe28648453be03a29634e2cf549031876404b7d0656e86d75755c40d77ea",
+    "scope": "Frozen actual-prediction readout probe; physical-sequence-disjoint training-data holdout; not native pose accuracy"
+  },
+  "patch": {
+    "completed": true,
+    "source": "patch",
+    "steps": 1000,
+    "train_records": 768,
+    "heldout_records": 256,
+    "cache_sha256": {
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank0/records.pt": "715f7a962766a4eb7088b4774760fd50dcaab222d1c4e9172abbd60cd1ee5d1c",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank1/records.pt": "2e827c31010780689d396975cd06dd4264183728767b5754a017a3be098ee040",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank2/records.pt": "378aa502f3e86db5e63031be8b93f16868f7a9174b6e7ae7bf52dacd2298031e",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank3/records.pt": "8122a9932aff5a70d5df6a4d91484e7e5cc34e4dce751e4684eb015fdf0df40d",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank4/records.pt": "2c8f3176d89fba05ba7f07086e175dace89875910c50a8d72f1f6507f6dc5be9",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank5/records.pt": "03b5c5fea6e51fbd45cea612648c0aff56a789ac046f50b02fe6e0f4d373acee",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank6/records.pt": "a83781723dc66f1d448d8e22ec4f7cc4047359cd97693c84a1e4ad8a92fbc2e0",
+      "/mnt/why/dexycb_lip/unified_jepa_20260921/actual_readout_v27/cache/rank7/records.pt": "c1d5057a583b70d7aa5176ec6f681093e88d24b363ba96a48f7680ad401d7b30"
+    },
+    "teacher_geometry_input": false,
+    "production_changed": false,
+    "metrics": [
+      {
+        "step": 0,
+        "heldout": {
+          "rotation": {
+            "cases": 128,
+            "physical_sequences": 55,
+            "rotation": 10.000682406127453,
+            "before": 10.000000171363354,
+            "original": 8.998718235641718,
+            "center_d": 0.0007834976689764517,
+            "gain": -6.289644488788326e-05
+          },
+          "nonsym_rotation": {
+            "cases": 90,
+            "physical_sequences": 38,
+            "rotation": 10.000431929694281,
+            "before": 10.000000254313152,
+            "original": 9.025431680679322,
+            "center_d": 0.0007917227297891967,
+            "gain": -3.810488916416135e-05
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 48,
+            "physical_sequences": 22,
+            "rotation": 10.000304599603018,
+            "before": 10.000000357627869,
+            "original": 9.340946346521378,
+            "center_d": 0.0008371858851508781,
+            "gain": -2.4916019962499075e-05
+          },
+          "zero": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 0.037531858280999586,
+            "before": 0.0,
+            "original": 2.088719943771139,
+            "center_d": 0.0007807289093761938,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 13.895364053547382,
+            "before": 13.902871660888195,
+            "original": 11.856817495077848,
+            "center_d": 0.05593979808327276,
+            "gain": 0.0013449089095729505
+          }
+        }
+      },
+      {
+        "step": 250,
+        "training": {
+          "rotation": {
+            "cases": 384,
+            "physical_sequences": 169,
+            "rotation": 9.939528860151768,
+            "before": 10.000000042219957,
+            "original": 9.24426792934537,
+            "center_d": 0.0024765469020167075,
+            "gain": 0.006588243462791373
+          },
+          "nonsym_rotation": {
+            "cases": 264,
+            "physical_sequences": 116,
+            "rotation": 9.93638146646095,
+            "before": 10.000000003612403,
+            "original": 8.772363812634438,
+            "center_d": 0.0023990022986474673,
+            "gain": 0.006859209258629672
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 128,
+            "physical_sequences": 59,
+            "rotation": 9.954873144626617,
+            "before": 10.000000096857548,
+            "original": 9.209937466308475,
+            "center_d": 0.0023955612891768396,
+            "gain": 0.005015946203457133
+          },
+          "zero": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 0.33381780274794437,
+            "before": 0.0,
+            "original": 2.7222274767700583,
+            "center_d": 0.0023744024004675643,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 13.020319281766811,
+            "before": 13.396118431041637,
+            "original": 11.608083742981156,
+            "center_d": 0.05342139308534873,
+            "gain": 0.02943839130845542
+          }
+        },
+        "heldout": {
+          "rotation": {
+            "cases": 128,
+            "physical_sequences": 55,
+            "rotation": 9.958395436406136,
+            "before": 10.000000171363354,
+            "original": 8.998718235641718,
+            "center_d": 0.0026586595304252114,
+            "gain": 0.004694485172876739
+          },
+          "nonsym_rotation": {
+            "cases": 90,
+            "physical_sequences": 38,
+            "rotation": 9.962314489152696,
+            "before": 10.000000254313152,
+            "original": 9.025431680679322,
+            "center_d": 0.0026304600566315153,
+            "gain": 0.004372277537024476
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 48,
+            "physical_sequences": 22,
+            "rotation": 9.974290450414022,
+            "before": 10.000000357627869,
+            "original": 9.340946346521378,
+            "center_d": 0.002803033472446259,
+            "gain": 0.003108163210223817
+          },
+          "zero": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 0.32675516308518127,
+            "before": 0.0,
+            "original": 2.088719943771139,
+            "center_d": 0.002585247672868718,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 13.879851022735238,
+            "before": 13.902871660888195,
+            "original": 11.856817495077848,
+            "center_d": 0.05543421665788628,
+            "gain": 0.0013340123869056697
+          }
+        },
+        "seconds": 1.9955038239713758
+      },
+      {
+        "step": 500,
+        "training": {
+          "rotation": {
+            "cases": 384,
+            "physical_sequences": 169,
+            "rotation": 9.498808255419135,
+            "before": 10.000000042219957,
+            "original": 9.24426792934537,
+            "center_d": 0.003699282366293725,
+            "gain": 0.06415302217927395
+          },
+          "nonsym_rotation": {
+            "cases": 264,
+            "physical_sequences": 116,
+            "rotation": 9.486417243878046,
+            "before": 10.000000003612403,
+            "original": 8.772363812634438,
+            "center_d": 0.0033663136447571696,
+            "gain": 0.06446717742040743
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 128,
+            "physical_sequences": 59,
+            "rotation": 9.702163819223642,
+            "before": 10.000000096857548,
+            "original": 9.209937466308475,
+            "center_d": 0.0032203626565205923,
+            "gain": 0.035908431609868785
+          },
+          "zero": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 0.8986660784964139,
+            "before": 0.0,
+            "original": 2.7222274767700583,
+            "center_d": 0.002880270608329738,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 11.058256853061417,
+            "before": 13.396118431041637,
+            "original": 11.608083742981156,
+            "center_d": 0.04985218918591272,
+            "gain": 0.2032535976638504
+          }
+        },
+        "heldout": {
+          "rotation": {
+            "cases": 128,
+            "physical_sequences": 55,
+            "rotation": 9.672067929059267,
+            "before": 10.000000171363354,
+            "original": 8.998718235641718,
+            "center_d": 0.0036047928992957168,
+            "gain": 0.03976194378265063
+          },
+          "nonsym_rotation": {
+            "cases": 90,
+            "physical_sequences": 38,
+            "rotation": 9.682729381985135,
+            "before": 10.000000254313152,
+            "original": 9.025431680679322,
+            "center_d": 0.0038049498365985025,
+            "gain": 0.040041784843843846
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 48,
+            "physical_sequences": 22,
+            "rotation": 9.850991745789846,
+            "before": 10.000000357627869,
+            "original": 9.340946346521378,
+            "center_d": 0.0033509550667076837,
+            "gain": 0.022220881316267576
+          },
+          "zero": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 0.9694933551363647,
+            "before": 0.0,
+            "original": 2.088719943771139,
+            "center_d": 0.003158255321523029,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 13.49812775477767,
+            "before": 13.902871660888195,
+            "original": 11.856817495077848,
+            "center_d": 0.05644579682848416,
+            "gain": 0.03792068396069226
+          }
+        },
+        "seconds": 3.5496714268811047
+      },
+      {
+        "step": 750,
+        "training": {
+          "rotation": {
+            "cases": 384,
+            "physical_sequences": 169,
+            "rotation": 8.58033232189094,
+            "before": 10.000000042219957,
+            "original": 9.24426792934537,
+            "center_d": 0.004431817853552881,
+            "gain": 0.168693333448194
+          },
+          "nonsym_rotation": {
+            "cases": 264,
+            "physical_sequences": 116,
+            "rotation": 8.430342907255346,
+            "before": 10.000000003612403,
+            "original": 8.772363812634438,
+            "center_d": 0.0047368761328415885,
+            "gain": 0.19017786239661896
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 128,
+            "physical_sequences": 59,
+            "rotation": 8.941965848207474,
+            "before": 10.000000096857548,
+            "original": 9.209937466308475,
+            "center_d": 0.004298963202472805,
+            "gain": 0.12015209032915664
+          },
+          "zero": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 1.2881252251875897,
+            "before": 0.0,
+            "original": 2.7222274767700583,
+            "center_d": 0.0034605925772363357,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 9.215500436102351,
+            "before": 13.396118431041637,
+            "original": 11.608083742981156,
+            "center_d": 0.04165432059987021,
+            "gain": 0.3927972727530384
+          }
+        },
+        "heldout": {
+          "rotation": {
+            "cases": 128,
+            "physical_sequences": 55,
+            "rotation": 9.408979030326009,
+            "before": 10.000000171363354,
+            "original": 8.998718235641718,
+            "center_d": 0.006033438912709244,
+            "gain": 0.10590004781715834
+          },
+          "nonsym_rotation": {
+            "cases": 90,
+            "physical_sequences": 38,
+            "rotation": 9.47769504123264,
+            "before": 10.000000254313152,
+            "original": 9.025431680679322,
+            "center_d": 0.006829375442531374,
+            "gain": 0.10056909486884251
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 48,
+            "physical_sequences": 22,
+            "rotation": 9.731691231330236,
+            "before": 10.000000357627869,
+            "original": 9.340946346521378,
+            "center_d": 0.006010855123652921,
+            "gain": 0.05233574873273028
+          },
+          "zero": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 1.9193585528992116,
+            "before": 0.0,
+            "original": 2.088719943771139,
+            "center_d": 0.004926601613078674,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 12.924938153475523,
+            "before": 13.902871660888195,
+            "original": 11.856817495077848,
+            "center_d": 0.05675291127408855,
+            "gain": 0.12677383875052328
+          }
+        },
+        "seconds": 5.205774714937434
+      },
+      {
+        "step": 1000,
+        "training": {
+          "rotation": {
+            "cases": 384,
+            "physical_sequences": 169,
+            "rotation": 7.072860976137842,
+            "before": 10.000000042219957,
+            "original": 9.24426792934537,
+            "center_d": 0.0050410982774640916,
+            "gain": 0.3673237852997507
+          },
+          "nonsym_rotation": {
+            "cases": 264,
+            "physical_sequences": 116,
+            "rotation": 6.723174488567041,
+            "before": 10.000000003612403,
+            "original": 8.772363812634438,
+            "center_d": 0.005696062552901408,
+            "gain": 0.4169635160993273
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 128,
+            "physical_sequences": 59,
+            "rotation": 7.406978031154722,
+            "before": 10.000000096857548,
+            "original": 9.209937466308475,
+            "center_d": 0.005509704085852718,
+            "gain": 0.30583830563273295
+          },
+          "zero": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 1.554741457182293,
+            "before": 0.0,
+            "original": 2.7222274767700583,
+            "center_d": 0.003452480257692514,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 192,
+            "physical_sequences": 169,
+            "rotation": 7.4199571600183845,
+            "before": 13.396118431041637,
+            "original": 11.608083742981156,
+            "center_d": 0.035156165201139324,
+            "gain": 0.5733733042337311
+          }
+        },
+        "heldout": {
+          "rotation": {
+            "cases": 128,
+            "physical_sequences": 55,
+            "rotation": 9.257956039626151,
+            "before": 10.000000171363354,
+            "original": 8.998718235641718,
+            "center_d": 0.006577735482096614,
+            "gain": 0.1690171140135135
+          },
+          "nonsym_rotation": {
+            "cases": 90,
+            "physical_sequences": 38,
+            "rotation": 9.438615442646874,
+            "before": 10.000000254313152,
+            "original": 9.025431680679322,
+            "center_d": 0.007029718278338098,
+            "gain": 0.1642188619964549
+          },
+          "nonsym_augmented_rotation": {
+            "cases": 48,
+            "physical_sequences": 22,
+            "rotation": 9.70740624765555,
+            "before": 10.000000357627869,
+            "original": 9.340946346521378,
+            "center_d": 0.0068629074758064235,
+            "gain": 0.11191126597259426
+          },
+          "zero": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 3.0902124447748065,
+            "before": 0.0,
+            "original": 2.088719943771139,
+            "center_d": 0.005598637980256171,
+            "gain": 0.0
+          },
+          "mixed": {
+            "cases": 64,
+            "physical_sequences": 55,
+            "rotation": 12.262920237146318,
+            "before": 13.902871660888195,
+            "original": 11.856817495077848,
+            "center_d": 0.054946761403698474,
+            "gain": 0.22042382413565065
+          }
+        },
+        "seconds": 6.875950722955167
+      }
+    ],
+    "checkpoint_sha256": "6b24a9b8e34f770e8d321d4669f221bb521761e82708f908b3076097a7b5a51c",
+    "scope": "Frozen actual-prediction readout probe; physical-sequence-disjoint training-data holdout; not native pose accuracy"
+  }
+}
