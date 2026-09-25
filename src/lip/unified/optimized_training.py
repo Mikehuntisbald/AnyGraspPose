@@ -63,6 +63,10 @@ class OptimizedEpisode:
             if config.get("joint_pose",{}).get("enabled"):
                 from .joint_pose import joint_objective
                 objective=joint_objective
+        if config.get('pose_geometry_only',{}).get('enabled'):
+            from .pose_geometry import objective,FEATURE_WEIGHTS
+            assert config.get('joint_pose',{}).get('enabled') and config['runtime']['frame_batch']>1
+            assert all(config['training']['loss_weights'].get(k,0)==0 for k in FEATURE_WEIGHTS)
         self.loss=torch.compile(objective,fullgraph=True,dynamic=False) if config['runtime'].get('compile_loss',False) else objective
 
     def __call__(self,episodes,targets,*,backward=True,segmented=True):
@@ -211,7 +215,9 @@ def make_optimizer(model,config,*,fused=True):
     from .model import parameter_category
     groups={}
     for name,p in model.named_parameters():
-        if not p.requires_grad:continue
+        if not p.requires_grad:
+            from .pose_geometry import inactive_feature_parameter
+            if not (config.get('pose_geometry_only',{}).get('enabled') and inactive_feature_parameter(name)):continue
         category=parameter_category(name)
         if getattr(model, "trainable_encoder", False) and name.startswith("encoder."):
             category="encoder"

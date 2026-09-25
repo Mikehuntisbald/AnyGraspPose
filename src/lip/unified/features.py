@@ -69,10 +69,10 @@ class Observation:
 
 @dataclass(frozen=True)
 class TeacherTargets:
-    real_mid: torch.Tensor
-    real_last: torch.Tensor
-    proxy_mid: torch.Tensor
-    proxy_last: torch.Tensor
+    real_mid: torch.Tensor|None
+    real_last: torch.Tensor|None
+    proxy_mid: torch.Tensor|None
+    proxy_last: torch.Tensor|None
     visible_weight: torch.Tensor
     hidden_real_weight: torch.Tensor
     proxy_weight: torch.Tensor
@@ -80,8 +80,8 @@ class TeacherTargets:
     proxy_hidden_weight: torch.Tensor
     visible_label: torch.Tensor
     support_label: torch.Tensor
-    proxy_rgb: torch.Tensor
-    real_rgb: torch.Tensor
+    proxy_rgb: torch.Tensor|None
+    real_rgb: torch.Tensor|None
     surface_xyz: torch.Tensor
     surface_depth_residual: torch.Tensor
     surface_depth_m: torch.Tensor
@@ -236,11 +236,12 @@ def valid_real_geometry(depth, canonical_xyz, max_radius_d=None):
 
 @torch.no_grad()
 @torch.autocast("cuda",enabled=False)
-def build_teachers(encoder,scenes,gt_poses,visible_masks,added_masks,renderer,encoded_targets=None,real_features=None,reuse_real=None,real_geometry_max_radius_d=None,fast=False,batch_render=False,vectorized=False):
+def build_teachers(encoder,scenes,gt_poses,visible_masks,added_masks,renderer,encoded_targets=None,real_features=None,reuse_real=None,real_geometry_max_radius_d=None,fast=False,batch_render=False,vectorized=False,geometry_only=False):
+    if geometry_only and not vectorized:raise ValueError('Geometry-only teacher requires vectorized targets')
     if vectorized:
         if encoded_targets is not None or real_features is not None:raise ValueError('Vector teacher expects fresh EMA targets')
         from .fast_teacher import build_fast_teacher
-        return build_fast_teacher(encoder,scenes,gt_poses,visible_masks,added_masks,renderer,real_geometry_max_radius_d,batch_render)
+        return build_fast_teacher(encoder,scenes,gt_poses,visible_masks,added_masks,renderer,real_geometry_max_radius_d,batch_render,geometry_only=geometry_only)
     image_fn,point_fn=crop_images,camera_points
     if fast:
         from .execution_speed import crop_images_fast,camera_points_fast

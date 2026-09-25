@@ -117,7 +117,13 @@ def main():
     elif recovery_source is not None:
         adaptation=recovery_receipt
         if not c['reconstruction_only'].get('optimizer_reset',True):
-            if c.get('joint_pose',{}).get('enabled'):
+            if c.get('pose_geometry_only',{}).get('enabled'):
+                from lip.unified.staged_rope import preserve_adam
+                preserve_adam(optimizer,recovery_source)
+                if any(abs(g['lr']-lr)>1e-12 for g,lr in zip(optimizer.param_groups,scheduler.get_last_lr())):
+                    raise ValueError('Geometry-only continuation changed boundary LR')
+                adaptation.update(optimizer_exact=True,scheduler_global_clock_preserved=True)
+            elif c.get('joint_pose',{}).get('enabled'):
                 from lip.unified.joint_pose import inherit_optimizer
                 adaptation['joint_optimizer']=inherit_optimizer(optimizer,recovery_source)
                 adaptation.update(optimizer_exact=False,existing_moments_exact=True,scheduler_reset=True)
@@ -205,7 +211,11 @@ def main():
             elif 'reconstruction_only' in c:
                 row.update(phase='jepa_recovery_only',pose_loss_enabled=False,pose_metrics_computed=False,
                     pose_parameters_frozen=True,crop_reference_sha256=c['reconstruction_only'].get('reference',{}).get('sha256',c['reconstruction_only']['source_sha256']))
-            if c.get('recovery_focus',{}).get('enabled',False):
+            if c.get('pose_geometry_only',{}).get('enabled'):
+                from lip.unified.pose_geometry import METRICS
+                row.update(phase='pose_geometry_only',dino_feature_supervision=False,ema_teacher_forward=False)
+                row['recovery_metrics']={k:float(statistics[i+1]) for i,k in enumerate(METRICS)}
+            elif c.get('recovery_focus',{}).get('enabled',False):
                 from lip.unified.losses import RECONSTRUCTION_METRICS
                 from lip.unified.recovery_focus import FOCUS_METRICS
                 names=('pose','translation','rotation','points')+RECONSTRUCTION_METRICS+FOCUS_METRICS

@@ -101,6 +101,10 @@ def initialize_training(model, config, world):
     if config.get("joint_pose",{}).get("enabled"):
         from .joint_pose import enable_joint_pose
         enable_joint_pose(model)
+    if config.get('pose_geometry_only',{}).get('enabled'):
+        from .pose_geometry import inactive_feature_parameter
+        for name,parameter in model.named_parameters():
+            if inactive_feature_parameter(name):parameter.requires_grad_(False)
     current = core_state(model)
     if not all(torch.equal(v.cpu(), current[k].cpu()) for k, v in source['model'].items() if k not in replaced):
         raise ValueError('Source tensors changed during recovery-only initialization')

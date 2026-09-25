@@ -5,7 +5,7 @@ from torch.nn import functional as F
 
 @torch.no_grad()
 @torch.autocast('cuda',enabled=False)
-def build_fast_teacher(encoder,scenes,gt_poses,visible_masks,added_masks,renderer,max_radius_d,batch_render):
+def build_fast_teacher(encoder,scenes,gt_poses,visible_masks,added_masks,renderer,max_radius_d,batch_render,geometry_only=False):
     from .features import TeacherTargets,valid_real_geometry,normalize_rgb
     from .execution_speed import crop_images_fast,camera_points_fast
     renders=renderer.render_many([s.cad['appearance'] for s in scenes],gt_poses,[s.k_crop for s in scenes],224) if batch_render else [renderer(s.cad['appearance'],pose.float(),s.k_crop,224) for s,pose in zip(scenes,gt_poses)]
@@ -21,8 +21,11 @@ def build_fast_teacher(encoder,scenes,gt_poses,visible_masks,added_masks,rendere
     rendered_depth=torch.stack([r['depth'] for r in renders])
     # Preserve Python-scalar division rounding from the original per-view path.
     rendered_xyz=torch.cat([r['xyz'][None]/s.diameter for r,s in zip(renders,scenes)])
-    original=torch.cat([s.rgb for s in scenes]);rgb=torch.stack([r['rgb'] for r in renders])
-    proxy=torch.where(silhouette,rgb,original);hidden=silhouette&~v
+    original=proxy=None
+    if not geometry_only:
+        original=torch.cat([s.rgb for s in scenes]);rgb=torch.stack([r['rgb'] for r in renders])
+        proxy=torch.where(silhouette,rgb,original)
+    hidden=silhouette&~v
     erode=lambda m:-F.max_pool2d(-m.float(),5,1,2)>.999
     good=erode(silhouette)&bounds&(rendered_depth>0)
     known=erode(v)&silhouette&bounds;hidden_good=erode(hidden)&bounds
@@ -37,8 +40,10 @@ def build_fast_teacher(encoder,scenes,gt_poses,visible_masks,added_masks,rendere
     label=label.masked_fill(artificial&rejected,float('nan'))
     label=label.masked_fill(~bounds,float('nan')).masked_fill(v&~silhouette,float('nan')).masked_fill(v&~added,float('nan'))
     boundary=~erode(silhouette)&~erode(~silhouette);label=label.masked_fill(boundary,float('nan'))
-    with torch.autocast(original.device.type,dtype=torch.bfloat16):mid,last=encoder(normalize_rgb(torch.cat((original,proxy))))
-    b=len(scenes);real_mid,real_last,proxy_mid,proxy_last=mid[:b].float(),last[:b].float(),mid[b:].float(),last[b:].float()
+    real_mid=real_last=proxy_mid=proxy_last=None
+    if not geometry_only:
+        with torch.autocast(original.device.type,dtype=torch.bfloat16):mid,last=encoder(normalize_rgb(torch.cat((original,proxy))))
+        b=len(scenes);real_mid,real_last,proxy_mid,proxy_last=mid[:b].float(),last[:b].float(),mid[b:].float(),last[b:].float()
     pool=lambda x:F.avg_pool2d(x.float(),14,14).flatten(1)
     patch_bounds=pool(bounds)>=.999;known_patch=pool(known)>=.9;complete_proxy=pool(hidden_good)>=.9
     real_hidden=pool(artificial_interior)>=.9;added_patch=pool(added)

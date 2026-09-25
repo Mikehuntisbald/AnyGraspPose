@@ -50,7 +50,7 @@ def independent_episode(runner,episodes,targets,backward=True):
                 target=build_teachers(model.ema_teacher,scenes,truth,masks,[o.mask for o in occlusions],runner.renderer,
                     real_geometry_max_radius_d=c['supervision'].get('real_geometry_max_radius_d'),
                     fast=c['runtime'].get('fast_geometry',False),batch_render=c['runtime'].get('batch_teacher_render',False),
-                    vectorized=c['runtime'].get('vectorized_teacher',False))
+                    vectorized=c['runtime'].get('vectorized_teacher',False),geometry_only=c.get('pose_geometry_only',{}).get('enabled',False))
                 from .cad_surface_targets import surface_targets
                 target=surface_targets(model,scenes,target)
             with profile.record('jepa_and_pose'),torch.autocast(device.type,dtype=torch.bfloat16):
