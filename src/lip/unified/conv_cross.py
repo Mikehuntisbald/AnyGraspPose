@@ -160,6 +160,11 @@ class ConvCrossTracker(TwoStreamTracker):
         obj = self.query.expand(len(patch), -1, -1)
         return obj + self.object_attn(self.object_norm(obj), patch, valid), {}
 
+    def read_decoded_object(self, patch, valid, surface, geometry_image, base, cad_valid,
+                            evidence_logits, readout_inputs, decoded_mid, decoded_last):
+        return self.read_object(patch, valid, surface, geometry_image, base, cad_valid,
+                                evidence_logits, readout_inputs)
+
     def tensor_frame(self, mid, last, cad_mid, cad_last, cad_valid, geometry_image, static_cad,
                      base, diameter, center, position, prompt, dt, valid, mem, mv, mb, state,
                      history_inputs=(), readout_inputs=(), cad_inputs=()):
@@ -196,18 +201,23 @@ class ConvCrossTracker(TwoStreamTracker):
             surface = surface.permute(0, 5, 1, 3, 2, 4).reshape(batch, 5, 224, 224).float()
         surface_xyz, surface_depth, surface_validity = surface[:, :3], surface[:, 3:4], surface[:, 4:5]
         logits = self.visibility(real).squeeze(-1)
-        obj, relation_metrics = self.read_object(
+        decoded_mid, decoded_last = self.core.feature_mid(patch), self.core.feature_last(patch)
+        obj, relation_metrics = self.read_decoded_object(
             patch, valid, torch.cat((surface_xyz, surface_depth, surface_validity), 1),
-            geometry_image, base, cad_valid, logits, readout_inputs)
+            geometry_image, base, cad_valid, logits, readout_inputs, decoded_mid, decoded_last)
         latent = F.layer_norm(obj[:, 0], (256,))
         delta = self.head(latent).float()
+        if 'pose_evidence_available' in relation_metrics:
+            delta = delta * relation_metrics['pose_evidence_available'][:, None]
+        if 'serial_residual_scale' in relation_metrics:
+            delta = delta * relation_metrics['serial_residual_scale'][:, None]
         with torch.autocast(delta.device.type, enabled=False):
             pose = update(base.float(), delta[:, :3], delta[:, 3:], diameter.float())
             original = original_pose(pose, center.float())
         return dict(
             latent=latent, latent_object=latent, latent_context=real.mean(1), patch_latent=patch,
             pose_centered=pose, pose_original=original, delta_rotvec=delta[:, :3], delta_center_norm=delta[:, 3:],
-            f_predicted=self.core.feature_last(patch), f_mid_predicted=self.core.feature_mid(patch),
+            f_predicted=decoded_last, f_mid_predicted=decoded_mid,
             evidence_logits=logits, support_logits=self.core.support(patch).squeeze(-1),
             log_feature_error=self.core.log_error(patch).squeeze(-1).clamp(-14, 5),
             surface_xyz=surface_xyz, surface_depth_residual=surface_depth, geometry_valid_logits=surface_validity,

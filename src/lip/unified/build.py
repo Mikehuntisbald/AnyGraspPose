@@ -9,7 +9,7 @@ from .cad import CADStore
 
 
 def build_model(config,device='cuda'):
-    if config['architecture_id'] in ('stream_two_input_jepa_v9', 'stream_conv_cross_jepa_v10','stream_conv_cross_geohistory_jepa_v10','stream_conv_cross_supported_history_jepa_v10','stream_conv_cross_dense_history_jepa_v10','stream_recovered_relation_jepa_v11','stream_cad_surface_jepa_v12'):
+    if config['architecture_id'] in ('stream_two_input_jepa_v9', 'stream_conv_cross_jepa_v10','stream_conv_cross_geohistory_jepa_v10','stream_conv_cross_supported_history_jepa_v10','stream_conv_cross_dense_history_jepa_v10','stream_recovered_relation_jepa_v11','stream_cad_surface_jepa_v12','stream_serial_completion_jepa_v21'):
         from .two_stream import TwoStreamTracker
         from .conv_cross import ConvCrossTracker
         from .geometric_history import GeometricHistoryTracker
@@ -17,6 +17,7 @@ def build_model(config,device='cuda'):
         from .dense_history import DenseHistoryTracker
         from .recovered_relation import RecoveredRelationTracker
         from .cad_surface import CADSurfaceTracker
+        from .serial_completion import SerialCompletionTracker
         from .fp_encoder import CachedUtonia
         if set(config['weights'])!={'dino_checkpoint','utonia_checkpoint'} or any(config['paths'].get(k) for k in ('parent','initial_checkpoint','fp_checkpoint')):
             raise ValueError('Clean two-stream initialization forbids previous experiment/FP weights')
@@ -26,7 +27,7 @@ def build_model(config,device='cuda'):
             encoder=FrozenDINO(p['dino_repo'],p['dino_checkpoint'],config['weights']['dino_checkpoint'],
                 feature_layers=config.get('dino_layers',{}).get('student',(6,12)))
             static=CachedUtonia(p['utonia_checkpoint'],config['weights']['utonia_checkpoint'])
-            tracker = {x.architecture_id:x for x in (TwoStreamTracker,ConvCrossTracker,GeometricHistoryTracker,SupportedHistoryTracker,DenseHistoryTracker,RecoveredRelationTracker,CADSurfaceTracker)}[config['architecture_id']]
+            tracker = {x.architecture_id:x for x in (TwoStreamTracker,ConvCrossTracker,GeometricHistoryTracker,SupportedHistoryTracker,DenseHistoryTracker,RecoveredRelationTracker,CADSurfaceTracker,SerialCompletionTracker)}[config['architecture_id']]
             model=tracker(encoder,static).to(device)
         if isinstance(model,CADSurfaceTracker):
             import json
@@ -59,6 +60,8 @@ def build_model(config,device='cuda'):
         if config["runtime"].get("compile_dino", False):
             from .encoder_performance import compile_encoders
             compile_encoders(model)
+        if isinstance(model,SerialCompletionTracker):
+            model.model_version='serial-decoded-completion-pose-v21'
         return model
     if config['architecture_id']=='stream_dino_fp_staticutonia_jepa_rgbd_v3':
         return build_fp_model(config,device)

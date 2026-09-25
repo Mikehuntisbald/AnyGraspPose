@@ -1,0 +1,15 @@
+{
+  "completed": true,
+  "step": 3,
+  "preflight": true,
+  "world": 1,
+  "gradient_path_norms": [
+    0.09729225933551788,
+    0.03562510758638382,
+    0.0035552978515625,
+    0.0036163330078125,
+    0.014018026180565357
+  ],
+  "checkpoint_sha256": "eb3173f6b9d3c0ffeaf4215e2ed77ea9602a9ffd45240c0acf29d11bbcfde9cc",
+  "official_test_access": false
+}

@@ -54,7 +54,7 @@ class Gated3DRoPE(nn.Module):
 
 def enable_cad_rope3d(model,config=None):
     """Attach four zero-initialized scalars after loading, or via build config."""
-    if model.architecture_id!='stream_cad_surface_jepa_v12':
+    if model.architecture_id not in ('stream_cad_surface_jepa_v12','stream_serial_completion_jepa_v21'):
         raise ValueError('CAD RoPE candidate requires the existing local surface reader')
     if hasattr(model.cad_surface,'rope3d'):raise ValueError('CAD RoPE already enabled')
     config={} if config is None else config

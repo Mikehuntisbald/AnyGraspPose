@@ -82,7 +82,7 @@ class DPTSurfaceHead(nn.Module):
 
 
 def enable_dpt_surface(model, config):
-    if model.architecture_id != 'stream_cad_surface_jepa_v12':
+    if model.architecture_id not in ('stream_cad_surface_jepa_v12','stream_serial_completion_jepa_v21'):
         raise ValueError('DPT experiment requires the CAD-surface JEPA backbone')
     if config.get('kind') != 'dpt':
         raise ValueError('Expected explicit dpt surface decoder configuration')
