@@ -1,0 +1,250 @@
+{
+  "dpt": {
+    "completed": true,
+    "arm": "dpt",
+    "production_parameters_changed": false,
+    "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+    "train_records": 190,
+    "heldout_records": 66,
+    "train_physical": 164,
+    "heldout_physical": 53,
+    "training_split_only": true,
+    "lr": 0.0003,
+    "steps": 500,
+    "measurements": [
+      {
+        "step": 0,
+        "train": {
+          "real_xyz_mm": 14.89450310154965,
+          "real_depth_mm": 10.953467549775777,
+          "proxy_xyz_mm": 15.945672818234092,
+          "proxy_depth_mm": 13.054388156690095,
+          "visible_xyz_mm": 19.88256717481111
+        },
+        "heldout": {
+          "real_xyz_mm": 15.525953350645123,
+          "real_depth_mm": 11.557189825809363,
+          "proxy_xyz_mm": 14.577485171231357,
+          "proxy_depth_mm": 14.821901726000236,
+          "visible_xyz_mm": 21.0177238926743
+        }
+      },
+      {
+        "step": 100,
+        "train": {
+          "real_xyz_mm": 13.819399311667995,
+          "real_depth_mm": 9.402680898967542,
+          "proxy_xyz_mm": 16.269791000767757,
+          "proxy_depth_mm": 11.029423372369063,
+          "visible_xyz_mm": 18.598385078028628
+        },
+        "heldout": {
+          "real_xyz_mm": 16.260748545328777,
+          "real_depth_mm": 11.962013764814897,
+          "proxy_xyz_mm": 16.16003585584236,
+          "proxy_depth_mm": 13.043302593809186,
+          "visible_xyz_mm": 23.216062487977922
+        },
+        "seconds": 4.018266985891387
+      },
+      {
+        "step": 200,
+        "train": {
+          "real_xyz_mm": 13.17047099063271,
+          "real_depth_mm": 9.523410787080463,
+          "proxy_xyz_mm": 13.874140970330489,
+          "proxy_depth_mm": 11.661292362213135,
+          "visible_xyz_mm": 17.299120872899106
+        },
+        "heldout": {
+          "real_xyz_mm": 17.748429963082977,
+          "real_depth_mm": 13.34161209337639,
+          "proxy_xyz_mm": 15.645920666781338,
+          "proxy_depth_mm": 12.411115039478648,
+          "visible_xyz_mm": 23.621716701623164
+        },
+        "seconds": 6.952602261910215
+      },
+      {
+        "step": 300,
+        "train": {
+          "real_xyz_mm": 11.938061844675165,
+          "real_depth_mm": 8.34573422984073,
+          "proxy_xyz_mm": 14.217132558320698,
+          "proxy_depth_mm": 11.666035180342824,
+          "visible_xyz_mm": 15.52850593767668
+        },
+        "heldout": {
+          "real_xyz_mm": 16.89295734058727,
+          "real_depth_mm": 12.584627151489258,
+          "proxy_xyz_mm": 15.613047513094815,
+          "proxy_depth_mm": 11.32479323762836,
+          "visible_xyz_mm": 22.33120739098751
+        },
+        "seconds": 9.922705176984891
+      },
+      {
+        "step": 400,
+        "train": {
+          "real_xyz_mm": 12.858857445967825,
+          "real_depth_mm": 7.497186831424111,
+          "proxy_xyz_mm": 14.233154206526907,
+          "proxy_depth_mm": 9.351841555143658,
+          "visible_xyz_mm": 16.049598493074114
+        },
+        "heldout": {
+          "real_xyz_mm": 18.409036462957207,
+          "real_depth_mm": 11.450564297762783,
+          "proxy_xyz_mm": 15.616542527169893,
+          "proxy_depth_mm": 11.970569697293369,
+          "visible_xyz_mm": 23.467040900028113
+        },
+        "seconds": 12.861613966990262
+      },
+      {
+        "step": 500,
+        "train": {
+          "real_xyz_mm": 11.187368091784025,
+          "real_depth_mm": 7.252617163407175,
+          "proxy_xyz_mm": 13.349484945598402,
+          "proxy_depth_mm": 9.623043055283397,
+          "visible_xyz_mm": 15.229455154820492
+        },
+        "heldout": {
+          "real_xyz_mm": 16.963623220270332,
+          "real_depth_mm": 11.731317577940045,
+          "proxy_xyz_mm": 17.492755311908144,
+          "proxy_depth_mm": 11.930971752513539,
+          "visible_xyz_mm": 22.264381524288293
+        },
+        "seconds": 15.80788900400512
+      }
+    ],
+    "scope": "Frozen JEPA decoder pilot; no pose or native claim; CAD arm adds explicit correspondence supervision",
+    "seconds": 16.196813265793025
+  },
+  "cad": {
+    "completed": true,
+    "arm": "cad",
+    "production_parameters_changed": false,
+    "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+    "train_records": 190,
+    "heldout_records": 66,
+    "train_physical": 164,
+    "heldout_physical": 53,
+    "training_split_only": true,
+    "lr": 0.0003,
+    "steps": 500,
+    "measurements": [
+      {
+        "step": 0,
+        "train": {
+          "real_xyz_mm": 51.11276787205746,
+          "real_depth_mm": 10.953467549775777,
+          "proxy_xyz_mm": 58.83874306929739,
+          "proxy_depth_mm": 13.054388156690095,
+          "visible_xyz_mm": 66.09587265817743
+        },
+        "heldout": {
+          "real_xyz_mm": 55.82892539284446,
+          "real_depth_mm": 11.557189825809363,
+          "proxy_xyz_mm": 58.918522690281726,
+          "proxy_depth_mm": 14.821901726000236,
+          "visible_xyz_mm": 70.37765595407197
+        }
+      },
+      {
+        "step": 100,
+        "train": {
+          "real_xyz_mm": 17.42195177580181,
+          "real_depth_mm": 10.805335335982473,
+          "proxy_xyz_mm": 19.262162198518453,
+          "proxy_depth_mm": 13.027162622150621,
+          "visible_xyz_mm": 21.782174823158666
+        },
+        "heldout": {
+          "real_xyz_mm": 20.213608192675043,
+          "real_depth_mm": 12.253969423698656,
+          "proxy_xyz_mm": 20.13951099280155,
+          "proxy_depth_mm": 13.531143419670336,
+          "visible_xyz_mm": 25.948375817501184
+        },
+        "seconds": 4.362998686963692
+      },
+      {
+        "step": 200,
+        "train": {
+          "real_xyz_mm": 15.274322329069438,
+          "real_depth_mm": 10.851600817630166,
+          "proxy_xyz_mm": 17.46324292233116,
+          "proxy_depth_mm": 14.513815347771896,
+          "visible_xyz_mm": 19.475129237927888
+        },
+        "heldout": {
+          "real_xyz_mm": 18.878786491625238,
+          "real_depth_mm": 13.875300725301107,
+          "proxy_xyz_mm": 16.376233303185664,
+          "proxy_depth_mm": 14.351815743879838,
+          "visible_xyz_mm": 24.854967059511125
+        },
+        "seconds": 7.491606979863718
+      },
+      {
+        "step": 300,
+        "train": {
+          "real_xyz_mm": 16.41755365070544,
+          "real_depth_mm": 11.310072798477975,
+          "proxy_xyz_mm": 18.0345112650018,
+          "proxy_depth_mm": 14.043101521542198,
+          "visible_xyz_mm": 20.332619054693925
+        },
+        "heldout": {
+          "real_xyz_mm": 19.90182281262947,
+          "real_depth_mm": 13.468222184614701,
+          "proxy_xyz_mm": 14.605491464788264,
+          "proxy_depth_mm": 17.095947988105543,
+          "visible_xyz_mm": 25.829820690733015
+        },
+        "seconds": 10.635280570015311
+      },
+      {
+        "step": 400,
+        "train": {
+          "real_xyz_mm": 13.979272571362948,
+          "real_depth_mm": 9.825384521484375,
+          "proxy_xyz_mm": 14.369472865054481,
+          "proxy_depth_mm": 13.193134177358527,
+          "visible_xyz_mm": 17.285899172331156
+        },
+        "heldout": {
+          "real_xyz_mm": 17.657461686567828,
+          "real_depth_mm": 12.603931658195727,
+          "proxy_xyz_mm": 15.542991869377367,
+          "proxy_depth_mm": 17.43563854333126,
+          "visible_xyz_mm": 23.588321107806582
+        },
+        "seconds": 13.778112060856074
+      },
+      {
+        "step": 500,
+        "train": {
+          "real_xyz_mm": 13.867457259328742,
+          "real_depth_mm": 8.581881703828511,
+          "proxy_xyz_mm": 15.532271796778629,
+          "proxy_depth_mm": 10.08658359929135,
+          "visible_xyz_mm": 18.339883282310083
+        },
+        "heldout": {
+          "real_xyz_mm": 18.42300831187855,
+          "real_depth_mm": 11.684816591667406,
+          "proxy_xyz_mm": 16.34465049974846,
+          "proxy_depth_mm": 12.932080442255193,
+          "visible_xyz_mm": 24.200249296246152
+        },
+        "seconds": 16.908271469874308
+      }
+    ],
+    "scope": "Frozen JEPA decoder pilot; no pose or native claim; CAD arm adds explicit correspondence supervision",
+    "seconds": 17.30664615286514
+  }
+}

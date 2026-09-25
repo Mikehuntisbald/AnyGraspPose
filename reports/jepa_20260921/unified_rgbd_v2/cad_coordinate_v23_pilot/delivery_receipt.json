@@ -1,0 +1,7 @@
+{
+  "files": 53,
+  "sha256": "acc517f50c7276652f0c91a32f553d107df197fe4f37a32a53657f61783d5f00",
+  "bytes": 19663811,
+  "includes_terminal_decoder_weights": true,
+  "cache_tensors_remote_only": true
+}

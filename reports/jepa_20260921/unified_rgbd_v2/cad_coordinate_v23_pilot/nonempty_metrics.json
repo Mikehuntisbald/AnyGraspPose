@@ -1,0 +1,115 @@
+{
+  "heldout_records": 66,
+  "empty_targets_excluded": true,
+  "source": "training-split physical holdout only; frozen JEPA cache; not native pose",
+  "results": {
+    "parent": {
+      "real": {
+        "nonempty_frames": 64,
+        "physical_sequences": 52,
+        "frame_mean": {
+          "xyz_mm": 15.589833959937096,
+          "depth_mm": 11.577746462076902
+        },
+        "sequence_mean": {
+          "xyz_mm": 15.528191373898434,
+          "depth_mm": 11.696361665542309
+        }
+      },
+      "proxy": {
+        "nonempty_frames": 24,
+        "physical_sequences": 19,
+        "frame_mean": {
+          "xyz_mm": 16.375367085138958,
+          "depth_mm": 16.748224784930546
+        },
+        "sequence_mean": {
+          "xyz_mm": 15.140947078403673,
+          "depth_mm": 15.699428075238279
+        }
+      },
+      "visible": {
+        "nonempty_frames": 65,
+        "physical_sequences": 52,
+        "frame_mean": {
+          "xyz_mm": 21.1334687599769
+        },
+        "sequence_mean": {
+          "xyz_mm": 21.029793789753548
+        }
+      }
+    },
+    "dpt": {
+      "real": {
+        "nonempty_frames": 64,
+        "physical_sequences": 52,
+        "frame_mean": {
+          "xyz_mm": 17.01485440135002,
+          "depth_mm": 11.795966103672981
+        },
+        "sequence_mean": {
+          "xyz_mm": 16.953914261781254,
+          "depth_mm": 11.69532424211502
+        }
+      },
+      "proxy": {
+        "nonempty_frames": 24,
+        "physical_sequences": 19,
+        "frame_mean": {
+          "xyz_mm": 18.6691091855367,
+          "depth_mm": 13.612567295630774
+        },
+        "sequence_mean": {
+          "xyz_mm": 17.684799771559867,
+          "depth_mm": 13.101526279198495
+        }
+      },
+      "visible": {
+        "nonempty_frames": 65,
+        "physical_sequences": 52,
+        "frame_mean": {
+          "xyz_mm": 22.381151059957652
+        },
+        "sequence_mean": {
+          "xyz_mm": 21.995009555266453
+        }
+      }
+    },
+    "cad": {
+      "real": {
+        "nonempty_frames": 64,
+        "physical_sequences": 52,
+        "frame_mean": {
+          "xyz_mm": 18.426408641040325,
+          "depth_mm": 11.744854018092155
+        },
+        "sequence_mean": {
+          "xyz_mm": 18.47282972702613,
+          "depth_mm": 11.760543419764591
+        }
+      },
+      "proxy": {
+        "nonempty_frames": 24,
+        "physical_sequences": 19,
+        "frame_mean": {
+          "xyz_mm": 18.088405658801396,
+          "depth_mm": 15.236749177177748
+        },
+        "sequence_mean": {
+          "xyz_mm": 17.25804256138049,
+          "depth_mm": 15.11420087124172
+        }
+      },
+      "visible": {
+        "nonempty_frames": 65,
+        "physical_sequences": 52,
+        "frame_mean": {
+          "xyz_mm": 24.34779524436364
+        },
+        "sequence_mean": {
+          "xyz_mm": 24.393110513687134
+        }
+      }
+    }
+  }
+}

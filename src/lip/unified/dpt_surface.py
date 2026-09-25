@@ -66,7 +66,7 @@ class DPTSurfaceHead(nn.Module):
         nn.init.normal_(self.output[-1].weight, std=.001)
         nn.init.zeros_(self.output[-1].bias)
 
-    def forward(self, levels, valid):
+    def dense_features(self, levels, valid):
         if len(levels) != 4:
             raise ValueError('DPT requires all four JEPA levels')
         maps = []
@@ -78,7 +78,10 @@ class DPTSurfaceHead(nn.Module):
         value = self.coarse(maps[-1])
         for upsample, refine, skip in zip(self.upsample, self.refine, reversed(maps[:-1])):
             value = refine(upsample(value), skip)
-        return self.output(value).float()
+        return self.output[:-1](value)
+
+    def forward(self, levels, valid):
+        return self.output[-1](self.dense_features(levels, valid)).float()
 
 
 def enable_dpt_surface(model, config):
