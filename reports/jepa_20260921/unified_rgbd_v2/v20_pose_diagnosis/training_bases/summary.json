@@ -1,0 +1,62 @@
+{
+  "all": {
+    "fixed_reference": {
+      "frames": 1248,
+      "rotation_mean": 40.33234287350005,
+      "rotation_median": 16.968781101328048,
+      "rotation_lt5": 0.10897435897435898,
+      "rotation_gt30": 0.34134615384615385,
+      "center_mean_d": 0.08282460045936602,
+      "center_median_d": 0.05726918764412403
+    },
+    "student_feedback": {
+      "frames": 1248,
+      "rotation_mean": 48.752534204556255,
+      "rotation_median": 29.317941559403167,
+      "rotation_lt5": 0.021634615384615384,
+      "rotation_gt30": 0.4967948717948718,
+      "center_mean_d": 0.11472774654565654,
+      "center_median_d": 0.08076035976409912
+    }
+  },
+  "first7": {
+    "fixed_reference": {
+      "frames": 224,
+      "rotation_mean": 29.892753800976617,
+      "rotation_median": 11.16241167469082,
+      "rotation_lt5": 0.18303571428571427,
+      "rotation_gt30": 0.20535714285714285,
+      "center_mean_d": 0.050757359443066107,
+      "center_median_d": 0.03897823020815849
+    },
+    "student_feedback": {
+      "frames": 224,
+      "rotation_mean": 31.06719803001593,
+      "rotation_median": 12.104345133880708,
+      "rotation_lt5": 0.10267857142857142,
+      "rotation_gt30": 0.22767857142857142,
+      "center_mean_d": 0.052435118969047574,
+      "center_median_d": 0.04304684326052666
+    }
+  },
+  "later": {
+    "fixed_reference": {
+      "frames": 1024,
+      "rotation_mean": 42.616002983114555,
+      "rotation_median": 19.821044193063276,
+      "rotation_lt5": 0.0927734375,
+      "rotation_gt30": 0.37109375,
+      "center_mean_d": 0.08983930943168161,
+      "center_median_d": 0.06368735805153847
+    },
+    "student_feedback": {
+      "frames": 1024,
+      "rotation_mean": 52.62120149273695,
+      "rotation_median": 37.12596280910975,
+      "rotation_lt5": 0.00390625,
+      "rotation_gt30": 0.5556640625,
+      "center_mean_d": 0.12835425882803975,
+      "center_median_d": 0.10130775347352028
+    }
+  }
+}

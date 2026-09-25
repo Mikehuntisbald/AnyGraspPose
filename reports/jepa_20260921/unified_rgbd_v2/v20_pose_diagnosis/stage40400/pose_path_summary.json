@@ -1,0 +1,1205 @@
+{
+  "completed": true,
+  "optimizer_updates": 0,
+  "physical_sequences": 40,
+  "sampled_frames": 119,
+  "objects": 20,
+  "groups": {
+    "all/natural_lip_base": {
+      "rows": 119,
+      "physical_sequences": 40,
+      "models": {
+        "base": {
+          "rotation_deg": 52.903820754600176,
+          "center_mm": 18.68382269446151,
+          "adds_005": 0.6722689075630253
+        },
+        "completion_off": {
+          "rotation_deg": 52.965625535039344,
+          "center_mm": 17.53494198025134,
+          "adds_005": 0.6890756302521008
+        },
+        "lip_history": {
+          "rotation_deg": 52.913194936614076,
+          "center_mm": 17.02572434197548,
+          "adds_005": 0.7310924369747899
+        },
+        "lip_no_history": {
+          "rotation_deg": 52.8528860632111,
+          "center_mm": 17.1915041576257,
+          "adds_005": 0.7142857142857143
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 52.9656609412001,
+          "center_mm": 17.53043329750164,
+          "adds_005": 0.6890756302521008
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 52.96557896728275,
+          "center_mm": 17.530593392537014,
+          "adds_005": 0.6890756302521008
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 58.94201113296156,
+          "center_mm": 21.673796272899235,
+          "adds_005": 0.4117647058823529
+        },
+        "relation_off": {
+          "rotation_deg": 52.93727975332436,
+          "center_mm": 17.61948565283336,
+          "adds_005": 0.6890756302521008
+        },
+        "v20": {
+          "rotation_deg": 52.96531126028349,
+          "center_mm": 17.531506056866036,
+          "adds_005": 0.6890756302521008
+        }
+      }
+    },
+    "all/natural_v20_base": {
+      "rows": 119,
+      "physical_sequences": 40,
+      "models": {
+        "base": {
+          "rotation_deg": 70.51254806197991,
+          "center_mm": 23.159560200096962,
+          "adds_005": 0.25210084033613445
+        },
+        "completion_off": {
+          "rotation_deg": 70.70334478185958,
+          "center_mm": 22.93441418124003,
+          "adds_005": 0.25210084033613445
+        },
+        "lip_history": {
+          "rotation_deg": 65.01243946532242,
+          "center_mm": 20.238764184926236,
+          "adds_005": 0.44537815126050423
+        },
+        "lip_no_history": {
+          "rotation_deg": 64.41096161694085,
+          "center_mm": 19.394361549017937,
+          "adds_005": 0.46218487394957986
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 70.70356774931194,
+          "center_mm": 22.923408138777027,
+          "adds_005": 0.25210084033613445
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 70.70393461740318,
+          "center_mm": 22.93449584316431,
+          "adds_005": 0.25210084033613445
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 66.88009469649371,
+          "center_mm": 24.65199872053095,
+          "adds_005": 0.226890756302521
+        },
+        "relation_off": {
+          "rotation_deg": 70.68413326119175,
+          "center_mm": 23.071089765338712,
+          "adds_005": 0.25210084033613445
+        },
+        "v20": {
+          "rotation_deg": 70.70323059338482,
+          "center_mm": 22.93740615088242,
+          "adds_005": 0.25210084033613445
+        }
+      }
+    },
+    "all/correct_pose": {
+      "rows": 119,
+      "physical_sequences": 40,
+      "models": {
+        "base": {
+          "rotation_deg": 0.0,
+          "center_mm": 0.0,
+          "adds_005": 1.0
+        },
+        "completion_off": {
+          "rotation_deg": 1.0230920952157814,
+          "center_mm": 4.844438600130848,
+          "adds_005": 0.907563025210084
+        },
+        "lip_history": {
+          "rotation_deg": 2.0451255141436553,
+          "center_mm": 3.8946963864537114,
+          "adds_005": 0.957983193277311
+        },
+        "lip_no_history": {
+          "rotation_deg": 2.2746847300719812,
+          "center_mm": 4.2515296838490855,
+          "adds_005": 0.9495798319327731
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 1.02049141064161,
+          "center_mm": 4.816059296571125,
+          "adds_005": 0.907563025210084
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 1.0211090071737265,
+          "center_mm": 4.8278280892878955,
+          "adds_005": 0.907563025210084
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 23.514851165418865,
+          "center_mm": 14.38859526357543,
+          "adds_005": 0.5462184873949579
+        },
+        "relation_off": {
+          "rotation_deg": 0.9671830341470342,
+          "center_mm": 4.738107923821334,
+          "adds_005": 0.9159663865546218
+        },
+        "v20": {
+          "rotation_deg": 1.0219845252753306,
+          "center_mm": 4.828197723587176,
+          "adds_005": 0.907563025210084
+        }
+      }
+    },
+    "all/rotation10": {
+      "rows": 714,
+      "physical_sequences": 40,
+      "models": {
+        "base": {
+          "rotation_deg": 10.000000093497482,
+          "center_mm": 0.0,
+          "adds_005": 1.0
+        },
+        "lip_history": {
+          "rotation_deg": 6.9138011671080974,
+          "center_mm": 4.376294875700263,
+          "adds_005": 0.9495798319327731
+        },
+        "lip_no_history": {
+          "rotation_deg": 6.946112039376374,
+          "center_mm": 5.334377531778277,
+          "adds_005": 0.9439775910364145
+        },
+        "v20": {
+          "rotation_deg": 10.022123473031181,
+          "center_mm": 5.122652000130326,
+          "adds_005": 0.9131652661064426
+        }
+      }
+    },
+    "all/translation05d": {
+      "rows": 714,
+      "physical_sequences": 40,
+      "models": {
+        "base": {
+          "rotation_deg": 0.0,
+          "center_mm": 8.885876754304023,
+          "adds_005": 1.0
+        },
+        "lip_history": {
+          "rotation_deg": 2.435999291445486,
+          "center_mm": 6.274816416703224,
+          "adds_005": 0.9523809523809523
+        },
+        "lip_no_history": {
+          "rotation_deg": 2.873366118082646,
+          "center_mm": 6.628048255014382,
+          "adds_005": 0.9439775910364145
+        },
+        "v20": {
+          "rotation_deg": 1.1075820981522275,
+          "center_mm": 8.498463542862595,
+          "adds_005": 0.9243697478991597
+        }
+      }
+    },
+    "nonsymmetric/natural_lip_base": {
+      "rows": 83,
+      "physical_sequences": 28,
+      "models": {
+        "base": {
+          "rotation_deg": 33.99078279159155,
+          "center_mm": 16.479321066795073,
+          "adds_005": 0.6265060240963856
+        },
+        "completion_off": {
+          "rotation_deg": 34.042323837079195,
+          "center_mm": 15.133562187120004,
+          "adds_005": 0.6626506024096386
+        },
+        "lip_history": {
+          "rotation_deg": 33.99354870024934,
+          "center_mm": 14.509081409918705,
+          "adds_005": 0.7108433734939759
+        },
+        "lip_no_history": {
+          "rotation_deg": 33.97009049768908,
+          "center_mm": 14.558504403608078,
+          "adds_005": 0.6867469879518072
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 34.042054788893964,
+          "center_mm": 15.127267697629664,
+          "adds_005": 0.6626506024096386
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 34.04198692864682,
+          "center_mm": 15.127817112026758,
+          "adds_005": 0.6626506024096386
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 38.62979812076293,
+          "center_mm": 18.790451957036304,
+          "adds_005": 0.43373493975903615
+        },
+        "relation_off": {
+          "rotation_deg": 34.00576016989099,
+          "center_mm": 15.186662458904447,
+          "adds_005": 0.6626506024096386
+        },
+        "v20": {
+          "rotation_deg": 34.041563596352034,
+          "center_mm": 15.128499819162156,
+          "adds_005": 0.6626506024096386
+        }
+      }
+    },
+    "nonsymmetric/natural_v20_base": {
+      "rows": 83,
+      "physical_sequences": 28,
+      "models": {
+        "base": {
+          "rotation_deg": 53.04380862684135,
+          "center_mm": 21.975262211888175,
+          "adds_005": 0.25301204819277107
+        },
+        "completion_off": {
+          "rotation_deg": 53.24835352725293,
+          "center_mm": 21.59205727217472,
+          "adds_005": 0.24096385542168675
+        },
+        "lip_history": {
+          "rotation_deg": 47.040160595652566,
+          "center_mm": 18.487133105364013,
+          "adds_005": 0.4819277108433735
+        },
+        "lip_no_history": {
+          "rotation_deg": 46.21448182054313,
+          "center_mm": 17.47559687874493,
+          "adds_005": 0.5060240963855421
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 53.248745177165574,
+          "center_mm": 21.578629116853136,
+          "adds_005": 0.24096385542168675
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 53.24875423132655,
+          "center_mm": 21.59159605009818,
+          "adds_005": 0.24096385542168675
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 49.786858213953224,
+          "center_mm": 21.27856076190091,
+          "adds_005": 0.26506024096385544
+        },
+        "relation_off": {
+          "rotation_deg": 53.238669366721645,
+          "center_mm": 21.656494405322587,
+          "adds_005": 0.24096385542168675
+        },
+        "v20": {
+          "rotation_deg": 53.248016518282604,
+          "center_mm": 21.595975758608834,
+          "adds_005": 0.24096385542168675
+        }
+      }
+    },
+    "nonsymmetric/correct_pose": {
+      "rows": 83,
+      "physical_sequences": 28,
+      "models": {
+        "base": {
+          "rotation_deg": 0.0,
+          "center_mm": 0.0,
+          "adds_005": 1.0
+        },
+        "completion_off": {
+          "rotation_deg": 1.0053434057767132,
+          "center_mm": 4.824423961234784,
+          "adds_005": 0.9156626506024096
+        },
+        "lip_history": {
+          "rotation_deg": 2.0351971292711166,
+          "center_mm": 3.820197076777961,
+          "adds_005": 0.9518072289156626
+        },
+        "lip_no_history": {
+          "rotation_deg": 2.0952103082315032,
+          "center_mm": 4.075557551717004,
+          "adds_005": 0.9397590361445783
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 1.0034826465220337,
+          "center_mm": 4.7971694092041846,
+          "adds_005": 0.9156626506024096
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 1.0039169780281654,
+          "center_mm": 4.810796734310283,
+          "adds_005": 0.9156626506024096
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 14.75549623765141,
+          "center_mm": 11.357911259317435,
+          "adds_005": 0.6506024096385542
+        },
+        "relation_off": {
+          "rotation_deg": 0.9469317428498383,
+          "center_mm": 4.689466229959739,
+          "adds_005": 0.927710843373494
+        },
+        "v20": {
+          "rotation_deg": 1.0048098213162766,
+          "center_mm": 4.810219312911427,
+          "adds_005": 0.9156626506024096
+        }
+      }
+    },
+    "nonsymmetric/rotation10": {
+      "rows": 498,
+      "physical_sequences": 28,
+      "models": {
+        "base": {
+          "rotation_deg": 10.000000134050607,
+          "center_mm": 0.0,
+          "adds_005": 1.0
+        },
+        "lip_history": {
+          "rotation_deg": 6.869147605565657,
+          "center_mm": 4.3939759364376405,
+          "adds_005": 0.9397590361445783
+        },
+        "lip_no_history": {
+          "rotation_deg": 6.818350668772157,
+          "center_mm": 5.26813074101808,
+          "adds_005": 0.9337349397590361
+        },
+        "v20": {
+          "rotation_deg": 10.014988636874769,
+          "center_mm": 5.197904546369694,
+          "adds_005": 0.9216867469879518
+        }
+      }
+    },
+    "nonsymmetric/translation05d": {
+      "rows": 498,
+      "physical_sequences": 28,
+      "models": {
+        "base": {
+          "rotation_deg": 0.0,
+          "center_mm": 9.079827940143854,
+          "adds_005": 1.0
+        },
+        "lip_history": {
+          "rotation_deg": 2.466532795910675,
+          "center_mm": 6.377474176073279,
+          "adds_005": 0.9437751004016064
+        },
+        "lip_no_history": {
+          "rotation_deg": 2.734321154354806,
+          "center_mm": 6.626307790637031,
+          "adds_005": 0.9317269076305221
+        },
+        "v20": {
+          "rotation_deg": 1.087945958850045,
+          "center_mm": 8.56455867274582,
+          "adds_005": 0.9357429718875502
+        }
+      }
+    },
+    "visible_ge50/natural_lip_base": {
+      "rows": 96,
+      "physical_sequences": 34,
+      "models": {
+        "base": {
+          "rotation_deg": 47.71354632514218,
+          "center_mm": 11.84868886533271,
+          "adds_005": 0.7916666666666666
+        },
+        "completion_off": {
+          "rotation_deg": 47.77505963606139,
+          "center_mm": 11.679445970003144,
+          "adds_005": 0.7916666666666666
+        },
+        "lip_history": {
+          "rotation_deg": 47.602989996162556,
+          "center_mm": 10.489358379951833,
+          "adds_005": 0.8333333333333334
+        },
+        "lip_no_history": {
+          "rotation_deg": 47.55706917184094,
+          "center_mm": 10.586658856482245,
+          "adds_005": 0.8229166666666666
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 47.77481468580663,
+          "center_mm": 11.67676501487828,
+          "adds_005": 0.7916666666666666
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 47.7748082211862,
+          "center_mm": 11.676391993508636,
+          "adds_005": 0.7916666666666666
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 54.84803912167748,
+          "center_mm": 17.06288383017333,
+          "adds_005": 0.4895833333333333
+        },
+        "relation_off": {
+          "rotation_deg": 47.74417509138584,
+          "center_mm": 11.728092967435563,
+          "adds_005": 0.7916666666666666
+        },
+        "v20": {
+          "rotation_deg": 47.774574986969434,
+          "center_mm": 11.676567151274261,
+          "adds_005": 0.7916666666666666
+        }
+      }
+    },
+    "visible_ge50/natural_v20_base": {
+      "rows": 96,
+      "physical_sequences": 34,
+      "models": {
+        "base": {
+          "rotation_deg": 65.47336894273758,
+          "center_mm": 18.52244838240343,
+          "adds_005": 0.3125
+        },
+        "completion_off": {
+          "rotation_deg": 65.7616028835376,
+          "center_mm": 18.735107608032802,
+          "adds_005": 0.3020833333333333
+        },
+        "lip_history": {
+          "rotation_deg": 59.61783785869678,
+          "center_mm": 15.585624367910592,
+          "adds_005": 0.5208333333333334
+        },
+        "lip_no_history": {
+          "rotation_deg": 59.145315707971655,
+          "center_mm": 14.72581969331562,
+          "adds_005": 0.5416666666666666
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 65.76126585900784,
+          "center_mm": 18.72377744681823,
+          "adds_005": 0.3020833333333333
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 65.7613896181186,
+          "center_mm": 18.733089391995843,
+          "adds_005": 0.3020833333333333
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 62.09779660900434,
+          "center_mm": 22.15280952320124,
+          "adds_005": 0.2708333333333333
+        },
+        "relation_off": {
+          "rotation_deg": 65.72721992433071,
+          "center_mm": 18.84631817180586,
+          "adds_005": 0.3020833333333333
+        },
+        "v20": {
+          "rotation_deg": 65.76075690984726,
+          "center_mm": 18.735676173188647,
+          "adds_005": 0.3020833333333333
+        }
+      }
+    },
+    "visible_ge50/correct_pose": {
+      "rows": 96,
+      "physical_sequences": 34,
+      "models": {
+        "base": {
+          "rotation_deg": 0.0,
+          "center_mm": 0.0,
+          "adds_005": 1.0
+        },
+        "completion_off": {
+          "rotation_deg": 0.8673604902190467,
+          "center_mm": 3.908866350078218,
+          "adds_005": 0.9479166666666666
+        },
+        "lip_history": {
+          "rotation_deg": 1.8551156925968826,
+          "center_mm": 3.7046337858252323,
+          "adds_005": 0.96875
+        },
+        "lip_no_history": {
+          "rotation_deg": 2.1317579561534026,
+          "center_mm": 4.179183269570785,
+          "adds_005": 0.9583333333333334
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 0.864964226183171,
+          "center_mm": 3.8907861980987946,
+          "adds_005": 0.9479166666666666
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 0.8657301387283951,
+          "center_mm": 3.89789984607584,
+          "adds_005": 0.9479166666666666
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 23.861096595724423,
+          "center_mm": 14.896968197717797,
+          "adds_005": 0.5416666666666666
+        },
+        "relation_off": {
+          "rotation_deg": 0.8161567284259945,
+          "center_mm": 3.877134777212632,
+          "adds_005": 0.9583333333333334
+        },
+        "v20": {
+          "rotation_deg": 0.866446416437005,
+          "center_mm": 3.898962052213998,
+          "adds_005": 0.9479166666666666
+        }
+      }
+    },
+    "visible_ge50/rotation10": {
+      "rows": 576,
+      "physical_sequences": 34,
+      "models": {
+        "base": {
+          "rotation_deg": 10.000000089406967,
+          "center_mm": 0.0,
+          "adds_005": 1.0
+        },
+        "lip_history": {
+          "rotation_deg": 6.5532468821232515,
+          "center_mm": 4.1437098553968905,
+          "adds_005": 0.9618055555555556
+        },
+        "lip_no_history": {
+          "rotation_deg": 6.608429437296258,
+          "center_mm": 5.347625597930043,
+          "adds_005": 0.9513888888888888
+        },
+        "v20": {
+          "rotation_deg": 10.013187115391096,
+          "center_mm": 4.257493773416678,
+          "adds_005": 0.9409722222222222
+        }
+      }
+    },
+    "visible_ge50/translation05d": {
+      "rows": 576,
+      "physical_sequences": 34,
+      "models": {
+        "base": {
+          "rotation_deg": 0.0,
+          "center_mm": 8.961258328377475,
+          "adds_005": 1.0
+        },
+        "lip_history": {
+          "rotation_deg": 2.2388217965748884,
+          "center_mm": 5.733091113092491,
+          "adds_005": 0.9635416666666666
+        },
+        "lip_no_history": {
+          "rotation_deg": 2.708114925590861,
+          "center_mm": 6.284688112120623,
+          "adds_005": 0.953125
+        },
+        "v20": {
+          "rotation_deg": 0.965893139522652,
+          "center_mm": 7.97604117006914,
+          "adds_005": 0.9444444444444444
+        }
+      }
+    },
+    "visibility_lt30/natural_lip_base": {
+      "rows": 7,
+      "physical_sequences": 3,
+      "models": {
+        "base": {
+          "rotation_deg": 96.79669189453125,
+          "center_mm": 76.7108853906393,
+          "adds_005": 0.0
+        },
+        "completion_off": {
+          "rotation_deg": 96.82603345598493,
+          "center_mm": 75.61631141496557,
+          "adds_005": 0.0
+        },
+        "lip_history": {
+          "rotation_deg": 96.553468976702,
+          "center_mm": 75.31129462378365,
+          "adds_005": 0.0
+        },
+        "lip_no_history": {
+          "rotation_deg": 96.47909218924386,
+          "center_mm": 75.6502736892019,
+          "adds_005": 0.0
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 96.82667105538505,
+          "center_mm": 75.5375622372542,
+          "adds_005": 0.0
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 96.82721274239677,
+          "center_mm": 75.60152041592768,
+          "adds_005": 0.0
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 96.53325544084821,
+          "center_mm": 73.50523876292365,
+          "adds_005": 0.0
+        },
+        "relation_off": {
+          "rotation_deg": 96.85142408098493,
+          "center_mm": 76.41623741281884,
+          "adds_005": 0.0
+        },
+        "v20": {
+          "rotation_deg": 96.82839093889508,
+          "center_mm": 75.60996644731078,
+          "adds_005": 0.0
+        }
+      }
+    },
+    "visibility_lt30/natural_v20_base": {
+      "rows": 7,
+      "physical_sequences": 3,
+      "models": {
+        "base": {
+          "rotation_deg": 116.75305284772601,
+          "center_mm": 80.58838226965496,
+          "adds_005": 0.0
+        },
+        "completion_off": {
+          "rotation_deg": 116.82806069510323,
+          "center_mm": 78.09589217816081,
+          "adds_005": 0.0
+        },
+        "lip_history": {
+          "rotation_deg": 112.32268415178571,
+          "center_mm": 79.27641166107995,
+          "adds_005": 0.0
+        },
+        "lip_no_history": {
+          "rotation_deg": 108.64786420549665,
+          "center_mm": 78.52916845253536,
+          "adds_005": 0.0
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 116.83037349155971,
+          "center_mm": 78.11233667390687,
+          "adds_005": 0.0
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 116.83509935651507,
+          "center_mm": 78.1364557998521,
+          "adds_005": 0.0
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 121.26138523646763,
+          "center_mm": 71.7659459582397,
+          "adds_005": 0.0
+        },
+        "relation_off": {
+          "rotation_deg": 116.87546103341239,
+          "center_mm": 78.92254048160144,
+          "adds_005": 0.0
+        },
+        "v20": {
+          "rotation_deg": 116.83474731445312,
+          "center_mm": 78.151637422187,
+          "adds_005": 0.0
+        }
+      }
+    },
+    "visibility_lt30/correct_pose": {
+      "rows": 7,
+      "physical_sequences": 3,
+      "models": {
+        "base": {
+          "rotation_deg": 0.0,
+          "center_mm": 0.0,
+          "adds_005": 1.0
+        },
+        "completion_off": {
+          "rotation_deg": 2.2243871688842773,
+          "center_mm": 17.122855676071985,
+          "adds_005": 0.2857142857142857
+        },
+        "lip_history": {
+          "rotation_deg": 3.4593088967459544,
+          "center_mm": 7.077472600420671,
+          "adds_005": 0.8571428571428571
+        },
+        "lip_no_history": {
+          "rotation_deg": 4.065780707768032,
+          "center_mm": 8.45017666662378,
+          "adds_005": 0.8571428571428571
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 2.223899143082755,
+          "center_mm": 17.003971684191907,
+          "adds_005": 0.2857142857142857
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 2.218380859919957,
+          "center_mm": 17.053650292967045,
+          "adds_005": 0.2857142857142857
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 23.83432742527553,
+          "center_mm": 23.383781579988344,
+          "adds_005": 0.2857142857142857
+        },
+        "relation_off": {
+          "rotation_deg": 2.1961638246263777,
+          "center_mm": 16.04742862816368,
+          "adds_005": 0.2857142857142857
+        },
+        "v20": {
+          "rotation_deg": 2.223424894469125,
+          "center_mm": 17.052800527640752,
+          "adds_005": 0.2857142857142857
+        }
+      }
+    },
+    "visibility_lt30/rotation10": {
+      "rows": 42,
+      "physical_sequences": 3,
+      "models": {
+        "base": {
+          "rotation_deg": 9.999999977293468,
+          "center_mm": 0.0,
+          "adds_005": 1.0
+        },
+        "lip_history": {
+          "rotation_deg": 8.543415824572245,
+          "center_mm": 7.6450961863710765,
+          "adds_005": 0.9285714285714286
+        },
+        "lip_no_history": {
+          "rotation_deg": 8.59539086478097,
+          "center_mm": 8.779975419331874,
+          "adds_005": 0.9047619047619048
+        },
+        "v20": {
+          "rotation_deg": 10.168090309415545,
+          "center_mm": 15.063422621183452,
+          "adds_005": 0.5714285714285714
+        }
+      }
+    },
+    "visibility_lt30/translation05d": {
+      "rows": 42,
+      "physical_sequences": 3,
+      "models": {
+        "base": {
+          "rotation_deg": 0.0,
+          "center_mm": 10.703269126159805,
+          "adds_005": 1.0
+        },
+        "lip_history": {
+          "rotation_deg": 3.550779605905215,
+          "center_mm": 11.622311430983245,
+          "adds_005": 0.9285714285714286
+        },
+        "lip_no_history": {
+          "rotation_deg": 4.543269168762934,
+          "center_mm": 11.756814728003173,
+          "adds_005": 0.8571428571428571
+        },
+        "v20": {
+          "rotation_deg": 2.165670034431276,
+          "center_mm": 16.547519796794013,
+          "adds_005": 0.5952380952380952
+        }
+      }
+    }
+  },
+  "gains": {
+    "nonsymmetric/axis0": {
+      "v20": 0.004983569351035811,
+      "lip_no_history": 0.5351974284076371,
+      "lip_history": 0.3997623808949506
+    },
+    "nonsymmetric/axis1": {
+      "v20": 0.0030412281339557506,
+      "lip_no_history": 0.5334752332395645,
+      "lip_history": 0.4023720727396587
+    },
+    "nonsymmetric/axis2": {
+      "v20": 0.004836103098112161,
+      "lip_no_history": 0.5654344619055505,
+      "lip_history": 0.43679346116428064
+    },
+    "nonsymmetric/axis3": {
+      "v20": 0.3035163879394531,
+      "lip_no_history": 0.6382301054805158,
+      "lip_history": 0.5717881903590927
+    },
+    "nonsymmetric/axis4": {
+      "v20": 0.36750150014118976,
+      "lip_no_history": 0.7255940264966114,
+      "lip_history": 0.6280296969126506
+    },
+    "nonsymmetric/axis5": {
+      "v20": 0.41697582566594504,
+      "lip_no_history": 0.8361154579254518,
+      "lip_history": 0.7347272390342621
+    },
+    "all/axis0": {
+      "v20": 0.004317184645067354,
+      "lip_no_history": 0.4994203097391404,
+      "lip_history": 0.37905566268884094
+    },
+    "all/axis1": {
+      "v20": 0.0015970704175919225,
+      "lip_no_history": 0.5390453250486477,
+      "lip_history": 0.3946688552487754
+    },
+    "all/axis2": {
+      "v20": 0.004687231667058161,
+      "lip_no_history": 0.5745916957651095,
+      "lip_history": 0.4326458090477612
+    },
+    "all/axis3": {
+      "v20": 0.2957763992437795,
+      "lip_no_history": 0.6350977280560661,
+      "lip_history": 0.5767072148683692
+    },
+    "all/axis4": {
+      "v20": 0.362289813386292,
+      "lip_no_history": 0.6955058634782038,
+      "lip_history": 0.6275439863445378
+    },
+    "all/axis5": {
+      "v20": 0.4084348277885373,
+      "lip_no_history": 0.8095877511160714,
+      "lip_history": 0.7193890739889706
+    }
+  },
+  "readout_interventions": {
+    "lip_previous": {
+      "rows": 119,
+      "physical_sequences": 40,
+      "models": {
+        "base": {
+          "rotation_deg": 52.903820754600176,
+          "center_mm": 18.68382269446151,
+          "adds_005": 0.6722689075630253
+        },
+        "completion_off": {
+          "rotation_deg": 52.965625535039344,
+          "center_mm": 17.53494198025134,
+          "adds_005": 0.6890756302521008
+        },
+        "lip_history": {
+          "rotation_deg": 52.913194936614076,
+          "center_mm": 17.02572434197548,
+          "adds_005": 0.7310924369747899
+        },
+        "lip_no_history": {
+          "rotation_deg": 52.8528860632111,
+          "center_mm": 17.1915041576257,
+          "adds_005": 0.7142857142857143
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 52.9656609412001,
+          "center_mm": 17.53043329750164,
+          "adds_005": 0.6890756302521008
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 52.96557896728275,
+          "center_mm": 17.530593392537014,
+          "adds_005": 0.6890756302521008
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 58.94201113296156,
+          "center_mm": 21.673796272899235,
+          "adds_005": 0.4117647058823529
+        },
+        "relation_off": {
+          "rotation_deg": 52.93727975332436,
+          "center_mm": 17.61948565283336,
+          "adds_005": 0.6890756302521008
+        },
+        "v20": {
+          "rotation_deg": 52.96531126028349,
+          "center_mm": 17.531506056866036,
+          "adds_005": 0.6890756302521008
+        }
+      }
+    },
+    "v20_previous": {
+      "rows": 119,
+      "physical_sequences": 40,
+      "models": {
+        "base": {
+          "rotation_deg": 70.51254806197991,
+          "center_mm": 23.159560200096962,
+          "adds_005": 0.25210084033613445
+        },
+        "completion_off": {
+          "rotation_deg": 70.70334478185958,
+          "center_mm": 22.93441418124003,
+          "adds_005": 0.25210084033613445
+        },
+        "lip_history": {
+          "rotation_deg": 65.01243946532242,
+          "center_mm": 20.238764184926236,
+          "adds_005": 0.44537815126050423
+        },
+        "lip_no_history": {
+          "rotation_deg": 64.41096161694085,
+          "center_mm": 19.394361549017937,
+          "adds_005": 0.46218487394957986
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 70.70356774931194,
+          "center_mm": 22.923408138777027,
+          "adds_005": 0.25210084033613445
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 70.70393461740318,
+          "center_mm": 22.93449584316431,
+          "adds_005": 0.25210084033613445
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 66.88009469649371,
+          "center_mm": 24.65199872053095,
+          "adds_005": 0.226890756302521
+        },
+        "relation_off": {
+          "rotation_deg": 70.68413326119175,
+          "center_mm": 23.071089765338712,
+          "adds_005": 0.25210084033613445
+        },
+        "v20": {
+          "rotation_deg": 70.70323059338482,
+          "center_mm": 22.93740615088242,
+          "adds_005": 0.25210084033613445
+        }
+      }
+    },
+    "gt_zero": {
+      "rows": 119,
+      "physical_sequences": 40,
+      "models": {
+        "base": {
+          "rotation_deg": 0.0,
+          "center_mm": 0.0,
+          "adds_005": 1.0
+        },
+        "completion_off": {
+          "rotation_deg": 1.0230920952157814,
+          "center_mm": 4.844438600130848,
+          "adds_005": 0.907563025210084
+        },
+        "lip_history": {
+          "rotation_deg": 2.0451255141436553,
+          "center_mm": 3.8946963864537114,
+          "adds_005": 0.957983193277311
+        },
+        "lip_no_history": {
+          "rotation_deg": 2.2746847300719812,
+          "center_mm": 4.2515296838490855,
+          "adds_005": 0.9495798319327731
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 1.02049141064161,
+          "center_mm": 4.816059296571125,
+          "adds_005": 0.907563025210084
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 1.0211090071737265,
+          "center_mm": 4.8278280892878955,
+          "adds_005": 0.907563025210084
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 23.514851165418865,
+          "center_mm": 14.38859526357543,
+          "adds_005": 0.5462184873949579
+        },
+        "relation_off": {
+          "rotation_deg": 0.9671830341470342,
+          "center_mm": 4.738107923821334,
+          "adds_005": 0.9159663865546218
+        },
+        "v20": {
+          "rotation_deg": 1.0219845252753306,
+          "center_mm": 4.828197723587176,
+          "adds_005": 0.907563025210084
+        }
+      }
+    },
+    "axis0_+1": {
+      "rows": 119,
+      "physical_sequences": 40,
+      "models": {
+        "base": {
+          "rotation_deg": 10.000000344605006,
+          "center_mm": 0.0,
+          "adds_005": 1.0
+        },
+        "completion_off": {
+          "rotation_deg": 10.741345309409775,
+          "center_mm": 5.062000454988471,
+          "adds_005": 0.8991596638655462
+        },
+        "lip_history": {
+          "rotation_deg": 7.062343305900317,
+          "center_mm": 4.026114647159306,
+          "adds_005": 0.9663865546218487
+        },
+        "lip_no_history": {
+          "rotation_deg": 6.9136185385599855,
+          "center_mm": 4.741866974196271,
+          "adds_005": 0.9495798319327731
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 10.740443317830062,
+          "center_mm": 5.030062001447013,
+          "adds_005": 0.8991596638655462
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 10.740514090081223,
+          "center_mm": 5.045741001885588,
+          "adds_005": 0.8991596638655462
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 25.937179621528177,
+          "center_mm": 13.33290896527156,
+          "adds_005": 0.6050420168067226
+        },
+        "relation_off": {
+          "rotation_deg": 10.700372447486686,
+          "center_mm": 4.9409062685758,
+          "adds_005": 0.9159663865546218
+        },
+        "v20": {
+          "rotation_deg": 10.740497428829931,
+          "center_mm": 5.046636115381995,
+          "adds_005": 0.8991596638655462
+        }
+      }
+    },
+    "axis1_+1": {
+      "rows": 119,
+      "physical_sequences": 40,
+      "models": {
+        "base": {
+          "rotation_deg": 10.000000096168838,
+          "center_mm": 0.0,
+          "adds_005": 1.0
+        },
+        "completion_off": {
+          "rotation_deg": 10.16368016475389,
+          "center_mm": 4.701958698740996,
+          "adds_005": 0.9243697478991597
+        },
+        "lip_history": {
+          "rotation_deg": 7.01148970387563,
+          "center_mm": 4.56438642195739,
+          "adds_005": 0.9495798319327731
+        },
+        "lip_no_history": {
+          "rotation_deg": 7.236040940805643,
+          "center_mm": 5.5613665310313785,
+          "adds_005": 0.9495798319327731
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 10.161827399951068,
+          "center_mm": 4.672084431684412,
+          "adds_005": 0.9243697478991597
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 10.162438625047187,
+          "center_mm": 4.684541391075721,
+          "adds_005": 0.9243697478991597
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 26.93618876994157,
+          "center_mm": 14.634849934568708,
+          "adds_005": 0.47058823529411764
+        },
+        "relation_off": {
+          "rotation_deg": 10.099950646152015,
+          "center_mm": 4.637282216498832,
+          "adds_005": 0.9327731092436975
+        },
+        "v20": {
+          "rotation_deg": 10.162649266860065,
+          "center_mm": 4.68528298700244,
+          "adds_005": 0.9243697478991597
+        }
+      }
+    },
+    "axis2_+1": {
+      "rows": 119,
+      "physical_sequences": 40,
+      "models": {
+        "base": {
+          "rotation_deg": 9.999999831704532,
+          "center_mm": 0.0,
+          "adds_005": 1.0
+        },
+        "completion_off": {
+          "rotation_deg": 9.895350071562438,
+          "center_mm": 4.7396875701711645,
+          "adds_005": 0.9159663865546218
+        },
+        "lip_history": {
+          "rotation_deg": 6.633585985969095,
+          "center_mm": 4.39408934660972,
+          "adds_005": 0.9411764705882353
+        },
+        "lip_no_history": {
+          "rotation_deg": 6.259576754409726,
+          "center_mm": 5.749054749456172,
+          "adds_005": 0.9411764705882353
+        },
+        "oracle_surface_and_validity": {
+          "rotation_deg": 9.895048686436244,
+          "center_mm": 4.711665981302445,
+          "adds_005": 0.9159663865546218
+        },
+        "oracle_surface_values": {
+          "rotation_deg": 9.895491592022552,
+          "center_mm": 4.725695187578118,
+          "adds_005": 0.9159663865546218
+        },
+        "predicted_geometry_fit_gt_support": {
+          "rotation_deg": 23.73548412423174,
+          "center_mm": 13.74528484767256,
+          "adds_005": 0.5294117647058824
+        },
+        "relation_off": {
+          "rotation_deg": 9.928895926275173,
+          "center_mm": 4.685467774559109,
+          "adds_005": 0.9243697478991597
+        },
+        "v20": {
+          "rotation_deg": 9.895645662516104,
+          "center_mm": 4.724121498464442,
+          "adds_005": 0.9159663865546218
+        }
+      }
+    }
+  },
+  "max_crop_difference": 0.0,
+  "max_old_lip_replay_difference": 0.0,
+  "max_v20_native_replay_difference": 0.020690038800239563,
+  "average_completion_weight": 0.013075237530391241,
+  "relation_gain": 0.04947536438703537,
+  "scope": "Fixed40 physical sequences; up to3 selected frames each; conditional perturbation diagnostics. GT bases/surface/support are oracles; point scores use cached mesh points. Controlled pose cases have no motion-state hint; LIP history is causal original-only replay."
+}

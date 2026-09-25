@@ -1,0 +1,12 @@
+{
+  "completed": true,
+  "model_training": false,
+  "model_optimizer_updates": 0,
+  "official_test_access": false,
+  "files": {
+    "REPORT.md": "2ce784ebe628f63d105e37e57d5f705565a719b8c9124f59a54dea41c09e251d",
+    "diagnosis.png": "5b19d2e6037ccdfe95f3e585f1f116f8d05998abd817caccac8ea24a8075ef53",
+    "diagnosis.pdf": "e500193eb5bcd0380f6f80958b261c37a89a5e818f1bb86f32c832b3b493efc7",
+    "paired_ci.json": "0a7deae7cf89a32db51075a5fa1d7a000548e21929c99e0c65f70c7e762e67d5"
+  }
+}

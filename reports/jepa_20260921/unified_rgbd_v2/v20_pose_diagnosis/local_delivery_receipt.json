@@ -1,0 +1,16 @@
+{
+  "completed": true,
+  "model_optimizer_updates": 0,
+  "official_test_access": false,
+  "archives": {
+    "evidence.tar.gz": {
+      "sha256": "d87589f93868669d7f8cb89d7e78b774b4d88361fbaf0cac3fb889c60c97da3d",
+      "bytes": 31981528
+    },
+    "source_snapshot.tar.gz": {
+      "sha256": "d9ef81c9cb3f43d5bfe60d269e462471a6983d139af4a53a211810aa786293f7",
+      "bytes": 789665
+    }
+  },
+  "local_archives_verified": true
+}

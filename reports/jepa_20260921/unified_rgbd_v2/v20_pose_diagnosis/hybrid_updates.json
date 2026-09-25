@@ -1,0 +1,89 @@
+{
+  "completed": true,
+  "model_optimizer_updates": 0,
+  "frames": 119,
+  "scope": "Conditional component substitutions at the identical V20 estimated base, using frozen old-LIP no-history predictions. Diagnostic only; no hybrid inference path is installed.",
+  "populations": {
+    "all": {
+      "base": {
+        "adds_005": 0.25210084033613445,
+        "rotation_deg": 70.51254806197991,
+        "center_mm": 23.159560200096962
+      },
+      "v20": {
+        "adds_005": 0.25210084033613445,
+        "rotation_deg": 70.74416961990485,
+        "center_mm": 22.60015276554158
+      },
+      "lip_no_history": {
+        "adds_005": 0.46218487394957986,
+        "rotation_deg": 64.41096161694085,
+        "center_mm": 19.394361549017937
+      },
+      "lip_rotation_v20_translation": {
+        "adds_005": 0.4117647058823529,
+        "rotation_deg": 64.41096170910266,
+        "center_mm": 22.600152687279177
+      },
+      "v20_rotation_lip_translation": {
+        "adds_005": 0.3025210084033613,
+        "rotation_deg": 70.74416914707473,
+        "center_mm": 19.394361400319372
+      }
+    },
+    "visibility_ge50": {
+      "base": {
+        "adds_005": 0.3125,
+        "rotation_deg": 65.47336894273758,
+        "center_mm": 18.52244838240343
+      },
+      "v20": {
+        "adds_005": 0.3020833333333333,
+        "rotation_deg": 65.7686007420222,
+        "center_mm": 18.28117234617821
+      },
+      "lip_no_history": {
+        "adds_005": 0.5416666666666666,
+        "rotation_deg": 59.145315707971655,
+        "center_mm": 14.72581969331562
+      },
+      "lip_rotation_v20_translation": {
+        "adds_005": 0.4895833333333333,
+        "rotation_deg": 59.145315861950316,
+        "center_mm": 18.28117227826927
+      },
+      "v20_rotation_lip_translation": {
+        "adds_005": 0.375,
+        "rotation_deg": 65.76860023538272,
+        "center_mm": 14.725819392576037
+      }
+    },
+    "visibility_lt30": {
+      "base": {
+        "adds_005": 0.0,
+        "rotation_deg": 116.75305284772601,
+        "center_mm": 80.58838226965496
+      },
+      "v20": {
+        "adds_005": 0.0,
+        "rotation_deg": 117.1333738054548,
+        "center_mm": 78.048332461289
+      },
+      "lip_no_history": {
+        "adds_005": 0.0,
+        "rotation_deg": 108.64786420549665,
+        "center_mm": 78.52916845253536
+      },
+      "lip_rotation_v20_translation": {
+        "adds_005": 0.0,
+        "rotation_deg": 108.64786420549665,
+        "center_mm": 78.048332461289
+      },
+      "v20_rotation_lip_translation": {
+        "adds_005": 0.0,
+        "rotation_deg": 117.1333727155413,
+        "center_mm": 78.52916951690402
+      }
+    }
+  }
+}

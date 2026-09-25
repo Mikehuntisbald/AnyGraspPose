@@ -1,0 +1,167 @@
+{
+  "completed": true,
+  "model_optimizer_updates": 0,
+  "ridge_alpha": "inner-physical-validation from0.01,0.1,1,10",
+  "folds": 5,
+  "split": "physical-sequence disjoint exploratory fits within existing val diagnosis",
+  "physical_sequences": 40,
+  "rows": 1547,
+  "results": {
+    "fused": {
+      "selected_penalties": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "all": {
+        "rotation10_error_deg": 9.904902813722988,
+        "translation05d_error_d": 0.04565499722957611,
+        "zero_update_deg": 0.42731993996247974,
+        "zero_translation_d": 0.00785768497735262
+      },
+      "nonsymmetric": {
+        "rotation10_error_deg": 9.896992622583335,
+        "translation05d_error_d": 0.04548829421401024,
+        "zero_update_deg": 0.4259831790982358,
+        "zero_translation_d": 0.007892153225839138
+      }
+    },
+    "patch": {
+      "selected_penalties": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "all": {
+        "rotation10_error_deg": 9.950955402036826,
+        "translation05d_error_d": 0.04677029326558113,
+        "zero_update_deg": 0.5046626789630125,
+        "zero_translation_d": 0.006653701886534691
+      },
+      "nonsymmetric": {
+        "rotation10_error_deg": 9.944784145940496,
+        "translation05d_error_d": 0.046675678342580795,
+        "zero_update_deg": 0.5312300515309686,
+        "zero_translation_d": 0.0067557068541646
+      }
+    },
+    "object": {
+      "selected_penalties": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "all": {
+        "rotation10_error_deg": 9.934570008717566,
+        "translation05d_error_d": 0.04248671978712082,
+        "zero_update_deg": 0.5655900976276015,
+        "zero_translation_d": 0.012524627149105072
+      },
+      "nonsymmetric": {
+        "rotation10_error_deg": 9.927030923016181,
+        "translation05d_error_d": 0.042476195842027664,
+        "zero_update_deg": 0.6094096978373387,
+        "zero_translation_d": 0.012249244377017021
+      }
+    },
+    "lip_object": {
+      "selected_penalties": [
+        10.0,
+        10.0,
+        10.0,
+        10.0,
+        10.0
+      ],
+      "all": {
+        "rotation10_error_deg": 6.116858375653245,
+        "translation05d_error_d": 0.03234648331999779,
+        "zero_update_deg": 2.656766748075922,
+        "zero_translation_d": 0.016329308971762657
+      },
+      "nonsymmetric": {
+        "rotation10_error_deg": 6.12514200773919,
+        "translation05d_error_d": 0.03217405825853348,
+        "zero_update_deg": 2.659939309751023,
+        "zero_translation_d": 0.01582946814596653
+      }
+    },
+    "patch_minus_gt_ORACLE": {
+      "selected_penalties": [
+        1.0,
+        10.0,
+        10.0,
+        1.0,
+        1.0
+      ],
+      "all": {
+        "rotation10_error_deg": 8.875743948779583,
+        "translation05d_error_d": 0.02557889185845852,
+        "zero_update_deg": 0.16935137327849528,
+        "zero_translation_d": 0.0007435333100147545
+      },
+      "nonsymmetric": {
+        "rotation10_error_deg": 8.913270290450267,
+        "translation05d_error_d": 0.025755425915122032,
+        "zero_update_deg": 0.1736543114884647,
+        "zero_translation_d": 0.0008101461571641266
+      }
+    }
+  },
+  "intervention_output_changes": {
+    "completion_off": {
+      "rotation_deg": {
+        "mean": 0.006493543602487763,
+        "p95": 0.017193827129990843,
+        "max": 0.03425992872198645
+      },
+      "center_mm": {
+        "mean": 0.04231579398814248,
+        "p95": 0.13457230670610443,
+        "max": 0.31661425600759685
+      }
+    },
+    "relation_off": {
+      "rotation_deg": {
+        "mean": 0.11212662046787175,
+        "p95": 0.47645765473889184,
+        "max": 2.940466447129482
+      },
+      "center_mm": {
+        "mean": 0.4627905171025409,
+        "p95": 1.5569683921057733,
+        "max": 4.641171079128981
+      }
+    },
+    "oracle_surface_values": {
+      "rotation_deg": {
+        "mean": 0.004053050294255576,
+        "p95": 0.010043880010954197,
+        "max": 0.027975077463356986
+      },
+      "center_mm": {
+        "mean": 0.020615924370463355,
+        "p95": 0.05992201386106902,
+        "max": 0.15456683468073606
+      }
+    },
+    "oracle_surface_and_validity": {
+      "rotation_deg": {
+        "mean": 0.006192549586755916,
+        "p95": 0.01626675343102625,
+        "max": 0.03242987491640607
+      },
+      "center_mm": {
+        "mean": 0.03779220353930422,
+        "p95": 0.11325405284878805,
+        "max": 0.2404525293968618
+      }
+    }
+  },
+  "scope": "Ridge is a diagnostic fitted readout, not a production model or independent benchmark. GT-reference feature subtraction is explicitly oracle and unavailable at inference. Failure of linear decoding does not prove information is absent."
+}

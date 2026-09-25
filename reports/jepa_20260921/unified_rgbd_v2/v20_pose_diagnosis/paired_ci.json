@@ -1,0 +1,9 @@
+{
+  "metric": "V20 minus LIP-no-history rotation error",
+  "mean": 3.207422815293193,
+  "paired_physical_sequence_ci95": [
+    2.622437605113755,
+    3.801855201299468
+  ],
+  "sequences": 28
+}

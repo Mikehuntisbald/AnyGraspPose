@@ -1,0 +1,42 @@
+{
+  "fused": {
+    "rotation": {
+      "relative_l2": 0.10178064288092832,
+      "cosine": 0.9926254739723053
+    },
+    "translation": {
+      "relative_l2": 0.13056247658565245,
+      "cosine": 0.9901510714048363
+    }
+  },
+  "patch": {
+    "rotation": {
+      "relative_l2": 0.12760739676743765,
+      "cosine": 0.9900506636703829
+    },
+    "translation": {
+      "relative_l2": 0.14709460200396748,
+      "cosine": 0.9876670356256416
+    }
+  },
+  "object": {
+    "rotation": {
+      "relative_l2": 0.20875174175399266,
+      "cosine": 0.9753860565553228
+    },
+    "translation": {
+      "relative_l2": 0.3207515261487409,
+      "cosine": 0.9439333744317173
+    }
+  },
+  "lip_object": {
+    "rotation": {
+      "relative_l2": 0.7314111369397552,
+      "cosine": 0.6910338274177059
+    },
+    "translation": {
+      "relative_l2": 0.5927006749419008,
+      "cosine": 0.8132994411939598
+    }
+  }
+}

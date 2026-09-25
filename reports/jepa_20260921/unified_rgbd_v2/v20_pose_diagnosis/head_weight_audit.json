@@ -1,0 +1,26 @@
+{
+  "head.2.weight": {
+    "rotation": {
+      "initial_norm": 0.06203615665435791,
+      "final_norm": 0.06495351344347,
+      "change_norm": 0.005171527620404959
+    },
+    "translation": {
+      "initial_norm": 0.0964244157075882,
+      "final_norm": 0.09825519472360611,
+      "change_norm": 0.0035941440146416426
+    }
+  },
+  "head.2.bias": {
+    "rotation": {
+      "initial_norm": 0.0019012577831745148,
+      "final_norm": 0.0018397102830931544,
+      "change_norm": 6.205325917107984e-05
+    },
+    "translation": {
+      "initial_norm": 0.002385892905294895,
+      "final_norm": 0.002304098568856716,
+      "change_norm": 9.29806410567835e-05
+    }
+  }
+}
