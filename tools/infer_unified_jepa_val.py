@@ -19,7 +19,8 @@ from lip.engine.stream_checkpoint import source_hash
 from lip.jepa.config import config_hash
 from lip.unified.renderer import FullTextureRenderer as AppearanceRenderer
 from lip.geometry.so3 import original_pose
-from val_non_gt_common import val_streams,validate_initializers,NativeValGuard
+from val_non_gt_common import val_streams,validate_initializers
+from unified_val_guard import UnifiedNativeValGuard
 
 
 def main():
@@ -41,7 +42,7 @@ def main():
     fp_root=Path(c['paths'].get('fp_root','/mnt/why/dexycb_lip/third_party/FoundationPose'))
     fp_files=[fp_root/'learning/models/network_modules.py',fp_root/'learning/models/refine_network.py',
               Path(c['paths']['fp_checkpoint']),Path(c['paths']['fp_checkpoint']).with_name('config.yml')] if fp_encoder else []
-    guard=NativeValGuard(root,index,fp_root,streams,fp_encoder_files=fp_files);sys.addaudithook(guard);sys.dont_write_bytecode=True
+    guard=UnifiedNativeValGuard(root,index,fp_root,streams,fp_encoder_files=fp_files,cad_metadata=c.get("cad_surface",{}).get("models_info"));sys.addaudithook(guard);sys.dont_write_bytecode=True
     checkpoint=torch.load(a.checkpoint,map_location='cpu',weights_only=False)
     if checkpoint['config_hash']!=config_hash(c):raise ValueError('Checkpoint/config identity mismatch')
     if checkpoint['p0_only'] and not a.interface_smoke:raise ValueError('P0 cannot become formal full-val candidate')

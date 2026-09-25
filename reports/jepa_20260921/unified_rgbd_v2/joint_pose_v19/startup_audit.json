@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "step": 35403,
+  "checkpoint_sha256": "ad97053311bb80493a3db1c62404ab1c0803e6292254146d23da7aa451a0b976",
+  "initial_model_exact": true,
+  "inherited_moments_exact": true,
+  "new_pose_parameters": 22,
+  "pose_and_jepa_updated": true,
+  "history_unchanged": true,
+  "all_rank_steps": [
+    35403,
+    35403,
+    35403,
+    35403,
+    35403,
+    35403,
+    35403,
+    35403
+  ],
+  "ema_counter_continuous": true
+}

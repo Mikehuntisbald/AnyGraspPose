@@ -11,3 +11,7 @@ Retain the immutable causal crop reference to preserve batched training throughp
 Validation: eight-rank startup/resume audit after3 updates; source35400 native val; native val and fixed40 recovery at36400,40400,45400. Native val320 streams/23200 frames, history off, same initializers. Preserve full checkpoints every50 steps and milestones. No official test, multi-seed or default-model promotion.
 
 Execution: isolated local-disk source under `/tmp/dexycb_joint_pose_v19_local`; durable artifacts under `/mnt/why/dexycb_lip/unified_jepa_20260921/joint_pose_v19`. Source archive and hash manifest pinned before training. No edits to prior experiments.
+
+Verified launch: joint H20 preflight passed; pose-only gradients reached patch/XYZ/depth (norms0.02156/1.16e-6/2.77e-6 on one train frame; connectivity evidence, not efficacy). Full40-frame joint backward finite; 485 existing Adam tensor states inherited,22 readout tensors newly trainable; peak10.68GB. Eight-rank35403 audit passed with pose and JEPA weights changed, history unchanged, EMA continuous.
+
+Native packaging initially missed the inference entrypoint/runtime. Smoke then identified the static CAD models_info allowance and scalar diagnostic outputs; fixed without changing student/source code or training checkpoint provenance. Exact metadata-only allowance tested; inference and scoring smoke passed on2 sequences/6 frames, zero rejected updates, zero GT pose/mask reads in inference. Smoke is not a benchmark score. Full native source35400 then training to45400 resumed automatically.

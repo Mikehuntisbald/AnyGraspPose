@@ -53,6 +53,6 @@ def step(model,rgb,depth,timestamp,state,renderer,*,precision='bf16',stream_id=N
         memory=state.memory;status='nonfinite_memory';pose=state.pose_centered
     next_state=replace(state,pose_centered=pose.detach(),previous_pose=state.pose_centered,
         timestamp=float(timestamp),frame_id=state.frame_id+1,memory=memory.detach())
-    output={k:v[0] if isinstance(v,torch.Tensor) else v for k,v in result.items()}
+    output={k:v[0] if isinstance(v,torch.Tensor) and v.ndim else v for k,v in result.items()}
     output.update(pose_centered=pose,pose_original=original_pose(pose,torch.as_tensor(state.mesh['center'],device=pose.device)),status=status)
     return output,next_state
