@@ -11,7 +11,7 @@ def main():
     p=argparse.ArgumentParser(add_help=False);p.add_argument('--run',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--world',type=int,required=True)
     a,_=p.parse_known_args();shards=[json.loads((a.run/f'rank{i}/manifest.json').read_text()) for i in range(a.world)]
     for m in shards:
-        if m['architecture_id'] not in ('stream_dino_utonia_jepa_rgbd_v2','stream_dino_fp_staticutonia_jepa_rgbd_v3','stream_two_input_jepa_v9','stream_conv_cross_jepa_v10','stream_conv_cross_geohistory_jepa_v10','stream_conv_cross_supported_history_jepa_v10','stream_conv_cross_dense_history_jepa_v10','stream_recovered_relation_jepa_v11','stream_cad_surface_jepa_v12'):raise ValueError('Wrong architecture')
+        if m['architecture_id'] not in ('stream_dino_utonia_jepa_rgbd_v2','stream_dino_fp_staticutonia_jepa_rgbd_v3','stream_two_input_jepa_v9','stream_conv_cross_jepa_v10','stream_conv_cross_geohistory_jepa_v10','stream_conv_cross_supported_history_jepa_v10','stream_conv_cross_dense_history_jepa_v10','stream_recovered_relation_jepa_v11','stream_cad_surface_jepa_v12','stream_serial_completion_jepa_v21'):raise ValueError('Wrong architecture')
         for key in ['architecture_id','jepa_enabled','history_enabled','checkpoint_sha256','stage_optimizer_steps','config_sha256']:
             if m[key]!=shards[0][key]:raise ValueError('Inconsistent shard identity: '+key)
     import score_val_non_gt
