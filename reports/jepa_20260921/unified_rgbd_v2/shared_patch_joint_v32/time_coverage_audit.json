@@ -1,0 +1,90 @@
+{
+  "scope": "Descriptive coverage and time-stratified errors, not proof of a causal generalization failure",
+  "train": {
+    "options": 20930,
+    "streams": 4813,
+    "supervised_offsets": [
+      0,
+      1,
+      8,
+      9
+    ],
+    "unique_reachable_frames": 64851,
+    "total_frames_in_eligible_streams": 350018,
+    "reachable_fraction": 0.18527904279208499,
+    "max_absolute_frame": 28,
+    "physical_holdout_excluded": true
+  },
+  "sources": {
+    "/mnt/why/dexycb_lip/posecnn_train_20260915/runs/full/initializers.json": "3c4bd539702506d8a05d8172783e948bdd73b72dd850a3b301bf109a831ba3bd",
+    "/mnt/why/dexycb_lip/cache/dexycb_s0/streams.jsonl": "54a35253db5bea988ffea5e41641d3313b31c5568193a186dd4e4359c497804b",
+    "/mnt/why/dexycb_lip/smooth_val_evaluation_20260915/runs/full/residual/scored/predictions.jsonl": "69b9b006b85c514acaec52153e42166c5ce6eecc4ebc994b5d1d6f3904d3be31",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/decoded_features_v26/validation/step1200_scored/predictions.jsonl": "c7062f784aeee9e9b5c0da16e0d800e8481578b0499c6667de00c6c37f830922"
+  },
+  "validation": {
+    "pure_lip": {
+      "all": {
+        "frames": 23200,
+        "objects": 20,
+        "adds_005": 83.66415386848323,
+        "heavy_fraction": 0.10198275862068966
+      },
+      "early": {
+        "frames": 9280,
+        "objects": 20,
+        "adds_005": 85.81896551724138,
+        "heavy_fraction": 0.11131465517241379
+      },
+      "late": {
+        "frames": 13920,
+        "objects": 20,
+        "adds_005": 82.2239133290608,
+        "heavy_fraction": 0.09576149425287356
+      },
+      "early_heavy": {
+        "frames": 1033,
+        "objects": 20,
+        "adds_005": 53.88778120551615,
+        "heavy_fraction": 1
+      },
+      "late_heavy": {
+        "frames": 1333,
+        "objects": 19,
+        "adds_005": 50.00258094221232,
+        "heavy_fraction": 1
+      }
+    },
+    "jepa_v26": {
+      "all": {
+        "frames": 23200,
+        "objects": 20,
+        "adds_005": 50.824916681094635,
+        "heavy_fraction": 0.10198275862068966
+      },
+      "early": {
+        "frames": 9280,
+        "objects": 20,
+        "adds_005": 75.15086206896552,
+        "heavy_fraction": 0.11131465517241379
+      },
+      "late": {
+        "frames": 13920,
+        "objects": 20,
+        "adds_005": 34.62162429589223,
+        "heavy_fraction": 0.09576149425287356
+      },
+      "early_heavy": {
+        "frames": 1033,
+        "objects": 20,
+        "adds_005": 35.29104097001873,
+        "heavy_fraction": 1
+      },
+      "late_heavy": {
+        "frames": 1333,
+        "objects": 19,
+        "adds_005": 14.85660081925009,
+        "heavy_fraction": 1
+      }
+    }
+  }
+}
