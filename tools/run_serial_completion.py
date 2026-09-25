@@ -52,6 +52,9 @@ def main():
         a.adapt_from=None
     def native(step,checkpoint):
         pred=root/'validation'/f'step{step}';scored=root/'validation'/f'step{step}_scored'
+        if (scored/'manifest.json').exists():
+            manifest=json.loads((scored/'manifest.json').read_text())
+            if manifest['completed'] and manifest['checkpoint_sha256']==sha(checkpoint):return
         run('native'+str(step),[['tools/infer_unified_jepa_val.py','--config',a.config,'--checkpoint',str(checkpoint),'--out',str(pred/f'rank{r}'),'--rank',str(r),'--world','8','--disable-history'] for r in range(8)],True)
         run('score'+str(step),[['tools/score_unified_jepa_val.py','--run',str(pred),'--world','8','--index-root',c['paths']['index_root'],'--visibility-reference',c['paths']['visibility_reference'],'--workers','16','--out',str(scored)]])
         assert json.loads((scored/'manifest.json').read_text())['completed']
@@ -61,9 +64,14 @@ def main():
         train(2);train(3)
         (root/'milestones').mkdir(exist_ok=True)
         for step in (500,1000):
-            train(step);checkpoint=root/'milestones'/f'step{step}.pt';shutil.copy2(out/'last.pt',checkpoint)
+            train(step);checkpoint=root/'milestones'/f'step{step}.pt'
+            if not checkpoint.exists():
+                assert json.loads((out/'last.receipt.json').read_text())['step']==step
+                shutil.copy2(out/'last.pt',checkpoint)
             native(step,checkpoint)
-            run('pose_probe'+str(step),[['tools/probe_serial_pose.py','--config',a.config,'--checkpoint',str(checkpoint),'--out',str(root/'pose_probe'/f'step{step}'/f'rank{r}'),'--rank',str(r),'--world','8'] for r in range(8)],True)
+            receipts=[root/'pose_probe'/f'step{step}'/f'rank{r}'/'receipt.json' for r in range(8)]
+            if not all(p.exists() and json.loads(p.read_text())['completed'] and json.loads(p.read_text())['checkpoint_sha256']==sha(checkpoint) for p in receipts):
+                run('pose_probe'+str(step),[['tools/probe_serial_pose.py','--config',a.config,'--checkpoint',str(checkpoint),'--out',str(root/'pose_probe'/f'step{step}'/f'rank{r}'),'--rank',str(r),'--world','8'] for r in range(8)],True)
         run('recovery1000',[['tools/evaluate_recovery_focus.py','--config',a.config,'--checkpoint',str(out/'last.pt'),'--out',str(root/'recovery/step1000')]])
         status('complete',completed=True,checkpoint_sha256=sha(out/'last.pt'))
     except Exception as error:status('failed',error=str(error));raise

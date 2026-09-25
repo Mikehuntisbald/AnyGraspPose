@@ -71,16 +71,31 @@ def main():
     start=0
     if a.adapt_from:
         previous=torch.load(a.adapt_from,map_location='cpu',weights_only=False)
-        old=previous['provenance'];del previous
+        old=previous['provenance'];previous_config=previous['config'];del previous
         if {k:v for k,v in old.items() if k!='source_sha256'}!={k:v for k,v in provenance.items() if k!='source_sha256'}:
             raise ValueError('Code-only adaptation changed data or initialization identity')
-        start=resume(a.adapt_from,model,opt,scheduler,c,old,rank,world)['step']
-        if rank==0:atomic_json(out/'code_adaptation.json',dict(step=start,checkpoint_sha256=sha(a.adapt_from),previous_source_sha256=old['source_sha256'],source_sha256=provenance['source_sha256'],model_optimizer_scheduler_rng_exact=True,reason='Same RGB-D crop/occluder for paired estimated poses'))
+        from copy import deepcopy
+        stripped=deepcopy(c);stripped['serial_completion'].pop('oracle_rehearsal_weight',None)
+        old_stripped=deepcopy(previous_config);old_stripped['serial_completion'].pop('oracle_rehearsal_weight',None)
+        if stripped!=old_stripped:raise ValueError('Undeclared config adaptation')
+        start=resume(a.adapt_from,model,opt,scheduler,previous_config,old,rank,world)['step']
+        if rank==0:atomic_json(out/f'code_adaptation{start}.json',dict(step=start,checkpoint_sha256=sha(a.adapt_from),previous_source_sha256=old['source_sha256'],source_sha256=provenance['source_sha256'],model_optimizer_scheduler_rng_exact=True,reason='Preserve readout oracle response; exact visible correspondence mask; paired observations remain identical'))
     elif a.resume:start=resume(a.resume,model,opt,scheduler,c,provenance,rank,world)['step']
     else:save(out/'initial.pt',model,opt,scheduler,0,c,provenance)
     batch=1 if a.preflight else c['runtime']['microbatch']
     # Keep rank model initialization equal; rank RNG differs only afterwards.
     if not (a.resume or a.adapt_from):torch.manual_seed(c['seed']+rank)
+    rehearsal_weight=c['serial_completion'].get('oracle_rehearsal_weight',0.)
+    oracle_pack=oracle_truth=oracle_diameter=None
+    if rehearsal_weight:
+        cache=Path(a.oracle).parent/'oracle_cache'/f'rank{rank}'/'packets.pt'
+        records=[x for x in torch.load(cache,weights_only=False) if x['split']=='train']
+        oracle_pack={k:torch.cat([x['oracle'][k] for x in records]).cuda() for k in records[0]['oracle']}
+        oracle_pack['feature']=torch.cat([x['predicted']['feature'] for x in records]).cuda()
+        oracle_pack['weight']=oracle_pack['weight']*.5
+        oracle_pack['completed_weight']=oracle_pack['completed_weight']*.5
+        oracle_truth=torch.stack([x['truth'] for x in records]).cuda();oracle_diameter=oracle_truth.new_tensor([x['diameter'] for x in records])
+        del records
     def episodes(step):
         result=[]
         for lane in range(batch):
@@ -103,9 +118,11 @@ def main():
         truth=torch.stack([t[0][frame] for t in targets]);mask=torch.stack([t[1][frame] for t in targets])
         teacher=build_teachers(model.ema_teacher,scenes,truth,mask,[o.mask for o in occ],factory.renderer,real_geometry_max_radius_d=1.,fast=True,batch_render=True,vectorized=True)
         teacher=surface_targets(model,scenes,teacher)
+        from lip.unified.execution_speed import crop_images_fast
+        visible_measurement=torch.cat([(crop_images_fast(mask[i:i+1].float(),s.affine,mode='nearest')>.5)&~o.mask&s.bounds for i,(s,o) in enumerate(zip(scenes,occ))])
         with torch.autocast('cuda',dtype=torch.bfloat16):output,_=model(obs)
         points=torch.stack([torch.as_tensor(e.mesh['points'],device='cuda') for e in episodes])
-        with torch.autocast('cuda',dtype=torch.bfloat16):loss,metrics=objective(output,teacher,truth,points,obs.diameter,bases,obs.measured_depth_m,c['training']['loss_weights'])
+        with torch.autocast('cuda',dtype=torch.bfloat16):loss,metrics=objective(output,teacher,truth,points,obs.diameter,bases,obs.measured_depth_m,c['training']['loss_weights'],visible_measurement)
         return output,loss,metrics,obs,teacher,(scenes,occ)
     path_norms=None
     with (out/f'rank{rank}.jsonl').open('a') as log:
@@ -142,13 +159,19 @@ def main():
             combined.backward();del first,second,obs,paired_obs,target,pair_source,l1,l2,combined,pred1,pred2
             third,l3,m3,_,_,_=forward(ep,targets,feedback,frame+1)
             (l3/3).backward();loss_value=float(l3.detach());del third,l3
+            rehearsal=truth.new_zeros(())
+            if rehearsal_weight:
+                from lip.unified.serial_objective import oracle_readout_loss
+                ids=torch.randint(len(oracle_truth),(4,),device='cuda')
+                with torch.autocast('cuda',dtype=torch.bfloat16):rehearsal=oracle_readout_loss(model,{k:v[ids] for k,v in oracle_pack.items()},oracle_truth[ids],oracle_diameter[ids])
+                (rehearsal_weight*rehearsal).backward()
             communication=time.monotonic();synchronize_gradients(model.parameters());communication=time.monotonic()-communication
             norm=torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.grad is not None],1.)
             if not torch.isfinite(norm):raise FloatingPointError('Nonfinite gradient; do not advance')
             opt.step();scheduler.step();update_ema(model)
             torch.cuda.synchronize();metrics={k:float((m1[k]+m2[k]+m3[k])/3) for k in m1}
             row=dict(step=step+1,source_step=45400,seconds=time.monotonic()-begun,loss_feedback=loss_value,pair=float(pair.detach()),
-                metrics=metrics,gradient_norm=float(norm),communication_seconds=communication,
+                metrics=metrics,oracle_rehearsal=float(rehearsal.detach()),gradient_norm=float(norm),communication_seconds=communication,
                 learning_rates={g['category']:g['lr'] for g in opt.param_groups},peak_gpu_gb=torch.cuda.max_memory_allocated()/1e9)
             log.write(json.dumps(row,allow_nan=False)+'\n');log.flush()
             if rank==0 and (step<3 or (step+1)%25==0):print(json.dumps(row),flush=True)

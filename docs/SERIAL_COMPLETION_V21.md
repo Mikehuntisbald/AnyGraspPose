@@ -75,3 +75,25 @@ pose-response, paired-response and visible canonical-correspondence terms.
 History remains off. The static CAD cache, source experiments and environment
 are preserved. Source runs execute from isolated local-disk snapshots; artifacts
 and full checkpoints are stored under the durable remote experiment directory.
+
+## Step700 adaptation: retain the geometry readout
+
+Native step500 improved ADD-S@0.05d from V20's31.33% to49.48%, and visibility<50%
+from10.20% to27.42%. Controlled rotation remained weak:10 degrees became9.82.
+On paired positive-axis cases, disabling completion worsened9.45 to12.27 degrees.
+A separate CPU FP32 replay of the same oracle development cache found the
+readout had regressed to8.00 degrees, versus3.17 at oracle initialization.
+
+At complete checkpoint700, retain all parameters, Adam, schedule and rank RNG;
+add weight0.25 readout-only oracle rehearsal on the **training** cache partition.
+It supplies ideal canonical/camera geometry and cached student appearance,
+never target features or GT into the JEPA/encoder forward. Only pose-readout
+parameters receive this auxiliary gradient. The normal three training forwards
+still consume predicted completion exclusively. Exact per-pixel visible masks
+replace the previous patch-majority mask for observed CAD correspondence loss.
+The stage endpoint remains1000; no automatic budget extension.
+
+The legacy checkpoint provenance field `teacher_input:false` refers to the main
+student JEPA forward. It does **not** describe this explicit readout-only oracle
+training branch. The config's `oracle_rehearsal_weight` and adaptation receipt
+record that branch; GT-free native inference has neither teacher nor rehearsal.

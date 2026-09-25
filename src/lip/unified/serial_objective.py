@@ -15,7 +15,7 @@ def delta_target(base, truth, diameter):
         (truth[:,:3,3].float()-base[:,:3,3].float())/diameter[:,None]),-1).detach()
 
 
-def objective(output,target,truth,points,diameter,base,observed_depth,weights):
+def objective(output,target,truth,points,diameter,base,observed_depth,weights,visible_measurement_mask):
     pose,parts=pose_loss(output['pose_centered'],truth,points,diameter)
     recovery,rec=reconstruction_loss(output,target,weights)
     local,_=local_structure_loss(output,target,weights)
@@ -25,8 +25,7 @@ def objective(output,target,truth,points,diameter,base,observed_depth,weights):
     camloss=masked_mean(F.smooth_l1_loss(camera,torch.zeros_like(camera),beta=.05,reduction='none').mean(1,keepdim=True),target.geometry_weight)
     # On unoccluded observed pixels only, supervise the CAD identity of the
     # measured point. RGB/depth completion loss remains absent there.
-    visible=target.visible_label.nan_to_num().reshape(-1,1,16,16).repeat_interleave(14,-2).repeat_interleave(14,-1)>.9
-    valid=visible & (observed_depth>0) & torch.isfinite(observed_depth)
+    valid=visible_measurement_mask & (observed_depth>0) & torch.isfinite(observed_depth)
     camera_real=target.camera_rays*observed_depth/diameter[:,None,None,None]-target.camera_translation_d[:,:,None,None]
     true_xyz=torch.einsum('bji,bjhw->bihw',truth[:,:3,:3].float(),camera_real).detach()
     valid=valid & (true_xyz.square().sum(1,keepdim=True)<1.)
@@ -42,3 +41,22 @@ def objective(output,target,truth,points,diameter,base,observed_depth,weights):
         depth_real=rec['surface_depth_real'],depth_proxy=rec['surface_depth_proxy'],
         visible_correspondence=visible_corr,camera_consistency=camloss,cad=cad,delta=direct)
     return total,{k:v.detach() for k,v in stats.items()}
+
+
+def oracle_readout_loss(model,packet,truth,diameter):
+    """Teacher forcing of the small readout only; no JEPA/encoder forward.
+
+The input appearance is cached *student* completion, not teacher features.
+Ideal geometry keeps the learned correction map from forgetting its oracle
+competence while the real student branch learns to improve its correspondences.
+"""
+    from lip.geometry.so3 import update
+    noise=torch.randn(len(truth),6,device=truth.device)*truth.new_tensor([.15]*3+[.035]*3)
+    noise[::4]=0
+    base=update(truth,noise[:,:3],noise[:,3:],diameter)
+    packet=dict(packet,camera=packet['camera']-noise[:,3:,None,None])
+    obj,diagnostics=model.read_completion(packet,base)
+    delta=model.head(F.layer_norm(obj[:,0],(256,))).float()*diagnostics['serial_residual_scale'][:,None]
+    delta=delta*diagnostics['pose_evidence_available'][:,None]
+    expected=delta_target(base,truth,diameter);scale=delta.new_tensor([.174533]*3+[.05]*3)
+    return F.smooth_l1_loss(delta/scale,expected/scale,beta=.1)

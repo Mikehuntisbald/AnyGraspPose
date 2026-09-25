@@ -263,6 +263,7 @@ serial_completion:
   heldout_physical_modulus: 5
   checkpoint_every: 50
   oracle_checkpoint: /mnt/why/dexycb_lip/unified_jepa_20260921/serial_completion_v21/oracle_gate_v2/readout.pt
+  oracle_rehearsal_weight: 0.25
 initialization:
   transferred: V20 step45400 JEPA, DINO, EMA, CAD reader and DPT exact
   reset: all pose readout; initialized by train-only oracle gate
