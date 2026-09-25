@@ -1,0 +1,30 @@
+[
+  {
+    "file": "actual_readout_v27/observed_visible/readout.pt",
+    "sha256": "55d86f0dcb3470dfa07360d5da49558fdd33986b5dd7e1aec0344d3c79a59154"
+  },
+  {
+    "file": "actual_readout_v27/patch/readout.pt",
+    "sha256": "6b24a9b8e34f770e8d321d4669f221bb521761e82708f908b3076097a7b5a51c"
+  },
+  {
+    "file": "actual_readout_v27/decoded/readout.pt",
+    "sha256": "504fbe28648453be03a29634e2cf549031876404b7d0656e86d75755c40d77ea"
+  },
+  {
+    "file": "visibility_probe_v28/patch/visibility.pt",
+    "sha256": "85591888890f5dcc99ce5f23b3345f50bf3edbb7aa7e24355faa1acdcfc738e2"
+  },
+  {
+    "file": "visibility_probe_v28/fused/visibility.pt",
+    "sha256": "108ec905c1e5ecd57791291d2fd03f599cebca30fdc85bcf9663727fb5b7bff1"
+  },
+  {
+    "file": "visibility_probe_v28/raw/visibility.pt",
+    "sha256": "7ca86d09c03ddf709cb3eaff524c298fa3c0ca1036ccf03dd89fa55571755a75"
+  },
+  {
+    "file": "dense_measurement_v29/fit/measurement.pt",
+    "sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2"
+  }
+]

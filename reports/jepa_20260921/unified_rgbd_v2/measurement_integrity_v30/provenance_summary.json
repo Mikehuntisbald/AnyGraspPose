@@ -1,0 +1,1228 @@
+{
+  "actual_readout_v27": {
+    "status": {
+      "stage": "complete",
+      "pids": [
+        2028484,
+        2028485,
+        2028486
+      ],
+      "time": 1790372090.1287665,
+      "completed": true,
+      "production_changed": false
+    },
+    "workers": {
+      "rank0": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "715f7a962766a4eb7088b4774760fd50dcaab222d1c4e9172abbd60cd1ee5d1c",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank1": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "2e827c31010780689d396975cd06dd4264183728767b5754a017a3be098ee040",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank2": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "378aa502f3e86db5e63031be8b93f16868f7a9174b6e7ae7bf52dacd2298031e",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank3": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "8122a9932aff5a70d5df6a4d91484e7e5cc34e4dce751e4684eb015fdf0df40d",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank4": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "2c8f3176d89fba05ba7f07086e175dace89875910c50a8d72f1f6507f6dc5be9",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank5": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "03b5c5fea6e51fbd45cea612648c0aff56a789ac046f50b02fe6e0f4d373acee",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank6": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "a83781723dc66f1d448d8e22ec4f7cc4047359cd97693c84a1e4ad8a92fbc2e0",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank7": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "c1d5057a583b70d7aa5176ec6f681093e88d24b363ba96a48f7680ad401d7b30",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      }
+    },
+    "source_archive_sha256": "a5d43d413134c322eef4f71bb636f524c7f1c60d1aba045cfe2b2191be753a90"
+  },
+  "visibility_probe_v28": {
+    "status": {
+      "stage": "complete",
+      "pids": [
+        2028767,
+        2028768,
+        2028769
+      ],
+      "time": 1790372408.9347608,
+      "completed": true,
+      "production_changed": false
+    },
+    "workers": {
+      "rank0": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "1347c682487c23bbf588607730ac7705b4af140d5fb738ab2f48af4b25454b5f",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank1": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "f4af72aa2a65155352c14e9daed8a1e946208d42659b1b34be340846b0cb8e77",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank2": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "c4b5a97fb4de8b0ed13524b438007ee59f280a3db53e643f6848196db7da6cd9",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank3": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "5ddf5c37219523cc38bcc68d4c0f28fb2b564cdf5141ae252302e0e7ff6fdf93",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank4": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "ad3960138a83e92c9a34364129bedd774a127aaddd61c3111e64ef0309dc6c21",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank5": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "709eb154e222d3f428ecaa12f69720d3fb69a0b6814e85538690d33bf3c7fe5c",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank6": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "7b25589373de7f013d56f8eee7d9cd5ae4ae867537ccbeab6e13b453dfc68e27",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank7": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "262521ebc200bd10413ddcb7343bfa8f2f2be38dbe50e2f0e06617495b7da1fd",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      }
+    },
+    "source_archive_sha256": "fca877426c843d182177b7c80aad03ba667fcc4bdab5eea796bb9dd5ee8540f3"
+  },
+  "dense_measurement_v29": {
+    "status": {
+      "stage": "complete",
+      "pids": [
+        2029140
+      ],
+      "time": 1790373239.2132607,
+      "completed": true,
+      "production_changed": false
+    },
+    "workers": {
+      "rank0": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "601b4bd69c6a4d3a5648de8b8c0d7cd96ebb300d6429c2da8c340a6040afca7d",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank1": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "eef7be9a04c372cf1081353b2ca8b481394b46ca5198f480297f51134354c099",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank2": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "d0fe2b9c1c0f2c4ee825ae2e2fb831aad6378dd595721b8d3c6d375cd6ab68da",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank3": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "c936768a7e3075d67f74675e54b7b305cbf8c5ed35dc21d3fdd627606f932c4a",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank4": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "a91d632d51200dd3d5a8902a0a903610a878164cee51eb58e293786707c1dff9",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank5": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "7803d22a1105cec6776c4e3ae1edbaad3fe124cd8333a1f43e98e68bda000b14",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank6": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "1bd6a42974b3c812365552394ec14daf10042a833f46b46838f35d984ad0d5b6",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank7": {
+        "completed": true,
+        "groups": {
+          "train": 24,
+          "heldout": 8
+        },
+        "rows": 128,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "cache_sha256": "dbf3082051c15ac9dc077acc1448c0411fc00f202c21f548c022412cfa3fea48",
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      }
+    },
+    "source_archive_sha256": "06793de15c924ec35e3194f30c5a407d3ff6ca13778cb758306efe0ebfe2833e",
+    "strict_metrics.json": {
+      "domain": "Exact pack_completion domain: full valid 14x14 patch AND finite positive sensor depth; threshold 0.7 unchanged",
+      "source_checkpoint_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+      "cache_sha256": {
+        "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank0/records.pt": "601b4bd69c6a4d3a5648de8b8c0d7cd96ebb300d6429c2da8c340a6040afca7d",
+        "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank1/records.pt": "eef7be9a04c372cf1081353b2ca8b481394b46ca5198f480297f51134354c099",
+        "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank2/records.pt": "d0fe2b9c1c0f2c4ee825ae2e2fb831aad6378dd595721b8d3c6d375cd6ab68da",
+        "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank3/records.pt": "c936768a7e3075d67f74675e54b7b305cbf8c5ed35dc21d3fdd627606f932c4a",
+        "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank4/records.pt": "a91d632d51200dd3d5a8902a0a903610a878164cee51eb58e293786707c1dff9",
+        "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank5/records.pt": "7803d22a1105cec6776c4e3ae1edbaad3fe124cd8333a1f43e98e68bda000b14",
+        "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank6/records.pt": "1bd6a42974b3c812365552394ec14daf10042a833f46b46838f35d984ad0d5b6",
+        "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank7/records.pt": "dbf3082051c15ac9dc077acc1448c0411fc00f202c21f548c022412cfa3fea48"
+      },
+      "production_changed": false,
+      "pose_evaluated": false,
+      "metrics": {
+        "train": {
+          "all": {
+            "original": {
+              "tp": 1441216,
+              "fp": 112524,
+              "fn": 839404,
+              "precision": 0.9275786167569864,
+              "recall": 0.6319404372495199
+            },
+            "dense": {
+              "tp": 1977282,
+              "fp": 84334,
+              "fn": 303338,
+              "precision": 0.9590932549999612,
+              "recall": 0.8669931860634389
+            }
+          },
+          "augmented": {
+            "original": {
+              "tp": 129836,
+              "fp": 18040,
+              "fn": 308544,
+              "precision": 0.8780058968324813,
+              "recall": 0.29617227063278434
+            },
+            "dense": {
+              "tp": 365451,
+              "fp": 37419,
+              "fn": 72929,
+              "precision": 0.9071189217365403,
+              "recall": 0.8336397645878005
+            }
+          },
+          "natural": {
+            "original": {
+              "tp": 1311380,
+              "fp": 94484,
+              "fn": 530860,
+              "precision": 0.9327929301838584,
+              "recall": 0.7118399339933993
+            },
+            "dense": {
+              "tp": 1611831,
+              "fp": 46915,
+              "fn": 230409,
+              "precision": 0.9717165859028447,
+              "recall": 0.8749299765502866
+            }
+          }
+        },
+        "heldout": {
+          "all": {
+            "original": {
+              "tp": 507216,
+              "fp": 36492,
+              "fn": 280404,
+              "precision": 0.9328830916594937,
+              "recall": 0.6439856783728194
+            },
+            "dense": {
+              "tp": 684116,
+              "fp": 54408,
+              "fn": 103504,
+              "precision": 0.9263287313614723,
+              "recall": 0.8685863741398137
+            }
+          },
+          "augmented": {
+            "original": {
+              "tp": 15156,
+              "fp": 4360,
+              "fn": 101696,
+              "precision": 0.7765935642549703,
+              "recall": 0.12970252969568344
+            },
+            "dense": {
+              "tp": 94590,
+              "fp": 26290,
+              "fn": 22262,
+              "precision": 0.7825115817339511,
+              "recall": 0.8094855030294732
+            }
+          },
+          "natural": {
+            "original": {
+              "tp": 492060,
+              "fp": 32132,
+              "fn": 178708,
+              "precision": 0.9387018497039252,
+              "recall": 0.733577034086301
+            },
+            "dense": {
+              "tp": 589526,
+              "fp": 28118,
+              "fn": 81242,
+              "precision": 0.9544753935924254,
+              "recall": 0.878882117214894
+            }
+          }
+        }
+      }
+    }
+  },
+  "dense_measurement_pose_v29": {
+    "status": {
+      "stage": "complete",
+      "pids": [
+        2029547,
+        2029548,
+        2029549,
+        2029550,
+        2029551,
+        2029552,
+        2029553,
+        2029554
+      ],
+      "time": 1790373753.9789174,
+      "completed": true,
+      "production_changed": false
+    },
+    "workers": {
+      "rank0": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "baa08606b0b7a541db15362e6d5be1ea86e06dcf23ff8b57c07e22cb78d87df7",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank1": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "1f77f58659a5eebc24ea2f7c18701cc68ba23c7f07fa50dacbcdcdc556f68003",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank2": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "e8f8dfe24625fdc7d942c260980af348ba2b9b444d0284eaaef703cf142374c9",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank3": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "8b6eff24f9985d0665db54271006ebb014da2acc9c7c15d546a11db06d9bbbd3",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank4": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "46578a3b9333ee3e0aeefea4aeac6173c1b1996ba2a6a7a139e8a306f28403c0",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank5": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "44c2691327777da08e5455bcabd59e6da6f572c10e1180622788ccb4077decba",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank6": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "892b3c3fca1d0c0af67f180133a503dd18fd9be47c011adedb5a5705d5840779",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank7": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "dd5a4668a5ca7c071bb37b2a353e65cd6f8eaa33957586bed0397a72ef9d1e83",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      }
+    },
+    "source_archive_sha256": "7b31de91e949078ea6b08c0687463775599eef27d6a8d94840aa998f3936df33"
+  },
+  "dense_measurement_decomposition_v29": {
+    "status": {
+      "stage": "complete",
+      "pids": [
+        2029906,
+        2029907,
+        2029908,
+        2029909,
+        2029910,
+        2029911,
+        2029912,
+        2029913
+      ],
+      "time": 1790373893.2174666,
+      "completed": true,
+      "production_changed": false
+    },
+    "workers": {
+      "rank0": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "a261d57a507e35f0b6fd968d96519b41c9c2c008d73e3a50555698262453f0e3",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank1": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "94757456842677747bce1ff20334423a3c3840ff20e86fd5945fac89ffbf9911",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank2": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "f876f0d28166bce89e7c9a803494c58e97ee7068f81edf41ee1392b54e18652a",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank3": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "ebcf85c6eab95c6227ae5e28078de3e9c2b4e30e54f6148acf6aafb6f48721c5",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank4": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "3e22016793f6a58e33fc1cec070f6c4671420213d5d4d253db0aa7afc1aad1ac",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank5": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "ed69e6510d8c4a647013555b1881f4e18792272a13e545406bc487d10483d39a",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank6": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "bfaf0cf73f4707379a57b3f74ade2d4d3b21ad04a00b601950abf23d48882768",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank7": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "83ed7c2718e6b5b23b2ba91d8bdf5a84be9cc56b12d8e0bc171a5d690dc2ae55",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      }
+    },
+    "source_archive_sha256": "f3d5966bc00ac34b38669e8c6747a93544ae097586218d638e39c5548907a3a0",
+    "provenance_correction.json": {
+      "scope": "Provenance annotation only; original immutable receipts and numerical outputs retained",
+      "correction": "The generated worker receipt inherited teacher_geometry_input=false from the deployable two-arm probe. That field is incorrect for the additional oracle READOUT arms.",
+      "student_groundtruth_input": false,
+      "teacher_encoder_forward": false,
+      "oracle_readout_groundtruth_input": true,
+      "gt_pose_render_for_depth_consistency": false,
+      "interpretation": "GT intervention occurs after the complete student forward; oracle rows are diagnostic, not deployable metrics. Committed tool metadata is corrected for future runs."
+    }
+  },
+  "measurement_integrity_v30": {
+    "status": {
+      "stage": "complete",
+      "pids": [
+        2030164,
+        2030165,
+        2030166,
+        2030167,
+        2030168,
+        2030169,
+        2030170,
+        2030171
+      ],
+      "time": 1790374080.1262481,
+      "completed": true,
+      "production_changed": false
+    },
+    "workers": {
+      "rank0": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "11fb64b69ebb65c36fea2b64c5ebf19108e5d27500c8d01f2a4fcd96f34153f4",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank1": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "a46b259df4cf9a308e5c18e0e5116c1c2996942e1d161fd2fc79c5982e4a1939",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank2": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "d0f88822375e9d9380ab7222cbe922ac479602fca1d17f40791a307a587fe2cf",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank3": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "e8cd54133d8faf767e22fabd3b074318194e94648d6fe793b9369ba7ea8e49e5",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank4": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "eb87eaadd42360b8f68987dddbbd0471e0a4ecc3979759b98caed56ba06760fd",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank5": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "3a48357eae0115ed81d236de71f4f92d0dcab86638f9b8869e55075f4199b63b",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank6": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "e4da5dd90db9edbe453311853bbc079f274d3d871693607ffd13b1d59a07453f",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank7": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "69bdc03e137c8f4ddc115f48a2026b66a646888154f3eb3ef9583eb03a682b30",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      }
+    },
+    "source_archive_sha256": "0ff633a0ed5dee31a5e3e01b23b7ad9ab0b79c67669008f0b4a3a4ae5c115212",
+    "provenance_correction.json": {
+      "scope": "Provenance annotation only; original immutable receipts and numerical outputs retained",
+      "correction": "The generated worker receipt inherited teacher_geometry_input=false from the deployable two-arm probe. That field is incorrect for the additional oracle READOUT arms.",
+      "student_groundtruth_input": false,
+      "teacher_encoder_forward": false,
+      "oracle_readout_groundtruth_input": true,
+      "gt_pose_render_for_depth_consistency": true,
+      "interpretation": "GT intervention occurs after the complete student forward; oracle rows are diagnostic, not deployable metrics. Committed tool metadata is corrected for future runs."
+    }
+  },
+  "completion_mass_v31": {
+    "status": {
+      "stage": "complete",
+      "pids": [
+        2030469,
+        2030470,
+        2030471,
+        2030472,
+        2030473,
+        2030474,
+        2030475,
+        2030476
+      ],
+      "time": 1790374238.6652043,
+      "completed": true,
+      "production_changed": false
+    },
+    "workers": {
+      "rank0": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "8a379673ad6e2f6610bcdaece67ece6d56c0c70eaa3ccb3237ef615e8008ab2e",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank1": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "ecfcf066511369faed637e247c93646c1900644cb5a43c294cca1e0864fcd430",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank2": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "2ac492eb6667b946d5f73f59a5e10d1403f35abccbfb19b1c75f20e338432970",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank3": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "384062b6ac48a94673fb4f4e4effb2fe6d0929b6e3446e47205d805884cb6682",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank4": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "8f98840bc410676fd5d07d6d1c950eaad7d477fa7b43bd7df37e9e75cfeeffca",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank5": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "88e3f4565223b033767eebbb81131ebfc0ad1521515971f69393ecea3bc60136",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank6": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "dd65096cc5ddcc2574a45801fd55c2fd27b6d77001e1b4dcfadee8cee0c3b356",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      },
+      "rank7": {
+        "completed": true,
+        "groups": {
+          "train": 0,
+          "heldout": 8
+        },
+        "rows": 32,
+        "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+        "result_sha256": "1dcca4cd1402acffcb86d748d0c3b298dbee94f5e4ab20406d3a8fbc081367ee",
+        "selector_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+        "legacy_forward_exact": true,
+        "teacher_forward": false,
+        "teacher_geometry_input": false,
+        "optimizer_updates": 0,
+        "training_split_only": true,
+        "paired_rgbd_exact": true,
+        "scope": "Controlled training-split readout probe; estimated-pose augmentation uses GT only to construct supervised training cases"
+      }
+    },
+    "source_archive_sha256": "d346b6dab86d3fe92601d7aa39bdb88e18836a9804d079f889eeaa2308fdb44c"
+  }
+}

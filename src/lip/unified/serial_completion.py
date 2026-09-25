@@ -13,7 +13,8 @@ from .cad_surface import CADSurfaceTracker
 
 def pack_completion(mid, last, surface, geometry, rays, base, diameter,
                     visibility, support, observed_mid, observed_last, valid, measured_depth_m,
-                    feature_source='observed_visible'):
+                    feature_source='observed_visible', measurement_probability=None,
+                    completion_mass_ratio=None):
     """Prediction-only dense correspondences, camera points centered at base t/d."""
     if feature_source not in ('observed_visible','decoded'):
         raise ValueError('Unknown serial readout feature source')
@@ -22,10 +23,28 @@ def pack_completion(mid, last, surface, geometry, rays, base, diameter,
         expand = lambda x: x.reshape(-1, 1, 16, 16).repeat_interleave(14, -2).repeat_interleave(14, -1)
         vis = visibility.float().sigmoid()
         obj = expand(support.float().sigmoid()) * bounds
-        measured_mask = (measured_depth_m > 0) & torch.isfinite(measured_depth_m) & bounds & (expand(vis) >= .7)
+        if measurement_probability is None:
+            measurement_confidence = expand(vis)
+        else:
+            if measurement_probability.shape != measured_depth_m.shape:
+                raise ValueError('Dense measurement probability must match the depth image')
+            # A separately validated sensor-ownership decision. Pose gradients
+            # must not train the selector to call an occluder a measurement.
+            measurement_confidence = measurement_probability.detach().float().nan_to_num(nan=0.,posinf=0.,neginf=0.).clamp(0,1)
+        measured_mask = (measured_depth_m > 0) & torch.isfinite(measured_depth_m) & bounds & (measurement_confidence >= .7)
         # Hard source ownership; confidence remains soft. No GT visibility.
-        measured = expand(vis) * measured_mask
+        measured = measurement_confidence * measured_mask
         completed = .5 * (~measured_mask) * surface[:, 4:5].float().sigmoid().nan_to_num() * obj
+        if completion_mass_ratio is not None:
+            if completion_mass_ratio <= 0:
+                raise ValueError('Completion mass ratio must be positive')
+            measured_mass=measured.sum((1,2,3),keepdim=True)
+            completed_mass=completed.sum((1,2,3),keepdim=True)
+            # Per-pixel confidence alone does not limit aggregate influence:
+            # thousands of hypotheses can overwhelm a few real measurements.
+            # If depth is completely absent, retain the RGB/CAD completion path.
+            factor=(completion_mass_ratio*measured_mass/completed_mass.clamp_min(1e-8)).clamp_max(1.)
+            completed=completed*torch.where(measured_mass>0,factor,1.)
         weight = measured + completed
         measured_residual = (measured_depth_m.float() - base[:,2,3,None,None,None].float()) / diameter[:,None,None,None]
         depth = torch.where(measured_mask, measured_residual, surface[:, 3:4].float())

@@ -1,0 +1,9 @@
+{
+  "scope": "Provenance annotation only; original immutable receipts and numerical outputs retained",
+  "correction": "The generated worker receipt inherited teacher_geometry_input=false from the deployable two-arm probe. That field is incorrect for the additional oracle READOUT arms.",
+  "student_groundtruth_input": false,
+  "teacher_encoder_forward": false,
+  "oracle_readout_groundtruth_input": true,
+  "gt_pose_render_for_depth_consistency": false,
+  "interpretation": "GT intervention occurs after the complete student forward; oracle rows are diagnostic, not deployable metrics. Committed tool metadata is corrected for future runs."
+}

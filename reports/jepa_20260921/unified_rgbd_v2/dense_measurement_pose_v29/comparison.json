@@ -1,0 +1,70 @@
+{
+  "nonsym_rotation": {
+    "cases": 90,
+    "arms": {
+      "original": {
+        "rotation": 9.025431680679322,
+        "center_d": 0.022167964403827987,
+        "true_measurement_fraction_of_all_weight": 0.3558209083146519,
+        "false_measurement_fraction_of_all_weight": 0.028171981639105878
+      },
+      "dense": {
+        "rotation": 9.126010921266344,
+        "center_d": 0.028522977558895945,
+        "true_measurement_fraction_of_all_weight": 0.5298427143444617,
+        "false_measurement_fraction_of_all_weight": 0.05232105459112467
+      }
+    }
+  },
+  "nonsym_augmented_rotation": {
+    "cases": 48,
+    "arms": {
+      "original": {
+        "rotation": 9.340946346521378,
+        "center_d": 0.019321307287706684,
+        "true_measurement_fraction_of_all_weight": 0.024797691963613033,
+        "false_measurement_fraction_of_all_weight": 0.008093824076543873
+      },
+      "dense": {
+        "rotation": 9.79675130546093,
+        "center_d": 0.03174105928822731,
+        "true_measurement_fraction_of_all_weight": 0.2660894105987002,
+        "false_measurement_fraction_of_all_weight": 0.0637780338123169
+      }
+    }
+  },
+  "zero": {
+    "cases": 64,
+    "arms": {
+      "original": {
+        "rotation": 2.088719943771139,
+        "center_d": 0.019082214986156032,
+        "true_measurement_fraction_of_all_weight": 0.3860358474194072,
+        "false_measurement_fraction_of_all_weight": 0.03204336846943079
+      },
+      "dense": {
+        "rotation": 2.717363620409742,
+        "center_d": 0.023851843656302663,
+        "true_measurement_fraction_of_all_weight": 0.5747826776350848,
+        "false_measurement_fraction_of_all_weight": 0.0385285383175642
+      }
+    }
+  },
+  "mixed": {
+    "cases": 64,
+    "arms": {
+      "original": {
+        "rotation": 11.856817495077848,
+        "center_d": 0.045059014453727286,
+        "true_measurement_fraction_of_all_weight": 0.38595562137197703,
+        "false_measurement_fraction_of_all_weight": 0.03165649946095073
+      },
+      "dense": {
+        "rotation": 11.794449493288994,
+        "center_d": 0.04539122745336499,
+        "true_measurement_fraction_of_all_weight": 0.5199170371342916,
+        "false_measurement_fraction_of_all_weight": 0.0761943865225021
+      }
+    }
+  }
+}

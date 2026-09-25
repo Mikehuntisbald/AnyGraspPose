@@ -73,3 +73,37 @@ def test_decoded_readout_has_no_direct_observed_feature_input():
     args['observed_last']=torch.randn_like(args['observed_last'])*1000
     b=pack_completion(**args,feature_source='decoded')
     torch.testing.assert_close(a['feature'],b['feature'],rtol=0,atol=0)
+
+
+def test_dense_measurements_preserve_pixels_without_changing_feature_routing():
+    args=fixture();args['visibility'].fill_(-10)
+    probability=torch.zeros_like(args['measured_depth_m']);probability[...,::2]=.9
+    probability.requires_grad_();args['surface'].requires_grad_()
+    packet=pack_completion(**args,measurement_probability=probability)
+    torch.testing.assert_close(packet['camera'][:,2,:,::2],torch.full((1,224,112),3.))
+    assert packet['measured_weight'][...,::2].min()>.89
+    assert not packet['measured_weight'][...,1::2].any()
+    assert not packet['completed_weight'][...,::2].any()
+    assert packet['completed_weight'][...,1::2].sum()>0
+    packet['camera'].sum().backward()
+    assert probability.grad is None
+    assert args['surface'].grad[:,3].abs().sum()>0
+
+
+def test_dense_selector_cannot_create_depth_or_override_bounds():
+    args=fixture();probability=torch.ones_like(args['measured_depth_m'])
+    args['measured_depth_m'][...,:100]=0
+    args['valid'][:,0]=False
+    packet=pack_completion(**args,measurement_probability=probability)
+    assert not packet['measured_weight'][...,:100].any()
+    assert not packet['weight'][...,:14,:14].any()
+
+
+def test_aggregate_completion_limit_and_missing_depth_fallback():
+    args=fixture();prob=torch.zeros_like(args['measured_depth_m']);prob[...,:14,:14]=.9
+    p=pack_completion(**args,measurement_probability=prob,completion_mass_ratio=1.)
+    torch.testing.assert_close(p['completed_weight'].sum(),p['measured_weight'].sum())
+    args['measured_depth_m'].zero_()
+    p=pack_completion(**args,measurement_probability=prob,completion_mass_ratio=1.)
+    legacy=pack_completion(**args,measurement_probability=prob)
+    torch.testing.assert_close(p['completed_weight'],legacy['completed_weight'],rtol=0,atol=0)

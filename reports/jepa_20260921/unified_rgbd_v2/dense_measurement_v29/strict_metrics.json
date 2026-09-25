@@ -1,0 +1,118 @@
+{
+  "domain": "Exact pack_completion domain: full valid 14x14 patch AND finite positive sensor depth; threshold 0.7 unchanged",
+  "source_checkpoint_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+  "cache_sha256": {
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank0/records.pt": "601b4bd69c6a4d3a5648de8b8c0d7cd96ebb300d6429c2da8c340a6040afca7d",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank1/records.pt": "eef7be9a04c372cf1081353b2ca8b481394b46ca5198f480297f51134354c099",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank2/records.pt": "d0fe2b9c1c0f2c4ee825ae2e2fb831aad6378dd595721b8d3c6d375cd6ab68da",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank3/records.pt": "c936768a7e3075d67f74675e54b7b305cbf8c5ed35dc21d3fdd627606f932c4a",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank4/records.pt": "a91d632d51200dd3d5a8902a0a903610a878164cee51eb58e293786707c1dff9",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank5/records.pt": "7803d22a1105cec6776c4e3ae1edbaad3fe124cd8333a1f43e98e68bda000b14",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank6/records.pt": "1bd6a42974b3c812365552394ec14daf10042a833f46b46838f35d984ad0d5b6",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank7/records.pt": "dbf3082051c15ac9dc077acc1448c0411fc00f202c21f548c022412cfa3fea48"
+  },
+  "production_changed": false,
+  "pose_evaluated": false,
+  "metrics": {
+    "train": {
+      "all": {
+        "original": {
+          "tp": 1441216,
+          "fp": 112524,
+          "fn": 839404,
+          "precision": 0.9275786167569864,
+          "recall": 0.6319404372495199
+        },
+        "dense": {
+          "tp": 1977282,
+          "fp": 84334,
+          "fn": 303338,
+          "precision": 0.9590932549999612,
+          "recall": 0.8669931860634389
+        }
+      },
+      "augmented": {
+        "original": {
+          "tp": 129836,
+          "fp": 18040,
+          "fn": 308544,
+          "precision": 0.8780058968324813,
+          "recall": 0.29617227063278434
+        },
+        "dense": {
+          "tp": 365451,
+          "fp": 37419,
+          "fn": 72929,
+          "precision": 0.9071189217365403,
+          "recall": 0.8336397645878005
+        }
+      },
+      "natural": {
+        "original": {
+          "tp": 1311380,
+          "fp": 94484,
+          "fn": 530860,
+          "precision": 0.9327929301838584,
+          "recall": 0.7118399339933993
+        },
+        "dense": {
+          "tp": 1611831,
+          "fp": 46915,
+          "fn": 230409,
+          "precision": 0.9717165859028447,
+          "recall": 0.8749299765502866
+        }
+      }
+    },
+    "heldout": {
+      "all": {
+        "original": {
+          "tp": 507216,
+          "fp": 36492,
+          "fn": 280404,
+          "precision": 0.9328830916594937,
+          "recall": 0.6439856783728194
+        },
+        "dense": {
+          "tp": 684116,
+          "fp": 54408,
+          "fn": 103504,
+          "precision": 0.9263287313614723,
+          "recall": 0.8685863741398137
+        }
+      },
+      "augmented": {
+        "original": {
+          "tp": 15156,
+          "fp": 4360,
+          "fn": 101696,
+          "precision": 0.7765935642549703,
+          "recall": 0.12970252969568344
+        },
+        "dense": {
+          "tp": 94590,
+          "fp": 26290,
+          "fn": 22262,
+          "precision": 0.7825115817339511,
+          "recall": 0.8094855030294732
+        }
+      },
+      "natural": {
+        "original": {
+          "tp": 492060,
+          "fp": 32132,
+          "fn": 178708,
+          "precision": 0.9387018497039252,
+          "recall": 0.733577034086301
+        },
+        "dense": {
+          "tp": 589526,
+          "fp": 28118,
+          "fn": 81242,
+          "precision": 0.9544753935924254,
+          "recall": 0.878882117214894
+        }
+      }
+    }
+  }
+}

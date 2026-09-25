@@ -1,0 +1,489 @@
+{
+  "completed": true,
+  "steps": 1000,
+  "metrics": [
+    {
+      "step": 0,
+      "heldout": {
+        "all": {
+          "original": {
+            "precision": 0.9324804548685146,
+            "recall": 0.6412189124914346,
+            "bce": 0.06422925568280441,
+            "true_pixels": 509056.0,
+            "false_pixels": 36860.0
+          },
+          "dense": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "bce": 0.28121873464040614,
+            "true_pixels": 0.0,
+            "false_pixels": 0.0
+          }
+        },
+        "augmented": {
+          "original": {
+            "precision": 0.7765935642549703,
+            "recall": 0.1284406779661017,
+            "bce": 0.04657565630399264,
+            "true_pixels": 15156.0,
+            "false_pixels": 4360.0
+          },
+          "dense": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "bce": 0.18407985072432856,
+            "true_pixels": 0.0,
+            "false_pixels": 0.0
+          }
+        },
+        "natural": {
+          "original": {
+            "precision": 0.9382598784194529,
+            "recall": 0.7307423715171745,
+            "bce": 0.08103331109436981,
+            "true_pixels": 493900.0,
+            "false_pixels": 32500.0
+          },
+          "dense": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "bce": 0.37368300512241004,
+            "true_pixels": 0.0,
+            "false_pixels": 0.0
+          }
+        }
+      }
+    },
+    {
+      "step": 250,
+      "training": {
+        "all": {
+          "original": {
+            "precision": 0.9276250086646659,
+            "recall": 0.6273430609282653,
+            "bce": 0.0640851852694294,
+            "true_pixels": 1445288.0,
+            "false_pixels": 112764.0
+          },
+          "dense": {
+            "precision": 0.9253567169516107,
+            "recall": 0.8851440040558654,
+            "bce": 0.04597008272950365,
+            "true_pixels": 2039216.0,
+            "false_pixels": 164492.0
+          }
+        },
+        "augmented": {
+          "original": {
+            "precision": 0.8776924113761962,
+            "recall": 0.2923513460122479,
+            "bce": 0.04841438615384202,
+            "true_pixels": 130232.0,
+            "false_pixels": 18148.0
+          },
+          "dense": {
+            "precision": 0.8462398853922581,
+            "recall": 0.8407099114631036,
+            "bce": 0.034525465934187594,
+            "true_pixels": 374506.0,
+            "false_pixels": 68047.0
+          }
+        },
+        "natural": {
+          "original": {
+            "precision": 0.9328808403657021,
+            "recall": 0.7076432983921307,
+            "bce": 0.07985357496652974,
+            "true_pixels": 1315056.0,
+            "false_pixels": 94616.0
+          },
+          "dense": {
+            "precision": 0.9452376423426672,
+            "recall": 0.8957952172883618,
+            "bce": 0.05748597137254168,
+            "true_pixels": 1664710.0,
+            "false_pixels": 96445.0
+          }
+        }
+      },
+      "heldout": {
+        "all": {
+          "original": {
+            "precision": 0.9324804548685146,
+            "recall": 0.6412189124914346,
+            "bce": 0.06422925568280441,
+            "true_pixels": 509056.0,
+            "false_pixels": 36860.0
+          },
+          "dense": {
+            "precision": 0.8921229458277212,
+            "recall": 0.8893697851586118,
+            "bce": 0.05945876655871884,
+            "true_pixels": 706060.0,
+            "false_pixels": 85378.0
+          }
+        },
+        "augmented": {
+          "original": {
+            "precision": 0.7765935642549703,
+            "recall": 0.1284406779661017,
+            "bce": 0.04657565630399264,
+            "true_pixels": 15156.0,
+            "false_pixels": 4360.0
+          },
+          "dense": {
+            "precision": 0.7367122774133084,
+            "recall": 0.8327033898305085,
+            "bce": 0.04484902292817503,
+            "true_pixels": 98259.0,
+            "false_pixels": 35116.0
+          }
+        },
+        "natural": {
+          "original": {
+            "precision": 0.9382598784194529,
+            "recall": 0.7307423715171745,
+            "bce": 0.08103331109436981,
+            "true_pixels": 493900.0,
+            "false_pixels": 32500.0
+          },
+          "dense": {
+            "precision": 0.9236212946176886,
+            "recall": 0.8992628956276779,
+            "bce": 0.07336544565845421,
+            "true_pixels": 607801.0,
+            "false_pixels": 50262.0
+          }
+        }
+      },
+      "seconds": 8.333030738169327
+    },
+    {
+      "step": 500,
+      "training": {
+        "all": {
+          "original": {
+            "precision": 0.9276250086646659,
+            "recall": 0.6273430609282653,
+            "bce": 0.0640851852694294,
+            "true_pixels": 1445288.0,
+            "false_pixels": 112764.0
+          },
+          "dense": {
+            "precision": 0.9444782843332786,
+            "recall": 0.8736066643979749,
+            "bce": 0.0379171490512975,
+            "true_pixels": 2012636.0,
+            "false_pixels": 118314.0
+          }
+        },
+        "augmented": {
+          "original": {
+            "precision": 0.8776924113761962,
+            "recall": 0.2923513460122479,
+            "bce": 0.04841438615384202,
+            "true_pixels": 130232.0,
+            "false_pixels": 18148.0
+          },
+          "dense": {
+            "precision": 0.8839506291746326,
+            "recall": 0.824106998545337,
+            "bce": 0.026725594858606063,
+            "true_pixels": 367110.0,
+            "false_pixels": 48196.0
+          }
+        },
+        "natural": {
+          "original": {
+            "precision": 0.9328808403657021,
+            "recall": 0.7076432983921307,
+            "bce": 0.07985357496652974,
+            "true_pixels": 1315056.0,
+            "false_pixels": 94616.0
+          },
+          "dense": {
+            "precision": 0.9591302158256608,
+            "recall": 0.8854721367227018,
+            "bce": 0.04917839913337164,
+            "true_pixels": 1645526.0,
+            "false_pixels": 70118.0
+          }
+        }
+      },
+      "heldout": {
+        "all": {
+          "original": {
+            "precision": 0.9324804548685146,
+            "recall": 0.6412189124914346,
+            "bce": 0.06422925568280441,
+            "true_pixels": 509056.0,
+            "false_pixels": 36860.0
+          },
+          "dense": {
+            "precision": 0.9261769091490042,
+            "recall": 0.8762822967471482,
+            "bce": 0.04652150561710024,
+            "true_pixels": 695670.0,
+            "false_pixels": 55450.0
+          }
+        },
+        "augmented": {
+          "original": {
+            "precision": 0.7765935642549703,
+            "recall": 0.1284406779661017,
+            "bce": 0.04657565630399264,
+            "true_pixels": 15156.0,
+            "false_pixels": 4360.0
+          },
+          "dense": {
+            "precision": 0.7946623453932138,
+            "recall": 0.8145423728813559,
+            "bce": 0.03186477828811813,
+            "true_pixels": 96116.0,
+            "false_pixels": 24836.0
+          }
+        },
+        "natural": {
+          "original": {
+            "precision": 0.9382598784194529,
+            "recall": 0.7307423715171745,
+            "bce": 0.08103331109436981,
+            "true_pixels": 493900.0,
+            "false_pixels": 32500.0
+          },
+          "dense": {
+            "precision": 0.9514193040586002,
+            "recall": 0.8870611698979712,
+            "bce": 0.06047290741927469,
+            "true_pixels": 599554.0,
+            "false_pixels": 30614.0
+          }
+        }
+      },
+      "seconds": 15.250449883984402
+    },
+    {
+      "step": 750,
+      "training": {
+        "all": {
+          "original": {
+            "precision": 0.9276250086646659,
+            "recall": 0.6273430609282653,
+            "bce": 0.0640851852694294,
+            "true_pixels": 1445288.0,
+            "false_pixels": 112764.0
+          },
+          "dense": {
+            "precision": 0.9544225665672169,
+            "recall": 0.8671595573272959,
+            "bce": 0.036316407026295856,
+            "true_pixels": 1997783.0,
+            "false_pixels": 95402.0
+          }
+        },
+        "augmented": {
+          "original": {
+            "precision": 0.8776924113761962,
+            "recall": 0.2923513460122479,
+            "bce": 0.04841438615384202,
+            "true_pixels": 130232.0,
+            "false_pixels": 18148.0
+          },
+          "dense": {
+            "precision": 0.915966782434367,
+            "recall": 0.7856504678268053,
+            "bce": 0.02285502043819916,
+            "true_pixels": 349979.0,
+            "false_pixels": 32108.0
+          }
+        },
+        "natural": {
+          "original": {
+            "precision": 0.9328808403657021,
+            "recall": 0.7076432983921307,
+            "bce": 0.07985357496652974,
+            "true_pixels": 1315056.0,
+            "false_pixels": 94616.0
+          },
+          "dense": {
+            "precision": 0.9630097165679581,
+            "recall": 0.8866979487289869,
+            "bce": 0.04986162498351505,
+            "true_pixels": 1647804.0,
+            "false_pixels": 63294.0
+          }
+        }
+      },
+      "heldout": {
+        "all": {
+          "original": {
+            "precision": 0.9324804548685146,
+            "recall": 0.6412189124914346,
+            "bce": 0.06422925568280441,
+            "true_pixels": 509056.0,
+            "false_pixels": 36860.0
+          },
+          "dense": {
+            "precision": 0.9351422773819074,
+            "recall": 0.8736509432060946,
+            "bce": 0.04610545061695686,
+            "true_pixels": 693581.0,
+            "false_pixels": 48104.0
+          }
+        },
+        "augmented": {
+          "original": {
+            "precision": 0.7765935642549703,
+            "recall": 0.1284406779661017,
+            "bce": 0.04657565630399264,
+            "true_pixels": 15156.0,
+            "false_pixels": 4360.0
+          },
+          "dense": {
+            "precision": 0.8399514721664878,
+            "recall": 0.7627542372881356,
+            "bce": 0.027042584628849238,
+            "true_pixels": 90005.0,
+            "false_pixels": 17150.0
+          }
+        },
+        "natural": {
+          "original": {
+            "precision": 0.9382598784194529,
+            "recall": 0.7307423715171745,
+            "bce": 0.08103331109436981,
+            "true_pixels": 493900.0,
+            "false_pixels": 32500.0
+          },
+          "dense": {
+            "precision": 0.9512174365278238,
+            "recall": 0.8930118599531284,
+            "bce": 0.06425095451639831,
+            "true_pixels": 603576.0,
+            "false_pixels": 30954.0
+          }
+        }
+      },
+      "seconds": 22.40990962414071
+    },
+    {
+      "step": 1000,
+      "training": {
+        "all": {
+          "original": {
+            "precision": 0.9276250086646659,
+            "recall": 0.6273430609282653,
+            "bce": 0.0640851852694294,
+            "true_pixels": 1445288.0,
+            "false_pixels": 112764.0
+          },
+          "dense": {
+            "precision": 0.9592477829957662,
+            "recall": 0.8663131385036357,
+            "bce": 0.03182531388749847,
+            "true_pixels": 1995833.0,
+            "false_pixels": 84790.0
+          }
+        },
+        "augmented": {
+          "original": {
+            "precision": 0.8776924113761962,
+            "recall": 0.2923513460122479,
+            "bce": 0.04841438615384202,
+            "true_pixels": 130232.0,
+            "false_pixels": 18148.0
+          },
+          "dense": {
+            "precision": 0.9078278168678467,
+            "recall": 0.8338608731569779,
+            "bce": 0.0225148040585974,
+            "true_pixels": 371455.0,
+            "false_pixels": 37714.0
+          }
+        },
+        "natural": {
+          "original": {
+            "precision": 0.9328808403657021,
+            "recall": 0.7076432983921307,
+            "bce": 0.07985357496652974,
+            "true_pixels": 1315056.0,
+            "false_pixels": 94616.0
+          },
+          "dense": {
+            "precision": 0.9718353002834658,
+            "recall": 0.8740922103359952,
+            "bce": 0.04119380532038047,
+            "true_pixels": 1624378.0,
+            "false_pixels": 47076.0
+          }
+        }
+      },
+      "heldout": {
+        "all": {
+          "original": {
+            "precision": 0.9324804548685146,
+            "recall": 0.6412189124914346,
+            "bce": 0.06422925568280441,
+            "true_pixels": 509056.0,
+            "false_pixels": 36860.0
+          },
+          "dense": {
+            "precision": 0.9264368342810472,
+            "recall": 0.8658400177354992,
+            "bce": 0.047349743435838386,
+            "true_pixels": 687380.0,
+            "false_pixels": 54581.0
+          }
+        },
+        "augmented": {
+          "original": {
+            "precision": 0.7765935642549703,
+            "recall": 0.1284406779661017,
+            "bce": 0.04657565630399264,
+            "true_pixels": 15156.0,
+            "false_pixels": 4360.0
+          },
+          "dense": {
+            "precision": 0.7834615258192814,
+            "recall": 0.8079745762711864,
+            "bce": 0.03286184487325368,
+            "true_pixels": 95341.0,
+            "false_pixels": 26351.0
+          }
+        },
+        "natural": {
+          "original": {
+            "precision": 0.9382598784194529,
+            "recall": 0.7307423715171745,
+            "bce": 0.08103331109436981,
+            "true_pixels": 493900.0,
+            "false_pixels": 32500.0
+          },
+          "dense": {
+            "precision": 0.9544874884928958,
+            "recall": 0.8759424638401628,
+            "bce": 0.0611404410164696,
+            "true_pixels": 592039.0,
+            "false_pixels": 28230.0
+          }
+        }
+      },
+      "seconds": 29.56352357007563
+    }
+  ],
+  "cache_sha256": {
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank0/records.pt": "601b4bd69c6a4d3a5648de8b8c0d7cd96ebb300d6429c2da8c340a6040afca7d",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank1/records.pt": "eef7be9a04c372cf1081353b2ca8b481394b46ca5198f480297f51134354c099",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank2/records.pt": "d0fe2b9c1c0f2c4ee825ae2e2fb831aad6378dd595721b8d3c6d375cd6ab68da",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank3/records.pt": "c936768a7e3075d67f74675e54b7b305cbf8c5ed35dc21d3fdd627606f932c4a",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank4/records.pt": "a91d632d51200dd3d5a8902a0a903610a878164cee51eb58e293786707c1dff9",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank5/records.pt": "7803d22a1105cec6776c4e3ae1edbaad3fe124cd8333a1f43e98e68bda000b14",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank6/records.pt": "1bd6a42974b3c812365552394ec14daf10042a833f46b46838f35d984ad0d5b6",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/dense_measurement_v29/cache/rank7/records.pt": "dbf3082051c15ac9dc077acc1448c0411fc00f202c21f548c022412cfa3fea48"
+  },
+  "checkpoint_sha256": "7ee52e151998f31e222e0317ad31ba53727faf103e155cae06bba3760fc419f2",
+  "production_changed": false,
+  "inputs": "Actual RGB-D, estimated-pose CAD RGB/geometry, frozen static Utonia descriptor; no predicted completion or trainable DINO feature",
+  "scope": "Pixel selection on disjoint training sequences; BCE+0.5 Dice; fixed threshold0.7; no pose improvement claim"
+}
