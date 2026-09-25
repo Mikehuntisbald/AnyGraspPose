@@ -27,8 +27,8 @@ from lip.geometry.so3 import update
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--config',required=True);p.add_argument('--oracle',required=True)
-    p.add_argument('--stop-at',type=int);p.add_argument('--resume');p.add_argument('--adapt-from');p.add_argument('--fidelity-from');p.add_argument('--preflight',action='store_true');a=p.parse_args()
-    if sum(bool(x) for x in (a.resume,a.adapt_from,a.fidelity_from))>1:raise ValueError('Choose one continuation mechanism')
+    p.add_argument('--stop-at',type=int);p.add_argument('--resume');p.add_argument('--adapt-from');p.add_argument('--fidelity-from');p.add_argument('--readout-adapt-from');p.add_argument('--preflight',action='store_true');a=p.parse_args()
+    if sum(bool(x) for x in (a.resume,a.adapt_from,a.fidelity_from,a.readout_adapt_from))>1:raise ValueError('Choose one continuation mechanism')
     c=yaml.safe_load(Path(a.config).read_text());rank=int(os.environ.get('RANK',0));world=int(os.environ.get('WORLD_SIZE',1))
     if a.preflight:c['runtime']['formal']=False
     torch.cuda.set_device(0);torch.set_num_threads(2);torch.manual_seed(c['seed']);random.seed(c['seed']+rank);np.random.seed(c['seed']+rank)
@@ -48,6 +48,7 @@ def main():
     del states,oracle
     for name,parameter in model.named_parameters():
         active=not (name.startswith(('ema_teacher.','writer.','memory_position.','core.memory_')) or '.history.' in name or name.startswith('core.log_error.'))
+        if c.get('readout_adaptation',{}).get('freeze_readout') and is_pose_parameter(name):active=False
         parameter.requires_grad_(active)
     groups={}
     for name,parameter in model.named_parameters():
@@ -70,11 +71,31 @@ def main():
         initializers_sha256=factory.initializers_sha256,weights=c['weights'],source_checkpoint_sha256=c['serial_completion']['source_sha256'],
         oracle_readout_sha256=gate['checkpoint_sha256'],training_split='train',official_test_access=False,teacher_input=False,
         crop_reference='student own detached feedback; GT noisy/zero pose curricula are training-only',paired_estimates=True)
+    if c.get('readout_adaptation'):provenance['readout_adaptation']=c['readout_adaptation']
     out=Path(c['paths']['output']);out=out.parent.parent/'preflight_run' if a.preflight else out
     if rank==0:out.mkdir(parents=True,exist_ok=bool(a.resume or a.adapt_from));atomic_json(out/'provenance.json',provenance)
     if world>1:dist.barrier()
     start=0
-    if a.fidelity_from:
+    if a.readout_adapt_from:
+        from lip.unified.readout_adaptation import install_readout_and_restore_nonpose
+        from lip.engine.jepa_checkpoint import restore_rng
+        plan=c['readout_adaptation']
+        if not plan['freeze_readout'] or c['serial_completion'].get('oracle_rehearsal_weight',0):raise ValueError('This stage freezes the readout and disables rehearsal')
+        if sha(a.readout_adapt_from)!=plan['source_sha256'] or sha(plan['checkpoint'])!=plan['checkpoint_sha256']:raise ValueError('Readout adaptation checkpoint changed')
+        parent=torch.load(a.readout_adapt_from,map_location='cpu',weights_only=False)
+        readout=torch.load(plan['checkpoint'],map_location='cpu',weights_only=False)
+        if parent['step']!=plan['source_step'] or len(parent['rng'])!=world:raise ValueError('Parent step/world mismatch')
+        if readout['source_sha256']!=plan['source_sha256'] or readout['conditioning']!=plan['conditioning']:raise ValueError('Readout lineage mismatch')
+        for key in ('split_hash','mesh_hash','initializers_sha256','weights'):
+            if parent['provenance'][key]!=provenance[key]:raise ValueError('Readout adaptation data changed')
+        migration=install_readout_and_restore_nonpose(model,opt,parent,readout['model'])
+        restore_rng(parent['rng'][rank]);start=parent['step'];del parent,readout
+        scheduler.base_lrs=[g['initial_lr'] for g in opt.param_groups];scheduler.last_epoch=start;scheduler._step_count=1
+        for group,base_lr in zip(opt.param_groups,scheduler.base_lrs):group['lr']=base_lr*rate(start)
+        scheduler._last_lr=[g['lr'] for g in opt.param_groups]
+        if rank==0:atomic_json(out/'readout_adaptation.json',dict(migration,source_step=start,source_sha256=plan['source_sha256'],readout_sha256=plan['checkpoint_sha256'],all_rank_rng_restored=True,schedule_reset=True))
+        save(out/'stage_start.pt',model,opt,scheduler,start,c,provenance)
+    elif a.fidelity_from:
         plan=c['geometry_priority']
         if sha(a.fidelity_from)!=plan['source_sha256']:raise ValueError('Fidelity source hash mismatch')
         previous=torch.load(a.fidelity_from,map_location='cpu',weights_only=False)
@@ -111,7 +132,7 @@ def main():
     else:save(out/'initial.pt',model,opt,scheduler,0,c,provenance)
     batch=1 if a.preflight else c['runtime']['microbatch']
     # Keep rank model initialization equal; rank RNG differs only afterwards.
-    if not (a.resume or a.adapt_from or a.fidelity_from):torch.manual_seed(c['seed']+rank)
+    if not (a.resume or a.adapt_from or a.fidelity_from or a.readout_adapt_from):torch.manual_seed(c['seed']+rank)
     rehearsal_weight=c['serial_completion'].get('oracle_rehearsal_weight',0.)
     oracle_pack=oracle_truth=oracle_diameter=None
     if rehearsal_weight:

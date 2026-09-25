@@ -54,6 +54,11 @@ def build_model(config,device='cuda'):
         if config.get('staged_rope',{}).get('enabled',False):
             from .staged_rope import enable_staged_rope
             enable_staged_rope(model,config['staged_rope'])
+        if config.get('readout_adaptation'):
+            if not isinstance(model,SerialCompletionTracker):
+                raise ValueError('Shape-conditioned readout requires serial completion')
+            from .serial_completion import CompletionRelations
+            model.geometry_readout=CompletionRelations(config['readout_adaptation']['conditioning']).to(device)
         model.disable_history=config['runtime'].get('disable_history',False)
         for block in model.core.blocks:block.disable_history=model.disable_history
         model.enable_compilation(config['runtime'].get('compile_frame',False))
@@ -61,7 +66,7 @@ def build_model(config,device='cuda'):
             from .encoder_performance import compile_encoders
             compile_encoders(model)
         if isinstance(model,SerialCompletionTracker):
-            model.model_version='serial-decoded-completion-pose-v21'
+            model.model_version='shape-conditioned-serial-completion-v24' if config.get('readout_adaptation') else 'serial-decoded-completion-pose-v21'
         return model
     if config['architecture_id']=='stream_dino_fp_staticutonia_jepa_rgbd_v3':
         return build_fp_model(config,device)
