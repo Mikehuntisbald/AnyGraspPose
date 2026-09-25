@@ -1,7 +1,8 @@
-"""V21: decoded completion is the only visual input to the pose readout.
+"""Serial decoded completion, with an explicit V32 shared-patch experiment.
 
-The pose branch has no access to JEPA patch latents, FP features or teacher
-tensors. Measured camera depth has priority at predicted visible object pixels.
+Legacy modes do not read raw patches; V32 may read the SAME unified JEPA patch
+alongside its decoded outputs. Neither mode reads FP features or teacher tensors.
+Measured camera depth has priority at predicted visible object pixels.
 Appearance routing is explicit: legacy observed-visible or all JEPA-decoded. Canonical surface coordinates are always predicted: observed
 camera XYZ transformed by the *estimated* pose is not a correspondence target.
 """
@@ -90,6 +91,9 @@ or delta-pose shortcut: object attention and the learned head read these tokens.
             nn.init.zeros_(self.precondition[-1].weight)
             nn.init.zeros_(self.precondition[-1].bias)
 
+    def encode_appearance(self, packet):
+        return self.appearance(packet['feature'])
+
     def forward(self, packet, base):
         with torch.autocast(base.device.type, enabled=False):
             x = packet['xyz'].float().flatten(2).transpose(1, 2)
@@ -116,7 +120,7 @@ or delta-pose shortcut: object attention and the learned head read these tokens.
             moments = torch.cat((scatter.flatten(1) / scale[:, None],
                 (cov - scatter).flatten(1) / scale[:, None], mean_p, mean_y - mean_p), -1)
             residual_scale = ((residual.square().sum(-1) * wn).sum(-1) + 1e-12).sqrt().div(.1).clamp_max(3.)
-        tokens = self.combine(torch.cat((self.appearance(packet['feature']), self.relation(pooled)), -1))
+        tokens = self.combine(torch.cat((self.encode_appearance(packet), self.relation(pooled)), -1))
         global_token = self.moments(moments)[:, None]
         if self.conditioning == 'shape_conditioned':
             from .shape_conditioned import normalized_relation
@@ -167,6 +171,8 @@ class SerialCompletionTracker(CADSurfaceTracker):
             surface, geometry_image, rays, base, diameter, evidence_logits,
             self.core.support(patch).squeeze(-1), mid, last, valid, measured_depth,
             feature_source=getattr(self,'readout_feature_source','observed_visible'))
+        if hasattr(self.geometry_readout,'patch_projection'):
+            packet['patch_feature']=torch.where(valid[...,None],patch,0.)
         return self.read_completion(packet, base)
 
 

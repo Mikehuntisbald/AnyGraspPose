@@ -71,6 +71,14 @@ def build_model(config,device='cuda'):
             if model.readout_feature_source not in ('observed_visible','decoded'):
                 raise ValueError('Unknown serial readout feature source')
             if model.readout_feature_source=='decoded':model.model_version='serial-decoded-all-patches-v26'
+            if config.get('shared_patch_joint'):
+                if model.readout_feature_source!='decoded' or config.get('readout_adaptation'):
+                    raise ValueError('Shared-patch experiment requires all-decoded legacy relation readout')
+                from .shared_patch_joint import SharedPatchRelations
+                with torch.random.fork_rng(devices=[]):
+                    torch.manual_seed(config['seed']+32)
+                    model.geometry_readout=SharedPatchRelations(config['shared_patch_joint']['patch_scale']).to(device)
+                model.model_version='shared-patch-and-decoded-content-v32'
         return model
     if config['architecture_id']=='stream_dino_fp_staticutonia_jepa_rgbd_v3':
         return build_fp_model(config,device)

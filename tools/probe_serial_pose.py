@@ -94,6 +94,8 @@ def main():
                     with torch.autocast('cuda',dtype=torch.bfloat16):result,_=model(obs)
                     packet=pack_completion(result['f_mid_predicted'],result['f_predicted'],torch.cat((result['surface_xyz'],result['surface_depth_residual'],result['geometry_valid_logits']),1),
                         obs.geometry_image,obs.crop_rays,obs.base,obs.diameter,result['evidence_logits'],result['support_logits'],obs.mid,obs.last,valid,obs.measured_depth_m,feature_source=getattr(model,'readout_feature_source','observed_visible'))
+                    if hasattr(model.geometry_readout,'patch_projection'):
+                        packet['patch_feature']=torch.where(valid[...,None],result['patch_latent'],0.)
                     def read(pack):
                         with torch.autocast('cuda',dtype=torch.bfloat16):
                             obj,metrics=model.read_completion(pack,obs.base)
@@ -109,6 +111,12 @@ def main():
                         off=dict(packet,weight=packet['measured_weight'],completed_weight=torch.zeros_like(packet['weight']))
                         poses['completion_off']=read(off)
                         feature_off=dict(packet,feature=torch.zeros_like(packet['feature']))
+                        if 'patch_feature' in packet:
+                            original_scale=model.geometry_readout.patch_scale
+                            model.geometry_readout.patch_scale=0.
+                            poses['shared_patch_off']=read(packet)
+                            model.geometry_readout.patch_scale=original_scale
+                            feature_off['patch_feature']=torch.zeros_like(packet['patch_feature'])
                         poses['appearance_off']=read(feature_off)
                         if a.geometry_components:
                             # Keep all original confidence/support and real measurement ownership.

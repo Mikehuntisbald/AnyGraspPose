@@ -27,8 +27,8 @@ from lip.geometry.so3 import update
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--config',required=True);p.add_argument('--oracle',required=True)
-    p.add_argument('--stop-at',type=int);p.add_argument('--resume');p.add_argument('--adapt-from');p.add_argument('--fidelity-from');p.add_argument('--readout-adapt-from');p.add_argument('--preflight',action='store_true');a=p.parse_args()
-    if sum(bool(x) for x in (a.resume,a.adapt_from,a.fidelity_from,a.readout_adapt_from))>1:raise ValueError('Choose one continuation mechanism')
+    p.add_argument('--stop-at',type=int);p.add_argument('--resume');p.add_argument('--adapt-from');p.add_argument('--fidelity-from');p.add_argument('--readout-adapt-from');p.add_argument('--shared-patch-from');p.add_argument('--preflight',action='store_true');a=p.parse_args()
+    if sum(bool(x) for x in (a.resume,a.adapt_from,a.fidelity_from,a.readout_adapt_from,a.shared_patch_from))>1:raise ValueError('Choose one continuation mechanism')
     c=yaml.safe_load(Path(a.config).read_text());rank=int(os.environ.get('RANK',0));world=int(os.environ.get('WORLD_SIZE',1))
     if a.preflight:c['runtime']['formal']=False
     torch.cuda.set_device(0);torch.set_num_threads(2);torch.manual_seed(c['seed']);random.seed(c['seed']+rank);np.random.seed(c['seed']+rank)
@@ -37,15 +37,20 @@ def main():
     if world>1:dist.init_process_group('nccl')
     if not a.preflight and (world!=c['runtime']['world'] or world*c['runtime']['microbatch']!=c['training']['effective_batch']):
         raise ValueError('Formal effective batch/world mismatch')
-    gate=json.loads((Path(a.oracle)/'receipt.json').read_text())
-    if not gate['passed'] or sha(Path(a.oracle)/'readout.pt')!=gate['checkpoint_sha256']:raise ValueError('Oracle readout gate not passed')
+    shared_plan=c.get('shared_patch_joint')
+    gate=dict(checkpoint_sha256=None) if shared_plan else json.loads((Path(a.oracle)/'receipt.json').read_text())
+    if not shared_plan and (not gate['passed'] or sha(Path(a.oracle)/'readout.pt')!=gate['checkpoint_sha256']):raise ValueError('Oracle readout gate not passed')
     model,source,new=initialize(c);del source
-    oracle=torch.load(Path(a.oracle)/'readout.pt',map_location='cpu',weights_only=False)
-    states=model.state_dict()
-    for key,value in oracle['model'].items():
-        if not is_pose_parameter(key) or key not in states or states[key].shape!=value.shape:raise ValueError('Readout migration mismatch: '+key)
-        states[key].copy_(value)
-    del states,oracle
+    if shared_plan:
+        if c['serial_completion'].get('oracle_rehearsal_weight',0):raise ValueError('Shared-patch trial uses actual predictions only')
+        if not (a.shared_patch_from or a.resume):raise ValueError('Explicit shared-patch migration or full resume required')
+    else:
+        oracle=torch.load(Path(a.oracle)/'readout.pt',map_location='cpu',weights_only=False)
+        states=model.state_dict()
+        for key,value in oracle['model'].items():
+            if not is_pose_parameter(key) or key not in states or states[key].shape!=value.shape:raise ValueError('Readout migration mismatch: '+key)
+            states[key].copy_(value)
+        del states,oracle
     for name,parameter in model.named_parameters():
         active=not (name.startswith(('ema_teacher.','writer.','memory_position.','core.memory_')) or '.history.' in name or name.startswith('core.log_error.'))
         if c.get('readout_adaptation',{}).get('freeze_readout') and is_pose_parameter(name):active=False
@@ -60,6 +65,10 @@ def main():
     maximum=c['serial_completion']['joint_steps'];stop=a.stop_at or maximum
     if not 0<stop<=maximum:raise ValueError('Stop exceeds bounded budget')
     def rate(step):
+        if shared_plan:
+            progress=max(0,step-shared_plan['source_step']);span=maximum-shared_plan['source_step']
+            boundary=shared_plan['boundary_lr_factor']
+            return (boundary+(1-boundary)*min(1.,progress/50))*(.5+.25*(1+math.cos(math.pi*min(progress,span)/span)))
         if 'geometry_priority' in c:
             origin=c['geometry_priority']['source_step'];progress=max(0,step-origin)
             return (.3+.7*min(1.,progress/50))*(.5+.5*.5*(1+math.cos(math.pi*min(progress,maximum-origin)/(maximum-origin))))
@@ -72,11 +81,27 @@ def main():
         oracle_readout_sha256=gate['checkpoint_sha256'],training_split='train',official_test_access=False,teacher_input=False,
         crop_reference='student own detached feedback; GT noisy/zero pose curricula are training-only',paired_estimates=True)
     if c.get('readout_adaptation'):provenance['readout_adaptation']=c['readout_adaptation']
+    if shared_plan:provenance['shared_patch_joint']=shared_plan
     out=Path(c['paths']['output']);out=out.parent.parent/'preflight_run' if a.preflight else out
     if rank==0:out.mkdir(parents=True,exist_ok=bool(a.resume or a.adapt_from));atomic_json(out/'provenance.json',provenance)
     if world>1:dist.barrier()
     start=0
-    if a.readout_adapt_from:
+    if a.shared_patch_from:
+        from lip.unified.shared_patch_joint import restore_with_patch_extension
+        from lip.engine.jepa_checkpoint import restore_rng
+        if sha(a.shared_patch_from)!=shared_plan['source_sha256']:raise ValueError('Shared-patch parent changed')
+        parent=torch.load(a.shared_patch_from,map_location='cpu',weights_only=False)
+        if parent['step']!=shared_plan['source_step'] or len(parent['rng'])!=world:raise ValueError('Shared-patch step/world mismatch')
+        for key in ('split_hash','mesh_hash','initializers_sha256','weights'):
+            if parent['provenance'][key]!=provenance[key]:raise ValueError('Shared-patch data changed')
+        migration=restore_with_patch_extension(model,opt,parent)
+        restore_rng(parent['rng'][rank]);start=parent['step'];del parent
+        scheduler.base_lrs=[g['initial_lr'] for g in opt.param_groups];scheduler.last_epoch=start;scheduler._step_count=1
+        for group,base_lr in zip(opt.param_groups,scheduler.base_lrs):group['lr']=base_lr*rate(start)
+        scheduler._last_lr=[g['lr'] for g in opt.param_groups]
+        if rank==0:atomic_json(out/'shared_patch_start.json',dict(migration,source_sha256=shared_plan['source_sha256'],all_rank_rng_restored=True,oracle_training=False))
+        save(out/'stage_start.pt',model,opt,scheduler,start,c,provenance)
+    elif a.readout_adapt_from:
         from lip.unified.readout_adaptation import install_readout_and_restore_nonpose
         from lip.engine.jepa_checkpoint import restore_rng
         plan=c['readout_adaptation']
@@ -132,7 +157,7 @@ def main():
     else:save(out/'initial.pt',model,opt,scheduler,0,c,provenance)
     batch=1 if a.preflight else c['runtime']['microbatch']
     # Keep rank model initialization equal; rank RNG differs only afterwards.
-    if not (a.resume or a.adapt_from or a.fidelity_from or a.readout_adapt_from):torch.manual_seed(c['seed']+rank)
+    if not (a.resume or a.adapt_from or a.fidelity_from or a.readout_adapt_from or a.shared_patch_from):torch.manual_seed(c['seed']+rank)
     rehearsal_weight=c['serial_completion'].get('oracle_rehearsal_weight',0.)
     oracle_pack=oracle_truth=oracle_diameter=None
     if rehearsal_weight:
@@ -239,6 +264,12 @@ def main():
                 names=('core.src_proj.weight','core.src_proj.bias','visibility.1.weight','visibility.1.bias')
                 named=dict(model.named_parameters());parameter_path_norms={name:None if named[name].grad is None else float(named[name].grad.norm()) for name in names}
                 if not all(v is not None and v>0 and math.isfinite(v) for v in parameter_path_norms.values()):raise AssertionError('Shared preview detached a training parameter: '+str(parameter_path_norms))
+            if a.preflight and shared_plan:
+                gradient=model.geometry_readout.patch_projection[-1].weight.grad
+                value=None if gradient is None else float(gradient.norm())
+                if value is None or not math.isfinite(value) or ((value>0)!=(shared_plan['patch_scale']>0)):
+                    raise AssertionError('Shared-patch gradient did not match declared arm')
+                parameter_path_norms=dict(parameter_path_norms or {},shared_patch_projection=value)
             communication=time.monotonic();synchronize_gradients(model.parameters());communication=time.monotonic()-communication
             norm=torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.grad is not None],1.)
             if not torch.isfinite(norm):raise FloatingPointError('Nonfinite gradient; do not advance')
