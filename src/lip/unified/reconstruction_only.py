@@ -98,6 +98,9 @@ def initialize_training(model, config, world):
             raise ValueError("EMA migration state mismatch")
     else:load_core(model, source['model'])
     configure_reconstruction_only(model)
+    if config.get("joint_pose",{}).get("enabled"):
+        from .joint_pose import enable_joint_pose
+        enable_joint_pose(model)
     current = core_state(model)
     if not all(torch.equal(v.cpu(), current[k].cpu()) for k, v in source['model'].items() if k not in replaced):
         raise ValueError('Source tensors changed during recovery-only initialization')
@@ -136,5 +139,7 @@ def initialize_training(model, config, world):
                        readout_initialization='all shared source tensors retained; DINO layer configuration explicit')
     if config.get('staged_rope',{}).get('enabled'):
         receipt.update(staged_rope=config['staged_rope'],dpt_initialization='existing shared DPT retained; complete coarse pass then last shared block recomputed; four-level DPT in both passes',new_parameter_count=0)
+    if config.get("joint_pose",{}).get("enabled"):
+        receipt.update(kind="joint_jepa_pose",pose_loss_enabled=True,pose_parameters_frozen=False)
     model.migration.update(receipt)
     return source, receipt, reference

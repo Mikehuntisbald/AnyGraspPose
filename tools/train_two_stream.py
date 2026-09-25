@@ -117,16 +117,21 @@ def main():
     elif recovery_source is not None:
         adaptation=recovery_receipt
         if not c['reconstruction_only'].get('optimizer_reset',True):
-            from lip.unified.staged_rope import preserve_adam
-            preserve_adam(optimizer,recovery_source)
-            # Scheduler starts at the new stage boundary; Adam moments/steps and
-            # the boundary learning rates are inherited exactly from the source.
-            if 'lr_intervention' in c:
-                from lip.unified.lr_intervention import apply_rates
-                adaptation['lr_intervention'] = apply_rates(optimizer, scheduler, recovery_source, c)
-            if any(abs(g['lr']-lr)>1e-12 for g,lr in zip(optimizer.param_groups,scheduler.get_last_lr())):
-                raise ValueError('Continuation boundary learning rate changed')
-            adaptation.update(optimizer_exact="lr_intervention" not in c,non_lr_optimizer_exact=True,scheduler_reset=True)
+            if c.get('joint_pose',{}).get('enabled'):
+                from lip.unified.joint_pose import inherit_optimizer
+                adaptation['joint_optimizer']=inherit_optimizer(optimizer,recovery_source)
+                adaptation.update(optimizer_exact=False,existing_moments_exact=True,scheduler_reset=True)
+            else:
+                from lip.unified.staged_rope import preserve_adam
+                preserve_adam(optimizer,recovery_source)
+                # Scheduler starts at the new stage boundary; Adam moments/steps and
+                # the boundary learning rates are inherited exactly from the source.
+                if 'lr_intervention' in c:
+                    from lip.unified.lr_intervention import apply_rates
+                    adaptation['lr_intervention'] = apply_rates(optimizer, scheduler, recovery_source, c)
+                if any(abs(g['lr']-lr)>1e-12 for g,lr in zip(optimizer.param_groups,scheduler.get_last_lr())):
+                    raise ValueError('Continuation boundary learning rate changed')
+                adaptation.update(optimizer_exact="lr_intervention" not in c,non_lr_optimizer_exact=True,scheduler_reset=True)
         restore_rng(recovery_source['rng'][rank])
     elif a.history_from:
         from lip.unified.history_repair import adapt_history
@@ -195,7 +200,9 @@ def main():
             if 'horizon_continuation' in c:row['horizon_updates']=step+1-c['horizon_continuation']['source_step']
             if getattr(model, 'trainable_encoder', False):
                 row.update(ema_updates=int(model.ema_updates),ema_momentum=model.ema_momentum,encoder_trainable=True)
-            if 'reconstruction_only' in c:
+            if c.get('joint_pose',{}).get('enabled'):
+                row.update(phase='joint_jepa_pose',pose_loss_enabled=True,pose_metrics_computed=True,pose_parameters_frozen=False)
+            elif 'reconstruction_only' in c:
                 row.update(phase='jepa_recovery_only',pose_loss_enabled=False,pose_metrics_computed=False,
                     pose_parameters_frozen=True,crop_reference_sha256=c['reconstruction_only'].get('reference',{}).get('sha256',c['reconstruction_only']['source_sha256']))
             if c.get('recovery_focus',{}).get('enabled',False):

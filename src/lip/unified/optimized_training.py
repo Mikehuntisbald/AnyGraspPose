@@ -60,6 +60,9 @@ class OptimizedEpisode:
             if reference_model is None or any(p.requires_grad for p in reference_model.parameters()):
                 raise ValueError('Recovery-only training requires an immutable crop reference')
             objective=recovery_objective
+            if config.get("joint_pose",{}).get("enabled"):
+                from .joint_pose import joint_objective
+                objective=joint_objective
         self.loss=torch.compile(objective,fullgraph=True,dynamic=False) if config['runtime'].get('compile_loss',False) else objective
 
     def __call__(self,episodes,targets,*,backward=True,segmented=True):
@@ -216,6 +219,9 @@ def make_optimizer(model,config,*,fused=True):
             category='new' if name.startswith(('geometry_readout.','cad_surface.')) else ('pose' if name.startswith('head.') else 'predictor')
         if getattr(model,'surface_decoder_kind','mlp')=='dpt' and name.startswith('surface_head.'):
             category='new'
+        if config.get("joint_pose",{}).get("enabled"):
+            from .reconstruction_only import is_pose_parameter
+            if is_pose_parameter(name):category="pose"
         if category is not None:
             groups.setdefault((category,p.ndim>1),[]).append((name,p))
     t=config['training']
