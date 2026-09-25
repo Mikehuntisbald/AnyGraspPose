@@ -39,10 +39,23 @@ def diagnostic_rigid_fit(packet,base,diameter,robust=False):
 
 def main():
     p=argparse.ArgumentParser();p.add_argument('--config',required=True);p.add_argument('--checkpoint',required=True)
-    p.add_argument('--out',required=True);p.add_argument('--rank',type=int,default=0);p.add_argument('--world',type=int,default=8);p.add_argument('--geometry-components',action='store_true');a=p.parse_args()
+    p.add_argument('--out',required=True);p.add_argument('--rank',type=int,default=0);p.add_argument('--world',type=int,default=8);p.add_argument('--geometry-components',action='store_true');p.add_argument('--readout-checkpoint');a=p.parse_args()
     torch.set_num_threads(2);torch.cuda.set_device(0);cv2.setNumThreads(0)
     c=yaml.safe_load(Path(a.config).read_text());model=build_model(c)
     saved=torch.load(a.checkpoint,map_location='cpu',weights_only=False);load_core(model,saved['model']);del saved
+    readout_identity=None
+    if a.readout_checkpoint:
+        from lip.unified.serial_completion import CompletionRelations
+        from lip.unified.reconstruction_only import is_pose_parameter
+        saved=torch.load(a.readout_checkpoint,map_location='cpu',weights_only=False)
+        if saved['source_sha256']!=sha(a.checkpoint):raise ValueError('Readout source mismatch')
+        model.geometry_readout=CompletionRelations(saved['conditioning']).cuda()
+        states=model.state_dict()
+        expected={k for k in states if is_pose_parameter(k)}
+        if set(saved['model'])!=expected:raise ValueError('Readout parameter keys mismatch')
+        for k,v in saved['model'].items():states[k].copy_(v)
+        readout_identity=dict(sha256=sha(a.readout_checkpoint),conditioning=saved['conditioning'],step=saved['step'])
+        del saved,states
     model.requires_grad_(False).eval();model.fast_geometry=model.vector_geometry=True
     store=make_store(c,model);renderer=FullTextureRenderer('cuda')
     root=Path(c['paths']['data_root']);index=Path(c['paths']['index_root']);audit=json.loads((index/'audit.json').read_text())
@@ -157,6 +170,6 @@ def main():
                     writer.write(json.dumps(row,allow_nan=False)+'\n');rows+=1
             writer.flush();print(json.dumps(dict(rank=a.rank,physical=physical,rows=rows)),flush=True)
     (out/'receipt.json').write_text(json.dumps(dict(completed=True,rows=rows,checkpoint_sha256=sha(a.checkpoint),rank=a.rank,world=a.world,
-        geometry_components=a.geometry_components,seconds=time.monotonic()-begun,oracle_conditions=True,official_test_access=False,optimizer_updates=0),indent=2)+'\n')
+        readout_override=readout_identity,geometry_components=a.geometry_components,seconds=time.monotonic()-begun,oracle_conditions=True,official_test_access=False,optimizer_updates=0),indent=2)+'\n')
 
 if __name__=='__main__':main()

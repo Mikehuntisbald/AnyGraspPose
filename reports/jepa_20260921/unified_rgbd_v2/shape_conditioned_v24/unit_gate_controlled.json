@@ -1,0 +1,119 @@
+{
+  "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+  "rows": 476,
+  "groups": {
+    "nonsym_rotation": {
+      "cases": 249,
+      "physical_sequences": 28,
+      "rotation_deg": {
+        "base": 10.000000126390573,
+        "predicted": 18.457078517201435,
+        "oracle_geometry": 2.6730347215889925,
+        "completion_off": 23.702292578766144,
+        "appearance_off": 18.284266073062238,
+        "gt_xyz_fixed_support": 17.63441277699298,
+        "gt_missing_depth_fixed_support": 18.16430301503484,
+        "gt_both_fixed_support": 16.72247880673313,
+        "gt_support_only": 16.65138449822085,
+        "gt_both_pruned_support": 14.325050439461169,
+        "gt_support_reject_false_measured": 14.839973644559164,
+        "gt_both_pruned_true_measured": 14.18436908650111,
+        "cad_missing_depth_fixed_support": 18.053313896837963,
+        "gt_xyz_cad_missing_depth_fixed_support": 16.948150595507947,
+        "gt_sensor_consistent_fixed_weight": 4.075766477718889,
+        "gt_error_quality_only": 9.13687552122706,
+        "rigid_sensor_consistent_oracle": 0.00021112979152348998,
+        "robust_rigid_sensor_consistent_oracle": 0.0002103755010187134,
+        "rigid_gt_error_quality_only": 12.472541603697351,
+        "robust_rigid_gt_error_quality_only": 13.365530176813822,
+        "rigid_predicted": 32.23875815705602,
+        "robust_rigid_predicted": 17.752911086063307,
+        "rigid_oracle_geometry": 0.0005578058334610677,
+        "robust_rigid_oracle_geometry": 0.0005550050023322479,
+        "rigid_gt_both_pruned_support": 25.447742771120843,
+        "robust_rigid_gt_both_pruned_support": 5.27263998310783
+      },
+      "contamination": {
+        "outside_support_weight": 0.12805355836012697,
+        "false_measured_weight": 0.13888568425306538,
+        "quality_retained_weight": 0.33006069683899963
+      }
+    },
+    "nonsym_zero": {
+      "cases": 83,
+      "physical_sequences": 28,
+      "rotation_deg": {
+        "base": 0.0,
+        "predicted": 17.58986017215683,
+        "oracle_geometry": 0.15224510077274886,
+        "completion_off": 22.559344349137273,
+        "appearance_off": 17.709815852613335,
+        "gt_xyz_fixed_support": 17.386056407388434,
+        "gt_missing_depth_fixed_support": 17.347782973783563,
+        "gt_both_fixed_support": 16.638830680445015,
+        "gt_support_only": 15.999046001089624,
+        "gt_both_pruned_support": 14.88048950259585,
+        "gt_support_reject_false_measured": 14.004459764584002,
+        "gt_both_pruned_true_measured": 14.903483825275696,
+        "cad_missing_depth_fixed_support": 17.347782973783563,
+        "gt_xyz_cad_missing_depth_fixed_support": 16.638830680445015,
+        "gt_sensor_consistent_fixed_weight": 0.08285855647198946,
+        "gt_error_quality_only": 6.828573748289821,
+        "rigid_sensor_consistent_oracle": 0.00024147065093998264,
+        "robust_rigid_sensor_consistent_oracle": 0.00024045817307926675,
+        "rigid_gt_error_quality_only": 10.173597185008497,
+        "robust_rigid_gt_error_quality_only": 10.863000631332397,
+        "rigid_predicted": 32.47420274636831,
+        "robust_rigid_predicted": 14.819178937429404,
+        "rigid_oracle_geometry": 0.0005528936016304784,
+        "robust_rigid_oracle_geometry": 0.0005490988817775843,
+        "rigid_gt_both_pruned_support": 27.167570477141158,
+        "robust_rigid_gt_both_pruned_support": 4.942320139685236
+      },
+      "contamination": {
+        "outside_support_weight": 0.12553077597305717,
+        "false_measured_weight": 0.13874092866268278,
+        "quality_retained_weight": 0.3614709810970957
+      }
+    },
+    "nonsym_heavy_rotation": {
+      "cases": 54,
+      "physical_sequences": 9,
+      "rotation_deg": {
+        "base": 10.000000176606354,
+        "predicted": 21.562099077083445,
+        "oracle_geometry": 2.785664829942915,
+        "completion_off": 27.648638862150687,
+        "appearance_off": 16.701909458195722,
+        "gt_xyz_fixed_support": 20.825083114482737,
+        "gt_missing_depth_fixed_support": 21.065290543768143,
+        "gt_both_fixed_support": 19.789095710825038,
+        "gt_support_only": 21.695075768011588,
+        "gt_both_pruned_support": 18.607209044474143,
+        "gt_support_reject_false_measured": 16.077210828110022,
+        "gt_both_pruned_true_measured": 14.34340249940201,
+        "cad_missing_depth_fixed_support": 21.42614781856537,
+        "gt_xyz_cad_missing_depth_fixed_support": 20.210505856408012,
+        "gt_sensor_consistent_fixed_weight": 4.25870218873024,
+        "gt_error_quality_only": 12.574842653892658,
+        "rigid_sensor_consistent_oracle": 0.00030702366144328997,
+        "robust_rigid_sensor_consistent_oracle": 0.00030643237310128086,
+        "rigid_gt_error_quality_only": 14.662822604179382,
+        "robust_rigid_gt_error_quality_only": 13.956900402351662,
+        "rigid_predicted": 42.61511070639999,
+        "robust_rigid_predicted": 31.068119508248788,
+        "rigid_oracle_geometry": 0.00040873303964030194,
+        "robust_rigid_oracle_geometry": 0.00040679558646338084,
+        "rigid_gt_both_pruned_support": 34.554650981627574,
+        "robust_rigid_gt_both_pruned_support": 12.302149722929311
+      },
+      "contamination": {
+        "outside_support_weight": 0.2591307920800453,
+        "false_measured_weight": 0.3417300155248355,
+        "quality_retained_weight": 0.20557734944547215
+      }
+    }
+  },
+  "production_model_changed": false,
+  "scope": "Controlled positive-axis 10-degree perturbations; interventions include unavailable GT; rigid fit is a diagnostic only"
+}

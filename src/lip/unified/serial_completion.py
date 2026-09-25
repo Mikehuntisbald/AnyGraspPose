@@ -48,13 +48,20 @@ Products are formed before pooling; averaging XYZ before forming cross
 products would discard the within-patch rotation signal. There is no solver
 or delta-pose shortcut: object attention and the learned head read these tokens.
 """
-    def __init__(self):
+    def __init__(self, conditioning='legacy'):
         super().__init__()
+        if conditioning not in ('legacy', 'unit_gate', 'shape_conditioned'):
+            raise ValueError('Unknown completion relation conditioning')
+        self.conditioning = conditioning
         self.appearance = nn.Sequential(nn.LayerNorm(768), nn.Linear(768, 128), nn.GELU())
         self.relation = nn.Sequential(nn.Linear(17, 128), nn.GELU(), nn.Linear(128, 128))
         self.combine = nn.Sequential(nn.LayerNorm(256), nn.Linear(256, 256), nn.GELU())
         self.moments = nn.Sequential(nn.Linear(24, 256), nn.GELU(), nn.Linear(256, 256))
         self.norm = nn.LayerNorm(256)
+        if conditioning == 'shape_conditioned':
+            self.precondition = nn.Sequential(nn.Linear(6, 64), nn.GELU(), nn.Linear(64, 256))
+            nn.init.zeros_(self.precondition[-1].weight)
+            nn.init.zeros_(self.precondition[-1].bias)
 
     def forward(self, packet, base):
         with torch.autocast(base.device.type, enabled=False):
@@ -84,6 +91,14 @@ or delta-pose shortcut: object attention and the learned head read these tokens.
             residual_scale = ((residual.square().sum(-1) * wn).sum(-1) + 1e-12).sqrt().div(.1).clamp_max(3.)
         tokens = self.combine(torch.cat((self.appearance(packet['feature']), self.relation(pooled)), -1))
         global_token = self.moments(moments)[:, None]
+        if self.conditioning == 'shape_conditioned':
+            from .shape_conditioned import normalized_relation
+            signal = normalized_relation(scatter, cov, mean_p, mean_y)
+            global_token = global_token + self.precondition(signal)[:, None]
+        if self.conditioning != 'legacy':
+            # An evidence/zero-residual gate, not a shape-dependent multiplier
+            # of every correction. Keep the legacy graph exact by default.
+            residual_scale = ((residual_scale - 1e-5).clamp_min(0) * 100).tanh()
         tokens = self.norm(torch.cat((tokens, global_token), 1))
         token_valid = torch.cat((mass > 1e-5, (w.sum(-1) > 1e-5)[:, None]), 1)
         return tokens, token_valid, moments, residual_scale

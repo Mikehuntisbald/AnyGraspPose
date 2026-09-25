@@ -1,0 +1,97 @@
+{
+  "completed": true,
+  "conditioning": "unit_gate",
+  "source_checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+  "train_records": 192,
+  "heldout_records": 64,
+  "cache_sha256": {
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/serial_completion_v21/oracle_cache/rank0/packets.pt": "c5cfa454228e4c1ee6ba396ab9572a55b18ccb08852fc35057d4f47b30944980",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/serial_completion_v21/oracle_cache/rank1/packets.pt": "cb01540be90db2e2cf4c56ce2f2060d55fc6b4b70c2d1878e1057860dd7aae56",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/serial_completion_v21/oracle_cache/rank2/packets.pt": "8888f221ecff4665e5abe5531b9041456aa7c72333a731be40c38961ec47911d",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/serial_completion_v21/oracle_cache/rank3/packets.pt": "1c25a73285b0eaf1ef4253f2bc79fe0bc9ef98ba135e817aeb6c2071c2e64cea",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/serial_completion_v21/oracle_cache/rank4/packets.pt": "fbdab091a18faae1c835c6415eb88828ddb2325c6e84645bc5e895e410d61b82",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/serial_completion_v21/oracle_cache/rank5/packets.pt": "6a6c57f0a494c58b2f8379e343c57f80c0fbf9c81f27261fe10124435e304f9a",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/serial_completion_v21/oracle_cache/rank6/packets.pt": "845a5affbff6dd503db2ae1fe03ff7615bc05dc0e13b68dda9317fc0ddbfe19a",
+    "/mnt/why/dexycb_lip/unified_jepa_20260921/serial_completion_v21/oracle_cache/rank7/packets.pt": "61250beffe6cb47a2b0c97e0926d2cc47c8e9910b530312bbbf0df5bb73d1740"
+  },
+  "metrics": [
+    {
+      "step": 0,
+      "heldout": {
+        "zero": {
+          "rotation_deg": 0.19387813590583391,
+          "center_d": 0.0012772606302178247,
+          "signed_gain": null,
+          "cases": 384
+        },
+        "rotation": {
+          "rotation_deg": 6.234654554942002,
+          "center_d": 0.016524067690321925,
+          "signed_gain": 1.4359657910536043,
+          "cases": 384
+        },
+        "translation": {
+          "rotation_deg": 2.9201384384650737,
+          "center_d": 0.030189126280674827,
+          "signed_gain": 1.4695723062031902,
+          "cases": 384
+        }
+      }
+    },
+    {
+      "step": 300,
+      "heldout": {
+        "zero": {
+          "rotation_deg": 0.09419094175973441,
+          "center_d": 0.0006686082596161214,
+          "signed_gain": null,
+          "cases": 384
+        },
+        "rotation": {
+          "rotation_deg": 2.292800874526923,
+          "center_d": 0.0136904806079959,
+          "signed_gain": 0.9542552302106438,
+          "cases": 384
+        },
+        "translation": {
+          "rotation_deg": 1.7132463550951798,
+          "center_d": 0.010925019236007453,
+          "signed_gain": 0.9905814647985002,
+          "cases": 384
+        }
+      }
+    },
+    {
+      "step": 600,
+      "heldout": {
+        "zero": {
+          "rotation_deg": 0.12750685495848302,
+          "center_d": 0.0005793478280793352,
+          "signed_gain": null,
+          "cases": 384
+        },
+        "rotation": {
+          "rotation_deg": 2.3315915767646707,
+          "center_d": 0.009918173209371162,
+          "signed_gain": 0.9413038237350216,
+          "cases": 384
+        },
+        "translation": {
+          "rotation_deg": 1.751685619451261,
+          "center_d": 0.00913624997944377,
+          "signed_gain": 0.9708976314868778,
+          "cases": 384
+        }
+      }
+    }
+  ],
+  "steps": 600,
+  "checkpoint_sha256": "c88e4fe1ab318c8d796d93e498efd8c4fde0f96992b19b22e3015e273066d499",
+  "optimizer_lr": 0.0003,
+  "shared_starting_parameters_exact": true,
+  "teacher_geometry": true,
+  "appearance": "cached student",
+  "production_changed": false,
+  "scope": "Train-split sequence-disjoint readout gate only; not native or predicted-geometry accuracy",
+  "seconds": 7.870263760909438
+}
