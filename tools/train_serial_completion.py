@@ -177,7 +177,7 @@ def main():
                 loss,metrics=objective_components(output,teacher,truth,points,obs.diameter,bases,obs.measured_depth_m,c['training']['loss_weights'],visible_measurement)
             else:loss,metrics=objective(output,teacher,truth,points,obs.diameter,bases,obs.measured_depth_m,c['training']['loss_weights'],visible_measurement)
         return output,loss,metrics,obs,teacher,(scenes,occ)
-    path_norms=None
+    path_norms=None;parameter_path_norms=None
     with (out/f'rank{rank}.jsonl').open('a') as log:
         for step in range(start,stop):
             begun=time.monotonic();pairs=episodes(step);ep,targets=zip(*pairs)
@@ -235,6 +235,10 @@ def main():
                 ids=torch.randint(len(oracle_truth),(4,),device='cuda')
                 with torch.autocast('cuda',dtype=torch.bfloat16):rehearsal=oracle_readout_loss(model,{k:v[ids] for k,v in oracle_pack.items()},oracle_truth[ids],oracle_diameter[ids])
                 (rehearsal_weight*rehearsal).backward()
+            if a.preflight and c.get('gradient_integrity',{}).get('require_shared_preview_gradients'):
+                names=('core.src_proj.weight','core.src_proj.bias','visibility.1.weight','visibility.1.bias')
+                named=dict(model.named_parameters());parameter_path_norms={name:None if named[name].grad is None else float(named[name].grad.norm()) for name in names}
+                if not all(v is not None and v>0 and math.isfinite(v) for v in parameter_path_norms.values()):raise AssertionError('Shared preview detached a training parameter: '+str(parameter_path_norms))
             communication=time.monotonic();synchronize_gradients(model.parameters());communication=time.monotonic()-communication
             norm=torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.grad is not None],1.)
             if not torch.isfinite(norm):raise FloatingPointError('Nonfinite gradient; do not advance')
@@ -247,7 +251,7 @@ def main():
             log.write(json.dumps(row,allow_nan=False)+'\n');log.flush()
             if rank==0 and (step<3 or (step+1)%25==0):print(json.dumps(row),flush=True)
             if (step+1)%c['serial_completion']['checkpoint_every']==0 or step+1==stop:save(out/'last.pt',model,opt,scheduler,step+1,c,provenance)
-    if rank==0:atomic_json(out/'completion.json',dict(completed=True,step=stop,preflight=a.preflight,world=world,gradient_path_norms=path_norms,checkpoint_sha256=sha(out/'last.pt'),official_test_access=False))
+    if rank==0:atomic_json(out/'completion.json',dict(completed=True,step=stop,preflight=a.preflight,world=world,gradient_path_norms=path_norms,parameter_path_norms=parameter_path_norms,checkpoint_sha256=sha(out/'last.pt'),official_test_access=False))
     if world>1:dist.destroy_process_group()
 
 if __name__=='__main__':main()

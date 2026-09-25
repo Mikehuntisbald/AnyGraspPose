@@ -1,0 +1,27 @@
+{
+  "completed": true,
+  "same_model_adam_schedule_rng": true,
+  "only_output_and_gradient_preflight_config_differ": true,
+  "records": {
+    "old_control": {
+      "hashes": {
+        "model": "3e23b85fb7eb8c3b84d89ff0c7f492863f8b013e114a818209c50ffafa58d3f3",
+        "optimizer": "fb7d9649fd2d4e963aac3f65ef2a3954169f2c105eabc90f415ef0d764885fcc",
+        "scheduler": "c175a72e16bb0a4df7b5915bffc6d150fcbfb4c740f5f755015a577fc7ad0b17",
+        "rng": "5e7fb0fa9da447d8c741b332184891e5ec87a1eeb76509ed7097f2095c638adf",
+        "normalized_config": "1b0b748dff4b4397a4ad643909e73f7f5b860ff2acb309061ad366c2361aca1b"
+      },
+      "step": 1000
+    },
+    "amp_fixed": {
+      "hashes": {
+        "model": "3e23b85fb7eb8c3b84d89ff0c7f492863f8b013e114a818209c50ffafa58d3f3",
+        "optimizer": "fb7d9649fd2d4e963aac3f65ef2a3954169f2c105eabc90f415ef0d764885fcc",
+        "scheduler": "c175a72e16bb0a4df7b5915bffc6d150fcbfb4c740f5f755015a577fc7ad0b17",
+        "rng": "5e7fb0fa9da447d8c741b332184891e5ec87a1eeb76509ed7097f2095c638adf",
+        "normalized_config": "1b0b748dff4b4397a4ad643909e73f7f5b860ff2acb309061ad366c2361aca1b"
+      },
+      "step": 1000
+    }
+  }
+}

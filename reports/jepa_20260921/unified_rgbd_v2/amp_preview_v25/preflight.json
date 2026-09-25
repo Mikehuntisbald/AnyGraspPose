@@ -1,0 +1,21 @@
+{
+  "completed": true,
+  "step": 1001,
+  "preflight": true,
+  "world": 8,
+  "gradient_path_norms": [
+    0.032079048454761505,
+    0.028945425525307655,
+    0.003570556640625,
+    0.0034942626953125,
+    0.006003392860293388
+  ],
+  "parameter_path_norms": {
+    "core.src_proj.weight": 5.928169250488281,
+    "core.src_proj.bias": 0.0624348483979702,
+    "visibility.1.weight": 0.010563788004219532,
+    "visibility.1.bias": 0.0007443428039550781
+  },
+  "checkpoint_sha256": "cd86ef717a76311bfa42afd7f349876ef0ba81cc5487f7ff05d72f8251b2ac3c",
+  "official_test_access": false
+}

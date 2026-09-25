@@ -84,7 +84,13 @@ class CADSurfaceTracker(RecoveredRelationTracker):
         available=obs.cad_surface_valid&obs.cad_valid.any(-1)[:,None]
         cad_inputs=(obs.cad_surface_features,obs.cad_surface_geometry,available)
         if getattr(self,'cad_rope3d_enabled',False):
-            with torch.no_grad():
+            # A no-grad preview must not populate AMP's cached weight casts.
+            # These same Linear modules run again with gradients in tensor_frame;
+            # reusing detached casts silently freezes their weight/bias gradients.
+            device_type=obs.mid.device.type
+            with torch.no_grad(),torch.autocast(device_type,
+                    enabled=torch.is_autocast_enabled(device_type),
+                    dtype=torch.get_autocast_dtype(device_type),cache_enabled=False):
                 real=self.core.src_proj(torch.cat((obs.mid,obs.last),-1))
                 confidence=self.visibility(real).float().squeeze(-1).sigmoid()
             cad_inputs+=(obs.object_xyz,obs.depth_valid,obs.base,confidence)

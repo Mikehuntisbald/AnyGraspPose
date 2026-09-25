@@ -1,0 +1,31 @@
+{
+  "completed": true,
+  "device": "NVIDIA H20",
+  "torch": "2.8.0+cu128",
+  "checkpoint_sha256": "c353d5bda97ff33782c65b5adde8e492303ef6ea30e36c30f514e4e6b1d77867",
+  "legacy_source_sha256": "4533639a50bfa0276f4c227b3fb1a83b581f7a62d014bda3c96ff3f90d1578c4",
+  "fixed_source_sha256": "e600c7c18761bea63590107bfb9f1ae6c7c511c7181c98d37f5c08c29b8763a3",
+  "gradient_norms": {
+    "legacy": {
+      "core.src_proj.weight": null,
+      "core.src_proj.bias": null,
+      "visibility.1.weight": null,
+      "visibility.1.bias": null
+    },
+    "fixed": {
+      "core.src_proj.weight": 445.69110107421875,
+      "core.src_proj.bias": 4.138207912445068,
+      "visibility.1.weight": 184.44607543945312,
+      "visibility.1.bias": 13.75
+    }
+  },
+  "forward_max_abs": {
+    "patch_latent": 0.0,
+    "f_predicted": 0.0,
+    "surface_xyz": 0.0,
+    "evidence_logits": 0.0,
+    "pose_centered": 0.0
+  },
+  "optimizer_updates": 0,
+  "training_data_only": true
+}
