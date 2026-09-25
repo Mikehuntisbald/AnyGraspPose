@@ -103,3 +103,44 @@ error limits the actual learned pose head. GT replacements are diagnostic only.
 
 Receipts and numerical summaries:
 `reports/jepa_20260921/unified_rgbd_v2/geometry_fidelity_v22/`.
+
+## Geometry/readout isolation (completed, frozen V21)
+
+The final component probe uses476 cases across40 validation sequences. Rotation
+numbers below use249 positive-axis10-degree cases from28 non-symmetric sequences;
+heavy is54 cases from9 sequences. These are controlled interventions, not native
+accuracy or training outcomes. Every condition reuses the same frame and head.
+
+| Intervention | Non-sym rotation deg | Heavy rotation deg |
+|---|---:|---:|
+| Current learned readout |9.434|10.429|
+| Correct missing depth; fixed support/measurements |9.387|10.098|
+| Correct canonical XYZ; fixed support |8.562|10.419|
+| Correct both; fixed support/measurements |8.450|9.484|
+| Correct sensor-consistent XYZ/depth, pruned support |7.857|7.913|
+| GT-error-dependent confidence only |8.734|8.918|
+| Robust rigid fit of actual predicted correspondences |17.753|31.068|
+| Rigid fit of sensor-consistent ideal correspondences |0.00021|0.00031|
+
+Sensor-consistent oracle means visible measured points are assigned their
+canonical coordinates through the GT transform; missing points use GT CAD.
+This avoids treating the10.9mm average sensor/render depth disagreement as a
+coordinate-system defect. With a correct initial pose this packet gives the
+learned head0.00034-degree output, while it still under-corrects10-degree errors.
+The readout therefore has a nontrivial limitation even with correct geometry;
+its training-cache oracle score must not be substituted for this validation result.
+
+Current weights outside GT silhouette average12.81% (heavy25.91%). Weights
+mistakenly owned by measured object pixels average13.89% (heavy34.17%), expressed
+as fractions of ALL relation weight, not measured weight. The categories overlap.
+Simply pruning GT background does not improve this fixed head, so contamination
+alone is not established as the entire cause. GT-quality weighting retains33.01%
+of total weight (heavy20.56%) and improves the learned pose but still falls short.
+A learned confidence head is a candidate, not an already-verified fix.
+
+The rigid fit is an independent solvability diagnostic, NOT a deployed SVD/PnP
+replacement. A known-transform synthetic test checked its rotation/translation
+conventions. Its predicted-input failure rejects the idea that replacing only
+the learned head with a solver solves this experiment. Both correspondence
+fidelity and the readout's response to geometric evidence require improvement.
+Evidence: `geometry_quality.json` and remote `geometry_quality/rank*/frames.jsonl`.

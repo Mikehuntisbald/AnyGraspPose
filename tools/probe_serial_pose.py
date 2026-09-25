@@ -7,10 +7,34 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
 from lip.unified.build import build_model,make_store
 from lip.unified.features import prepare_scene,encode_scenes
 from lip.unified.serial_completion import pack_completion
+from lip.unified.execution_speed import crop_images_fast
 from lip.unified.renderer import FullTextureRenderer
 from lip.geometry.so3 import center_pose,update,angle,log
 from lip.engine.jepa_checkpoint import load_core,sha
 from lip.evaluation.metrics import errors
+
+
+def diagnostic_rigid_fit(packet,base,diameter,robust=False):
+    """Read-only geometric solvability probe; never used in deployed tracker."""
+    x=packet['xyz'].double().flatten(2).transpose(1,2)
+    y=packet['camera'].double().flatten(2).transpose(1,2)
+    initial=packet['weight'].double().flatten(1)
+    w=initial
+    for iteration in range(4 if robust else 1):
+        wn=w/w.sum(-1,keepdim=True).clamp_min(1e-12)
+        mx=(x*wn[...,None]).sum(1);my=(y*wn[...,None]).sum(1)
+        cov=(x-mx[:,None]).transpose(1,2)@((y-my[:,None])*wn[...,None])
+        u,sv,vh=torch.linalg.svd(cov)
+        fix=torch.eye(3,device=x.device,dtype=x.dtype)[None].repeat(len(x),1,1)
+        fix[:,2,2]=torch.linalg.det(vh.transpose(-1,-2)@u.transpose(-1,-2))
+        rotation=vh.transpose(-1,-2)@fix@u.transpose(-1,-2)
+        translation=my-(rotation@mx[...,None]).squeeze(-1)
+        residual=(x@rotation.transpose(-1,-2)+translation[:,None]-y).norm(dim=-1)
+        # Fixed robust scale 1 cm; not tuned using GT residuals.
+        w=initial/(1+(residual*diameter[:,None]/.01).square())
+    pose=base.double().clone();pose[:,:3,:3]=rotation
+    pose[:,:3,3]=base[:,:3,3]+diameter[:,None]*translation
+    return pose[0].float()
 
 
 def main():
@@ -89,13 +113,47 @@ def main():
                             render_mask=scene.render['mask'][None,None]&scene.bounds
                             reference_camera=obs.crop_rays*scene.render['depth'][None]/d-base[None,:3,3,None,None]/d
                             cad_missing=render_mask & (packet['measured_weight']==0)
+                            pruned={k:(v*mask if k in ('weight','measured_weight','completed_weight') else v) for k,v in packet.items()}
+                            poses['gt_support_only']=read(pruned)
+                            poses['gt_both_pruned_support']=read(dict(pruned,xyz=fixed_xyz,camera=fixed_camera))
+                            with np.load(directory/f'labels_{frame:06d}.npz') as labels:
+                                visible=torch.tensor((labels['seg']==s['object_id']).copy(),device='cuda')[None,None].float()
+                            visible=crop_images_fast(visible,scene.affine,mode='nearest')>.5
+                            true_measured=visible&(obs.measured_depth_m>0)&scene.bounds
+                            recovered_camera=obs.crop_rays*result['surface_depth_m']/d-base[None,:3,3,None,None]/d
+                            reliable_camera=torch.where(true_measured,packet['camera'],recovered_camera)
+                            clean=dict(pruned,camera=reliable_camera,
+                                measured_weight=pruned['measured_weight']*true_measured,
+                                completed_weight=pruned['weight']-pruned['measured_weight']*true_measured)
+                            poses['gt_support_reject_false_measured']=read(clean)
+                            ideal_camera=torch.where(true_measured,obs.crop_rays*obs.measured_depth_m/d-base[None,:3,3,None,None]/d,target_camera)
+                            poses['gt_both_pruned_true_measured']=read(dict(clean,xyz=fixed_xyz,camera=ideal_camera))
+                            contamination=dict(outside_support_weight=float((packet['weight']*~mask).sum()/packet['weight'].sum().clamp_min(1e-6)),
+                                false_measured_weight=float((packet['measured_weight']*~visible).sum()/packet['weight'].sum().clamp_min(1e-6)))
                             poses['cad_missing_depth_fixed_support']=read(dict(packet,camera=torch.where(cad_missing,reference_camera,packet['camera'])))
                             poses['gt_xyz_cad_missing_depth_fixed_support']=read(dict(packet,xyz=fixed_xyz,camera=torch.where(cad_missing,reference_camera,packet['camera'])))
+                            # Sensor-consistent oracle canonical coordinates on genuinely measured pixels.
+                            real_xyz=torch.einsum('ij,bjhw->bihw',gt[:3,:3].T,obs.crop_rays*obs.measured_depth_m/d-gt[None,:3,3,None,None]/d)
+                            sensor_xyz=torch.where(true_measured,real_xyz,target_xyz)
+                            measured_kept=true_measured&(packet['measured_weight']>0)
+                            ideal_sensor=dict(clean,xyz=torch.where(measured_kept,real_xyz,target_xyz),camera=torch.where(measured_kept,packet['camera'],target_camera))
+                            poses['gt_sensor_consistent_fixed_weight']=read(ideal_sensor)
+                            # Diagnostic error-dependent confidence, not a deployed confidence predictor.
+                            xyz_error=(packet['xyz']-sensor_xyz).norm(dim=1,keepdim=True)*d
+                            camera_error=(packet['camera']-torch.where(measured_kept,packet['camera'],target_camera)).norm(dim=1,keepdim=True)*d
+                            quality=mask.float()/(1+(xyz_error/.01).square()+(camera_error/.01).square())
+                            quality_packet={k:(v*quality if k in ('weight','measured_weight','completed_weight') else v) for k,v in packet.items()}
+                            poses['gt_error_quality_only']=read(quality_packet)
+                            contamination['quality_retained_weight']=float(quality_packet['weight'].sum()/packet['weight'].sum().clamp_min(1e-6))
+                            for fit_name,fit_packet in [('sensor_consistent_oracle',ideal_sensor),('gt_error_quality_only',quality_packet),('predicted',packet),('oracle_geometry',oracle),('gt_both_pruned_support',dict(pruned,xyz=fixed_xyz,camera=fixed_camera))]:
+                                poses['rigid_'+fit_name]=diagnostic_rigid_fit(fit_packet,obs.base,obs.diameter)
+                                poses['robust_rigid_'+fit_name]=diagnostic_rigid_fit(fit_packet,obs.base,obs.diameter,True)
                     expected=torch.cat((log(gt[:3,:3]@base[:3,:3].T),(gt[:3,3]-base[:3,3])/d))
                     pred=torch.cat((result['delta_rotvec'][0],result['delta_center_norm'][0])).float()
                     row=dict(physical=physical,stream_id=sid,frame=frame,object_id=s['object_id'],symmetric=symmetry,visibility=reference[sid,frame]['visibility'],condition=name,
                         expected_delta=expected.cpu().tolist(),predicted_delta=pred.cpu().tolist(),
                         metrics={key:errors(pose.cpu().numpy(),gt.cpu().numpy(),mesh['points'],d,dtype='f4') for key,pose in poses.items()})
+                    if a.geometry_components:row['contamination']=contamination
                     writer.write(json.dumps(row,allow_nan=False)+'\n');rows+=1
             writer.flush();print(json.dumps(dict(rank=a.rank,physical=physical,rows=rows)),flush=True)
     (out/'receipt.json').write_text(json.dumps(dict(completed=True,rows=rows,checkpoint_sha256=sha(a.checkpoint),rank=a.rank,world=a.world,
