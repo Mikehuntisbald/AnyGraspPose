@@ -8,6 +8,7 @@ def main():
     p.add_argument('--out',type=Path,required=True);p.add_argument('--devices',default='0,1,2,3,4,5,6,7')
     p.add_argument('--rope-ablation',action='store_true')
     p.add_argument('--normal-audit',action='store_true')
+    p.add_argument('--cad-prior-audit',action='store_true')
     a=p.parse_args();root=Path(__file__).resolve().parents[1];devices=a.devices.split(',')
     a.out.mkdir(parents=True,exist_ok=False);children=[];logs=[]
     def stop(sig,_):
@@ -28,6 +29,7 @@ def main():
                      '--out',str(a.out/f'rank{rank}'),'--rank',str(rank),'--world',str(len(devices))]
             if a.rope_ablation:command.append('--rope-ablation')
             if a.normal_audit:command.append('--normal-audit')
+            if a.cad_prior_audit:command.append('--cad-prior-audit')
             children.append(subprocess.Popen(command,cwd=root,env=env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True))
         while any(child.poll() is None for child in children):
             if any(child.poll() not in (None,0) for child in children):raise RuntimeError('Frozen probe failed; see shard logs')

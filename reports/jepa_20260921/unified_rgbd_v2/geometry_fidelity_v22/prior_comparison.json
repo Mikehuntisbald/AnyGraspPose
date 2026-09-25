@@ -1,0 +1,22 @@
+{
+  "real": {
+    "sequences": 40,
+    "coverage": 0.9335607396197855,
+    "all_pixels_xyz_mm": 37.621141125894255,
+    "all_pixels_depth_mm": 60.67776340788873,
+    "overlap_prior_xyz_mm": 37.493003069850076,
+    "overlap_prior_depth_mm": 10.984950372398387,
+    "overlap_jepa_xyz_mm": 37.322528382929384,
+    "overlap_jepa_depth_mm": 16.359402492888893
+  },
+  "proxy": {
+    "sequences": 36,
+    "coverage": 0.8312828288207572,
+    "all_pixels_xyz_mm": 40.53691598395339,
+    "all_pixels_depth_mm": 143.24667086509632,
+    "overlap_prior_xyz_mm": 37.32376149146824,
+    "overlap_prior_depth_mm": 16.02924783042028,
+    "overlap_jepa_xyz_mm": 38.281904792903994,
+    "overlap_jepa_depth_mm": 24.118668607832763
+  }
+}

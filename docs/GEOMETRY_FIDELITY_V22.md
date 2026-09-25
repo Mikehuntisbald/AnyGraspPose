@@ -69,3 +69,37 @@ Artifacts: `/mnt/why/dexycb_lip/unified_jepa_20260921/geometry_fidelity_v22`.
 Execution: `/tmp/dexycb_geometry_fidelity_v22_train` (pinned source snapshot).
 The controller serializes training and evaluation across all8 GPUs. A new
 continuation is not automatically launched merely because the pilot finishes.
+
+## Completed pilot: reject gradient-priority continuation
+
+The controller completed both200-update arms and all native/recovery evaluations.
+CPU tensor hashing verified equal starting model, Adam, scheduler and eight-rank
+RNG; normalized configurations differ only in output path and enable flag.
+Native all/heavy/extreme ADD-S@0.05d: control50.93/28.73/7.58%, priority
+48.65/23.82/2.74%. Priority improves some geometry errors by3–4% relative to
+control but worsens CAD-proxy depth by6.58%. This intervention is not adopted.
+No long continuation or default replacement follows this failed pilot.
+
+## Current-pose CAD geometry audit
+
+Using the V21 step1000 model, fixed40 sequences and exactly the previous recovery
+protocol, compare raw estimated-pose CAD geometry against decoded geometry.
+GT is used only for evaluation targets. Scores below restrict both methods to
+the SAME target pixels also covered by the estimated CAD render; uncovered
+pixels remain a separate failure and are not silently excluded from full scores.
+
+| Heavy target | CAD coverage | CAD depth mm | JEPA depth mm | CAD XYZ mm | JEPA XYZ mm |
+|---|---:|---:|---:|---:|---:|
+| Real sensor |93.36%|10.98|16.36|37.49|37.32|
+| CAD proxy |83.13%|16.03|24.12|37.32|38.28|
+
+Whole-target raw-CAD depth error, assigning its absent depth zero as stored, is
+60.68/143.25mm. Thus the overlap advantage does NOT establish a usable complete
+surface or better pose. Non-symmetric objects alone retain the depth gap:
+8.12 vs13.89mm real,14.62 vs23.22mm proxy. Symmetry cannot explain it away.
+The next diagnostic independently replaces canonical XYZ and missing depth,
+keeping confidence/support and measured depth fixed, to identify which geometric
+error limits the actual learned pose head. GT replacements are diagnostic only.
+
+Receipts and numerical summaries:
+`reports/jepa_20260921/unified_rgbd_v2/geometry_fidelity_v22/`.

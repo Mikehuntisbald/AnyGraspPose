@@ -1,0 +1,75 @@
+{
+  "completed": true,
+  "full_starting_model_adam_scheduler_rng_identical": true,
+  "only_declared_config_differences": true,
+  "arms": {
+    "control": {
+      "hashes": {
+        "model": "3e23b85fb7eb8c3b84d89ff0c7f492863f8b013e114a818209c50ffafa58d3f3",
+        "optimizer": "fb7d9649fd2d4e963aac3f65ef2a3954169f2c105eabc90f415ef0d764885fcc",
+        "scheduler": "c175a72e16bb0a4df7b5915bffc6d150fcbfb4c740f5f755015a577fc7ad0b17",
+        "rng": "5e7fb0fa9da447d8c741b332184891e5ec87a1eeb76509ed7097f2095c638adf",
+        "normalized_config": "d3e4f663cdb3c13077e1a4f4a41753e1e6980b03fa3a43a79af4deda28dbd833"
+      },
+      "source_step": 1000,
+      "world": 8,
+      "step": 1200,
+      "parameter_movement": {
+        "pose": {
+          "delta_norm": 0.7658403069371101,
+          "relative_norm": 0.015637037946706647,
+          "elements": 589062
+        },
+        "jepa_and_inputs": {
+          "delta_norm": 0.5453321575272015,
+          "relative_norm": 0.004034902301931634,
+          "elements": 11084778
+        },
+        "encoder": {
+          "delta_norm": 0.014206138033011543,
+          "relative_norm": 3.372534618589395e-05,
+          "elements": 22058112
+        },
+        "surface": {
+          "delta_norm": 0.4843901907106891,
+          "relative_norm": 0.012093841712581902,
+          "elements": 768837
+        }
+      }
+    },
+    "priority": {
+      "hashes": {
+        "model": "3e23b85fb7eb8c3b84d89ff0c7f492863f8b013e114a818209c50ffafa58d3f3",
+        "optimizer": "fb7d9649fd2d4e963aac3f65ef2a3954169f2c105eabc90f415ef0d764885fcc",
+        "scheduler": "c175a72e16bb0a4df7b5915bffc6d150fcbfb4c740f5f755015a577fc7ad0b17",
+        "rng": "5e7fb0fa9da447d8c741b332184891e5ec87a1eeb76509ed7097f2095c638adf",
+        "normalized_config": "d3e4f663cdb3c13077e1a4f4a41753e1e6980b03fa3a43a79af4deda28dbd833"
+      },
+      "source_step": 1000,
+      "world": 8,
+      "step": 1200,
+      "parameter_movement": {
+        "pose": {
+          "delta_norm": 1.0712513807277542,
+          "relative_norm": 0.021872965341686264,
+          "elements": 589062
+        },
+        "jepa_and_inputs": {
+          "delta_norm": 0.6893806449126969,
+          "relative_norm": 0.005100714331020554,
+          "elements": 11084778
+        },
+        "encoder": {
+          "delta_norm": 0.013022361762611994,
+          "relative_norm": 3.091506344521528e-05,
+          "elements": 22058112
+        },
+        "surface": {
+          "delta_norm": 0.3644989755197199,
+          "relative_norm": 0.009100499966496289,
+          "elements": 768837
+        }
+      }
+    }
+  }
+}

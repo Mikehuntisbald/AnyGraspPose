@@ -54,7 +54,7 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--config',type=Path,required=True);p.add_argument('--checkpoint',type=Path,required=True)
     p.add_argument('--out',type=Path,required=True);p.add_argument('--rank',type=int,required=True);p.add_argument('--world',type=int,default=8)
     p.add_argument('--smoke',action='store_true');p.add_argument('--rope-ablation',action='store_true')
-    p.add_argument('--normal-audit',action='store_true');a=p.parse_args()
+    p.add_argument('--normal-audit',action='store_true');p.add_argument('--cad-prior-audit',action='store_true');a=p.parse_args()
     if a.normal_audit and a.rope_ablation:raise ValueError('Choose one diagnostic intervention')
     torch.cuda.set_device(0 if torch.cuda.device_count()==1 else a.rank);torch.set_num_threads(2);torch.manual_seed(42);cv2.setNumThreads(0)
     c=yaml.safe_load(a.config.read_text());m=build_model(c);record=torch.load(a.checkpoint,map_location='cpu',weights_only=False)
@@ -105,6 +105,7 @@ def main():
     manifest['history_branch_disabled']=getattr(m,'disable_history',False)
     manifest['dino_layers']=dict(student=list(m.encoder.feature_layers),teacher=list(getattr(m,'ema_teacher',m.encoder).feature_layers))
     manifest['feature_layer_weights']=list(layer_weights)
+    manifest['cad_prior_audit']=a.cad_prior_audit
     manifest['fixed_feature_teacher']=fixed_teacher
     manifest['local_structure_diagnostics']=bool(c.get('local_structure'))
     if a.normal_audit:
@@ -188,6 +189,18 @@ def main():
                             spatial_cad_proxy=feature_diagnostics(out,target,target.proxy_weight,True),
                             geometry_focus_real=geometry_diagnostics(out,target,target.geometry_real_weight,float(mesh['diameter'])),
                             geometry_focus_proxy=geometry_diagnostics(out,target,target.geometry_proxy_weight,float(mesh['diameter'])))
+                        if a.cad_prior_audit and policy=='off':
+                            d=float(mesh['diameter']);rd=scene.render['depth'][None]
+                            rv=(rd>0)&scene.bounds
+                            prior=dict(surface_xyz=scene.render['xyz'][None]/d,surface_depth_m=rd,
+                                surface_depth_residual=(rd-base[2,3])/d,geometry_valid_logits=torch.where(rv,10.,-10.))
+                            row['cad_prior']={}
+                            for kind,weight in [('real',target.geometry_real_weight),('proxy',target.geometry_proxy_weight)]:
+                                eligible=weight&rv;count=float(weight.sum())
+                                row['cad_prior'][kind]=dict(coverage=float(eligible.sum()/weight.sum().clamp_min(1)),target_pixels=count,
+                                    all_pixels=geometry_diagnostics(prior,target,weight,d),
+                                    overlap_prior=geometry_diagnostics(prior,target,eligible,d),
+                                    overlap_jepa=geometry_diagnostics(out,target,eligible,d))
                         if switch is not None:
                             row.update(history='off',rope=policy.removeprefix('rope_'))
                             if policy=='rope_on':
