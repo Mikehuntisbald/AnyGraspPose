@@ -52,3 +52,20 @@ def test_control_parity_and_cad_dropout():
     assert torch.equal(result, fallback) and not metrics['transport_gate'].any()
     result.sum().backward()
     assert torch.equal(fallback.grad, torch.ones_like(fallback))
+
+
+def test_reference_extension_exact_initial_function_and_gradient():
+    torch.manual_seed(42)
+    old=CADTransport();new=CADTransport(reference_conditioned=True)
+    # Exercise a trained nonzero output head; a zero head would hide mistakes.
+    torch.nn.init.normal_(old.head[-1].weight,std=.01)
+    state=old.state_dict();weight=torch.zeros_like(new.head[0].weight)
+    weight[:,:16]=state['head.0.weight'];state['head.0.weight']=weight
+    new.load_state_dict(state)
+    dense=torch.randn(1,16,224,224);fallback=torch.randn(1,5,224,224)
+    geometry=torch.randn(1,9,224,224);geometry[:,3]=1
+    valid=torch.ones(1,256,dtype=torch.bool)
+    a,_=old(dense,fallback,geometry,valid);b,_=new(dense,fallback,geometry,valid)
+    torch.testing.assert_close(a,b,rtol=1e-5,atol=1e-6)
+    b[:,:4].square().mean().backward()
+    assert new.head[0].weight.grad[:,16:].norm()>0

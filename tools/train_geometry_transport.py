@@ -55,6 +55,11 @@ def main():
         raise ValueError('Source geometry checkpoint changed')
     parent = torch.load(plan['source_checkpoint'], map_location='cpu', weights_only=False)
     if parent['step'] != plan['source_step']: raise ValueError('Source step mismatch')
+    if config['cad_transport'].get('reference_conditioned'):
+        key='cad_transport.head.0.weight';old=parent['model'][key]
+        if old.shape[1]!=16:raise ValueError('Expected16-channel transport warm-start')
+        extended=torch.zeros_like(model.state_dict()[key],device='cpu');extended[:,:16]=old
+        parent['model'][key]=extended
     status = model.load_state_dict(parent['model'], strict=False)
     if status.unexpected_keys or any(not n.startswith('cad_transport.') for n in status.missing_keys):
         raise ValueError('Unexpected geometry migration: '+str(status))
@@ -95,6 +100,8 @@ def main():
     if plan.get('decoder_only'):
         provenance['decoder_only'] = True
         provenance['initial_gate_bias_override'] = plan.get('transport_gate_bias')
+    if config['cad_transport'].get('reference_conditioned'):
+        provenance['reference_conditioning']='9 explicit estimated-CAD geometry/residual channels; zero-expanded first convolution; all existing coefficients exact'
     out = Path(config['paths']['output'])
     if rank == 0:
         out.mkdir(parents=True, exist_ok=bool(args.resume))

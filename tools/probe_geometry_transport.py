@@ -26,6 +26,7 @@ def main():
     p.add_argument('--rank', type=int, default=0); p.add_argument('--world', type=int, default=8)
     p.add_argument('--records', type=int, default=8)
     p.add_argument('--lookup-audit', action='store_true')
+    p.add_argument('--projection-audit', action='store_true')
     a = p.parse_args(); torch.cuda.set_device(0); torch.set_num_threads(2); torch.manual_seed(42)
     c = yaml.safe_load(Path(a.config).read_text()); model = build_model(c)
     record = torch.load(a.checkpoint, map_location='cpu', weights_only=False)
@@ -69,6 +70,21 @@ def main():
                 gt_render = factory.renderer(scene.cad['appearance'],gt[0],scene.k_crop,224)
                 gt_cad_depth = gt_render['depth'][None]
                 audit = dict(zero_flow=zero_flow,reference=reference,reference_mask=ref_mask,gt_cad_depth=gt_cad_depth)
+            projection = {}
+            if a.projection_audit:
+                # All inputs here are student predictions or estimated-pose CAD.
+                # The true transform and teacher masks are used only in score().
+                fallback = output['transport_fallback']
+                camera = torch.einsum('bij,bjhw->bihw',obs.base[:,:3,:3],fallback[:,:3])*d+obs.base[:,:3,3,None,None]
+                homogeneous = torch.einsum('bij,bjhw->bihw',scene.k_crop[None],camera)
+                uv = homogeneous[:,:2]/homogeneous[:,2:3].clamp_min(.001)
+                bounds = obs.cad_valid.reshape(1,1,16,16).repeat_interleave(14,-2).repeat_interleave(14,-1)
+                mask = (obs.geometry_image[:,3:4] > 0) & bounds
+                reference = torch.cat((obs.geometry_image[:,4:7],obs.geometry_image[:,2:3]),1)
+                snapped,mass = sample_reference(reference,mask,uv)
+                available = (mass >= .999) & (camera[:,2:3] > .001)
+                surface = torch.where(available,snapped,fallback[:,:4])
+                projection = dict(surface=surface,available=available,flow=uv-pixel_grid(1,224,224,'cuda'))
             def score(xyz, depth, mask):
                 if not mask.any(): return None
                 consistency = camera_disagreement(dict(surface_xyz=xyz, surface_depth_residual=depth), target).norm(dim=1, keepdim=True)
@@ -100,6 +116,13 @@ def main():
                         gap = (target.surface_depth_m-audit['gt_cad_depth']).abs()[mask]*1000
                         metrics[name]['real_to_gt_cad_depth_gap_mm'] = float(gap.mean())
                         metrics[name]['real_to_gt_cad_depth_gap_p90_mm'] = float(gap.quantile(.9))
+                if projection:
+                    projected = projection['surface']
+                    metrics[name+'_projected_xyz'] = score(projected[:,:3],output['transport_fallback'][:,3:4],mask)
+                    metrics[name+'_projected_xyz_depth'] = score(projected[:,:3],projected[:,3:4],mask)
+                    if metrics[name]:
+                        metrics[name]['predicted_projection_coverage'] = float(projection['available'][mask].float().mean())
+                        metrics[name]['predicted_projection_epe'] = float((projection['flow']-truth_transport['flow']).norm(dim=1,keepdim=True)[eligible].mean()) if eligible.any() else None
             row = dict(seed=seed, stream=e.stream, heavy=heavy, natural=item%4==0, window=e.training_window, metrics=metrics)
             if item == 2:
                 np.savez_compressed(out/'heavy_example.npz', rgb=scene.rgb.cpu().numpy(), occluded_rgb=occ.rgb.cpu().numpy(),
@@ -109,7 +132,7 @@ def main():
                     flow=output['transport_flow'].cpu().numpy(), gate=output['transport_gate'].cpu().numpy(), diameter=d)
             rows.append(row); log.write(json.dumps(row)+'\n'); log.flush()
     (out/'receipt.json').write_text(json.dumps(dict(completed=True, checkpoint_sha256=sha(a.checkpoint), config=c['cad_transport'],
-        records=len(rows), lookup_audit=a.lookup_audit, physical_holdout=True, training_split_only=True, official_test_access=False, teacher_inputs=False,
+        records=len(rows), lookup_audit=a.lookup_audit, projection_audit=a.projection_audit, physical_holdout=True, training_split_only=True, official_test_access=False, teacher_inputs=False,
         oracle_lookup_scope='GT correspondence and GT depth diagnostic only; common supported pixels; never deployed', seconds=time.monotonic()-start), indent=2)+'\n')
 
 

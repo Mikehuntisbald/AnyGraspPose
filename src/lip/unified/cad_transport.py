@@ -43,10 +43,11 @@ def sample_reference(image, mask, uv):
 
 
 class CADTransport(nn.Module):
-    def __init__(self, enabled=True):
+    def __init__(self, enabled=True, reference_conditioned=False):
         super().__init__()
         self.enabled = enabled
-        self.head = nn.Sequential(nn.Conv2d(16, 32, 3, padding=1), nn.GELU(),
+        self.reference_conditioned = reference_conditioned
+        self.head = nn.Sequential(nn.Conv2d(25 if reference_conditioned else 16, 32, 3, padding=1), nn.GELU(),
                                   nn.Conv2d(32, 7, 3, padding=1))
         nn.init.zeros_(self.head[-1].weight)
         nn.init.zeros_(self.head[-1].bias)
@@ -54,6 +55,17 @@ class CADTransport(nn.Module):
             self.head[-1].bias[6] = -4.
 
     def forward(self, dense, fallback, geometry, cad_valid):
+        if self.reference_conditioned:
+            b = len(dense)
+            bounds = cad_valid.reshape(b,1,16,16).repeat_interleave(14,-2).repeat_interleave(14,-1)
+            available = (geometry[:,3:4] > 0) & bounds & torch.isfinite(geometry[:,2:7]).all(1,keepdim=True)
+            reference = torch.cat((geometry[:,4:7],geometry[:,2:3]),1).detach().float()
+            # Give the query explicit reference geometry and its signed error.
+            # No RGB/FP feature or alternative pose path is introduced.
+            reference = torch.where(available,reference,0.)
+            residual = torch.where(available,fallback[:,:4].float()-reference,0.)
+            condition = torch.cat((reference,available.float(),residual),1)
+            dense = torch.cat((dense,condition.to(dense.dtype)),1)
         raw = self.head(dense).float()
         with torch.autocast(raw.device.type, enabled=False):
             b, _, h, w = fallback.shape

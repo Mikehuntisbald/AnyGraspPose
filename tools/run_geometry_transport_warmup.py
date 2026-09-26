@@ -1,12 +1,17 @@
 """One100-update decoder diagnostic, then stop; no backbone/pose changes."""
 import json,os,subprocess,sys,time,signal,hashlib,tarfile
+import argparse
 from pathlib import Path
 
 
 def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--root',default='/mnt/why/dexycb_lip/unified_jepa_20260921/geometry_transport_warmup_v35')
+    parser.add_argument('--config',default='configs/jepa/geometry_transport_warmup_v35.yaml')
+    args=parser.parse_args()
     exe=Path(__file__).resolve().parents[1]
-    root=Path('/mnt/why/dexycb_lip/unified_jepa_20260921/geometry_transport_warmup_v35');root.mkdir(exist_ok=False)
-    config='configs/jepa/geometry_transport_warmup_v35.yaml';out=root/'runs/seed42'
+    root=Path(args.root);root.mkdir(exist_ok=False)
+    config=args.config;out=root/'runs/seed42'
     files={str(p.relative_to(exe)):hashlib.sha256(p.read_bytes()).hexdigest() for d in ('src','tools','configs','tests') for p in (exe/d).rglob('*') if p.is_file() and '__pycache__' not in p.parts}
     (root/'source_receipt.json').write_text(json.dumps(files,indent=2))
     with tarfile.open(root/'source.tar.gz','w:gz') as tar:
