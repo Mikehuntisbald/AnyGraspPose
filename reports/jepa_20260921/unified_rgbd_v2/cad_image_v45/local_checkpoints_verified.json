@@ -1,0 +1,8 @@
+{
+  "verified": true,
+  "files": {
+    "runs/seed42/last.pt": "d67501ab547c40fcdebc84a67813e825121188ef73d4eb297da5b66c7097efcf",
+    "source.tar.gz": "30f0d69ec8e5c62ec712acc4511a8b912fff7059194e1b25b14cdbae55960e3e",
+    "frozen/source.tar.gz": "400655c80afec7252128045b3c8e0c34603fea26ab4727f9166f204914962548"
+  }
+}

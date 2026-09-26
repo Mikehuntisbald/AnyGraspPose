@@ -1,0 +1,12 @@
+{
+  "time": 1790427941.188075,
+  "reason": "User prioritizes JEPA recovery accuracy; stop pose-readout experiment",
+  "previous_status": {
+    "stage": "train500",
+    "pids": [
+      2079486
+    ],
+    "time": 1790427940.0923848
+  },
+  "retained_checkpoint": "/mnt/why/dexycb_lip/unified_jepa_20260921/cad_image_v48/runs/seed42/last.pt"
+}

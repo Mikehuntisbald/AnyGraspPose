@@ -1,0 +1,11 @@
+{
+  "native_crop_max_error_px": 3.9802161950319714e-05,
+  "shared_patch_gradient": 0.01681591011583805,
+  "support_points": 1138,
+  "regions": {
+    "observed": 346,
+    "real": 270,
+    "proxy": 84
+  },
+  "teacher_input": false
+}

@@ -5,7 +5,7 @@ from pathlib import Path
 
 def main():
     exe=Path(__file__).resolve().parents[1];base=Path('/mnt/why/dexycb_lip/unified_jepa_20260921')
-    parser=argparse.ArgumentParser();parser.add_argument('--version',choices=['v46','v47'],default='v46');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--version',choices=['v46','v47','v48'],default='v46');args=parser.parse_args()
     experiment='cad_image_'+args.version
     if not json.loads((base/experiment/'status.json').read_text()).get('completed'):raise RuntimeError('Training/probes must complete first')
     root=base/experiment/'native40';root.mkdir(exist_ok=False)
@@ -24,8 +24,8 @@ def main():
     arms=[('source','configs/jepa/geometry_surface_identity_v38_raw.yaml',base/'geometry_surface_identity_v38/raw/runs/seed42/last.pt'),
           ('parent','configs/jepa/cad_image_v45.yaml',base/'cad_image_v45/runs/seed42/initial.pt'),
           ('trained','configs/jepa/cad_image_v46.yaml',base/'cad_image_v46/runs/seed42/last.pt')]
-    if args.version=='v47':
-        arms=[(name,'configs/jepa/cad_image_v47.yaml',base/experiment/'runs/seed42'/file) for name,file in [('initial','initial.pt'),('trained','last.pt')]]
+    if args.version in ('v47','v48'):
+        arms=[(name,f'configs/jepa/{experiment}.yaml',base/experiment/'runs/seed42'/file) for name,file in [('initial','initial.pt'),('trained','last.pt')]]
     try:
         if subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip():raise RuntimeError('GPUs occupied')
         for arm,config,checkpoint in arms:
@@ -41,6 +41,16 @@ def main():
                 status(arm);time.sleep(3)
             if any(c.returncode for c in children):raise RuntimeError(arm+' failed')
             for log in logs:log.close()
+        if args.version in ('v47','v48'):
+            for step,filename in ((0,'initial.pt'),(500,'last.pt')):
+                with (root/f'visual{step}.log').open('w') as log:
+                    env=dict(os.environ,PYTHONPATH=str(exe/'src'),CUDA_VISIBLE_DEVICES='0',OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2',CUBLAS_WORKSPACE_CONFIG=':4096:8')
+                    child=subprocess.Popen([sys.executable,'tools/probe_geometry_transport.py','--config',f'configs/jepa/{experiment}.yaml',
+                        '--checkpoint',str(base/experiment/'runs/seed42'/filename),'--out',str(base/experiment/'visual/probe'/f'step{step}'/'rank0'),'--rank','0','--records','8'],
+                        cwd=exe,env=env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True)
+                    children=[child]
+                    while child.poll() is None:status('visual'+str(step));time.sleep(3)
+                    if child.returncode:raise RuntimeError('Visual probe failed')
         status('complete',completed=True,physical_sequences=40,training=False,default_model_changed=False)
     except Exception as e:
         for c in children:

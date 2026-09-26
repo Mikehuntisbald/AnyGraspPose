@@ -31,11 +31,16 @@ def main():
     p.add_argument('--clean-control', action='store_true',help='Remove synthetic input occlusion, but preserve original corrupted-case targets/masks')
     p.add_argument('--atlas-ablation',choices=['prior_only','learned_only'])
     p.add_argument('--correspondence-audit',action='store_true')
+    p.add_argument('--recovery-routing',choices=['on','observed_only','rope_off'],default='on')
     a = p.parse_args(); torch.cuda.set_device(0); torch.set_num_threads(2); torch.manual_seed(42)
     c = yaml.safe_load(Path(a.config).read_text()); model = build_model(c)
     record = torch.load(a.checkpoint, map_location='cpu', weights_only=False)
     load_core(model, record['model']); del record
     model.requires_grad_(False).eval(); model.fast_geometry = model.vector_geometry = True
+    if a.recovery_routing=='observed_only':
+        model.staged_rope['recovered_max_trust']=0.
+    elif a.recovery_routing=='rope_off':
+        with torch.no_grad():model.cad_surface.rope3d.gain.zero_()
     atlas=hasattr(model,'cad_atlas_decoder')
     if a.atlas_ablation:
         if not atlas:raise ValueError('Atlas ablation requires the atlas decoder')
@@ -225,6 +230,7 @@ def main():
         clean_control=a.clean_control,clean_control_scope='Artificial occlusion removed from current input only; original target masks retained. Privileged input-availability diagnostic, never a heavy-occlusion deployment result' if a.clean_control else None,
         atlas_ablation=a.atlas_ablation,
         correspondence_audit=a.correspondence_audit,
+        recovery_routing=a.recovery_routing,
         lip_baseline_sha256=lip_sha,lip_baseline_scope='Same corrupted current input/base/crop, empty history, one refinement; no GT render fed to LIP; conditional diagnostic, not native LIP accuracy' if lip is not None else None,
         oracle_lookup_scope='GT correspondence and GT depth diagnostic only; common supported pixels; never deployed', seconds=time.monotonic()-start), indent=2)+'\n')
 

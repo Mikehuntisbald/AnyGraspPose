@@ -123,10 +123,12 @@ def main():
     else:
         save(out/'initial.pt', model, optimizer, scheduler, 0, config, provenance)
     with (out/f'rank{rank}.jsonl').open('a') as log:
+        fixed_reference=None
         for step in range(start, stop):
             begun = time.monotonic(); episodes = []; targets = []; seeds = []
             for lane in range(batch):
-                seed = plan.get('train_seed_start',34000000)+(step*world+rank)*batch+lane
+                sample_step=0 if plan.get('fixed_training_batch') else step
+                seed = plan.get('train_seed_start',34000000)+(sample_step*world+rank)*batch+lane
                 for attempt in range(100):
                     draw = seed+attempt*100000003
                     ep, target = factory.sample(draw, frames=1)
@@ -135,8 +137,10 @@ def main():
                 episodes.append(ep); targets.append(target); seeds.append(draw)
             truth = torch.stack([t[0][0] for t in targets])
             diameter = truth.new_tensor([float(e.mesh['diameter']) for e in episodes])
-            noise = torch.randn(batch, 6, device='cuda')*truth.new_tensor([plan.get('rotation_noise_std',.15)]*3+[.035]*3)
-            if step % 10 == 0: noise.zero_()
+            generator=torch.Generator(device='cuda').manual_seed(49000+rank) if plan.get('fixed_training_batch') else None
+            noise = torch.randn(batch, 6, device='cuda',generator=generator)*truth.new_tensor([plan.get('rotation_noise_std',.15)]*3+[.035]*3)
+            if plan.get('fixed_training_batch'):noise[0].zero_()
+            elif step % 10 == 0: noise.zero_()
             base = update(truth, noise[:, :3], noise[:, 3:], diameter)
             if step % 4 == 3 and not plan.get('paired_estimates'): base = torch.stack([e.initial for e in episodes])
             scenes = [prepare_scene(e.rgb[0], e.depth[0], base[i], e.mesh, e.k, e.times[0], e.stream, e.cad, factory.renderer, fast=True) for i,e in enumerate(episodes)]
@@ -171,6 +175,15 @@ def main():
             if plan.get('clean_input'):
                 from lip.unified.paired_geometry_curriculum import clean_input_targets
                 target=clean_input_targets(target,full_visible)
+            if plan.get('fixed_training_batch'):
+                current=dict(rgb=observation.packet.rgb_crop,depth=observation.measured_depth_m,geometry=observation.geometry_image,base=observation.base,
+                    xyz_target=target.cad_geometry_xyz,depth_target=target.surface_depth_residual,real_mask=target.geometry_real_weight,proxy_mask=target.geometry_proxy_weight)
+                if fixed_reference is None:
+                    fixed_reference={k:v.detach().clone() for k,v in current.items()}
+                    hashes={k:hashlib.sha256(v.detach().cpu().contiguous().numpy().tobytes()).hexdigest() for k,v in current.items()}
+                    atomic_json(out/f'fixed_batch_rank{rank}_start{start}.json',dict(seeds=seeds,input_and_target_hashes=hashes,training_partition_only=True,observations=batch,hypotheses=len(scenes)))
+                elif any(not torch.equal(v,fixed_reference[k]) for k,v in current.items()):
+                    raise RuntimeError('Fixed recovery batch changed input or supervision')
             with torch.autocast('cuda', dtype=torch.bfloat16): output, _ = model(observation)
             atlas=config.get('cad_atlas',{}).get('enabled',False)
             loss, metrics = objective(output, target, observation, visible, torch.stack([s.k_crop for s in scenes]), config['cad_transport']['enabled'] and not atlas,
@@ -193,7 +206,8 @@ def main():
                 metrics.update(image_metrics)
                 if config['cad_image'].get('anchored_flow'):
                     from lip.unified.cad_image_correspondence import anchored_flow_loss
-                    flow_loss,flow_metrics=anchored_flow_loss(output,labels)
+                    flow_loss,flow_metrics=anchored_flow_loss(output,labels,
+                        real_weight=config['cad_image'].get('flow_real_weight',1.),proxy_weight=config['cad_image'].get('flow_proxy_weight',.5))
                     loss=flow_loss*config['cad_image'].get('flow_weight',40.) if plan.get('point_head_only') else loss+flow_loss*40.
                     metrics.update(flow_metrics)
                 if step==0 and not plan.get('point_head_only'):

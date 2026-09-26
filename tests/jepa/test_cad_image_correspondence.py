@@ -128,3 +128,14 @@ def test_zero_initialized_anchor_flow_and_frozen_feature_boundary():
     labels=dict(uv=out['cad_flow_uv'].detach()+1,observed=torch.ones(1,4,dtype=torch.bool),real=torch.zeros(1,4,dtype=torch.bool),proxy=torch.zeros(1,4,dtype=torch.bool))
     loss,_=anchored_flow_loss(out,labels);loss.backward()
     assert read.anchor_flow[-1].weight.grad.norm()>0 and q.grad is None
+
+
+def test_visible_flow_objective_does_not_use_hidden_endpoints():
+    from lip.unified.cad_image_correspondence import anchored_flow_loss
+    uv=torch.zeros(1,3,2,requires_grad=True)
+    labels=dict(uv=torch.ones_like(uv),observed=torch.tensor([[True,False,False]]),real=torch.tensor([[False,True,False]]),proxy=torch.tensor([[False,False,True]]))
+    loss,_=anchored_flow_loss(dict(cad_flow_uv=uv),labels,real_weight=0.,proxy_weight=0.);loss.backward()
+    assert uv.grad[0,0].norm()>0 and not uv.grad[0,1:].any()
+    changed=dict(labels,uv=labels['uv'].clone());changed['uv'][:,1:]=100.
+    other,_=anchored_flow_loss(dict(cad_flow_uv=uv),changed,real_weight=0.,proxy_weight=0.)
+    assert torch.equal(loss,other)

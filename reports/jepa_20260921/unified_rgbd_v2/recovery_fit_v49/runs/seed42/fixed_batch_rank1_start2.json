@@ -1,0 +1,21 @@
+{
+  "seeds": [
+    49000004,
+    49000005,
+    49000006,
+    49000007
+  ],
+  "input_and_target_hashes": {
+    "rgb": "a4dd8a34b4af212afe82cb8b4fd1100dc523bbb3bcf1863115933d2eee055556",
+    "depth": "fda58369fe6b1b02aa8e34fd46dff423660862c84f36089205cc251e49ba7349",
+    "geometry": "5ac8d84c2742869c3afdaaed51b2be86f7448469bb2b7b0dac4ca5e3f49e3a02",
+    "base": "0cdc61d05b54ea004e9a4bbd4bc0c2a108ba2e5f80e84ca98db9fe0ee9da08b8",
+    "xyz_target": "10209716224b414254a5dadcf3163be5d31fce07ac2669ff8edbb6d57b67a613",
+    "depth_target": "0d90dcbe30e9f068bf176d67118e597964e79629de699c0ec12209379dc84079",
+    "real_mask": "903a880fab4149360ff22c4b1995bd7e954a32ba85cc21b30931f3ffcdff5797",
+    "proxy_mask": "d5358e696fd76ccb813e55316f2053e556d16053e807d16808a490d31c8f27a8"
+  },
+  "training_partition_only": true,
+  "observations": 4,
+  "hypotheses": 8
+}

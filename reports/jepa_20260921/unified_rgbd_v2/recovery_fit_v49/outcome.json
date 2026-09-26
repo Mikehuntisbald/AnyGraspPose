@@ -1,0 +1,44 @@
+{
+  "completed": true,
+  "updates": 200,
+  "training_observations": 32,
+  "paired_hypotheses": 64,
+  "input_and_target_hashes_match_across_resume": true,
+  "train_fit": {
+    "first_forward": {
+      "real_cad_xyz_mm": 15.765604257583618,
+      "real_depth_mm": 11.850775241851807,
+      "proxy_cad_xyz_mm": 14.805492043495178,
+      "proxy_depth_mm": 11.919071197509766,
+      "atlas_real_top8": 0.0601561376824975,
+      "atlas_proxy_top8": 0.061651302967220545
+    },
+    "last_forward": {
+      "real_cad_xyz_mm": 6.040782272815704,
+      "real_depth_mm": 3.779957592487335,
+      "proxy_cad_xyz_mm": 5.385035127401352,
+      "proxy_depth_mm": 3.3997229635715485,
+      "atlas_real_top8": 0.28440933115780354,
+      "atlas_proxy_top8": 0.3889657147228718
+    }
+  },
+  "independent_heavy": {
+    "0": {
+      "real/canonical_xyz_mm": 14.42156673329217,
+      "real/depth_mm": 12.504619257790702,
+      "proxy/canonical_xyz_mm": 18.336014722522936,
+      "proxy/depth_mm": 13.359750308488545
+    },
+    "200": {
+      "real/canonical_xyz_mm": 23.67830354826791,
+      "real/depth_mm": 14.255242879901614,
+      "proxy/canonical_xyz_mm": 27.863725185394287,
+      "proxy/depth_mm": 17.94395308745535
+    }
+  },
+  "pose_training": false,
+  "pose_evaluation": false,
+  "scope": "Training metrics are equal-rank means on fixed audited masks; independent64 probe uses original masks and equal physical-sequence means. Do not compare absolute levels across the two populations.",
+  "default_model_changed": false,
+  "accurate_recovery_achieved": false
+}

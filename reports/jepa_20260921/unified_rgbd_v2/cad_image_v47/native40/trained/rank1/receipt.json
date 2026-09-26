@@ -1,0 +1,12 @@
+{
+  "completed": true,
+  "records": 28,
+  "checkpoint_sha256": "d798f8b2f9d16173a1093af1d23abc623325ac17fe3459a06144ea43a1b13ea5",
+  "baseline_sha256": "69b9b006b85c514acaec52153e42166c5ce6eecc4ebc994b5d1d6f3904d3be31",
+  "physical_sequences": 40,
+  "selection": "lexicographic stream per physical sequence; first+8, first+24, baseline lowest visibility; duplicates removed",
+  "scope": "native previous-baseline pose/crop, conditional single-frame refinement, natural and heavy; not closed-loop",
+  "gt_input": false,
+  "official_test": false,
+  "seconds": 21.709978224011138
+}

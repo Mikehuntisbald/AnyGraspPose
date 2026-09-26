@@ -1,0 +1,22 @@
+{
+  "verified": true,
+  "step": 500,
+  "backbone_frozen": true,
+  "frozen_parameters_and_buffers": 719,
+  "changed_tensor_names": [
+    "cad_atlas_decoder.image_readout.anchor_flow.0.weight",
+    "cad_atlas_decoder.image_readout.anchor_flow.0.bias",
+    "cad_atlas_decoder.image_readout.anchor_flow.1.weight",
+    "cad_atlas_decoder.image_readout.anchor_flow.1.bias",
+    "cad_atlas_decoder.image_readout.anchor_flow.3.weight",
+    "cad_atlas_decoder.image_readout.anchor_flow.3.bias",
+    "cad_atlas_decoder.image_readout.anchor_flow.5.weight",
+    "cad_atlas_decoder.image_readout.anchor_flow.5.bias"
+  ],
+  "trained_parameters": 32758,
+  "optimizer_only_new_head": true,
+  "strict_resume": true,
+  "checkpoint_sha256": "d798f8b2f9d16173a1093af1d23abc623325ac17fe3459a06144ea43a1b13ea5",
+  "source_checkpoint_sha256": "d234ce834c2b1ff280c27c11b8e13a17570c8c5a1d14e6baa7acf3358a8378df",
+  "status_note": "Original launcher backbone_frozen flag checks only decoder_only; this actual-tensor receipt supersedes that legacy field. Original runtime/status preserved."
+}

@@ -21,11 +21,11 @@ def sample_points(image, uv, mode='bilinear'):
     return F.grid_sample(image.float(), grid[:, None], mode=mode, align_corners=False)[:, :, 0].transpose(1, 2)
 
 
-def anchored_flow_loss(output,labels):
+def anchored_flow_loss(output,labels,real_weight=1.,proxy_weight=.5):
     difference=(output['cad_flow_uv'].float()-labels['uv'].float())/224.
     error=F.smooth_l1_loss(difference,torch.zeros_like(difference),beta=1/224.,reduction='none').sum(-1)
     loss=error.sum()*0;metrics={}
-    for name,factor in [('observed',1.),('real',1.),('proxy',.5)]:
+    for name,factor in [('observed',1.),('real',real_weight),('proxy',proxy_weight)]:
         mask=labels[name];count=mask.sum(-1);eligible=count>0
         value=(error*mask).sum(-1)/count.clamp_min(1)
         loss+=factor*(value*eligible).sum()/eligible.sum().clamp_min(1)

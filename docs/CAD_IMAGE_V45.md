@@ -1,6 +1,6 @@
 # V45: explicit CAD-to-image correspondence through JEPA
 
-Status: V45 completed100 updates and frozen64-record controls. Geometry/endpoint errors improved against its V44 parent, but robust pose did not improve. No promotion. V46 continues500 updates with corrected class normalization; its result is pending.
+Status: V45 completed100 updates and frozen64-record controls. Geometry/endpoint errors improved against its V44 parent, but robust pose did not improve. No promotion. V46 completed500 updates with corrected class normalization and the fixed40 native-frame diagnostic; no promotion.
 
 ## Motivation and reference
 
@@ -43,3 +43,12 @@ Raw forward PnP rotation worsened13.624→14.593deg and translation61.781→72.5
 V46 changes only supervision configuration: positive and negative support/visibility classes get equal mass within each example, and the classification coefficient increases0.1→1.0. No new parameters. The test proves adding100 negative copies cannot reduce a positive sample's gradient mass. Classification scores after rebalancing are not calibrated deployment probabilities. V46 starts from V45 terminal checkpoint d67501ab547c40fcdebc84a67813e825121188ef73d4eb297da5b66c7097efcf, retains geometry/endpoint targets, and runs500 more updates with a fresh optimizer and strict2→500 resume. Its pinned runtime is `/tmp/dexycb_cad_image_v46`.32 targeted tests pass.
 
 The subsequent native40 diagnostic uses fixed previous-frame sealed LIP poses for crop/base, three fixed frames per sequence (duplicates removed), and natural/heavy inputs. It is conditional one-step evaluation, not closed-loop tracking. Its purpose is to avoid mistaking performance on10-degree/zero-translation probes for native pose quality.
+
+
+## V46 completed: classification repaired, geometry/pose not solved
+
+Heavy visible recall rose0.94%→79.12% (precision47.96%); support recall10.09%→90.28% (precision84.92%). Yet only15.61% of observed endpoints are within3px. Heavy fixed64 geometry worsened13.376→14.318mm real canonical XYZ and15.561→16.084mm proxy XYZ. No additional full-backbone training was automatically scheduled.
+
+The fixed40 conditional native test covered119 unique frames/238 natural-heavy records per model with exactly matched target masks and previous-LIP bases. Heavy base ADD-S@0.05d was67.083%; V46 raw forward PnP34.167%, visibility-gated PnP31.250%, and confidence-capped RGB-D forward registration64.167%. RGB-D resolves many extreme monocular translation failures, but still fails to improve the base. Full tables retain every alternative, including all-fallback cases. These are not current pure-LIP/native closed-loop comparisons. Original V38 remains the stronger geometry reference.
+
+V47 is a separate frozen-backbone test of template-anchored image displacement, described in `CAD_IMAGE_V47.md`. It does not relabel V46 as successful.

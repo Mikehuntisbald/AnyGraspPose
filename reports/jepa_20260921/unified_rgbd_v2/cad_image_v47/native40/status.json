@@ -1,0 +1,11 @@
+{
+  "stage": "complete",
+  "pids": [
+    2078903
+  ],
+  "time": 1790427317.4961224,
+  "completed": true,
+  "physical_sequences": 40,
+  "training": false,
+  "default_model_changed": false
+}

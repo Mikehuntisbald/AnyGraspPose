@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "identical_rgbd": true,
+  "observations": 4,
+  "pose_hypotheses": 8,
+  "clean_input": false
+}

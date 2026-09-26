@@ -64,7 +64,7 @@ def main():
             if args.clean_probe:
                 run(f'clean_probe{probe_step}',[['tools/probe_geometry_transport.py','--config',config,'--checkpoint',str(ck),'--out',str(root/'probe'/f'step{probe_step}_clean'/f'rank{i}'),'--rank',str(i),'--world','8','--records','8','--lookup-audit','--clean-control'] for i in range(8)],True)
         c=yaml.safe_load((exe/config).read_text())
-        status('complete',completed=True,updates=c['geometry_transport_training']['updates'],backbone_frozen=c['geometry_transport_training'].get('decoder_only',False),default_model_changed=False)
+        status('complete',completed=True,updates=c['geometry_transport_training']['updates'],backbone_frozen=c['geometry_transport_training'].get('decoder_only',False) or c['geometry_transport_training'].get('point_head_only',False),default_model_changed=False)
     except Exception as e:status('failed',error=str(e));raise
 
 
