@@ -1,0 +1,32 @@
+{
+  "completed": true,
+  "source_commit": "141f978",
+  "training": false,
+  "goal_achieved": false,
+  "default_model_changed": false,
+  "checkpoint_sha256": "044a8f928d324e54c8e2cab2927dd31e55942cde98bc09fa5f18ce5245d0fa5f",
+  "source_checkpoint_unchanged": true,
+  "baseline_reproduction": {
+    "10": {
+      "rows": 64,
+      "same_inputs_by_seed_stream": true,
+      "baseline_metrics_exact": true
+    },
+    "60": {
+      "rows": 32,
+      "same_inputs_by_seed_stream": true,
+      "baseline_metrics_exact": true
+    }
+  },
+  "runtime": "/tmp/dexycb_flow_surface_v57_r4",
+  "remote_artifacts": "/mnt/why/dexycb_lip/unified_jepa_20260921/flow_surface_audit_v57_r4",
+  "remote_git_checkout": false,
+  "hashes": {
+    "r4/outcome.json": "62478fc7ab5b2eee3d75a2b3e38a64bdab63a0855188afdb467eb52318c5a32e",
+    "r4/REPORT.md": "57f8d549bf3b766a5045501014d0f903594507463325a0238ad0895a33240b83",
+    "r4/source_receipt.json": "690f49e7345a8e8e6664b89ff903bb35c0eb7b5c29e2aa523a5fdff75b122465",
+    "r4/source.tar.gz": "5cc75cf1c9b23aff688e122fb0a874f69ba0819e14dba65afe66edadc5df567b",
+    "r4/teacher_pixel_roundtrip.json": "ba148c40a00c6172d71447029bb2a4f9a34090ba19cb6e725bcac7766c9b3991",
+    "r4/tests.xml": "8359c5954102151e967391e1cb889c14085b614490b7f94866c97a450b7febf4"
+  }
+}

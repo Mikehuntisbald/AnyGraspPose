@@ -298,3 +298,11 @@ V12 preserved at9750; trainable-DINO/EMA V13 ran to9800 with exact startup/resum
 目标EPE分别降低30.6%／34.9%（同一权重开关反馈）；反向flow写入对几何影响
 仍很弱，重遮挡自然代理深度7.732→9.052mm，未通过。预算结束，未替换默认模型。
 这是受控留出样本诊断，不是native全评测。[结论与消融](../flow_reconstruction_v56/SUMMARY.md)。
+
+## V57：冻结几何信息与监督一致性审计
+
+预测flow与恢复深度联合做几何拟合，在10度参考误差的重遮挡CAD代理上，XYZ
+8.846→6.616mm、深度9.052→7.426mm；真实深度及60度对照仍未通过，未替换主模型。
+点可见性AUROC仅0.624，0.5阈值会丢弃全部测量锚点。直接GT CAD与真实深度
+仍有约10mm差异，已检查固定样本的原始标注、mesh中心和像素投影，成因未确定。
+[完整结果与监督图](../flow_surface_audit_v57/SUMMARY.md)。

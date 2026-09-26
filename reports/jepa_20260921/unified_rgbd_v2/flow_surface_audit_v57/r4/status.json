@@ -1,0 +1,23 @@
+{
+  "stage": "complete",
+  "pids": [
+    2089202,
+    2089203,
+    2089204,
+    2089205,
+    2089206,
+    2089207,
+    2089208,
+    2089209
+  ],
+  "time": 1790453194.1364577,
+  "completed": true,
+  "checkpoint_sha256": "044a8f928d324e54c8e2cab2927dd31e55942cde98bc09fa5f18ce5245d0fa5f",
+  "weights_unchanged": true,
+  "training": false,
+  "candidate_uses_teacher": false,
+  "oracle_controls_separate": true,
+  "pose_training": false,
+  "pose_evaluation": false,
+  "scope": "Frozen geometry information audit. Rigid fit uses PnP but reports reconstructed geometry only; not a new inference architecture."
+}

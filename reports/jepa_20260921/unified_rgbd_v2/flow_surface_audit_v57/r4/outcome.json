@@ -1,0 +1,502 @@
+{
+  "10": {
+    "baseline": {
+      "nonheavy_real": {
+        "frames": 16,
+        "canonical_xyz_mm": 11.822780191898346,
+        "depth_mm": 7.153115205466747,
+        "coverage": null
+      },
+      "nonheavy_proxy": {
+        "frames": 21,
+        "canonical_xyz_mm": 9.89462035042899,
+        "depth_mm": 9.288505338487171,
+        "coverage": null
+      },
+      "heavy_real": {
+        "frames": 32,
+        "canonical_xyz_mm": 8.695290967822075,
+        "depth_mm": 7.616647832095623,
+        "coverage": null
+      },
+      "heavy_proxy": {
+        "frames": 20,
+        "canonical_xyz_mm": 8.846024227142333,
+        "depth_mm": 9.051922303438186,
+        "coverage": null
+      }
+    },
+    "triangle": {
+      "nonheavy_real": {
+        "frames": 16,
+        "canonical_xyz_mm": 10.842969805002213,
+        "depth_mm": 7.153114996850491,
+        "coverage": 0.5166153397876769
+      },
+      "nonheavy_proxy": {
+        "frames": 21,
+        "canonical_xyz_mm": 9.920481409345355,
+        "depth_mm": 9.288506144569034,
+        "coverage": 0.40284086480027154
+      },
+      "heavy_real": {
+        "frames": 32,
+        "canonical_xyz_mm": 8.459174782037735,
+        "depth_mm": 7.616647876799107,
+        "coverage": 0.5627082516439259
+      },
+      "heavy_proxy": {
+        "frames": 20,
+        "canonical_xyz_mm": 8.949313700199127,
+        "depth_mm": 9.051922273635864,
+        "coverage": 0.4082774123176932
+      }
+    },
+    "rigid": {
+      "nonheavy_real": {
+        "frames": 16,
+        "canonical_xyz_mm": 8.445298597216606,
+        "depth_mm": 51.84793534874916,
+        "coverage": 0.9272692799568176
+      },
+      "nonheavy_proxy": {
+        "frames": 21,
+        "canonical_xyz_mm": 8.277200528553553,
+        "depth_mm": 56.45118426141285,
+        "coverage": 0.9180663710548764
+      },
+      "heavy_real": {
+        "frames": 32,
+        "canonical_xyz_mm": 7.952205181121826,
+        "depth_mm": 29.849470399320126,
+        "coverage": 0.8767493478953838
+      },
+      "heavy_proxy": {
+        "frames": 20,
+        "canonical_xyz_mm": 8.22551425099373,
+        "depth_mm": 32.62411727309227,
+        "coverage": 0.8157754451036453
+      },
+      "accepted": 58
+    },
+    "metric_recovered": {
+      "nonheavy_real": {
+        "frames": 16,
+        "canonical_xyz_mm": 8.609212398529053,
+        "depth_mm": 7.463983539491892,
+        "coverage": 0.748100608587265
+      },
+      "nonheavy_proxy": {
+        "frames": 21,
+        "canonical_xyz_mm": 7.496915522075835,
+        "depth_mm": 8.33821962560926,
+        "coverage": 0.9017038004738944
+      },
+      "heavy_real": {
+        "frames": 32,
+        "canonical_xyz_mm": 6.547273203730583,
+        "depth_mm": 8.626038495451212,
+        "coverage": 0.8603292368352413
+      },
+      "heavy_proxy": {
+        "frames": 20,
+        "canonical_xyz_mm": 6.615656578540802,
+        "depth_mm": 7.425857046246529,
+        "coverage": 0.8030452132225037
+      },
+      "accepted": 54
+    },
+    "metric_measured": {
+      "nonheavy_real": {
+        "frames": 16,
+        "canonical_xyz_mm": 8.60519877076149,
+        "depth_mm": 7.5513825342059135,
+        "coverage": 0.8087554685771465
+      },
+      "nonheavy_proxy": {
+        "frames": 21,
+        "canonical_xyz_mm": 7.4732203256516225,
+        "depth_mm": 9.413075390316191,
+        "coverage": 0.9012978587831769
+      },
+      "heavy_real": {
+        "frames": 32,
+        "canonical_xyz_mm": 6.807273086160421,
+        "depth_mm": 8.413137007504702,
+        "coverage": 0.7952935583889484
+      },
+      "heavy_proxy": {
+        "frames": 20,
+        "canonical_xyz_mm": 7.178787603974342,
+        "depth_mm": 9.268382382392883,
+        "coverage": 0.729601326957345
+      },
+      "accepted": 53
+    },
+    "oracle_triangle": {
+      "nonheavy_real": {
+        "frames": 16,
+        "canonical_xyz_mm": 7.645008139312267,
+        "depth_mm": 7.153114996850491,
+        "coverage": 0.43263650964945555
+      },
+      "nonheavy_proxy": {
+        "frames": 21,
+        "canonical_xyz_mm": 7.718181252479553,
+        "depth_mm": 9.288506144569034,
+        "coverage": 0.27211980521678925
+      },
+      "heavy_real": {
+        "frames": 32,
+        "canonical_xyz_mm": 5.5489840246737,
+        "depth_mm": 7.616647876799107,
+        "coverage": 0.44196982495486736
+      },
+      "heavy_proxy": {
+        "frames": 20,
+        "canonical_xyz_mm": 7.6704055845737455,
+        "depth_mm": 9.051922273635864,
+        "coverage": 0.19983078450895847
+      }
+    },
+    "oracle_rigid": {
+      "nonheavy_real": {
+        "frames": 16,
+        "canonical_xyz_mm": 1.7680065568012964,
+        "depth_mm": 10.437473990023136,
+        "coverage": 0.8125
+      },
+      "nonheavy_proxy": {
+        "frames": 21,
+        "canonical_xyz_mm": 0.560453177868935,
+        "depth_mm": 0.16426961437744986,
+        "coverage": 0.9523809523809523
+      },
+      "heavy_real": {
+        "frames": 32,
+        "canonical_xyz_mm": 0.8397308416231795,
+        "depth_mm": 10.069877821952105,
+        "coverage": 0.875
+      },
+      "heavy_proxy": {
+        "frames": 20,
+        "canonical_xyz_mm": 0.7292327993760637,
+        "depth_mm": 0.577182614730782,
+        "coverage": 0.9
+      },
+      "accepted": 56
+    },
+    "oracle_cad": {
+      "nonheavy_real": {
+        "frames": 16,
+        "canonical_xyz_mm": 0.0,
+        "depth_mm": 11.599780790507793,
+        "coverage": 1.0
+      },
+      "nonheavy_proxy": {
+        "frames": 21,
+        "canonical_xyz_mm": 0.0,
+        "depth_mm": 0.0,
+        "coverage": 1.0
+      },
+      "heavy_real": {
+        "frames": 32,
+        "canonical_xyz_mm": 0.0,
+        "depth_mm": 10.233774580061436,
+        "coverage": 1.0
+      },
+      "heavy_proxy": {
+        "frames": 20,
+        "canonical_xyz_mm": 0.0,
+        "depth_mm": 0.0,
+        "coverage": 1.0
+      }
+    },
+    "observed_evidence": {
+      "measured_anchors": 1295,
+      "mean_measured_fraction": 0.3003557825247426,
+      "point_visible_above_half": 0,
+      "measured_depth_available": 2352,
+      "max_point_visibility": 0.49486640095710754
+    },
+    "point_visibility": {
+      "all": {
+        "points": 1489,
+        "positive": 648,
+        "auroc": 0.6242660119493255,
+        "brier": 0.24832686287992706,
+        "positive_mean": 0.48930202387733224,
+        "negative_mean": 0.4885710618158583,
+        "recall_at_half": 0.0
+      },
+      "heavy": {
+        "points": 808,
+        "positive": 111,
+        "auroc": 0.7092300334768054,
+        "brier": 0.24169331667871044,
+        "positive_mean": 0.4898691569362675,
+        "negative_mean": 0.48860805914596983,
+        "recall_at_half": 0.0
+      },
+      "nonheavy": {
+        "points": 681,
+        "positive": 537,
+        "auroc": 0.6476825987999172,
+        "brier": 0.2561975021318846,
+        "positive_mean": 0.48918479525621156,
+        "negative_mean": 0.48839198446108234,
+        "recall_at_half": 0.0
+      }
+    }
+  },
+  "60": {
+    "baseline": {
+      "nonheavy_real": {
+        "frames": 8,
+        "canonical_xyz_mm": 35.18915843963623,
+        "depth_mm": 9.685881063342094,
+        "coverage": null
+      },
+      "nonheavy_proxy": {
+        "frames": 8,
+        "canonical_xyz_mm": 35.28973841667175,
+        "depth_mm": 13.208982020616531,
+        "coverage": null
+      },
+      "heavy_real": {
+        "frames": 16,
+        "canonical_xyz_mm": 38.14334499835968,
+        "depth_mm": 16.756392315030098,
+        "coverage": null
+      },
+      "heavy_proxy": {
+        "frames": 10,
+        "canonical_xyz_mm": 35.37597556114197,
+        "depth_mm": 14.673382198810577,
+        "coverage": null
+      }
+    },
+    "triangle": {
+      "nonheavy_real": {
+        "frames": 8,
+        "canonical_xyz_mm": 36.35602426528931,
+        "depth_mm": 9.685880735516548,
+        "coverage": 0.599161816528067
+      },
+      "nonheavy_proxy": {
+        "frames": 8,
+        "canonical_xyz_mm": 32.98634546995163,
+        "depth_mm": 13.208978682756424,
+        "coverage": 0.4901699852780439
+      },
+      "heavy_real": {
+        "frames": 16,
+        "canonical_xyz_mm": 39.91819626092911,
+        "depth_mm": 16.756392285227776,
+        "coverage": 0.5767715498805046
+      },
+      "heavy_proxy": {
+        "frames": 10,
+        "canonical_xyz_mm": 35.62977600097656,
+        "depth_mm": 14.673380291461944,
+        "coverage": 0.12734859026968479
+      }
+    },
+    "rigid": {
+      "nonheavy_real": {
+        "frames": 8,
+        "canonical_xyz_mm": 36.29563045501709,
+        "depth_mm": 57.509310603141785,
+        "coverage": 0.7302664592862129
+      },
+      "nonheavy_proxy": {
+        "frames": 8,
+        "canonical_xyz_mm": 33.436158776283264,
+        "depth_mm": 54.618441343307495,
+        "coverage": 0.8325355872511864
+      },
+      "heavy_real": {
+        "frames": 16,
+        "canonical_xyz_mm": 40.211341381073,
+        "depth_mm": 35.7514408826828,
+        "coverage": 0.741387452930212
+      },
+      "heavy_proxy": {
+        "frames": 10,
+        "canonical_xyz_mm": 35.94377875328064,
+        "depth_mm": 25.636210346221922,
+        "coverage": 0.5173027399927378
+      },
+      "accepted": 26
+    },
+    "metric_recovered": {
+      "nonheavy_real": {
+        "frames": 8,
+        "canonical_xyz_mm": 35.22617173194885,
+        "depth_mm": 10.079587012529373,
+        "coverage": 0.3748198002576828
+      },
+      "nonheavy_proxy": {
+        "frames": 8,
+        "canonical_xyz_mm": 34.50912284851074,
+        "depth_mm": 13.97537949681282,
+        "coverage": 0.2933239974081516
+      },
+      "heavy_real": {
+        "frames": 16,
+        "canonical_xyz_mm": 39.19347965717316,
+        "depth_mm": 18.167839117348194,
+        "coverage": 0.6503822989761829
+      },
+      "heavy_proxy": {
+        "frames": 10,
+        "canonical_xyz_mm": 36.03933835029602,
+        "depth_mm": 16.348110055923463,
+        "coverage": 0.31926349103450774
+      },
+      "accepted": 17
+    },
+    "metric_measured": {
+      "nonheavy_real": {
+        "frames": 8,
+        "canonical_xyz_mm": 36.75200605392456,
+        "depth_mm": 13.067429006099701,
+        "coverage": 0.3748198002576828
+      },
+      "nonheavy_proxy": {
+        "frames": 8,
+        "canonical_xyz_mm": 34.225826263427734,
+        "depth_mm": 12.487553924322128,
+        "coverage": 0.17777777835726738
+      },
+      "heavy_real": {
+        "frames": 16,
+        "canonical_xyz_mm": 39.46619939804077,
+        "depth_mm": 18.163060635328293,
+        "coverage": 0.6507963202893734
+      },
+      "heavy_proxy": {
+        "frames": 10,
+        "canonical_xyz_mm": 36.34329290390015,
+        "depth_mm": 17.001827478408813,
+        "coverage": 0.31378430873155594
+      },
+      "accepted": 17
+    },
+    "oracle_triangle": {
+      "nonheavy_real": {
+        "frames": 8,
+        "canonical_xyz_mm": 21.160629630088806,
+        "depth_mm": 9.685880735516548,
+        "coverage": 0.40961165935732424
+      },
+      "nonheavy_proxy": {
+        "frames": 8,
+        "canonical_xyz_mm": 27.13374614715576,
+        "depth_mm": 13.208978682756424,
+        "coverage": 0.17972825467586517
+      },
+      "heavy_real": {
+        "frames": 16,
+        "canonical_xyz_mm": 27.604644298553467,
+        "depth_mm": 16.756392285227776,
+        "coverage": 0.3259225250221789
+      },
+      "heavy_proxy": {
+        "frames": 10,
+        "canonical_xyz_mm": 34.42600336074829,
+        "depth_mm": 14.673380291461944,
+        "coverage": 0.05428972374647856
+      }
+    },
+    "oracle_rigid": {
+      "nonheavy_real": {
+        "frames": 8,
+        "canonical_xyz_mm": 2.822807839229455,
+        "depth_mm": 12.748812884092331,
+        "coverage": 0.875
+      },
+      "nonheavy_proxy": {
+        "frames": 8,
+        "canonical_xyz_mm": 4.469556668336509,
+        "depth_mm": 3.397991391733285,
+        "coverage": 0.875
+      },
+      "heavy_real": {
+        "frames": 16,
+        "canonical_xyz_mm": 2.085819341900958,
+        "depth_mm": 10.287822037935257,
+        "coverage": 0.875
+      },
+      "heavy_proxy": {
+        "frames": 10,
+        "canonical_xyz_mm": 2.87550756906453,
+        "depth_mm": 2.6684599644328046,
+        "coverage": 0.8
+      },
+      "accepted": 27
+    },
+    "oracle_cad": {
+      "nonheavy_real": {
+        "frames": 8,
+        "canonical_xyz_mm": 0.0,
+        "depth_mm": 13.43220029771328,
+        "coverage": 1.0
+      },
+      "nonheavy_proxy": {
+        "frames": 8,
+        "canonical_xyz_mm": 0.0,
+        "depth_mm": 0.0,
+        "coverage": 1.0
+      },
+      "heavy_real": {
+        "frames": 16,
+        "canonical_xyz_mm": 0.0,
+        "depth_mm": 9.874751254916191,
+        "coverage": 1.0
+      },
+      "heavy_proxy": {
+        "frames": 10,
+        "canonical_xyz_mm": 0.0,
+        "depth_mm": 0.0,
+        "coverage": 1.0
+      }
+    },
+    "observed_evidence": {
+      "measured_anchors": 637,
+      "mean_measured_fraction": 0.2557937804376712,
+      "point_visible_above_half": 0,
+      "measured_depth_available": 1222,
+      "max_point_visibility": 0.4946623146533966
+    },
+    "point_visibility": {
+      "all": {
+        "points": 679,
+        "positive": 336,
+        "auroc": 0.5420137442732195,
+        "brier": 0.2498819898496953,
+        "positive_mean": 0.489348953589797,
+        "negative_mean": 0.4890953780263228,
+        "recall_at_half": 0.0
+      },
+      "heavy": {
+        "points": 350,
+        "positive": 66,
+        "auroc": 0.6101685872812633,
+        "brier": 0.24325856890754458,
+        "positive_mean": 0.4899565577507019,
+        "negative_mean": 0.489213491514535,
+        "recall_at_half": 0.0
+      },
+      "nonheavy": {
+        "points": 329,
+        "positive": 270,
+        "auroc": 0.6026365348399246,
+        "brier": 0.25692818234134507,
+        "positive_mean": 0.4892004281282425,
+        "negative_mean": 0.4885268317440809,
+        "recall_at_half": 0.0
+      }
+    }
+  }
+}

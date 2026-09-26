@@ -1,0 +1,15 @@
+{
+  "files": 8,
+  "matched": true,
+  "remote_git_checkout": false,
+  "sha256": {
+    "src/lip/unified/flow_surface_audit.py": "d1f001accca6750681c2d2e33bb5616f1ce3934ed65bafe3a4fafff9eee45f0b",
+    "tests/jepa/test_flow_surface_audit.py": "450b494c45f638e5df284e06f5170f9a409fd9b6ce37bbca138ad6bccd8329a7",
+    "tools/probe_geometry_transport.py": "ddfd8d81321ad6f79f012dc96a6bbdcdb6adca865020c09a7658cc7fc9d50642",
+    "tools/run_flow_surface_audit_v57.py": "5a66dca3c9e33e65dad60ff947f86755cf8c8560d666eb2380f1eaefcc177ac9",
+    "tools/report_flow_surface_audit_v57.py": "5386fc7cf3308315dce68425752a0f0c7cf76b17c637050878aee3ee19b6aba8",
+    "tools/plot_flow_surface_audit_v57.py": "0ecb35883d446429aa7bde962103e64ba5fc3f49b74447977c194a632c470481",
+    "tools/probe_teacher_pixels_v57.py": "646147c335d6eadadd4d8d93f9e302fef63e8216b72b3c815d2026e8b9be138a",
+    "docs/JEPA_FLOW_SURFACE_AUDIT_V57.md": "8eddab2e5a229bf236299333eb96aba4aff94f14e03646851039de35dbac3448"
+  }
+}

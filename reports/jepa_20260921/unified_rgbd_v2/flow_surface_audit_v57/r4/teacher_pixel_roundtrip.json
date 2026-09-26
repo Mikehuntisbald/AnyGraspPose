@@ -1,0 +1,27 @@
+{
+  "seed": 56050104,
+  "stream": "20200928-subject-07/20200928_145548/932122062010|draw56050104",
+  "learned_forward": false,
+  "training": false,
+  "teacher_pixels": 6247,
+  "pixel_reprojection_max": 0.04644513875246048,
+  "pixel_reprojection_mean": 0.0004383458290249109,
+  "camera_z_max_error_mm": 0.00011920928955078125,
+  "camera_xyz_ray_max_error_mm": 0.052127499133348465,
+  "visible_real_pixels": 5750,
+  "real_minus_cad_depth_mean_mm": 13.56942081451416,
+  "real_cad_depth_absolute_mean_mm": 13.787869453430176,
+  "real_cad_depth_absolute_p90_mm": 24.33916664123535,
+  "object_id": 9,
+  "mesh_path": "models/010_potted_meat_can/textured_simple.obj",
+  "frame": 14,
+  "centering_roundtrip_max_mm": 0.00011920928955078125,
+  "native_annotation_cache_max_difference": 0.0,
+  "geometry_appearance_bounds_max_difference_mm": 1.862645149230957e-06,
+  "scope": "Teacher raster/camera/crop roundtrip; does not certify real-scene annotation or calibration accuracy.",
+  "strict_numeric_gate_passed": false,
+  "strict_numeric_limits": {
+    "pixel_reprojection_max": 0.002,
+    "camera_xyz_ray_max_error_mm": 0.01
+  }
+}
