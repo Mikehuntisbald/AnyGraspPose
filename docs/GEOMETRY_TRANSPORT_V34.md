@@ -61,3 +61,43 @@ broader verification; it does not complete the user's accuracy goal.
 22 targeted geometry/DPT/serial/AMP tests passed before launch. Runtime is a
 pinned source copy at `/tmp/dexycb_geometry_transport_v34`; outputs are under
 `/mnt/why/dexycb_lip/unified_jepa_20260921/geometry_transport_v34`.
+
+## Completed100-update result: do not extend this joint trial
+
+The first launch failed on an EMA API argument before a completed training
+checkpoint. Its artifacts are preserved with suffix`_failed_ema_api`. The fixed
+launch used `/tmp/dexycb_geometry_transport_v34_r1`. Both100-update arms completed
+and all eight-rank gradients and strict resumes passed.
+
+Training-partition physical-holdout heavy geometry, equal sequence mass:
+
+|Model|Real XYZ mm|Real depth mm|Proxy XYZ mm|Proxy depth mm|
+|---|---:|---:|---:|---:|
+|Source|16.651|13.821|18.290|17.859|
+|Geometry-only DPT100|15.483|13.175|18.863|20.470|
+|CAD transport100|15.403|12.888|18.298|19.358|
+
+The candidate fails the declared gate: proxy geometry is not improved, and
+depth is worse than the source. These controlled10-degree training-holdout
+numbers MUST NOT be compared as gains against native/baseline-conditioned
+fixed40 errors around40mm. No continuation/default-model promotion occurred.
+
+A separate same-weight lookup audit on the same64 records finds heavy
+transport contribution only2.5% real/2.4% proxy. Case-mean flow EPE is5.80/4.63px,
+worse than zero-flow5.60/4.44px. Turning flow off barely changes geometry.
+Thus neither substantial use nor useful correspondence learning is established.
+The new geometry-only100-update objective also fails to improve both sources;
+do not infer that adding a head or disabling feature loss solved the problem.
+
+Real target versus GT-CAD depth differs9.58mm on average in those heavy cases.
+This includes sensor/mesh/annotation differences and does not prove all such
+measurements are wrong. Only44% real versus95% proxy pixels meet current-view
+reference surface eligibility. In all8x100 training microbatches only1.25%
+had no real target and1.75% no proxy target, so proxy disappearance is not the
+established root cause. Existing masked means already exclude empty lanes.
+
+Next bounded diagnostic V35 freezes the existing representation/DPT/EMA and
+trains only the new transport head100 updates. Gate bias resets to0 and LR1e-3
+with10-step warmup; evaluate its changed-initialization step0 separately so
+using more of the CAD prior is not mislabeled as learned correspondence gain.
+It must beat zero-flow, not only the previous DPT. New data seeds start35000000.

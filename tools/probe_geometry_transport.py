@@ -13,7 +13,7 @@ from prepare_serial_completion import heldout
 from lip.unified.build import build_model, make_store
 from lip.unified.training import Factory
 from lip.unified.features import prepare_scene, encode_scenes, build_teachers
-from lip.unified.cad_transport import transport_targets
+from lip.unified.cad_transport import transport_targets, sample_reference, pixel_grid
 from lip.unified.recovery_focus import camera_disagreement
 from lip.unified.surface_normals import normal_diagnostics
 from lip.engine.jepa_checkpoint import load_core, sha
@@ -25,6 +25,7 @@ def main():
     for key in ('config','checkpoint','out'): p.add_argument('--'+key, required=True)
     p.add_argument('--rank', type=int, default=0); p.add_argument('--world', type=int, default=8)
     p.add_argument('--records', type=int, default=8)
+    p.add_argument('--lookup-audit', action='store_true')
     a = p.parse_args(); torch.cuda.set_device(0); torch.set_num_threads(2); torch.manual_seed(42)
     c = yaml.safe_load(Path(a.config).read_text()); model = build_model(c)
     record = torch.load(a.checkpoint, map_location='cpu', weights_only=False)
@@ -52,6 +53,22 @@ def main():
                                     fast=True, batch_render=True, vectorized=True, geometry_only=True)
             with torch.autocast('cuda', dtype=torch.bfloat16): output, _ = model(obs)
             truth_transport = transport_targets(target.surface_xyz, obs.geometry_image, obs.base, obs.diameter, scene.k_crop[None], obs.cad_valid)
+            audit = {}
+            if a.lookup_audit:
+                bounds = obs.cad_valid.reshape(1,1,16,16).repeat_interleave(14,-2).repeat_interleave(14,-1)
+                ref_mask = (obs.geometry_image[:,3:4] > 0) & bounds
+                reference = torch.cat((obs.geometry_image[:,4:7],obs.geometry_image[:,2:3]),1)
+                grid = pixel_grid(1,224,224,'cuda')
+                moved,_ = sample_reference(reference,ref_mask,grid+output['transport_flow'])
+                unmoved,mass = sample_reference(reference,ref_mask,grid)
+                correction = output['transport_surface']-moved
+                gate = output['transport_gate_logits'].sigmoid()*(mass >= .999)
+                if not c['cad_transport']['enabled']: gate = gate*0.
+                fallback = output['transport_fallback'][:,:4]
+                zero_flow = fallback+gate*(unmoved+correction-fallback)
+                gt_render = factory.renderer(scene.cad['appearance'],gt[0],scene.k_crop,224)
+                gt_cad_depth = gt_render['depth'][None]
+                audit = dict(zero_flow=zero_flow,reference=reference,reference_mask=ref_mask,gt_cad_depth=gt_cad_depth)
             def score(xyz, depth, mask):
                 if not mask.any(): return None
                 consistency = camera_disagreement(dict(surface_xyz=xyz, surface_depth_residual=depth), target).norm(dim=1, keepdim=True)
@@ -73,6 +90,16 @@ def main():
                     metrics[name]['normal'] = normal_diagnostics(output, target, mask)
                     metrics[name]['gate_mean'] = float(output['transport_gate'][mask].mean())
                     metrics[name]['flow_epe'] = float((output['transport_flow']-truth_transport['flow']).norm(dim=1, keepdim=True)[eligible].mean()) if eligible.any() else None
+                    metrics[name]['zero_flow_epe'] = float(truth_transport['flow'].norm(dim=1,keepdim=True)[eligible].mean()) if eligible.any() else None
+                if audit:
+                    metrics[name+'_zero_flow'] = score(audit['zero_flow'][:,:3],audit['zero_flow'][:,3:4],mask)
+                    overlap = mask & audit['reference_mask']
+                    metrics[name+'_raw_cad_overlap'] = score(audit['reference'][:,:3],audit['reference'][:,3:4],overlap)
+                    metrics[name+'_predicted_overlap'] = score(output['surface_xyz'],output['surface_depth_residual'],overlap)
+                    if metrics[name]:
+                        gap = (target.surface_depth_m-audit['gt_cad_depth']).abs()[mask]*1000
+                        metrics[name]['real_to_gt_cad_depth_gap_mm'] = float(gap.mean())
+                        metrics[name]['real_to_gt_cad_depth_gap_p90_mm'] = float(gap.quantile(.9))
             row = dict(seed=seed, stream=e.stream, heavy=heavy, natural=item%4==0, window=e.training_window, metrics=metrics)
             if item == 2:
                 np.savez_compressed(out/'heavy_example.npz', rgb=scene.rgb.cpu().numpy(), occluded_rgb=occ.rgb.cpu().numpy(),
@@ -82,7 +109,7 @@ def main():
                     flow=output['transport_flow'].cpu().numpy(), gate=output['transport_gate'].cpu().numpy(), diameter=d)
             rows.append(row); log.write(json.dumps(row)+'\n'); log.flush()
     (out/'receipt.json').write_text(json.dumps(dict(completed=True, checkpoint_sha256=sha(a.checkpoint), config=c['cad_transport'],
-        records=len(rows), physical_holdout=True, training_split_only=True, official_test_access=False, teacher_inputs=False,
+        records=len(rows), lookup_audit=a.lookup_audit, physical_holdout=True, training_split_only=True, official_test_access=False, teacher_inputs=False,
         oracle_lookup_scope='GT correspondence and GT depth diagnostic only; common supported pixels; never deployed', seconds=time.monotonic()-start), indent=2)+'\n')
 
 

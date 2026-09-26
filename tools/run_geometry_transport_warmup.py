@@ -1,0 +1,53 @@
+"""One100-update decoder diagnostic, then stop; no backbone/pose changes."""
+import json,os,subprocess,sys,time,signal,hashlib,tarfile
+from pathlib import Path
+
+
+def main():
+    exe=Path(__file__).resolve().parents[1]
+    root=Path('/mnt/why/dexycb_lip/unified_jepa_20260921/geometry_transport_warmup_v35');root.mkdir(exist_ok=False)
+    config='configs/jepa/geometry_transport_warmup_v35.yaml';out=root/'runs/seed42'
+    files={str(p.relative_to(exe)):hashlib.sha256(p.read_bytes()).hexdigest() for d in ('src','tools','configs','tests') for p in (exe/d).rglob('*') if p.is_file() and '__pycache__' not in p.parts}
+    (root/'source_receipt.json').write_text(json.dumps(files,indent=2))
+    with tarfile.open(root/'source.tar.gz','w:gz') as tar:
+        for f in files:tar.add(exe/f,arcname=f)
+    env=dict(os.environ,PYTHONPATH=str(exe/'src'),CUDA_VISIBLE_DEVICES='0,1,2,3,4,5,6,7',OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2',CUBLAS_WORKSPACE_CONFIG=':4096:8')
+    children=[]
+    def status(stage,**kw):
+        p=root/'status.tmp';p.write_text(json.dumps(dict(stage=stage,pids=[x.pid for x in children],time=time.time(),**kw),indent=2));p.replace(root/'status.json')
+    def stop(sig,_):
+        for p in children:
+            if p.poll() is None:os.killpg(p.pid,signal.SIGTERM)
+        status('interrupted');raise SystemExit(128+sig)
+    signal.signal(signal.SIGTERM,stop);signal.signal(signal.SIGINT,stop)
+    def run(stage,commands,sharded=False):
+        nonlocal children
+        assert all(hashlib.sha256((exe/f).read_bytes()).hexdigest()==h for f,h in files.items())
+        children=[];logs=[]
+        try:
+            for rank,args in enumerate(commands):
+                log=(root/f'{stage}.{rank}.log').open('w');logs.append(log)
+                children.append(subprocess.Popen([sys.executable]+args,cwd=exe,env=dict(env,CUDA_VISIBLE_DEVICES=str(rank)) if sharded else env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True))
+            while any(p.poll() is None for p in children):
+                if any(p.poll() not in (None,0) for p in children):raise RuntimeError(stage+' failed')
+                status(stage);time.sleep(3)
+            if any(p.returncode for p in children):raise RuntimeError(stage+' failed')
+        finally:
+            for p in children:
+                if p.poll() is None:os.killpg(p.pid,signal.SIGTERM)
+            for log in logs:log.close()
+    try:
+        if subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip():raise RuntimeError('GPUs occupied')
+        run('tests',[['-m','pytest','-q','tests/jepa/test_cad_transport.py']])
+        for step in (2,100):
+            args=['-m','torch.distributed.run','--standalone','--nproc_per_node=8','tools/fp_worker.py','tools/train_geometry_transport.py','--config',config,'--stop-at',str(step)]
+            if step==100:args+=['--resume',str(out/'last.pt')]
+            run(f'train{step}',[args])
+            probe_step=0 if step==2 else 100
+            ck=out/('initial.pt' if probe_step==0 else 'last.pt')
+            run(f'probe{probe_step}',[['tools/probe_geometry_transport.py','--config',config,'--checkpoint',str(ck),'--out',str(root/'probe'/f'step{probe_step}'/f'rank{i}'),'--rank',str(i),'--world','8','--records','8','--lookup-audit'] for i in range(8)],True)
+        status('complete',completed=True,updates=100,backbone_frozen=True,default_model_changed=False)
+    except Exception as e:status('failed',error=str(e));raise
+
+
+if __name__=='__main__':main()

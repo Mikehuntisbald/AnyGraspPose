@@ -1,7 +1,6 @@
 # V33: full training-sequence coverage, unchanged JEPA model and losses
 
-Status: implemented and launched after V32's final intervention completed.
-Accuracy is unproven; no default model changed.
+Status: both500-update arms and all evaluations completed. No default model changed.
 
 The inherited serial pose loop consumed only relative frames0/1/8/9 after an
 early native initializer. In its actual training partition this reached at most
@@ -81,3 +80,18 @@ At1950 (+250 updates), full-window all/heavy/extreme ADD-S@0.05d is
 The sampler repair has NOT yet improved pose. Overall regression from the
 parent is1.975pp, below the declared >2pp stop threshold; both arms continue
 only within the fixed remaining250-update budget. Final conclusions are pending.
+
+## Terminal2200 results
+
+|Sampling|All ADD-S@0.05d|Visibility<50%|Visibility<30%|
+|---|---:|---:|---:|
+|Prefix|59.0074%|27.0179%|10.1081%|
+|Full window|59.0093%|27.5730%|13.3011%|
+
+The final full-window arm is effectively tied overall,+0.555pp heavy,+3.193pp
+extreme. It does not establish a geometry-restoration improvement. Fixed40
+heavy real XYZ/depth is39.545/16.064mm prefix versus39.883/15.979mm full;
+proxy is39.313/23.124mm versus39.573/23.539mm. The user's accuracy goal is unmet.
+The next short geometry-only experiment retains full temporal training support
+but uses independent current-frame initialization, and compares model changes
+on a training-partition physical holdout before further native validation.

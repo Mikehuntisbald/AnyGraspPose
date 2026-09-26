@@ -61,11 +61,16 @@ def main():
     if any(not torch.equal(model.state_dict()[n].cpu(), value.cpu()) for n, value in parent['model'].items()):
         raise ValueError('Existing model tensors changed during migration')
     del parent
+    if plan.get('transport_gate_bias') is not None:
+        with torch.no_grad():
+            model.cad_transport.head[-1].bias[6] = plan['transport_gate_bias']
     model.fast_geometry = model.vector_geometry = model.trusted_training_inputs = True
     groups = {}
     frozen = []
     for name, parameter in model.named_parameters():
         active = not (is_pose_parameter(name) or name.startswith(('ema_teacher.', 'writer.', 'memory_position.', 'core.memory_', 'core.feature_', 'core.log_error.')) or '.history.' in name)
+        if plan.get('decoder_only'):
+            active = name.startswith('cad_transport.')
         if name.startswith('cad_transport.') and not config['cad_transport']['enabled']: active = False
         parameter.requires_grad_(active)
         if not active:
@@ -76,7 +81,7 @@ def main():
     optimizer = torch.optim.AdamW(list(groups.values()), weight_decay=.01, fused=True)
     maximum = plan['updates']; stop = args.stop_at or maximum
     if not 0 < stop <= maximum: raise ValueError('Budget exceeded')
-    scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lambda step: min(1., (step+1)/50)*(.5+.25*(1+math.cos(math.pi*min(step, maximum)/maximum))))
+    scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lambda step: min(1., (step+1)/plan.get('warmup',50))*(.5+.25*(1+math.cos(math.pi*min(step, maximum)/maximum))))
     factory = Factory(config, model, make_store(config, model))
     root = Path(__file__).resolve().parents[1]
     source_files = {str(p.relative_to(root)): sha(p) for folder in ('src','tools','configs') for p in (root/folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts}
@@ -87,6 +92,9 @@ def main():
                       official_test_access=False, teacher_input=False, pose_loss=False, dino_loss=False,
                       crop='Uniform full-stream frame; transported native error or training GT perturbation',
                       optimizer_reset=True, frozen_parameter_names=frozen)
+    if plan.get('decoder_only'):
+        provenance['decoder_only'] = True
+        provenance['initial_gate_bias_override'] = plan.get('transport_gate_bias')
     out = Path(config['paths']['output'])
     if rank == 0:
         out.mkdir(parents=True, exist_ok=bool(args.resume))
@@ -105,7 +113,7 @@ def main():
         for step in range(start, stop):
             begun = time.monotonic(); episodes = []; targets = []; seeds = []
             for lane in range(batch):
-                seed = 34000000+(step*world+rank)*batch+lane
+                seed = plan.get('train_seed_start',34000000)+(step*world+rank)*batch+lane
                 for attempt in range(100):
                     draw = seed+attempt*100000003
                     ep, target = factory.sample(draw, frames=1)
@@ -136,12 +144,12 @@ def main():
             with torch.autocast('cuda', dtype=torch.bfloat16): output, _ = model(observation)
             loss, metrics = objective(output, target, observation, visible, torch.stack([s.k_crop for s in scenes]), config['cad_transport']['enabled'])
             if not torch.isfinite(loss): raise RuntimeError('Nonfinite geometry loss')
-            if step == 0:
+            if step == 0 and not plan.get('decoder_only'):
                 grad, = torch.autograd.grad(loss, output['patch_latent'], retain_graph=True)
                 if not torch.isfinite(grad).all() or not grad.norm(): raise RuntimeError('Geometry does not train JEPA')
             loss.backward()
             if step == 0:
-                names = ('core.src_proj.weight', 'surface_head.output.6.weight')
+                names = () if plan.get('decoder_only') else ('core.src_proj.weight', 'surface_head.output.6.weight')
                 if config['cad_transport']['enabled']: names += ('cad_transport.head.2.weight',)
                 gradients = {n: float(p.grad.float().norm()) if p.grad is not None else None for n,p in model.named_parameters() if n in names}
                 if len(gradients) != len(names) or any(v is None or v <= 0 for v in gradients.values()):
@@ -149,7 +157,8 @@ def main():
                 atomic_json(out/f'gradient_rank{rank}.json', gradients)
             synchronize_gradients(model.parameters())
             norm = torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.requires_grad], 1., error_if_nonfinite=True)
-            optimizer.step(); scheduler.step(); update_ema(model)
+            optimizer.step(); scheduler.step()
+            if not plan.get('decoder_only'): update_ema(model)
             row = dict(step=step+1, seconds=time.monotonic()-begun, data_seconds=data_time,
                        loss=float(loss.detach()), grad_norm=float(norm), lr={g['category']:g['lr'] for g in optimizer.param_groups},
                        metrics={k:float(v) for k,v in metrics.items()}, windows=[e.training_window for e in episodes])
