@@ -1,0 +1,11 @@
+{
+  "completed": true,
+  "records": 8,
+  "source_sha256": "0c6f712c7848316259dae3d24554dd4dfac506a20404676e43fb679b94d46d7e",
+  "model_frozen": true,
+  "physical_holdout": true,
+  "training_partition_only": true,
+  "normal_rewrite_bitwise_verified": true,
+  "scope": "Only final DPT invocation is intervened. Each roll moves one input map by one14px patch horizontally; not a trained replacement. Gradient scaling multiplies input and gradient norms. XYZ gradient is the existing local straight-through surrogate.",
+  "seconds": 16.91781647200696
+}

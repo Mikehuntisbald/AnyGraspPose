@@ -27,3 +27,6 @@ seed62050000, same original real/CAD-proxy target masks as V62. No native valida
 official test, extra seed or automatic default promotion. A short negative trial
 would not prove that final-only decoding can never work, but cannot justify a
 geometry-accuracy claim or blind budget extension.
+
+Completed: mixed small improvements, no accurate geometry claim or promotion.
+[Results and supervision audit](../reports/jepa_20260921/unified_rgbd_v2/final_dpt_v64/SUMMARY.md).

@@ -1,0 +1,72 @@
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank6]:[W927 06:50:20.467252550 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 6]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank2]:[W927 06:50:20.577184119 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 2]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank4]:[W927 06:50:20.580811939 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 4]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank1]:[W927 06:50:20.584457244 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 1]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank7]:[W927 06:50:20.623694502 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 7]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank5]:[W927 06:50:20.673525669 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 5]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank3]:[W927 06:50:20.685358629 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 3]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank0]:[W927 06:50:20.692440612 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.

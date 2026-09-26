@@ -1,0 +1,18 @@
+{
+  "files": {
+    "runs/seed42/last.pt": "82a23e11944e4c0570e4360861aee4c1534327bb35c13f70ebd738a959b6ba90",
+    "source.tar.gz": "bcbf10518fdc3f3e601f2607b8f01b34108ea8631f67777cab9186d819c0d9e4",
+    "source_receipt.json": "9cbe84792c276cac4d1b94d3ad8a2a69f068ed4748c8e08445abf5c08ed97594"
+  },
+  "source_commit": "c4f972f",
+  "runtime": "/tmp/dexycb_final_dpt_v64_r0",
+  "checkpoint_local_remote_exact": true,
+  "full_optimizer_scheduler_rng_resume_verified": true,
+  "candidate_updates": 200,
+  "historical_control": "V62 strong200; first2 updates reproduced exactly on8 ranks",
+  "tests": "28 passed in7.62s",
+  "no_training_label_changes": true,
+  "canonical_visible_xyz_target_verified": true,
+  "default_model_changed": false,
+  "geometry_goal_achieved": false
+}

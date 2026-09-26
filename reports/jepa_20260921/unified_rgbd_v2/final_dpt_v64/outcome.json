@@ -1,0 +1,110 @@
+{
+  "0/baseline/real": {
+    "frames": 16,
+    "canonical_xyz_mm": 8.837521031498909,
+    "depth_mm": 12.12736713886261,
+    "flow_epe": 3.870323844577955
+  },
+  "0/baseline/proxy": {
+    "frames": 11,
+    "canonical_xyz_mm": 9.390083594755692,
+    "depth_mm": 7.1339855139905755,
+    "flow_epe": 4.0856913626194
+  },
+  "0/matched_control/real": {
+    "frames": 16,
+    "canonical_xyz_mm": 9.211524069309235,
+    "depth_mm": 12.737758547067642,
+    "flow_epe": 3.609383655631024
+  },
+  "0/matched_control/proxy": {
+    "frames": 11,
+    "canonical_xyz_mm": 8.945460883053867,
+    "depth_mm": 8.191904111341996,
+    "flow_epe": 3.8164719715714455
+  },
+  "0/final_only/real": {
+    "frames": 16,
+    "canonical_xyz_mm": 9.121706813573837,
+    "depth_mm": 12.65773032605648,
+    "flow_epe": 3.5306361602700274
+  },
+  "0/final_only/proxy": {
+    "frames": 11,
+    "canonical_xyz_mm": 8.879792365160855,
+    "depth_mm": 7.9155679859898305,
+    "flow_epe": 3.790172964334488
+  },
+  "10/baseline/real": {
+    "frames": 32,
+    "canonical_xyz_mm": 10.028611689805984,
+    "depth_mm": 10.837103091180325,
+    "flow_epe": 5.260105716145557
+  },
+  "10/baseline/proxy": {
+    "frames": 23,
+    "canonical_xyz_mm": 10.19055814328401,
+    "depth_mm": 8.344134662462318,
+    "flow_epe": 5.081608014722025
+  },
+  "10/matched_control/real": {
+    "frames": 32,
+    "canonical_xyz_mm": 10.09238949418068,
+    "depth_mm": 11.250140748918056,
+    "flow_epe": 4.975314819294473
+  },
+  "10/matched_control/proxy": {
+    "frames": 23,
+    "canonical_xyz_mm": 10.1399041466091,
+    "depth_mm": 9.040636407292407,
+    "flow_epe": 4.835904304058321
+  },
+  "10/final_only/real": {
+    "frames": 32,
+    "canonical_xyz_mm": 9.986051365733147,
+    "depth_mm": 11.061029568314552,
+    "flow_epe": 4.922406367633654
+  },
+  "10/final_only/proxy": {
+    "frames": 23,
+    "canonical_xyz_mm": 10.137630535208661,
+    "depth_mm": 9.194844670917677,
+    "flow_epe": 4.966090163876934
+  },
+  "60/baseline/real": {
+    "frames": 16,
+    "canonical_xyz_mm": 35.82937300205231,
+    "depth_mm": 19.622527599334717,
+    "flow_epe": 24.831368301225744
+  },
+  "60/baseline/proxy": {
+    "frames": 10,
+    "canonical_xyz_mm": 42.504779529571536,
+    "depth_mm": 22.03058526515961,
+    "flow_epe": 23.77891035079956
+  },
+  "60/matched_control/real": {
+    "frames": 16,
+    "canonical_xyz_mm": 37.43096870183945,
+    "depth_mm": 20.938839316368103,
+    "flow_epe": 24.44382561808047
+  },
+  "60/matched_control/proxy": {
+    "frames": 10,
+    "canonical_xyz_mm": 43.359421253204346,
+    "depth_mm": 22.129604434967042,
+    "flow_epe": 22.568198521931965
+  },
+  "60/final_only/real": {
+    "frames": 16,
+    "canonical_xyz_mm": 37.10465317964554,
+    "depth_mm": 20.92671364545822,
+    "flow_epe": 24.572054966636326
+  },
+  "60/final_only/proxy": {
+    "frames": 10,
+    "canonical_xyz_mm": 43.55983114242554,
+    "depth_mm": 21.659144055843353,
+    "flow_epe": 22.557888317108155
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "reconstruction_to_flow": 3.6608189475373365e-06,
+  "flow_to_recovered_xyz": 2.4094901084899902,
+  "native_crop_max_error_px": 3.853370424167224e-05,
+  "source_points": 230,
+  "shared_projection_gradient": {
+    "geometry": 1.259587287902832,
+    "weighted_flow": 1.1715456247329712,
+    "cosine": 0.07367483526468277
+  },
+  "regions": {
+    "observed": 88,
+    "real": 47,
+    "proxy": 29
+  },
+  "teacher_input": false
+}
