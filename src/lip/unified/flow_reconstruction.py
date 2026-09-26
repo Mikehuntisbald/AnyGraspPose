@@ -76,8 +76,16 @@ class FlowReconstruction(nn.Module):
         probability = scores.masked_fill(~near, -1e4).softmax(-1)
         coarse_uv = probability @ grid
         matched = probability @ current
-        raw = self.endpoint(torch.cat((source, matched, reference['xyz'], reference['uv']/224.), -1))
+        endpoint_features = torch.cat((source, matched, reference['xyz'], reference['uv']/224.), -1)
+        raw = self.endpoint(endpoint_features)
         uv = coarse_uv+14*raw[..., :2].tanh()
+        local_metrics = {}
+        if getattr(self, 'capture_local_flow', False) or hasattr(self, 'local_flow_head'):
+            from .local_flow import local_flow_features
+            features = local_flow_features(endpoint_features,coarse_uv,reference,measured,scores,peak)
+            local_metrics['local_flow_features'] = features.detach()
+            if hasattr(self, 'local_flow_head'):
+                uv = coarse_uv+self.local_flow_head(features)
         logits = raw[..., 2:]
         logp = scores.log_softmax(-1)
         entropy = -(logp.exp()*logp).sum(-1)/math.log(256)
@@ -113,7 +121,7 @@ class FlowReconstruction(nn.Module):
             uv=uv, flow=uv-reference['uv'], scores=appearance.masked_fill(~valid[:, None], -1e4),
             coarse_uv=coarse_uv, endpoint_delta=uv-coarse_uv, peak_uv=grid[peak],
             support_logits=logits[..., 0], visible_logits=logits[..., 1], entropy=entropy,
-            aligned_mass=mass, geometry_feedback=feedback, write=write, **evidence_metrics)
+            aligned_mass=mass, geometry_feedback=feedback, write=write, **evidence_metrics, **local_metrics)
 
 
 @torch.no_grad()

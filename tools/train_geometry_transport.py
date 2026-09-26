@@ -43,6 +43,10 @@ def main():
     parser.add_argument('--stop-at', type=int)
     args = parser.parse_args()
     config = yaml.safe_load(Path(args.config).read_text())
+    if config.get('local_flow_stage', {}).get('inference_export'):
+        raise ValueError('Local-flow export is inference-only; create an explicit geometry training configuration')
+    if config.get('point_evidence_stage', {}).get('inference_export'):
+        raise ValueError('Point-evidence export is inference-only; define an explicit new geometry training configuration and migration source')
     rank, world = int(os.environ.get('RANK', 0)), int(os.environ.get('WORLD_SIZE', 1))
     torch.cuda.set_device(0); torch.set_num_threads(2)
     torch.use_deterministic_algorithms(True)

@@ -121,6 +121,10 @@ def build_model(config,device='cuda'):
                 torch.manual_seed(config['seed']+56)
                 model.flow_reconstruction = FlowReconstruction().to(device)
             model.model_version = 'iterative-template-flow-jepa-v56'
+            if config['flow_reconstruction'].get('local_flow',{}).get('enabled'):
+                from .local_flow import LocalFlowHead
+                model.flow_reconstruction.local_flow_head=LocalFlowHead(
+                    config['flow_reconstruction']['local_flow']['use_extra']).to(device)
             if config['flow_reconstruction'].get('point_evidence',{}).get('enabled'):
                 from .point_evidence import PointEvidenceHead
                 with torch.random.fork_rng(devices=[]):
