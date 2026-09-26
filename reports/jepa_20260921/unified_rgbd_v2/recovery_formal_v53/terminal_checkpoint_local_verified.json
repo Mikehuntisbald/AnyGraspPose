@@ -1,0 +1,6 @@
+{
+  "verified": true,
+  "global_step": 5200,
+  "sha256": "717b503de54724e7dad79fe667b9fd49fe392b898af2522267add59ee65bdb3d",
+  "checkpoint": "runs/seed42/last.pt"
+}

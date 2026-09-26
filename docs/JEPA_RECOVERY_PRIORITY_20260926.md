@@ -56,3 +56,7 @@ Both arms passed26 tests and strict2→200 resume;715 initial model tensors and 
 ## V53: formal training requested
 
 The user explicitly requested formal training. V53 continues the V52 balanced200 complete state for5000 new updates (global5200), preserving Adam/RNG/sampler and extending the LR schedule continuously. The network and supervision are unchanged.29 startup tests passed; the launcher schedules both recovery probes after new500/1000/2500/5000 updates. See [the active formal configuration and protocol](JEPA_RECOVERY_FORMAL_V53.md). This new authorization supersedes the previous bounded-comparison-only scope; it does not promote a default model or restore pose training.
+
+## V54 full validation completed
+
+User-requested full evaluation covers all320 validation streams/23200 frames and69600 paired natural/light/heavy conditions. V53 has modest average depth gains but heavy correspondence remains~29/31mm and16/18px. The native visibility<20% proxy subset shows almost no depth gain; large-base-rotation cases remain poor. No default promotion or additional training. [Complete evidence and coverage](../reports/jepa_20260921/unified_rgbd_v2/recovery_fullval_v54/full/SUMMARY.md).

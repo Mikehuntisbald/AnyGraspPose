@@ -1,0 +1,41 @@
+{
+  "completed": true,
+  "split": "val",
+  "official_test_access": false,
+  "training": false,
+  "pose_evaluation": false,
+  "rank": 5,
+  "world": 8,
+  "smoke": true,
+  "checkpoints": {
+    "v52": "a6bd6204e1c646e31a02c25fd20d9cf7051354fb0e1e04b7d2f083111fc2df81",
+    "v53": "717b503de54724e7dad79fe667b9fd49fe392b898af2522267add59ee65bdb3d"
+  },
+  "streams": [
+    "20200709-subject-01/20200709_142123/932122060861"
+  ],
+  "index_sha256": "54a35253db5bea988ffea5e41641d3313b31c5568193a186dd4e4359c497804b",
+  "split_hash": "54a35253db5bea988ffea5e41641d3313b31c5568193a186dd4e4359c497804b",
+  "mesh_hash": "359f53a5f41963d3fdfc2542bd640432d820bfc99a055baec8976ad99966d32c",
+  "initializers_sha256": "ea33a4668526d2305f5a23d4e789d579094f0f2639ac81386c93766329e574bf",
+  "reference_sha256": "69b9b006b85c514acaec52153e42166c5ce6eecc4ebc994b5d1d6f3904d3be31",
+  "occluder_bank_sha256": "49b3fd6d573da3f983bb95141e10e8f63c0fccc6348e21c2d1c8d4e298764341",
+  "cases": [
+    "natural",
+    "light",
+    "heavy"
+  ],
+  "student_uses_gt": false,
+  "history": false,
+  "conditional_on": "same previous-frame sealed LIP pose; PoseCNN on initialization frame",
+  "scope": "All320 validation streams and all23200 frames accounted. Geometry means require legal initialization and nonempty targets; unavailable frames and empty masks remain in coverage counts.",
+  "target_policy": "Original raw real/proxy masks, FP32 geometry labels; no V41 training quarantine at evaluation. Visible depth uses original sensor. Both models share one target build.",
+  "known_limit": "Shared reference-conditioned crops, not closed-loop tracking or pose evaluation; does not compare absolute numbers to controlled10deg training holdouts.",
+  "frames": 2,
+  "evaluated_frames": 2,
+  "records": 6,
+  "seconds": 2.540717791998759,
+  "paired_raw_inputs_exact": true,
+  "targets_built_once_per_pair": true,
+  "frames_sha256": "5fd0f7ecc9d3b445db2aae28d4cd0f25ee64ef9a03eff02b2139adb7768abf79"
+}

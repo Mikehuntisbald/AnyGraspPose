@@ -1,0 +1,16 @@
+{
+  "stage": "complete",
+  "pids": [
+    2085934
+  ],
+  "time": 1790448299.224569,
+  "completed": true,
+  "native_frames": 23200,
+  "streams": 320,
+  "physical_sequences": 40,
+  "paired_conditions": 69600,
+  "models": 2,
+  "training": false,
+  "pose_evaluation": false,
+  "default_model_changed": false
+}

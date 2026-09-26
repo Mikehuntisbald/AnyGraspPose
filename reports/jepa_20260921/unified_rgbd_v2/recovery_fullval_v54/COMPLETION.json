@@ -1,0 +1,19 @@
+{
+  "completed": true,
+  "models": [
+    "v52_balanced200",
+    "v53_final5200"
+  ],
+  "native_frames": 23200,
+  "paired_conditions": 69600,
+  "raw_shards_hash_verified": true,
+  "local_reduction_exactly_matches_remote": true,
+  "tests_passed": 7,
+  "smoke_paired_native_frames": 16,
+  "source_commit": "035ce4f",
+  "remote_artifacts": "/mnt/why/dexycb_lip/unified_jepa_20260921/recovery_fullval_v54_r1",
+  "runtime": "/tmp/dexycb_full_recovery_v54_r1",
+  "pinned_runtime_modified": false,
+  "default_model_changed": false,
+  "training": false
+}

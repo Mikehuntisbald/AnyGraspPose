@@ -1,0 +1,7 @@
+{
+  "verified": true,
+  "full_frame_records": 69600,
+  "archive": "full_frame_artifacts.tar.gz",
+  "sha256": "a81a6a91d7886c82c0ccb0f6ffe16fcb00cd3025553aae098749f13753dacead",
+  "all_shard_records_sha256_match": true
+}
