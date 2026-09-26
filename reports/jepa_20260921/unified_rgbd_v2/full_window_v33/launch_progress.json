@@ -1,0 +1,94 @@
+{
+  "time": 1790397664.2638383,
+  "status": {
+    "stage": "full_train1950",
+    "pids": [
+      2043566
+    ],
+    "time": 1790397659.2348812
+  },
+  "verified_processes": [
+    {
+      "pid": 2043566,
+      "state": "S",
+      "start_ticks": "197746190",
+      "command": "/mnt/why/dexycb_lip/.venv/bin/python -m torch.distributed.run --standalone --nproc_per_node=8 tools/fp_worker.py tools/train_serial_completion.py --config configs/jepa/full_window_v33_full.yaml --oracle unused_actual_prediction_trial --stop-at 1950 --resume /mnt/why/dexycb_lip/unified_jepa_20260921/full_window_v33/full/runs/seed42/last.pt "
+    }
+  ],
+  "paired_start": {
+    "model": true,
+    "optimizer": true,
+    "scheduler": true,
+    "rng": true,
+    "step": true,
+    "sampler_position": true,
+    "config_only_differs_output_and_window_mode": true
+  },
+  "arms": {
+    "prefix": {
+      "last_step": 1950,
+      "last_seconds": 0.9725702670402825,
+      "preflight": {
+        "completed": true,
+        "step": 1701,
+        "preflight": true,
+        "world": 8,
+        "gradient_path_norms": [
+          0.008973421528935432,
+          0.0036047049798071384,
+          0.006103515625,
+          0.00592041015625,
+          0.005827554501593113
+        ],
+        "parameter_path_norms": {
+          "core.src_proj.weight": 2.9515533447265625,
+          "core.src_proj.bias": 0.029964104294776917,
+          "visibility.1.weight": 0.015372230671346188,
+          "visibility.1.bias": 0.0003185272216796875,
+          "shared_patch_projection": 0.0
+        },
+        "checkpoint_sha256": "2e7980853f78a66c9b0b7df5d06d488b135b0e8d22f098c6af0970c0c264ebf5",
+        "official_test_access": false
+      },
+      "rank0_sampled_frames": {
+        "count": 2000,
+        "min": 0,
+        "max": 26,
+        "fraction_after28": 0.0
+      }
+    },
+    "full": {
+      "last_step": 1907,
+      "last_seconds": 0.9094262418802828,
+      "preflight": {
+        "completed": true,
+        "step": 1701,
+        "preflight": true,
+        "world": 8,
+        "gradient_path_norms": [
+          0.011532669886946678,
+          0.005448617041110992,
+          0.00714111328125,
+          0.0068359375,
+          0.007080626208335161
+        ],
+        "parameter_path_norms": {
+          "core.src_proj.weight": 3.1287426948547363,
+          "core.src_proj.bias": 0.03763267397880554,
+          "visibility.1.weight": 0.013212381862103939,
+          "visibility.1.bias": 0.0009544193744659424,
+          "shared_patch_projection": 0.0
+        },
+        "checkpoint_sha256": "dafab5b37ec1d97b04167eaebd091a2200d19c1a0a735b66eb176f30d9507bd9",
+        "official_test_access": false
+      },
+      "rank0_sampled_frames": {
+        "count": 1656,
+        "min": 0,
+        "max": 73,
+        "fraction_after28": 0.607487922705314
+      }
+    }
+  },
+  "goal_complete": false
+}

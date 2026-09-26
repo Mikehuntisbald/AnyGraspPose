@@ -1,0 +1,9 @@
+{
+  "model": true,
+  "optimizer": true,
+  "scheduler": true,
+  "rng": true,
+  "step": true,
+  "sampler_position": true,
+  "config_only_differs_output_and_window_mode": true
+}

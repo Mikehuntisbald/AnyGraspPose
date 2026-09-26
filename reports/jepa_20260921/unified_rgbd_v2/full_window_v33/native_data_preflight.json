@@ -1,0 +1,107 @@
+{
+  "completed": true,
+  "optimizer_updates": 0,
+  "checkpoint_sha256": "d8bce096bd96a19dd25656268a2444257ff5df842255f3bbb1207998bcd721ba",
+  "rows": [
+    {
+      "seed": 330000,
+      "stream": "20200928-subject-07/20200928_144906/932122060861",
+      "kind": "uniform_full_training_window",
+      "native_initializer_frame": 7,
+      "first_frame": 59,
+      "count": 10,
+      "stream_frames": 72,
+      "cached_frames": 0,
+      "raw_native_frames": 10,
+      "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"
+    },
+    {
+      "seed": 330003,
+      "stream": "20201015-subject-09/20201015_144243/932122060861",
+      "kind": "uniform_full_training_window",
+      "native_initializer_frame": 3,
+      "first_frame": 45,
+      "count": 10,
+      "stream_frames": 72,
+      "cached_frames": 4,
+      "raw_native_frames": 6,
+      "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"
+    },
+    {
+      "seed": 330009,
+      "stream": "20200918-subject-06/20200918_120239/836212060125",
+      "kind": "uniform_full_training_window",
+      "native_initializer_frame": 0,
+      "first_frame": 46,
+      "count": 10,
+      "stream_frames": 72,
+      "cached_frames": 9,
+      "raw_native_frames": 1,
+      "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"
+    },
+    {
+      "seed": 330010,
+      "stream": "20201022-subject-10/20201022_111015/836212060125",
+      "kind": "uniform_full_training_window",
+      "native_initializer_frame": 3,
+      "first_frame": 53,
+      "count": 10,
+      "stream_frames": 74,
+      "cached_frames": 3,
+      "raw_native_frames": 7,
+      "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"
+    },
+    {
+      "seed": 330011,
+      "stream": "20200918-subject-06/20200918_120838/840412060917",
+      "kind": "uniform_full_training_window",
+      "native_initializer_frame": 5,
+      "first_frame": 60,
+      "count": 10,
+      "stream_frames": 74,
+      "cached_frames": 0,
+      "raw_native_frames": 10,
+      "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"
+    },
+    {
+      "seed": 330013,
+      "stream": "20200820-subject-03/20200820_135941/836212060125",
+      "kind": "uniform_full_training_window",
+      "native_initializer_frame": 8,
+      "first_frame": 36,
+      "count": 10,
+      "stream_frames": 72,
+      "cached_frames": 10,
+      "raw_native_frames": 0,
+      "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"
+    },
+    {
+      "seed": 330015,
+      "stream": "20200813-subject-02/20200813_150024/932122062010",
+      "kind": "uniform_full_training_window",
+      "native_initializer_frame": 3,
+      "first_frame": 37,
+      "count": 10,
+      "stream_frames": 72,
+      "cached_frames": 10,
+      "raw_native_frames": 0,
+      "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"
+    },
+    {
+      "seed": 330016,
+      "stream": "20200813-subject-02/20200813_150346/932122062010",
+      "kind": "uniform_full_training_window",
+      "native_initializer_frame": 15,
+      "first_frame": 41,
+      "count": 10,
+      "stream_frames": 72,
+      "cached_frames": 10,
+      "raw_native_frames": 0,
+      "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"
+    }
+  ],
+  "native_rgb_depth_mask_exact": true,
+  "empirical_error_preserved": true,
+  "training_only_gt_augmentation": true,
+  "official_test_access": false
+}

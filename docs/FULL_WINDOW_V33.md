@@ -66,3 +66,18 @@ gradient paths. Resume and paired starting-state receipts will be collected.
 Runtime `/tmp/dexycb_full_window_v33`; artifacts
 `/mnt/why/dexycb_lip/unified_jepa_20260921/full_window_v33`.
 The remote runtime is a pinned source copy, not a Git checkout.
+
+## Verified startup and midpoint
+
+Both8-GPU preflights and1702→1703 strict restoration pass. The paired-start
+receipt verifies identical model, optimizer, scheduler, RNG, step and sampler
+position; only output directory and window mode differ between configs.
+Observed rank0 sampled frames extend to73 in the full-window arm, with60.75%
+after28 in the captured launch snapshot, versus0% in the prefix arm. This is
+finite observed coverage, separate from the support of the sampling scheme.
+
+At1950 (+250 updates), full-window all/heavy/extreme ADD-S@0.05d is
+54.933%/22.577%/8.225%, versus prefix55.567%/29.515%/10.129%.
+The sampler repair has NOT yet improved pose. Overall regression from the
+parent is1.975pp, below the declared >2pp stop threshold; both arms continue
+only within the fixed remaining250-update budget. Final conclusions are pending.

@@ -1,0 +1,20 @@
+{
+  "completed": true,
+  "goal_complete": false,
+  "source_step": 1200,
+  "terminal_step": 1700,
+  "updates_per_arm": 500,
+  "default_model_changed": false,
+  "paired_protocol_verified": true,
+  "local_delivery": {
+    "verified_files": 494,
+    "archive_sha256": "bdd4e522ec6b8aca19f606dc196f04e5834973fecf1b4cb5114cadbd909e6ca6",
+    "checkpoint_sha256": {
+      "control": "d8bce096bd96a19dd25656268a2444257ff5df842255f3bbb1207998bcd721ba",
+      "shared": "3d6c6f8fe19cfbf50aa7b3d55c208baa9242145fdeb0fe7eab5b70ad72228ee1"
+    },
+    "default_model_changed": false,
+    "goal_complete": false
+  },
+  "original_inference_failure_recovered": true
+}
