@@ -176,6 +176,24 @@ def main():
                         metrics[name]['predicted_projection_coverage'] = float(projection['available'][mask].float().mean())
                         metrics[name]['predicted_projection_epe'] = float((projection['flow']-truth_transport['flow']).norm(dim=1,keepdim=True)[eligible].mean()) if eligible.any() else None
             row = dict(seed=seed, stream=e.stream, heavy=heavy, natural=item%4==0, clean_control=a.clean_control,window=e.training_window, metrics=metrics)
+            if 'cad_image_uv' in output:
+                from cad_image_diagnostics import diagnose
+                from lip.unified.execution_speed import crop_images_fast
+                visible=(crop_images_fast(masks[:1].float(),scene.affine,mode='nearest')>.5)&scene.bounds
+                if not a.clean_control:visible=visible&~occ.mask
+                row['correspondence']=diagnose(output,target,scene,obs,visible,gt[0],e.mesh,seed)
+                if item==2:
+                    from lip.unified.cad_image_correspondence import image_correspondence_targets
+                    endpoint_labels=image_correspondence_targets(output,target,scene.k_crop[None],obs.diameter,visible)
+                    uv=output['cad_image_uv'][0]
+                    native=torch.cat((uv,torch.ones_like(uv[:,:1])),1)@torch.linalg.inv(scene.affine).T
+                    np.savez_compressed(out/'correspondences.npz',cad_ids=output['cad_image_ids'].cpu().numpy(),
+                        cad_xyz_m=output['cad_image_xyz'][0].cpu().numpy()*d,uv_crop=uv.cpu().numpy(),
+                        uv_image=(native[:,:2]/native[:,2:]).cpu().numpy(),confidence=output['cad_image_confidence'][0].cpu().numpy(),
+                        visibility=output['cad_image_visible_logits'][0].sigmoid().cpu().numpy(),
+                        support=output['cad_image_support_logits'][0].sigmoid().cpu().numpy(),
+                        gt_uv_crop=endpoint_labels['uv'][0].cpu().numpy(),gt_support=endpoint_labels['support'][0].cpu().numpy(),
+                        gt_visible=endpoint_labels['visible'][0].cpu().numpy())
             if lip_result is not None:
                 row['lip_pose']={k:v for k,v in lip_result.items() if k!='render'}
                 row['geometry_baselines']={}

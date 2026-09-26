@@ -181,6 +181,30 @@ def main():
                 correspondence,parts=atlas_correspondence_loss(output,target,eligible)
                 loss=loss+config['cad_atlas']['correspondence_weight']*correspondence
                 metrics.update(parts)
+            if config.get('cad_image',{}).get('enabled'):
+                from lip.unified.cad_image_correspondence import image_correspondence_targets,image_correspondence_loss
+                labels=image_correspondence_targets(output,target,torch.stack([s.k_crop for s in scenes]),observation.diameter,visible)
+                image_loss,image_metrics=image_correspondence_loss(output,labels)
+                loss=loss+config['cad_image']['loss_weight']*image_loss
+                metrics.update(image_metrics)
+                if step==0:
+                    image_grad,=torch.autograd.grad(image_loss,output['patch_latent'],retain_graph=True)
+                    if not torch.isfinite(image_grad).all() or not image_grad.norm():
+                        raise RuntimeError('CAD-to-image loss cannot train shared JEPA latent')
+                    # Independent FP64 projection through native K then crop A.
+                    points=output['cad_image_xyz'].detach().double()*observation.diameter[:,None,None].double()
+                    camera=points@truth[:,:3,:3].double().transpose(-1,-2)+truth[:,:3,3,None].double().transpose(1,2)
+                    intrinsics=torch.stack([e.k for e in episodes]*(2 if plan.get('paired_estimates') else 1)).double()
+                    pixel=camera@intrinsics.transpose(-1,-2)
+                    pixel=pixel/pixel[:,:,2:]
+                    crop=pixel@torch.stack([s.affine for s in scenes]).double().transpose(-1,-2)
+                    expected=crop[:,:,:2]/crop[:,:,2:]
+                    mask=labels['support']
+                    discrepancy=float((expected-labels['uv'].double()).abs()[mask].max()) if mask.any() else 0.
+                    if discrepancy>1e-3:raise RuntimeError('Native-to-crop endpoint label mismatch')
+                    atomic_json(out/f'image_supervision_rank{rank}.json',dict(native_crop_max_error_px=discrepancy,
+                        shared_patch_gradient=float(image_grad.norm()),support_points=int(mask.sum()),
+                        regions={n:int(labels[n].sum()) for n in ('observed','real','proxy')},teacher_input=False))
             if not torch.isfinite(loss): raise RuntimeError('Nonfinite geometry loss')
             if atlas and step==0:
                 prior_gradient,=torch.autograd.grad(loss,output['atlas_fallback'],retain_graph=True)
@@ -195,6 +219,7 @@ def main():
             if step == 0:
                 names = () if plan.get('decoder_only') else ('core.src_proj.weight', 'surface_head.output.6.weight')
                 if atlas:names+=('cad_atlas_decoder.query.0.weight','cad_atlas_decoder.descriptor.1.weight')
+                if config.get('cad_image',{}).get('enabled'):names+=('cad_atlas_decoder.image_readout.visibility.2.weight',)
                 elif config['cad_transport']['enabled']: names += ('cad_transport.head.2.weight',)
                 gradients = {n: float(p.grad.float().norm()) if p.grad is not None else None for n,p in model.named_parameters() if n in names}
                 if len(gradients) != len(names) or any(v is None or v <= 0 for v in gradients.values()):

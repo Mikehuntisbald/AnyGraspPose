@@ -98,6 +98,12 @@ def build_model(config,device='cuda'):
                 torch.manual_seed(config['seed']+42)
                 model.cad_atlas_decoder=CADAtlasDecoder(model.utonia.feature_dim,supervised_prior=config['cad_atlas'].get('supervised_prior',True)).to(device)
             model.model_version='complete-cad-atlas-v42'
+            if config.get('cad_image',{}).get('enabled'):
+                from .cad_image_correspondence import CADImageReadout
+                with torch.random.fork_rng(devices=[]):
+                    torch.manual_seed(config['seed']+45)
+                    model.cad_atlas_decoder.image_readout=CADImageReadout(points=config['cad_image']['points'],stride=config['cad_image']['stride']).to(device)
+                model.model_version='bidirectional-cad-image-v45'
         return model
     if config['architecture_id']=='stream_dino_fp_staticutonia_jepa_rgbd_v3':
         return build_fp_model(config,device)

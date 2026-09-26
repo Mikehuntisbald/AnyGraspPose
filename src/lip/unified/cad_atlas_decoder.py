@@ -54,10 +54,13 @@ class CADAtlasDecoder(nn.Module):
             recovered=recovered.transpose(1,2).reshape_as(fallback[:,:3])
             recovered=torch.where(available.any(-1)[:,None,None,None],recovered,fallback[:,:3].float())
         surface=torch.cat((recovered,fallback[:,3:].float()),1)
-        return surface,dict(atlas_query=query,atlas_keys=keys,atlas_xyz=xyz,atlas_available=available,
+        output=dict(atlas_query=query,atlas_keys=keys,atlas_xyz=xyz,atlas_available=available,
                             atlas_prior=prior,atlas_index=selected[:,:,0],atlas_fallback=fallback,
                             atlas_temperature=self.temperature,atlas_prior_sigma=self.prior_sigma,
                             atlas_supervised_prior=self.supervised_prior)
+        if hasattr(self,'image_readout'):
+            output.update(self.image_readout(output,dense.shape[-2:]))
+        return surface,output
 
 
 @torch.autocast('cuda',enabled=False)
