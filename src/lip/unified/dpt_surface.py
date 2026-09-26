@@ -47,8 +47,9 @@ class Refine(nn.Module):
 
 
 class DPTSurfaceHead(nn.Module):
-    def __init__(self, width=64):
+    def __init__(self, width=64, final_only=False):
         super().__init__()
+        self.final_only = bool(final_only)
         if width != 64:
             raise ValueError('Initial DPT experiment fixes pyramid width at 64')
         self.norms = nn.ModuleList([nn.LayerNorm(256) for _ in range(4)])
@@ -69,6 +70,10 @@ class DPTSurfaceHead(nn.Module):
     def dense_features(self, levels, valid):
         if len(levels) != 4:
             raise ValueError('DPT requires all four JEPA levels')
+        if self.final_only:
+            # All pyramid branches consume the completed current-stage latent.
+            # The earlier JEPA states cannot bypass the flow/recovery updates.
+            levels = (levels[-1],) * 4
         maps = []
         for tokens, norm, project, resize, spatial in zip(
                 levels, self.norms, self.projects, self.reassemble, self.spatial):
@@ -89,7 +94,7 @@ def enable_dpt_surface(model, config):
         raise ValueError('DPT experiment requires the CAD-surface JEPA backbone')
     if config.get('kind') != 'dpt':
         raise ValueError('Expected explicit dpt surface decoder configuration')
-    model.surface_head = DPTSurfaceHead(config.get('width', 64)).to(model.query.device)
+    model.surface_head = DPTSurfaceHead(config.get('width', 64), config.get('final_only', False)).to(model.query.device)
     model.surface_decoder_kind = 'dpt'
     model.model_version = 'local-cad-dpt-rope3d-v17'
 
