@@ -56,4 +56,6 @@ def build_fast_teacher(encoder,scenes,gt_poses,visible_masks,added_masks,rendere
         real_good|proxy_good,real_good,proxy_good,label,real_good,proxy_good,
         torch.stack([pose[:3,:3].float() for pose in gt_poses]),
         torch.stack([pose[:3,3].float()/s.diameter for pose,s in zip(gt_poses,scenes)]),
-        torch.stack(rays),torch.stack([s.pose[2,3]/s.diameter for s in scenes]))
+        torch.stack(rays),torch.stack([s.pose[2,3]/s.diameter for s in scenes]),
+        cad_geometry_xyz=rendered_xyz,cad_geometry_depth_m=rendered_depth,
+        cad_geometry_valid=silhouette&bounds&(rendered_depth>0))

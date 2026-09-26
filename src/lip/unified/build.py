@@ -60,7 +60,8 @@ def build_model(config,device='cuda'):
             from .cad_transport import CADTransport
             with torch.random.fork_rng(devices=[]):
                 torch.manual_seed(config['seed']+34)
-                model.cad_transport=CADTransport(config['cad_transport']['enabled'],config['cad_transport'].get('reference_conditioned',False)).to(device)
+                model.cad_transport=CADTransport(config['cad_transport']['enabled'],config['cad_transport'].get('reference_conditioned',False),
+                    config['cad_transport'].get('surface_locked',False),config['cad_transport'].get('mandatory_lookup',False)).to(device)
         if config.get('readout_adaptation'):
             if not isinstance(model,SerialCompletionTracker):
                 raise ValueError('Shape-conditioned readout requires serial completion')

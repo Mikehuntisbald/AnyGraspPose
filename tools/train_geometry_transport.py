@@ -57,9 +57,10 @@ def main():
     if parent['step'] != plan['source_step']: raise ValueError('Source step mismatch')
     if config['cad_transport'].get('reference_conditioned'):
         key='cad_transport.head.0.weight';old=parent['model'][key]
-        if old.shape[1]!=16:raise ValueError('Expected16-channel transport warm-start')
-        extended=torch.zeros_like(model.state_dict()[key],device='cpu');extended[:,:16]=old
-        parent['model'][key]=extended
+        if old.shape[1]==16:
+            extended=torch.zeros_like(model.state_dict()[key],device='cpu');extended[:,:16]=old
+            parent['model'][key]=extended
+        elif old.shape[1]!=25:raise ValueError('Unexpected transport channel count')
     status = model.load_state_dict(parent['model'], strict=False)
     if status.unexpected_keys or any(not n.startswith('cad_transport.') for n in status.missing_keys):
         raise ValueError('Unexpected geometry migration: '+str(status))
@@ -81,6 +82,7 @@ def main():
         if not active:
             frozen.append(name); continue
         kind = 'encoder' if name.startswith('encoder.') else ('new' if name.startswith(('surface_head.', 'cad_transport.')) else 'predictor')
+        if name.startswith('cad_transport.') and 'transport' in config['training']['learning_rates']:kind='transport'
         group = groups.setdefault(kind, dict(params=[], names=[], category=kind, lr=config['training']['learning_rates'][kind]))
         group['params'].append(parameter); group['names'].append(name)
     optimizer = torch.optim.AdamW(list(groups.values()), weight_decay=.01, fused=True)
@@ -149,7 +151,8 @@ def main():
                                     real_geometry_max_radius_d=1., fast=True, batch_render=True, vectorized=True, geometry_only=True)
             visible = torch.cat([(crop_images_fast(masks[i:i+1].float(), s.affine, mode='nearest') > .5) & ~o.mask & s.bounds for i,(s,o) in enumerate(zip(scenes,occlusions))])
             with torch.autocast('cuda', dtype=torch.bfloat16): output, _ = model(observation)
-            loss, metrics = objective(output, target, observation, visible, torch.stack([s.k_crop for s in scenes]), config['cad_transport']['enabled'])
+            loss, metrics = objective(output, target, observation, visible, torch.stack([s.k_crop for s in scenes]), config['cad_transport']['enabled'],
+                                      canonical_surface=plan.get('canonical_surface',False),flow_weight=plan.get('flow_weight',.25))
             if not torch.isfinite(loss): raise RuntimeError('Nonfinite geometry loss')
             if step == 0 and not plan.get('decoder_only'):
                 grad, = torch.autograd.grad(loss, output['patch_latent'], retain_graph=True)

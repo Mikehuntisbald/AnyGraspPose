@@ -54,6 +54,7 @@ def main():
                                     fast=True, batch_render=True, vectorized=True, geometry_only=True)
             with torch.autocast('cuda', dtype=torch.bfloat16): output, _ = model(obs)
             truth_transport = transport_targets(target.surface_xyz, obs.geometry_image, obs.base, obs.diameter, scene.k_crop[None], obs.cad_valid)
+            cad_truth = transport_targets(target.cad_geometry_xyz, obs.geometry_image, obs.base, obs.diameter, scene.k_crop[None], obs.cad_valid)
             audit = {}
             if a.lookup_audit:
                 bounds = obs.cad_valid.reshape(1,1,16,16).repeat_interleave(14,-2).repeat_interleave(14,-1)
@@ -101,6 +102,13 @@ def main():
                 eligible = mask & truth_transport['supported']
                 metrics[name+'_oracle_lookup'] = score(truth_transport['reference'][:, :3], target.surface_depth_residual, eligible)
                 if metrics[name]:
+                    cad_domain=mask&target.cad_geometry_valid
+                    cad_eligible=cad_domain&cad_truth['supported']
+                    metrics[name]['canonical_pixels']=int(cad_domain.sum())
+                    metrics[name]['canonical_xyz_mm']=float((output['surface_xyz']-target.cad_geometry_xyz).norm(dim=1,keepdim=True)[cad_domain].mean()*d*1000) if cad_domain.any() else None
+                    metrics[name]['cad_flow_epe']=float((output['transport_flow']-cad_truth['flow']).norm(dim=1,keepdim=True)[cad_eligible].mean()) if cad_eligible.any() else None
+                    metrics[name]['cad_zero_flow_epe']=float(cad_truth['flow'].norm(dim=1,keepdim=True)[cad_eligible].mean()) if cad_eligible.any() else None
+                    metrics[name]['cad_lookup_coverage']=float(cad_eligible.sum()/mask.sum())
                     metrics[name]['lookup_coverage'] = float(eligible.sum()/mask.sum())
                     metrics[name]['validity_recall'] = float((output['geometry_valid_logits'].sigmoid()[mask] >= .5).float().mean())
                     metrics[name]['normal'] = normal_diagnostics(output, target, mask)
@@ -127,6 +135,7 @@ def main():
             if item == 2:
                 np.savez_compressed(out/'heavy_example.npz', rgb=scene.rgb.cpu().numpy(), occluded_rgb=occ.rgb.cpu().numpy(),
                     target_xyz=target.surface_xyz.cpu().numpy(), predicted_xyz=output['surface_xyz'].cpu().numpy(),
+                    cad_target_xyz=target.cad_geometry_xyz.cpu().numpy(),cad_target_depth=target.cad_geometry_depth_m.cpu().numpy(),
                     target_depth=target.surface_depth_m.cpu().numpy(), predicted_depth=output['surface_depth_m'].cpu().numpy(),
                     real_mask=target.geometry_real_weight.cpu().numpy(), proxy_mask=target.geometry_proxy_weight.cpu().numpy(),
                     flow=output['transport_flow'].cpu().numpy(), gate=output['transport_gate'].cpu().numpy(), diameter=d)

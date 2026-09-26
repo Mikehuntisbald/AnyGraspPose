@@ -101,6 +101,9 @@ class TeacherTargets:
     cad_surface_target_proxy: torch.Tensor|None=None
     cad_surface_weight_real: torch.Tensor|None=None
     cad_surface_weight_proxy: torch.Tensor|None=None
+    cad_geometry_xyz: torch.Tensor|None=None
+    cad_geometry_depth_m: torch.Tensor|None=None
+    cad_geometry_valid: torch.Tensor|None=None
 
 
 @torch.no_grad()
@@ -250,10 +253,14 @@ def build_teachers(encoder,scenes,gt_poses,visible_masks,added_masks,renderer,en
     renders=renderer.render_many([s.cad['appearance'] for s in scenes],gt_poses,[s.k_crop for s in scenes],224) if batch_render else None
     proxies=[];visible=[];support=[];interior=[];xyz=[];depth=[];residual=[];geometry=[];geo_visible=[];geo_hidden=[];geo_valid=[]
     geometry_real=[];geometry_proxy=[];proxy_eligible=[];real_eligible=[]
+    cad_geometry_xyz=[];cad_geometry_depth=[];cad_geometry_valid=[]
     for lane,(s,pose,mask,added) in enumerate(zip(scenes,gt_poses,visible_masks,added_masks)):
         render=renders[lane] if renders is not None else renderer(s.cad['appearance'],pose.float(),s.k_crop,224)
         v=image_fn(mask[None].float(),s.affine,mode='nearest')>.5
         silhouette=render['mask'][None,None]
+        cad_geometry_xyz.append(render['xyz'][None]/s.diameter)
+        cad_geometry_depth.append(render['depth'][None])
+        cad_geometry_valid.append(silhouette&s.bounds&(render['depth'][None]>0))
         hidden=silhouette&~v
         # The entire GT silhouette uses one consistent CAD appearance/depth source.
         proxy=torch.where(silhouette,render['rgb'][None],s.rgb)
@@ -326,4 +333,5 @@ def build_teachers(encoder,scenes,gt_poses,visible_masks,added_masks,renderer,en
         torch.stack([p[:3,:3].float() for p in gt_poses]),
         torch.stack([p[:3,3].float()/s.diameter for p,s in zip(gt_poses,scenes)]),
         torch.stack([point_fn(torch.ones_like(s.depth),s.k_crop).permute(2,0,1) for s in scenes]),
-        torch.stack([s.pose[2,3]/s.diameter for s in scenes]))
+        torch.stack([s.pose[2,3]/s.diameter for s in scenes]),
+        cad_geometry_xyz=torch.cat(cad_geometry_xyz),cad_geometry_depth_m=torch.cat(cad_geometry_depth),cad_geometry_valid=torch.cat(cad_geometry_valid))

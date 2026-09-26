@@ -43,10 +43,12 @@ def sample_reference(image, mask, uv):
 
 
 class CADTransport(nn.Module):
-    def __init__(self, enabled=True, reference_conditioned=False):
+    def __init__(self, enabled=True, reference_conditioned=False, surface_locked=False, mandatory_lookup=False):
         super().__init__()
         self.enabled = enabled
         self.reference_conditioned = reference_conditioned
+        self.surface_locked = surface_locked
+        self.mandatory_lookup = mandatory_lookup
         self.head = nn.Sequential(nn.Conv2d(25 if reference_conditioned else 16, 32, 3, padding=1), nn.GELU(),
                                   nn.Conv2d(32, 7, 3, padding=1))
         nn.init.zeros_(self.head[-1].weight)
@@ -76,14 +78,19 @@ class CADTransport(nn.Module):
             reference = torch.cat((geometry[:, 4:7], geometry[:, 2:3]), 1)
             warped, mass = sample_reference(reference, valid, uv)
             correction = torch.cat((.05*raw[:, 2:5].tanh(), .25*raw[:, 5:6].tanh()), 1)
+            if self.surface_locked:
+                correction = torch.cat((torch.zeros_like(correction[:,:3]),correction[:,3:4]),1)
             transported = warped+correction
             gate = raw[:, 6:7].sigmoid()*(mass >= .999).detach()
+            confidence = gate
+            if self.mandatory_lookup:
+                gate = (mass >= .999).detach().float()
             if not self.enabled:
                 gate = gate*0.
             surface = torch.cat((fallback[:, :4]+gate*(transported-fallback[:, :4]), fallback[:, 4:5]), 1)
         return surface, dict(transport_flow=flow, transport_gate_logits=raw[:, 6:7],
                              transport_gate=gate, transport_surface=transported,
-                             transport_lookup_mass=mass, transport_fallback=fallback)
+                             transport_confidence=confidence,transport_lookup_mass=mass, transport_fallback=fallback)
 
 
 @torch.no_grad()
