@@ -1,12 +1,14 @@
 """Exclusive eight-GPU fixed40 conditional native evaluation, three frozen models."""
-import hashlib,json,os,signal,subprocess,sys,time,tarfile
+import argparse,hashlib,json,os,signal,subprocess,sys,time,tarfile
 from pathlib import Path
 
 
 def main():
     exe=Path(__file__).resolve().parents[1];base=Path('/mnt/why/dexycb_lip/unified_jepa_20260921')
-    if not json.loads((base/'cad_image_v46/status.json').read_text()).get('completed'):raise RuntimeError('Training/probes must complete first')
-    root=base/'cad_image_v46/native40';root.mkdir(exist_ok=False)
+    parser=argparse.ArgumentParser();parser.add_argument('--version',choices=['v46','v47'],default='v46');args=parser.parse_args()
+    experiment='cad_image_'+args.version
+    if not json.loads((base/experiment/'status.json').read_text()).get('completed'):raise RuntimeError('Training/probes must complete first')
+    root=base/experiment/'native40';root.mkdir(exist_ok=False)
     files={str(p.relative_to(exe)):hashlib.sha256(p.read_bytes()).hexdigest() for d in ('src','tools','configs','tests') for p in (exe/d).rglob('*') if p.is_file() and '__pycache__' not in p.parts}
     (root/'source_receipt.json').write_text(json.dumps(files,indent=2))
     with tarfile.open(root/'source.tar.gz','w:gz') as tar:
@@ -22,6 +24,8 @@ def main():
     arms=[('source','configs/jepa/geometry_surface_identity_v38_raw.yaml',base/'geometry_surface_identity_v38/raw/runs/seed42/last.pt'),
           ('parent','configs/jepa/cad_image_v45.yaml',base/'cad_image_v45/runs/seed42/initial.pt'),
           ('trained','configs/jepa/cad_image_v46.yaml',base/'cad_image_v46/runs/seed42/last.pt')]
+    if args.version=='v47':
+        arms=[(name,'configs/jepa/cad_image_v47.yaml',base/experiment/'runs/seed42'/file) for name,file in [('initial','initial.pt'),('trained','last.pt')]]
     try:
         if subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip():raise RuntimeError('GPUs occupied')
         for arm,config,checkpoint in arms:

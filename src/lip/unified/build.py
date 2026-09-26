@@ -104,6 +104,15 @@ def build_model(config,device='cuda'):
                     torch.manual_seed(config['seed']+45)
                     model.cad_atlas_decoder.image_readout=CADImageReadout(points=config['cad_image']['points'],stride=config['cad_image']['stride']).to(device)
                 model.model_version='bidirectional-cad-image-v45'
+                if config['cad_image'].get('anchored_flow'):
+                    with torch.random.fork_rng(devices=[]):
+                        torch.manual_seed(config['seed']+47)
+                        model.cad_atlas_decoder.image_readout.anchor_flow=torch.nn.Sequential(
+                            torch.nn.LayerNorm(122),torch.nn.Linear(122,128),torch.nn.GELU(),
+                            torch.nn.Linear(128,128),torch.nn.GELU(),torch.nn.Linear(128,2)).to(device)
+                        torch.nn.init.zeros_(model.cad_atlas_decoder.image_readout.anchor_flow[-1].weight)
+                        torch.nn.init.zeros_(model.cad_atlas_decoder.image_readout.anchor_flow[-1].bias)
+                    model.model_version='frozen-jepa-anchored-flow-v47'
         return model
     if config['architecture_id']=='stream_dino_fp_staticutonia_jepa_rgbd_v3':
         return build_fp_model(config,device)

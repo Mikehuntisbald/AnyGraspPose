@@ -194,7 +194,8 @@ def main():
                         visibility=output['cad_image_visible_logits'][0].sigmoid().cpu().numpy(),
                         support=output['cad_image_support_logits'][0].sigmoid().cpu().numpy(),
                         gt_uv_crop=endpoint_labels['uv'][0].cpu().numpy(),gt_support=endpoint_labels['support'][0].cpu().numpy(),
-                        gt_visible=endpoint_labels['visible'][0].cpu().numpy())
+                        gt_visible=endpoint_labels['visible'][0].cpu().numpy(),
+                        **(dict(flow_uv_crop=output['cad_flow_uv'][0].cpu().numpy(),flow_reference=output['cad_flow_reference'][0].cpu().numpy()) if 'cad_flow_uv' in output else {}))
             if lip_result is not None:
                 row['lip_pose']={k:v for k,v in lip_result.items() if k!='render'}
                 row['geometry_baselines']={}

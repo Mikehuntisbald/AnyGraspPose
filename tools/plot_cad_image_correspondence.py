@@ -24,7 +24,7 @@ def main():
         ax.set_title(f'Step {step}: CAD points (mm)');ax.set_xlabel('X');ax.set_ylabel('Y');ax.set_zlabel('Z')
         ax=fig.add_subplot(2,3,row*3+2);ax.imshow(np.clip(rgb,0,1))
         for i in ids:
-            p0=c['gt_uv_crop'][i];p1=c['uv_crop'][i];color=plt.cm.tab20(int(i)%20)
+            p0=c['gt_uv_crop'][i];p1=c['flow_uv_crop' if 'flow_uv_crop' in c else 'uv_crop'][i];color=plt.cm.tab20(int(i)%20)
             ax.scatter(*p0,color=color,marker='o',s=22);ax.scatter(*p1,color=color,marker='x',s=30)
             ax.plot([p0[0],p1[0]],[p0[1],p1[1]],color=color,linewidth=.8)
             ax.text(*p0,str(int(c['cad_ids'][i])),fontsize=6,color='white',bbox=dict(facecolor='black',alpha=.4,pad=.3))

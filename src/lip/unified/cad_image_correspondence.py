@@ -21,6 +21,19 @@ def sample_points(image, uv, mode='bilinear'):
     return F.grid_sample(image.float(), grid[:, None], mode=mode, align_corners=False)[:, :, 0].transpose(1, 2)
 
 
+def anchored_flow_loss(output,labels):
+    difference=(output['cad_flow_uv'].float()-labels['uv'].float())/224.
+    error=F.smooth_l1_loss(difference,torch.zeros_like(difference),beta=1/224.,reduction='none').sum(-1)
+    loss=error.sum()*0;metrics={}
+    for name,factor in [('observed',1.),('real',1.),('proxy',.5)]:
+        mask=labels[name];count=mask.sum(-1);eligible=count>0
+        value=(error*mask).sum(-1)/count.clamp_min(1)
+        loss+=factor*(value*eligible).sum()/eligible.sum().clamp_min(1)
+        epe=(output['cad_flow_uv'].detach()-labels['uv']).norm(dim=-1)
+        metrics['flow_'+name+'_epe']=((epe*mask).sum(-1)/count.clamp_min(1)*eligible).sum()/eligible.sum().clamp_min(1)
+    return loss,metrics
+
+
 class CADImageReadout(nn.Module):
     def __init__(self, width=32, points=512, stride=2):
         super().__init__()
@@ -56,11 +69,22 @@ class CADImageReadout(nn.Module):
         summary = torch.stack((entropy, top[..., 0]-top[..., 1], logp.max(-1).values.exp()), -1)
         logits = self.visibility(torch.cat((keys, matched, summary), -1))
         confidence = logits.sigmoid().prod(-1)*(1-entropy).clamp_min(0)*available
-        return dict(cad_image_ids=ids, cad_image_xyz=atlas['atlas_xyz'][:, ids], cad_image_uv=uv,
+        result=dict(cad_image_ids=ids, cad_image_xyz=atlas['atlas_xyz'][:, ids], cad_image_uv=uv,
                     cad_image_available=available, cad_image_scores=scores, cad_image_grid=grid,
                     cad_image_support_logits=logits[..., 0], cad_image_visible_logits=logits[..., 1],
                     cad_image_confidence=confidence, cad_image_entropy=entropy,
                     cad_image_stride=self.stride)
+        if hasattr(self,'anchor_flow'):
+            geometry=atlas['atlas_geometry'][:,ids].float()
+            reference=geometry[:,:,15:17]*w
+            # Frozen-backbone readout test. Only this small MLP learns; sampled
+            # features include the restored XYZ/depth and the shared DPT query.
+            source_query=sample_points(atlas['atlas_query'].transpose(1,2).reshape(b,width,h,w),reference)
+            recovered=sample_points(atlas['atlas_fallback'],reference)
+            feature=torch.cat((source_query,keys,q.mean(1)[:,None].expand_as(keys),geometry,recovered),-1).detach()
+            displacement=56*self.anchor_flow(feature).tanh()
+            result.update(cad_flow_uv=reference+displacement,cad_flow_delta=displacement,cad_flow_reference=reference)
+        return result
 
 
 @torch.no_grad()
@@ -157,6 +181,7 @@ def solve_correspondences(xyz, uv, confidence, crop_k, base, seed=42):
     receipt = dict(accepted=False, correspondences=len(ids), inliers=0, inlier_ratio=0.)
     if len(ids) < 12 or np.linalg.svd(xyz[ids]-xyz[ids].mean(0), compute_uv=False)[1] < 1e-5:
         return base.copy(), receipt
+
     cv2.setRNGSeed(seed)
     try:
         success, rvec, tvec, inliers = cv2.solvePnPRansac(np.ascontiguousarray(xyz[ids]), np.ascontiguousarray(uv[ids]), crop_k, None,
@@ -180,3 +205,27 @@ def solve_correspondences(xyz, uv, confidence, crop_k, base, seed=42):
     except cv2.error:
         receipt['opencv_failure'] = True
         return base.copy(), receipt
+
+def solve_rgbd_correspondences(xyz, camera, confidence, base):
+    """Robust3D-3D diagnostic; measured/recovered reliability is supplied by caller."""
+    import numpy as np
+    xyz,camera,confidence,base=[np.asarray(x,dtype=np.float64) for x in (xyz,camera,confidence,base)]
+    good=np.isfinite(xyz).all(-1)&np.isfinite(camera).all(-1)&np.isfinite(confidence)&(confidence>1e-7)&(camera[:,2]>0)
+    x,y,w=xyz[good],camera[good],confidence[good]
+    receipt=dict(accepted=False,correspondences=len(x),inliers=0,inlier_ratio=0.)
+    if len(x)<12 or np.linalg.svd(x-x.mean(0),compute_uv=False)[1]<1e-5:return base.copy(),receipt
+    pose=base.copy()
+    for _ in range(6):
+        residual=np.linalg.norm(x@pose[:3,:3].T+pose[:3,3]-y,axis=-1)
+        weight=w/(1+(residual/.01)**2);weight/=max(weight.sum(),1e-12)
+        mx=(x*weight[:,None]).sum(0);my=(y*weight[:,None]).sum(0)
+        u,_,vt=np.linalg.svd((x-mx).T@((y-my)*weight[:,None]))
+        sign=np.eye(3);sign[2,2]=np.linalg.det(vt.T@u.T)
+        rotation=vt.T@sign@u.T
+        pose[:3,:3]=rotation;pose[:3,3]=my-rotation@mx
+    residual=np.linalg.norm(x@pose[:3,:3].T+pose[:3,3]-y,axis=-1)
+    inliers=residual<.01;ratio=float(inliers.mean())
+    receipt.update(inliers=int(inliers.sum()),inlier_ratio=ratio,residual_median_mm=float(np.median(residual)*1000))
+    if inliers.sum()<12 or ratio<.2 or np.median(residual)>.02 or pose[2,3]<=0:return base.copy(),receipt
+    receipt['accepted']=True
+    return pose,receipt

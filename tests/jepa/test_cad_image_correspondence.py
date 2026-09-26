@@ -97,3 +97,34 @@ def test_estimated_projection_prior_is_explicit_optional_and_not_teacher_input()
     out=read(atlas,(4,4),estimated_uv=projection,prior_sigma=.1)
     torch.testing.assert_close(out['cad_image_uv'],projection,atol=1e-6,rtol=0)
     assert torch.equal(read(atlas,(4,4))['cad_image_uv'],read(atlas,(4,4),estimated_uv=projection)['cad_image_uv'])
+
+
+def test_rgbd_registration_uses_recovered_depth_and_rejects_missing_points():
+    from lip.unified.cad_image_correspondence import solve_rgbd_correspondences
+    import cv2
+    rng=np.random.default_rng(45);xyz=rng.uniform(-.05,.05,(128,3))
+    rotation=cv2.Rodrigues(np.array([.1,.03,-.08]))[0];translation=np.array([.01,-.01,.5])
+    camera=xyz@rotation.T+translation;camera[:16]+=.2
+    base=np.eye(4);base[2,3]=.5
+    pose,receipt=solve_rgbd_correspondences(xyz,camera,np.ones(128),base)
+    assert receipt['accepted']
+    np.testing.assert_allclose(pose[:3,:3],rotation,atol=.005)
+    np.testing.assert_allclose(pose[:3,3],translation,atol=.0005)
+    empty,receipt=solve_rgbd_correspondences(xyz,camera,np.zeros(128),base)
+    assert not receipt['accepted'];np.testing.assert_array_equal(empty,base)
+
+
+def test_zero_initialized_anchor_flow_and_frozen_feature_boundary():
+    from lip.unified.cad_image_correspondence import anchored_flow_loss
+    from torch import nn
+    read=CADImageReadout(width=32,points=4,stride=1)
+    read.anchor_flow=nn.Sequential(nn.LayerNorm(122),nn.Linear(122,128),nn.GELU(),nn.Linear(128,128),nn.GELU(),nn.Linear(128,2))
+    nn.init.zeros_(read.anchor_flow[-1].weight);nn.init.zeros_(read.anchor_flow[-1].bias)
+    q=torch.randn(1,16,32,requires_grad=True)
+    geometry=torch.zeros(1,4,21);geometry[:,:,15:17]=.5
+    atlas=dict(atlas_query=q,atlas_keys=torch.randn(1,4,32),atlas_xyz=geometry[:,:,:3],atlas_geometry=geometry,
+        atlas_fallback=torch.zeros(1,5,4,4),atlas_available=torch.ones(1,4,dtype=torch.bool),atlas_temperature=.1)
+    out=read(atlas,(4,4));torch.testing.assert_close(out['cad_flow_uv'],torch.full((1,4,2),2.))
+    labels=dict(uv=out['cad_flow_uv'].detach()+1,observed=torch.ones(1,4,dtype=torch.bool),real=torch.zeros(1,4,dtype=torch.bool),proxy=torch.zeros(1,4,dtype=torch.bool))
+    loss,_=anchored_flow_loss(out,labels);loss.backward()
+    assert read.anchor_flow[-1].weight.grad.norm()>0 and q.grad is None

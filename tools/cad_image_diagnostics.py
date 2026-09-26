@@ -1,7 +1,7 @@
 """Read-only endpoint and PnP diagnostics on the frozen probe protocol."""
 import numpy as np
 import torch
-from lip.unified.cad_image_correspondence import image_correspondence_targets,solve_correspondences,image_grid
+from lip.unified.cad_image_correspondence import image_correspondence_targets,solve_correspondences,image_grid,solve_rgbd_correspondences,sample_points
 
 
 @torch.no_grad()
@@ -28,6 +28,10 @@ def diagnose(output,target,scene,observation,visible,truth,mesh,seed,renderer=No
         cases['cad_to_image']=(cpu(output['cad_image_xyz'][0])*d,cpu(output['cad_image_uv'][0]),cpu(output['cad_image_confidence'][0]))
         selected=(output['cad_image_support_logits'][0]>=0)&(output['cad_image_visible_logits'][0]>=0)
         cases['cad_to_image_visible']=(cases['cad_to_image'][0],cases['cad_to_image'][1],cpu(output['cad_image_confidence'][0]*selected))
+        if 'cad_flow_uv' in output:
+            cases['anchored_flow']=(cases['cad_to_image'][0],cpu(output['cad_flow_uv'][0]),cpu(output['cad_image_confidence'][0]*selected))
+            error=(output['cad_flow_uv']-labels['uv']).norm(dim=-1)
+            result['flow_endpoints']={n:float(error[labels[n]].mean()) if labels[n].any() else None for n in ('observed','real','proxy')}
         if model is not None:
             result['search_prior_endpoints']={}
             for sigma in (16.,32.):
@@ -57,6 +61,26 @@ def diagnose(output,target,scene,observation,visible,truth,mesh,seed,renderer=No
     result['solvers']={}
     for name,(points,pixels,weights) in cases.items():
         poses[name],result['solvers'][name]=solve_correspondences(points,pixels,weights,k,base,seed%2147483647)
+    # RGB-D extension of correspondence solving: consume the decoded depth,
+    # retain trustworthy current measurements, and cap total inferred mass.
+    for name in ('image_to_cad','cad_to_image','anchored_flow'):
+        if name not in cases:continue
+        points,pixels,weights=cases[name]
+        pixel_tensor=torch.tensor(pixels,device=scene.pose.device,dtype=torch.float32)[None]
+        measured=cpu(sample_points(observation.measured_depth_m,pixel_tensor,'nearest')[0,:,0])
+        recovered=cpu(sample_points(output['surface_depth_m'],pixel_tensor)[0,:,0])
+        valid=cpu(sample_points(output['geometry_valid_logits'].sigmoid(),pixel_tensor)[0,:,0])>=.5
+        vis=cpu(sample_points(evidence,pixel_tensor)[0,:,0])>=.7
+        genuine=vis&(measured>0)&np.isfinite(measured)&(np.abs(measured-recovered)<.03)
+        measured_w=weights*genuine
+        completed_w=weights*(~genuine)*valid*.2
+        if measured_w.sum()>0:completed_w*=min(1.,measured_w.sum()/max(completed_w.sum(),1e-12))
+        rays=np.c_[pixels,np.ones(len(pixels))]@np.linalg.inv(k).T
+        for kind,z,wgt in [('measured',measured,measured_w),('recovered',recovered,weights*valid*.2),
+                           ('mixed',np.where(genuine,measured,recovered),measured_w+completed_w)]:
+            tag=name+'_rgbd_'+kind
+            poses[tag],result['solvers'][tag]=solve_rgbd_correspondences(points,rays*z[:,None],wgt,base)
+            result['solvers'][tag].update(measured_mass=float(measured_w.sum()),completed_mass=float(completed_w.sum()))
     gt=cpu(truth);points=np.asarray(mesh['points'],dtype=np.float64)
     if len(points)>2048:points=points[np.linspace(0,len(points)-1,2048).astype(int)]
     reference=points@gt[:3,:3].T+gt[:3,3]
@@ -72,7 +96,8 @@ def diagnose(output,target,scene,observation,visible,truth,mesh,seed,renderer=No
             add_mm=add*1000,adds_mm=adds*1000,adds_005d=adds<.05*d,add_01d=add<.1*d)
     if renderer is not None:
         result['rigid_geometry']={}
-        for name in ('base','image_to_cad_visible','cad_to_image_visible','cad_to_image_prior16','cad_to_image_prior32'):
+        for name in ('base','image_to_cad_visible','cad_to_image_visible','cad_to_image_prior16','cad_to_image_prior32',
+                     'image_to_cad_rgbd_mixed','cad_to_image_rgbd_mixed','anchored_flow','anchored_flow_rgbd_mixed'):
             if name not in poses:continue
             render=renderer(scene.cad['appearance'],torch.as_tensor(poses[name],device=scene.pose.device,dtype=torch.float32),scene.k_crop,224)
             covered=render['mask'][None,None]&scene.bounds

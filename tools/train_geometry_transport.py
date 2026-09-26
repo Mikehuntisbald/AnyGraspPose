@@ -79,6 +79,7 @@ def main():
             active = name.startswith('cad_transport.')
         if name.startswith('cad_transport.') and not config['cad_transport']['enabled']: active = False
         if name.startswith('cad_transport.') and config.get('cad_atlas',{}).get('enabled'):active=False
+        if plan.get('point_head_only'):active=name.startswith('cad_atlas_decoder.image_readout.anchor_flow.')
         parameter.requires_grad_(active)
         if not active:
             frozen.append(name); continue
@@ -88,6 +89,7 @@ def main():
         group = groups.setdefault(kind, dict(params=[], names=[], category=kind, lr=config['training']['learning_rates'][kind]))
         group['params'].append(parameter); group['names'].append(name)
     optimizer = torch.optim.AdamW(list(groups.values()), weight_decay=.01, fused=True)
+    if plan.get('point_head_only'):model.eval()
     maximum = plan['updates']; stop = args.stop_at or maximum
     if not 0 < stop <= maximum: raise ValueError('Budget exceeded')
     scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lambda step: min(1., (step+1)/plan.get('warmup',50))*(.5+.25*(1+math.cos(math.pi*min(step, maximum)/maximum))))
@@ -189,7 +191,12 @@ def main():
                     visibility_weight=config['cad_image'].get('visibility_weight',.1))
                 loss=loss+config['cad_image']['loss_weight']*image_loss
                 metrics.update(image_metrics)
-                if step==0:
+                if config['cad_image'].get('anchored_flow'):
+                    from lip.unified.cad_image_correspondence import anchored_flow_loss
+                    flow_loss,flow_metrics=anchored_flow_loss(output,labels)
+                    loss=flow_loss*config['cad_image'].get('flow_weight',40.) if plan.get('point_head_only') else loss+flow_loss*40.
+                    metrics.update(flow_metrics)
+                if step==0 and not plan.get('point_head_only'):
                     image_grad,=torch.autograd.grad(image_loss,output['patch_latent'],retain_graph=True)
                     if not torch.isfinite(image_grad).all() or not image_grad.norm():
                         raise RuntimeError('CAD-to-image loss cannot train shared JEPA latent')
@@ -208,21 +215,22 @@ def main():
                         shared_patch_gradient=float(image_grad.norm()),support_points=int(mask.sum()),
                         regions={n:int(labels[n].sum()) for n in ('observed','real','proxy')},teacher_input=False))
             if not torch.isfinite(loss): raise RuntimeError('Nonfinite geometry loss')
-            if atlas and step==0:
+            if atlas and step==0 and not plan.get('point_head_only'):
                 prior_gradient,=torch.autograd.grad(loss,output['atlas_fallback'],retain_graph=True)
                 prior_norm=float(prior_gradient[:,:3].float().norm())
                 if config['cad_atlas'].get('fallback_xyz_weight',0.) and not prior_norm:
                     raise RuntimeError('Final coordinate prior received no direct gradient')
                 atomic_json(out/f'final_prior_gradient_rank{rank}.json',dict(xyz_norm=prior_norm,depth_validity_norm=float(prior_gradient[:,3:].float().norm())))
-            if step == 0 and not plan.get('decoder_only'):
+            if step == 0 and not plan.get('decoder_only') and not plan.get('point_head_only'):
                 grad, = torch.autograd.grad(loss, output['patch_latent'], retain_graph=True)
                 if not torch.isfinite(grad).all() or not grad.norm(): raise RuntimeError('Geometry does not train JEPA')
             loss.backward()
             if step == 0:
                 names = () if plan.get('decoder_only') else ('core.src_proj.weight', 'surface_head.output.6.weight')
                 if atlas:names+=('cad_atlas_decoder.query.0.weight','cad_atlas_decoder.descriptor.1.weight')
-                if config.get('cad_image',{}).get('enabled'):names+=('cad_atlas_decoder.image_readout.visibility.2.weight',)
                 elif config['cad_transport']['enabled']: names += ('cad_transport.head.2.weight',)
+                if config.get('cad_image',{}).get('enabled'):names+=('cad_atlas_decoder.image_readout.visibility.2.weight',)
+                if plan.get('point_head_only'):names=('cad_atlas_decoder.image_readout.anchor_flow.5.weight',)
                 gradients = {n: float(p.grad.float().norm()) if p.grad is not None else None for n,p in model.named_parameters() if n in names}
                 if len(gradients) != len(names) or any(v is None or v <= 0 for v in gradients.values()):
                     raise RuntimeError('Geometry path gradient failure: '+str(gradients))
@@ -230,7 +238,7 @@ def main():
             synchronize_gradients(model.parameters())
             norm = torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.requires_grad], 1., error_if_nonfinite=True)
             optimizer.step(); scheduler.step()
-            if not plan.get('decoder_only'): update_ema(model)
+            if not plan.get('decoder_only') and not plan.get('point_head_only'): update_ema(model)
             row = dict(step=step+1, seconds=time.monotonic()-begun, data_seconds=data_time,
                        loss=float(loss.detach()), grad_norm=float(norm), lr={g['category']:g['lr'] for g in optimizer.param_groups},
                        metrics={k:float(v) for k,v in metrics.items()}, windows=[e.training_window for e in episodes])
