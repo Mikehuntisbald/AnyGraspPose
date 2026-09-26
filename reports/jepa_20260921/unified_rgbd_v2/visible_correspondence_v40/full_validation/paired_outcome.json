@@ -1,0 +1,144 @@
+{
+  "completed": true,
+  "physical_sequences": 40,
+  "paired_target_pixels": true,
+  "heavy_records_per_model": 2240,
+  "metrics": {
+    "source": {
+      "geometry_focus_real": {
+        "pixels": 2916.606596433081,
+        "xyz_mm": 38.53915657814686,
+        "zero_xyz_mm": 62.2343223920329,
+        "depth_mm": 13.360913164608482,
+        "camera_consistency_mm": 37.22113341576749,
+        "xyz_depth_inconsistency_mm": 25.051012163086785,
+        "xyz_reprojection_px": 17.21191580718717,
+        "behind_camera_fraction": 0.0,
+        "valid_probability": 0.7946925139721525,
+        "valid_brier": 0.11520098017295234
+      },
+      "geometry_canonical_real": {
+        "pixels": 2916.606596433081,
+        "xyz_mm": 37.0712092743465,
+        "zero_xyz_mm": 61.947175908883416,
+        "depth_mm": 13.360913164608482,
+        "camera_consistency_mm": 37.22113341576749,
+        "xyz_depth_inconsistency_mm": 25.051012163086785,
+        "xyz_reprojection_px": 17.21191580718717,
+        "behind_camera_fraction": 0.0,
+        "valid_probability": 0.7946925139721525,
+        "valid_brier": 0.11520098017295234,
+        "lookup_fraction": 0.9298642916270625,
+        "lookup_xyz_contribution_mm": 33.09446432352761,
+        "fallback_xyz_contribution_mm": 3.976744919423728
+      },
+      "geometry_canonical_proxy": {
+        "pixels": 847.760562579228,
+        "xyz_mm": 36.73482079671915,
+        "zero_xyz_mm": 57.17002101432227,
+        "depth_mm": 19.883135772267007,
+        "camera_consistency_mm": 37.82574013421048,
+        "xyz_depth_inconsistency_mm": 22.466620810433405,
+        "xyz_reprojection_px": 18.318161856462087,
+        "behind_camera_fraction": 0.0,
+        "valid_probability": 0.574158876419283,
+        "valid_brier": 0.30860134445020154,
+        "lookup_fraction": 0.8279042644894542,
+        "lookup_xyz_contribution_mm": 30.52495617025968,
+        "fallback_xyz_contribution_mm": 6.20986454262475
+      }
+    },
+    "corrupted": {
+      "geometry_focus_real": {
+        "pixels": 2916.606596433081,
+        "xyz_mm": 38.93948423831301,
+        "zero_xyz_mm": 62.2343223920329,
+        "depth_mm": 13.724819475595247,
+        "camera_consistency_mm": 37.592542594332585,
+        "xyz_depth_inconsistency_mm": 25.049313540489536,
+        "xyz_reprojection_px": 17.552157756509164,
+        "behind_camera_fraction": 0.0,
+        "valid_probability": 0.7551044320170701,
+        "valid_brier": 0.13503467085155269
+      },
+      "geometry_canonical_real": {
+        "pixels": 2916.606596433081,
+        "xyz_mm": 37.461171231320826,
+        "zero_xyz_mm": 61.947175908883416,
+        "depth_mm": 13.724819475595247,
+        "camera_consistency_mm": 37.592542594332585,
+        "xyz_depth_inconsistency_mm": 25.049313540489536,
+        "xyz_reprojection_px": 17.552157756509164,
+        "behind_camera_fraction": 0.0,
+        "valid_probability": 0.7551044320170701,
+        "valid_brier": 0.13503467085155269,
+        "lookup_fraction": 0.9439814757403538,
+        "lookup_xyz_contribution_mm": 34.34913960318413,
+        "fallback_xyz_contribution_mm": 3.1120316695207615
+      },
+      "geometry_canonical_proxy": {
+        "pixels": 847.760562579228,
+        "xyz_mm": 37.708984649595656,
+        "zero_xyz_mm": 57.17002101432227,
+        "depth_mm": 20.838040956123514,
+        "camera_consistency_mm": 36.04519172020506,
+        "xyz_depth_inconsistency_mm": 20.682749664859415,
+        "xyz_reprojection_px": 18.39631232298001,
+        "behind_camera_fraction": 0.0,
+        "valid_probability": 0.5209320604393891,
+        "valid_brier": 0.3534709480413346,
+        "lookup_fraction": 0.8683085001492257,
+        "lookup_xyz_contribution_mm": 32.73222755826516,
+        "fallback_xyz_contribution_mm": 4.976757103187413
+      }
+    },
+    "clean": {
+      "geometry_focus_real": {
+        "pixels": 2916.606596433081,
+        "xyz_mm": 38.510955126638706,
+        "zero_xyz_mm": 62.2343223920329,
+        "depth_mm": 14.388926939047272,
+        "camera_consistency_mm": 37.90304948253162,
+        "xyz_depth_inconsistency_mm": 25.901762180745678,
+        "xyz_reprojection_px": 17.22617535677306,
+        "behind_camera_fraction": 0.0,
+        "valid_probability": 0.758609273430833,
+        "valid_brier": 0.13654474681316353
+      },
+      "geometry_canonical_real": {
+        "pixels": 2916.606596433081,
+        "xyz_mm": 36.99370173526269,
+        "zero_xyz_mm": 61.947175908883416,
+        "depth_mm": 14.388926939047272,
+        "camera_consistency_mm": 37.90304948253162,
+        "xyz_depth_inconsistency_mm": 25.901762180745678,
+        "xyz_reprojection_px": 17.22617535677306,
+        "behind_camera_fraction": 0.0,
+        "valid_probability": 0.758609273430833,
+        "valid_brier": 0.13654474681316353,
+        "lookup_fraction": 0.9416971489395435,
+        "lookup_xyz_contribution_mm": 33.55554238688906,
+        "fallback_xyz_contribution_mm": 3.4381593965435004
+      },
+      "geometry_canonical_proxy": {
+        "pixels": 847.760562579228,
+        "xyz_mm": 37.348940779286295,
+        "zero_xyz_mm": 57.17002101432227,
+        "depth_mm": 20.807058304047946,
+        "camera_consistency_mm": 36.73084978352964,
+        "xyz_depth_inconsistency_mm": 21.676136722045754,
+        "xyz_reprojection_px": 18.246745467587527,
+        "behind_camera_fraction": 0.0,
+        "valid_probability": 0.521454424112861,
+        "valid_brier": 0.3510013689046984,
+        "lookup_fraction": 0.8792382051888177,
+        "lookup_xyz_contribution_mm": 32.580993480119595,
+        "fallback_xyz_contribution_mm": 4.7679473474910115
+      }
+    }
+  },
+  "reduction": "frames within case, equal heavy-case mass within sequence, equal sequence mass",
+  "conclusion": "No generalized heavy-geometry improvement; do not promote or extend V40 solely on short probe",
+  "history_disabled": true,
+  "goal_complete": false
+}

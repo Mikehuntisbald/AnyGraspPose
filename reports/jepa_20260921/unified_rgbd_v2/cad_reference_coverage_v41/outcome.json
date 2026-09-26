@@ -1,0 +1,80 @@
+{
+  "completed": true,
+  "training": false,
+  "model_loaded": false,
+  "frames": 16,
+  "table": {
+    "0": {
+      "real": {
+        "raster_nearest_mm": 0.0,
+        "full_surface_nearest_mm": 1.1915187040964763,
+        "raster_within_3pct_d": 0.999999996026357,
+        "full_surface_within_3pct_d": 0.999999996026357
+      },
+      "proxy": {
+        "raster_nearest_mm": 0.0,
+        "full_surface_nearest_mm": 1.1330244421958924,
+        "raster_within_3pct_d": 1.0,
+        "full_surface_within_3pct_d": 1.0
+      }
+    },
+    "10": {
+      "real": {
+        "raster_nearest_mm": 0.6602669517199199,
+        "full_surface_nearest_mm": 1.1915187040964763,
+        "raster_within_3pct_d": 0.9997395793596904,
+        "full_surface_within_3pct_d": 0.999999996026357
+      },
+      "proxy": {
+        "raster_nearest_mm": 0.7842480391263962,
+        "full_surface_nearest_mm": 1.1330244421958924,
+        "raster_within_3pct_d": 1.0,
+        "full_surface_within_3pct_d": 1.0
+      }
+    },
+    "45": {
+      "real": {
+        "raster_nearest_mm": 3.0460376004378,
+        "full_surface_nearest_mm": 1.1915187040964763,
+        "raster_within_3pct_d": 0.8665949627757072,
+        "full_surface_within_3pct_d": 0.999999996026357
+      },
+      "proxy": {
+        "raster_nearest_mm": 4.854063031077385,
+        "full_surface_nearest_mm": 1.1330244421958924,
+        "raster_within_3pct_d": 0.870434296131134,
+        "full_surface_within_3pct_d": 1.0
+      }
+    },
+    "90": {
+      "real": {
+        "raster_nearest_mm": 6.932668060064316,
+        "full_surface_nearest_mm": 1.1915187040964763,
+        "raster_within_3pct_d": 0.762794037659963,
+        "full_surface_within_3pct_d": 0.999999996026357
+      },
+      "proxy": {
+        "raster_nearest_mm": 9.53862789273262,
+        "full_surface_nearest_mm": 1.1330244421958924,
+        "raster_within_3pct_d": 0.6160977140069008,
+        "full_surface_within_3pct_d": 1.0
+      }
+    },
+    "180": {
+      "real": {
+        "raster_nearest_mm": 19.475920754671098,
+        "full_surface_nearest_mm": 1.1915187040964763,
+        "raster_within_3pct_d": 0.38046875,
+        "full_surface_within_3pct_d": 0.999999996026357
+      },
+      "proxy": {
+        "raster_nearest_mm": 18.79905903339386,
+        "full_surface_nearest_mm": 1.1330244421958924,
+        "raster_within_3pct_d": 0.47602453231811526,
+        "full_surface_within_3pct_d": 1.0
+      }
+    }
+  },
+  "scope": "Teacher-only surface availability at controlled view rotations; not learned correspondence or deployable pose. Finite raster nearest distance is not a bilinear-lookup lower bound.",
+  "reduction": "Equal physical-sequence mass; up to512 deterministic target pixels per region/frame"
+}

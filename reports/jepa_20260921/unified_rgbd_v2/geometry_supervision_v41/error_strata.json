@@ -1,0 +1,814 @@
+{
+  "completed": true,
+  "training": false,
+  "scope": "Eight saved heavy examples only; equal example mass; paired within each fixed target stratum. Secondary diagnostic, never replaces full64 unfiltered metrics.",
+  "tables": {
+    "all_proxy": {
+      "source": {
+        "cad_xyz_mm": 38.48451280593872,
+        "depth_mm": 29.870331466197968,
+        "examples": 4
+      },
+      "v40": {
+        "cad_xyz_mm": 19.970792293548584,
+        "depth_mm": 15.980515003204346,
+        "examples": 4
+      },
+      "v41": {
+        "cad_xyz_mm": 30.163716793060303,
+        "depth_mm": 27.459203004837036,
+        "examples": 4
+      }
+    },
+    "all_real": {
+      "source": {
+        "cad_xyz_mm": 8.596717417240143,
+        "depth_mm": 7.409068182110786,
+        "examples": 8
+      },
+      "v40": {
+        "cad_xyz_mm": 7.010288566350937,
+        "depth_mm": 7.135910660028458,
+        "examples": 8
+      },
+      "v41": {
+        "cad_xyz_mm": 7.26722639799118,
+        "depth_mm": 9.618605256080627,
+        "examples": 8
+      }
+    },
+    "real_gap_10to30mm": {
+      "source": {
+        "cad_xyz_mm": 22.031689167022705,
+        "depth_mm": 19.379876170839584,
+        "examples": 7
+      },
+      "v40": {
+        "cad_xyz_mm": 13.612113782337733,
+        "depth_mm": 14.128831352506365,
+        "examples": 7
+      },
+      "v41": {
+        "cad_xyz_mm": 9.366520813533239,
+        "depth_mm": 10.569608756474086,
+        "examples": 7
+      }
+    },
+    "real_gap_gt30mm": {
+      "source": {
+        "cad_xyz_mm": 30.304282506306965,
+        "depth_mm": 107.44742139180501,
+        "examples": 3
+      },
+      "v40": {
+        "cad_xyz_mm": 11.549978415171305,
+        "depth_mm": 117.21521631876628,
+        "examples": 3
+      },
+      "v41": {
+        "cad_xyz_mm": 14.238087018330893,
+        "depth_mm": 114.80909474690755,
+        "examples": 3
+      }
+    },
+    "real_gap_le10mm": {
+      "source": {
+        "cad_xyz_mm": 8.029068350791931,
+        "depth_mm": 6.1967999786138535,
+        "examples": 8
+      },
+      "v40": {
+        "cad_xyz_mm": 6.662681728601456,
+        "depth_mm": 5.957553207874298,
+        "examples": 8
+      },
+      "v41": {
+        "cad_xyz_mm": 6.774621784687042,
+        "depth_mm": 8.931135714054108,
+        "examples": 8
+      }
+    }
+  },
+  "rows": [
+    {
+      "rank": 0,
+      "region": "all_real",
+      "model": "source",
+      "pixels": 711,
+      "cad_xyz_mm": 13.260947227478027,
+      "depth_mm": 20.89304542541504
+    },
+    {
+      "rank": 0,
+      "region": "all_real",
+      "model": "v40",
+      "pixels": 711,
+      "cad_xyz_mm": 5.743409156799316,
+      "depth_mm": 15.250914573669434
+    },
+    {
+      "rank": 0,
+      "region": "all_real",
+      "model": "v41",
+      "pixels": 711,
+      "cad_xyz_mm": 7.921786308288574,
+      "depth_mm": 13.794666290283203
+    },
+    {
+      "rank": 0,
+      "region": "real_gap_le10mm",
+      "model": "source",
+      "pixels": 482,
+      "cad_xyz_mm": 11.293163299560547,
+      "depth_mm": 14.177180290222168
+    },
+    {
+      "rank": 0,
+      "region": "real_gap_le10mm",
+      "model": "v40",
+      "pixels": 482,
+      "cad_xyz_mm": 4.512580394744873,
+      "depth_mm": 8.018071174621582
+    },
+    {
+      "rank": 0,
+      "region": "real_gap_le10mm",
+      "model": "v41",
+      "pixels": 482,
+      "cad_xyz_mm": 5.873257637023926,
+      "depth_mm": 7.9430718421936035
+    },
+    {
+      "rank": 0,
+      "region": "real_gap_10to30mm",
+      "model": "source",
+      "pixels": 141,
+      "cad_xyz_mm": 13.860464096069336,
+      "depth_mm": 19.531879425048828
+    },
+    {
+      "rank": 0,
+      "region": "real_gap_10to30mm",
+      "model": "v40",
+      "pixels": 141,
+      "cad_xyz_mm": 4.948350429534912,
+      "depth_mm": 13.987130165100098
+    },
+    {
+      "rank": 0,
+      "region": "real_gap_10to30mm",
+      "model": "v41",
+      "pixels": 141,
+      "cad_xyz_mm": 9.015798568725586,
+      "depth_mm": 13.909526824951172
+    },
+    {
+      "rank": 0,
+      "region": "real_gap_gt30mm",
+      "model": "source",
+      "pixels": 88,
+      "cad_xyz_mm": 23.078447341918945,
+      "depth_mm": 59.8586311340332
+    },
+    {
+      "rank": 0,
+      "region": "real_gap_gt30mm",
+      "model": "v40",
+      "pixels": 88,
+      "cad_xyz_mm": 13.758896827697754,
+      "depth_mm": 56.892093658447266
+    },
+    {
+      "rank": 0,
+      "region": "real_gap_gt30mm",
+      "model": "v41",
+      "pixels": 88,
+      "cad_xyz_mm": 17.389232635498047,
+      "depth_mm": 45.66140365600586
+    },
+    {
+      "rank": 0,
+      "region": "all_proxy",
+      "model": "source",
+      "pixels": 17,
+      "cad_xyz_mm": 118.93953704833984,
+      "depth_mm": 95.18701934814453
+    },
+    {
+      "rank": 0,
+      "region": "all_proxy",
+      "model": "v40",
+      "pixels": 17,
+      "cad_xyz_mm": 48.054176330566406,
+      "depth_mm": 35.95552062988281
+    },
+    {
+      "rank": 0,
+      "region": "all_proxy",
+      "model": "v41",
+      "pixels": 17,
+      "cad_xyz_mm": 84.95916748046875,
+      "depth_mm": 71.05569458007812
+    },
+    {
+      "rank": 1,
+      "region": "all_real",
+      "model": "source",
+      "pixels": 4459,
+      "cad_xyz_mm": 6.860989570617676,
+      "depth_mm": 8.44199275970459
+    },
+    {
+      "rank": 1,
+      "region": "all_real",
+      "model": "v40",
+      "pixels": 4459,
+      "cad_xyz_mm": 7.606708526611328,
+      "depth_mm": 8.652311325073242
+    },
+    {
+      "rank": 1,
+      "region": "all_real",
+      "model": "v41",
+      "pixels": 4459,
+      "cad_xyz_mm": 6.622962951660156,
+      "depth_mm": 10.141681671142578
+    },
+    {
+      "rank": 1,
+      "region": "real_gap_le10mm",
+      "model": "source",
+      "pixels": 3423,
+      "cad_xyz_mm": 6.343289375305176,
+      "depth_mm": 7.996793270111084
+    },
+    {
+      "rank": 1,
+      "region": "real_gap_le10mm",
+      "model": "v40",
+      "pixels": 3423,
+      "cad_xyz_mm": 6.698037624359131,
+      "depth_mm": 8.373930931091309
+    },
+    {
+      "rank": 1,
+      "region": "real_gap_le10mm",
+      "model": "v41",
+      "pixels": 3423,
+      "cad_xyz_mm": 6.088542938232422,
+      "depth_mm": 9.939860343933105
+    },
+    {
+      "rank": 1,
+      "region": "real_gap_10to30mm",
+      "model": "source",
+      "pixels": 1036,
+      "cad_xyz_mm": 8.571496963500977,
+      "depth_mm": 9.912956237792969
+    },
+    {
+      "rank": 1,
+      "region": "real_gap_10to30mm",
+      "model": "v40",
+      "pixels": 1036,
+      "cad_xyz_mm": 10.6090087890625,
+      "depth_mm": 9.572092056274414
+    },
+    {
+      "rank": 1,
+      "region": "real_gap_10to30mm",
+      "model": "v41",
+      "pixels": 1036,
+      "cad_xyz_mm": 8.388715744018555,
+      "depth_mm": 10.808511734008789
+    },
+    {
+      "rank": 2,
+      "region": "all_real",
+      "model": "source",
+      "pixels": 1846,
+      "cad_xyz_mm": 6.822173595428467,
+      "depth_mm": 1.8744958639144897
+    },
+    {
+      "rank": 2,
+      "region": "all_real",
+      "model": "v40",
+      "pixels": 1846,
+      "cad_xyz_mm": 4.218536376953125,
+      "depth_mm": 2.839602470397949
+    },
+    {
+      "rank": 2,
+      "region": "all_real",
+      "model": "v41",
+      "pixels": 1846,
+      "cad_xyz_mm": 5.095040798187256,
+      "depth_mm": 5.957035541534424
+    },
+    {
+      "rank": 2,
+      "region": "real_gap_le10mm",
+      "model": "source",
+      "pixels": 1846,
+      "cad_xyz_mm": 6.822173595428467,
+      "depth_mm": 1.8744958639144897
+    },
+    {
+      "rank": 2,
+      "region": "real_gap_le10mm",
+      "model": "v40",
+      "pixels": 1846,
+      "cad_xyz_mm": 4.218536376953125,
+      "depth_mm": 2.839602470397949
+    },
+    {
+      "rank": 2,
+      "region": "real_gap_le10mm",
+      "model": "v41",
+      "pixels": 1846,
+      "cad_xyz_mm": 5.095040798187256,
+      "depth_mm": 5.957035541534424
+    },
+    {
+      "rank": 3,
+      "region": "all_real",
+      "model": "source",
+      "pixels": 3605,
+      "cad_xyz_mm": 9.253060340881348,
+      "depth_mm": 6.888179779052734
+    },
+    {
+      "rank": 3,
+      "region": "all_real",
+      "model": "v40",
+      "pixels": 3605,
+      "cad_xyz_mm": 6.321108818054199,
+      "depth_mm": 6.53261137008667
+    },
+    {
+      "rank": 3,
+      "region": "all_real",
+      "model": "v41",
+      "pixels": 3605,
+      "cad_xyz_mm": 6.154689788818359,
+      "depth_mm": 8.131096839904785
+    },
+    {
+      "rank": 3,
+      "region": "real_gap_le10mm",
+      "model": "source",
+      "pixels": 3587,
+      "cad_xyz_mm": 9.05921459197998,
+      "depth_mm": 5.76390266418457
+    },
+    {
+      "rank": 3,
+      "region": "real_gap_le10mm",
+      "model": "v40",
+      "pixels": 3587,
+      "cad_xyz_mm": 6.2705397605896,
+      "depth_mm": 5.3955864906311035
+    },
+    {
+      "rank": 3,
+      "region": "real_gap_le10mm",
+      "model": "v41",
+      "pixels": 3587,
+      "cad_xyz_mm": 6.114646911621094,
+      "depth_mm": 6.991875171661377
+    },
+    {
+      "rank": 3,
+      "region": "real_gap_10to30mm",
+      "model": "source",
+      "pixels": 2,
+      "cad_xyz_mm": 86.04559326171875,
+      "depth_mm": 77.23319244384766
+    },
+    {
+      "rank": 3,
+      "region": "real_gap_10to30mm",
+      "model": "v40",
+      "pixels": 2,
+      "cad_xyz_mm": 39.78815460205078,
+      "depth_mm": 43.48155975341797
+    },
+    {
+      "rank": 3,
+      "region": "real_gap_10to30mm",
+      "model": "v41",
+      "pixels": 2,
+      "cad_xyz_mm": 6.44141149520874,
+      "depth_mm": 17.157466888427734
+    },
+    {
+      "rank": 3,
+      "region": "real_gap_gt30mm",
+      "model": "source",
+      "pixels": 16,
+      "cad_xyz_mm": 43.1119384765625,
+      "depth_mm": 250.14401245117188
+    },
+    {
+      "rank": 3,
+      "region": "real_gap_gt30mm",
+      "model": "v40",
+      "pixels": 16,
+      "cad_xyz_mm": 13.474764823913574,
+      "depth_mm": 256.82073974609375
+    },
+    {
+      "rank": 3,
+      "region": "real_gap_gt30mm",
+      "model": "v41",
+      "pixels": 16,
+      "cad_xyz_mm": 15.09603500366211,
+      "depth_mm": 262.402099609375
+    },
+    {
+      "rank": 4,
+      "region": "all_real",
+      "model": "source",
+      "pixels": 3048,
+      "cad_xyz_mm": 12.338854789733887,
+      "depth_mm": 8.114364624023438
+    },
+    {
+      "rank": 4,
+      "region": "all_real",
+      "model": "v40",
+      "pixels": 3048,
+      "cad_xyz_mm": 15.457959175109863,
+      "depth_mm": 10.539759635925293
+    },
+    {
+      "rank": 4,
+      "region": "all_real",
+      "model": "v41",
+      "pixels": 3048,
+      "cad_xyz_mm": 13.96924877166748,
+      "depth_mm": 11.068582534790039
+    },
+    {
+      "rank": 4,
+      "region": "real_gap_le10mm",
+      "model": "source",
+      "pixels": 2616,
+      "cad_xyz_mm": 11.412156105041504,
+      "depth_mm": 7.227003574371338
+    },
+    {
+      "rank": 4,
+      "region": "real_gap_le10mm",
+      "model": "v40",
+      "pixels": 2616,
+      "cad_xyz_mm": 15.139851570129395,
+      "depth_mm": 9.770991325378418
+    },
+    {
+      "rank": 4,
+      "region": "real_gap_le10mm",
+      "model": "v41",
+      "pixels": 2616,
+      "cad_xyz_mm": 13.220048904418945,
+      "depth_mm": 11.549091339111328
+    },
+    {
+      "rank": 4,
+      "region": "real_gap_10to30mm",
+      "model": "source",
+      "pixels": 432,
+      "cad_xyz_mm": 17.95053482055664,
+      "depth_mm": 13.487824440002441
+    },
+    {
+      "rank": 4,
+      "region": "real_gap_10to30mm",
+      "model": "v40",
+      "pixels": 432,
+      "cad_xyz_mm": 17.38428497314453,
+      "depth_mm": 15.195075988769531
+    },
+    {
+      "rank": 4,
+      "region": "real_gap_10to30mm",
+      "model": "v41",
+      "pixels": 432,
+      "cad_xyz_mm": 18.506065368652344,
+      "depth_mm": 8.158838272094727
+    },
+    {
+      "rank": 5,
+      "region": "all_real",
+      "model": "source",
+      "pixels": 539,
+      "cad_xyz_mm": 5.688667297363281,
+      "depth_mm": 3.8346774578094482
+    },
+    {
+      "rank": 5,
+      "region": "all_real",
+      "model": "v40",
+      "pixels": 539,
+      "cad_xyz_mm": 2.7834060192108154,
+      "depth_mm": 5.201056003570557
+    },
+    {
+      "rank": 5,
+      "region": "all_real",
+      "model": "v41",
+      "pixels": 539,
+      "cad_xyz_mm": 3.703382968902588,
+      "depth_mm": 9.86448860168457
+    },
+    {
+      "rank": 5,
+      "region": "real_gap_le10mm",
+      "model": "source",
+      "pixels": 390,
+      "cad_xyz_mm": 5.192410469055176,
+      "depth_mm": 3.8193347454071045
+    },
+    {
+      "rank": 5,
+      "region": "real_gap_le10mm",
+      "model": "v40",
+      "pixels": 390,
+      "cad_xyz_mm": 2.677367925643921,
+      "depth_mm": 5.51539945602417
+    },
+    {
+      "rank": 5,
+      "region": "real_gap_le10mm",
+      "model": "v41",
+      "pixels": 390,
+      "cad_xyz_mm": 3.415196418762207,
+      "depth_mm": 10.878324508666992
+    },
+    {
+      "rank": 5,
+      "region": "real_gap_10to30mm",
+      "model": "source",
+      "pixels": 149,
+      "cad_xyz_mm": 6.9875946044921875,
+      "depth_mm": 3.87483811378479
+    },
+    {
+      "rank": 5,
+      "region": "real_gap_10to30mm",
+      "model": "v40",
+      "pixels": 149,
+      "cad_xyz_mm": 3.060955762863159,
+      "depth_mm": 4.378275394439697
+    },
+    {
+      "rank": 5,
+      "region": "real_gap_10to30mm",
+      "model": "v41",
+      "pixels": 149,
+      "cad_xyz_mm": 4.457695960998535,
+      "depth_mm": 7.210824489593506
+    },
+    {
+      "rank": 5,
+      "region": "all_proxy",
+      "model": "source",
+      "pixels": 355,
+      "cad_xyz_mm": 7.736135482788086,
+      "depth_mm": 11.848983764648438
+    },
+    {
+      "rank": 5,
+      "region": "all_proxy",
+      "model": "v40",
+      "pixels": 355,
+      "cad_xyz_mm": 9.183036804199219,
+      "depth_mm": 12.98091983795166
+    },
+    {
+      "rank": 5,
+      "region": "all_proxy",
+      "model": "v41",
+      "pixels": 355,
+      "cad_xyz_mm": 8.85437297821045,
+      "depth_mm": 21.257492065429688
+    },
+    {
+      "rank": 6,
+      "region": "all_real",
+      "model": "source",
+      "pixels": 3132,
+      "cad_xyz_mm": 9.8582763671875,
+      "depth_mm": 4.883875846862793
+    },
+    {
+      "rank": 6,
+      "region": "all_real",
+      "model": "v40",
+      "pixels": 3132,
+      "cad_xyz_mm": 7.334629058837891,
+      "depth_mm": 5.522742748260498
+    },
+    {
+      "rank": 6,
+      "region": "all_real",
+      "model": "v41",
+      "pixels": 3132,
+      "cad_xyz_mm": 8.609350204467773,
+      "depth_mm": 10.762292861938477
+    },
+    {
+      "rank": 6,
+      "region": "real_gap_le10mm",
+      "model": "source",
+      "pixels": 2971,
+      "cad_xyz_mm": 9.537453651428223,
+      "depth_mm": 4.873739242553711
+    },
+    {
+      "rank": 6,
+      "region": "real_gap_le10mm",
+      "model": "v40",
+      "pixels": 2971,
+      "cad_xyz_mm": 6.998876571655273,
+      "depth_mm": 5.275801181793213
+    },
+    {
+      "rank": 6,
+      "region": "real_gap_le10mm",
+      "model": "v41",
+      "pixels": 2971,
+      "cad_xyz_mm": 8.41238784790039,
+      "depth_mm": 10.7373685836792
+    },
+    {
+      "rank": 6,
+      "region": "real_gap_10to30mm",
+      "model": "source",
+      "pixels": 157,
+      "cad_xyz_mm": 15.550700187683105,
+      "depth_mm": 4.885734558105469
+    },
+    {
+      "rank": 6,
+      "region": "real_gap_10to30mm",
+      "model": "v40",
+      "pixels": 157,
+      "cad_xyz_mm": 13.686175346374512,
+      "depth_mm": 9.370020866394043
+    },
+    {
+      "rank": 6,
+      "region": "real_gap_10to30mm",
+      "model": "v41",
+      "pixels": 157,
+      "cad_xyz_mm": 12.295331001281738,
+      "depth_mm": 10.581666946411133
+    },
+    {
+      "rank": 6,
+      "region": "real_gap_gt30mm",
+      "model": "source",
+      "pixels": 4,
+      "cad_xyz_mm": 24.722461700439453,
+      "depth_mm": 12.339620590209961
+    },
+    {
+      "rank": 6,
+      "region": "real_gap_gt30mm",
+      "model": "v40",
+      "pixels": 4,
+      "cad_xyz_mm": 7.416273593902588,
+      "depth_mm": 37.93281555175781
+    },
+    {
+      "rank": 6,
+      "region": "real_gap_gt30mm",
+      "model": "v41",
+      "pixels": 4,
+      "cad_xyz_mm": 10.22899341583252,
+      "depth_mm": 36.3637809753418
+    },
+    {
+      "rank": 6,
+      "region": "all_proxy",
+      "model": "source",
+      "pixels": 89,
+      "cad_xyz_mm": 15.612980842590332,
+      "depth_mm": 8.71420955657959
+    },
+    {
+      "rank": 6,
+      "region": "all_proxy",
+      "model": "v40",
+      "pixels": 89,
+      "cad_xyz_mm": 9.581988334655762,
+      "depth_mm": 8.213663101196289
+    },
+    {
+      "rank": 6,
+      "region": "all_proxy",
+      "model": "v41",
+      "pixels": 89,
+      "cad_xyz_mm": 14.477611541748047,
+      "depth_mm": 12.26611042022705
+    },
+    {
+      "rank": 7,
+      "region": "all_real",
+      "model": "source",
+      "pixels": 2625,
+      "cad_xyz_mm": 4.690770149230957,
+      "depth_mm": 4.34191370010376
+    },
+    {
+      "rank": 7,
+      "region": "all_real",
+      "model": "v40",
+      "pixels": 2625,
+      "cad_xyz_mm": 6.616551399230957,
+      "depth_mm": 2.5482871532440186
+    },
+    {
+      "rank": 7,
+      "region": "all_real",
+      "model": "v41",
+      "pixels": 2625,
+      "cad_xyz_mm": 6.061349391937256,
+      "depth_mm": 7.228997707366943
+    },
+    {
+      "rank": 7,
+      "region": "real_gap_le10mm",
+      "model": "source",
+      "pixels": 2171,
+      "cad_xyz_mm": 4.572685718536377,
+      "depth_mm": 3.8419501781463623
+    },
+    {
+      "rank": 7,
+      "region": "real_gap_le10mm",
+      "model": "v40",
+      "pixels": 2171,
+      "cad_xyz_mm": 6.785663604736328,
+      "depth_mm": 2.4710426330566406
+    },
+    {
+      "rank": 7,
+      "region": "real_gap_le10mm",
+      "model": "v41",
+      "pixels": 2171,
+      "cad_xyz_mm": 5.977852821350098,
+      "depth_mm": 7.452458381652832
+    },
+    {
+      "rank": 7,
+      "region": "real_gap_10to30mm",
+      "model": "source",
+      "pixels": 454,
+      "cad_xyz_mm": 5.2554402351379395,
+      "depth_mm": 6.732707977294922
+    },
+    {
+      "rank": 7,
+      "region": "real_gap_10to30mm",
+      "model": "v40",
+      "pixels": 454,
+      "cad_xyz_mm": 5.80786657333374,
+      "depth_mm": 2.9176652431488037
+    },
+    {
+      "rank": 7,
+      "region": "real_gap_10to30mm",
+      "model": "v41",
+      "pixels": 454,
+      "cad_xyz_mm": 6.460627555847168,
+      "depth_mm": 6.160426139831543
+    },
+    {
+      "rank": 7,
+      "region": "all_proxy",
+      "model": "source",
+      "pixels": 1303,
+      "cad_xyz_mm": 11.649397850036621,
+      "depth_mm": 3.7311131954193115
+    },
+    {
+      "rank": 7,
+      "region": "all_proxy",
+      "model": "v40",
+      "pixels": 1303,
+      "cad_xyz_mm": 13.06396770477295,
+      "depth_mm": 6.771956443786621
+    },
+    {
+      "rank": 7,
+      "region": "all_proxy",
+      "model": "v41",
+      "pixels": 1303,
+      "cad_xyz_mm": 12.363715171813965,
+      "depth_mm": 5.257514953613281
+    }
+  ]
+}

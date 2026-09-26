@@ -1,0 +1,349 @@
+{
+  "completed": true,
+  "training": false,
+  "optimizer_updates": 0,
+  "rows": 2240,
+  "tables": {
+    "all/all": {
+      "frames_and_cases": 2240,
+      "physical_sequences": 40,
+      "objects": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        21
+      ],
+      "real": {
+        "xyz_mm": 37.0712092743465,
+        "depth_mm": 13.360913164608482,
+        "base_rotation_deg": 51.43531067226111,
+        "base_center_mm": 16.366310369975803
+      },
+      "proxy": {
+        "xyz_mm": 36.73482079671915,
+        "depth_mm": 19.883135772267007,
+        "base_rotation_deg": 48.43905081262583,
+        "base_center_mm": 18.379237994649607
+      }
+    },
+    "all/le15": {
+      "frames_and_cases": 1051,
+      "physical_sequences": 21,
+      "objects": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        21
+      ],
+      "real": {
+        "xyz_mm": 7.9425588505518325,
+        "depth_mm": 7.0013339252226805,
+        "base_rotation_deg": 5.213427171916144,
+        "base_center_mm": 6.876814385278655
+      },
+      "proxy": {
+        "xyz_mm": 13.329301153516356,
+        "depth_mm": 15.334505393042749,
+        "base_rotation_deg": 6.443960906455868,
+        "base_center_mm": 8.097617992138328
+      }
+    },
+    "all/15to45": {
+      "frames_and_cases": 431,
+      "physical_sequences": 16,
+      "objects": [
+        1,
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18
+      ],
+      "real": {
+        "xyz_mm": 24.721846384291354,
+        "depth_mm": 12.96575013343034,
+        "base_rotation_deg": 26.964999864849208,
+        "base_center_mm": 18.929513850228805
+      },
+      "proxy": {
+        "xyz_mm": 23.895417294167242,
+        "depth_mm": 19.296792100608528,
+        "base_rotation_deg": 26.674110403420904,
+        "base_center_mm": 19.42921202282785
+      }
+    },
+    "all/gt45": {
+      "frames_and_cases": 758,
+      "physical_sequences": 17,
+      "objects": [
+        1,
+        2,
+        6,
+        7,
+        8,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        20,
+        21
+      ],
+      "real": {
+        "xyz_mm": 76.45054880365687,
+        "depth_mm": 25.993540182655327,
+        "base_rotation_deg": 115.39784149726776,
+        "base_center_mm": 33.23606316027008
+      },
+      "proxy": {
+        "xyz_mm": 73.62714159623106,
+        "depth_mm": 28.20038134994205,
+        "base_rotation_deg": 118.46453740644806,
+        "base_center_mm": 35.27097986448431
+      }
+    },
+    "declared_symmetric/all": {
+      "frames_and_cases": 672,
+      "physical_sequences": 12,
+      "objects": [
+        1,
+        13,
+        16,
+        18,
+        20,
+        21
+      ],
+      "real": {
+        "xyz_mm": 66.73538481515615,
+        "depth_mm": 20.495406188964466,
+        "base_rotation_deg": 96.53967196239257,
+        "base_center_mm": 21.917118996752446
+      },
+      "proxy": {
+        "xyz_mm": 55.29489841149721,
+        "depth_mm": 21.929828759207165,
+        "base_rotation_deg": 90.02226797993838,
+        "base_center_mm": 27.082452426612047
+      }
+    },
+    "declared_symmetric/le15": {
+      "frames_and_cases": 108,
+      "physical_sequences": 3,
+      "objects": [
+        1,
+        13,
+        21
+      ],
+      "real": {
+        "xyz_mm": 6.898565081556638,
+        "depth_mm": 5.094397758113013,
+        "base_rotation_deg": 6.750885062381976,
+        "base_center_mm": 5.793546821529858
+      },
+      "proxy": {
+        "xyz_mm": 7.245659766727023,
+        "depth_mm": 6.711923697590828,
+        "base_rotation_deg": 6.896707670643195,
+        "base_center_mm": 5.8260503642038906
+      }
+    },
+    "declared_symmetric/15to45": {
+      "frames_and_cases": 163,
+      "physical_sequences": 4,
+      "objects": [
+        1,
+        13,
+        18
+      ],
+      "real": {
+        "xyz_mm": 18.123044822596967,
+        "depth_mm": 14.13335561053455,
+        "base_rotation_deg": 25.351216455505778,
+        "base_center_mm": 17.995186748692543
+      },
+      "proxy": {
+        "xyz_mm": 21.059477040873926,
+        "depth_mm": 18.03205344720638,
+        "base_rotation_deg": 24.09787805393092,
+        "base_center_mm": 18.700528225516763
+      }
+    },
+    "declared_symmetric/gt45": {
+      "frames_and_cases": 401,
+      "physical_sequences": 9,
+      "objects": [
+        1,
+        13,
+        16,
+        18,
+        20,
+        21
+      ],
+      "real": {
+        "xyz_mm": 88.83009570214885,
+        "depth_mm": 28.294921718901556,
+        "base_rotation_deg": 131.65289306759618,
+        "base_center_mm": 33.11775877866329
+      },
+      "proxy": {
+        "xyz_mm": 84.45886724338641,
+        "depth_mm": 28.1029377322743,
+        "base_rotation_deg": 146.62304407590892,
+        "base_center_mm": 37.53704367009417
+      }
+    },
+    "nonsymmetric/all": {
+      "frames_and_cases": 1568,
+      "physical_sequences": 28,
+      "objects": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        17
+      ],
+      "real": {
+        "xyz_mm": 24.357991185428073,
+        "depth_mm": 10.303273297027344,
+        "base_rotation_deg": 32.10487011934762,
+        "base_center_mm": 13.98739238707153
+      },
+      "proxy": {
+        "xyz_mm": 30.106221648584132,
+        "depth_mm": 19.15217399121695,
+        "base_rotation_deg": 33.58790182429991,
+        "base_center_mm": 15.270947126091594
+      }
+    },
+    "nonsymmetric/le15": {
+      "frames_and_cases": 943,
+      "physical_sequences": 18,
+      "objects": [
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15
+      ],
+      "real": {
+        "xyz_mm": 8.116557812051031,
+        "depth_mm": 7.319156619740958,
+        "base_rotation_deg": 4.957184190171838,
+        "base_center_mm": 7.0573589792367875
+      },
+      "proxy": {
+        "xyz_mm": 14.343241384647913,
+        "depth_mm": 16.771602342284734,
+        "base_rotation_deg": 6.368503112424648,
+        "base_center_mm": 8.476212596794069
+      }
+    },
+    "nonsymmetric/15to45": {
+      "frames_and_cases": 268,
+      "physical_sequences": 12,
+      "objects": [
+        3,
+        4,
+        5,
+        6,
+        8,
+        10,
+        12,
+        14,
+        15,
+        17
+      ],
+      "real": {
+        "xyz_mm": 26.921446904856147,
+        "depth_mm": 12.576548307728938,
+        "base_rotation_deg": 27.502927667963686,
+        "base_center_mm": 19.240956217407557
+      },
+      "proxy": {
+        "xyz_mm": 24.840730711931677,
+        "depth_mm": 19.718371651742576,
+        "base_rotation_deg": 27.532854519917567,
+        "base_center_mm": 19.672106621931547
+      }
+    },
+    "nonsymmetric/gt45": {
+      "frames_and_cases": 357,
+      "physical_sequences": 8,
+      "objects": [
+        2,
+        6,
+        7,
+        8,
+        12,
+        14,
+        17
+      ],
+      "real": {
+        "xyz_mm": 62.5235585428534,
+        "depth_mm": 23.40448595437832,
+        "base_rotation_deg": 97.11090848064828,
+        "base_center_mm": 33.369155589577716
+      },
+      "proxy": {
+        "xyz_mm": 65.50334736086454,
+        "depth_mm": 28.27346406319286,
+        "base_rotation_deg": 97.34565740435242,
+        "base_center_mm": 33.571432010276915
+      }
+    }
+  },
+  "reference_sha256": "69b9b006b85c514acaec52153e42166c5ce6eecc4ebc994b5d1d6f3904d3be31",
+  "reduction": "Mean within case, equal heavy-case mass within sequence, equal sequence mass",
+  "scope": "Descriptive subsets of fixed40 heavy cases; populations vary by bin. Geodesic rotation is not symmetry reduced; declared symmetry alone does not establish texture equivalence."
+}

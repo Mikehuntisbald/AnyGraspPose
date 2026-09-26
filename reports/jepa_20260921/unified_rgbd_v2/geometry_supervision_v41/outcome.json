@@ -1,0 +1,162 @@
+{
+  "completed": true,
+  "updates": 100,
+  "initial_state_exact": {
+    "model": true,
+    "optimizer": true,
+    "scheduler": true,
+    "rng": true,
+    "sampler_position": true
+  },
+  "strict_resume_verified": true,
+  "frozen_pose_feature_tensors": 39,
+  "original_eval_masks_unchanged": true,
+  "metrics": {
+    "v40_0_corrupted": {
+      "real": {
+        "xyz_mm": 14.761511083160128,
+        "canonical_xyz_mm": 9.482487265552793,
+        "depth_mm": 9.871275995458875,
+        "cad_flow_epe": 5.1622262213911325,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 14.996281849710565,
+        "canonical_xyz_mm": 14.996281849710565,
+        "depth_mm": 13.473411026753878,
+        "cad_flow_epe": 4.5135426709526465,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "v40_0_clean": {
+      "real": {
+        "xyz_mm": 14.681964184556689,
+        "canonical_xyz_mm": 9.537342710154396,
+        "depth_mm": 8.266390885625567,
+        "cad_flow_epe": 5.150074026414326,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 15.22767522460536,
+        "canonical_xyz_mm": 15.22767522460536,
+        "depth_mm": 13.055907214942732,
+        "cad_flow_epe": 4.591318820652209,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "v40_100_corrupted": {
+      "real": {
+        "xyz_mm": 14.074935368129186,
+        "canonical_xyz_mm": 9.714564067976815,
+        "depth_mm": 9.890703397137779,
+        "cad_flow_epe": 5.4216521467481344,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 11.447601745003148,
+        "canonical_xyz_mm": 11.447601745003148,
+        "depth_mm": 10.19203491587388,
+        "cad_flow_epe": 4.57997853504984,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "v40_100_clean": {
+      "real": {
+        "xyz_mm": 13.941137407507215,
+        "canonical_xyz_mm": 9.621309552873884,
+        "depth_mm": 8.045510479382106,
+        "cad_flow_epe": 5.3887297468526025,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 10.849108796370658,
+        "canonical_xyz_mm": 10.849108796370658,
+        "depth_mm": 7.863104594381232,
+        "cad_flow_epe": 4.63041962761628,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "v41_0_corrupted": {
+      "real": {
+        "xyz_mm": 14.761511083160128,
+        "canonical_xyz_mm": 9.482487265552793,
+        "depth_mm": 9.871275995458875,
+        "cad_flow_epe": 5.1622262213911325,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 14.996281849710565,
+        "canonical_xyz_mm": 14.996281849710565,
+        "depth_mm": 13.473411026753878,
+        "cad_flow_epe": 4.5135426709526465,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "v41_0_clean": {
+      "real": {
+        "xyz_mm": 14.681964184556689,
+        "canonical_xyz_mm": 9.537342710154396,
+        "depth_mm": 8.266390885625567,
+        "cad_flow_epe": 5.150074026414326,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 15.22767522460536,
+        "canonical_xyz_mm": 15.22767522460536,
+        "depth_mm": 13.055907214942732,
+        "cad_flow_epe": 4.591318820652209,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "v41_100_corrupted": {
+      "real": {
+        "xyz_mm": 14.306364365986415,
+        "canonical_xyz_mm": 9.476994476148061,
+        "depth_mm": 11.560758335249764,
+        "cad_flow_epe": 5.307368001767567,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 12.783184829511141,
+        "canonical_xyz_mm": 12.783184829511141,
+        "depth_mm": 13.32438063621521,
+        "cad_flow_epe": 4.421457648277283,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "v41_100_clean": {
+      "real": {
+        "xyz_mm": 14.660911134311132,
+        "canonical_xyz_mm": 9.838544100522995,
+        "depth_mm": 9.413594220365797,
+        "cad_flow_epe": 5.422601712601526,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 12.096124975304855,
+        "canonical_xyz_mm": 12.096124975304855,
+        "depth_mm": 11.021089880090011,
+        "cad_flow_epe": 4.69256855939564,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    }
+  },
+  "reduction": "Heavy eligible records averaged within physical sequence, equal sequence mass",
+  "goal_complete": false
+}
