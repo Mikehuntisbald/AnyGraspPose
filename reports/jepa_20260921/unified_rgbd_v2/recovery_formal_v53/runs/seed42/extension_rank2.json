@@ -1,0 +1,19 @@
+{
+  "verified": true,
+  "source_sha256": "a6bd6204e1c646e31a02c25fd20d9cf7051354fb0e1e04b7d2f083111fc2df81",
+  "model_exact": true,
+  "optimizer_exact": true,
+  "scheduler_state_exact": true,
+  "rng_exact": true,
+  "sampler_position": 6400,
+  "all_rank_rng": 8,
+  "optimizer_states": 432,
+  "boundary_lr": [
+    5e-07,
+    1.5e-05,
+    5e-05,
+    0.0005
+  ],
+  "schedule": "Explicit continuous rewarm then cosine extension; scheduler lambda changes, saved state does not",
+  "optimizer_reset": false
+}

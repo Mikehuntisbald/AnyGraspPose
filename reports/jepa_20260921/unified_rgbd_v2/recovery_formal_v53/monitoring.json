@@ -1,0 +1,63 @@
+{
+  "recovery_only": true,
+  "source_step": 200,
+  "target_step": 5200,
+  "additional_budget": 5000,
+  "metrics": {
+    "usual": {
+      "heavy": {
+        "step200": {
+          "real/canonical_xyz_mm": 12.27813139132091,
+          "real/depth_mm": 10.423943025725228,
+          "real/camera_xyz_mm": 10.857812813350133,
+          "real/camera_normal_deg": 26.845471586499894,
+          "proxy/canonical_xyz_mm": 16.566281205729435,
+          "proxy/depth_mm": 13.026390119602805,
+          "proxy/camera_xyz_mm": 13.700204617098757,
+          "proxy/camera_normal_deg": 24.43550438039443
+        }
+      },
+      "all": {
+        "step200": {
+          "real/canonical_xyz_mm": 12.497323021554111,
+          "real/depth_mm": 14.616889383709221,
+          "real/camera_xyz_mm": 15.128277431454574,
+          "real/camera_normal_deg": 26.10968118959719,
+          "proxy/canonical_xyz_mm": 16.8500902433505,
+          "proxy/depth_mm": 11.86742249713547,
+          "proxy/camera_xyz_mm": 12.38278948712623,
+          "proxy/camera_normal_deg": 26.683523379839382
+        }
+      }
+    },
+    "confirmation": {
+      "heavy": {
+        "step200": {
+          "real/canonical_xyz_mm": 11.60406130757825,
+          "real/depth_mm": 11.859415255743881,
+          "real/camera_xyz_mm": 12.198772627731849,
+          "real/camera_normal_deg": 28.712898895658295,
+          "proxy/canonical_xyz_mm": 11.725192298059879,
+          "proxy/depth_mm": 9.653091700180717,
+          "proxy/camera_xyz_mm": 9.902097577634065,
+          "proxy/camera_normal_deg": 21.445955649666164
+        }
+      },
+      "all": {
+        "step200": {
+          "proxy/canonical_xyz_mm": 10.829145847364913,
+          "proxy/depth_mm": 8.928924147472825,
+          "proxy/camera_xyz_mm": 9.16413829770199,
+          "real/canonical_xyz_mm": 11.58280356725057,
+          "real/depth_mm": 11.224875577858516,
+          "real/camera_xyz_mm": 11.515859033380236,
+          "real/camera_normal_deg": 27.36293939264809,
+          "proxy/camera_normal_deg": 20.708658178647358
+        }
+      }
+    }
+  },
+  "pose_training": false,
+  "pose_evaluation": false,
+  "default_model_changed": false
+}

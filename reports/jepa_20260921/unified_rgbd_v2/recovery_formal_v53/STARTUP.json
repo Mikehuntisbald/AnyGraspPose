@@ -1,0 +1,15 @@
+{
+  "startup_verified": true,
+  "source_step": 200,
+  "target_step": 5200,
+  "additional_budget": 5000,
+  "latest_snapshot_step": 348,
+  "latest_snapshot_additional_updates": 148,
+  "all_rank_extension_exact": true,
+  "optimizer_reset": false,
+  "strict_resume202": true,
+  "tests_passed": 29,
+  "source_code_commit": "8fe7dff",
+  "live_status": "/mnt/why/dexycb_lip/unified_jepa_20260921/recovery_formal_v53/status.json",
+  "scope": "Startup snapshot only; background training continues. Not a terminal result or full checkpoint backup."
+}
