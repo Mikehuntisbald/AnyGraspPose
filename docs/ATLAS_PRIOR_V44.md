@@ -1,5 +1,7 @@
 # V44 final coordinate-prior supervision
 
+Status: both100-update arms completed,26 tests passed, and both terminal checkpoints verified locally. The supervised arm has modest paired gains but remains below the original source; no promotion.
+
 V43 learned-only correspondence improved when CE lost access to the coordinate prior, but the final DPT XYZ prior worsened and its direct output gradient was exactly zero. Coarse DPT supervision does not directly supervise the refined final-pass XYZ, despite shared head weights.
 
 Two100-update arms start from V43 direct100 (SHA2567bd2ae55c8172467ae4c4990928b604ec0d4536e7179812ca34b9c17659b8246), with identical fresh optimizer/RNG and train sampler45000000. Both keep prior-free correspondence CE, the same inference ranking, audited real-depth masks and temporary normal exclusion. Control adds no loss; supervised adds final DPT XYZ SmoothL1 with the same real/proxy/visible canonical targets, weights1/0.5/0.5, and scalar weight1. There is no duplicate depth/validity term and no GT in the forward path.

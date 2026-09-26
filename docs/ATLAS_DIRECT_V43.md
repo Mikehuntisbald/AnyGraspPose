@@ -1,5 +1,7 @@
 # V43 matched direct correspondence supervision
 
+Status: both100-update arms and frozen learned-only interventions completed. Direct CE improves matching, but complete geometry remains below the source reference; no promotion.
+
 V42's frozen ablation found no aggregate benefit from learned similarity: heavy real/proxy CAD XYZ13.313/16.292mm with full retrieval,13.284/16.085mm using only the DPT coordinate prior, and37.741/53.746mm with learned similarity alone. All64 inputs, target masks and predicted depths match across the interventions. The initial ablation attempt failed from a probe-local function-name collision, before completing a result; its directory remains. The corrected ablation uses an explicitly captured score function in a new pinned runtime.
 
 This motivates a specific paired training test, not an unqualified longer run. Two arms start from the exact V42 stable100 tensors (SHA256c1483df2bc2ae78b2ac4c929444d2b6bf9e6b991980c1b1f0f9015309368473f), identical fresh AdamW/RNG, seed42, sampler start43000000 and100 updates each. Both retain the same inference ranking (learned score plus DPT prior), geometry/depth/validity objectives, V41 teacher quality masks and temporary normal-loss exclusion.

@@ -1,6 +1,6 @@
 # V42 complete CAD correspondence decoder
 
-Status: implementation and24 targeted tests passed; bounded100-update joint trial launched. Accurate geometry remains unproven. No default-model change.
+Status: corrected100-update trial and frozen retrieval ablations completed;24 startup tests passed. Accurate geometry remains unproven. No default-model change.
 
 Prior evidence: V23's56x56 soft mean over256 CAD anchors plus free XYZ offset failed its frozen-backbone500-step pilot. V41's corrected supervision did not improve joint geometry over matched V40. The new trial therefore does not repeat soft coordinate averaging.
 
