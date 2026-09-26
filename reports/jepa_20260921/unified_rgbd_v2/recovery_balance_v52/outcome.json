@@ -1,0 +1,184 @@
+{
+  "completed": true,
+  "updates_per_arm": 200,
+  "paired": {
+    "heavy": {
+      "control_0": {
+        "real/canonical_xyz_mm": 14.42156673329217,
+        "real/depth_mm": 12.504619257790702,
+        "real/camera_xyz_mm": 13.028727531433105,
+        "real/camera_normal_deg": 28.146068845476425,
+        "proxy/canonical_xyz_mm": 18.336014722522936,
+        "proxy/depth_mm": 13.359750308488545,
+        "proxy/camera_xyz_mm": 14.03137367022665,
+        "proxy/camera_normal_deg": 25.73110647762523
+      },
+      "control_200": {
+        "real/canonical_xyz_mm": 13.297714369637626,
+        "real/depth_mm": 12.558186428887504,
+        "real/camera_xyz_mm": 13.088064525808607,
+        "real/camera_normal_deg": 28.848723207201278,
+        "proxy/canonical_xyz_mm": 15.299788073489541,
+        "proxy/depth_mm": 12.795511873144852,
+        "proxy/camera_xyz_mm": 13.424412300712184,
+        "proxy/camera_normal_deg": 26.656180045183966
+      },
+      "balanced_0": {
+        "real/canonical_xyz_mm": 14.42156673329217,
+        "real/depth_mm": 12.504619257790702,
+        "real/camera_xyz_mm": 13.028727531433105,
+        "real/camera_normal_deg": 28.146068845476425,
+        "proxy/canonical_xyz_mm": 18.336014722522936,
+        "proxy/depth_mm": 13.359750308488545,
+        "proxy/camera_xyz_mm": 14.03137367022665,
+        "proxy/camera_normal_deg": 25.73110647762523
+      },
+      "balanced_200": {
+        "real/canonical_xyz_mm": 12.27813139132091,
+        "real/depth_mm": 10.423943025725228,
+        "real/camera_xyz_mm": 10.857812813350133,
+        "real/camera_normal_deg": 26.845471586499894,
+        "proxy/canonical_xyz_mm": 16.566281205729435,
+        "proxy/depth_mm": 13.026390119602805,
+        "proxy/camera_xyz_mm": 13.700204617098757,
+        "proxy/camera_normal_deg": 24.43550438039443
+      }
+    },
+    "all": {
+      "control_0": {
+        "real/canonical_xyz_mm": 15.00759440137629,
+        "real/depth_mm": 16.429494272198593,
+        "real/camera_xyz_mm": 17.019925251341704,
+        "real/camera_normal_deg": 27.598082714252644,
+        "proxy/canonical_xyz_mm": 16.731332115743353,
+        "proxy/depth_mm": 12.203104189757642,
+        "proxy/camera_xyz_mm": 12.716151267632672,
+        "proxy/camera_normal_deg": 28.55286348783053
+      },
+      "control_200": {
+        "real/canonical_xyz_mm": 13.631483328969855,
+        "real/depth_mm": 16.539885449827764,
+        "real/camera_xyz_mm": 17.132657333424216,
+        "real/camera_normal_deg": 28.15563879786311,
+        "proxy/canonical_xyz_mm": 15.63677155834505,
+        "proxy/depth_mm": 12.136537527215891,
+        "proxy/camera_xyz_mm": 12.623937861672763,
+        "proxy/camera_normal_deg": 29.92094604785626
+      },
+      "balanced_0": {
+        "real/canonical_xyz_mm": 15.00759440137629,
+        "real/depth_mm": 16.429494272198593,
+        "real/camera_xyz_mm": 17.019925251341704,
+        "real/camera_normal_deg": 27.598082714252644,
+        "proxy/canonical_xyz_mm": 16.731332115743353,
+        "proxy/depth_mm": 12.203104189757642,
+        "proxy/camera_xyz_mm": 12.716151267632672,
+        "proxy/camera_normal_deg": 28.55286348783053
+      },
+      "balanced_200": {
+        "real/canonical_xyz_mm": 12.497323021554111,
+        "real/depth_mm": 14.616889383709221,
+        "real/camera_xyz_mm": 15.128277431454574,
+        "real/camera_normal_deg": 26.10968118959719,
+        "proxy/canonical_xyz_mm": 16.8500902433505,
+        "proxy/depth_mm": 11.86742249713547,
+        "proxy/camera_xyz_mm": 12.38278948712623,
+        "proxy/camera_normal_deg": 26.683523379839382
+      }
+    }
+  },
+  "pose_training": false,
+  "pose_evaluation": false,
+  "default_model_changed": false,
+  "scope": "Two matched200-update arms, training-partition physical holdout64; equal physical-sequence means, original raw evaluation masks. No official test. Canonical XYZ is CAD identity, camera XYZ is depth lifted through crop rays.",
+  "confirmation": {
+    "heavy": {
+      "source": {
+        "real/canonical_xyz_mm": 13.781267215465677,
+        "real/depth_mm": 12.731280363839248,
+        "real/camera_xyz_mm": 13.101952006076944,
+        "real/camera_normal_deg": 30.34255626283843,
+        "proxy/canonical_xyz_mm": 12.347293833027715,
+        "proxy/depth_mm": 9.978166974109152,
+        "proxy/camera_xyz_mm": 10.262051188427469,
+        "proxy/camera_normal_deg": 23.844307692154594
+      },
+      "control": {
+        "real/canonical_xyz_mm": 12.769295708886508,
+        "real/depth_mm": 13.283439093622668,
+        "real/camera_xyz_mm": 13.663007954071308,
+        "real/camera_normal_deg": 30.436959694171772,
+        "proxy/canonical_xyz_mm": 13.050456751947818,
+        "proxy/depth_mm": 11.353012997171152,
+        "proxy/camera_xyz_mm": 11.657304639401643,
+        "proxy/camera_normal_deg": 24.670141945714537
+      },
+      "balanced": {
+        "real/canonical_xyz_mm": 11.60406130757825,
+        "real/depth_mm": 11.859415255743881,
+        "real/camera_xyz_mm": 12.198772627731849,
+        "real/camera_normal_deg": 28.712898895658295,
+        "proxy/canonical_xyz_mm": 11.725192298059879,
+        "proxy/depth_mm": 9.653091700180717,
+        "proxy/camera_xyz_mm": 9.902097577634065,
+        "proxy/camera_normal_deg": 21.445955649666164
+      }
+    },
+    "all": {
+      "source": {
+        "proxy/canonical_xyz_mm": 12.343513721643491,
+        "proxy/depth_mm": 9.326557188533073,
+        "proxy/camera_xyz_mm": 9.584406809751378,
+        "real/canonical_xyz_mm": 13.825469107854934,
+        "real/depth_mm": 12.288123672916775,
+        "real/camera_xyz_mm": 12.620104434944334,
+        "real/camera_normal_deg": 28.648933980523086,
+        "proxy/camera_normal_deg": 22.94268072219122
+      },
+      "control": {
+        "proxy/canonical_xyz_mm": 11.938182226447172,
+        "proxy/depth_mm": 10.170213508051495,
+        "proxy/camera_xyz_mm": 10.44773766883584,
+        "real/canonical_xyz_mm": 13.244652083941869,
+        "real/depth_mm": 12.511435906092325,
+        "real/camera_xyz_mm": 12.84159492027192,
+        "real/camera_normal_deg": 28.90051963852673,
+        "proxy/camera_normal_deg": 23.3196287609282
+      },
+      "balanced": {
+        "proxy/canonical_xyz_mm": 10.829145847364913,
+        "proxy/depth_mm": 8.928924147472825,
+        "proxy/camera_xyz_mm": 9.16413829770199,
+        "real/canonical_xyz_mm": 11.58280356725057,
+        "real/depth_mm": 11.224875577858516,
+        "real/camera_xyz_mm": 11.515859033380236,
+        "real/camera_normal_deg": 27.36293939264809,
+        "proxy/camera_normal_deg": 20.708658178647358
+      }
+    }
+  },
+  "confirmation_overlap_frames": 0,
+  "relative_to_matched_control_pct": {
+    "paired": {
+      "real/canonical_xyz_mm": -7.667355080544569,
+      "real/depth_mm": -16.994837712019407,
+      "real/camera_xyz_mm": -17.040347776866447,
+      "real/camera_normal_deg": -6.943987109285055,
+      "proxy/canonical_xyz_mm": 8.277847550283335,
+      "proxy/depth_mm": 1.8043689752069936,
+      "proxy/camera_xyz_mm": 2.0544088650491066,
+      "proxy/camera_normal_deg": -8.330809819806683
+    },
+    "confirmation": {
+      "real/canonical_xyz_mm": -9.125283240933468,
+      "real/depth_mm": -10.720294856190183,
+      "real/camera_xyz_mm": -10.716786020044333,
+      "real/camera_normal_deg": -5.664366007106847,
+      "proxy/canonical_xyz_mm": -10.154927747568221,
+      "proxy/depth_mm": -14.973305301544249,
+      "proxy/camera_xyz_mm": -15.056714361182477,
+      "proxy/camera_normal_deg": -13.069184211193596
+    }
+  },
+  "accurate_recovery_achieved": false
+}

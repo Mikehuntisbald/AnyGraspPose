@@ -47,4 +47,8 @@ V51 measures32 distinct training observations/64 paired hypotheses without optim
 
 V52 is a bounded matched control: source V44 supervised100, normal diverse sampling, seed42,200 updates per arm. Only correspondence weight differs (1.0 versus0.1); frozen pose/history and disabled DINO losses are unchanged. Two arms run sequentially on8 H20s, save every50, and verify full2→200 resume. The usual64 recovery frames are paired; another64-frame confirmation with seed offset54000000 is fixed before training. It is another sample from the same held-out sequence pool, not an unseen-object or new-sequence test. No promotion is automatic. Physical camera XYZ/depth and camera-surface orientation are reported separately from canonical CAD identity.
 
-Status: V52 launched; terminal outcome pending.
+Status: V52 completed both200-update arms and both recovery probes. Architecture and learning rates unchanged. The usual heavy probe (control→balanced) gives real CAD XYZ13.298→12.278mm, depth12.558→10.424mm; proxy CAD XYZ15.300→16.566mm and depth12.796→13.026mm worsen slightly. On the prespecified confirmation64 (no stream/frame overlap with the usual64), real CAD XYZ12.769→11.604mm and depth13.283→11.859mm; proxy CAD XYZ13.050→11.725mm and depth11.353→9.653mm. Both heavy subsets span29 physical sequences from the same held-out training pool. This supports weighting as a contributing cause, not a uniform repair or accurate-recovery completion.
+
+Both arms passed26 tests and strict2→200 resume;715 initial model tensors and all8 ranks' initial forward metrics match exactly.35 pose tensors remain bitwise unchanged. Source/terminal comparisons, physical camera XYZ, and camera-normal metrics are in the paired report. Normal-angle reductions do not establish an accurate surface. No pose experiment, default-model promotion, or automatic extension was launched.
+
+[Full V52 evidence](../reports/jepa_20260921/unified_rgbd_v2/recovery_balance_v52/REPORT.md).

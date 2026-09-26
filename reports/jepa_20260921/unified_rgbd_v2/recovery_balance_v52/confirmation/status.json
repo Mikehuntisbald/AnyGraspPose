@@ -1,0 +1,18 @@
+{
+  "stage": "complete",
+  "pids": [
+    2082796,
+    2082797,
+    2082798,
+    2082799,
+    2082800,
+    2082801,
+    2082802,
+    2082803
+  ],
+  "time": 1790433050.3092642,
+  "completed": true,
+  "training": false,
+  "pose_evaluation": false,
+  "records_per_arm": 64
+}

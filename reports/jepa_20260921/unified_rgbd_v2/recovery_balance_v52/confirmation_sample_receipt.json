@@ -1,0 +1,10 @@
+{
+  "usual_samples": 64,
+  "confirmation_samples": 64,
+  "usual_unique_frames": 64,
+  "confirmation_unique_frames": 64,
+  "overlap_exact_stream_frame": 0,
+  "usual_heavy_physical_sequences": 29,
+  "confirmation_heavy_physical_sequences": 29,
+  "same_heldout_sequence_pool": true
+}

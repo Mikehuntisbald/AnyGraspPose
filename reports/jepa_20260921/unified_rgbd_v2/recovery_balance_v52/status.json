@@ -1,0 +1,10 @@
+{
+  "stage": "complete",
+  "time": 1790433050.7349932,
+  "pid": 2082514,
+  "completed": true,
+  "updates_per_arm": 200,
+  "pose_training": false,
+  "pose_evaluation": false,
+  "default_model_changed": false
+}

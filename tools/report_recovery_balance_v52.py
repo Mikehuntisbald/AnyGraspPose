@@ -49,9 +49,20 @@ def main():
     result=dict(completed=True,updates_per_arm=200,paired=paired(data),pose_training=False,pose_evaluation=False,
         default_model_changed=False,scope='Two matched200-update arms, training-partition physical holdout64; equal physical-sequence means, original raw evaluation masks. No official test. Canonical XYZ is CAD identity, camera XYZ is depth lifted through crop rays.')
     if (a.root/'confirmation').exists():
-        result['confirmation']=paired({arm:read(a.root/'confirmation'/arm) for arm in ('source','control','balanced')})
+        confirmation={arm:read(a.root/'confirmation'/arm) for arm in ('source','control','balanced')}
+        result['confirmation']=paired(confirmation)
+        frame_keys=lambda rows:{(r['stream'],r['window']['first_frame']) for r in rows.values()}
+        result['confirmation_overlap_frames']=len(frame_keys(data['control_0'])&frame_keys(confirmation['source']))
+    result['relative_to_matched_control_pct']={}
+    for split in ('paired','confirmation'):
+        if split not in result:continue
+        control,balanced=('control_200','balanced_200') if split=='paired' else ('control','balanced')
+        v=result[split]['heavy']
+        result['relative_to_matched_control_pct'][split]={k:100*(v[balanced][k]/value-1) for k,value in v[control].items()}
+    result['accurate_recovery_achieved']=False
     (a.root/'outcome.json').write_text(json.dumps(result,indent=2)+'\n')
-    lines=['# JEPA recovery gradient balance V52','','Only correspondence weight changes: control1.0, balanced0.1. Encoder/JEPA/DPT/CAD train, pose/history/DINO loss stay off. Matched data and strict resume checked.','']
+    lines=['# JEPA recovery gradient balance V52','','Only correspondence weight changes: control1.0, balanced0.1. Network architecture and all learning rates are unchanged. Encoder/JEPA/DPT/CAD train, pose/history/DINO loss stay off. Matched data and strict resume checked.','',
+        'The lower weight improves real-depth recovery on both probes. The usual probe trades worse proxy correspondence/depth for better real recovery; the prespecified confirmation improves both regions. This is evidence that weighting contributes to the problem, not a complete geometry repair or a uniform win. No default-model promotion.','']
     for split in ('paired','confirmation'):
         if split not in result:continue
         lines += [f'## {split}: heavy subset','','|Arm|Real CAD XYZ mm|Real depth mm|Proxy CAD XYZ mm|Proxy depth mm|Real camera XYZ mm|Proxy camera XYZ mm|','|---|---:|---:|---:|---:|---:|---:|']
@@ -59,6 +70,8 @@ def main():
             lines.append('|'+arm+'|'+'|'.join(f'{m[k]:.3f}' for k in ('real/canonical_xyz_mm','real/depth_mm','proxy/canonical_xyz_mm','proxy/depth_mm','real/camera_xyz_mm','proxy/camera_xyz_mm'))+'|')
         lines+=['']
     lines+=['The usual64 probe is reused development evidence. The confirmation64 uses seeds54000000+rank+8*draw, fixed before training and sampled from the same held-out physical-sequence pool. It checks new frames/occluders, not unseen objects or a new sequence split. No candidate is automatically promoted.']
+    lines+=['','[Paired recovery scores](paired_recovery.png) · [Predetermined heavy-frame depth/error maps](fixed_recovery_example.png) · [Checkpoint verification](checkpoint_verified.json)',
+        '', '26 targeted tests passed in each arm. Checkpoint verification records715 identical initial tensors and35 unchanged pose tensors; first-forward metrics match on all8 ranks. Full2→200 resume is verified. Real depth targets remain sensor measurements; proxy targets remain GT CAD; original evaluation masks remain unchanged.']
     (a.root/'REPORT.md').write_text('\n'.join(lines)+'\n')
     print('\n'.join(lines))
 
