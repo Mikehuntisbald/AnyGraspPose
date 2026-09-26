@@ -149,7 +149,7 @@ def main():
                 atomic_json(out/f'gradient_rank{rank}.json', gradients)
             synchronize_gradients(model.parameters())
             norm = torch.nn.utils.clip_grad_norm_([p for p in model.parameters() if p.requires_grad], 1., error_if_nonfinite=True)
-            optimizer.step(); scheduler.step(); update_ema(model, config)
+            optimizer.step(); scheduler.step(); update_ema(model)
             row = dict(step=step+1, seconds=time.monotonic()-begun, data_seconds=data_time,
                        loss=float(loss.detach()), grad_norm=float(norm), lr={g['category']:g['lr'] for g in optimizer.param_groups},
                        metrics={k:float(v) for k,v in metrics.items()}, windows=[e.training_window for e in episodes])
