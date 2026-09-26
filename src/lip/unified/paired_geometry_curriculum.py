@@ -1,6 +1,7 @@
 """Training-only paired pose errors, sharing an identical observed crop."""
 from dataclasses import replace
 import torch
+from torch.nn import functional as F
 
 
 @torch.no_grad()
@@ -21,3 +22,14 @@ def paired_scenes(scenes,truth,renderer):
         state=scene.state.clone();state[:6]=base[:3,:2].T.flatten();state[6:9]=base[:3,3]/scene.diameter
         result.append(replace(scene,pose=base,state=state,render=renderer(scene.cad['appearance'],base,scene.k_crop,224)))
     return result
+
+
+def clean_input_targets(target,visible_pixels):
+    """Keep recovery query regions; visibility describes the ACTUAL input.
+
+    Retaining a counterfactual occlusion mask for selecting loss pixels must
+    not tell the evidence head that clean visible measurements are hidden.
+    """
+    visibility=F.avg_pool2d(visible_pixels.float(),14,14).flatten(1)
+    visibility=visibility.masked_fill(~torch.isfinite(target.visible_label),float('nan'))
+    return replace(target,visible_label=visibility)

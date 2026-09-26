@@ -158,7 +158,11 @@ def main():
                 atomic_json(out/f'paired_input_rank{rank}.json',dict(passed=True,identical_rgbd=True,observations=batch,pose_hypotheses=2*batch,clean_input=plan.get('clean_input',False)))
             target = build_teachers(model.ema_teacher, scenes, truth, masks, [o.mask for o in occlusions], factory.renderer,
                                     real_geometry_max_radius_d=1., fast=True, batch_render=True, vectorized=True, geometry_only=True)
-            visible = torch.cat([(crop_images_fast(masks[i:i+1].float(), s.affine, mode='nearest') > .5) & ~o.mask & s.bounds for i,(s,o) in enumerate(zip(scenes,occlusions))])
+            full_visible = torch.cat([(crop_images_fast(masks[i:i+1].float(), s.affine, mode='nearest') > .5) & s.bounds for i,s in enumerate(scenes)])
+            visible = full_visible & ~torch.cat([o.mask for o in occlusions])
+            if plan.get('clean_input'):
+                from lip.unified.paired_geometry_curriculum import clean_input_targets
+                target=clean_input_targets(target,full_visible)
             with torch.autocast('cuda', dtype=torch.bfloat16): output, _ = model(observation)
             loss, metrics = objective(output, target, observation, visible, torch.stack([s.k_crop for s in scenes]), config['cad_transport']['enabled'],
                                       canonical_surface=plan.get('canonical_surface',False),flow_weight=plan.get('flow_weight',.25))

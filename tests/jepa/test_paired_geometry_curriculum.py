@@ -1,6 +1,6 @@
 import torch
 from dataclasses import dataclass
-from lip.unified.paired_geometry_curriculum import mirror_estimate,paired_scenes
+from lip.unified.paired_geometry_curriculum import mirror_estimate,paired_scenes,clean_input_targets
 from lip.geometry.so3 import update
 
 
@@ -33,3 +33,18 @@ def test_pair_preserves_real_crop_and_calibration():
     assert result.rgb is s.rgb and result.depth is s.depth and result.affine is s.affine and result.k_crop is s.k_crop
     assert not torch.equal(result.pose,s.pose)
     torch.testing.assert_close(result.state[:6],result.pose[:3,:2].T.flatten())
+
+
+def test_clean_visibility_does_not_change_recovery_queries():
+    @dataclass
+    class Target:
+        visible_label: torch.Tensor
+        geometry_real_weight: torch.Tensor
+        surface_depth_residual: torch.Tensor
+    label=torch.zeros(1,256);label[:,0]=float('nan')
+    target=Target(label,torch.ones(1,1,224,224,dtype=torch.bool),torch.randn(1,1,224,224))
+    clean=clean_input_targets(target,torch.ones(1,1,224,224,dtype=torch.bool))
+    assert torch.isnan(clean.visible_label[:,0]).all() and (clean.visible_label[:,1:]==1).all()
+    assert clean.geometry_real_weight is target.geometry_real_weight
+    assert clean.surface_depth_residual is target.surface_depth_residual
+    assert (target.visible_label[:,1:]==0).all()
