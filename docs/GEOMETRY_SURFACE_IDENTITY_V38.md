@@ -51,3 +51,24 @@ Checkpoint every50 and exact2→200 resume. No automatic continuation after200.
 
 Runtime`/tmp/dexycb_geometry_surface_identity_v38`; artifacts
 `/mnt/why/dexycb_lip/unified_jepa_20260921/geometry_surface_identity_v38`.
+
+## Completed200-update comparison: no stable gain
+
+Both arms completed200 updates and exact2-step resumes. CPU comparison verifies
+identical starting model/optimizer and unchanged pose/feature heads. Eleven
+targeted target-contract/decoder/teacher tests pass.
+
+Equal-physical-sequence heavy metrics:
+
+|Arm|Real raw XYZ mm|Real CAD XYZ mm|Real depth mm|Proxy XYZ mm|Proxy depth mm|
+|---|---:|---:|---:|---:|---:|
+|Shared initialization|14.961|9.792|11.522|15.321|13.081|
+|Raw-label200|14.762|9.482|9.871|14.996|13.473|
+|CAD-label200|15.558|10.322|10.699|15.165|13.075|
+
+Separating surface identity from real depth is NOT established as a sufficient
+fix: the candidate loses to the raw control on real canonical XYZ and does not
+improve proxy geometry meaningfully. No model promotion or longer continuation.
+The metadata separation is explicit and tested, but the accuracy objective
+remains unmet. V39 next tests whether current visible information is being used,
+with frozen LIP and clean-input controls, before further decoder changes.

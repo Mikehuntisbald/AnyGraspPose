@@ -27,12 +27,28 @@ def main():
     p.add_argument('--records', type=int, default=8)
     p.add_argument('--lookup-audit', action='store_true')
     p.add_argument('--projection-audit', action='store_true')
+    p.add_argument('--lip-baseline', action='store_true')
+    p.add_argument('--clean-control', action='store_true',help='Remove synthetic input occlusion, but preserve original corrupted-case targets/masks')
     a = p.parse_args(); torch.cuda.set_device(0); torch.set_num_threads(2); torch.manual_seed(42)
     c = yaml.safe_load(Path(a.config).read_text()); model = build_model(c)
     record = torch.load(a.checkpoint, map_location='cpu', weights_only=False)
     load_core(model, record['model']); del record
     model.requires_grad_(False).eval(); model.fast_geometry = model.vector_geometry = True
     factory = Factory(c, model, make_store(c, model))
+    lip=None;lip_sha=None
+    if a.lip_baseline:
+        from lip.models.stream_tracker import StreamTracker
+        from lip.engine.stream_features import build_current_features,stack_current
+        from lip.engine.stream_state import FrameMeta
+        from lip.geometry.so3 import log as rotation_log
+        path=Path('/mnt/why/dexycb_lip/smooth_val_evaluation_20260915/runs/full/selected.pt')
+        lip_sha=sha(path)
+        assert lip_sha=='89d5a66bc72d8afc5eb57d20b4a4ba52964dc7706dc7058af8bb9a01cde15868'
+        saved=torch.load(path,map_location='cpu',weights_only=False);lc=saved['config']
+        lip=StreamTracker('stream_dual_cross_residual',lc['memory_frames'],lc.get('dropout',0.),False,
+                          lc.get('time_unit',1/30),lc.get('max_gap_seconds',.5),'functional').cuda()
+        lip.load_state_dict(saved['model'],strict=True);del saved
+        lip.requires_grad_(False).eval()
     out = Path(a.out); out.mkdir(parents=True, exist_ok=False)
     rows = []; draw = 0; start = time.monotonic()
     with torch.no_grad(), (out/'frames.jsonl').open('w') as log:
@@ -49,10 +65,29 @@ def main():
             plan = factory.occluders.plan(np.random.default_rng(seed+341), oid, heavy=heavy, start=1 if item%4==0 else 0, duration=1,
                                          target_fraction=.8 if heavy else .3)
             occ = plan.render(scene, 0)
-            obs = encode_scenes(model, [scene], occlusions=[occ])
+            obs = encode_scenes(model, [scene], occlusions=[None] if a.clean_control else [occ])
             target = build_teachers(model.ema_teacher, [scene], gt, masks, [occ.mask], factory.renderer, real_geometry_max_radius_d=1.,
                                     fast=True, batch_render=True, vectorized=True, geometry_only=True)
             with torch.autocast('cuda', dtype=torch.bfloat16): output, _ = model(obs)
+            lip_result=None
+            if lip is not None:
+                features,diag=build_current_features(e.rgb[0],e.depth[0],base[0],e.k,e.mesh,factory.renderer.geometry,
+                    e.times[0],e.times[0]-1/30,size=224,expansion=2.)
+                torch.testing.assert_close(diag['A'],scene.affine,atol=2e-5,rtol=0.)
+                torch.testing.assert_close(diag['K_crop'],scene.k_crop,atol=2e-5,rtol=0.)
+                # Exact same corrupted RGB/geometry tensors as the JEPA student.
+                features['rgb']=obs.packet.rgb_crop[0]
+                features['geometry']=obs.geometry_image[0]
+                features['state_input'][-1]=(obs.measured_depth_m>0).float().mean()
+                meta=FrameMeta(torch.tensor([e.times[0]],device='cuda',dtype=torch.float64),torch.ones(1,device='cuda',dtype=torch.long),
+                               torch.zeros(1,device='cuda',dtype=torch.long),torch.ones(1,17,device='cuda',dtype=torch.bool),diag['role_bias'][None])
+                with torch.autocast('cuda',dtype=torch.bfloat16):result,_=lip(stack_current([features]),meta,None)
+                pose=result['pose_centered'][0]
+                if not torch.isfinite(pose).all():raise RuntimeError('Nonfinite frozen LIP output')
+                render=factory.renderer(scene.cad['appearance'],pose,scene.k_crop,224)
+                lip_result=dict(render=render,rotation_before_deg=float(rotation_log(base[0,:3,:3]@gt[0,:3,:3].T).norm()*180/torch.pi),
+                    rotation_after_deg=float(rotation_log(pose[:3,:3]@gt[0,:3,:3].T).norm()*180/torch.pi),
+                    translation_after_mm=float((pose[:3,3]-gt[0,:3,3]).norm()*1000))
             truth_transport = transport_targets(target.surface_xyz, obs.geometry_image, obs.base, obs.diameter, scene.k_crop[None], obs.cad_valid)
             cad_truth = transport_targets(target.cad_geometry_xyz, obs.geometry_image, obs.base, obs.diameter, scene.k_crop[None], obs.cad_valid)
             audit = {}
@@ -131,9 +166,25 @@ def main():
                     if metrics[name]:
                         metrics[name]['predicted_projection_coverage'] = float(projection['available'][mask].float().mean())
                         metrics[name]['predicted_projection_epe'] = float((projection['flow']-truth_transport['flow']).norm(dim=1,keepdim=True)[eligible].mean()) if eligible.any() else None
-            row = dict(seed=seed, stream=e.stream, heavy=heavy, natural=item%4==0, window=e.training_window, metrics=metrics)
+            row = dict(seed=seed, stream=e.stream, heavy=heavy, natural=item%4==0, clean_control=a.clean_control,window=e.training_window, metrics=metrics)
+            if lip_result is not None:
+                row['lip_pose']={k:v for k,v in lip_result.items() if k!='render'}
+                row['geometry_baselines']={}
+                for tag,xyz,depth,valid in [('base_cad',scene.render['xyz'][None]/d,scene.render['depth'][None],scene.render['mask'][None,None]),
+                    ('lip_cad',lip_result['render']['xyz'][None]/d,lip_result['render']['depth'][None],lip_result['render']['mask'][None,None]),
+                    ('jepa',output['surface_xyz'],output['surface_depth_m'],output['geometry_valid_logits'].sigmoid()>=.5)]:
+                    row['geometry_baselines'][tag]={}
+                    error=(xyz-target.cad_geometry_xyz).norm(dim=1,keepdim=True)*d*1000
+                    depth_error=(depth-target.surface_depth_m).abs()*1000
+                    for kind,mask in [('real',target.geometry_real_weight),('proxy',target.geometry_proxy_weight)]:
+                        if not mask.any():row['geometry_baselines'][tag][kind]=None;continue
+                        covered=mask&valid
+                        row['geometry_baselines'][tag][kind]=dict(pixels=int(mask.sum()),covered_fraction=float(covered.sum()/mask.sum()),
+                            covered_canonical_xyz_mm=float(error[covered].mean()) if covered.any() else None,
+                            covered_depth_mm=float(depth_error[covered].mean()) if covered.any() else None,
+                            all_target_good_10mm_xyz_5mm_depth=float((valid&(error<10)&(depth_error<5)&mask).sum()/mask.sum()))
             if item == 2:
-                np.savez_compressed(out/'heavy_example.npz', rgb=scene.rgb.cpu().numpy(), occluded_rgb=occ.rgb.cpu().numpy(),
+                np.savez_compressed(out/'heavy_example.npz', rgb=scene.rgb.cpu().numpy(), occluded_rgb=(scene.rgb if a.clean_control else occ.rgb).cpu().numpy(),
                     target_xyz=target.surface_xyz.cpu().numpy(), predicted_xyz=output['surface_xyz'].cpu().numpy(),
                     cad_target_xyz=target.cad_geometry_xyz.cpu().numpy(),cad_target_depth=target.cad_geometry_depth_m.cpu().numpy(),
                     target_depth=target.surface_depth_m.cpu().numpy(), predicted_depth=output['surface_depth_m'].cpu().numpy(),
@@ -142,6 +193,8 @@ def main():
             rows.append(row); log.write(json.dumps(row)+'\n'); log.flush()
     (out/'receipt.json').write_text(json.dumps(dict(completed=True, checkpoint_sha256=sha(a.checkpoint), config=c['cad_transport'],
         records=len(rows), lookup_audit=a.lookup_audit, projection_audit=a.projection_audit, physical_holdout=True, training_split_only=True, official_test_access=False, teacher_inputs=False,
+        clean_control=a.clean_control,clean_control_scope='Artificial occlusion removed from current input only; original target masks retained. Privileged input-availability diagnostic, never a heavy-occlusion deployment result' if a.clean_control else None,
+        lip_baseline_sha256=lip_sha,lip_baseline_scope='Same corrupted current input/base/crop, empty history, one refinement; no GT render fed to LIP; conditional diagnostic, not native LIP accuracy' if lip is not None else None,
         oracle_lookup_scope='GT correspondence and GT depth diagnostic only; common supported pixels; never deployed', seconds=time.monotonic()-start), indent=2)+'\n')
 
 
