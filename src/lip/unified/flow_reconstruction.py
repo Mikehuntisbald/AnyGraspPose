@@ -111,6 +111,7 @@ class FlowReconstruction(nn.Module):
         if self.disable_transport: write = write*0
         return patch+write.to(patch.dtype), dict(
             uv=uv, flow=uv-reference['uv'], scores=appearance.masked_fill(~valid[:, None], -1e4),
+            coarse_uv=coarse_uv, endpoint_delta=uv-coarse_uv, peak_uv=grid[peak],
             support_logits=logits[..., 0], visible_logits=logits[..., 1], entropy=entropy,
             aligned_mass=mass, geometry_feedback=feedback, write=write, **evidence_metrics)
 

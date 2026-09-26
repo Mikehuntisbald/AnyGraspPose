@@ -1,0 +1,31 @@
+{
+  "artifact_hashes": {
+    "rank0/frames.jsonl": "915115a818bebbbb358f66e7af8ecec355a644480e83cbede70a5d514d9629dd",
+    "rank1/frames.jsonl": "3fc81597f910138bb0bad73f4ec49878391a5358e2089af9f08e6d753d5e3ba1",
+    "rank2/frames.jsonl": "a9b4951bdd535790ee4a3395830327c0574fabcfad1b578cf68375e518f4d340",
+    "rank3/frames.jsonl": "4fef6c97b51a4539c204ae393fb046cf99efd803e1ae1337d91c32dd2164c901",
+    "rank4/frames.jsonl": "85906dacd99101fc12a22a38f2a97e97b5f6bb1536cf73d8b50d369c908dfb44",
+    "rank5/frames.jsonl": "2ed499f8c02ee7f024121e6035cecf6c7c61aa69e76b662b284ef343e32b329b",
+    "rank6/frames.jsonl": "5d3ca3b31b10e9ef1ca10a8735f6b8a661d8c72c2d29e697b24c3d618c2251b2",
+    "rank7/frames.jsonl": "a12451b025b1b10d0393dad2461972f581cd81abddfe99e1a1e4bb317b54ac8d",
+    "rank0/receipt.json": "7e51d863131c8ca53d3abfa91ebb6ab5fe1fa0eb78adb2561115519032031e12",
+    "rank1/receipt.json": "fddf39ef2c1e238d3e51f34698034412fe467df2d1157183412cf7a009265e67",
+    "rank2/receipt.json": "ac0555eaa9c06d11624b149df1e3737f1629a94b8660822218a4958ce6de89c6",
+    "rank3/receipt.json": "45ad8437a2e855118e938fea78e8d1979c0c39df50998e58f05b07a7bcfee3a0",
+    "rank4/receipt.json": "39c1fe669df415a160f9eecc73330941ee6ad423fbe1f264aef25fe788708346",
+    "rank5/receipt.json": "b108abaca931ece4da0c57067e4555a4fbb4d03e1f92f47839729a566126e266",
+    "rank6/receipt.json": "6cf3970e4f46a857ec51e00ffe1f9f7ce9d652bbc4752beeaf8a94cbca00b87f",
+    "rank7/receipt.json": "7870f2903133842e9f325bae1a71bba5894d4209ea74615a95a62c49b9de5215",
+    "source_receipt.json": "4c93d16b32e1c4908d711f71d0ec769d3eda61dbf03ca841fbf4acaf6513a903",
+    "status.json": "eba392509443d63ab396f615f0fde6635bb3872fc90230c6bd891d8be128f941"
+  },
+  "source_checkpoint_sha256": "044a8f928d324e54c8e2cab2927dd31e55942cde98bc09fa5f18ce5245d0fa5f",
+  "execution_runtime": "/tmp/dexycb_flow_localization_v59_r0",
+  "source_parent_commit": "c1a2b79",
+  "local_remote_data_equal": true,
+  "remote_root_is_git_checkout": false,
+  "tests": "7 passed in 3.65s: test_flow_reconstruction.py and test_point_evidence.py",
+  "training_performed": false,
+  "default_model_changed": false,
+  "geometry_goal_achieved": false
+}

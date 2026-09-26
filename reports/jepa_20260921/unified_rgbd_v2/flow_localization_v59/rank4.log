@@ -1,0 +1,7 @@
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+{"records": 32, "seconds": 21.60574477701448}

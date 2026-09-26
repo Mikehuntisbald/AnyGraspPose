@@ -1,0 +1,13 @@
+{
+  "completed": true,
+  "source_sha256": "044a8f928d324e54c8e2cab2927dd31e55942cde98bc09fa5f18ce5245d0fa5f",
+  "rank": 4,
+  "records": 32,
+  "training_partition_only": true,
+  "physical_holdout": true,
+  "teacher_in_student": false,
+  "weights_frozen": true,
+  "default_model_changed": false,
+  "scope": "Controlled 10/60 degree initial rotation, requested light/heavy occlusion. Oracle box EPE is a diagnostic lower bound, not a deployable result.",
+  "seconds": 21.61000697896816
+}
