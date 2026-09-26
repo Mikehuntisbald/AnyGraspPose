@@ -1,0 +1,29 @@
+{
+  "files": {
+    "rank0/frames.jsonl": "73e4a25721c74cf51c0cf0962d9a2a65f75c80f7886bab19985276d272224e76",
+    "rank1/frames.jsonl": "d990b575a60d945428d006490685291e60898fe865bd56c6de86fa338dbc7dbd",
+    "rank2/frames.jsonl": "d8d5d9de10884a193d007f623854ae1cd7c29a314a5f1455568740f5d158f17e",
+    "rank3/frames.jsonl": "f961bbbf14711929d4a1452365423682818cd8e210e07b050ce11f61351b8f23",
+    "rank4/frames.jsonl": "9503b766d021c9055259d21933d7a448855aa8ba26b6d613d0c9822aed96856f",
+    "rank5/frames.jsonl": "0480311a2d5145f800c61e596fa52de675e02be2f36c3bd866668d8b69e13cd0",
+    "rank6/frames.jsonl": "0ef97013c724331571cbccee8226035a8409d5bf2b22707bb286c6fb0d5e466d",
+    "rank7/frames.jsonl": "c877b96824bb0dff857786ccf8d23e7f4f76f5b017f1a81f3f3c80cb4f764480",
+    "rank0/receipt.json": "7857fde1a2f7ea0402f0a0013540e474b8ffd9eee18dc703fc356f9c0177f1a1",
+    "rank1/receipt.json": "e6ce39f31dfa3c30048b2a22e961ee0902b110885ac4c3b43c4bf1b52b34e830",
+    "rank2/receipt.json": "c35c7d27d9579798c587d034ed3b07960a600c7445e6e33007d3b90fbae25ab3",
+    "rank3/receipt.json": "862220d75d3fd8a2320b30fd17e7a97de7f13f46b197b83931faad78dcdd3bff",
+    "rank4/receipt.json": "b33a8f6875f447202a2330705876801ca69e0ce48a1daf6689238a286e3eb1f5",
+    "rank5/receipt.json": "c327829ac9f7323a318fcdf508cfcef8dd38c66eba8aa0bdbb2c0d87cdd26bf3",
+    "rank6/receipt.json": "1940813bd1e11df426a6c66825c671bec15a65298e2583efe93bd12983db2fd1",
+    "rank7/receipt.json": "8c3e09dc161c377b3be2b7ad9a14ea525cdb3b57fc8e023950a6ed932fb09b40",
+    "source_receipt.json": "7a9f475464106a44059056a9bfaf1d645f345a269b758ae47717761e32eecf2e",
+    "status.json": "081272496031ef111b2444b7befcc503c85aa9605f9530a9aafc5e8b567f10ce"
+  },
+  "local_remote_data_equal": true,
+  "training_performed": false,
+  "runtime": "/tmp/dexycb_flow_coupling_v61_r0",
+  "source_checkpoint_sha256": "0c6f712c7848316259dae3d24554dd4dfac506a20404676e43fb679b94d46d7e",
+  "oracle_diagnostic_only": true,
+  "default_model_changed": false,
+  "geometry_goal_achieved": false
+}
