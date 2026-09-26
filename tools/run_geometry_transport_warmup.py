@@ -10,6 +10,7 @@ def main():
     parser.add_argument('--root',default='/mnt/why/dexycb_lip/unified_jepa_20260921/geometry_transport_warmup_v35')
     parser.add_argument('--config',default='configs/jepa/geometry_transport_warmup_v35.yaml')
     parser.add_argument('--steps',type=int,default=100)
+    parser.add_argument('--clean-probe',action='store_true')
     args=parser.parse_args()
     exe=Path(__file__).resolve().parents[1]
     root=Path(args.root);root.mkdir(exist_ok=False)
@@ -45,7 +46,7 @@ def main():
             for log in logs:log.close()
     try:
         if subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip():raise RuntimeError('GPUs occupied')
-        run('tests',[['-m','pytest','-q','tests/jepa/test_cad_transport.py','tests/jepa/test_canonical_surface_targets.py','tests/jepa/test_execution_speed.py']])
+        run('tests',[['-m','pytest','-q','tests/jepa/test_cad_transport.py','tests/jepa/test_canonical_surface_targets.py','tests/jepa/test_execution_speed.py','tests/jepa/test_paired_geometry_curriculum.py']])
         for step in (2,args.steps):
             command=['-m','torch.distributed.run','--standalone','--nproc_per_node=8','tools/fp_worker.py','tools/train_geometry_transport.py','--config',config,'--stop-at',str(step)]
             if step!=2:command+=['--resume',str(out/'last.pt')]
@@ -53,6 +54,8 @@ def main():
             probe_step=0 if step==2 else step
             ck=out/('initial.pt' if probe_step==0 else 'last.pt')
             run(f'probe{probe_step}',[['tools/probe_geometry_transport.py','--config',config,'--checkpoint',str(ck),'--out',str(root/'probe'/f'step{probe_step}'/f'rank{i}'),'--rank',str(i),'--world','8','--records','8','--lookup-audit'] for i in range(8)],True)
+            if args.clean_probe:
+                run(f'clean_probe{probe_step}',[['tools/probe_geometry_transport.py','--config',config,'--checkpoint',str(ck),'--out',str(root/'probe'/f'step{probe_step}_clean'/f'rank{i}'),'--rank',str(i),'--world','8','--records','8','--lookup-audit','--clean-control'] for i in range(8)],True)
         c=yaml.safe_load((exe/config).read_text())
         status('complete',completed=True,updates=c['geometry_transport_training']['updates'],backbone_frozen=c['geometry_transport_training'].get('decoder_only',False),default_model_changed=False)
     except Exception as e:status('failed',error=str(e));raise

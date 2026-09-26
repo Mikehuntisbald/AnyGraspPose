@@ -131,10 +131,10 @@ def main():
                 episodes.append(ep); targets.append(target); seeds.append(draw)
             truth = torch.stack([t[0][0] for t in targets])
             diameter = truth.new_tensor([float(e.mesh['diameter']) for e in episodes])
-            noise = torch.randn(batch, 6, device='cuda')*truth.new_tensor([.15]*3+[.035]*3)
+            noise = torch.randn(batch, 6, device='cuda')*truth.new_tensor([plan.get('rotation_noise_std',.15)]*3+[.035]*3)
             if step % 10 == 0: noise.zero_()
             base = update(truth, noise[:, :3], noise[:, 3:], diameter)
-            if step % 4 == 3: base = torch.stack([e.initial for e in episodes])
+            if step % 4 == 3 and not plan.get('paired_estimates'): base = torch.stack([e.initial for e in episodes])
             scenes = [prepare_scene(e.rgb[0], e.depth[0], base[i], e.mesh, e.k, e.times[0], e.stream, e.cad, factory.renderer, fast=True) for i,e in enumerate(episodes)]
             occlusions = []
             for e,s,seed in zip(episodes, scenes, seeds):
@@ -143,10 +143,19 @@ def main():
                 oid = factory.streams[e.stream.split('|')[0]]['object_id']
                 plan_occ = factory.occluders.plan(rng, oid, heavy=kind >= 2, start=0 if kind else 1, duration=1)
                 occlusions.append(plan_occ.render(s, 0))
+            masks = torch.stack([t[1][0] for t in targets])
+            if plan.get('paired_estimates'):
+                from lip.unified.paired_geometry_curriculum import paired_scenes
+                scenes += paired_scenes(scenes,truth,factory.renderer)
+                occlusions += occlusions.copy()
+                truth=truth.repeat(2,1,1);masks=masks.repeat(2,1,1,1)
             data_time = time.monotonic()-begun
             optimizer.zero_grad(set_to_none=True)
-            observation = encode_scenes(model, scenes, occlusions=occlusions)
-            masks = torch.stack([t[1][0] for t in targets])
+            observation = encode_scenes(model, scenes, occlusions=[None]*len(scenes) if plan.get('clean_input') else occlusions)
+            if plan.get('paired_estimates') and step==0:
+                if not torch.equal(observation.packet.rgb_crop[:batch],observation.packet.rgb_crop[batch:]) or not torch.equal(observation.measured_depth_m[:batch],observation.measured_depth_m[batch:]):
+                    raise RuntimeError('Counterfactual hypotheses changed observed RGB-D')
+                atomic_json(out/f'paired_input_rank{rank}.json',dict(passed=True,identical_rgbd=True,observations=batch,pose_hypotheses=2*batch,clean_input=plan.get('clean_input',False)))
             target = build_teachers(model.ema_teacher, scenes, truth, masks, [o.mask for o in occlusions], factory.renderer,
                                     real_geometry_max_radius_d=1., fast=True, batch_render=True, vectorized=True, geometry_only=True)
             visible = torch.cat([(crop_images_fast(masks[i:i+1].float(), s.affine, mode='nearest') > .5) & ~o.mask & s.bounds for i,(s,o) in enumerate(zip(scenes,occlusions))])
