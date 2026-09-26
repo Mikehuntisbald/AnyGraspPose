@@ -20,6 +20,7 @@ def main():
         assert changed==['cad_transport.head.0.weight']
         old=parent['model'][changed[0]];new=initial['model'][changed[0]]
         assert torch.equal(old,new[:,:16]) and not new[:,16:].any()
+        assert final['model'][changed[0]][:,16:].norm()>0
     else:
         assert changed==['cad_transport.head.2.bias']
         before=parent['model'][changed[0]];after=initial['model'][changed[0]]

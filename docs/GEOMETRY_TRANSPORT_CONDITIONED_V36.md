@@ -35,3 +35,21 @@ original predictions retained where the reference cannot be read.
 
 Runtime`/tmp/dexycb_geometry_transport_conditioned_v36`; output root
 `/mnt/why/dexycb_lip/unified_jepa_20260921/geometry_transport_conditioned_v36`.
+
+## Completed100-update result: conditioning alone is insufficient
+
+The two initial checkpoints produce the same reported fixed-holdout metrics.
+After100 updates, V36 real XYZ/depth is13.714/10.393mm and proxy15.636/14.842mm,
+versus13.708/10.497mm and15.283/14.191mm at initialization. Flow EPE5.786/4.874px
+is still worse than zero-flow5.219/4.463px. It slightly improves over the V35
+head on XYZ but fails both predeclared learning/geometry gates. No continuation
+or default promotion is made. All699 frozen tensors are exact; the new reference
+weights changed from zero, confirming they trained. Five transport tests pass,
+including preservation of the initial function and new-channel gradients.
+
+This bounded head result does not prove the full JEPA latent lacks information.
+All three trials indicate that decoder additions and stronger CAD mixing do not
+by themselves establish learned local correspondence. The next representation
+change should first pass a small-sample geometry/correspondence overfit check
+and a held-out correspondence test; do not restart a long pose run or enlarge
+the budget based only on reconstruction appearance or CAD-prior gains.

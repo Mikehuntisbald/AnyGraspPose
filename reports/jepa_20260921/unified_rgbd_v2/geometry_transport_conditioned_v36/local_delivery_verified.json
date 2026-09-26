@@ -1,0 +1,8 @@
+{
+  "completed": true,
+  "archive_sha256": "1e6bf91b183b1b7da7a9188a328da5e9685a2f9cbd7d0b5386fe68657f7ca7af",
+  "verified_files": 94,
+  "terminal_checkpoints": [
+    "runs/seed42/last.pt"
+  ]
+}

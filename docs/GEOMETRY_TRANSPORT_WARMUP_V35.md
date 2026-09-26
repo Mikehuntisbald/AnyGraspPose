@@ -21,3 +21,17 @@ improvement. A more heavily used CAD prior alone is not sufficient.
 Runtime`/tmp/dexycb_geometry_transport_warmup_v35`, artifacts
 `/mnt/why/dexycb_lip/unified_jepa_20260921/geometry_transport_warmup_v35`.
 No automatic budget extension or default-model promotion follows this probe.
+
+## Completed: no continuation
+
+Equal-physical-sequence heavy real XYZ/depth:13.708/10.497mm at changed-gate
+initialization,13.796/10.289mm after100updates. Proxy15.283/14.191mm becomes
+15.996/14.870mm. Flow5.897/5.009px is worse than identity5.219/4.463px.
+Both acceptance gates fail. All699 non-transport tensors and the complete
+2-step resume are verified exact; only the decoder optimizer is populated.
+
+Full terminal checkpoint and all94 delivery files are SHA-verified locally
+under reports/jepa_20260921/unified_rgbd_v2/geometry_transport_warmup_v35.
+The next V36 comparison adds reference conditioning from the SAME initial
+checkpoint and reuses the same100-update data/schedule; it does not continue
+V35's unsuccessful terminal weights.

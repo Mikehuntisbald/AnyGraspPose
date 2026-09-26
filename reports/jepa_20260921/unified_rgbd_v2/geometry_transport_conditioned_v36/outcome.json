@@ -1,0 +1,124 @@
+{
+  "completed": true,
+  "step": 100,
+  "paired_records": 64,
+  "reduction": "equal physical-sequence mass; heavy records within sequence",
+  "frozen_model_tensors_verified": 699,
+  "initialization_changes": [
+    "cad_transport.head.0.weight"
+  ],
+  "gate_bias_override": 0.0,
+  "strict_resume_verified": true,
+  "only_transport_optimizer": true,
+  "metrics": {
+    "0": {
+      "real": {
+        "pixels": 3037.214285714286,
+        "xyz_mm": 13.707671770027705,
+        "depth_mm": 10.49664015855108,
+        "xyz_median_mm": 11.912330572094236,
+        "xyz_p90_mm": 22.906477647168295,
+        "consistency_mm": 9.633526372058052,
+        "xyz_within_10mm": 0.4626378637372649,
+        "lookup_coverage": 0.4488048214199288,
+        "validity_recall": 0.958137785749776,
+        "gate_mean": 0.565264209572758,
+        "flow_epe": 5.41205170860997,
+        "zero_flow_epe": 5.219343966907925,
+        "real_to_gt_cad_depth_gap_mm": 9.354266837239265,
+        "real_to_gt_cad_depth_gap_p90_mm": 18.623988108975546
+      },
+      "proxy": {
+        "pixels": 626.6052631578947,
+        "xyz_mm": 15.283282091743068,
+        "depth_mm": 14.19114896811937,
+        "xyz_median_mm": 14.386833002692775,
+        "xyz_p90_mm": 21.889485559965436,
+        "consistency_mm": 11.908647185877749,
+        "xyz_within_10mm": 0.5769852768433722,
+        "lookup_coverage": 0.9584847547506031,
+        "validity_recall": 0.8852755043067431,
+        "gate_mean": 0.5349310616913595,
+        "flow_epe": 4.6670035186566805,
+        "zero_flow_epe": 4.463161277143579,
+        "real_to_gt_cad_depth_gap_mm": 0.0,
+        "real_to_gt_cad_depth_gap_p90_mm": 0.0
+      },
+      "real_zero_flow": {
+        "pixels": 3037.214285714286,
+        "xyz_mm": 13.54142842548234,
+        "depth_mm": 10.375344736235482,
+        "xyz_median_mm": 11.782155871391296,
+        "xyz_p90_mm": 22.610210767814092,
+        "consistency_mm": 9.503616937569209,
+        "xyz_within_10mm": 0.4697827995925244
+      },
+      "proxy_zero_flow": {
+        "pixels": 626.6052631578947,
+        "xyz_mm": 14.928426893133866,
+        "depth_mm": 13.864807166551289,
+        "xyz_median_mm": 13.981247312144228,
+        "xyz_p90_mm": 21.751756517510664,
+        "consistency_mm": 11.521807896463494,
+        "xyz_within_10mm": 0.5885978892053428
+      }
+    },
+    "100": {
+      "real": {
+        "pixels": 3037.214285714286,
+        "xyz_mm": 13.713836550712585,
+        "depth_mm": 10.39330939735685,
+        "xyz_median_mm": 11.926585035664695,
+        "xyz_p90_mm": 23.11565179484231,
+        "consistency_mm": 10.66038087436131,
+        "xyz_within_10mm": 0.45523436297662556,
+        "lookup_coverage": 0.4488048214199288,
+        "validity_recall": 0.958137785749776,
+        "gate_mean": 0.4233096263238362,
+        "flow_epe": 5.786017793196219,
+        "zero_flow_epe": 5.219343966907925,
+        "real_to_gt_cad_depth_gap_mm": 9.354266837239265,
+        "real_to_gt_cad_depth_gap_p90_mm": 18.623988108975546
+      },
+      "proxy": {
+        "pixels": 626.6052631578947,
+        "xyz_mm": 15.636358813235635,
+        "depth_mm": 14.841731322439093,
+        "xyz_median_mm": 15.097308322003013,
+        "xyz_p90_mm": 21.572210939306963,
+        "consistency_mm": 12.936739745892977,
+        "xyz_within_10mm": 0.49838268815686826,
+        "lookup_coverage": 0.9584847547506031,
+        "validity_recall": 0.8852755043067431,
+        "gate_mean": 0.3998077482377228,
+        "flow_epe": 4.874052612405074,
+        "zero_flow_epe": 4.463161277143579,
+        "real_to_gt_cad_depth_gap_mm": 0.0,
+        "real_to_gt_cad_depth_gap_p90_mm": 0.0
+      },
+      "real_zero_flow": {
+        "pixels": 3037.214285714286,
+        "xyz_mm": 13.548411684376854,
+        "depth_mm": 10.351597683770317,
+        "xyz_median_mm": 11.860390314034053,
+        "xyz_p90_mm": 22.663567185401917,
+        "consistency_mm": 10.45249149629048,
+        "xyz_within_10mm": 0.4646625601204245
+      },
+      "proxy_zero_flow": {
+        "pixels": 626.6052631578947,
+        "xyz_mm": 15.5263655060216,
+        "depth_mm": 14.956617098105582,
+        "xyz_median_mm": 14.7592933177948,
+        "xyz_p90_mm": 21.690326866350677,
+        "consistency_mm": 12.738039167303787,
+        "xyz_within_10mm": 0.5413334030461939
+      }
+    }
+  },
+  "flow_gate_passed": false,
+  "geometry_gate_passed": false,
+  "goal_complete": false,
+  "default_model_changed": false,
+  "automatic_continuation": false
+}
