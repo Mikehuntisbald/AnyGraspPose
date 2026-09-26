@@ -121,6 +121,13 @@ def build_model(config,device='cuda'):
                 torch.manual_seed(config['seed']+56)
                 model.flow_reconstruction = FlowReconstruction().to(device)
             model.model_version = 'iterative-template-flow-jepa-v56'
+            if config['flow_reconstruction'].get('point_evidence',{}).get('enabled'):
+                from .point_evidence import PointEvidenceHead
+                with torch.random.fork_rng(devices=[]):
+                    torch.manual_seed(config['seed']+58)
+                    model.flow_reconstruction.point_evidence_head=PointEvidenceHead(
+                        config['flow_reconstruction']['point_evidence']['use_observation']).to(device)
+                model.model_version='frozen-jepa-point-evidence-v58'
         return model
     if config['architecture_id']=='stream_dino_fp_staticutonia_jepa_rgbd_v3':
         return build_fp_model(config,device)

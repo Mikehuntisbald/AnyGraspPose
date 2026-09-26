@@ -105,6 +105,7 @@ def diagnose_flow_surface(output, target, scene, observation, visible, renderer,
     sampled_depth=cpu(sample_points(original_depth,flow['uv'])[0,:,0])
     measured=cpu(sample_points(observation.measured_depth_m,flow['uv'],mode='nearest')[0,:,0])
     predicted_visible=cpu(flow['visible_logits'][0].sigmoid())
+    measurement_score=cpu(flow['point_quality_logits'][0].sigmoid()) if 'point_quality_logits' in flow else predicted_visible
     inside=(uv>=0).all(-1)&(uv<224).all(-1)
     metric_confidence=confidence*inside*(sampled_depth>0)*np.isfinite(sampled_depth)
     candidates['metric_recovered']=rendered(*fit_metric_surface(xyz*d,uv,sampled_depth,metric_confidence,k,base))
@@ -112,11 +113,12 @@ def diagnose_flow_surface(output, target, scene, observation, visible, renderer,
     # hard visibility/depth guards discarded all measured anchors in this audit.
     # Retain soft point visibility,
     # attenuate depth disagreement and expose actual measured contribution.
-    mixed,mass,measured_fraction=fuse_depth_evidence(sampled_depth,measured,predicted_visible,inside)
+    mixed,mass,measured_fraction=fuse_depth_evidence(sampled_depth,measured,measurement_score,inside)
     weights=metric_confidence*mass
     candidates['metric_measured']=rendered(*fit_metric_surface(xyz*d,uv,mixed,weights,k,base))
     candidates['metric_measured']['receipt']['measured_anchors']=int(((measured_fraction>.01)&(metric_confidence>0)).sum())
     candidates['metric_measured']['receipt']['measured_fraction_mean']=float(measured_fraction[metric_confidence>0].mean()) if (metric_confidence>0).any() else 0.
+    candidates['metric_measured']['receipt']['measurement_score']='predicted_point_quality' if 'point_quality_logits' in flow else 'predicted_point_visibility'
     labels=flow_labels(output,target,scene.k_crop[None],observation.diameter,visible)
     oracle_keep=available&labels['support'][0].cpu().numpy()
     oracle_uv=cpu(labels['uv'][0])

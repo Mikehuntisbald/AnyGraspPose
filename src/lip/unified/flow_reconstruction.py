@@ -81,6 +81,16 @@ class FlowReconstruction(nn.Module):
         logits = raw[..., 2:]
         logp = scores.log_softmax(-1)
         entropy = -(logp.exp()*logp).sum(-1)/math.log(256)
+        evidence_metrics = {}
+        if getattr(self, 'capture_point_evidence', False) or hasattr(self, 'point_evidence_head'):
+            from .point_evidence import point_evidence_features
+            features = point_evidence_features(source,current,measured,reference,uv,geometry,recovered,entropy,logits)
+            evidence_metrics['point_evidence_features'] = features
+            evidence_metrics['legacy_visible_logits'] = logits[..., 1]
+            if hasattr(self, 'point_evidence_head'):
+                evidence = self.point_evidence_head(features)
+                logits = torch.stack((logits[..., 0],evidence[..., 0]),-1)
+                evidence_metrics['point_quality_logits'] = evidence[..., 1]
 
         # Forward soft splatting: template endpoints -> observation patches.
         # This is not backward grid_sample with a forward-flow field.
@@ -102,7 +112,7 @@ class FlowReconstruction(nn.Module):
         return patch+write.to(patch.dtype), dict(
             uv=uv, flow=uv-reference['uv'], scores=appearance.masked_fill(~valid[:, None], -1e4),
             support_logits=logits[..., 0], visible_logits=logits[..., 1], entropy=entropy,
-            aligned_mass=mass, geometry_feedback=feedback, write=write)
+            aligned_mass=mass, geometry_feedback=feedback, write=write, **evidence_metrics)
 
 
 @torch.no_grad()
