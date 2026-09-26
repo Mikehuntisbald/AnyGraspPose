@@ -1,0 +1,13 @@
+{
+  "reduction": "equal physical-sequence mass",
+  "metrics": {
+    "corrupted": {
+      "real": 5.624645697219031,
+      "proxy": 4.809330337925961
+    },
+    "clean_control": {
+      "real": 5.661783214126315,
+      "proxy": 4.900897973462155
+    }
+  }
+}
