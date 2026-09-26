@@ -96,7 +96,7 @@ def build_model(config,device='cuda'):
             from .cad_atlas_decoder import CADAtlasDecoder
             with torch.random.fork_rng(devices=[]):
                 torch.manual_seed(config['seed']+42)
-                model.cad_atlas_decoder=CADAtlasDecoder(model.utonia.feature_dim).to(device)
+                model.cad_atlas_decoder=CADAtlasDecoder(model.utonia.feature_dim,supervised_prior=config['cad_atlas'].get('supervised_prior',True)).to(device)
             model.model_version='complete-cad-atlas-v42'
         return model
     if config['architecture_id']=='stream_dino_fp_staticutonia_jepa_rgbd_v3':

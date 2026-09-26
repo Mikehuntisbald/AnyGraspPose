@@ -10,13 +10,14 @@ from torch.nn import functional as F
 
 
 class CADAtlasDecoder(nn.Module):
-    def __init__(self,feature_dim,width=32):
+    def __init__(self,feature_dim,width=32,supervised_prior=True):
         super().__init__()
         self.query=nn.Sequential(nn.Conv2d(16,width,3,padding=1),nn.GELU(),nn.Conv2d(width,width,1))
         self.descriptor=nn.Sequential(nn.LayerNorm(feature_dim),nn.Linear(feature_dim,width))
         self.geometry=nn.Sequential(nn.Linear(21,64),nn.GELU(),nn.Linear(64,width))
         self.prior_sigma=.1
         self.temperature=.1
+        self.supervised_prior=supervised_prior
 
     def scores(self,query,keys,prior,xyz,available):
         logits=(query@keys.transpose(-1,-2))/self.temperature
@@ -55,7 +56,8 @@ class CADAtlasDecoder(nn.Module):
         surface=torch.cat((recovered,fallback[:,3:].float()),1)
         return surface,dict(atlas_query=query,atlas_keys=keys,atlas_xyz=xyz,atlas_available=available,
                             atlas_prior=prior,atlas_index=selected[:,:,0],atlas_fallback=fallback,
-                            atlas_temperature=self.temperature,atlas_prior_sigma=self.prior_sigma)
+                            atlas_temperature=self.temperature,atlas_prior_sigma=self.prior_sigma,
+                            atlas_supervised_prior=self.supervised_prior)
 
 
 @torch.autocast('cuda',enabled=False)
@@ -77,8 +79,9 @@ example equally. Labels use CAD canonical XYZ; real depth is unchanged.
             if not len(ids) or not available[b].any():continue
             if len(ids)>max_queries:ids=ids[torch.linspace(0,len(ids)-1,max_queries,device=ids.device).long()]
             logits=q[b,ids]@k[b].T/output['atlas_temperature']
-            offset=prior[b,ids,None]-xyz[b,None]
-            logits=logits-offset.square().sum(-1)/(2*output['atlas_prior_sigma']**2)
+            if output.get('atlas_supervised_prior',True):
+                offset=prior[b,ids,None]-xyz[b,None]
+                logits=logits-offset.square().sum(-1)/(2*output['atlas_prior_sigma']**2)
             logits=logits.masked_fill(~available[b,None],-1e4)
             with torch.no_grad():
                 distance=torch.cdist(truth[b,ids][None],xyz[b][None],compute_mode='donot_use_mm_for_euclid_dist')[0]

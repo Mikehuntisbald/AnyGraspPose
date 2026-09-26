@@ -59,3 +59,19 @@ def test_actual_points_can_be_learned_with_global_correspondence_loss():
         optimizer.zero_grad();loss.backward();optimizer.step()
     surface,_=model(dense,fallback,features,geometry,available)
     assert (surface[:,:3]-target.cad_geometry_xyz).norm(dim=1).max()<1e-6
+
+
+def test_direct_correspondence_labels_do_not_get_help_from_coordinate_prior():
+    model,dense,fallback,features,geometry,available=fixture()
+    model.supervised_prior=False
+    _,out=model(dense,fallback,features,geometry,available)
+    target=SimpleNamespace(cad_geometry_xyz=geometry[:,:,:3].transpose(1,2).reshape(1,3,4,4),
+        cad_geometry_valid=torch.ones(1,1,4,4,dtype=torch.bool),geometry_real_weight=torch.ones(1,1,4,4,dtype=torch.bool),
+        geometry_proxy_weight=torch.zeros(1,1,4,4,dtype=torch.bool))
+    before,_=atlas_correspondence_loss(out,target,target.geometry_proxy_weight)
+    altered=dict(out,atlas_prior=out['atlas_prior']+3)
+    after,_=atlas_correspondence_loss(altered,target,target.geometry_proxy_weight)
+    assert torch.equal(before,after)
+    assisted=dict(out,atlas_supervised_prior=True)
+    old,_=atlas_correspondence_loss(assisted,target,target.geometry_proxy_weight)
+    assert not torch.equal(before,old)
