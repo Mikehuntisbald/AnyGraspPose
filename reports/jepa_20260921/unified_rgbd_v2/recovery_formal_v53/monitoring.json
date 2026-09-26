@@ -15,6 +15,46 @@
           "proxy/depth_mm": 13.026390119602805,
           "proxy/camera_xyz_mm": 13.700204617098757,
           "proxy/camera_normal_deg": 24.43550438039443
+        },
+        "step700": {
+          "real/canonical_xyz_mm": 12.59143375498908,
+          "real/depth_mm": 10.705005134854998,
+          "real/camera_xyz_mm": 11.161519484860557,
+          "real/camera_normal_deg": 26.480958666120255,
+          "proxy/canonical_xyz_mm": 16.110977273238333,
+          "proxy/depth_mm": 13.288187804975008,
+          "proxy/camera_xyz_mm": 14.002959282774674,
+          "proxy/camera_normal_deg": 26.589410445269415
+        },
+        "step1200": {
+          "real/canonical_xyz_mm": 13.100863013948713,
+          "real/depth_mm": 10.478515616485051,
+          "real/camera_xyz_mm": 10.911477872303553,
+          "real/camera_normal_deg": 26.90788538115365,
+          "proxy/canonical_xyz_mm": 17.68550091040762,
+          "proxy/depth_mm": 12.230504864140562,
+          "proxy/camera_xyz_mm": 12.925539092013711,
+          "proxy/camera_normal_deg": 24.702674248639276
+        },
+        "step2700": {
+          "real/canonical_xyz_mm": 12.17402984414782,
+          "real/depth_mm": 9.759507383619036,
+          "real/camera_xyz_mm": 10.1614716563906,
+          "real/camera_normal_deg": 25.07404794011797,
+          "proxy/canonical_xyz_mm": 12.656014323234558,
+          "proxy/depth_mm": 12.57145771227385,
+          "proxy/camera_xyz_mm": 13.197433459131341,
+          "proxy/camera_normal_deg": 22.455239969141342
+        },
+        "step5200": {
+          "real/canonical_xyz_mm": 11.180838627474648,
+          "real/depth_mm": 8.676996392863137,
+          "real/camera_xyz_mm": 9.03291232245309,
+          "real/camera_normal_deg": 24.424156836100988,
+          "proxy/canonical_xyz_mm": 14.146423364940443,
+          "proxy/depth_mm": 11.35130598670558,
+          "proxy/camera_xyz_mm": 11.989416523983603,
+          "proxy/camera_normal_deg": 21.26584573353038
         }
       },
       "all": {
@@ -27,6 +67,46 @@
           "proxy/depth_mm": 11.86742249713547,
           "proxy/camera_xyz_mm": 12.38278948712623,
           "proxy/camera_normal_deg": 26.683523379839382
+        },
+        "step700": {
+          "real/canonical_xyz_mm": 12.528707293041965,
+          "real/depth_mm": 14.768062969048819,
+          "real/camera_xyz_mm": 15.293059587478638,
+          "real/camera_normal_deg": 25.785491561030483,
+          "proxy/canonical_xyz_mm": 15.434559126009887,
+          "proxy/depth_mm": 11.958745690597885,
+          "proxy/camera_xyz_mm": 12.50435665969191,
+          "proxy/camera_normal_deg": 27.650637296529915
+        },
+        "step1200": {
+          "real/canonical_xyz_mm": 13.721313526755885,
+          "real/depth_mm": 14.865981595558033,
+          "real/camera_xyz_mm": 15.384300451529654,
+          "real/camera_normal_deg": 25.607750286927093,
+          "proxy/canonical_xyz_mm": 16.480209276593964,
+          "proxy/depth_mm": 10.559930498572601,
+          "proxy/camera_xyz_mm": 11.070752711131655,
+          "proxy/camera_normal_deg": 25.70261339040903
+        },
+        "step2700": {
+          "real/canonical_xyz_mm": 12.447889574787073,
+          "real/depth_mm": 14.132921592185372,
+          "real/camera_xyz_mm": 14.629960631069384,
+          "real/camera_normal_deg": 24.939433454393267,
+          "proxy/canonical_xyz_mm": 12.256613202478693,
+          "proxy/depth_mm": 10.869999250461316,
+          "proxy/camera_xyz_mm": 11.329537375219937,
+          "proxy/camera_normal_deg": 24.78739023208618
+        },
+        "step5200": {
+          "real/canonical_xyz_mm": 10.86049152884567,
+          "real/depth_mm": 12.962292080385643,
+          "real/camera_xyz_mm": 13.403412002220488,
+          "real/camera_normal_deg": 24.61385879860268,
+          "proxy/canonical_xyz_mm": 12.99138256462141,
+          "proxy/depth_mm": 10.08215047436199,
+          "proxy/camera_xyz_mm": 10.55892017654989,
+          "proxy/camera_normal_deg": 23.525535977803745
         }
       }
     },
@@ -41,6 +121,46 @@
           "proxy/depth_mm": 9.653091700180717,
           "proxy/camera_xyz_mm": 9.902097577634065,
           "proxy/camera_normal_deg": 21.445955649666164
+        },
+        "step700": {
+          "real/canonical_xyz_mm": 11.689680600988455,
+          "real/depth_mm": 12.75364192600908,
+          "real/camera_xyz_mm": 13.122680581849197,
+          "real/camera_normal_deg": 28.725623870718067,
+          "proxy/canonical_xyz_mm": 11.064507401507834,
+          "proxy/depth_mm": 8.356113444203915,
+          "proxy/camera_xyz_mm": 8.580319757046906,
+          "proxy/camera_normal_deg": 25.267573563948922
+        },
+        "step1200": {
+          "real/canonical_xyz_mm": 13.500942583741812,
+          "real/depth_mm": 13.099164917551239,
+          "real/camera_xyz_mm": 13.496988699353974,
+          "real/camera_normal_deg": 29.301643240040747,
+          "proxy/canonical_xyz_mm": 13.583005428314209,
+          "proxy/depth_mm": 10.537479203680288,
+          "proxy/camera_xyz_mm": 10.860654659893202,
+          "proxy/camera_normal_deg": 20.970996317656144
+        },
+        "step2700": {
+          "real/canonical_xyz_mm": 10.357214475500173,
+          "real/depth_mm": 11.934182800095657,
+          "real/camera_xyz_mm": 12.270163281210538,
+          "real/camera_normal_deg": 27.158282658149457,
+          "proxy/canonical_xyz_mm": 10.943276426066523,
+          "proxy/depth_mm": 9.46796388729759,
+          "proxy/camera_xyz_mm": 9.745214348253997,
+          "proxy/camera_normal_deg": 22.069508179374363
+        },
+        "step5200": {
+          "real/canonical_xyz_mm": 10.255364492021759,
+          "real/depth_mm": 11.703885111315497,
+          "real/camera_xyz_mm": 12.056474743218258,
+          "real/camera_normal_deg": 27.37233017230856,
+          "proxy/canonical_xyz_mm": 9.438121754190195,
+          "proxy/depth_mm": 9.465075762375541,
+          "proxy/camera_xyz_mm": 9.73791217803955,
+          "proxy/camera_normal_deg": 21.12777432151463
         }
       },
       "all": {
@@ -53,6 +173,46 @@
           "real/camera_xyz_mm": 11.515859033380236,
           "real/camera_normal_deg": 27.36293939264809,
           "proxy/camera_normal_deg": 20.708658178647358
+        },
+        "step700": {
+          "proxy/canonical_xyz_mm": 10.553376491679701,
+          "proxy/depth_mm": 8.073675862578458,
+          "proxy/camera_xyz_mm": 8.295265255972396,
+          "real/canonical_xyz_mm": 11.694343930199032,
+          "real/depth_mm": 12.539546291033426,
+          "real/camera_xyz_mm": 12.854582633290972,
+          "real/camera_normal_deg": 27.245454474193295,
+          "proxy/camera_normal_deg": 23.701704763230822
+        },
+        "step1200": {
+          "proxy/canonical_xyz_mm": 12.184771266094474,
+          "proxy/depth_mm": 10.140876361103945,
+          "proxy/camera_xyz_mm": 10.421604081641796,
+          "real/canonical_xyz_mm": 13.208914637565613,
+          "real/depth_mm": 13.177799500170208,
+          "real/camera_xyz_mm": 13.540874861535572,
+          "real/camera_normal_deg": 28.15224083458505,
+          "proxy/camera_normal_deg": 20.241016649064562
+        },
+        "step2700": {
+          "proxy/canonical_xyz_mm": 10.185398506563763,
+          "proxy/depth_mm": 8.462087715781012,
+          "proxy/camera_xyz_mm": 8.680741993493813,
+          "real/canonical_xyz_mm": 10.004119722616105,
+          "real/depth_mm": 11.949146375769661,
+          "real/camera_xyz_mm": 12.26197229680561,
+          "real/camera_normal_deg": 26.272447109222412,
+          "proxy/camera_normal_deg": 20.382615691139584
+        },
+        "step5200": {
+          "proxy/canonical_xyz_mm": 8.7843791495922,
+          "proxy/depth_mm": 8.101711309233377,
+          "proxy/camera_xyz_mm": 8.309806777987369,
+          "real/canonical_xyz_mm": 9.41442772888002,
+          "real/depth_mm": 11.476711386726016,
+          "real/camera_xyz_mm": 11.787681687445868,
+          "real/camera_normal_deg": 26.06609273538357,
+          "proxy/camera_normal_deg": 19.906628285135543
         }
       }
     }

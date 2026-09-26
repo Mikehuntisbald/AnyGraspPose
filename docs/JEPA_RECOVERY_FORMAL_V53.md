@@ -22,3 +22,7 @@ Peak LRs: DINO1e-6, JEPA3e-5, DPT1e-4, CAD atlas1e-3. The first step uses the sa
 Runtime: `/tmp/dexycb_recovery_formal_v53`. Artifacts/status/live logs: `/mnt/why/dexycb_lip/unified_jepa_20260921/recovery_formal_v53`. Existing `.venv` is reused unchanged. Startup includes29 passing tests and a two-update extension, followed by strict202→700 resume. Source archives/hash receipts remain immutable.
 
 The V52 candidate is a useful continuation point, not a complete repair: the ordinary heavy probe has a proxy correspondence/depth tradeoff. Monitor both sets and regions throughout formal training.
+
+## Completion verified on2026-09-27
+
+All5000 new updates and all scheduled recovery evaluations completed. Global terminal step5200, full checkpoint SHA256 `717b503de54724e7dad79fe667b9fd49fe392b898af2522267add59ee65bdb3d`; all four strict resumes verified. Training is no longer running. [Final monitoring](../reports/jepa_20260921/unified_rgbd_v2/recovery_formal_v53/REPORT.md). The ordinary heavy-depth errors improve16.76%/12.86%; confirmation heavy-depth errors improve only1.31%/1.95%, and confirmation all-frame real depth worsens2.24%. Canonical correspondence improves on both sets. Accurate recovery remains incomplete; no automatic promotion or extension. This progress refresh synchronized metrics/receipts, not the terminal weight file.

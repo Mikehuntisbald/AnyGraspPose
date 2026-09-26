@@ -1,0 +1,10 @@
+{
+  "verified_complete": true,
+  "global_step": 5200,
+  "additional_updates": 5000,
+  "all_scheduled_evaluations_present": true,
+  "all_four_strict_resumes_verified": true,
+  "terminal_sha256": "717b503de54724e7dad79fe667b9fd49fe392b898af2522267add59ee65bdb3d",
+  "checkpoint_location": "remote; terminal weights not copied in this progress refresh",
+  "default_model_changed": false
+}

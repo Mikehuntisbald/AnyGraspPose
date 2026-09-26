@@ -9,11 +9,19 @@ Step numbers continue the V52 clock:200 is the inherited source,700/1200/2700/52
 |Step|Real CAD XYZ mm|Real depth mm|Proxy CAD XYZ mm|Proxy depth mm|Real surface angle deg|Proxy surface angle deg|
 |---|---:|---:|---:|---:|---:|---:|
 |step200|12.278|10.424|16.566|13.026|26.845|24.436|
+|step700|12.591|10.705|16.111|13.288|26.481|26.589|
+|step1200|13.101|10.479|17.686|12.231|26.908|24.703|
+|step2700|12.174|9.760|12.656|12.571|25.074|22.455|
+|step5200|11.181|8.677|14.146|11.351|24.424|21.266|
 
 ## confirmation: heavy subset
 
 |Step|Real CAD XYZ mm|Real depth mm|Proxy CAD XYZ mm|Proxy depth mm|Real surface angle deg|Proxy surface angle deg|
 |---|---:|---:|---:|---:|---:|---:|
 |step200|11.604|11.859|11.725|9.653|28.713|21.446|
+|step700|11.690|12.754|11.065|8.356|28.726|25.268|
+|step1200|13.501|13.099|13.583|10.537|29.302|20.971|
+|step2700|10.357|11.934|10.943|9.468|27.158|22.070|
+|step5200|10.255|11.704|9.438|9.465|27.372|21.128|
 
 Original real depth and CAD-proxy labels/masks are unchanged. Canonical XYZ measures CAD identity; camera XYZ is depth lifted through rays. Every50 steps saves a full checkpoint; evaluated milestones retain immutable full checkpoints. Automatic stops are runtime/nonfinite failures or the budget boundary; metric changes are reported without selecting or replacing the default model.
