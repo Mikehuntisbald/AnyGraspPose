@@ -1,0 +1,17 @@
+{
+  "stage": "complete",
+  "pids": [
+    2095675,
+    2095676,
+    2095677,
+    2095678,
+    2095679,
+    2095680,
+    2095681,
+    2095682
+  ],
+  "time": 1790462205.770788,
+  "completed": true,
+  "updates_per_arm": 200,
+  "default_model_changed": false
+}

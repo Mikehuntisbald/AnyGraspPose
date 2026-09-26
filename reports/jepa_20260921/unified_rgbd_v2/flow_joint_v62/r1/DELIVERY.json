@@ -1,0 +1,18 @@
+{
+  "source_commit": "3d11d92",
+  "runtime": "/tmp/dexycb_flow_joint_v62_r1",
+  "files": {
+    "control/seed42/last.pt": "1a6752f137f5b482b09f22720949c737c2c3b687c2f14ec80d6c32e143248cf6",
+    "strong/seed42/last.pt": "a1fbd38f096be3e5d7184672a38dc2baa8ce72ce963afdb18d6a69f5d3a058f1",
+    "source.tar.gz": "a7cc57cea6e55c6d3fa1605a77438ce1e36eb384758422af4c8e2873ac7da109",
+    "source_receipt.json": "143a7783683494fc33b3a7d90ccf63aab5a2d1d374282d9a88ec9a5b3a62896c"
+  },
+  "checkpoints_local_remote_exact": true,
+  "full_optimizer_rng_resume_verified": true,
+  "updates_per_arm": 200,
+  "tests": "26 passed in7.21s",
+  "oracle_in_training": false,
+  "default_model_changed": false,
+  "geometry_goal_achieved": false,
+  "prior_failed_attempt": "r0 failed before first update at deterministic grid_sample backward; r1 mathematical-equivalent bilinear values/gradients tested; original failure retained"
+}

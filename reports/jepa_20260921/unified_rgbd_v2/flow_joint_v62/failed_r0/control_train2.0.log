@@ -1,0 +1,296 @@
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank5]:[W927 06:23:47.205511548 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 5]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank4]:[W927 06:23:47.209334995 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 4]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank7]:[W927 06:23:47.216455322 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 7]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank1]:[W927 06:23:47.251640061 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 1]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank3]:[W927 06:23:47.267846340 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 3]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank2]:[W927 06:23:47.287321878 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 2]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank6]:[W927 06:23:47.294422767 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 6]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank0]:[W927 06:23:47.446281400 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/tmp/dexycb_flow_joint_v62_r0/tools/fp_worker.py", line 23, in <module>
+[rank3]:     if __name__=='__main__':main()
+[rank3]:                             ^^^^^^
+[rank3]:   File "/tmp/dexycb_flow_joint_v62_r0/tools/fp_worker.py", line 20, in main
+[rank3]:     runpy.run_path(sys.argv[0],run_name='__main__')
+[rank3]:   File "<frozen runpy>", line 287, in run_path
+[rank3]:   File "<frozen runpy>", line 98, in _run_module_code
+[rank3]:   File "<frozen runpy>", line 88, in _run_code
+[rank3]:   File "tools/train_geometry_transport.py", line 330, in <module>
+[rank3]:     if __name__ == '__main__': main()
+[rank3]:                                ^^^^^^
+[rank3]:   File "tools/train_geometry_transport.py", line 228, in main
+[rank3]:     geometry_gradient, = torch.autograd.grad(loss, shared, retain_graph=True)
+[rank3]:                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/__init__.py", line 503, in grad
+[rank3]:     result = _engine_run_backward(
+[rank3]:              ^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py", line 829, in _engine_run_backward
+[rank3]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]: RuntimeError: grid_sampler_2d_backward_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/tmp/dexycb_flow_joint_v62_r0/tools/fp_worker.py", line 23, in <module>
+[rank0]:     if __name__=='__main__':main()
+[rank0]:                             ^^^^^^
+[rank0]:   File "/tmp/dexycb_flow_joint_v62_r0/tools/fp_worker.py", line 20, in main
+[rank0]:     runpy.run_path(sys.argv[0],run_name='__main__')
+[rank0]:   File "<frozen runpy>", line 287, in run_path
+[rank0]:   File "<frozen runpy>", line 98, in _run_module_code
+[rank0]:   File "<frozen runpy>", line 88, in _run_code
+[rank0]:   File "tools/train_geometry_transport.py", line 330, in <module>
+[rank0]:     if __name__ == '__main__': main()
+[rank0]:                                ^^^^^^
+[rank0]:   File "tools/train_geometry_transport.py", line 228, in main
+[rank0]:     geometry_gradient, = torch.autograd.grad(loss, shared, retain_graph=True)
+[rank0]:                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/__init__.py", line 503, in grad
+[rank0]:     result = _engine_run_backward(
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py", line 829, in _engine_run_backward
+[rank0]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: RuntimeError: grid_sampler_2d_backward_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.
+[rank3]:[W927 06:23:53.633061710 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/tmp/dexycb_flow_joint_v62_r0/tools/fp_worker.py", line 23, in <module>
+[rank7]:     if __name__=='__main__':main()
+[rank7]:                             ^^^^^^
+[rank7]:   File "/tmp/dexycb_flow_joint_v62_r0/tools/fp_worker.py", line 20, in main
+[rank7]:     runpy.run_path(sys.argv[0],run_name='__main__')
+[rank7]:   File "<frozen runpy>", line 287, in run_path
+[rank7]:   File "<frozen runpy>", line 98, in _run_module_code
+[rank7]:   File "<frozen runpy>", line 88, in _run_code
+[rank7]:   File "tools/train_geometry_transport.py", line 330, in <module>
+[rank7]:     if __name__ == '__main__': main()
+[rank7]:                                ^^^^^^
+[rank7]:   File "tools/train_geometry_transport.py", line 228, in main
+[rank7]:     geometry_gradient, = torch.autograd.grad(loss, shared, retain_graph=True)
+[rank7]:                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/__init__.py", line 503, in grad
+[rank7]:     result = _engine_run_backward(
+[rank7]:              ^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py", line 829, in _engine_run_backward
+[rank7]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]: RuntimeError: grid_sampler_2d_backward_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/tmp/dexycb_flow_joint_v62_r0/tools/fp_worker.py", line 23, in <module>
+[rank6]:     if __name__=='__main__':main()
+[rank6]:                             ^^^^^^
+[rank6]:   File "/tmp/dexycb_flow_joint_v62_r0/tools/fp_worker.py", line 20, in main
+[rank6]:     runpy.run_path(sys.argv[0],run_name='__main__')
+[rank6]:   File "<frozen runpy>", line 287, in run_path
+[rank6]:   File "<frozen runpy>", line 98, in _run_module_code
+[rank6]:   File "<frozen runpy>", line 88, in _run_code
+[rank6]:   File "tools/train_geometry_transport.py", line 330, in <module>
+[rank6]:     if __name__ == '__main__': main()
+[rank6]:                                ^^^^^^
+[rank6]:   File "tools/train_geometry_transport.py", line 228, in main
+[rank6]:     geometry_gradient, = torch.autograd.grad(loss, shared, retain_graph=True)
+[rank6]:                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/__init__.py", line 503, in grad
+[rank6]:     result = _engine_run_backward(
+[rank6]:              ^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py", line 829, in _engine_run_backward
+[rank6]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]: RuntimeError: grid_sampler_2d_backward_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/tmp/dexycb_flow_joint_v62_r0/tools/fp_worker.py", line 23, in <module>
+[rank1]:     if __name__=='__main__':main()
+[rank1]:                             ^^^^^^
+[rank1]:   File "/tmp/dexycb_flow_joint_v62_r0/tools/fp_worker.py", line 20, in main
+[rank1]:     runpy.run_path(sys.argv[0],run_name='__main__')
+[rank1]:   File "<frozen runpy>", line 287, in run_path
+[rank1]:   File "<frozen runpy>", line 98, in _run_module_code
+[rank1]:   File "<frozen runpy>", line 88, in _run_code
+[rank1]:   File "tools/train_geometry_transport.py", line 330, in <module>
+[rank1]:     if __name__ == '__main__': main()
+[rank1]:                                ^^^^^^
+[rank1]:   File "tools/train_geometry_transport.py", line 228, in main
+[rank1]:     geometry_gradient, = torch.autograd.grad(loss, shared, retain_graph=True)
+[rank1]:                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/__init__.py", line 503, in grad
+[rank1]:     result = _engine_run_backward(
+[rank1]:              ^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py", line 829, in _engine_run_backward
+[rank1]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]: RuntimeError: grid_sampler_2d_backward_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/tmp/dexycb_flow_joint_v62_r0/tools/fp_worker.py", line 23, in <module>
+[rank2]:     if __name__=='__main__':main()
+[rank2]:                             ^^^^^^
+[rank2]:   File "/tmp/dexycb_flow_joint_v62_r0/tools/fp_worker.py", line 20, in main
+[rank2]:     runpy.run_path(sys.argv[0],run_name='__main__')
+[rank2]:   File "<frozen runpy>", line 287, in run_path
+[rank2]:   File "<frozen runpy>", line 98, in _run_module_code
+[rank2]:   File "<frozen runpy>", line 88, in _run_code
+[rank2]:   File "tools/train_geometry_transport.py", line 330, in <module>
+[rank2]:     if __name__ == '__main__': main()
+[rank2]:                                ^^^^^^
+[rank2]:   File "tools/train_geometry_transport.py", line 228, in main
+[rank2]:     geometry_gradient, = torch.autograd.grad(loss, shared, retain_graph=True)
+[rank2]:                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/__init__.py", line 503, in grad
+[rank2]:     result = _engine_run_backward(
+[rank2]:              ^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py", line 829, in _engine_run_backward
+[rank2]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]: RuntimeError: grid_sampler_2d_backward_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/tmp/dexycb_flow_joint_v62_r0/tools/fp_worker.py", line 23, in <module>
+[rank5]:     if __name__=='__main__':main()
+[rank5]:                             ^^^^^^
+[rank5]:   File "/tmp/dexycb_flow_joint_v62_r0/tools/fp_worker.py", line 20, in main
+[rank5]:     runpy.run_path(sys.argv[0],run_name='__main__')
+[rank5]:   File "<frozen runpy>", line 287, in run_path
+[rank5]:   File "<frozen runpy>", line 98, in _run_module_code
+[rank5]:   File "<frozen runpy>", line 88, in _run_code
+[rank5]:   File "tools/train_geometry_transport.py", line 330, in <module>
+[rank5]:     if __name__ == '__main__': main()
+[rank5]:                                ^^^^^^
+[rank5]:   File "tools/train_geometry_transport.py", line 228, in main
+[rank5]:     geometry_gradient, = torch.autograd.grad(loss, shared, retain_graph=True)
+[rank5]:                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/__init__.py", line 503, in grad
+[rank5]:     result = _engine_run_backward(
+[rank5]:              ^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py", line 829, in _engine_run_backward
+[rank5]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]: RuntimeError: grid_sampler_2d_backward_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.
+[rank0]:[W927 06:23:53.098000995 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank7]:[W927 06:23:54.213655618 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank6]:[W927 06:23:54.386000256 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank1]:[W927 06:23:54.404763021 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank5]:[W927 06:23:54.409882281 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank2]:[W927 06:23:54.470263005 ProcessGroupNCCL.cpp:1538] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/tmp/dexycb_flow_joint_v62_r0/tools/fp_worker.py", line 23, in <module>
+[rank4]:     if __name__=='__main__':main()
+[rank4]:                             ^^^^^^
+[rank4]:   File "/tmp/dexycb_flow_joint_v62_r0/tools/fp_worker.py", line 20, in main
+[rank4]:     runpy.run_path(sys.argv[0],run_name='__main__')
+[rank4]:   File "<frozen runpy>", line 287, in run_path
+[rank4]:   File "<frozen runpy>", line 98, in _run_module_code
+[rank4]:   File "<frozen runpy>", line 88, in _run_code
+[rank4]:   File "tools/train_geometry_transport.py", line 330, in <module>
+[rank4]:     if __name__ == '__main__': main()
+[rank4]:                                ^^^^^^
+[rank4]:   File "tools/train_geometry_transport.py", line 228, in main
+[rank4]:     geometry_gradient, = torch.autograd.grad(loss, shared, retain_graph=True)
+[rank4]:                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/__init__.py", line 503, in grad
+[rank4]:     result = _engine_run_backward(
+[rank4]:              ^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.12/dist-packages/torch/autograd/graph.py", line 829, in _engine_run_backward
+[rank4]:     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]: RuntimeError: grid_sampler_2d_backward_cuda does not have a deterministic implementation, but you set 'torch.use_deterministic_algorithms(True)'. You can turn off determinism just for this operation, or you can use the 'warn_only=True' option, if that's acceptable for your application. You can also file an issue at https://github.com/pytorch/pytorch/issues to help us prioritize adding deterministic support for this operation.
+W0927 06:23:54.472000 2093751 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2093756 closing signal SIGTERM
+W0927 06:23:54.473000 2093751 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2093757 closing signal SIGTERM
+W0927 06:23:54.475000 2093751 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2093758 closing signal SIGTERM
+W0927 06:23:54.477000 2093751 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2093760 closing signal SIGTERM
+W0927 06:23:54.478000 2093751 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2093761 closing signal SIGTERM
+W0927 06:23:54.480000 2093751 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2093762 closing signal SIGTERM
+W0927 06:23:54.481000 2093751 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2093763 closing signal SIGTERM
+E0927 06:23:55.740000 2093751 torch/distributed/elastic/multiprocessing/api.py:874] failed (exitcode: 1) local_rank: 3 (pid: 2093759) of binary: /mnt/why/dexycb_lip/.venv/bin/python
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 905, in <module>
+    main()
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 357, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/launcher/api.py", line 143, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/launcher/api.py", line 277, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+tools/fp_worker.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-09-27_06:23:54
+  host      : nb-1665947968857557760-cnnl9oh5e22o
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 2093759)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

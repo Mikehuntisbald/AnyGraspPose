@@ -33,3 +33,6 @@ cases for the baseline and each arm. Report original real/proxy geometry targets
 and flow together, including regressions. These are controlled physical-holdout
 training-partition probes, not native val or pose accuracy. No official test,
 additional seed, automatic budget extension or default model promotion.
+
+Outcome: both200-update arms completed without a stable geometry improvement.
+See [paired results and limitations](../reports/jepa_20260921/unified_rgbd_v2/flow_joint_v62/SUMMARY.md).
