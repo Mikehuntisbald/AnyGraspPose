@@ -1,0 +1,9 @@
+{
+  "stage": "complete",
+  "pid": 2073596,
+  "time": 1790414883.6375504,
+  "completed": true,
+  "updates_per_arm": 100,
+  "source_step": 100,
+  "default_model_changed": false
+}

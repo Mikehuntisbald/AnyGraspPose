@@ -7,11 +7,12 @@ from report_geometry_supervision_v41 import read,reduce
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--root',type=Path,required=True)
+    p.add_argument('--arms',nargs=2,default=['assisted','direct']);p.add_argument('--contrast',default='coordinate-prior term in correspondence CE');a=p.parse_args()
     assert json.loads((a.root/'status.json').read_text())['completed']
-    starts=[torch.load(a.root/arm/'runs/seed42/initial.pt',map_location='cpu',weights_only=False) for arm in ('assisted','direct')]
+    starts=[torch.load(a.root/arm/'runs/seed42/initial.pt',map_location='cpu',weights_only=False) for arm in a.arms]
     identity={k:exact(starts[0][k],starts[1][k]) for k in ('model','optimizer','scheduler','rng','sampler_position')};assert all(identity.values())
-    for i,arm in enumerate(('assisted','direct')):
+    for i,arm in enumerate(a.arms):
         root=a.root/arm;end=torch.load(root/'runs/seed42/last.pt',map_location='cpu',weights_only=False);assert end['step']==100
         names=[n for n in end['model'] if n=='query' or n.startswith(('head.','object_attn.','object_norm.','geometry_readout.','core.feature_','cad_transport.'))]
         assert all(torch.equal(end['model'][n],starts[i]['model'][n]) for n in names)
@@ -19,10 +20,10 @@ def main():
         del end
     del starts
     rows={}
-    for arm in ('assisted','direct'):
+    for arm in a.arms:
         for step in (0,100):
             for clean in (False,True):rows[f'{arm}_{step}_{"clean" if clean else "corrupted"}']=read(a.root/arm,step,clean)
-    reference=rows['assisted_0_corrupted']
+    reference=rows[a.arms[0]+'_0_corrupted']
     for label,records in rows.items():
         assert records.keys()==reference.keys()
         for seed,r in records.items():
@@ -30,15 +31,15 @@ def main():
             for kind in ('real','proxy'):
                 x,y=r['metrics'][kind],other['metrics'][kind];assert (x is None)==(y is None)
                 if x:assert x['pixels']==y['pixels'] and x['canonical_pixels']==y['canonical_pixels']
-    result=dict(completed=True,updates_per_arm=100,matched_initial_state=identity,old_pose_and_flow_frozen=True,original_eval_masks_unchanged=True,
+    result=dict(completed=True,updates_per_arm=100,contrast=a.contrast,matched_initial_state=identity,old_pose_and_flow_frozen=True,original_eval_masks_unchanged=True,
                 metrics={k:reduce(v) for k,v in rows.items()},goal_complete=False)
     (a.root/'outcome.json').write_text(json.dumps(result,indent=2)+'\n')
-    lines=['# V43 matched direct correspondence supervision','','|Arm/step|Input|Real CAD XYZ mm|Real depth mm|Proxy XYZ mm|Proxy depth mm|','|---|---|---:|---:|---:|---:|']
-    for tag in ('assisted_0','assisted_100','direct_100'):
+    lines=['# Matched atlas geometry trial: '+a.root.name,'','|Arm/step|Input|Real CAD XYZ mm|Real depth mm|Proxy XYZ mm|Proxy depth mm|','|---|---|---:|---:|---:|---:|']
+    for tag in (a.arms[0]+'_0',a.arms[0]+'_100',a.arms[1]+'_100'):
         for setting in ('corrupted','clean'):
             m=result['metrics'][tag+'_'+setting];r,s=m['real'],m['proxy']
             lines.append(f"|{tag}|{setting}|{r['canonical_xyz_mm']:.3f}|{r['depth_mm']:.3f}|{s['canonical_xyz_mm']:.3f}|{s['depth_mm']:.3f}|")
-    lines+=['','Same inference and original labels; only coordinate-prior term in correspondence CE differs. No pose/native/history claim. Frozen learned-only intervention remains necessary to assess the intended matching mechanism.']
+    lines+=['','Same inference and original labels; contrast: '+a.contrast+'. No pose/native/history claim.']
     (a.root/'REPORT.md').write_text('\n'.join(lines)+'\n');print('\n'.join(lines))
 
 

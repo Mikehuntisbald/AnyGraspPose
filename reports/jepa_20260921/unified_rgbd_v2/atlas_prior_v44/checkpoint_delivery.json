@@ -1,0 +1,13 @@
+{
+  "completed": true,
+  "files": {
+    "control/runs/seed42/last.pt": "3787db7eb1d68debe474c865d78541f3c38cf6aac6a8062c1df3332e9a885410",
+    "control/source.tar.gz": "e2f204436e8519589b763abca488247eb5ebdd6fc8ef1eb8e94cf0e6bfb96d7d",
+    "control/source_receipt.json": "3d141f43744e9a37e692fda81ae9c8d7770a9c9c5ec53da7f5ffd5e2d7944add",
+    "supervised/runs/seed42/last.pt": "f651d6df004c7b025a7a827785a29ff1dd48621add96d5aad5aa8c65beabd6a9",
+    "supervised/source.tar.gz": "0f116b2a895c5a18a14e2989bab1c111c5174c9d0b3458ea6d48c1e7aa3e218d",
+    "supervised/source_receipt.json": "3d141f43744e9a37e692fda81ae9c8d7770a9c9c5ec53da7f5ffd5e2d7944add"
+  },
+  "source_checkpoint": "../atlas_direct_v43/direct/runs/seed42/last.pt",
+  "initial_checkpoint_scope": "Per-arm initial checkpoints retained remotely; exact initial state checked in outcome.json"
+}

@@ -1,0 +1,57 @@
+{
+  "completed": true,
+  "training": false,
+  "records": 64,
+  "original_masks_match": true,
+  "depth_unchanged": true,
+  "metrics": {
+    "combined": {
+      "real": {
+        "xyz_mm": 17.185058806623733,
+        "canonical_xyz_mm": 13.312960028648376,
+        "depth_mm": 11.143489096845899,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 16.292380709397165,
+        "canonical_xyz_mm": 16.292380709397165,
+        "depth_mm": 12.889021823280736,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "prior_only": {
+      "real": {
+        "xyz_mm": 16.666713876383646,
+        "canonical_xyz_mm": 13.28380550657,
+        "depth_mm": 11.143489096845899,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 16.085182353069907,
+        "canonical_xyz_mm": 16.085182353069907,
+        "depth_mm": 12.889021823280736,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "learned_only": {
+      "real": {
+        "xyz_mm": 39.53252479008266,
+        "canonical_xyz_mm": 37.741399083818706,
+        "depth_mm": 11.143489096845899,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 53.74579871328253,
+        "canonical_xyz_mm": 53.74579871328253,
+        "depth_mm": 12.889021823280736,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    }
+  }
+}

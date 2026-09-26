@@ -1,0 +1,144 @@
+{
+  "completed": true,
+  "updates_per_arm": 100,
+  "matched_initial_state": {
+    "model": true,
+    "optimizer": true,
+    "scheduler": true,
+    "rng": true,
+    "sampler_position": true
+  },
+  "old_pose_and_flow_frozen": true,
+  "original_eval_masks_unchanged": true,
+  "metrics": {
+    "assisted_0_corrupted": {
+      "real": {
+        "xyz_mm": 17.185058806623733,
+        "canonical_xyz_mm": 13.312960028648376,
+        "depth_mm": 11.143489096845899,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 16.292380709397165,
+        "canonical_xyz_mm": 16.292380709397165,
+        "depth_mm": 12.889021823280736,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "assisted_0_clean": {
+      "real": {
+        "xyz_mm": 16.537411332130432,
+        "canonical_xyz_mm": 13.43843150138855,
+        "depth_mm": 9.794215457780021,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 17.73786160820409,
+        "canonical_xyz_mm": 17.73786160820409,
+        "depth_mm": 13.733612393078051,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "assisted_100_corrupted": {
+      "real": {
+        "xyz_mm": 17.6794809954507,
+        "canonical_xyz_mm": 13.93189435345786,
+        "depth_mm": 11.947543638093132,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 16.775479191227962,
+        "canonical_xyz_mm": 16.775479191227962,
+        "depth_mm": 12.933290719985962,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "assisted_100_clean": {
+      "real": {
+        "xyz_mm": 16.736517752919877,
+        "canonical_xyz_mm": 13.739244937896729,
+        "depth_mm": 9.797452419996262,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 18.151885258524043,
+        "canonical_xyz_mm": 18.151885258524043,
+        "depth_mm": 14.168801991563095,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "direct_0_corrupted": {
+      "real": {
+        "xyz_mm": 17.185058806623733,
+        "canonical_xyz_mm": 13.312960028648376,
+        "depth_mm": 11.143489096845899,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 16.292380709397165,
+        "canonical_xyz_mm": 16.292380709397165,
+        "depth_mm": 12.889021823280736,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "direct_0_clean": {
+      "real": {
+        "xyz_mm": 16.537411332130432,
+        "canonical_xyz_mm": 13.43843150138855,
+        "depth_mm": 9.794215457780021,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 17.73786160820409,
+        "canonical_xyz_mm": 17.73786160820409,
+        "depth_mm": 13.733612393078051,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "direct_100_corrupted": {
+      "real": {
+        "xyz_mm": 18.35204550198146,
+        "canonical_xyz_mm": 15.278212189674377,
+        "depth_mm": 12.591552938733782,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 18.75741451664975,
+        "canonical_xyz_mm": 18.75741451664975,
+        "depth_mm": 12.969707783899809,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "direct_100_clean": {
+      "real": {
+        "xyz_mm": 17.438713874135697,
+        "canonical_xyz_mm": 14.699561510767255,
+        "depth_mm": 10.854695115770612,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 20.047113619352643,
+        "canonical_xyz_mm": 20.047113619352643,
+        "depth_mm": 13.931636967157063,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    }
+  },
+  "goal_complete": false
+}

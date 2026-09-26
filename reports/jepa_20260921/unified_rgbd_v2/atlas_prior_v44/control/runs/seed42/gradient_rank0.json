@@ -1,0 +1,6 @@
+{
+  "core.src_proj.weight": 11.263509750366211,
+  "surface_head.output.6.weight": 3.244999885559082,
+  "cad_atlas_decoder.query.0.weight": 5.173614501953125,
+  "cad_atlas_decoder.descriptor.1.weight": 10.363786697387695
+}

@@ -1,0 +1,29 @@
+{
+  "completed": true,
+  "training": false,
+  "optimizer_updates": 0,
+  "seeds": [
+    40000000,
+    140000004,
+    40000002,
+    40000003
+  ],
+  "pose_hypotheses": 8,
+  "losses": {
+    "full_geometry": 0.18056385219097137,
+    "normal": 0.0,
+    "correspondence": 12.636516571044922
+  },
+  "gradient_norms": {
+    "full_geometry": 0.029735801741480827,
+    "normal": 0.0,
+    "correspondence": 14.779422760009766,
+    "other_geometry": 0.029735801741480827
+  },
+  "normal_to_ce_norm_ratio": 0.0,
+  "final_fallback_xyz_gradient_norm": 0.0,
+  "final_fallback_depth_validity_gradient_norm": 0.03410157188773155,
+  "checkpoint": "/mnt/why/dexycb_lip/unified_jepa_20260921/atlas_direct_v43/direct/runs/seed42/last.pt",
+  "normal_weight": 0.0,
+  "scope": "Fixed V42 first rank0 paired batch and explicitly supplied checkpoint; norms concatenated over atlas query0 and descriptor1 weights"
+}

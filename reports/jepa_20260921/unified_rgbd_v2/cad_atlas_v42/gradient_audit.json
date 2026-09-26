@@ -1,0 +1,25 @@
+{
+  "completed": true,
+  "training": false,
+  "optimizer_updates": 0,
+  "seeds": [
+    40000000,
+    140000004,
+    40000002,
+    40000003
+  ],
+  "pose_hypotheses": 8,
+  "losses": {
+    "full_geometry": 0.2203381061553955,
+    "normal": 0.022148527204990387,
+    "correspondence": 14.091617584228516
+  },
+  "gradient_norms": {
+    "full_geometry": 11363.82421875,
+    "normal": 11363.8349609375,
+    "correspondence": 14.607453346252441,
+    "other_geometry": 3.2508962154388428
+  },
+  "normal_to_ce_norm_ratio": 777.9476928710938,
+  "scope": "Exact first rank0 paired input construction and saved initial weights; norms concatenated over atlas query0 and descriptor1 weights"
+}

@@ -1,0 +1,29 @@
+{
+  "completed": true,
+  "checkpoint_sha256": "7a8fb9567ab13a0f0d9104028f92b95bf4381ee058dfb87681be3edb6804ba1b",
+  "config": {
+    "canonical_residual_bound_d": 0.05,
+    "depth_residual_bound_d": 0.25,
+    "enabled": true,
+    "mandatory_lookup": true,
+    "max_flow_pixels": 112,
+    "reference": "current estimated-pose CAD raster only",
+    "reference_conditioned": true,
+    "surface_locked": true,
+    "teacher_match_radius_d": 0.03
+  },
+  "records": 8,
+  "lookup_audit": false,
+  "projection_audit": false,
+  "physical_holdout": true,
+  "training_split_only": true,
+  "official_test_access": false,
+  "teacher_inputs": false,
+  "clean_control": false,
+  "clean_control_scope": null,
+  "atlas_ablation": "learned_only",
+  "lip_baseline_sha256": null,
+  "lip_baseline_scope": null,
+  "oracle_lookup_scope": "GT correspondence and GT depth diagnostic only; common supported pixels; never deployed",
+  "seconds": 8.42445967788808
+}

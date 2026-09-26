@@ -1,0 +1,6 @@
+{
+  "completed": true,
+  "training": false,
+  "models": 2,
+  "records_each": 64
+}

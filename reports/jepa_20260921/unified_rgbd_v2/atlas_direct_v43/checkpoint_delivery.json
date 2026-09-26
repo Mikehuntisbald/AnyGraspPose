@@ -1,0 +1,13 @@
+{
+  "completed": true,
+  "files": {
+    "assisted/runs/seed42/last.pt": "7a8fb9567ab13a0f0d9104028f92b95bf4381ee058dfb87681be3edb6804ba1b",
+    "assisted/source.tar.gz": "4331b1aab9dfe9610361ab62a0c58151f1cbe54cb428f8a1e6933bcad16e7823",
+    "assisted/source_receipt.json": "714ab784f20560e3b2dad9676468f73f630088bce127a4abc2a1e6d9c7927832",
+    "direct/runs/seed42/last.pt": "7bd2ae55c8172467ae4c4990928b604ec0d4536e7179812ca34b9c17659b8246",
+    "direct/source.tar.gz": "de7a16d1abab818250af5376e5fac626592f3ac5796c4455952eabb3bb84e66b",
+    "direct/source_receipt.json": "714ab784f20560e3b2dad9676468f73f630088bce127a4abc2a1e6d9c7927832"
+  },
+  "source_checkpoint": "../cad_atlas_v42_stable/runs/seed42/last.pt",
+  "initial_checkpoint_scope": "Per-arm initialization checkpoints retained remotely; identical initial tensors/optimizer/RNG verified by outcome.json"
+}

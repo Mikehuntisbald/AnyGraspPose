@@ -1,0 +1,8 @@
+{
+  "completed": true,
+  "step": 100,
+  "sha256": "7a8fb9567ab13a0f0d9104028f92b95bf4381ee058dfb87681be3edb6804ba1b",
+  "sampler_position": 3200,
+  "config_hash": "692d107655cb218ce45625e5399555a607e3b54c2b4ad0a384c33d4c6e296961",
+  "all_rank_rng": 8
+}

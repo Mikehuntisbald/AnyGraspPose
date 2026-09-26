@@ -1,0 +1,9 @@
+{
+  "completed": true,
+  "files": {
+    "runs/seed42/initial.pt": "69481a8c0b47b7df3dc568ae78818c38eb4afb4e465214ad6c21fcbd5f345dea",
+    "runs/seed42/last.pt": "c1483df2bc2ae78b2ac4c929444d2b6bf9e6b991980c1b1f0f9015309368473f",
+    "source.tar.gz": "a28bb8ba7f89d8a9cfe51749baaa66799b651d0d5e15a80618c0f8d4731b8677",
+    "source_receipt.json": "8d7237302e796fbdc960edb27a21f0416b594f186ea5c3613d716e1e6cf7ae13"
+  }
+}

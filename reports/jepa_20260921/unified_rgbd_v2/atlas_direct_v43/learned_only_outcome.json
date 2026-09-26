@@ -1,0 +1,41 @@
+{
+  "completed": true,
+  "training": false,
+  "records_each": 64,
+  "masks_matched": true,
+  "depth_unchanged": true,
+  "metrics": {
+    "assisted": {
+      "real": {
+        "xyz_mm": 34.369510889053345,
+        "canonical_xyz_mm": 32.257068157196045,
+        "depth_mm": 11.947543638093132,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 46.160301308882865,
+        "canonical_xyz_mm": 46.160301308882865,
+        "depth_mm": 12.933290719985962,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "direct": {
+      "real": {
+        "xyz_mm": 21.78715627534049,
+        "canonical_xyz_mm": 19.096001931599208,
+        "depth_mm": 12.591552938733782,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 21.432757528204668,
+        "canonical_xyz_mm": 21.432757528204668,
+        "depth_mm": 12.969707783899809,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    }
+  }
+}

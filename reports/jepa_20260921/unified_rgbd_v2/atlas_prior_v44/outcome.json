@@ -1,0 +1,145 @@
+{
+  "completed": true,
+  "updates_per_arm": 100,
+  "contrast": "direct supervision of final DPT XYZ prior",
+  "matched_initial_state": {
+    "model": true,
+    "optimizer": true,
+    "scheduler": true,
+    "rng": true,
+    "sampler_position": true
+  },
+  "old_pose_and_flow_frozen": true,
+  "original_eval_masks_unchanged": true,
+  "metrics": {
+    "control_0_corrupted": {
+      "real": {
+        "xyz_mm": 18.35204550198146,
+        "canonical_xyz_mm": 15.278212189674377,
+        "depth_mm": 12.591552938733782,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 18.75741451664975,
+        "canonical_xyz_mm": 18.75741451664975,
+        "depth_mm": 12.969707783899809,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "control_0_clean": {
+      "real": {
+        "xyz_mm": 17.438713874135697,
+        "canonical_xyz_mm": 14.699561510767255,
+        "depth_mm": 10.854695115770612,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 20.047113619352643,
+        "canonical_xyz_mm": 20.047113619352643,
+        "depth_mm": 13.931636967157063,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "control_100_corrupted": {
+      "real": {
+        "xyz_mm": 18.4844776732581,
+        "canonical_xyz_mm": 14.822233651365552,
+        "depth_mm": 12.576931033815656,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 18.76273126351206,
+        "canonical_xyz_mm": 18.76273126351206,
+        "depth_mm": 13.578835248947144,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "control_100_clean": {
+      "real": {
+        "xyz_mm": 17.467486602919443,
+        "canonical_xyz_mm": 14.232222437858582,
+        "depth_mm": 11.479169828551155,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 20.538034614763763,
+        "canonical_xyz_mm": 20.538034614763763,
+        "depth_mm": 14.578387988241095,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "supervised_0_corrupted": {
+      "real": {
+        "xyz_mm": 18.35204550198146,
+        "canonical_xyz_mm": 15.278212189674377,
+        "depth_mm": 12.591552938733782,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 18.75741451664975,
+        "canonical_xyz_mm": 18.75741451664975,
+        "depth_mm": 12.969707783899809,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "supervised_0_clean": {
+      "real": {
+        "xyz_mm": 17.438713874135697,
+        "canonical_xyz_mm": 14.699561510767255,
+        "depth_mm": 10.854695115770612,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 20.047113619352643,
+        "canonical_xyz_mm": 20.047113619352643,
+        "depth_mm": 13.931636967157063,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "supervised_100_corrupted": {
+      "real": {
+        "xyz_mm": 18.140079847403936,
+        "canonical_xyz_mm": 14.42156673329217,
+        "depth_mm": 12.504619257790702,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 18.336014722522936,
+        "canonical_xyz_mm": 18.336014722522936,
+        "depth_mm": 13.359750308488545,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "supervised_100_clean": {
+      "real": {
+        "xyz_mm": 17.015684264046804,
+        "canonical_xyz_mm": 13.768304330962044,
+        "depth_mm": 11.343472787312098,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 19.97053256787752,
+        "canonical_xyz_mm": 19.97053256787752,
+        "depth_mm": 14.271872809058742,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    }
+  },
+  "goal_complete": false
+}

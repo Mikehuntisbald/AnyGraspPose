@@ -1,0 +1,19 @@
+{
+  "completed": true,
+  "training": false,
+  "scope": "Same heavy unfiltered regions. Real fallback metric uses original sensor-derived canonical target; proxy uses CAD target.",
+  "metrics": {
+    "v42": {
+      "real_fallback_xyz_mm": 17.434763618877955,
+      "proxy_fallback_xyz_mm": 17.28043226191872
+    },
+    "assisted": {
+      "real_fallback_xyz_mm": 18.397781014442444,
+      "proxy_fallback_xyz_mm": 18.60942087675396
+    },
+    "direct": {
+      "real_fallback_xyz_mm": 20.840289984430587,
+      "proxy_fallback_xyz_mm": 22.031076155210798
+    }
+  }
+}

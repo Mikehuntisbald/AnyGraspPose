@@ -1,0 +1,157 @@
+{
+  "completed": true,
+  "updates": 100,
+  "identical_restart": {
+    "model": true,
+    "optimizer": true,
+    "scheduler": true,
+    "rng": true,
+    "sampler_position": true
+  },
+  "shared_parent_tensors_exact": true,
+  "new_tensors": 12,
+  "frozen_pose_feature_flow_tensors": 43,
+  "original_probe_masks_unchanged": true,
+  "metrics": {
+    "source_0_corrupted": {
+      "real": {
+        "xyz_mm": 14.761511083160128,
+        "canonical_xyz_mm": 9.482487265552793,
+        "depth_mm": 9.871275995458875,
+        "cad_flow_epe": 5.1622262213911325,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 14.996281849710565,
+        "canonical_xyz_mm": 14.996281849710565,
+        "depth_mm": 13.473411026753878,
+        "cad_flow_epe": 4.5135426709526465,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "source_0_clean": {
+      "real": {
+        "xyz_mm": 14.681964184556689,
+        "canonical_xyz_mm": 9.537342710154396,
+        "depth_mm": 8.266390885625567,
+        "cad_flow_epe": 5.150074026414326,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 15.22767522460536,
+        "canonical_xyz_mm": 15.22767522460536,
+        "depth_mm": 13.055907214942732,
+        "cad_flow_epe": 4.591318820652209,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "v41_100_corrupted": {
+      "real": {
+        "xyz_mm": 14.306364365986415,
+        "canonical_xyz_mm": 9.476994476148061,
+        "depth_mm": 11.560758335249764,
+        "cad_flow_epe": 5.307368001767567,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 12.783184829511141,
+        "canonical_xyz_mm": 12.783184829511141,
+        "depth_mm": 13.32438063621521,
+        "cad_flow_epe": 4.421457648277283,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "v41_100_clean": {
+      "real": {
+        "xyz_mm": 14.660911134311132,
+        "canonical_xyz_mm": 9.838544100522995,
+        "depth_mm": 9.413594220365797,
+        "cad_flow_epe": 5.422601712601526,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 12.096124975304855,
+        "canonical_xyz_mm": 12.096124975304855,
+        "depth_mm": 11.021089880090011,
+        "cad_flow_epe": 4.69256855939564,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "v42_0_corrupted": {
+      "real": {
+        "xyz_mm": 19.005462084497726,
+        "canonical_xyz_mm": 17.312186454023635,
+        "depth_mm": 12.212696288313184,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 21.88762250699495,
+        "canonical_xyz_mm": 21.88762250699495,
+        "depth_mm": 16.814042160385533,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "v42_0_clean": {
+      "real": {
+        "xyz_mm": 18.245145780699595,
+        "canonical_xyz_mm": 17.73797151020595,
+        "depth_mm": 11.644376482282366,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 21.86330223083496,
+        "canonical_xyz_mm": 21.86330223083496,
+        "depth_mm": 18.739672535344173,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "v42_100_corrupted": {
+      "real": {
+        "xyz_mm": 17.185058806623733,
+        "canonical_xyz_mm": 13.312960028648376,
+        "depth_mm": 11.143489096845899,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 16.292380709397165,
+        "canonical_xyz_mm": 16.292380709397165,
+        "depth_mm": 12.889021823280736,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    },
+    "v42_100_clean": {
+      "real": {
+        "xyz_mm": 16.537411332130432,
+        "canonical_xyz_mm": 13.43843150138855,
+        "depth_mm": 9.794215457780021,
+        "cad_zero_flow_epe": 5.137991377285549,
+        "cad_lookup_coverage": 0.9844620408756393
+      },
+      "proxy": {
+        "xyz_mm": 17.73786160820409,
+        "canonical_xyz_mm": 17.73786160820409,
+        "depth_mm": 13.733612393078051,
+        "cad_zero_flow_epe": 4.463161277143579,
+        "cad_lookup_coverage": 0.9584847547506031
+      }
+    }
+  },
+  "history": false,
+  "pose_loss": false,
+  "normal_loss": false,
+  "goal_complete": false
+}
