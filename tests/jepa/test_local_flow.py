@@ -33,3 +33,25 @@ def test_extra_features_and_full_path_initialization():
     torch.testing.assert_close(out['uv'],result['uv'])
     assert torch.equal(out['visible_logits'],result['visible_logits'])
     assert torch.equal(out['support_logits'],result['support_logits'])
+
+
+def test_deterministic_bilinear_matches_value_and_gradient():
+    from lip.unified.local_flow import bilinear_descriptors
+    from lip.unified.cad_image_correspondence import sample_points
+    device='cuda' if torch.cuda.is_available() else 'cpu'
+    torch.manual_seed(61)
+    image=torch.randn(2,64,16,16,device=device,requires_grad=True)
+    xy=(torch.rand(2,47,2,device=device)*18-1).requires_grad_()
+    # Reference CPU backward avoids nondeterministic CUDA grid_sample.
+    reference=image.detach().cpu().requires_grad_();points=xy.detach().cpu().requires_grad_()
+    expected=sample_points(reference,points)
+    weight=torch.randn_like(expected)
+    grad_ref=torch.autograd.grad((expected*weight).sum(),(reference,points))
+    old=torch.are_deterministic_algorithms_enabled()
+    try:
+        torch.use_deterministic_algorithms(True)
+        actual=bilinear_descriptors(image.flatten(2).transpose(1,2),xy)
+        gradients=torch.autograd.grad((actual*weight.to(device)).sum(),(image,xy))
+    finally:torch.use_deterministic_algorithms(old)
+    torch.testing.assert_close(actual.cpu(),expected,atol=4e-6,rtol=2e-5)
+    for got,want in zip(gradients,grad_ref):torch.testing.assert_close(got.cpu(),want,atol=3e-5,rtol=1e-4)

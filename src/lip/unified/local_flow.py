@@ -6,7 +6,6 @@ change cannot be credited to expanding its range.
 """
 import torch
 from torch import nn
-from .cad_image_correspondence import sample_points
 
 BASE_DIM=133
 FEATURE_DIM=210
@@ -38,6 +37,17 @@ def local_flow_features(base,coarse,reference,measured,scores,peak):
     ids=xy[...,1].clamp(0,15)*16+xy[...,0].clamp(0,15)
     local=scores.gather(-1,ids)
     local=(local-local.amax(-1,keepdim=True)).clamp(-10,0).masked_fill(~inside,-10)/10
-    measured_map=measured.transpose(1,2).reshape(len(measured),64,16,16)
-    observed=sample_points(measured_map,(coarse+.5)/14-.5)
+    observed=bilinear_descriptors(measured,(coarse+.5)/14-.5)
     return torch.cat((base,coarse/224.,(coarse-reference['uv'])/56.,local,observed),-1)
+
+
+def bilinear_descriptors(descriptors,xy):
+    """Zero-padded bilinear sampling on16x16; deterministic matrix backward.
+
+    xy uses feature-pixel coordinates. Dense256 weights avoid CUDA grid_sample's
+    atomic backward. Gradients at grid knots use a valid symmetric subgradient.
+    """
+    y,x=torch.meshgrid(torch.arange(16,device=xy.device),torch.arange(16,device=xy.device),indexing='ij')
+    grid=torch.stack((x,y),-1).float().reshape(256,2)
+    weight=(1-(xy[:,:,None].float()-grid[None,None]).abs()).clamp_min(0).prod(-1)
+    return weight@descriptors.float()
