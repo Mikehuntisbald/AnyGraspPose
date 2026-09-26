@@ -165,7 +165,7 @@ def main():
             if plan.get('fixed_training_batch'):noise[0].zero_()
             elif step % 10 == 0: noise.zero_()
             base = update(truth, noise[:, :3], noise[:, 3:], diameter)
-            if step % 4 == 3 and not plan.get('paired_estimates'): base = torch.stack([e.initial for e in episodes])
+            if step % 4 == 3 and (not plan.get('paired_estimates') or plan.get('paired_empirical_initializers',False)): base = torch.stack([e.initial for e in episodes])
             scenes = [prepare_scene(e.rgb[0], e.depth[0], base[i], e.mesh, e.k, e.times[0], e.stream, e.cad, factory.renderer, fast=True) for i,e in enumerate(episodes)]
             occlusions = []
             for e,s,seed in zip(episodes, scenes, seeds):

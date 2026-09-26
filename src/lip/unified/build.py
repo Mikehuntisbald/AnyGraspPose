@@ -121,6 +121,7 @@ def build_model(config,device='cuda'):
                 torch.manual_seed(config['seed']+56)
                 model.flow_reconstruction = FlowReconstruction().to(device)
             model.model_version = 'iterative-template-flow-jepa-v56'
+            model.flow_reconstruction.transport_gain=float(config['flow_reconstruction'].get('transport_gain',1.))
             if config['flow_reconstruction'].get('local_flow',{}).get('enabled'):
                 from .local_flow import LocalFlowHead
                 model.flow_reconstruction.local_flow_head=LocalFlowHead(

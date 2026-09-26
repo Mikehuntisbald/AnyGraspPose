@@ -85,3 +85,16 @@ def test_projection_and_disjoint_real_proxy_flow_supervision():
     labels['uv'] += 7
     again, _ = model(patch, observed, cad, geometry, valid, reference)
     assert torch.equal(updated, again)
+
+
+def test_transport_gain_changes_write_without_changing_first_round_matches():
+    model,patch,observed,cad,geometry,valid=fixture()
+    reference=template_points(geometry,valid)
+    _,baseline=model(patch,observed,cad,geometry,valid,reference)
+    model.transport_gain=100.
+    _,strong=model(patch,observed,cad,geometry,valid,reference)
+    assert torch.equal(baseline['uv'],strong['uv'])
+    torch.testing.assert_close(strong['write'],100*baseline['write'])
+    model.disable_transport=True
+    unchanged,_=model(patch,observed,cad,geometry,valid,reference)
+    assert torch.equal(unchanged,patch)

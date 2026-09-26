@@ -47,6 +47,7 @@ class FlowReconstruction(nn.Module):
         nn.init.zeros_(self.write[-1].bias)
         # Inference-only causal interventions; not confidence-based eval masks.
         self.disable_transport = False
+        self.transport_gain = 1.
         self.disable_recovery_feedback = False
 
     @torch.autocast('cuda', enabled=False)
@@ -115,7 +116,7 @@ class FlowReconstruction(nn.Module):
         residual = (aligned[..., -1]-observed_depth)*observed_mass
         context = torch.cat((aligned, mass[..., None].clamp_max(4), observed_depth[..., None],
                              observed_mass[..., None], residual[..., None]), -1)
-        write = .1*self.write(context)*(mass/(mass+1))[..., None]*valid[..., None]
+        write = (.1*self.transport_gain)*self.write(context)*(mass/(mass+1))[..., None]*valid[..., None]
         if self.disable_transport: write = write*0
         return patch+write.to(patch.dtype), dict(
             uv=uv, flow=uv-reference['uv'], scores=appearance.masked_fill(~valid[:, None], -1e4),
