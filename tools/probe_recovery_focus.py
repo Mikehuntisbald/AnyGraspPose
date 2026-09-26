@@ -189,6 +189,17 @@ def main():
                             spatial_cad_proxy=feature_diagnostics(out,target,target.proxy_weight,True),
                             geometry_focus_real=geometry_diagnostics(out,target,target.geometry_real_weight,float(mesh['diameter'])),
                             geometry_focus_proxy=geometry_diagnostics(out,target,target.geometry_proxy_weight,float(mesh['diameter'])))
+                        if target.cad_geometry_xyz is not None:
+                            canonical_target=replace(target,surface_xyz=target.cad_geometry_xyz)
+                            for kind,weight in [('real',target.geometry_real_weight),('proxy',target.geometry_proxy_weight)]:
+                                diagnostics=geometry_diagnostics(out,canonical_target,weight,float(mesh['diameter']))
+                                if diagnostics is not None and getattr(getattr(m,'cad_transport',None),'mandatory_lookup',False):
+                                    error=(out['surface_xyz']-target.cad_geometry_xyz).norm(dim=1,keepdim=True)*float(mesh['diameter'])*1000
+                                    lookup=out['transport_gate'];count=weight.sum()
+                                    diagnostics.update(lookup_fraction=float((lookup*weight).sum()/count),
+                                        lookup_xyz_contribution_mm=float((error*lookup*weight).sum()/count),
+                                        fallback_xyz_contribution_mm=float((error*(1-lookup)*weight).sum()/count))
+                                row['geometry_canonical_'+kind]=diagnostics
                         if a.cad_prior_audit and policy=='off':
                             d=float(mesh['diameter']);rd=scene.render['depth'][None]
                             rv=(rd>0)&scene.bounds

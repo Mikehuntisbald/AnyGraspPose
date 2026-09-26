@@ -36,6 +36,7 @@ def analyze(root, world):
                 for metric in ('patches','raw_feature_loss','raw_cosine','raw_retrieval'):
                     assert len({v[metric] for v in vals})==1
     regions=('spatial_hidden_real','spatial_visible_real','spatial_cad_proxy','geometry_focus_real','geometry_focus_proxy')
+    if any('geometry_canonical_real' in r for r in records):regions+=('geometry_canonical_real','geometry_canonical_proxy')
     if any('cad_match_real' in r for r in records):regions+=('cad_match_real','cad_match_proxy')
     if any('spatial_hidden_real_mid' in r for r in records):regions+=('spatial_hidden_real_mid','spatial_cad_proxy_mid')
     if any('local_real_mid' in r for r in records):regions+=('local_real_mid','local_real_last','local_proxy_mid','local_proxy_last')

@@ -25,6 +25,10 @@ The corrupted arm receives the normal textured artificial occlusion. The clean
 arm receives the original current sensor image/depth. Both retain the same
 original artificial/natural target masks and the same visible-correspondence
 loss domain, so restored evidence does not silently change target weighting.
+Visibility/evidence labels describe the ACTUAL input: the clean arm uses full
+annotated visible support, while recovery query masks and real-depth targets
+remain the same. Keeping the old corrupted visibility label would incorrectly
+teach the clean model to reject available measurements.
 The model processes64 pose hypotheses per update; checkpoint sampler position
 counts32 distinct observations. No history, pose loss or DINO feature loss.
 
@@ -40,3 +44,12 @@ between hypotheses and gradients into JEPA/DPT/transport. The runtime is pinned
 at`/tmp/dexycb_visible_correspondence_v40`; artifacts are under
 `/mnt/why/dexycb_lip/unified_jepa_20260921/visible_correspondence_v40`.
 No automatic extension beyond100 updates or default-model promotion.
+
+During clean-arm startup, this visibility-label mismatch was caught after its
+two-step startup and before the main continuation. The controller was stopped,
+its incomplete clean artifact preserved as`clean_aborted_visibility`, and only
+the clean arm restarted from the same parent in a NEW pinned runtime
+`/tmp/dexycb_visible_correspondence_v40_cleanfix`. The completed corrupted arm
+was preserved. A new unit test verifies visibility correction without changing
+the recovery masks or depth targets. The original master interruption record
+must remain; final completion must verify both individual arms separately.

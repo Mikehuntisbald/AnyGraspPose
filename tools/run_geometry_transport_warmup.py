@@ -1,4 +1,4 @@
-"""One100-update decoder diagnostic, then stop; no backbone/pose changes."""
+"""Bounded geometry diagnostic with strict resume and paired input probes."""
 import json,os,subprocess,sys,time,signal,hashlib,tarfile
 import argparse
 import yaml
@@ -46,7 +46,10 @@ def main():
             for log in logs:log.close()
     try:
         if subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip():raise RuntimeError('GPUs occupied')
-        run('tests',[['-m','pytest','-q','tests/jepa/test_cad_transport.py','tests/jepa/test_canonical_surface_targets.py','tests/jepa/test_execution_speed.py','tests/jepa/test_paired_geometry_curriculum.py']])
+        checks=['tests/jepa/test_cad_transport.py','tests/jepa/test_canonical_surface_targets.py','tests/jepa/test_execution_speed.py','tests/jepa/test_paired_geometry_curriculum.py']
+        if yaml.safe_load((exe/config).read_text()).get('supervision_quality',{}).get('enabled'):
+            checks.append('tests/jepa/test_supervision_quality.py')
+        run('tests',[['-m','pytest','-q',*checks]])
         for step in (2,args.steps):
             command=['-m','torch.distributed.run','--standalone','--nproc_per_node=8','tools/fp_worker.py','tools/train_geometry_transport.py','--config',config,'--stop-at',str(step)]
             if step!=2:command+=['--resume',str(out/'last.pt')]
