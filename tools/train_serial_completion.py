@@ -43,7 +43,7 @@ def main():
     model,source,new=initialize(c);del source
     if shared_plan:
         if c['serial_completion'].get('oracle_rehearsal_weight',0):raise ValueError('Shared-patch trial uses actual predictions only')
-        if not (a.shared_patch_from or a.resume):raise ValueError('Explicit shared-patch migration or full resume required')
+        if not (a.shared_patch_from or a.resume or (a.fidelity_from and c.get('training_window'))):raise ValueError('Explicit shared-patch migration or full resume required')
     else:
         oracle=torch.load(Path(a.oracle)/'readout.pt',map_location='cpu',weights_only=False)
         states=model.state_dict()
@@ -155,7 +155,7 @@ def main():
         if rank==0:atomic_json(out/f'code_adaptation{start}.json',dict(step=start,checkpoint_sha256=sha(a.adapt_from),previous_source_sha256=old['source_sha256'],source_sha256=provenance['source_sha256'],model_optimizer_scheduler_rng_exact=True,reason='Preserve readout oracle response; exact visible correspondence mask; paired observations remain identical'))
     elif a.resume:start=resume(a.resume,model,opt,scheduler,c,provenance,rank,world)['step']
     else:save(out/'initial.pt',model,opt,scheduler,0,c,provenance)
-    batch=1 if a.preflight else c['runtime']['microbatch']
+    batch=1 if a.preflight and not c.get('training_window') else c['runtime']['microbatch']
     # Keep rank model initialization equal; rank RNG differs only afterwards.
     if not (a.resume or a.adapt_from or a.fidelity_from or a.readout_adapt_from or a.shared_patch_from):torch.manual_seed(c['seed']+rank)
     rehearsal_weight=c['serial_completion'].get('oracle_rehearsal_weight',0.)
@@ -174,7 +174,7 @@ def main():
         for lane in range(batch):
             seed=9000000+(step*world+rank)*batch+lane
             for attempt in range(100):
-                sample=factory.sample(seed+attempt*100000003,frames=12)
+                sample=factory.sample(seed+attempt*100000003,frames=c.get('training_window',{}).get('frames',12))
                 if not heldout(sample[0].stream):result.append(sample);break
             else:raise RuntimeError('Cannot draw training sequence outside gate holdout')
         return result
@@ -278,6 +278,8 @@ def main():
             row=dict(step=step+1,source_step=c.get('geometry_priority',{}).get('source_step',45400),seconds=time.monotonic()-begun,loss_feedback=loss_value,pair=float(pair.detach()),
                 metrics=metrics,oracle_rehearsal=float(rehearsal.detach()),gradient_norm=float(norm),communication_seconds=communication,
                 learning_rates={g['category']:g['lr'] for g in opt.param_groups},peak_gpu_gb=torch.cuda.max_memory_allocated()/1e9)
+            if c.get('training_window'):
+                row['sampled_windows']=[dict(stream=e.stream,provenance=e.training_window,first_timestamp=e.times[0],sampled_absolute_frames=[round(e.times[f]*factory.audit['fps']) for f in (frame,frame+1)]) for e in ep]
             if balance:row['gradient_balance']={k:float(torch.stack([x[k] for x in balance]).mean()) for k in balance[0]}
             log.write(json.dumps(row,allow_nan=False)+'\n');log.flush()
             if rank==0 and (step<3 or (step+1)%25==0):print(json.dumps(row),flush=True)

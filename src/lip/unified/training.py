@@ -28,6 +28,7 @@ class Episode:
     occlusion_plan: object
     history: bool
     cad_enabled: bool
+    training_window: dict|None=None
 
 
 class Factory(FastRigidEpisodeFactory):
@@ -44,7 +45,12 @@ class Factory(FastRigidEpisodeFactory):
     def sample(self,seed,frames=None):
         from scipy.spatial.transform import Rotation
         t=self.config['training'];frames=frames or t['episode_frames']
-        sid,initial,first,count,rng,arrays=self.prepare_cpu(seed,supervised=frames,burn=0)
+        window=None
+        if self.config.get('training_window',{}).get('enabled',False):
+            from .full_window import prepare_cpu
+            data,window=prepare_cpu(self,seed,frames)
+            sid,initial,first,count,rng,arrays=data
+        else:sid,initial,first,count,rng,arrays=self.prepare_cpu(seed,supervised=frames,burn=0)
         stream=self.streams[sid];mesh=self.mesh(stream)
         cad=self.store.get(self.root/stream['mesh_path'],mesh)
         rgb=self.upload(arrays[0]).float()/255;depth=self.upload(arrays[1])*self.audit['depth_scale_to_m']
@@ -55,11 +61,15 @@ class Factory(FastRigidEpisodeFactory):
             displacement,rotation,_=sample_center_perturbation(rng,float(mesh['diameter']))
             pose=pose.clone();pose[:3,:3]=torch.tensor(Rotation.from_rotvec(rotation).as_matrix(),device=self.device,dtype=torch.float32)@pose[:3,:3]
             pose[:3,3]+=torch.tensor(displacement,device=self.device,dtype=torch.float32)
+        if window is not None and first!=initial['frame_index']:
+            from .full_window import transport_centered_error
+            source_truth=center_pose(torch.as_tensor(self.pose_labels[sid][initial['frame_index']],device=self.device),center)
+            pose=transport_centered_error(pose,source_truth,truth[0])
         heavy=bool(rng.integers(2));duration=int(rng.choice(t['heavy_durations']))
         plan=self.occluders.plan(rng,stream['object_id'],heavy=heavy,start=t['anchor_frames'],duration=duration)
         return Episode(rgb,depth,pose,mesh,torch.tensor(stream['intrinsics'],device=self.device),
             [frame/self.audit['fps'] for frame in range(first,first+count)],sid+f'|draw{seed}',cad,plan,
-            heavy or bool(rng.integers(2)),not(heavy and rng.uniform()<t['heavy_cad_dropout'])),(truth,self.upload(arrays[2]))
+            heavy or bool(rng.integers(2)),not(heavy and rng.uniform()<t['heavy_cad_dropout']),window),(truth,self.upload(arrays[2]))
 
 
 class TrainingEpisode(nn.Module):
