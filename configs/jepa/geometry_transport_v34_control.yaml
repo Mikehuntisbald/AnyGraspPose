@@ -1,0 +1,278 @@
+architecture_id: stream_serial_completion_jepa_v21
+augmentation:
+  bank_sha256: 49b3fd6d573da3f983bb95141e10e8f63c0fccc6348e21c2d1c8d4e298764341
+  depth: offset donor relief in front; absent donor depth invalid
+  hand_probability: 0.5
+  kind: train-real-rgbd-cutouts-v1
+  other_object_excludes_target: true
+  temporal: fixed donor and smooth crop-space motion per episode
+paths:
+  baseline_scored: /mnt/why/dexycb_lip/smooth_val_evaluation_20260915/runs/full/residual/scored
+  cad_cache: /mnt/why/dexycb_lip/unified_jepa_20260921/cad_cache
+  data_root: /mnt/why/dexycb_lip/cache/raw_full_20260910
+  dino_checkpoint: /mnt/why/models/dinov2_reg_small/dinov2_vits14_reg4_pretrain.pth
+  dino_repo: /mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa
+  index_root: /mnt/why/dexycb_lip/cache/dexycb_s0
+  occluder_bank: /mnt/why/dexycb_lip/unified_jepa_20260921/occluder_bank_v1
+  output: /mnt/why/dexycb_lip/unified_jepa_20260921/geometry_transport_v34/control/runs/seed42
+  rigid_frame_cache: /tmp/dexycb_jepa_rigid_train_cache_v1
+  utonia_checkpoint: /mnt/why/models/utonia/utonia.pth
+  val_initializers: /mnt/why/dexycb_lip/posecnn_val_20260915/runs/full/initializers.json
+  visibility_reference: /mnt/why/dexycb_lip/adaptive_reference_20260914/runs/adaptive_pair/adaptive_reference/s0_val
+runtime:
+  accumulation: 1
+  checkpoint_every: 50
+  compile_frame: false
+  compile_loss: false
+  deterministic_algorithms: true
+  fill_uninitialized_memory: false
+  formal: true
+  fused_optimizer: true
+  gradient_reduction: once_per_episode_fp32
+  microbatch: 4
+  reuse_teacher_real: false
+  segmented_backward: true
+  world: 8
+  pose_pair_frames: []
+  history_pair_frames: []
+  phase_relative_schedule: true
+  compile_dino: false
+  disable_history: true
+  frame_batch: 1
+  reference_dino_graph: false
+  teacher_dino_graph: false
+  fast_geometry: true
+  batch_teacher_render: true
+  vectorized_teacher: true
+  vector_geometry: true
+seed: 42
+supervision:
+  geometry_proxy: same GT rendering, centered XYZ/diameter and (depth-base_z)/diameter
+  geometry_resolution: 224
+  loss_regions: natural-hidden CAD proxy; artificially-hidden original-visible real;
+    visible canonical correspondence
+  real_features: 'originally visible then artificially hidden: original real features
+    and valid real depth take precedence; disjoint CAD proxy regions'
+  rgb_proxy: full GT silhouette overlay
+  texture_filter: linear-mipmap-linear
+  unmasked_visible_reconstruction: none; student input and pose/visibility objectives
+    only
+  version: fullcad-rgbd-v2-physical-target-v1
+  real_geometry_max_radius_d: 1.0
+  invalid_real_geometry: exclude target beyond one diameter from GT mesh center; validity
+    unknown; no CAD substitution
+training:
+  anchor_frames: 0
+  history_pair_weight: 0
+  effective_batch: 32
+  episode_frames: 1
+  heavy_cad_dropout: 0.0
+  heavy_durations:
+  - 8
+  - 16
+  - 32
+  learning_rates:
+    new: 0.0001
+    predictor: 3.0e-05
+    pose: 0.0001
+    encoder: 1.0e-06
+  loss_weights:
+    cad_feature: 0.0
+    feature_error: 0.0
+    geometry_validity: 0.0
+    real_feature: 0.0
+    surface_depth: 0.0
+    surface_xyz: 0.0
+    visibility_support: 0.0
+    spatial_centered: 0.0
+    spatial_correspondence: 0.0
+    camera_consistency: 0.0
+    geometry_beta: 0.0
+    cad_surface_correspondence: 0.0
+    feature_mid_weight: 0.625
+    feature_last_weight: 0.625
+    log_feature_layers: 0.0
+    local_difference: 0.0
+    local_correspondence: 0.0
+    surface_normal: 0.0
+    coarse_surface: 0.0
+    pose: 0.0
+    geometry_proxy_factor: 0.0
+  lr_warmup_steps: 200
+  max_steps: 100
+  perturb_probability: 0.3
+  tbptt_frames: 4
+  warmup_steps: 0
+  weight_decay: 0.01
+validation:
+  official_test: false
+  steps:
+  - 0
+  - 100
+  metric_early_stop: false
+  oracle_gate_required: false
+  history_reconstruction_region: hidden_real
+  fixed_feature_teacher:
+    checkpoint: /mnt/why/dexycb_lip/unified_jepa_20260921/local_difference_v15/source/step11000.pt
+    sha256: 49d49a51d58ec566000a9050465b7304989a2d5be74ad78f3d76bc6aae1166ac
+weights:
+  dino_checkpoint: 0780fb2ef3aba09334219244f99620e3495922fd0a4fef47ec3eafb3bc68ef8e
+  utonia_checkpoint: a0a2e5e234ce943082ae9ba26bcff74e285f16ed8d04fed5c36ffe8dc30ea353
+comparison:
+  baseline_checkpoint_sha256: 89d5a66bc72d8afc5eb57d20b4a4ba52964dc7706dc7058af8bb9a01cde15868
+  use: evaluation only; never model initialization
+architecture:
+  appearance: trainable shared DINO blocks4/11 -> same spatial pair fusion
+  geometry: observed 2-channel and rendered 5-channel stems -> shared CNN and residual
+    blocks -> pair with explicit 2-channel residual -> residual CNN
+  fusion: one 8-head appearance-query / geometry-key-value attention; positions on
+    both sides; null option and residual; 256 patches by 256 channels
+  jepa: four unique JEPA blocks; measured-only coarse CAD reads; late measured/recovered
+    CAD read recomputes shared block4
+  fp_scope: architecture idea only; no FP parameters, old project checkpoint or bypass
+  history: disabled student read/write and replay loss; independent frames batched8
+  readout: Frozen existing pose modules; this trial accepts geometry metrics only
+  geometry_readout: canonical soft CAD correspondence, measured target support, inferred
+    confidence capped at 0.5 and reduced by measured support
+cad_surface:
+  tokens: 256
+  cache: /mnt/why/dexycb_lip/unified_jepa_20260921/cad_surface_jepa_v12/cad_surface_cache
+  models_info: /mnt/why/dexycb_lip/cache/raw_full_20260910/bop/models/models_info.json
+  models_info_sha256: 13978298d8c37f089a7e0c421ed8be867fa836818936f5499786175da2c4c4cb
+  read_layers:
+  - 1
+  - 3
+  supervision: actual CAD-read probabilities; dense-target samples; declared BOP symmetry
+    orbits
+  dpt: true
+ema_encoder:
+  enabled: true
+  momentum: 0.996
+  update: once after synchronized successful optimizer step
+  initialization: preserve V33 full2200 EMA and counter; maintain shadow without teacher
+    DINO forward
+  scope: all online DINO parameters; shared observed and rendered RGB
+  target: independent stop-gradient EMA DINO; never reuse online features
+dino_layers:
+  student:
+  - 4
+  - 11
+  teacher:
+  - 4
+  - 11
+local_structure:
+  scales:
+  - 1
+  - 2
+  - 4
+  directions:
+  - horizontal
+  - vertical
+  - diagonal
+  - anti-diagonal
+  target_rms_floor: 0.1
+  local_radius: 2
+  temperature: 0.1
+  source_isolation: real and CAD computed independently; non-query endpoints use detached
+    same-source teacher anchors
+  masks: gradient on missing queries only; long edges require valid intermediate sites;
+    no predicted confidence masks
+  evaluation: fixed source11000 EMA targets; no training-time frozen-teacher forward
+surface_decoder:
+  kind: dpt
+  width: 64
+  levels:
+  - 1
+  - 2
+  - 3
+  - 4
+  pyramid_sizes:
+  - 64
+  - 32
+  - 16
+  - 8
+  output_size: 224
+  inputs: JEPA block outputs only; no encoder/RGB bypass
+cad_rope3d:
+  enabled: true
+  cycles_per_diameter:
+  - 0.5
+  - 1.0
+  - 2.0
+  - 4.0
+  - 8.0
+surface_normals:
+  derived_from: canonical XYZ finite differences; no separate normal head
+  strides:
+  - 1
+  - 2
+  weight: 0.1
+  minimum_tangent_d: 0.0001
+  minimum_sine: 0.05
+  maximum_neighbor_distance_d_per_stride: 0.05
+  mask: all stencil pixels within one eligible teacher source; no prediction mask
+staged_rope:
+  enabled: true
+  visible_threshold: 0.7
+  measured_min_mass: 0.5
+  measured_max_std_d: 0.05
+  recovered_threshold: 0.5
+  recovered_max_trust: 0.5
+  early_read_block: 2
+  late_read_block: 4
+  coarse_taps:
+  - 1
+  - 2
+  - 3
+  - 4
+  final_taps:
+  - 1
+  - 2
+  - 3
+  - 4
+  shared_dpt: true
+  coordinates: measured camera surface; recovered depth lifted through crop rays;
+    centered at estimated translation / diameter
+  position_gradient: detached; coarse geometry receives direct teacher-only losses
+  refinement: recompute the final shared block from its pre-CAD-read input after a
+    complete coarse pass
+  recovered_support_threshold: 0.7
+serial_completion:
+  readout_feature_source: decoded
+initialization:
+  transferred: All V33 full2200 existing model tensors exact; only transport head
+    new
+  optimizer: reset; exact resumes within stage
+  default_model_changed: false
+gradient_integrity:
+  require_shared_preview_gradients: true
+shared_patch_joint:
+  patch_scale: 0.0
+  scope: preserve existing V33 relation module; direct patch contribution disabled
+training_window:
+  enabled: true
+  frames: 1
+  mode: uniform_valid_window
+  source_step: 2200
+  transport: Independent camera-frame rotation error and centered translation error
+    transported using TRAINING labels only; native inference unchanged
+  cache: Use exact packed native bytes when present; explicit raw native fallback
+    for missing later frames
+cad_transport:
+  enabled: false
+  reference: current estimated-pose CAD raster only
+  max_flow_pixels: 112
+  canonical_residual_bound_d: 0.05
+  depth_residual_bound_d: 0.25
+  teacher_match_radius_d: 0.03
+geometry_transport_training:
+  source_checkpoint: /mnt/why/dexycb_lip/unified_jepa_20260921/full_window_v33/full/runs/seed42/last.pt
+  source_sha256: 5cc8d8b774e8232b3a16a4678345819797627e4bf606c615550c0a51442d861e
+  source_step: 2200
+  updates: 100
+  objective: separate real/proxy XYZ and depth; camera consistency; visible canonical
+    identity; normals; candidate flow and support
+  optimizer: reset for geometry-only stage
+  history: false
+  pose_loss: false
+  dino_feature_loss: false

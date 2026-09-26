@@ -54,6 +54,13 @@ def build_model(config,device='cuda'):
         if config.get('staged_rope',{}).get('enabled',False):
             from .staged_rope import enable_staged_rope
             enable_staged_rope(model,config['staged_rope'])
+        if config.get('cad_transport'):
+            if config.get('surface_decoder',{}).get('kind')!='dpt':
+                raise ValueError('CAD transport requires DPT dense JEPA features')
+            from .cad_transport import CADTransport
+            with torch.random.fork_rng(devices=[]):
+                torch.manual_seed(config['seed']+34)
+                model.cad_transport=CADTransport(config['cad_transport']['enabled']).to(device)
         if config.get('readout_adaptation'):
             if not isinstance(model,SerialCompletionTracker):
                 raise ValueError('Shape-conditioned readout requires serial completion')
@@ -79,6 +86,8 @@ def build_model(config,device='cuda'):
                     torch.manual_seed(config['seed']+32)
                     model.geometry_readout=SharedPatchRelations(config['shared_patch_joint']['patch_scale']).to(device)
                 model.model_version='shared-patch-and-decoded-content-v32'
+        if config.get('cad_transport'):
+            model.model_version='geometry-cad-transport-v34' if config['cad_transport']['enabled'] else 'geometry-dpt-control-v34'
         return model
     if config['architecture_id']=='stream_dino_fp_staticutonia_jepa_rgbd_v3':
         return build_fp_model(config,device)
