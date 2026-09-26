@@ -1,0 +1,5 @@
+{
+  "expected_failure": true,
+  "exit_code": 1,
+  "message": "Local-flow export is inference-only; create an explicit geometry training configuration"
+}

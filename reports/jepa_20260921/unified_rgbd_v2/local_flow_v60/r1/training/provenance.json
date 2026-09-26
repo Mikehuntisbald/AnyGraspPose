@@ -1,0 +1,17 @@
+{
+  "cache_hash": "27f03ee5d8d6ab2ae87c37ca5035bbfeeb612f025bcf5f7953f89b016df2304d",
+  "source_sha256": "044a8f928d324e54c8e2cab2927dd31e55942cde98bc09fa5f18ce5245d0fa5f",
+  "trainer_sha256": "f092d76718d72588fdd3c07e49dbdacf05b6195aba19de7b398e67e7fe1616e1",
+  "module_sha256": "3be02e50e16265b8a21a559de4ff5113495b8d5a1a3f9eb01ad97866f738858c",
+  "steps": 1000,
+  "lr": 0.001,
+  "seed": 42,
+  "batch": 1024,
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "physical_train_holdout_disjoint": true,
+  "backbone_frozen": true,
+  "loss": "pixel SmoothL1 beta1; equal eligible frame-region sampling, proxy weight0.5; both frozen rounds",
+  "arms": "identical pretrained initialization/architecture/minibatches; control zeros added77 dimensions",
+  "inference_export_only": true
+}

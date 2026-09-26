@@ -1,0 +1,18 @@
+{
+  "stage": "complete",
+  "pids": [
+    2092483,
+    2092484,
+    2092485,
+    2092486,
+    2092487,
+    2092488,
+    2092489,
+    2092490
+  ],
+  "time": 1790460612.447575,
+  "completed": true,
+  "head_updates": 1000,
+  "backbone_frozen": true,
+  "default_model_changed": false
+}
