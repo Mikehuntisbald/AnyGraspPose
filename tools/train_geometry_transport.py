@@ -184,7 +184,9 @@ def main():
             if config.get('cad_image',{}).get('enabled'):
                 from lip.unified.cad_image_correspondence import image_correspondence_targets,image_correspondence_loss
                 labels=image_correspondence_targets(output,target,torch.stack([s.k_crop for s in scenes]),observation.diameter,visible)
-                image_loss,image_metrics=image_correspondence_loss(output,labels)
+                image_loss,image_metrics=image_correspondence_loss(output,labels,
+                    balanced_visibility=config['cad_image'].get('balanced_visibility',False),
+                    visibility_weight=config['cad_image'].get('visibility_weight',.1))
                 loss=loss+config['cad_image']['loss_weight']*image_loss
                 metrics.update(image_metrics)
                 if step==0:

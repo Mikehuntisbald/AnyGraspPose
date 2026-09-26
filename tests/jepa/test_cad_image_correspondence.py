@@ -73,3 +73,27 @@ def test_pnp_recovers_known_pose_with_outliers_and_has_safe_empty_fallback():
     np.testing.assert_allclose(pose[:3,3],t,atol=1e-5)
     fallback,receipt=solve_correspondences(xyz,uv,np.zeros(128),k,base)
     assert not receipt['accepted'];np.testing.assert_array_equal(fallback,base)
+
+
+def test_balanced_visibility_cannot_reduce_positive_mass_by_adding_negatives():
+    from lip.unified.cad_image_correspondence import balanced_binary_loss
+    values=[]
+    for negatives in (1,100):
+        logits=torch.full((1,negatives+1),-4.,requires_grad=True)
+        labels=torch.zeros_like(logits,dtype=torch.bool);labels[:,0]=True
+        loss=balanced_binary_loss(logits,labels,torch.ones_like(labels))
+        loss.backward();values.append((loss.detach(),logits.grad[:,0].clone()))
+        assert logits.grad[:,0]<0 and (logits.grad[:,1:]>0).all()
+    torch.testing.assert_close(values[0][0],values[1][0])
+    torch.testing.assert_close(values[0][1],values[1][1])
+    empty=balanced_binary_loss(logits,labels,torch.zeros_like(labels))
+    assert torch.isfinite(empty) and empty==0
+
+
+def test_estimated_projection_prior_is_explicit_optional_and_not_teacher_input():
+    read=CADImageReadout(width=4,points=4,stride=1)
+    atlas=dict(atlas_query=torch.zeros(1,16,4),atlas_keys=torch.zeros(1,4,4),atlas_xyz=torch.zeros(1,4,3),atlas_available=torch.ones(1,4,dtype=torch.bool),atlas_temperature=.1)
+    projection=torch.tensor([[[1.,1.],[2.,2.],[1.,2.],[2.,1.]]])
+    out=read(atlas,(4,4),estimated_uv=projection,prior_sigma=.1)
+    torch.testing.assert_close(out['cad_image_uv'],projection,atol=1e-6,rtol=0)
+    assert torch.equal(read(atlas,(4,4))['cad_image_uv'],read(atlas,(4,4),estimated_uv=projection)['cad_image_uv'])

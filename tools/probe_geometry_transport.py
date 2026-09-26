@@ -30,6 +30,7 @@ def main():
     p.add_argument('--lip-baseline', action='store_true')
     p.add_argument('--clean-control', action='store_true',help='Remove synthetic input occlusion, but preserve original corrupted-case targets/masks')
     p.add_argument('--atlas-ablation',choices=['prior_only','learned_only'])
+    p.add_argument('--correspondence-audit',action='store_true')
     a = p.parse_args(); torch.cuda.set_device(0); torch.set_num_threads(2); torch.manual_seed(42)
     c = yaml.safe_load(Path(a.config).read_text()); model = build_model(c)
     record = torch.load(a.checkpoint, map_location='cpu', weights_only=False)
@@ -176,13 +177,13 @@ def main():
                         metrics[name]['predicted_projection_coverage'] = float(projection['available'][mask].float().mean())
                         metrics[name]['predicted_projection_epe'] = float((projection['flow']-truth_transport['flow']).norm(dim=1,keepdim=True)[eligible].mean()) if eligible.any() else None
             row = dict(seed=seed, stream=e.stream, heavy=heavy, natural=item%4==0, clean_control=a.clean_control,window=e.training_window, metrics=metrics)
-            if 'cad_image_uv' in output:
+            if 'cad_image_uv' in output or a.correspondence_audit:
                 from cad_image_diagnostics import diagnose
                 from lip.unified.execution_speed import crop_images_fast
                 visible=(crop_images_fast(masks[:1].float(),scene.affine,mode='nearest')>.5)&scene.bounds
                 if not a.clean_control:visible=visible&~occ.mask
-                row['correspondence']=diagnose(output,target,scene,obs,visible,gt[0],e.mesh,seed)
-                if item==2:
+                row['correspondence']=diagnose(output,target,scene,obs,visible,gt[0],e.mesh,seed,factory.renderer if a.correspondence_audit else None,model if a.correspondence_audit else None)
+                if item==2 and 'cad_image_uv' in output:
                     from lip.unified.cad_image_correspondence import image_correspondence_targets
                     endpoint_labels=image_correspondence_targets(output,target,scene.k_crop[None],obs.diameter,visible)
                     uv=output['cad_image_uv'][0]
@@ -222,6 +223,7 @@ def main():
         records=len(rows), lookup_audit=a.lookup_audit, projection_audit=a.projection_audit, physical_holdout=True, training_split_only=True, official_test_access=False, teacher_inputs=False,
         clean_control=a.clean_control,clean_control_scope='Artificial occlusion removed from current input only; original target masks retained. Privileged input-availability diagnostic, never a heavy-occlusion deployment result' if a.clean_control else None,
         atlas_ablation=a.atlas_ablation,
+        correspondence_audit=a.correspondence_audit,
         lip_baseline_sha256=lip_sha,lip_baseline_scope='Same corrupted current input/base/crop, empty history, one refinement; no GT render fed to LIP; conditional diagnostic, not native LIP accuracy' if lip is not None else None,
         oracle_lookup_scope='GT correspondence and GT depth diagnostic only; common supported pixels; never deployed', seconds=time.monotonic()-start), indent=2)+'\n')
 

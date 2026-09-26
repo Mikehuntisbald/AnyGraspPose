@@ -28,7 +28,7 @@ class CADImageReadout(nn.Module):
         self.visibility = nn.Sequential(nn.Linear(2*width+3, 64), nn.GELU(), nn.Linear(64, 2))
 
     @torch.autocast('cuda', enabled=False)
-    def forward(self, atlas, image_shape):
+    def forward(self, atlas, image_shape, estimated_uv=None, prior_sigma=None):
         b, _, width = atlas['atlas_query'].shape
         h, w = image_shape
         qmap = atlas['atlas_query'].transpose(1, 2).reshape(b, width, h, w).float()
@@ -39,6 +39,9 @@ class CADImageReadout(nn.Module):
         available = atlas['atlas_available'][:, ids]
         scores = (keys @ q.transpose(-1, -2))/atlas['atlas_temperature']
         grid = image_grid(*qmap.shape[-2:], self.stride, q.device)
+        if prior_sigma is not None:
+            if estimated_uv is None or prior_sigma<=0:raise ValueError('Explicit estimated projection and positive sigma required')
+            scores=scores-(estimated_uv[:,ids,None].float()-grid[None,None]).square().sum(-1)/(2*prior_sigma**2)
         # Local soft argmax preserves subpixel endpoints without averaging distant
         # ambiguous modes. The global spatial CE supplies gradients to far errors.
         peak = scores.detach().argmax(-1)
@@ -104,7 +107,7 @@ Real depth labels are never changed; point identity labels always refer to CAD.
 
 
 @torch.autocast('cuda', enabled=False)
-def image_correspondence_loss(output, labels):
+def image_correspondence_loss(output, labels, balanced_visibility=False, visibility_weight=.1):
     logits = output['cad_image_scores'].float()
     # Gaussian endpoint labels with exact pixel-center convention. No estimated
     # pose prior in this CE: the matching features must localize the CAD point.
@@ -125,8 +128,22 @@ def image_correspondence_loss(output, labels):
         metrics['image_'+name+'_count'] = mask.sum().detach()
     for name in ('support', 'visible'):
         error = F.binary_cross_entropy_with_logits(output['cad_image_'+name+'_logits'].float(), labels[name].float(), reduction='none')
-        loss = loss+.1*mean_by_example(error, labels['known_'+name])
+        if balanced_visibility:
+            binary=balanced_binary_loss(output['cad_image_'+name+'_logits'].float(),labels[name],labels['known_'+name])
+        else:binary=mean_by_example(error, labels['known_'+name])
+        loss = loss+visibility_weight*binary
     return loss, metrics
+
+
+def balanced_binary_loss(logits, label, known):
+    """Equal positive/negative class mass within each nonempty example."""
+    error=F.binary_cross_entropy_with_logits(logits,label.float(),reduction='none')
+    masks=torch.stack((known&label,known&~label),1)
+    count=masks.sum(-1)
+    mean=(error[:,None]*masks).sum(-1)/count.clamp_min(1)
+    active=count>0
+    per=(mean*active).sum(-1)/active.sum(-1).clamp_min(1)
+    return (per*active.any(-1)).sum()/active.any(-1).sum().clamp_min(1)
 
 
 def solve_correspondences(xyz, uv, confidence, crop_k, base, seed=42):

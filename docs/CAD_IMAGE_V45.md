@@ -1,7 +1,6 @@
 # V45: explicit CAD-to-image correspondence through JEPA
 
-Status: implemented; a bounded100-update geometry/correspondence trial is running.
-No accuracy or default-model promotion is assumed before evaluation.
+Status: V45 completed100 updates and frozen64-record controls. Geometry/endpoint errors improved against its V44 parent, but robust pose did not improve. No promotion. V46 continues500 updates with corrected class normalization; its result is pending.
 
 ## Motivation and reference
 
@@ -34,3 +33,13 @@ Config: `configs/jepa/cad_image_v45.yaml`. Parent: V44 supervised100, SHA256 `f6
 Runtime: `/tmp/dexycb_cad_image_v45`. Artifacts: `/mnt/why/dexycb_lip/unified_jepa_20260921/cad_image_v45`. The pinned runtime must not be edited during execution.
 
 Remaining limitation: endpoint regression and a true CAD point bank do not themselves ensure reliable matches under severe occlusion; full native validation is required before adoption. The first solver diagnostic uses finite positive confidence and geometric consensus; calibrated visibility rejection needs a separately labeled frozen comparison.
+
+## Completed V45 result and V46 correction
+
+Equal physical-sequence means on the heavy fixed64 subset: real CAD XYZ14.422→13.376mm; proxy XYZ18.336→15.561mm. Real depth12.505→12.422mm; proxy depth13.360→12.826mm. Correspondence EPE observed11.196→8.402px, artificial-hidden11.408→9.232px, natural-hidden11.531→8.242px. These gains still do not beat original V38 real XYZ9.482mm and proxy14.996mm.
+
+Raw forward PnP rotation worsened13.624→14.593deg and translation61.781→72.576mm; the base has10deg/0mm by probe construction. Frozen visibility gating after training rejected every heavy update. Support recall was10.1%, current-visible recall0.94%; returning the base for every frame is not a refinement gain. Soft search priors at16/32px were also recorded, but visibility collapse makes their gated terminal results all-fallback, not evidence of successful localization.
+
+V46 changes only supervision configuration: positive and negative support/visibility classes get equal mass within each example, and the classification coefficient increases0.1→1.0. No new parameters. The test proves adding100 negative copies cannot reduce a positive sample's gradient mass. Classification scores after rebalancing are not calibrated deployment probabilities. V46 starts from V45 terminal checkpoint d67501ab547c40fcdebc84a67813e825121188ef73d4eb297da5b66c7097efcf, retains geometry/endpoint targets, and runs500 more updates with a fresh optimizer and strict2→500 resume. Its pinned runtime is `/tmp/dexycb_cad_image_v46`.32 targeted tests pass.
+
+The subsequent native40 diagnostic uses fixed previous-frame sealed LIP poses for crop/base, three fixed frames per sequence (duplicates removed), and natural/heavy inputs. It is conditional one-step evaluation, not closed-loop tracking. Its purpose is to avoid mistaking performance on10-degree/zero-translation probes for native pose quality.

@@ -5,7 +5,7 @@ from lip.unified.cad_image_correspondence import image_correspondence_targets,so
 
 
 @torch.no_grad()
-def diagnose(output,target,scene,observation,visible,truth,mesh,seed):
+def diagnose(output,target,scene,observation,visible,truth,mesh,seed,renderer=None,model=None):
     cpu=lambda x:x.detach().float().cpu().numpy()
     d=scene.diameter
     result={}
@@ -26,6 +26,20 @@ def diagnose(output,target,scene,observation,visible,truth,mesh,seed):
     cases={}
     if 'cad_image_uv' in output:
         cases['cad_to_image']=(cpu(output['cad_image_xyz'][0])*d,cpu(output['cad_image_uv'][0]),cpu(output['cad_image_confidence'][0]))
+        selected=(output['cad_image_support_logits'][0]>=0)&(output['cad_image_visible_logits'][0]>=0)
+        cases['cad_to_image_visible']=(cases['cad_to_image'][0],cases['cad_to_image'][1],cpu(output['cad_image_confidence'][0]*selected))
+        if model is not None:
+            result['search_prior_endpoints']={}
+            for sigma in (16.,32.):
+                alternative=model.cad_atlas_decoder.image_readout(output,output['surface_xyz'].shape[-2:],
+                    estimated_uv=observation.cad_atlas[1][:,:,15:17]*224,prior_sigma=sigma)
+                tag='cad_to_image_prior'+str(int(sigma))
+                alt_uv=alternative['cad_image_uv'][0]
+                selected=(alternative['cad_image_support_logits'][0]>=0)&(alternative['cad_image_visible_logits'][0]>=0)
+                cases[tag]=(cpu(alternative['cad_image_xyz'][0])*d,cpu(alt_uv),cpu(alternative['cad_image_confidence'][0]*selected))
+                cases[tag+'_all']=(cases[tag][0],cases[tag][1],cpu(alternative['cad_image_confidence'][0]))
+                error=(alternative['cad_image_uv']-labels['uv']).norm(dim=-1)
+                result['search_prior_endpoints'][tag]={n:float(error[labels[n]].mean()) if labels[n].any() else None for n in ('observed','real','proxy')}
     # Explicitly expose the existing inverse correspondences. Image coordinates
     # already identify each dense output; they were never absent from the map.
     h,w=output['surface_xyz'].shape[-2:]
@@ -36,6 +50,9 @@ def diagnose(output,target,scene,observation,visible,truth,mesh,seed):
     # One point per7x7 image cell: retain spatial coverage without GT masks.
     ids=(torch.arange(3,h,7,device=xyz.device)[:,None]*w+torch.arange(3,w,7,device=xyz.device)[None]).flatten()
     cases['image_to_cad']=(cpu(xyz[ids])*d,cpu(uv[ids]),cpu(conf[ids]))
+    evidence=output['evidence_logits'].sigmoid().reshape(1,1,16,16).repeat_interleave(14,-2).repeat_interleave(14,-1)
+    mask=((evidence>=.7)&(output['geometry_valid_logits'].sigmoid()>=.5)&(support>=.5)).flatten()
+    cases['image_to_cad_visible']=(cpu(xyz[ids])*d,cpu(uv[ids]),cpu(conf[ids]*mask[ids]))
     poses={'base':base,'frozen_head':cpu(output['pose_centered'][0])}
     result['solvers']={}
     for name,(points,pixels,weights) in cases.items():
@@ -53,4 +70,22 @@ def diagnose(output,target,scene,observation,visible,truth,mesh,seed):
         angle=np.arccos(np.clip((np.trace(pose[:3,:3]@gt[:3,:3].T)-1)/2,-1,1))*180/np.pi
         result['pose'][name]=dict(rotation_deg=float(angle),translation_mm=float(np.linalg.norm(pose[:3,3]-gt[:3,3])*1000),
             add_mm=add*1000,adds_mm=adds*1000,adds_005d=adds<.05*d,add_01d=add<.1*d)
+    if renderer is not None:
+        result['rigid_geometry']={}
+        for name in ('base','image_to_cad_visible','cad_to_image_visible','cad_to_image_prior16','cad_to_image_prior32'):
+            if name not in poses:continue
+            render=renderer(scene.cad['appearance'],torch.as_tensor(poses[name],device=scene.pose.device,dtype=torch.float32),scene.k_crop,224)
+            covered=render['mask'][None,None]&scene.bounds
+            # Fixed fallback policy for every arm; missing predicted silhouettes
+            # cannot silently remove difficult evaluation pixels.
+            xyz=torch.where(covered,render['xyz'][None]/d,output['surface_xyz'])
+            depth=torch.where(covered,render['depth'][None],output['surface_depth_m'])
+            dx=(xyz-target.cad_geometry_xyz).norm(dim=1,keepdim=True)*d*1000
+            dz=(depth-target.surface_depth_m).abs()*1000
+            regions={}
+            for kind,mask in [('real',target.geometry_real_weight),('proxy',target.geometry_proxy_weight)]:
+                regions[kind]=dict(pixels=int(mask.sum()),xyz_mm=float(dx[mask].mean()),depth_mm=float(dz[mask].mean()),
+                    covered_fraction=float(covered[mask].float().mean()),
+                    all_target_good_10mm_xyz_5mm_depth=float(((dx<10)&(dz<5)&covered)[mask].float().mean())) if mask.any() else None
+            result['rigid_geometry'][name]=regions
     return result
