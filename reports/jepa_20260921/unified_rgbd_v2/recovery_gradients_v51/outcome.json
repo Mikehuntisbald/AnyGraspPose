@@ -1,0 +1,46 @@
+{
+  "completed": true,
+  "checkpoint_sha256": "f651d6df004c7b025a7a827785a29ff1dd48621add96d5aad5aa8c65beabd6a9",
+  "training_observations": 32,
+  "paired_hypotheses": 64,
+  "optimizer_updates": 0,
+  "pose_evaluation": false,
+  "summary": {
+    "patch": {
+      "ce_to_geometry_norm_ratio_min": 7.77908212402286,
+      "ce_to_geometry_norm_ratio_max": 15.262901774996239,
+      "ce_to_geometry_norm_ratio_median": 11.282065000944016,
+      "depth_ce_cosine_min": -0.0825737789273262,
+      "depth_ce_cosine_max": 0.23095528781414032
+    },
+    "dense": {
+      "ce_to_geometry_norm_ratio_min": 5.590365493810048,
+      "ce_to_geometry_norm_ratio_max": 9.126683411758355,
+      "ce_to_geometry_norm_ratio_median": 7.635451522730845,
+      "depth_ce_cosine_min": -0.03568954020738602,
+      "depth_ce_cosine_max": 0.04597919434309006
+    },
+    "dpt_shared": {
+      "ce_to_geometry_norm_ratio_min": 3.6248038400200997,
+      "ce_to_geometry_norm_ratio_max": 9.933828016616825,
+      "ce_to_geometry_norm_ratio_median": 4.572993869416578,
+      "depth_ce_cosine_min": -0.18564802408218384,
+      "depth_ce_cosine_max": 0.24904772639274597
+    },
+    "atlas_query": {
+      "ce_to_geometry_norm_ratio_min": 322.86824701831307,
+      "ce_to_geometry_norm_ratio_max": 1081.2022889678499,
+      "ce_to_geometry_norm_ratio_median": 753.1230191679172,
+      "depth_ce_cosine_min": 0.0,
+      "depth_ce_cosine_max": 0.0
+    },
+    "dpt_output": {
+      "ce_to_geometry_norm_ratio_min": 0.0,
+      "ce_to_geometry_norm_ratio_max": 0.0,
+      "ce_to_geometry_norm_ratio_median": 0.0,
+      "depth_ce_cosine_min": 0.0,
+      "depth_ce_cosine_max": 0.0
+    }
+  },
+  "interpretation": "Shared recovery gradients are imbalanced on these batches; CE and depth mostly orthogonal, not universally opposed. This is not yet a causal generalization result. Test only correspondence weight1.0 vs0.1 with matched initialization/data200 updates."
+}

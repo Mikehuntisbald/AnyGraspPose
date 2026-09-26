@@ -25,6 +25,7 @@ def main():
     for key in ('config','checkpoint','out'): p.add_argument('--'+key, required=True)
     p.add_argument('--rank', type=int, default=0); p.add_argument('--world', type=int, default=8)
     p.add_argument('--records', type=int, default=8)
+    p.add_argument('--seed-start', type=int, default=44000000)
     p.add_argument('--lookup-audit', action='store_true')
     p.add_argument('--projection-audit', action='store_true')
     p.add_argument('--lip-baseline', action='store_true')
@@ -68,7 +69,7 @@ def main():
     rows = []; draw = 0; start = time.monotonic()
     with torch.no_grad(), (out/'frames.jsonl').open('w') as log:
         while len(rows) < a.records:
-            seed = 44000000+a.rank+draw*a.world; draw += 1
+            seed = a.seed_start+a.rank+draw*a.world; draw += 1
             e, (truth, masks) = factory.sample(seed, frames=1)
             if not heldout(e.stream): continue
             item = len(rows); d = float(e.mesh['diameter']); gt = truth[:1]
@@ -162,6 +163,14 @@ def main():
                     metrics[name]['lookup_coverage'] = float(eligible.sum()/mask.sum())
                     metrics[name]['validity_recall'] = float((output['geometry_valid_logits'].sigmoid()[mask] >= .5).float().mean())
                     metrics[name]['normal'] = normal_diagnostics(output, target, mask)
+                    # Physical camera geometry is distinct from canonical CAD identity.
+                    camera_pred=target.camera_rays*output['surface_depth_m']
+                    camera_target=target.camera_rays*target.surface_depth_m
+                    metrics[name]['camera_xyz_mm']=float((camera_pred-camera_target).norm(dim=1,keepdim=True)[mask].mean()*1000)
+                    from lip.unified.surface_normals import normal_terms
+                    _,camera_valid,camera_cos=normal_terms(camera_pred/d,camera_target/d,mask,2)
+                    metrics[name]['camera_normal_deg']=float(camera_cos[camera_valid].acos().mean()*180/torch.pi) if camera_valid.any() else None
+                    metrics[name]['camera_normal_stencils']=int(camera_valid.sum())
                     metrics[name]['gate_mean'] = float(output['transport_gate'][mask].mean()) if not atlas else None
                     metrics[name]['flow_epe'] = float((output['transport_flow']-truth_transport['flow']).norm(dim=1, keepdim=True)[eligible].mean()) if eligible.any() and not atlas else None
                     metrics[name]['zero_flow_epe'] = float(truth_transport['flow'].norm(dim=1,keepdim=True)[eligible].mean()) if eligible.any() else None
@@ -226,7 +235,7 @@ def main():
                     diameter=d,**(dict(atlas_index=output['atlas_index'].cpu().numpy()) if atlas else dict(flow=output['transport_flow'].cpu().numpy(),gate=output['transport_gate'].cpu().numpy())))
             rows.append(row); log.write(json.dumps(row)+'\n'); log.flush()
     (out/'receipt.json').write_text(json.dumps(dict(completed=True, checkpoint_sha256=sha(a.checkpoint), config=c['cad_transport'],
-        records=len(rows), lookup_audit=a.lookup_audit, projection_audit=a.projection_audit, physical_holdout=True, training_split_only=True, official_test_access=False, teacher_inputs=False,
+        records=len(rows), seed_start=a.seed_start, lookup_audit=a.lookup_audit, projection_audit=a.projection_audit, physical_holdout=True, training_split_only=True, official_test_access=False, teacher_inputs=False,
         clean_control=a.clean_control,clean_control_scope='Artificial occlusion removed from current input only; original target masks retained. Privileged input-availability diagnostic, never a heavy-occlusion deployment result' if a.clean_control else None,
         atlas_ablation=a.atlas_ablation,
         correspondence_audit=a.correspondence_audit,

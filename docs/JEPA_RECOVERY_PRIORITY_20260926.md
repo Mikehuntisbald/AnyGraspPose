@@ -40,3 +40,11 @@ Same frozen V44 checkpoint and original64 masks; no training or pose evaluation.
 Every absolute change is below0.02mm. This rules out a useful immediate improvement from these frozen switches on this probe; it does not prove RoPE cannot affect training. The checkpoint remains unchanged.
 
 Next work must target independent local correspondence and geometric reconstruction, preserving this evidence and supervision audit. Do not resume the cancelled V48 readout or use a pose-success gate to decide whether JEPA is accurate. The overall accurate-recovery objective remains unmet.
+
+## V51–V52: shared recovery gradient balance
+
+V51 measures32 distinct training observations/64 paired hypotheses without optimizer updates. The CAD correspondence gradient at the final shared patch is7.78–15.26 times the complete geometry gradient; at dense DPT features5.59–9.13 times. Depth/CE gradient cosine is mostly near zero (patch−0.083 to0.231). This establishes a local gradient imbalance, not a universal loss conflict or proven generalization cause. Final depth-output convolution receives geometry but no correspondence gradients; shared JEPA/DPT receives both.
+
+V52 is a bounded matched control: source V44 supervised100, normal diverse sampling, seed42,200 updates per arm. Only correspondence weight differs (1.0 versus0.1); frozen pose/history and disabled DINO losses are unchanged. Two arms run sequentially on8 H20s, save every50, and verify full2→200 resume. The usual64 recovery frames are paired; another64-frame confirmation with seed offset54000000 is fixed before training. It is another sample from the same held-out sequence pool, not an unseen-object or new-sequence test. No promotion is automatic. Physical camera XYZ/depth and camera-surface orientation are reported separately from canonical CAD identity.
+
+Status: V52 launched; terminal outcome pending.

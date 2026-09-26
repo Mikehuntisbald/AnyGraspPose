@@ -1,0 +1,147 @@
+{
+  "completed": true,
+  "training": false,
+  "optimizer_updates": 0,
+  "rank": 2,
+  "seeds": [
+    51000008,
+    51000009,
+    51000010,
+    51000011
+  ],
+  "pose_hypotheses": 8,
+  "losses": {
+    "geometry": 0.2927248477935791,
+    "depth": 0.09273175895214081,
+    "correspondence": 12.715383529663086
+  },
+  "gradients": {
+    "patch": {
+      "norms": {
+        "geometry": 0.0009043781901709735,
+        "depth": 0.00059184042038396,
+        "correspondence": 0.00782184861600399,
+        "other_geometry": 0.0005875675124116242
+      },
+      "geometry_ce_cosine": 0.3686918020248413,
+      "depth_ce_cosine": 0.0974200963973999,
+      "combined_depth_cosine": 0.1777450442314148
+    },
+    "dense": {
+      "norms": {
+        "geometry": 0.00843396969139576,
+        "depth": 0.00785504188388586,
+        "correspondence": 0.05652762949466705,
+        "other_geometry": 0.003134559839963913
+      },
+      "geometry_ce_cosine": 0.049473389983177185,
+      "depth_ce_cosine": 0.030000710859894753,
+      "combined_depth_cosine": 0.1654794067144394
+    },
+    "dpt_shared": {
+      "norms": {
+        "geometry": 0.6452789902687073,
+        "depth": 0.6070416569709778,
+        "correspondence": 2.3390097618103027,
+        "other_geometry": 0.2083263397216797
+      },
+      "geometry_ce_cosine": 0.052639201283454895,
+      "depth_ce_cosine": 0.034608740359544754,
+      "combined_depth_cosine": 0.2812977433204651
+    },
+    "atlas_query": {
+      "norms": {
+        "geometry": 0.0044782161712646484,
+        "depth": 0.0,
+        "correspondence": 3.692659854888916,
+        "other_geometry": 0.0044782161712646484
+      },
+      "geometry_ce_cosine": 0.5015842318534851,
+      "depth_ce_cosine": 0.0,
+      "combined_depth_cosine": 0.0
+    },
+    "dpt_output": {
+      "norms": {
+        "geometry": 5.745818614959717,
+        "depth": 5.171813011169434,
+        "correspondence": 0.0,
+        "other_geometry": 2.2487967014312744
+      },
+      "geometry_ce_cosine": 0.0,
+      "depth_ce_cosine": 0.0,
+      "combined_depth_cosine": 0.9204544425010681
+    }
+  },
+  "coverage": {
+    "real": {
+      "eligible_pixels": [
+        0,
+        195,
+        2150,
+        0,
+        0,
+        195,
+        2150,
+        0
+      ],
+      "ce_pixels": [
+        0,
+        195,
+        256,
+        0,
+        0,
+        195,
+        256,
+        0
+      ]
+    },
+    "proxy": {
+      "eligible_pixels": [
+        0,
+        0,
+        2634,
+        289,
+        0,
+        0,
+        2634,
+        289
+      ],
+      "ce_pixels": [
+        0,
+        0,
+        256,
+        256,
+        0,
+        0,
+        256,
+        256
+      ]
+    },
+    "visible": {
+      "eligible_pixels": [
+        2785,
+        3,
+        202,
+        3234,
+        2785,
+        3,
+        202,
+        3234
+      ],
+      "ce_pixels": [
+        256,
+        3,
+        202,
+        256,
+        256,
+        3,
+        202,
+        256
+      ]
+    }
+  },
+  "checkpoint": "/mnt/why/dexycb_lip/unified_jepa_20260921/atlas_prior_v44/supervised/runs/seed42/last.pt",
+  "checkpoint_sha256": "f651d6df004c7b025a7a827785a29ff1dd48621add96d5aad5aa8c65beabd6a9",
+  "normal_weight": 0.0,
+  "scope": "Distinct training-only32 observations /64 hypotheses across8 ranks; actual canonical masks; no optimizer or pose metrics. Gradient cosine is diagnostic, not evidence of causal efficacy."
+}
