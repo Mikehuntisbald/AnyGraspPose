@@ -63,7 +63,8 @@ def main():
         inference_export_only=True),indent=2))
     train=data['train'];weights=torch.zeros(len(train['features']),device='cuda')
     for i,factor in enumerate((1.,1.,.5)):
-        counts=torch.bincount(train['groups'],weights=train['regions'][:,i].float(),minlength=len(train['records']))
+        # CPU histogram keeps deterministic mode enabled on CUDA.
+        counts=torch.bincount(train['groups'].cpu(),weights=train['regions'][:,i].float().cpu(),minlength=len(train['records'])).cuda()
         weights+=factor*train['regions'][:,i]/counts[train['groups']].clamp_min(1)
     def evaluate(step):
         d=data['holdout'];result={}
