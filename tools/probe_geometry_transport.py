@@ -35,6 +35,7 @@ def main():
     p.add_argument('--recovery-routing',choices=['on','observed_only','rope_off'],default='on')
     p.add_argument('--flow-ablation', choices=['on','no_feedback','no_transport'], default='on')
     p.add_argument('--rotation-degrees', type=float, default=10.)
+    p.add_argument('--flow-surface-audit', action='store_true')
     a = p.parse_args(); torch.cuda.set_device(0); torch.set_num_threads(2); torch.manual_seed(42)
     c = yaml.safe_load(Path(a.config).read_text()); model = build_model(c)
     record = torch.load(a.checkpoint, map_location='cpu', weights_only=False)
@@ -206,6 +207,12 @@ def main():
                 _, values = flow_reconstruction_loss(output, labels)
                 row['flow'] = {k:float(v) for k,v in values.items()}
                 row['flow_ablation'] = a.flow_ablation
+                if a.flow_surface_audit:
+                    from lip.unified.flow_surface_audit import diagnose_flow_surface
+                    row['flow_surface'], surfaces = diagnose_flow_surface(output, target, scene, obs, flow_visible, factory.renderer, seed)
+                    if item == 2:
+                        np.savez_compressed(out/'surface_audit_example.npz',
+                            **{f'{name}_{key}':value[key].cpu().numpy() for name,value in surfaces.items() for key in ('xyz','depth','covered')})
                 if item == 2:
                     np.savez_compressed(out/'flow_example.npz', reference_uv=output['flow_reference']['uv'].cpu().numpy(),
                         reference_xyz=output['flow_reference']['xyz'].cpu().numpy(), target_uv=labels['uv'].cpu().numpy(),
@@ -262,6 +269,7 @@ def main():
         recovery_routing=a.recovery_routing,
         flow_ablation=a.flow_ablation,
         rotation_degrees=a.rotation_degrees,
+        flow_surface_audit=a.flow_surface_audit,
         lip_baseline_sha256=lip_sha,lip_baseline_scope='Same corrupted current input/base/crop, empty history, one refinement; no GT render fed to LIP; conditional diagnostic, not native LIP accuracy' if lip is not None else None,
         oracle_lookup_scope='GT correspondence and GT depth diagnostic only; common supported pixels; never deployed', seconds=time.monotonic()-start), indent=2)+'\n')
 
