@@ -89,6 +89,15 @@ def build_model(config,device='cuda'):
                 model.model_version='shared-patch-and-decoded-content-v32'
         if config.get('cad_transport'):
             model.model_version='geometry-cad-transport-v34' if config['cad_transport']['enabled'] else 'geometry-dpt-control-v34'
+        if config.get('cad_atlas',{}).get('enabled'):
+            if config['cad_atlas'].get('points')!=8192:raise ValueError('V42 requires the complete8192-point CAD bank')
+            if not config.get('staged_rope',{}).get('enabled') or config.get('surface_decoder',{}).get('kind')!='dpt':
+                raise ValueError('Atlas decoder requires explicit staged JEPA/DPT inputs')
+            from .cad_atlas_decoder import CADAtlasDecoder
+            with torch.random.fork_rng(devices=[]):
+                torch.manual_seed(config['seed']+42)
+                model.cad_atlas_decoder=CADAtlasDecoder(model.utonia.feature_dim).to(device)
+            model.model_version='complete-cad-atlas-v42'
         return model
     if config['architecture_id']=='stream_dino_fp_staticutonia_jepa_rgbd_v3':
         return build_fp_model(config,device)

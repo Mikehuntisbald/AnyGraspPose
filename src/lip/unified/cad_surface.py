@@ -49,10 +49,11 @@ class SurfaceRead(nn.Module):
 
 @torch.no_grad()
 @torch.autocast('cuda',enabled=False)
-def encode_surface(model,scenes,depth,enabled):
+def encode_surface(model,scenes,depth,enabled,full=False):
     features=[];geometries=[];availability=[]
     for lane,scene in enumerate(scenes):
-        bank=surface_tokens(scene.cad,model.cad_surface_cache,model.cad_surface_count)
+        bank=scene.cad if full else surface_tokens(scene.cad,model.cad_surface_cache,model.cad_surface_count)
+        if full and len(bank['coord'])!=8192:raise ValueError('Incomplete CAD atlas')
         xyz=bank['coord'].float();normal=bank['normal'].float();pose=scene.pose.float();d=scene.diameter
         camera=xyz*d@pose[:3,:3].T+pose[:3,3]
         projected=camera@scene.k_crop.float().T;uv=projected[:,:2]/projected[:,2:].clamp_min(.001)
@@ -97,19 +98,22 @@ class CADSurfaceTracker(RecoveredRelationTracker):
         if getattr(self,'staged_rope',None):
             if obs.crop_rays is None or obs.rope_depth_stats is None:raise ValueError('Staged RoPE requires explicit student crop calibration and measured depth statistics')
             cad_inputs+=(obs.crop_rays,obs.rope_depth_stats,obs.diameter)
+        if hasattr(self,'cad_atlas_decoder'):
+            if obs.cad_atlas is None:raise ValueError('Complete CAD atlas inputs required')
+            cad_inputs+=obs.cad_atlas
         return obs.state,(),(obs.object_xyz,obs.depth_valid),cad_inputs
 
     def prepare_surface_read(self,patch,valid,inputs,levels,layer):
         if not getattr(self,'staged_rope',None) or layer not in (1,3):return inputs,{}
         from .staged_rope import route_surface
-        features,geometry,available,observed_xyz,observed_valid,base,confidence,rays,stats,diameter=inputs
+        features,geometry,available,observed_xyz,observed_valid,base,confidence,rays,stats,diameter=inputs[:10]
         xyz,chosen,trust,_=route_surface(observed_xyz,observed_valid,confidence,stats,base,diameter,rays,valid,self.staged_rope)
         return (features,geometry,available,observed_xyz,chosen,base,trust,xyz),{}
 
     def refine_surface(self,patch,valid,inputs,levels,before_last,mem,mv,mb):
         if not getattr(self,'staged_rope',None):return patch,levels,{}
         from .staged_rope import route_surface
-        features,geometry,available,observed_xyz,observed_valid,base,confidence,rays,stats,diameter=inputs
+        features,geometry,available,observed_xyz,observed_valid,base,confidence,rays,stats,diameter=inputs[:10]
         # Preserve the trained DPT's four-level input distribution. Decode a
         # complete coarse pass, then recompute only the last shared JEPA block
         # from its original input with recovered-position CAD reading.

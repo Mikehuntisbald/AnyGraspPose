@@ -7,7 +7,7 @@ from .surface_normals import normal_terms
 
 
 @torch.autocast('cuda', enabled=False)
-def objective(output, target, observation, visible_mask, crop_k, use_transport, canonical_surface=False, flow_weight=.25):
+def objective(output, target, observation, visible_mask, crop_k, use_transport, canonical_surface=False, flow_weight=.25,normal_weight=.02):
     beta = .02
     def distance(a, b):
         return F.smooth_l1_loss(a.float(), b.float(), beta=beta, reduction='none').mean(1, keepdim=True)
@@ -48,9 +48,10 @@ def objective(output, target, observation, visible_mask, crop_k, use_transport, 
     loss = loss+.05*validity
     for key, label in [('evidence_logits', target.visible_label), ('support_logits', target.support_label)]:
         loss = loss+.05*masked_mean(F.binary_cross_entropy_with_logits(output[key].float(), label.nan_to_num(), reduction='none'), torch.isfinite(label))
-    for _, mask, factor in masks:
-        error, valid, _ = normal_terms(output['surface_xyz'], xyz_truth, mask, 2)
-        loss = loss+.02*factor*masked_mean(error, valid)
+    if normal_weight:
+        for _, mask, factor in masks:
+            error, valid, _ = normal_terms(output['surface_xyz'], xyz_truth, mask, 2)
+            loss = loss+normal_weight*factor*masked_mean(error, valid)
     metrics = {}
     scale = observation.diameter[:, None, None, None]*1000
     for name, mask, _ in masks:

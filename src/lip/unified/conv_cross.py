@@ -195,7 +195,12 @@ class ConvCrossTracker(TwoStreamTracker):
         patch = self.core.final_norm(patch)
         if use_dpt:
             dense_levels[-1]=patch
-            if hasattr(self,'cad_transport'):
+            if hasattr(self,'cad_atlas_decoder'):
+                dense=self.surface_head.dense_features(dense_levels,valid)
+                surface=self.surface_head.output[-1](dense).float()
+                surface,atlas_metrics=self.cad_atlas_decoder(dense,surface,*cad_inputs[-3:])
+                surface_metrics.update(atlas_metrics)
+            elif hasattr(self,'cad_transport'):
                 dense=self.surface_head.dense_features(dense_levels,valid)
                 surface=self.surface_head.output[-1](dense).float()
                 surface,transport_metrics=self.cad_transport(dense,surface,geometry_image,cad_valid)

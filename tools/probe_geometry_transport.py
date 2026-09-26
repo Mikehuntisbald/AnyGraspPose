@@ -34,6 +34,7 @@ def main():
     record = torch.load(a.checkpoint, map_location='cpu', weights_only=False)
     load_core(model, record['model']); del record
     model.requires_grad_(False).eval(); model.fast_geometry = model.vector_geometry = True
+    atlas=hasattr(model,'cad_atlas_decoder')
     factory = Factory(c, model, make_store(c, model))
     lip=None;lip_sha=None
     if a.lip_baseline:
@@ -91,7 +92,7 @@ def main():
             truth_transport = transport_targets(target.surface_xyz, obs.geometry_image, obs.base, obs.diameter, scene.k_crop[None], obs.cad_valid)
             cad_truth = transport_targets(target.cad_geometry_xyz, obs.geometry_image, obs.base, obs.diameter, scene.k_crop[None], obs.cad_valid)
             audit = {}
-            if a.lookup_audit:
+            if a.lookup_audit and not atlas:
                 bounds = obs.cad_valid.reshape(1,1,16,16).repeat_interleave(14,-2).repeat_interleave(14,-1)
                 ref_mask = (obs.geometry_image[:,3:4] > 0) & bounds
                 reference = torch.cat((obs.geometry_image[:,4:7],obs.geometry_image[:,2:3]),1)
@@ -107,10 +108,10 @@ def main():
                 gt_cad_depth = gt_render['depth'][None]
                 audit = dict(zero_flow=zero_flow,reference=reference,reference_mask=ref_mask,gt_cad_depth=gt_cad_depth)
             projection = {}
-            if a.projection_audit:
+            if a.projection_audit and not atlas:
                 # All inputs here are student predictions or estimated-pose CAD.
                 # The true transform and teacher masks are used only in score().
-                fallback = output['transport_fallback']
+                fallback = output['atlas_fallback'] if atlas else output['transport_fallback']
                 camera = torch.einsum('bij,bjhw->bihw',obs.base[:,:3,:3],fallback[:,:3])*d+obs.base[:,:3,3,None,None]
                 homogeneous = torch.einsum('bij,bjhw->bihw',scene.k_crop[None],camera)
                 uv = homogeneous[:,:2]/homogeneous[:,2:3].clamp_min(.001)
@@ -132,7 +133,7 @@ def main():
             metrics = {}
             for name, mask in [('real', target.geometry_real_weight), ('proxy', target.geometry_proxy_weight)]:
                 metrics[name] = score(output['surface_xyz'], output['surface_depth_residual'], mask)
-                fallback = output['transport_fallback']
+                fallback = output['atlas_fallback'] if atlas else output['transport_fallback']
                 metrics[name+'_fallback'] = score(fallback[:, :3], fallback[:, 3:4], mask)
                 eligible = mask & truth_transport['supported']
                 metrics[name+'_oracle_lookup'] = score(truth_transport['reference'][:, :3], target.surface_depth_residual, eligible)
@@ -141,14 +142,14 @@ def main():
                     cad_eligible=cad_domain&cad_truth['supported']
                     metrics[name]['canonical_pixels']=int(cad_domain.sum())
                     metrics[name]['canonical_xyz_mm']=float((output['surface_xyz']-target.cad_geometry_xyz).norm(dim=1,keepdim=True)[cad_domain].mean()*d*1000) if cad_domain.any() else None
-                    metrics[name]['cad_flow_epe']=float((output['transport_flow']-cad_truth['flow']).norm(dim=1,keepdim=True)[cad_eligible].mean()) if cad_eligible.any() else None
+                    metrics[name]['cad_flow_epe']=float((output['transport_flow']-cad_truth['flow']).norm(dim=1,keepdim=True)[cad_eligible].mean()) if cad_eligible.any() and not atlas else None
                     metrics[name]['cad_zero_flow_epe']=float(cad_truth['flow'].norm(dim=1,keepdim=True)[cad_eligible].mean()) if cad_eligible.any() else None
                     metrics[name]['cad_lookup_coverage']=float(cad_eligible.sum()/mask.sum())
                     metrics[name]['lookup_coverage'] = float(eligible.sum()/mask.sum())
                     metrics[name]['validity_recall'] = float((output['geometry_valid_logits'].sigmoid()[mask] >= .5).float().mean())
                     metrics[name]['normal'] = normal_diagnostics(output, target, mask)
-                    metrics[name]['gate_mean'] = float(output['transport_gate'][mask].mean())
-                    metrics[name]['flow_epe'] = float((output['transport_flow']-truth_transport['flow']).norm(dim=1, keepdim=True)[eligible].mean()) if eligible.any() else None
+                    metrics[name]['gate_mean'] = float(output['transport_gate'][mask].mean()) if not atlas else None
+                    metrics[name]['flow_epe'] = float((output['transport_flow']-truth_transport['flow']).norm(dim=1, keepdim=True)[eligible].mean()) if eligible.any() and not atlas else None
                     metrics[name]['zero_flow_epe'] = float(truth_transport['flow'].norm(dim=1,keepdim=True)[eligible].mean()) if eligible.any() else None
                 if audit:
                     metrics[name+'_zero_flow'] = score(audit['zero_flow'][:,:3],audit['zero_flow'][:,3:4],mask)
@@ -189,7 +190,7 @@ def main():
                     cad_target_xyz=target.cad_geometry_xyz.cpu().numpy(),cad_target_depth=target.cad_geometry_depth_m.cpu().numpy(),
                     target_depth=target.surface_depth_m.cpu().numpy(), predicted_depth=output['surface_depth_m'].cpu().numpy(),
                     real_mask=target.geometry_real_weight.cpu().numpy(), proxy_mask=target.geometry_proxy_weight.cpu().numpy(),
-                    flow=output['transport_flow'].cpu().numpy(), gate=output['transport_gate'].cpu().numpy(), diameter=d)
+                    diameter=d,**(dict(atlas_index=output['atlas_index'].cpu().numpy()) if atlas else dict(flow=output['transport_flow'].cpu().numpy(),gate=output['transport_gate'].cpu().numpy())))
             rows.append(row); log.write(json.dumps(row)+'\n'); log.flush()
     (out/'receipt.json').write_text(json.dumps(dict(completed=True, checkpoint_sha256=sha(a.checkpoint), config=c['cad_transport'],
         records=len(rows), lookup_audit=a.lookup_audit, projection_audit=a.projection_audit, physical_holdout=True, training_split_only=True, official_test_access=False, teacher_inputs=False,

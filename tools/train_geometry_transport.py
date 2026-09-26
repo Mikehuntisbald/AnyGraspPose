@@ -62,7 +62,7 @@ def main():
             parent['model'][key]=extended
         elif old.shape[1]!=25:raise ValueError('Unexpected transport channel count')
     status = model.load_state_dict(parent['model'], strict=False)
-    if status.unexpected_keys or any(not n.startswith('cad_transport.') for n in status.missing_keys):
+    if status.unexpected_keys or any(not n.startswith(('cad_transport.','cad_atlas_decoder.')) for n in status.missing_keys):
         raise ValueError('Unexpected geometry migration: '+str(status))
     if any(not torch.equal(model.state_dict()[n].cpu(), value.cpu()) for n, value in parent['model'].items()):
         raise ValueError('Existing model tensors changed during migration')
@@ -78,11 +78,13 @@ def main():
         if plan.get('decoder_only'):
             active = name.startswith('cad_transport.')
         if name.startswith('cad_transport.') and not config['cad_transport']['enabled']: active = False
+        if name.startswith('cad_transport.') and config.get('cad_atlas',{}).get('enabled'):active=False
         parameter.requires_grad_(active)
         if not active:
             frozen.append(name); continue
         kind = 'encoder' if name.startswith('encoder.') else ('new' if name.startswith(('surface_head.', 'cad_transport.')) else 'predictor')
         if name.startswith('cad_transport.') and 'transport' in config['training']['learning_rates']:kind='transport'
+        if name.startswith('cad_atlas_decoder.'):kind='transport'
         group = groups.setdefault(kind, dict(params=[], names=[], category=kind, lr=config['training']['learning_rates'][kind]))
         group['params'].append(parameter); group['names'].append(name)
     optimizer = torch.optim.AdamW(list(groups.values()), weight_decay=.01, fused=True)
@@ -168,8 +170,16 @@ def main():
                 from lip.unified.paired_geometry_curriculum import clean_input_targets
                 target=clean_input_targets(target,full_visible)
             with torch.autocast('cuda', dtype=torch.bfloat16): output, _ = model(observation)
-            loss, metrics = objective(output, target, observation, visible, torch.stack([s.k_crop for s in scenes]), config['cad_transport']['enabled'],
-                                      canonical_surface=plan.get('canonical_surface',False),flow_weight=plan.get('flow_weight',.25))
+            atlas=config.get('cad_atlas',{}).get('enabled',False)
+            loss, metrics = objective(output, target, observation, visible, torch.stack([s.k_crop for s in scenes]), config['cad_transport']['enabled'] and not atlas,
+                                      canonical_surface=plan.get('canonical_surface',False),flow_weight=plan.get('flow_weight',.25),
+                                      normal_weight=config.get('cad_atlas',{}).get('normal_weight',.02) if atlas else .02)
+            if atlas:
+                from lip.unified.cad_atlas_decoder import atlas_correspondence_loss
+                eligible=visible&target.real_geometry_eligible
+                correspondence,parts=atlas_correspondence_loss(output,target,eligible)
+                loss=loss+config['cad_atlas']['correspondence_weight']*correspondence
+                metrics.update(parts)
             if not torch.isfinite(loss): raise RuntimeError('Nonfinite geometry loss')
             if step == 0 and not plan.get('decoder_only'):
                 grad, = torch.autograd.grad(loss, output['patch_latent'], retain_graph=True)
@@ -177,7 +187,8 @@ def main():
             loss.backward()
             if step == 0:
                 names = () if plan.get('decoder_only') else ('core.src_proj.weight', 'surface_head.output.6.weight')
-                if config['cad_transport']['enabled']: names += ('cad_transport.head.2.weight',)
+                if atlas:names+=('cad_atlas_decoder.query.0.weight','cad_atlas_decoder.descriptor.1.weight')
+                elif config['cad_transport']['enabled']: names += ('cad_transport.head.2.weight',)
                 gradients = {n: float(p.grad.float().norm()) if p.grad is not None else None for n,p in model.named_parameters() if n in names}
                 if len(gradients) != len(names) or any(v is None or v <= 0 for v in gradients.values()):
                     raise RuntimeError('Geometry path gradient failure: '+str(gradients))

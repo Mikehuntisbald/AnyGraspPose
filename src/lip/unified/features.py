@@ -66,6 +66,7 @@ class Observation:
     crop_rays: torch.Tensor|None=None
     rope_depth_stats: torch.Tensor|None=None
     measured_depth_m: torch.Tensor|None=None
+    cad_atlas: tuple|None=None
 
 
 @dataclass(frozen=True)

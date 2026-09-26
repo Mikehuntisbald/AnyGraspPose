@@ -49,6 +49,8 @@ def main():
         checks=['tests/jepa/test_cad_transport.py','tests/jepa/test_canonical_surface_targets.py','tests/jepa/test_execution_speed.py','tests/jepa/test_paired_geometry_curriculum.py']
         if yaml.safe_load((exe/config).read_text()).get('supervision_quality',{}).get('enabled'):
             checks.append('tests/jepa/test_supervision_quality.py')
+        if yaml.safe_load((exe/config).read_text()).get('cad_atlas',{}).get('enabled'):
+            checks.append('tests/jepa/test_cad_atlas_decoder.py')
         run('tests',[['-m','pytest','-q',*checks]])
         for step in (2,args.steps):
             command=['-m','torch.distributed.run','--standalone','--nproc_per_node=8','tools/fp_worker.py','tools/train_geometry_transport.py','--config',config,'--stop-at',str(step)]
