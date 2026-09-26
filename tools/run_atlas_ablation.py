@@ -4,7 +4,8 @@ from pathlib import Path
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--config',required=True);p.add_argument('--checkpoint',required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--config',required=True);p.add_argument('--checkpoint',required=True);p.add_argument('--out',type=Path,required=True)
+    p.add_argument('--arms',nargs='+',choices=['prior_only','learned_only'],default=['prior_only','learned_only']);a=p.parse_args()
     root=Path(__file__).resolve().parents[1];a.out.mkdir(parents=True,exist_ok=False)
     snapshot={str(f.relative_to(root)):hashlib.sha256(f.read_bytes()).hexdigest() for folder in ('src','tools','configs','tests') for f in (root/folder).rglob('*') if f.is_file() and '__pycache__' not in f.parts}
     (a.out/'source_receipt.json').write_text(json.dumps(snapshot,indent=2))
@@ -18,12 +19,12 @@ def main():
     signal.signal(signal.SIGTERM,stop);signal.signal(signal.SIGINT,stop)
     try:
         if subprocess.check_output(['nvidia-smi','--query-compute-apps=pid','--format=csv,noheader'],text=True).strip():raise RuntimeError('GPUs occupied')
-        for arm in ('prior_only','learned_only'):
+        for arm in a.arms:
             assert all(hashlib.sha256((root/f).read_bytes()).hexdigest()==s for f,s in snapshot.items())
             logs=[];children=[]
             for rank in range(8):
                 log=(a.out/f'{arm}.{rank}.log').open('w');logs.append(log)
-                env=dict(os.environ,PYTHONPATH=str(root/'src'),CUDA_VISIBLE_DEVICES=str(rank),OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2')
+                env=dict(os.environ,PYTHONPATH=str(root/'src'),CUDA_VISIBLE_DEVICES=str(rank),OMP_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2',CUBLAS_WORKSPACE_CONFIG=':4096:8')
                 command=[sys.executable,'tools/probe_geometry_transport.py','--config',a.config,'--checkpoint',a.checkpoint,'--out',str(a.out/arm/'probe/step100'/f'rank{rank}'),'--rank',str(rank),'--world','8','--records','8','--atlas-ablation',arm]
                 children.append(subprocess.Popen(command,cwd=root,env=env,stdout=log,stderr=subprocess.STDOUT,start_new_session=True))
             while any(c.poll() is None for c in children):

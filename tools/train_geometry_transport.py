@@ -173,7 +173,8 @@ def main():
             atlas=config.get('cad_atlas',{}).get('enabled',False)
             loss, metrics = objective(output, target, observation, visible, torch.stack([s.k_crop for s in scenes]), config['cad_transport']['enabled'] and not atlas,
                                       canonical_surface=plan.get('canonical_surface',False),flow_weight=plan.get('flow_weight',.25),
-                                      normal_weight=config.get('cad_atlas',{}).get('normal_weight',.02) if atlas else .02)
+                                      normal_weight=config.get('cad_atlas',{}).get('normal_weight',.02) if atlas else .02,
+                                      fallback_xyz_weight=config.get('cad_atlas',{}).get('fallback_xyz_weight',0.) if atlas else 0.)
             if atlas:
                 from lip.unified.cad_atlas_decoder import atlas_correspondence_loss
                 eligible=visible&target.real_geometry_eligible
@@ -181,6 +182,12 @@ def main():
                 loss=loss+config['cad_atlas']['correspondence_weight']*correspondence
                 metrics.update(parts)
             if not torch.isfinite(loss): raise RuntimeError('Nonfinite geometry loss')
+            if atlas and step==0:
+                prior_gradient,=torch.autograd.grad(loss,output['atlas_fallback'],retain_graph=True)
+                prior_norm=float(prior_gradient[:,:3].float().norm())
+                if config['cad_atlas'].get('fallback_xyz_weight',0.) and not prior_norm:
+                    raise RuntimeError('Final coordinate prior received no direct gradient')
+                atomic_json(out/f'final_prior_gradient_rank{rank}.json',dict(xyz_norm=prior_norm,depth_validity_norm=float(prior_gradient[:,3:].float().norm())))
             if step == 0 and not plan.get('decoder_only'):
                 grad, = torch.autograd.grad(loss, output['patch_latent'], retain_graph=True)
                 if not torch.isfinite(grad).all() or not grad.norm(): raise RuntimeError('Geometry does not train JEPA')

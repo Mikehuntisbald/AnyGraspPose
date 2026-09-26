@@ -7,7 +7,7 @@ from .surface_normals import normal_terms
 
 
 @torch.autocast('cuda', enabled=False)
-def objective(output, target, observation, visible_mask, crop_k, use_transport, canonical_surface=False, flow_weight=.25,normal_weight=.02):
+def objective(output, target, observation, visible_mask, crop_k, use_transport, canonical_surface=False, flow_weight=.25,normal_weight=.02,fallback_xyz_weight=0.):
     beta = .02
     def distance(a, b):
         return F.smooth_l1_loss(a.float(), b.float(), beta=beta, reduction='none').mean(1, keepdim=True)
@@ -40,6 +40,11 @@ def objective(output, target, observation, visible_mask, crop_k, use_transport, 
                                 + .5*masked_mean(consistency, mask))
         return loss+.5*masked_mean(distance(xyz, xyz_visible), visible)
     loss = surface_loss(output['surface_xyz'], output['surface_depth_residual'])
+    if fallback_xyz_weight:
+        fallback=output['atlas_fallback'][:,:3].float()
+        auxiliary=.5*masked_mean(distance(fallback,xyz_visible),visible)
+        for _,mask,factor in masks:auxiliary=auxiliary+factor*masked_mean(distance(fallback,xyz_truth),mask)
+        loss=loss+fallback_xyz_weight*auxiliary
     if 'coarse_surface' in output:
         coarse = output['coarse_surface']
         loss = loss+.2*surface_loss(coarse[:, :3], coarse[:, 3:4])

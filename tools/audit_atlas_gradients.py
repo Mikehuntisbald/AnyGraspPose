@@ -43,11 +43,13 @@ def main():
     visible=torch.cat([(crop_images_fast(masks[i:i+1].float(),s.affine,mode='nearest')>.5)&s.bounds for i,s in enumerate(scenes)])
     target=quarantine_real_geometry(target,scenes,visible,.03);visible=visible&~torch.cat([o.mask for o in occlusions])
     with torch.autocast('cuda',dtype=torch.bfloat16):out,_=m(obs)
-    full,_=objective(out,target,obs,visible,torch.stack([s.k_crop for s in scenes]),False,canonical_surface=True)
+    normal_weight=c.get('cad_atlas',{}).get('normal_weight',.02)
+    full,_=objective(out,target,obs,visible,torch.stack([s.k_crop for s in scenes]),False,canonical_surface=True,normal_weight=normal_weight,
+                     fallback_xyz_weight=c.get('cad_atlas',{}).get('fallback_xyz_weight',0.))
     normal=out['surface_xyz'].sum()*0
     for mask,factor in [(target.geometry_real_weight,1.),(target.geometry_proxy_weight,.5)]:
         error,valid,_=normal_terms(out['surface_xyz'],target.cad_geometry_xyz,mask,2)
-        normal=normal+.02*factor*masked_mean(error,valid)
+        normal=normal+normal_weight*factor*masked_mean(error,valid)
     ce,_=atlas_correspondence_loss(out,target,visible&target.real_geometry_eligible)
     names=['cad_atlas_decoder.query.0.weight','cad_atlas_decoder.descriptor.1.weight']
     parameters=[dict(m.named_parameters())[n] for n in names]
@@ -55,11 +57,15 @@ def main():
     for name,loss in [('full_geometry',full),('normal',normal),('correspondence',ce)]:
         gradients[name]=torch.cat([g.flatten() for g in torch.autograd.grad(loss,parameters,retain_graph=True)]).detach().float()
     gradients['other_geometry']=gradients['full_geometry']-gradients['normal']
+    fallback_gradient,=torch.autograd.grad(full+ce,out['atlas_fallback'],retain_graph=True)
     result=dict(completed=True,training=False,optimizer_updates=0,seeds=seeds,pose_hypotheses=8,
         losses=dict(full_geometry=float(full.detach()),normal=float(normal.detach()),correspondence=float(ce.detach())),
         gradient_norms={k:float(g.norm()) for k,g in gradients.items()},
         normal_to_ce_norm_ratio=float(gradients['normal'].norm()/gradients['correspondence'].norm()),
-        scope='Exact first rank0 paired input construction and saved initial weights; norms concatenated over atlas query0 and descriptor1 weights')
+        final_fallback_xyz_gradient_norm=float(fallback_gradient[:,:3].norm()),
+        final_fallback_depth_validity_gradient_norm=float(fallback_gradient[:,3:].norm()),
+        checkpoint=a.checkpoint,normal_weight=normal_weight,
+        scope='Fixed V42 first rank0 paired batch and explicitly supplied checkpoint; norms concatenated over atlas query0 and descriptor1 weights')
     Path(a.out).write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result,indent=2))
 
 

@@ -49,3 +49,26 @@ def test_locked_surface_cannot_use_xyz_offset_or_low_gate_to_skip_lookup():
     assert info['transport_gate'].min()==1 and info['transport_confidence'].max()<1e-6
     dropped,_=head(torch.zeros(1,16,224,224),fallback,geometry,torch.zeros(1,256,dtype=torch.bool))
     assert torch.equal(dropped,fallback)
+
+
+def test_final_atlas_coordinate_prior_receives_its_own_target_gradient():
+    grid=pixel_grid(1,224,224,'cpu');rays=torch.cat(((grid-111.5)/224.,torch.ones(1,1,224,224)),1)
+    translation=torch.tensor([[0.,0.,1.]]);xyz=rays-translation[:,:,None,None]
+    mask=torch.zeros(1,1,224,224,dtype=torch.bool);mask[:,:,50:170,50:170]=True
+    label=torch.ones(1,1,224,224)
+    target=SimpleNamespace(surface_xyz=xyz,surface_depth_residual=label*0,geometry_real_weight=mask,
+        geometry_proxy_weight=mask&False,geometry_weight=mask,geometry_valid_label=label,visible_label=torch.zeros(1,256),support_label=torch.ones(1,256),
+        camera_rotation=torch.eye(3)[None],camera_translation_d=translation,camera_rays=rays,base_depth_d=torch.ones(1),cad_geometry_xyz=xyz,cad_geometry_valid=mask)
+    fallback=torch.cat((xyz+.1,torch.zeros_like(label),label*10),1).requires_grad_()
+    output=dict(surface_xyz=xyz.clone().requires_grad_(),surface_depth_residual=fallback[:,3:4],geometry_valid_logits=fallback[:,4:5],
+                evidence_logits=torch.full((1,256),-10.),support_logits=torch.full((1,256),10.),atlas_fallback=fallback)
+    obs=SimpleNamespace(measured_depth_m=label*0,diameter=torch.ones(1))
+    k=torch.tensor([[[224.,0.,111.5],[0.,224.,111.5],[0.,0.,1.]]])
+    original,_=objective(output,target,obs,mask&False,k,False,canonical_surface=True,normal_weight=0.)
+    fixed,_=objective(output,target,obs,mask&False,k,False,canonical_surface=True,normal_weight=0.,fallback_xyz_weight=1.)
+    old_grad,=torch.autograd.grad(original,fallback,retain_graph=True)
+    new_grad,=torch.autograd.grad(fixed,fallback)
+    assert old_grad[:,:3].count_nonzero()==0
+    assert (new_grad[:,:3][mask.expand_as(xyz)]>0).all()
+    assert new_grad[:,:3][~mask.expand_as(xyz)].count_nonzero()==0
+    torch.testing.assert_close(old_grad[:,3:],new_grad[:,3:])  # no duplicate depth/validity term
