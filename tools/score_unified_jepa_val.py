@@ -14,6 +14,8 @@ def main():
         if m['architecture_id'] not in ('stream_dino_utonia_jepa_rgbd_v2','stream_dino_fp_staticutonia_jepa_rgbd_v3','stream_two_input_jepa_v9','stream_conv_cross_jepa_v10','stream_conv_cross_geohistory_jepa_v10','stream_conv_cross_supported_history_jepa_v10','stream_conv_cross_dense_history_jepa_v10','stream_recovered_relation_jepa_v11','stream_cad_surface_jepa_v12','stream_serial_completion_jepa_v21'):raise ValueError('Wrong architecture')
         for key in ['architecture_id','jepa_enabled','history_enabled','checkpoint_sha256','stage_optimizer_steps','config_sha256']:
             if m[key]!=shards[0][key]:raise ValueError('Inconsistent shard identity: '+key)
+        for key in ('disable_shared_patch','shared_patch_enabled'):
+            if m.get(key)!=shards[0].get(key):raise ValueError('Inconsistent readout intervention: '+key)
     import score_val_non_gt
     score_val_non_gt.main()
     result=json.loads((a.out/'manifest.json').read_text())

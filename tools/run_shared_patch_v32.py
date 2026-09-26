@@ -45,7 +45,7 @@ def main():
     def native(arm,step,off=False):
         c=yaml.safe_load((exe/config(arm)).read_text());ck=root/arm/'runs/seed42/last.pt'
         label='step'+str(step)+('_patch_off' if off else '');pred=root/arm/'validation'/label
-        run(f'{arm}_{label}_native',[['tools/infer_unified_jepa_val.py','--config',config('shared_off' if off else arm),'--checkpoint',str(ck),'--out',str(pred/f'rank{i}'),'--rank',str(i),'--world','8','--disable-history'] for i in range(8)],True)
+        run(f'{arm}_{label}_native',[['tools/infer_unified_jepa_val.py','--config',config(arm),'--checkpoint',str(ck),'--out',str(pred/f'rank{i}'),'--rank',str(i),'--world','8','--disable-history']+(['--disable-shared-patch'] if off else []) for i in range(8)],True)
         run(f'{arm}_{label}_score',[['tools/score_unified_jepa_val.py','--run',str(pred),'--world','8','--index-root',c['paths']['index_root'],'--visibility-reference',c['paths']['visibility_reference'],'--workers','16','--out',str(pred.parent/(label+'_scored'))]])
     stopped=[]
     try:
@@ -71,7 +71,7 @@ def main():
             run(arm+'_recovery',[['tools/evaluate_recovery_focus.py','--config',config(arm),'--checkpoint',str(ck),'--out',str(root/arm/'recovery/step1700')]])
             run(arm+'_controlled',[['tools/probe_serial_pose.py','--config',config(arm),'--checkpoint',str(ck),'--out',str(root/arm/'controlled/step1700'/f'rank{i}'),'--rank',str(i),'--world','8','--geometry-components'] for i in range(8)],True)
         if 'shared' not in stopped:native('shared',1700,True)
-        status('complete',completed=True,source_step=1200,step=1700,updates_per_arm={arm:250 if arm in stopped else 500 for arm in ('control','shared')},early_stopped=stopped,default_model_changed=False)
+        status('complete',completed=True,source_step=1200,target_step=1700,terminal_steps={arm:1450 if arm in stopped else 1700 for arm in ('control','shared')},updates_per_arm={arm:250 if arm in stopped else 500 for arm in ('control','shared')},early_stopped=stopped,default_model_changed=False)
     except Exception as e:status('failed',error=str(e));raise
 
 if __name__=='__main__':main()

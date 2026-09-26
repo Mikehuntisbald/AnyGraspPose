@@ -1,7 +1,8 @@
 # V32: joint pose training on the unified JEPA representation
 
-Status: implemented; paired experiment launched. No accuracy claim or model
-promotion until native and restoration results are collected.
+Status: paired500-update training and all validations completed. The candidate
+does not beat the control on heavy pose or improve geometric restoration;
+neither is promoted to the default model. The original LIP target is unmet.
 
 ## Scope
 
@@ -87,3 +88,40 @@ An independent CPU audit found that this inherited serial curriculum reaches
 only18.53% of frames in eligible training streams, all no later than absolute
 frame28. See `SERIAL_TIME_COVERAGE_AUDIT.md`. V32 leaves sampling unchanged;
 coverage and closed-loop stability must be repaired/tested independently.
+
+## Completed results
+
+|1700-step model|All ADD-S@0.05d|Visibility<50%|Visibility<30%|
+|---|---:|---:|---:|
+|Control, actual-prediction training|56.908%|31.699%|10.892%|
+|Shared patch + decoded content|57.202%|30.747%|8.154%|
+|Same shared weights, direct patch disabled|57.074%|27.334%|8.213%|
+
+The candidate gains0.293pp overall but loses0.952pp heavy and2.737pp extreme
+versus the equal-budget control. Patch-on versus same-weight patch-off gains
+3.413pp heavy: the model uses the path, but that sensitivity does not establish
+better restoration or superiority to a model trained without that path.
+
+Fixed40 heavy restoration (control → candidate): real XYZ39.402→39.509mm,
+depth17.304→17.395mm; CAD-proxy XYZ38.058→38.075mm,
+depth23.596→23.728mm. No geometric restoration improvement is demonstrated.
+Native initializer/frame populations and recovery crops/teacher/donors/masks
+were checked equal. Same-weight patch-off retains identical checkpoint and
+config hashes, with a separately recorded inference intervention and zero GT
+pose/mask/reset reads.
+
+The first patch-off attempt correctly failed the checkpoint/config identity
+gate because an alternate config had been supplied. Training and all earlier
+evaluations had already completed. The follow-up uses the original config and
+an explicit `--disable-shared-patch` switch, preserving that gate. Original
+failure logs and the corrected finish receipt are retained; no training was
+restarted and no model weights were edited for the intervention.
+
+Terminal checkpoint SHA256:
+
+- Control: `d8bce096bd96a19dd25656268a2444257ff5df842255f3bbb1207998bcd721ba`.
+- Candidate: `3d6c6f8fe19cfbf50aa7b3d55c208baa9242145fdeb0fe7eab5b70ad72228ee1`.
+
+The next sampler comparison uses the control parent because it has better
+heavy/extreme pose and no worse reconstruction. This is experimental lineage,
+not default-model promotion. `outcome.json` binds the completed comparisons.

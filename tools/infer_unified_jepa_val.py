@@ -27,6 +27,7 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--config',type=Path,required=True);p.add_argument('--checkpoint',type=Path,required=True)
     p.add_argument('--out',type=Path,required=True);p.add_argument('--rank',type=int,default=0);p.add_argument('--world',type=int,default=8)
     p.add_argument('--disable-history',action='store_true');p.add_argument('--interface-smoke',action='store_true')
+    p.add_argument('--disable-shared-patch',action='store_true',help='Explicit same-checkpoint readout intervention; keep checkpoint config identity intact')
     p.add_argument('--limit-streams',type=int);p.add_argument('--max-frames',type=int);a=p.parse_args()
     if a.interface_smoke!=bool(a.limit_streams and a.max_frames):raise ValueError('Subset bounds require explicit interface smoke')
     c=yaml.safe_load(a.config.read_text());index=Path(c['paths']['index_root']);root=Path(c['paths']['data_root']);audit=check_data_gate(index)
@@ -49,6 +50,11 @@ def main():
     for key in ['split_hash','mesh_hash']:
         if checkpoint['provenance'][key]!=audit[key]:raise ValueError('Evaluation data identity mismatch')
     model=build_model(c);load_core(model,checkpoint['model']);model.weights_version=sha(a.checkpoint)
+    if a.disable_shared_patch:
+        if not hasattr(getattr(model,'geometry_readout',None),'patch_scale'):
+            raise ValueError('Patch-off intervention requires a shared-patch readout')
+        model.geometry_readout.patch_scale=0.
+        model.weights_version+='/shared-patch-off'
     model.eval();renderer=AppearanceRenderer('cuda');store=make_store(c,model)
     a.out.mkdir(parents=True,exist_ok=False);started=time.monotonic()
     manifest=dict(completed=False,split='val',architecture_id=model.architecture_id,source_sha256=source_hash(),
@@ -60,7 +66,8 @@ def main():
         fp_calls=0,fp_encoder_image_pairs=0,gt_pose_reads=0,gt_mask_reads=0,hand_annotation_reads=0,gt_resets=0,subset=a.interface_smoke,
         interface_smoke=a.interface_smoke,jepa_enabled=True,history_enabled=not a.disable_history,rendered_dino_images=0,current_dino_images=0,rejected_updates=0,max_memory_tokens=0,
         max_history_frames=0,protocol='Native PoseCNN; own causal pose feedback; no later GT reset; '+model.architecture_id+'; full texture; no teacher',
-        entrypoint_sha256=sha(__file__))
+        entrypoint_sha256=sha(__file__),disable_shared_patch=a.disable_shared_patch,
+        shared_patch_enabled=getattr(getattr(model,'geometry_readout',None),'patch_scale',0.)!=0.)
     def record():
         manifest.update(seconds=time.monotonic()-started,access_audit=guard.snapshot());atomic_json(a.out/'manifest.json',manifest)
     with torch.no_grad(),(a.out/'predictions.jsonl').open('w') as writer:
