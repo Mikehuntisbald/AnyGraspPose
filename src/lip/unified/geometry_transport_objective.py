@@ -48,6 +48,12 @@ def objective(output, target, observation, visible_mask, crop_k, use_transport, 
     if 'coarse_surface' in output:
         coarse = output['coarse_surface']
         loss = loss+.2*surface_loss(coarse[:, :3], coarse[:, 3:4])
+    if 'flow_coarse_surface' in output:
+        coarse = output['flow_coarse_surface']
+        loss = loss+.2*surface_loss(coarse[:, :3], coarse[:, 3:4])
+        coarse_known = torch.isfinite(target.geometry_valid_label)
+        loss = loss+.01*masked_mean(F.binary_cross_entropy_with_logits(
+            coarse[:, 4:5].float(), target.geometry_valid_label.nan_to_num(), reduction='none'), coarse_known)
     known = torch.isfinite(target.geometry_valid_label)
     validity = masked_mean(F.binary_cross_entropy_with_logits(output['geometry_valid_logits'].float(), target.geometry_valid_label.nan_to_num(), reduction='none'), known)
     loss = loss+.05*validity

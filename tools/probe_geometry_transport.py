@@ -33,11 +33,17 @@ def main():
     p.add_argument('--atlas-ablation',choices=['prior_only','learned_only'])
     p.add_argument('--correspondence-audit',action='store_true')
     p.add_argument('--recovery-routing',choices=['on','observed_only','rope_off'],default='on')
+    p.add_argument('--flow-ablation', choices=['on','no_feedback','no_transport'], default='on')
+    p.add_argument('--rotation-degrees', type=float, default=10.)
     a = p.parse_args(); torch.cuda.set_device(0); torch.set_num_threads(2); torch.manual_seed(42)
     c = yaml.safe_load(Path(a.config).read_text()); model = build_model(c)
     record = torch.load(a.checkpoint, map_location='cpu', weights_only=False)
     load_core(model, record['model']); del record
     model.requires_grad_(False).eval(); model.fast_geometry = model.vector_geometry = True
+    if a.flow_ablation != 'on':
+        if not hasattr(model, 'flow_reconstruction'):raise ValueError('Flow ablation requires flow/recovery model')
+        model.flow_reconstruction.disable_recovery_feedback = a.flow_ablation == 'no_feedback'
+        model.flow_reconstruction.disable_transport = a.flow_ablation == 'no_transport'
     if a.recovery_routing=='observed_only':
         model.staged_rope['recovered_max_trust']=0.
     elif a.recovery_routing=='rope_off':
@@ -73,7 +79,7 @@ def main():
             e, (truth, masks) = factory.sample(seed, frames=1)
             if not heldout(e.stream): continue
             item = len(rows); d = float(e.mesh['diameter']); gt = truth[:1]
-            noise = gt.new_zeros(1, 6); noise[0, item%3] = (-1 if item%2 else 1)*torch.pi/18
+            noise = gt.new_zeros(1, 6); noise[0, item%3] = (-1 if item%2 else 1)*torch.pi*a.rotation_degrees/180
             base = update(gt, noise[:, :3], noise[:, 3:], gt.new_tensor([d]))
             scene = prepare_scene(e.rgb[0], e.depth[0], base[0], e.mesh, e.k, e.times[0], e.stream, e.cad, factory.renderer, fast=True)
             oid = factory.streams[e.stream.split('|')[0]]['object_id']
@@ -191,6 +197,20 @@ def main():
                         metrics[name]['predicted_projection_coverage'] = float(projection['available'][mask].float().mean())
                         metrics[name]['predicted_projection_epe'] = float((projection['flow']-truth_transport['flow']).norm(dim=1,keepdim=True)[eligible].mean()) if eligible.any() else None
             row = dict(seed=seed, stream=e.stream, heavy=heavy, natural=item%4==0, clean_control=a.clean_control,window=e.training_window, metrics=metrics)
+            if 'flow_rounds' in output:
+                from lip.unified.flow_reconstruction import flow_labels, flow_reconstruction_loss
+                from lip.unified.execution_speed import crop_images_fast
+                flow_visible = (crop_images_fast(masks[:1].float(), scene.affine, mode='nearest') > .5) & scene.bounds
+                if not a.clean_control:flow_visible = flow_visible & ~occ.mask
+                labels = flow_labels(output, target, scene.k_crop[None], obs.diameter, flow_visible)
+                _, values = flow_reconstruction_loss(output, labels)
+                row['flow'] = {k:float(v) for k,v in values.items()}
+                row['flow_ablation'] = a.flow_ablation
+                if item == 2:
+                    np.savez_compressed(out/'flow_example.npz', reference_uv=output['flow_reference']['uv'].cpu().numpy(),
+                        reference_xyz=output['flow_reference']['xyz'].cpu().numpy(), target_uv=labels['uv'].cpu().numpy(),
+                        uv0=output['flow_rounds'][0]['uv'].cpu().numpy(), uv1=output['flow_rounds'][1]['uv'].cpu().numpy(),
+                        **{name:labels[name].cpu().numpy() for name in ('observed','real','proxy')})
             if 'cad_image_uv' in output or a.correspondence_audit:
                 from cad_image_diagnostics import diagnose
                 from lip.unified.execution_speed import crop_images_fast
@@ -240,6 +260,8 @@ def main():
         atlas_ablation=a.atlas_ablation,
         correspondence_audit=a.correspondence_audit,
         recovery_routing=a.recovery_routing,
+        flow_ablation=a.flow_ablation,
+        rotation_degrees=a.rotation_degrees,
         lip_baseline_sha256=lip_sha,lip_baseline_scope='Same corrupted current input/base/crop, empty history, one refinement; no GT render fed to LIP; conditional diagnostic, not native LIP accuracy' if lip is not None else None,
         oracle_lookup_scope='GT correspondence and GT depth diagnostic only; common supported pixels; never deployed', seconds=time.monotonic()-start), indent=2)+'\n')
 

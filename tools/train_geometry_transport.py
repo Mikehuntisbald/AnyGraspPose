@@ -68,7 +68,7 @@ def main():
             parent['model'][key]=extended
         elif old.shape[1]!=25:raise ValueError('Unexpected transport channel count')
     status = model.load_state_dict(parent['model'], strict=False)
-    if status.unexpected_keys or any(not n.startswith(('cad_transport.','cad_atlas_decoder.')) for n in status.missing_keys):
+    if status.unexpected_keys or any(not n.startswith(('cad_transport.','cad_atlas_decoder.','flow_reconstruction.')) for n in status.missing_keys):
         raise ValueError('Unexpected geometry migration: '+str(status))
     if any(not torch.equal(model.state_dict()[n].cpu(), value.cpu()) for n, value in parent['model'].items()):
         raise ValueError('Existing model tensors changed during migration')
@@ -92,6 +92,7 @@ def main():
         kind = 'encoder' if name.startswith('encoder.') else ('new' if name.startswith(('surface_head.', 'cad_transport.')) else 'predictor')
         if name.startswith('cad_transport.') and 'transport' in config['training']['learning_rates']:kind='transport'
         if name.startswith('cad_atlas_decoder.'):kind='transport'
+        if name.startswith('flow_reconstruction.'):kind='flow'
         group = groups.setdefault(kind, dict(params=[], names=[], category=kind, lr=config['training']['learning_rates'][kind]))
         group['params'].append(parameter); group['names'].append(name)
     optimizer = torch.optim.AdamW(list(groups.values()), weight_decay=.01, fused=True)
@@ -214,6 +215,44 @@ def main():
                 correspondence,parts=atlas_correspondence_loss(output,target,eligible)
                 loss=loss+config['cad_atlas']['correspondence_weight']*correspondence
                 metrics.update(parts)
+            if config.get('flow_reconstruction', {}).get('enabled'):
+                from lip.unified.flow_reconstruction import flow_labels, flow_reconstruction_loss
+                labels = flow_labels(output, target, torch.stack([s.k_crop for s in scenes]), observation.diameter, visible)
+                flow_loss, flow_metrics = flow_reconstruction_loss(output, labels)
+                if step == start:
+                    shared = model.core.src_proj.weight
+                    geometry_gradient, = torch.autograd.grad(loss, shared, retain_graph=True)
+                    flow_gradient, = torch.autograd.grad(flow_loss*config['flow_reconstruction']['loss_weight'], shared, retain_graph=True)
+                    gradient_balance = dict(geometry=float(geometry_gradient.float().norm()),
+                        weighted_flow=float(flow_gradient.float().norm()),
+                        cosine=float(torch.nn.functional.cosine_similarity(geometry_gradient.float().flatten(), flow_gradient.float().flatten(), dim=0)))
+                loss = loss+config['flow_reconstruction']['loss_weight']*flow_loss
+                metrics.update(flow_metrics)
+                if step == start:
+                    # Verify BOTH serial dependencies, not just parameter grads.
+                    to_flow, = torch.autograd.grad(output['surface_depth_residual'].square().mean(),
+                        output['flow_rounds'][0]['uv'], retain_graph=True)
+                    to_recovery, = torch.autograd.grad(output['flow_rounds'][1]['uv'].square().mean(),
+                        output['flow_coarse_surface'], retain_graph=True)
+                    norms = dict(reconstruction_to_flow=float(to_flow.norm()),
+                                 flow_to_recovered_xyz=float(to_recovery[:, :3].norm()))
+                    if any(not math.isfinite(v) or v <= 0 for v in norms.values()):
+                        raise RuntimeError('Missing serial flow/recovery dependency: '+str(norms))
+                    # An independent float64 projection validates the labels.
+                    points = output['flow_reference']['xyz'].double()*observation.diameter[:, None, None].double()
+                    camera = points@truth[:, :3, :3].double().transpose(-1, -2)+truth[:, None, :3, 3].double()
+                    k_native = torch.stack([e.k for e in episodes]*(2 if plan.get('paired_estimates') else 1)).double()
+                    pixel = camera@k_native.transpose(-1, -2)
+                    pixel = pixel/pixel[..., 2:]
+                    crop = pixel@torch.stack([s.affine for s in scenes]).double().transpose(-1, -2)
+                    expected = crop[..., :2]/crop[..., 2:]
+                    mask = labels['support'] & output['flow_reference']['available']
+                    discrepancy = float((expected-labels['uv'].double()).abs()[mask].max()) if mask.any() else 0.
+                    if discrepancy > 1e-3:raise RuntimeError('Flow supervision crop mismatch')
+                    atomic_json(out/f'flow_integrity_rank{rank}.json', dict(**norms,
+                        native_crop_max_error_px=discrepancy, source_points=int(mask.sum()),
+                        shared_projection_gradient=gradient_balance,
+                        regions={n:int(labels[n].sum()) for n in ('observed', 'real', 'proxy')}, teacher_input=False))
             if config.get('cad_image',{}).get('enabled'):
                 from lip.unified.cad_image_correspondence import image_correspondence_targets,image_correspondence_loss
                 labels=image_correspondence_targets(output,target,torch.stack([s.k_crop for s in scenes]),observation.diameter,visible)

@@ -192,6 +192,29 @@ class ConvCrossTracker(TwoStreamTracker):
             if use_dpt:dense_levels.append(patch)
         patch,dense_levels,refined_metrics=self.refine_surface(patch,valid,cad_inputs,dense_levels,before_last,mem,mv,mb)
         surface_metrics.update(refined_metrics)
+        if hasattr(self, 'flow_reconstruction'):
+            from .flow_reconstruction import template_points
+            reference = template_points(geometry_image, cad_valid)
+            rounds = []
+            recovered = None
+            for stage in range(2):
+                prior_patch = patch
+                patch, flow = self.flow_reconstruction(patch, real, cad, geometry_image,
+                                                       valid, reference, recovered)
+                rounds.append(flow)
+                # Shared JEPA block consumes aligned CAD evidence before DPT.
+                # No alternative decoder or pose path is introduced.
+                # Subtract the identical no-write pass: disabling transport
+                # preserves the original representation exactly rather than
+                # adding transformer depth as a confounded intervention.
+                block = self.core.blocks[-1]
+                patch = prior_patch + (block(patch, valid, mem, mv, mb)
+                                       - block(prior_patch, valid, mem, mv, mb))
+                dense_levels[-1] = self.core.final_norm(patch)
+                if stage == 0:
+                    recovered = self.surface_head(dense_levels, valid)
+            surface_metrics.update(flow_reference=reference, flow_rounds=rounds,
+                                   flow_coarse_surface=recovered)
         patch = self.core.final_norm(patch)
         if use_dpt:
             dense_levels[-1]=patch

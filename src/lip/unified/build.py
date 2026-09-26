@@ -113,6 +113,14 @@ def build_model(config,device='cuda'):
                         torch.nn.init.zeros_(model.cad_atlas_decoder.image_readout.anchor_flow[-1].weight)
                         torch.nn.init.zeros_(model.cad_atlas_decoder.image_readout.anchor_flow[-1].bias)
                     model.model_version='frozen-jepa-anchored-flow-v47'
+        if config.get('flow_reconstruction', {}).get('enabled'):
+            if not config.get('cad_atlas', {}).get('enabled'):
+                raise ValueError('Iterative flow requires the complete CAD atlas fallback')
+            from .flow_reconstruction import FlowReconstruction
+            with torch.random.fork_rng(devices=[]):
+                torch.manual_seed(config['seed']+56)
+                model.flow_reconstruction = FlowReconstruction().to(device)
+            model.model_version = 'iterative-template-flow-jepa-v56'
         return model
     if config['architecture_id']=='stream_dino_fp_staticutonia_jepa_rgbd_v3':
         return build_fp_model(config,device)
