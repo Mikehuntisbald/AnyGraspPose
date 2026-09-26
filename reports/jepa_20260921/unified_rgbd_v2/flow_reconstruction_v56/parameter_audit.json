@@ -1,0 +1,18 @@
+{
+  "step": 200,
+  "frozen_non_ema_tensors": 81,
+  "changed_frozen": [],
+  "new_module_tensors": 14,
+  "changed_new": 14,
+  "optimizer_groups": [
+    "encoder",
+    "predictor",
+    "new",
+    "transport",
+    "flow"
+  ],
+  "rng_count": 8,
+  "pose_loss": false,
+  "dino_loss": false,
+  "history_disabled": true
+}

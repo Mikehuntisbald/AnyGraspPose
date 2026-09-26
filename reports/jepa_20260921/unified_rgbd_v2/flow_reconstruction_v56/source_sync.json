@@ -1,0 +1,19 @@
+{
+  "files": 12,
+  "matched": true,
+  "remote_git_checkout": false,
+  "sha256": {
+    "src/lip/unified/flow_reconstruction.py": "1c8fe47a90a7f377d0cbb9bfb06054247d27e23aa2cab3a6cd4295087c5eeca5",
+    "src/lip/unified/conv_cross.py": "b9fe98009c65c1ff456bafa59ec70778c6ca772976577aa3c5476628fc002568",
+    "src/lip/unified/build.py": "7e160a9332f566a43ec60c6e87b5b63955d08878713b4ea26f7679627f37e0e1",
+    "src/lip/unified/geometry_transport_objective.py": "1b91d6f1b6a7ccf23c1e69d182de130bb94fb217d4954903e26354d8f3325ea6",
+    "tools/train_geometry_transport.py": "0a900b1d40c582571bcd7f2f37a15755e2f6e247d34ccbd87dc52a14de331437",
+    "tools/probe_geometry_transport.py": "a0432db9ec13f52c7b8549fa87d4c462c566f4d01bed31cbf2a6c65209a9a0fa",
+    "tools/run_flow_reconstruction_v56.py": "4a194c61c5018651425e18f3126176baab1036621f227d0c364f026bdab59a40",
+    "tools/report_flow_reconstruction_v56.py": "31af648452c5cec34659c9dc0cdc3100d17a85228921b82c650c3c6c2578ceb2",
+    "tools/plot_flow_reconstruction_v56.py": "a17660680b4e51c5296340388dabea2dc23d8a76e844d4b2fe9dc63261367578",
+    "tests/jepa/test_flow_reconstruction.py": "44e6a7a79818b0114e2af3623817ebb3418c2915bcaee92d763f418ea5c87b42",
+    "configs/jepa/flow_reconstruction_v56.yaml": "a62753da05c292dd71c98e129f6ef48e0399931bfb1735ab2e66fe979a3debc1",
+    "docs/JEPA_FLOW_RECONSTRUCTION_V56.md": "5668a1b7d405cf709b105135f8284d0769c2c289b873df802a1a3fe8df8ed8ab"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "completed": true,
+  "source_commit": "0092d37",
+  "runtime": "/tmp/dexycb_flow_reconstruction_v56_r0",
+  "remote_artifacts": "/mnt/why/dexycb_lip/unified_jepa_20260921/flow_reconstruction_v56",
+  "remote_git_checkout": false,
+  "updates": 200,
+  "goal_accurate_geometry_achieved": false,
+  "default_model_changed": false,
+  "local_reduction_matches_remote_sha256": "2f2252bd9ece1fc0ac2d3cff9de8f5241172d26bb0edd04ed91b7ea2e56dd126",
+  "terminal_checkpoint": {
+    "step": 200,
+    "sha256": "044a8f928d324e54c8e2cab2927dd31e55942cde98bc09fa5f18ce5245d0fa5f",
+    "bytes": 473673972,
+    "remote_and_local_verified": true
+  },
+  "source_archive_sha256": "5ce7898fd0b101a8533b7daa039045a173203963b095cee384fcda5e885af132",
+  "raw_paired_rows_local": true,
+  "visualization": "fixed rank0 first-heavy sample; not selected by performance"
+}
