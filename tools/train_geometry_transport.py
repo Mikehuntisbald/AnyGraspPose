@@ -159,6 +159,10 @@ def main():
             target = build_teachers(model.ema_teacher, scenes, truth, masks, [o.mask for o in occlusions], factory.renderer,
                                     real_geometry_max_radius_d=1., fast=True, batch_render=True, vectorized=True, geometry_only=True)
             full_visible = torch.cat([(crop_images_fast(masks[i:i+1].float(), s.affine, mode='nearest') > .5) & s.bounds for i,s in enumerate(scenes)])
+            quality=config.get('supervision_quality',{})
+            if quality.get('enabled',False):
+                from lip.unified.supervision_quality import quarantine_real_geometry
+                target=quarantine_real_geometry(target,scenes,full_visible,quality['max_depth_gap_m'])
             visible = full_visible & ~torch.cat([o.mask for o in occlusions])
             if plan.get('clean_input'):
                 from lip.unified.paired_geometry_curriculum import clean_input_targets

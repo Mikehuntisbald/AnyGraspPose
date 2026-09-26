@@ -104,6 +104,7 @@ class TeacherTargets:
     cad_geometry_xyz: torch.Tensor|None=None
     cad_geometry_depth_m: torch.Tensor|None=None
     cad_geometry_valid: torch.Tensor|None=None
+    real_geometry_eligible: torch.Tensor|None=None
 
 
 @torch.no_grad()

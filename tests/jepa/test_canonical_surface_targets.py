@@ -23,6 +23,10 @@ def test_cad_identity_preserves_real_depth_supervision():
                 geometry_valid_logits=label*10,evidence_logits=torch.full((1,256),-10.),support_logits=torch.full((1,256),10.))
     k=torch.tensor([[[224.,0.,111.5],[0.,224.,111.5],[0.,0.,1.]]])
     clean,_=objective(output,target,obs,mask&False,k,False,canonical_surface=True)
+    xyz_grad,depth_grad=torch.autograd.grad(clean,(output['surface_xyz'],output['surface_depth_residual']),retain_graph=True)
+    # Exact canonical XYZ plus the original sensor depth must not be pulled
+    # toward a mutually incompatible full-camera XYZ/depth equality target.
+    assert xyz_grad.abs().max()<1e-5 and depth_grad.abs().max()<1e-5
     old,_=objective(output,target,obs,mask&False,k,False)
     assert clean<old
     assert torch.equal(target.surface_xyz,raw_xyz) and torch.equal(target.surface_depth_residual,label*.02)

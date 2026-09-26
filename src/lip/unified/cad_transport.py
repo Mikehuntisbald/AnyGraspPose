@@ -94,6 +94,7 @@ class CADTransport(nn.Module):
 
 
 @torch.no_grad()
+@torch.autocast('cuda', enabled=False)
 def transport_targets(xyz, reference_geometry, base, diameter, crop_k, cad_valid):
     """Teacher-only exact projection and z-buffer/surface-identity eligibility.
 

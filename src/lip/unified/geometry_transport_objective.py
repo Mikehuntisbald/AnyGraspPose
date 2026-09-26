@@ -6,6 +6,7 @@ from .recovery_focus import masked_mean, camera_disagreement
 from .surface_normals import normal_terms
 
 
+@torch.autocast('cuda', enabled=False)
 def objective(output, target, observation, visible_mask, crop_k, use_transport, canonical_surface=False, flow_weight=.25):
     beta = .02
     def distance(a, b):
@@ -15,6 +16,8 @@ def objective(output, target, observation, visible_mask, crop_k, use_transport, 
     camera = target.camera_rays*measured/observation.diameter[:, None, None, None]-target.camera_translation_d[:, :, None, None]
     xyz_visible = torch.einsum('bji,bjhw->bihw', target.camera_rotation, camera).detach()
     visible = visible_mask & (measured > 0) & torch.isfinite(measured) & (xyz_visible.square().sum(1, keepdim=True) < 1.)
+    if getattr(target,'real_geometry_eligible',None) is not None:
+        visible = visible & target.real_geometry_eligible
     xyz_truth = target.surface_xyz
     if canonical_surface:
         if getattr(target,'cad_geometry_xyz',None) is None:raise ValueError('Separate CAD surface teacher metadata required')
