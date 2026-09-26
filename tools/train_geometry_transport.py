@@ -37,7 +37,9 @@ from lip.geometry.so3 import update
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--config', required=True)
-    parser.add_argument('--resume')
+    restore = parser.add_mutually_exclusive_group()
+    restore.add_argument('--resume')
+    restore.add_argument('--extend-from')
     parser.add_argument('--stop-at', type=int)
     args = parser.parse_args()
     config = yaml.safe_load(Path(args.config).read_text())
@@ -48,13 +50,17 @@ def main():
     torch.manual_seed(config['seed']); random.seed(config['seed']+rank); np.random.seed(config['seed']+rank)
     if world > 1: dist.init_process_group('nccl')
     plan = config['geometry_transport_training']
+    extension = config.get('geometry_horizon_continuation')
+    if extension and not (args.extend_from or args.resume):raise ValueError('Geometry extension requires an explicit restore source')
+    if args.extend_from and not extension:raise ValueError('Missing geometry extension configuration')
+    bootstrap = extension or plan
     batch = config['runtime']['microbatch']
     assert world == 8 and world*batch == config['training']['effective_batch'] == 32
     model = build_model(config)
-    if sha(plan['source_checkpoint']) != plan['source_sha256']:
+    if sha(bootstrap['source_checkpoint']) != bootstrap['source_sha256']:
         raise ValueError('Source geometry checkpoint changed')
-    parent = torch.load(plan['source_checkpoint'], map_location='cpu', weights_only=False)
-    if parent['step'] != plan['source_step']: raise ValueError('Source step mismatch')
+    parent = torch.load(bootstrap['source_checkpoint'], map_location='cpu', weights_only=False)
+    if parent['step'] != bootstrap['source_step']: raise ValueError('Source step mismatch')
     if config['cad_transport'].get('reference_conditioned'):
         key='cad_transport.head.0.weight';old=parent['model'][key]
         if old.shape[1]==16:
@@ -92,17 +98,23 @@ def main():
     if plan.get('point_head_only'):model.eval()
     maximum = plan['updates']; stop = args.stop_at or maximum
     if not 0 < stop <= maximum: raise ValueError('Budget exceeded')
-    scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lambda step: min(1., (step+1)/plan.get('warmup',50))*(.5+.25*(1+math.cos(math.pi*min(step, maximum)/maximum))))
+    if extension:
+        from lip.unified.horizon_resume import extension_factor
+        rate=lambda step:extension_factor(step,extension['source_step'],extension['rewarm_steps'],maximum,extension['floor'])
+    else:
+        rate=lambda step:min(1., (step+1)/plan.get('warmup',50))*(.5+.25*(1+math.cos(math.pi*min(step, maximum)/maximum)))
+    scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, rate)
     factory = Factory(config, model, make_store(config, model))
     root = Path(__file__).resolve().parents[1]
     source_files = {str(p.relative_to(root)): sha(p) for folder in ('src','tools','configs') for p in (root/folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts}
     provenance = dict(source_sha256=hashlib.sha256(json.dumps(source_files, sort_keys=True).encode()).hexdigest(),
-                      source_checkpoint_sha256=plan['source_sha256'], source_step=plan['source_step'],
+                      source_checkpoint_sha256=bootstrap['source_sha256'], source_step=bootstrap['source_step'],
                       split_hash=factory.audit['split_hash'], mesh_hash=factory.audit['mesh_hash'],
                       initializers_sha256=factory.initializers_sha256, training_split='train',
                       official_test_access=False, teacher_input=False, pose_loss=False, dino_loss=False,
                       crop='Uniform full-stream frame; transported native error or training GT perturbation',
-                      optimizer_reset=True, frozen_parameter_names=frozen)
+                      optimizer_reset=not bool(extension), frozen_parameter_names=frozen)
+    if extension:provenance['geometry_horizon_continuation']=extension
     if plan.get('decoder_only'):
         provenance['decoder_only'] = True
         provenance['initial_gate_bias_override'] = plan.get('transport_gate_bias')
@@ -120,6 +132,12 @@ def main():
         start = record['step']
         if rank == 0: atomic_json(out/f'resume{start}.json', dict(step=start, complete_state_verified=record['restore_verified']))
         del record
+    elif args.extend_from:
+        from lip.unified.geometry_horizon import extend_geometry
+        start,receipt=extend_geometry(args.extend_from,model,optimizer,scheduler,config,provenance,rank,world)
+        if start>=stop:raise ValueError('No additional geometry updates requested')
+        atomic_json(out/f'extension_rank{rank}.json',receipt)
+        save(out/'initial.pt',model,optimizer,scheduler,start,config,provenance)
     else:
         save(out/'initial.pt', model, optimizer, scheduler, 0, config, provenance)
     with (out/f'rank{rank}.jsonl').open('a') as log:
@@ -229,17 +247,17 @@ def main():
                         shared_patch_gradient=float(image_grad.norm()),support_points=int(mask.sum()),
                         regions={n:int(labels[n].sum()) for n in ('observed','real','proxy')},teacher_input=False))
             if not torch.isfinite(loss): raise RuntimeError('Nonfinite geometry loss')
-            if atlas and step==0 and not plan.get('point_head_only'):
+            if atlas and step==start and not plan.get('point_head_only'):
                 prior_gradient,=torch.autograd.grad(loss,output['atlas_fallback'],retain_graph=True)
                 prior_norm=float(prior_gradient[:,:3].float().norm())
                 if config['cad_atlas'].get('fallback_xyz_weight',0.) and not prior_norm:
                     raise RuntimeError('Final coordinate prior received no direct gradient')
                 atomic_json(out/f'final_prior_gradient_rank{rank}.json',dict(xyz_norm=prior_norm,depth_validity_norm=float(prior_gradient[:,3:].float().norm())))
-            if step == 0 and not plan.get('decoder_only') and not plan.get('point_head_only'):
+            if step == start and not plan.get('decoder_only') and not plan.get('point_head_only'):
                 grad, = torch.autograd.grad(loss, output['patch_latent'], retain_graph=True)
                 if not torch.isfinite(grad).all() or not grad.norm(): raise RuntimeError('Geometry does not train JEPA')
             loss.backward()
-            if step == 0:
+            if step == start:
                 names = () if plan.get('decoder_only') else ('core.src_proj.weight', 'surface_head.output.6.weight')
                 if atlas:names+=('cad_atlas_decoder.query.0.weight','cad_atlas_decoder.descriptor.1.weight')
                 elif config['cad_transport']['enabled']: names += ('cad_transport.head.2.weight',)
@@ -256,12 +274,13 @@ def main():
             row = dict(step=step+1, seconds=time.monotonic()-begun, data_seconds=data_time,
                        loss=float(loss.detach()), grad_norm=float(norm), lr={g['category']:g['lr'] for g in optimizer.param_groups},
                        metrics={k:float(v) for k,v in metrics.items()}, windows=[e.training_window for e in episodes])
+            if extension:row['additional_updates']=step+1-extension['source_step']
             log.write(json.dumps(row)+'\n'); log.flush()
             if rank == 0 and (step+1)%25 == 0: print(json.dumps(row), flush=True)
             if (step+1)%50 == 0 or step+1 == stop:
                 save(out/'last.pt', model, optimizer, scheduler, step+1, config, provenance)
             del output, observation, target, loss
-    if rank == 0: atomic_json(out/'training_status.json', dict(step=stop, target=maximum, completed=stop==maximum, source_step=plan['source_step'], default_model_changed=False))
+    if rank == 0: atomic_json(out/'training_status.json', dict(step=stop, target=maximum, completed=stop==maximum, source_step=bootstrap['source_step'], default_model_changed=False))
     if dist.is_initialized(): dist.destroy_process_group()
 
 
