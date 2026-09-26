@@ -1,0 +1,924 @@
+{
+  "training": false,
+  "model_loaded": false,
+  "analytic": {
+    "plane_depth_error_mm": {
+      "n": 26381,
+      "mean": 3.420126449782401e-05,
+      "p50": 2.6434236133354716e-05,
+      "p95": 6.987819506321102e-05,
+      "maximum": 0.039523180574178696
+    },
+    "plane_interior_error_mm": {
+      "n": 25042,
+      "mean": 3.0046761821722612e-05,
+      "p50": 2.644229789439123e-05,
+      "p95": 6.99043957865797e-05,
+      "maximum": 0.00013749266508966684
+    },
+    "renderer_xyz_camera_error_mm": {
+      "n": 26381,
+      "mean": 6.333572673611343e-05,
+      "p50": 5.205214984016493e-05,
+      "p95": 8.851085294736549e-05,
+      "maximum": 0.07482677698135376
+    },
+    "nonidentity_crop": true,
+    "centered_pose_equivalence": true,
+    "nearest_crop_exact": true
+  },
+  "cases": [
+    {
+      "seed": 40000000,
+      "stream": "20200928-subject-07/20200928_143915/932122061900|draw40000000",
+      "frame": 8,
+      "object_id": 3,
+      "diameter_m": 0.1983765810728073,
+      "native_bytes_exact": true,
+      "real_pixels": 3662,
+      "proxy_pixels": 0,
+      "native_pose_exact": true,
+      "render_over_half_mm": false,
+      "unchanged_visible_reconstruction_pixels": 0,
+      "real_xyz_independent_error_mm": {
+        "n": 3662,
+        "mean": 1.0755555194918998e-05,
+        "p50": 9.789626346901059e-06,
+        "p95": 2.07040775421774e-05,
+        "maximum": 3.39995494869072e-05
+      },
+      "renderer_camera_error_mm": {
+        "n": 4910,
+        "mean": 0.0013434505090117455,
+        "p50": 3.0362494726432487e-05,
+        "p95": 0.00011253841512370855,
+        "maximum": 0.1825842559337616
+      },
+      "mixed_xyz_depth_error_mm": {
+        "n": 3662,
+        "mean": 3.657685283542378e-06,
+        "p50": 3.373234903847333e-06,
+        "p95": 8.288905519293621e-06,
+        "maximum": 1.213270388689125e-05
+      },
+      "visible_sensor_cad_gap_mm": {
+        "n": 4875,
+        "mean": 10.88293743133545,
+        "p50": 10.618209838867188,
+        "p95": 17.440006256103516,
+        "maximum": 38.64145278930664
+      },
+      "supervised_real_sensor_cad_gap_mm": {
+        "n": 3662,
+        "mean": 10.254387855529785,
+        "p50": 10.407209396362305,
+        "p95": 13.956072807312012,
+        "maximum": 16.336679458618164
+      },
+      "visible_outside_cad_pixels": 33,
+      "gt_teacher_does_not_mutate_student": true,
+      "texture_shape": [
+        1,
+        4096,
+        4096,
+        3
+      ]
+    },
+    {
+      "seed": 40000001,
+      "stream": "20200709-subject-01/20200709_145959/840412060917|draw40000001",
+      "frame": 38,
+      "object_id": 11,
+      "diameter_m": 0.2595340609550476,
+      "native_bytes_exact": true,
+      "real_pixels": 47,
+      "proxy_pixels": 471,
+      "native_pose_exact": true,
+      "render_over_half_mm": false,
+      "unchanged_visible_reconstruction_pixels": 0,
+      "real_xyz_independent_error_mm": {
+        "n": 47,
+        "mean": 1.2801955563190859e-05,
+        "p50": 1.2653570593101904e-05,
+        "p95": 2.1618028767989017e-05,
+        "maximum": 2.4394536012550816e-05
+      },
+      "renderer_camera_error_mm": {
+        "n": 5448,
+        "mean": 0.0011149330530315638,
+        "p50": 3.0015477022971027e-05,
+        "p95": 8.777766197454184e-05,
+        "maximum": 0.24199780821800232
+      },
+      "mixed_xyz_depth_error_mm": {
+        "n": 518,
+        "mean": 2.694698741834145e-05,
+        "p50": 2.194663647969719e-05,
+        "p95": 7.005286170169711e-05,
+        "maximum": 0.0001035970271914266
+      },
+      "visible_sensor_cad_gap_mm": {
+        "n": 3777,
+        "mean": 224.2888946533203,
+        "p50": 234.24761962890625,
+        "p95": 394.931884765625,
+        "maximum": 421.46026611328125
+      },
+      "supervised_real_sensor_cad_gap_mm": {
+        "n": 47,
+        "mean": 2.8875420093536377,
+        "p50": 2.101004123687744,
+        "p95": 6.613302707672119,
+        "maximum": 15.38705825805664
+      },
+      "visible_outside_cad_pixels": 20,
+      "gt_teacher_does_not_mutate_student": true,
+      "texture_shape": [
+        1,
+        4096,
+        4096,
+        3
+      ]
+    },
+    {
+      "seed": 40000002,
+      "stream": "20200908-subject-05/20200908_145254/932122060857|draw40000002",
+      "frame": 43,
+      "object_id": 8,
+      "diameter_m": 0.11405334621667862,
+      "native_bytes_exact": true,
+      "real_pixels": 3135,
+      "proxy_pixels": 20,
+      "native_pose_exact": true,
+      "render_over_half_mm": false,
+      "unchanged_visible_reconstruction_pixels": 0,
+      "real_xyz_independent_error_mm": {
+        "n": 3135,
+        "mean": 1.1066426850447897e-05,
+        "p50": 9.797991879167967e-06,
+        "p95": 2.2746622562408447e-05,
+        "maximum": 3.931752507924102e-05
+      },
+      "renderer_camera_error_mm": {
+        "n": 5075,
+        "mean": 0.0012249838327988982,
+        "p50": 2.5533428924973123e-05,
+        "p95": 8.03366128820926e-05,
+        "maximum": 0.3696157932281494
+      },
+      "mixed_xyz_depth_error_mm": {
+        "n": 3155,
+        "mean": 2.2948995592741994e-06,
+        "p50": 2.208277919635293e-06,
+        "p95": 3.5470602597342804e-06,
+        "maximum": 7.15771020622924e-05
+      },
+      "visible_sensor_cad_gap_mm": {
+        "n": 4353,
+        "mean": 22.760986328125,
+        "p50": 14.38605785369873,
+        "p95": 128.1752471923828,
+        "maximum": 136.50100708007812
+      },
+      "supervised_real_sensor_cad_gap_mm": {
+        "n": 3135,
+        "mean": 13.869650840759277,
+        "p50": 14.296174049377441,
+        "p95": 16.13184928894043,
+        "maximum": 29.55317497253418
+      },
+      "visible_outside_cad_pixels": 54,
+      "gt_teacher_does_not_mutate_student": true,
+      "texture_shape": [
+        1,
+        4096,
+        4096,
+        3
+      ]
+    },
+    {
+      "seed": 40000003,
+      "stream": "20201022-subject-10/20201022_112009/932122062010|draw40000003",
+      "frame": 34,
+      "object_id": 7,
+      "diameter_m": 0.1425434947013855,
+      "native_bytes_exact": true,
+      "real_pixels": 2905,
+      "proxy_pixels": 304,
+      "native_pose_exact": true,
+      "render_over_half_mm": false,
+      "unchanged_visible_reconstruction_pixels": 0,
+      "real_xyz_independent_error_mm": {
+        "n": 2905,
+        "mean": 1.2923795111419167e-05,
+        "p50": 1.2611394595296588e-05,
+        "p95": 2.1672978618880734e-05,
+        "maximum": 3.021034353878349e-05
+      },
+      "renderer_camera_error_mm": {
+        "n": 5557,
+        "mean": 0.0007517702179029584,
+        "p50": 2.5015511710080318e-05,
+        "p95": 7.834746793378145e-05,
+        "maximum": 0.10266397893428802
+      },
+      "mixed_xyz_depth_error_mm": {
+        "n": 3209,
+        "mean": 7.054471552692121e-06,
+        "p50": 5.272098860586993e-06,
+        "p95": 2.183630749641452e-05,
+        "maximum": 8.96610799827613e-05
+      },
+      "visible_sensor_cad_gap_mm": {
+        "n": 4809,
+        "mean": 23.584287643432617,
+        "p50": 13.361989974975586,
+        "p95": 151.36314392089844,
+        "maximum": 161.7949676513672
+      },
+      "supervised_real_sensor_cad_gap_mm": {
+        "n": 2905,
+        "mean": 12.156712532043457,
+        "p50": 10.709881782531738,
+        "p95": 25.02490234375,
+        "maximum": 156.03506469726562
+      },
+      "visible_outside_cad_pixels": 31,
+      "gt_teacher_does_not_mutate_student": true,
+      "texture_shape": [
+        1,
+        4096,
+        4096,
+        3
+      ]
+    },
+    {
+      "seed": 40000004,
+      "stream": "20200820-subject-03/20200820_142649/841412060263|draw40000004",
+      "frame": 4,
+      "object_id": 12,
+      "diameter_m": 0.2595660388469696,
+      "native_bytes_exact": true,
+      "real_pixels": 213,
+      "proxy_pixels": 0,
+      "native_pose_exact": true,
+      "render_over_half_mm": false,
+      "unchanged_visible_reconstruction_pixels": 0,
+      "real_xyz_independent_error_mm": {
+        "n": 213,
+        "mean": 1.9469644030323252e-05,
+        "p50": 1.9067329048993997e-05,
+        "p95": 2.705990664253477e-05,
+        "maximum": 3.249491419410333e-05
+      },
+      "renderer_camera_error_mm": {
+        "n": 4654,
+        "mean": 0.0011132018407806754,
+        "p50": 3.0278599297162145e-05,
+        "p95": 9.840462007559836e-05,
+        "maximum": 0.2009088397026062
+      },
+      "mixed_xyz_depth_error_mm": {
+        "n": 213,
+        "mean": 1.5164334399742074e-05,
+        "p50": 1.5166623597906437e-05,
+        "p95": 1.958783104782924e-05,
+        "maximum": 2.64911705016857e-05
+      },
+      "visible_sensor_cad_gap_mm": {
+        "n": 4608,
+        "mean": 4.308199405670166,
+        "p50": 3.2230615615844727,
+        "p95": 12.235527992248535,
+        "maximum": 69.33748626708984
+      },
+      "supervised_real_sensor_cad_gap_mm": {
+        "n": 213,
+        "mean": 6.597102165222168,
+        "p50": 5.684494972229004,
+        "p95": 13.84262752532959,
+        "maximum": 20.35272216796875
+      },
+      "visible_outside_cad_pixels": 35,
+      "gt_teacher_does_not_mutate_student": true,
+      "texture_shape": [
+        1,
+        4096,
+        4096,
+        3
+      ]
+    },
+    {
+      "seed": 40000005,
+      "stream": "20200813-subject-02/20200813_150418/841412060263|draw40000005",
+      "frame": 45,
+      "object_id": 4,
+      "diameter_m": 0.12054342776536942,
+      "native_bytes_exact": true,
+      "real_pixels": 4469,
+      "proxy_pixels": 432,
+      "native_pose_exact": true,
+      "render_over_half_mm": true,
+      "unchanged_visible_reconstruction_pixels": 0,
+      "real_xyz_independent_error_mm": {
+        "n": 4469,
+        "mean": 1.4665181879536249e-05,
+        "p50": 1.308753235207405e-05,
+        "p95": 2.997382398461923e-05,
+        "maximum": 3.974949140683748e-05
+      },
+      "renderer_camera_error_mm": {
+        "n": 7522,
+        "mean": 0.0006450185901485384,
+        "p50": 2.4984550691442564e-05,
+        "p95": 7.766543421894312e-05,
+        "maximum": 0.5484825372695923
+      },
+      "mixed_xyz_depth_error_mm": {
+        "n": 4901,
+        "mean": 4.58619342680322e-06,
+        "p50": 2.569277285147109e-06,
+        "p95": 1.900084134831559e-05,
+        "maximum": 8.654478006064892e-05
+      },
+      "visible_sensor_cad_gap_mm": {
+        "n": 6357,
+        "mean": 122.47108459472656,
+        "p50": 5.644023418426514,
+        "p95": 2052.9814453125,
+        "maximum": 2449.158203125
+      },
+      "supervised_real_sensor_cad_gap_mm": {
+        "n": 4469,
+        "mean": 5.681396484375,
+        "p50": 5.515873432159424,
+        "p95": 11.319589614868164,
+        "maximum": 24.225950241088867
+      },
+      "visible_outside_cad_pixels": 53,
+      "gt_teacher_does_not_mutate_student": true,
+      "texture_shape": [
+        1,
+        4096,
+        4096,
+        3
+      ]
+    },
+    {
+      "seed": 40000006,
+      "stream": "20200928-subject-07/20200928_154357/932122062010|draw40000006",
+      "frame": 0,
+      "object_id": 13,
+      "diameter_m": 0.16192157566547394,
+      "native_bytes_exact": true,
+      "real_pixels": 4714,
+      "proxy_pixels": 0,
+      "native_pose_exact": true,
+      "render_over_half_mm": false,
+      "unchanged_visible_reconstruction_pixels": 0,
+      "real_xyz_independent_error_mm": {
+        "n": 4714,
+        "mean": 1.0877865861402825e-05,
+        "p50": 1.0688769179978408e-05,
+        "p95": 1.7664515326032415e-05,
+        "maximum": 2.6554480427876115e-05
+      },
+      "renderer_camera_error_mm": {
+        "n": 7158,
+        "mean": 0.0007604050333611667,
+        "p50": 3.4062639315379784e-05,
+        "p95": 0.00010374951671110466,
+        "maximum": 0.413878858089447
+      },
+      "mixed_xyz_depth_error_mm": {
+        "n": 4714,
+        "mean": 5.673448868037667e-06,
+        "p50": 5.870111181138782e-06,
+        "p95": 9.968339327315334e-06,
+        "maximum": 1.3588246474682819e-05
+      },
+      "visible_sensor_cad_gap_mm": {
+        "n": 6820,
+        "mean": 17.378341674804688,
+        "p50": 10.586023330688477,
+        "p95": 65.19371795654297,
+        "maximum": 151.73953247070312
+      },
+      "supervised_real_sensor_cad_gap_mm": {
+        "n": 4714,
+        "mean": 13.802088737487793,
+        "p50": 9.64057445526123,
+        "p95": 54.76266098022461,
+        "maximum": 101.06336975097656
+      },
+      "visible_outside_cad_pixels": 44,
+      "gt_teacher_does_not_mutate_student": true,
+      "texture_shape": [
+        1,
+        4096,
+        4096,
+        3
+      ]
+    },
+    {
+      "seed": 40000007,
+      "stream": "20200820-subject-03/20200820_142727/841412060263|draw40000007",
+      "frame": 44,
+      "object_id": 12,
+      "diameter_m": 0.2595660388469696,
+      "native_bytes_exact": true,
+      "real_pixels": 2235,
+      "proxy_pixels": 131,
+      "native_pose_exact": true,
+      "render_over_half_mm": false,
+      "unchanged_visible_reconstruction_pixels": 0,
+      "real_xyz_independent_error_mm": {
+        "n": 2235,
+        "mean": 2.6919540687231347e-05,
+        "p50": 2.5256431399611756e-05,
+        "p95": 4.83728654216975e-05,
+        "maximum": 6.95238632033579e-05
+      },
+      "renderer_camera_error_mm": {
+        "n": 4151,
+        "mean": 0.001325690420344472,
+        "p50": 2.8591568479896523e-05,
+        "p95": 8.492969209328294e-05,
+        "maximum": 0.22942428290843964
+      },
+      "mixed_xyz_depth_error_mm": {
+        "n": 2366,
+        "mean": 8.114586307783611e-06,
+        "p50": 7.153303158702329e-06,
+        "p95": 1.387064821756212e-05,
+        "maximum": 0.00010696605750126764
+      },
+      "visible_sensor_cad_gap_mm": {
+        "n": 3258,
+        "mean": 18.968738555908203,
+        "p50": 5.5356621742248535,
+        "p95": 19.225675582885742,
+        "maximum": 2488.93359375
+      },
+      "supervised_real_sensor_cad_gap_mm": {
+        "n": 2235,
+        "mean": 6.066837310791016,
+        "p50": 4.7188401222229,
+        "p95": 16.977079391479492,
+        "maximum": 37.815155029296875
+      },
+      "visible_outside_cad_pixels": 13,
+      "gt_teacher_does_not_mutate_student": true,
+      "texture_shape": [
+        1,
+        4096,
+        4096,
+        3
+      ]
+    },
+    {
+      "seed": 40000008,
+      "stream": "20200820-subject-03/20200820_141150/839512060362|draw40000008",
+      "frame": 70,
+      "object_id": 7,
+      "diameter_m": 0.1425434947013855,
+      "native_bytes_exact": true,
+      "real_pixels": 7200,
+      "proxy_pixels": 502,
+      "native_pose_exact": true,
+      "render_over_half_mm": false,
+      "unchanged_visible_reconstruction_pixels": 0,
+      "real_xyz_independent_error_mm": {
+        "n": 7200,
+        "mean": 2.3601856810273603e-05,
+        "p50": 2.352888259338215e-05,
+        "p95": 3.5928856959799305e-05,
+        "maximum": 5.040875475970097e-05
+      },
+      "renderer_camera_error_mm": {
+        "n": 11324,
+        "mean": 0.0003414497768972069,
+        "p50": 2.4840868718456477e-05,
+        "p95": 6.884950562380254e-05,
+        "maximum": 0.09904123097658157
+      },
+      "mixed_xyz_depth_error_mm": {
+        "n": 7702,
+        "mean": 7.874591574363876e-06,
+        "p50": 6.6106517806474585e-06,
+        "p95": 1.62094111146871e-05,
+        "maximum": 0.00011147608165629208
+      },
+      "visible_sensor_cad_gap_mm": {
+        "n": 10522,
+        "mean": 2.8930978775024414,
+        "p50": 2.0502209663391113,
+        "p95": 9.357939720153809,
+        "maximum": 21.092296600341797
+      },
+      "supervised_real_sensor_cad_gap_mm": {
+        "n": 7200,
+        "mean": 2.2467403411865234,
+        "p50": 1.919567584991455,
+        "p95": 5.648317813873291,
+        "maximum": 14.42462158203125
+      },
+      "visible_outside_cad_pixels": 31,
+      "gt_teacher_does_not_mutate_student": true,
+      "texture_shape": [
+        1,
+        4096,
+        4096,
+        3
+      ]
+    },
+    {
+      "seed": 40000009,
+      "stream": "20200820-subject-03/20200820_140724/932122060861|draw40000009",
+      "frame": 1,
+      "object_id": 6,
+      "diameter_m": 0.08979703485965729,
+      "native_bytes_exact": true,
+      "real_pixels": 7713,
+      "proxy_pixels": 0,
+      "native_pose_exact": true,
+      "render_over_half_mm": false,
+      "unchanged_visible_reconstruction_pixels": 0,
+      "real_xyz_independent_error_mm": {
+        "n": 7713,
+        "mean": 9.402533578395378e-06,
+        "p50": 8.915418220567517e-06,
+        "p95": 1.7037960788002238e-05,
+        "maximum": 2.511139064154122e-05
+      },
+      "renderer_camera_error_mm": {
+        "n": 9996,
+        "mean": 0.0003278024378232658,
+        "p50": 2.5376797566423193e-05,
+        "p95": 7.724630268057808e-05,
+        "maximum": 0.07566948235034943
+      },
+      "mixed_xyz_depth_error_mm": {
+        "n": 7713,
+        "mean": 1.56336818690761e-06,
+        "p50": 1.4101987062531407e-06,
+        "p95": 3.524395651766099e-06,
+        "maximum": 5.937411060585873e-06
+      },
+      "visible_sensor_cad_gap_mm": {
+        "n": 9899,
+        "mean": 15.26390266418457,
+        "p50": 14.349401473999023,
+        "p95": 26.857357025146484,
+        "maximum": 40.06487274169922
+      },
+      "supervised_real_sensor_cad_gap_mm": {
+        "n": 7713,
+        "mean": 14.165066719055176,
+        "p50": 13.946294784545898,
+        "p95": 21.8365421295166,
+        "maximum": 32.147586822509766
+      },
+      "visible_outside_cad_pixels": 67,
+      "gt_teacher_does_not_mutate_student": true,
+      "texture_shape": [
+        1,
+        4096,
+        4096,
+        3
+      ]
+    },
+    {
+      "seed": 40000010,
+      "stream": "20200813-subject-02/20200813_150640/836212060125|draw40000010",
+      "frame": 25,
+      "object_id": 5,
+      "diameter_m": 0.19646325707435608,
+      "native_bytes_exact": true,
+      "real_pixels": 0,
+      "proxy_pixels": 114,
+      "native_pose_exact": true,
+      "render_over_half_mm": true,
+      "unchanged_visible_reconstruction_pixels": 0,
+      "real_xyz_independent_error_mm": {
+        "n": 0
+      },
+      "renderer_camera_error_mm": {
+        "n": 3970,
+        "mean": 0.0017424074467271566,
+        "p50": 2.52987756539369e-05,
+        "p95": 7.494796591345221e-05,
+        "maximum": 1.0825217962265015
+      },
+      "mixed_xyz_depth_error_mm": {
+        "n": 114,
+        "mean": 2.2529191483044997e-05,
+        "p50": 1.8601076590130106e-05,
+        "p95": 6.24393651378341e-05,
+        "maximum": 8.242109470302239e-05
+      },
+      "visible_sensor_cad_gap_mm": {
+        "n": 3616,
+        "mean": 7.1551947593688965,
+        "p50": 3.5976767539978027,
+        "p95": 25.522380828857422,
+        "maximum": 90.6335678100586
+      },
+      "supervised_real_sensor_cad_gap_mm": {
+        "n": 0
+      },
+      "visible_outside_cad_pixels": 24,
+      "gt_teacher_does_not_mutate_student": true,
+      "texture_shape": [
+        1,
+        4096,
+        4096,
+        3
+      ]
+    },
+    {
+      "seed": 40000011,
+      "stream": "20201015-subject-09/20201015_143043/932122061900|draw40000011",
+      "frame": 5,
+      "object_id": 2,
+      "diameter_m": 0.26957330107688904,
+      "native_bytes_exact": true,
+      "real_pixels": 5291,
+      "proxy_pixels": 0,
+      "native_pose_exact": true,
+      "render_over_half_mm": false,
+      "unchanged_visible_reconstruction_pixels": 0,
+      "real_xyz_independent_error_mm": {
+        "n": 5291,
+        "mean": 1.3313769159140065e-05,
+        "p50": 1.2545630852400791e-05,
+        "p95": 2.5166456907754764e-05,
+        "maximum": 4.0436963899992406e-05
+      },
+      "renderer_camera_error_mm": {
+        "n": 7691,
+        "mean": 0.0010555345797911286,
+        "p50": 2.7395934012020007e-05,
+        "p95": 7.744660251773894e-05,
+        "maximum": 0.3242863714694977
+      },
+      "mixed_xyz_depth_error_mm": {
+        "n": 5291,
+        "mean": 2.8350993943604408e-06,
+        "p50": 2.630875997056137e-06,
+        "p95": 6.233703970792703e-06,
+        "maximum": 1.2591211088874843e-05
+      },
+      "visible_sensor_cad_gap_mm": {
+        "n": 7548,
+        "mean": 9.170281410217285,
+        "p50": 7.281661033630371,
+        "p95": 13.998085021972656,
+        "maximum": 309.6007080078125
+      },
+      "supervised_real_sensor_cad_gap_mm": {
+        "n": 5291,
+        "mean": 7.5815653800964355,
+        "p50": 7.463932037353516,
+        "p95": 13.937711715698242,
+        "maximum": 20.465255737304688
+      },
+      "visible_outside_cad_pixels": 23,
+      "gt_teacher_does_not_mutate_student": true,
+      "texture_shape": [
+        1,
+        4096,
+        4096,
+        3
+      ]
+    },
+    {
+      "seed": 40000012,
+      "stream": "20200813-subject-02/20200813_151822/932122062010|draw40000012",
+      "frame": 0,
+      "object_id": 7,
+      "diameter_m": 0.1425434947013855,
+      "native_bytes_exact": true,
+      "real_pixels": 6300,
+      "proxy_pixels": 0,
+      "native_pose_exact": true,
+      "render_over_half_mm": false,
+      "unchanged_visible_reconstruction_pixels": 0,
+      "real_xyz_independent_error_mm": {
+        "n": 6300,
+        "mean": 1.0900987945205998e-05,
+        "p50": 1.0567122444626875e-05,
+        "p95": 1.9610748495324515e-05,
+        "maximum": 2.9133765565347858e-05
+      },
+      "renderer_camera_error_mm": {
+        "n": 7991,
+        "mean": 0.0006868940545246005,
+        "p50": 2.609291550470516e-05,
+        "p95": 8.527431054972112e-05,
+        "maximum": 0.3508104681968689
+      },
+      "mixed_xyz_depth_error_mm": {
+        "n": 6300,
+        "mean": 1.8084455177813652e-06,
+        "p50": 1.4370343706104904e-06,
+        "p95": 4.6364666559384204e-06,
+        "maximum": 1.317306850978639e-05
+      },
+      "visible_sensor_cad_gap_mm": {
+        "n": 7930,
+        "mean": 10.838717460632324,
+        "p50": 9.434043884277344,
+        "p95": 24.234521865844727,
+        "maximum": 51.45704650878906
+      },
+      "supervised_real_sensor_cad_gap_mm": {
+        "n": 6300,
+        "mean": 10.650420188903809,
+        "p50": 9.53662395477295,
+        "p95": 22.303020477294922,
+        "maximum": 39.222835540771484
+      },
+      "visible_outside_cad_pixels": 67,
+      "gt_teacher_does_not_mutate_student": true,
+      "texture_shape": [
+        1,
+        4096,
+        4096,
+        3
+      ]
+    },
+    {
+      "seed": 40000013,
+      "stream": "20200918-subject-06/20200918_113314/932122062010|draw40000013",
+      "frame": 72,
+      "object_id": 2,
+      "diameter_m": 0.26957330107688904,
+      "native_bytes_exact": true,
+      "real_pixels": 5532,
+      "proxy_pixels": 34,
+      "native_pose_exact": true,
+      "render_over_half_mm": false,
+      "unchanged_visible_reconstruction_pixels": 0,
+      "real_xyz_independent_error_mm": {
+        "n": 5532,
+        "mean": 1.3874740034225397e-05,
+        "p50": 1.310704192292178e-05,
+        "p95": 2.5101158826146275e-05,
+        "maximum": 4.2413401388330385e-05
+      },
+      "renderer_camera_error_mm": {
+        "n": 7241,
+        "mean": 0.0007159649976529181,
+        "p50": 2.5654409910202958e-05,
+        "p95": 6.866124749649316e-05,
+        "maximum": 0.31070929765701294
+      },
+      "mixed_xyz_depth_error_mm": {
+        "n": 5566,
+        "mean": 4.828009878110606e-06,
+        "p50": 4.22115999754169e-06,
+        "p95": 1.0939240382867865e-05,
+        "maximum": 6.190329440869391e-05
+      },
+      "visible_sensor_cad_gap_mm": {
+        "n": 6963,
+        "mean": 3.9998185634613037,
+        "p50": 2.4470090866088867,
+        "p95": 9.802674293518066,
+        "maximum": 916.5795288085938
+      },
+      "supervised_real_sensor_cad_gap_mm": {
+        "n": 5532,
+        "mean": 2.8404784202575684,
+        "p50": 2.185046672821045,
+        "p95": 7.43726921081543,
+        "maximum": 13.232111930847168
+      },
+      "visible_outside_cad_pixels": 18,
+      "gt_teacher_does_not_mutate_student": true,
+      "texture_shape": [
+        1,
+        4096,
+        4096,
+        3
+      ]
+    },
+    {
+      "seed": 40000014,
+      "stream": "20201002-subject-08/20201002_110134/932122060861|draw40000014",
+      "frame": 59,
+      "object_id": 7,
+      "diameter_m": 0.1425434947013855,
+      "native_bytes_exact": true,
+      "real_pixels": 4113,
+      "proxy_pixels": 333,
+      "native_pose_exact": true,
+      "render_over_half_mm": false,
+      "unchanged_visible_reconstruction_pixels": 0,
+      "real_xyz_independent_error_mm": {
+        "n": 4113,
+        "mean": 1.6701585991540924e-05,
+        "p50": 1.6408899682573974e-05,
+        "p95": 2.8819940780522302e-05,
+        "maximum": 3.9786220440873876e-05
+      },
+      "renderer_camera_error_mm": {
+        "n": 6055,
+        "mean": 0.0006105033680796623,
+        "p50": 2.5087720132432878e-05,
+        "p95": 7.184489368228242e-05,
+        "maximum": 0.08087396621704102
+      },
+      "mixed_xyz_depth_error_mm": {
+        "n": 4446,
+        "mean": 6.228940492292168e-06,
+        "p50": 5.126744326844346e-06,
+        "p95": 1.2599488400155678e-05,
+        "maximum": 7.898033072706312e-05
+      },
+      "visible_sensor_cad_gap_mm": {
+        "n": 5347,
+        "mean": 13.402974128723145,
+        "p50": 9.838521957397461,
+        "p95": 20.370309829711914,
+        "maximum": 225.94351196289062
+      },
+      "supervised_real_sensor_cad_gap_mm": {
+        "n": 4113,
+        "mean": 10.52226734161377,
+        "p50": 10.595917701721191,
+        "p95": 18.9572696685791,
+        "maximum": 41.22948455810547
+      },
+      "visible_outside_cad_pixels": 32,
+      "gt_teacher_does_not_mutate_student": true,
+      "texture_shape": [
+        1,
+        4096,
+        4096,
+        3
+      ]
+    },
+    {
+      "seed": 40000015,
+      "stream": "20200928-subject-07/20200928_145308/841412060263|draw40000015",
+      "frame": 60,
+      "object_id": 8,
+      "diameter_m": 0.11405334621667862,
+      "native_bytes_exact": true,
+      "real_pixels": 3206,
+      "proxy_pixels": 617,
+      "native_pose_exact": true,
+      "render_over_half_mm": false,
+      "unchanged_visible_reconstruction_pixels": 0,
+      "real_xyz_independent_error_mm": {
+        "n": 3206,
+        "mean": 9.356250302516855e-06,
+        "p50": 8.536149834981188e-06,
+        "p95": 1.827348387450911e-05,
+        "maximum": 2.778673115244601e-05
+      },
+      "renderer_camera_error_mm": {
+        "n": 6165,
+        "mean": 0.00047388364328071475,
+        "p50": 2.4825165382935666e-05,
+        "p95": 7.666867895750329e-05,
+        "maximum": 0.21513718366622925
+      },
+      "mixed_xyz_depth_error_mm": {
+        "n": 3823,
+        "mean": 8.504804100084584e-06,
+        "p50": 5.30350234839716e-06,
+        "p95": 3.514873606036417e-05,
+        "maximum": 0.0001005157464533113
+      },
+      "visible_sensor_cad_gap_mm": {
+        "n": 4949,
+        "mean": 57.1574821472168,
+        "p50": 4.692137241363525,
+        "p95": 393.85809326171875,
+        "maximum": 2285.4462890625
+      },
+      "supervised_real_sensor_cad_gap_mm": {
+        "n": 3206,
+        "mean": 13.038143157958984,
+        "p50": 3.4723877906799316,
+        "p95": 66.91609191894531,
+        "maximum": 81.59703063964844
+      },
+      "visible_outside_cad_pixels": 46,
+      "gt_teacher_does_not_mutate_student": true,
+      "texture_shape": [
+        1,
+        4096,
+        4096,
+        3
+      ]
+    }
+  ],
+  "completed": true,
+  "hard_checks_passed": true,
+  "scope": "bounded train frames; annotation accuracy not assumed",
+  "script_sha256": "17b83cb7394f485f7d99d15be6344d7de5a7ea38143ff3d8094c817dc72866f3"
+}

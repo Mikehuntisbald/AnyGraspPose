@@ -1,0 +1,52 @@
+{
+  "frames": 16,
+  "objects": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    11,
+    12,
+    13
+  ],
+  "real_pixels_before": 60735,
+  "real_pixels_after": 58475,
+  "retained_fraction": 0.9627891660492303,
+  "unchanged_proxy_pixels": 2958,
+  "proxy_measured_behind_cad_over30mm": 0,
+  "native_bytes_and_pose_exact": true,
+  "original_target_values_unchanged": true,
+  "maximum_supervised_gap_before_mm": 156.03506469726562,
+  "maximum_supervised_gap_after_mm": 29.382169723510742,
+  "analytic": {
+    "plane_depth_error_mm": {
+      "n": 26381,
+      "mean": 3.420126449782401e-05,
+      "p50": 2.6434236133354716e-05,
+      "p95": 6.987819506321102e-05,
+      "maximum": 0.039523180574178696
+    },
+    "plane_interior_error_mm": {
+      "n": 25042,
+      "mean": 3.0046761821722612e-05,
+      "p50": 2.644229789439123e-05,
+      "p95": 6.99043957865797e-05,
+      "maximum": 0.00013749266508966684
+    },
+    "renderer_xyz_camera_error_mm": {
+      "n": 26381,
+      "mean": 6.333572673611343e-05,
+      "p50": 5.205214984016493e-05,
+      "p95": 8.851085294736549e-05,
+      "maximum": 0.07482677698135376
+    },
+    "nonidentity_crop": true,
+    "centered_pose_equivalence": true,
+    "nearest_crop_exact": true
+  },
+  "training": false,
+  "heldout_access": false
+}

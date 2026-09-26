@@ -1,0 +1,8 @@
+{
+  "source_file": "/tmp/dexycb_visible_correspondence_v40_cleanfix/src/lip/unified/cad_transport.py",
+  "source_sha256": "672a15f9189804918d07d4e11ea4e8306afbffb53807b5a2033efa1abf490be9",
+  "fp32_max_abs_flow_px": 7.62939453125e-06,
+  "amp_max_abs_flow_px": 0.25,
+  "mean_amp_difference_px": 0.05141359195113182,
+  "all_outputs_exact": false
+}

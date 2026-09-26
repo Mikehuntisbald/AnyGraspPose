@@ -1,0 +1,6 @@
+{
+  "command": "PYTHONPATH=src CUDA_VISIBLE_DEVICES=0 .venv/bin/python -m pytest -q tests/jepa/test_supervision_quality.py tests/jepa/test_canonical_surface_targets.py tests/jepa/test_paired_geometry_curriculum.py tests/jepa/test_execution_speed.py",
+  "passed": 15,
+  "elapsed_s": 3.15,
+  "remote_runtime": "/tmp/dexycb_supervision_audit_v41"
+}

@@ -1,0 +1,8 @@
+{
+  "source_file": "/tmp/dexycb_supervision_audit_v41/src/lip/unified/cad_transport.py",
+  "source_sha256": "0d58bc9205d7a6f28a096981af967aba14a406708302b7e88d26ebfa4c966909",
+  "fp32_max_abs_flow_px": 7.62939453125e-06,
+  "amp_max_abs_flow_px": 7.62939453125e-06,
+  "mean_amp_difference_px": 0.0,
+  "all_outputs_exact": true
+}
