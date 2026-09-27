@@ -49,6 +49,7 @@ class FlowReconstruction(nn.Module):
         self.disable_transport = False
         self.transport_gain = 1.
         self.disable_recovery_feedback = False
+        self.surface_feedback_strength = None
 
     @torch.autocast('cuda', enabled=False)
     def forward(self, patch, observed, cad, geometry, valid, reference, recovered=None):
@@ -69,6 +70,10 @@ class FlowReconstruction(nn.Module):
             trust = .5*F.avg_pool2d(recovered[:, 4:5].float().sigmoid(), 14).flatten(1).detach()
             d2 = (reference['xyz'][:, :, None]-recovered_xyz[:, None]).square().sum(-1)
             feedback = -(d2/(2*.1**2)).clamp_max(4.)*trust[:, None]
+            if self.surface_feedback_strength is not None:
+                from .surface_feedback import surface_feedback
+                feedback = surface_feedback(reference['xyz'], recovered,
+                                            strength=self.surface_feedback_strength)
             scores = scores+feedback
         scores = scores.masked_fill(~valid[:, None], -1e4)
         # Local soft argmax avoids averaging two far-away ambiguous matches.
