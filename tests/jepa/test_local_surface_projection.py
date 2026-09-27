@@ -42,3 +42,14 @@ def test_no_available_cad_preserves_fallback_and_default_is_unchanged():
     model.local_surface_projection=True
     surface,_=model(dense,fallback,features,geometry,torch.zeros_like(available))
     assert torch.equal(surface,fallback)
+
+
+def test_fast_geometry_neighbors_match_direct_distances_and_ignore_invalid_points():
+    from lip.unified.cad_atlas_decoder import geometric_neighbors
+    torch.manual_seed(72)
+    xyz=torch.rand(2,8192,3)-.5
+    prior=xyz[:,:64].clone()+1e-5*torch.randn(2,64,3)
+    valid=torch.ones(2,8192,dtype=torch.bool);valid[:,::7]=False
+    expected=torch.cdist(prior,xyz,compute_mode='donot_use_mm_for_euclid_dist').masked_fill(~valid[:,None],float('inf')).topk(8,largest=False).indices
+    actual=geometric_neighbors(prior,xyz,valid)
+    assert torch.equal(actual,expected)

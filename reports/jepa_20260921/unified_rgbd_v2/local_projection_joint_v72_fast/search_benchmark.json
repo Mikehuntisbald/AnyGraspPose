@@ -1,0 +1,12 @@
+{
+  "batch": 8,
+  "queries": 2048,
+  "cad_points": 8192,
+  "repetitions": 3,
+  "direct_median_seconds": 0.2844868719112128,
+  "fast_median_seconds": 0.005871030036360025,
+  "index_agreement": 1.0,
+  "max_coordinate_difference": 0.0,
+  "max_neighbor_distance_difference": 0.0,
+  "scope": "Synthetic normalized 3D points; not a guarantee of bitwise selection for every input"
+}

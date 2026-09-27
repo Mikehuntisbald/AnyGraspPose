@@ -1,3 +1,7 @@
+## V72 fast rerun (2026-09-27)
+
+The first local-projection trial stopped at14updates due to8–9s/step non-GEMM distance search. Search now uses GEMM shortlist plus direct-distance reranking: synthetic H20benchmark284.49→5.87ms, same sampled neighbors.35tests pass. New immutable root local_projection_joint_v72_fast restarts the matched200update candidate and exact historical-control replay; no accuracy conclusion yet.
+
 ## V70/V71 diagnosed decoder corruption; V72 training (2026-09-27)
 
 Exact canonical-prior diagnostic still yields23.025mm at60deg/heavy real-hidden with the old atlas; local geometric-neighbor selection reduces this to2.569mm. Actual predicted-prior results are mixed (10deg real13.458→12.720mm; proxy15.140→18.073mm), so no promotion. V72trains the new decoder for200updates with predicted priors, pose/history off. Historical V68r1control replay matches exactly across8ranks;34tests passed. [V70](../atlas_prior_quality_v70/SUMMARY.md) / [V71](../local_surface_projection_v71/SUMMARY.md).

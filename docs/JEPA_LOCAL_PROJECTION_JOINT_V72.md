@@ -7,3 +7,7 @@ Reuse V68r1control only after exact replay of its first2updates on8ranks (loss, 
 Physical-holdout paired probes use the same68050000seed sequence:32/64/32frames at0/10/60degrees. Historical baseline/control probes are copied, not recomputed under changed settings. Canonical XYZ, raw-depth error and all adverse slices must be reported. No promotion based solely on flow, oracle, training loss or a single condition. No automatic budget extension or official-test access.
 
 Remote root unified_jepa_20260921/local_projection_joint_v72; immutable runtime /tmp/dexycb_local_projection_joint_v72_r0. Historical control checkpoint stays in surface_joint_v68_r1/control/seed42/last.pt; copied control receipts/logs are not a new control training run.
+
+## Fast immutable rerun
+
+The first candidate trial was stopped at14updates: direct non-GEMM cdist cost8–9seconds per step. `geometric_neighbors` now uses GEMM to shortlist32points then direct-distance reranking to8, reducing a CUDA8x2048x8192benchmark from284.49ms to5.87ms with identical sampled indices and coordinates. This is mathematical equivalence plus sampled numerical verification, not a universal bitwise guarantee. No data or objective changes accompany the search optimization. The fast run uses root local_projection_joint_v72_fast and immutable runtime /tmp/dexycb_local_projection_joint_v72_fast_r0; it restarts from the same source and rechecks exact control replay. The14update slow trial remains preserved separately.

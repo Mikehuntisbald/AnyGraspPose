@@ -9,6 +9,19 @@ from torch import nn
 from torch.nn import functional as F
 
 
+@torch.no_grad()
+def geometric_neighbors(prior, xyz, available, count=8):
+    """GEMM shortlist, then direct-distance rerank to protect near-point precision."""
+    squared=(prior.square().sum(-1,keepdim=True)+xyz.square().sum(-1)[:,None]
+             -2*(prior@xyz.transpose(-1,-2))).clamp_min(0)
+    candidates=squared.masked_fill(~available[:,None],float('inf')).topk(min(32,xyz.shape[1]),largest=False).indices
+    batch=torch.arange(len(prior),device=prior.device)[:,None,None]
+    actual=(prior[:,:,None]-xyz[batch,candidates]).square().sum(-1)
+    actual=actual.masked_fill(~available[batch,candidates],float('inf'))
+    local=actual.topk(min(count,xyz.shape[1]),largest=False).indices
+    return candidates.gather(2,local)
+
+
 class CADAtlasDecoder(nn.Module):
     def __init__(self,feature_dim,width=32,supervised_prior=True):
         super().__init__()
@@ -40,11 +53,10 @@ class CADAtlasDecoder(nn.Module):
         with torch.no_grad(),torch.autocast(dense.device.type,enabled=False):
             for start in range(0,query.shape[1],2048):
                 if self.local_surface_projection:
-                    distance=torch.cdist(prior[:,start:start+2048],xyz,compute_mode='donot_use_mm_for_euclid_dist')
-                    scores=(-distance).masked_fill(~available[:,None],-1e4)
+                    indices.append(geometric_neighbors(prior[:,start:start+2048],xyz,available))
                 else:
                     scores=self.scores(query[:,start:start+2048].detach(),keys.detach(),prior[:,start:start+2048],xyz,available)
-                indices.append(scores.topk(min(8,xyz.shape[1]),dim=-1).indices)
+                    indices.append(scores.topk(min(8,xyz.shape[1]),dim=-1).indices)
         selected=torch.cat(indices,1)
         batch=torch.arange(len(query),device=query.device)[:,None,None]
         with torch.autocast(dense.device.type,enabled=False):
