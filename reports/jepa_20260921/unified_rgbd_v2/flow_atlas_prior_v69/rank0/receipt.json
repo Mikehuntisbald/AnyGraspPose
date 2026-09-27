@@ -1,0 +1,11 @@
+{
+  "completed": true,
+  "records": 8,
+  "source_sha256": "0c6f712c7848316259dae3d24554dd4dfac506a20404676e43fb679b94d46d7e",
+  "model_frozen": true,
+  "physical_holdout": true,
+  "training_partition_only": true,
+  "normal_forward_bitwise_verified": true,
+  "oracle_scope": "Only oracle modes replace known-supported endpoints by GT; oracle_supported14 also uses GT-supported anchor mask. Canonical lookup prior uses nearest anchor within 14px, else original DPT prior. Depth and flow unchanged. Diagnostic only.",
+  "seconds": 15.876953519880772
+}

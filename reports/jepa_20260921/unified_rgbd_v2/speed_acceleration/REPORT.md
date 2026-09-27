@@ -1,3 +1,7 @@
+## V69 complete: decoder coupling tested, no promotion (2026-09-27)
+
+Predicted flow-to-atlas prior improves10deg/heavy real-hidden XYZ13.458→12.891mm but worsens proxy and60deg slices. Oracle endpoints can improve60deg/heavy real-hidden37.578→33.145mm (28.909mm with oracle-supported anchors), confirming a stronger decoder effect; depth and flow are unchanged. This is a frozen diagnostic, not trained reconstruction improvement. [Full V69 evidence](../flow_atlas_prior_v69/SUMMARY.md). No GPU job remains after completion; next isolate prior quality/coverage from final atlas selection.
+
 ## V68r1 complete: no promotion; V69 diagnostic running (2026-09-27)
 
 Both arms completed200steps and all paired probes. Candidate60deg/heavy real-hidden XYZ35.424→34.969mm versus control, but10deg/heavy unchanged at11.255mm; depth remains worse than the pretraining baseline in these slices. Accurate recovery is not achieved.32tests and complete-state resume passed;4,800geometry-CE values remain bounded after the mask fix. [Results](../surface_joint_v68_r1/SUMMARY.md). V69 now tests flow-aligned CAD canonical identities as an atlas search prior, with unchanged depth/flow and explicit oracle-only arms; no new training or default promotion.
