@@ -97,6 +97,7 @@ def build_model(config,device='cuda'):
             with torch.random.fork_rng(devices=[]):
                 torch.manual_seed(config['seed']+42)
                 model.cad_atlas_decoder=CADAtlasDecoder(model.utonia.feature_dim,supervised_prior=config['cad_atlas'].get('supervised_prior',True)).to(device)
+            model.cad_atlas_decoder.local_surface_projection=bool(config['cad_atlas'].get('local_surface_projection',False))
             model.model_version='complete-cad-atlas-v42'
             if config.get('cad_image',{}).get('enabled'):
                 from .cad_image_correspondence import CADImageReadout

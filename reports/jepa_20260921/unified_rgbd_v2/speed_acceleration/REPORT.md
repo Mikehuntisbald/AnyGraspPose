@@ -1,3 +1,7 @@
+## V70/V71 diagnosed decoder corruption; V72 training (2026-09-27)
+
+Exact canonical-prior diagnostic still yields23.025mm at60deg/heavy real-hidden with the old atlas; local geometric-neighbor selection reduces this to2.569mm. Actual predicted-prior results are mixed (10deg real13.458→12.720mm; proxy15.140→18.073mm), so no promotion. V72trains the new decoder for200updates with predicted priors, pose/history off. Historical V68r1control replay matches exactly across8ranks;34tests passed. [V70](../atlas_prior_quality_v70/SUMMARY.md) / [V71](../local_surface_projection_v71/SUMMARY.md).
+
 ## V69 complete: decoder coupling tested, no promotion (2026-09-27)
 
 Predicted flow-to-atlas prior improves10deg/heavy real-hidden XYZ13.458→12.891mm but worsens proxy and60deg slices. Oracle endpoints can improve60deg/heavy real-hidden37.578→33.145mm (28.909mm with oracle-supported anchors), confirming a stronger decoder effect; depth and flow are unchanged. This is a frozen diagnostic, not trained reconstruction improvement. [Full V69 evidence](../flow_atlas_prior_v69/SUMMARY.md). No GPU job remains after completion; next isolate prior quality/coverage from final atlas selection.
