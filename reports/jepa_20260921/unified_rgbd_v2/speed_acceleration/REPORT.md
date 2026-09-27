@@ -1,3 +1,7 @@
+## V74 complete: dense reference preservation improves small-error geometry (2026-09-27)
+
+Each arm completed200updates.0deg/heavy real/proxy XYZ8.747→0.600mm and12.425→1.195mm;10deg/heavy proxy12.152→9.061mm.60deg/heavy real worsens34.258→39.791mm, so no promotion. Dense flow barely improves zero displacement, and its support gate is not calibrated to actual read quality. [Full results](../dense_canonical_v74/SUMMARY.md) / [dense correspondence audit](../dense_canonical_v74/dense_audit/REPORT.md). An opt-in actual-read preference target is implemented and40tests pass, but it has not been trained. All V74jobs are complete; geometry accuracy goal remains unmet.
+
 ## V72 fast completed: modest geometry gains, no promotion (2026-09-27)
 
 200updates plus all paired probes completed;35tests and full-state resume passed.10deg/heavy real-hidden XYZ11.255→10.770mm versus matched control (24/31frames improve), but proxy11.139→11.370mm regresses and large-error recovery remains inaccurate. No default change or budget expansion. Warm-step median0.651s after search optimization, down from roughly8–9s in the stopped slow trial. [Complete results and limitations](../local_projection_joint_v72_fast/SUMMARY.md). All experiment GPU jobs are terminal; next audit preservation of dense estimated-CAD geometry versus compressed/decoded geometry.

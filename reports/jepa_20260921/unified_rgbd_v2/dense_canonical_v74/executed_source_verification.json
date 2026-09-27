@@ -1,0 +1,14 @@
+{
+  "commit": "48448e6",
+  "files": [
+    "src/lip/unified/dense_canonical.py",
+    "src/lip/unified/build.py",
+    "src/lip/unified/conv_cross.py",
+    "tools/train_geometry_transport.py",
+    "tools/run_dense_canonical_v74.py",
+    "configs/jepa/dense_canonical_v74_control.yaml",
+    "configs/jepa/dense_canonical_v74_surface.yaml"
+  ],
+  "all_match": true,
+  "note": "Later optional read-preference code was not used for this completed training run."
+}

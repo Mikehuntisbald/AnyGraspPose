@@ -1,0 +1,8 @@
+{
+  "native_crop_max_error_px": 3.7830376953706946e-05,
+  "supported_pixels": 34803,
+  "teacher_input": false,
+  "camera_depth_from_reference": false,
+  "new_head_initialization": "seed+74, zero flow, gate bias1",
+  "hard_forward_soft_gate_gradient": true
+}
