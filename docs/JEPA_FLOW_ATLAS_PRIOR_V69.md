@@ -1,0 +1,7 @@
+# V69: frozen flow-to-atlas prior intervention
+
+V68r1 improved some correspondence errors but not geometry reliably. V69 tests an explicit decoder coupling: locate an actual canonical CAD anchor at its predicted image endpoint, and use its canonical coordinate as the atlas search prior for pixels within14px. Outside this radius retain the original DPT prior. The atlas's existing learned query/key scores still select from the full CAD bank. No depth value is transported: depth and both flow rounds must remain bitwise unchanged.
+
+Four frozen arms on the exact64V66/V67seeds: original, predicted endpoints, oracle replacement of known-supported endpoints (others predicted), and oracle replacement with GT-supported anchors only. The latter two are diagnostics, not deployable predictions. Canonical coordinates come from the estimated-reference CAD raster, not GT XYZ. There is no pose solver or pose training. All evaluation pixels remain in the denominator, including pixels not covered by transported anchors.
+
+This is a hard nearest-anchor diagnostic with no training gradient. It is not yet an integrated trainable JEPA architecture and must not be promoted as such. If it establishes a useful oracle and prediction benefit, a subsequent learned design must preserve actual observed RGB-D, uncertainty, independent correspondence targets, and a geometry-to-JEPA refinement path. Tests verify coordinate direction, actual canonical identity, unchanged depth/validity, and exact fallback with missing or nonfinite anchors.
