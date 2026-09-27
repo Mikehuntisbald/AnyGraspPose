@@ -1,3 +1,9 @@
+## V67 completed; V68 paired training launched (2026-09-27)
+
+V67 confirms surface-preserving feedback can use correct geometry better: 60-degree heavy real-hidden oracle XYZ+validity EPE 12.6615px versus old feedback27.4665px. Predicted geometry only improves27.7115 to26.7759px and regresses at10degrees; actual reconstruction error is essentially unchanged. No promotion. [Full V67 summary](../surface_feedback_v67/SUMMARY.md).
+
+V68 controller launched: control and surface-feedback+direct geometry-correspondence supervision, 200 updates each from identical V60-extra weights, fixed seed42, no pose/history. Baseline/test/train/resume/probe stages run serially on eight GPUs. Completion and improvement are not yet established; remote authoritative status: unified_jepa_20260921/surface_joint_v68/status.json.
+
 ## V66: geometry-to-flow causal diagnostic (2026-09-27)
 
 64 frozen physical-holdout training-partition cases completed. At 10-degree heavy real-hidden points, flow EPE: feedback off 6.6862px, normal 5.8033px, oracle XYZ 5.4324px, oracle XYZ+validity 5.2285px. At 60-degree heavy real-hidden points, oracle XYZ only improves 27.7115 to 27.1641px. Correct geometry can help flow, but does not fix the current large-error hidden matcher. No learned geometry improvement or default promotion is claimed. Full paired results and adverse slices: [V66 summary](../geometry_feedback_v66/SUMMARY.md), [all conditions](../geometry_feedback_v66/REPORT.md).

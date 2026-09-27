@@ -39,3 +39,25 @@ def test_chunking_preserves_source_order_and_scores():
     reference = torch.randn(2, 7, 3)
     torch.testing.assert_close(surface_feedback(reference, recovered, chunk=2),
                                surface_feedback(reference, recovered, chunk=7), rtol=0, atol=0)
+
+
+def test_global_correspondence_supervises_recovery_without_endpoint_gradients():
+    from lip.unified.flow_reconstruction import flow_reconstruction_loss, patch_grid
+    recovered = torch.zeros(1, 5, 224, 224, requires_grad=True)
+    reference = torch.tensor([[[.03, .02, .01]]])
+    scores = surface_feedback(reference, recovered, strength=8.)
+    uv = patch_grid(recovered.device)[None, :1].detach()
+    active = torch.ones(1, 1, dtype=torch.bool)
+    labels = dict(uv=uv, observed=active, real=~active, proxy=~active,
+                  support=active, visible=active, known_support=active, known_visible=active)
+    # All non-geometry terms below are constant: any geometry gradient must
+    # come from the newly supervised global recovery correspondence scores.
+    stage = dict(uv=uv, scores=torch.zeros_like(scores), support_logits=torch.zeros(1, 1),
+                 visible_logits=torch.zeros(1, 1), recovery_match_scores=scores,
+                 recovery_correspondence_weight=.05)
+    loss, metrics = flow_reconstruction_loss(dict(surface_xyz=recovered[:, :3], flow_rounds=[stage]), labels)
+    loss.backward()
+    assert recovered.grad[:, :3].norm() > 0
+    assert torch.isfinite(recovered.grad).all()
+    assert not recovered.grad[:, 4].any()
+    assert 'flow0_observed_recovery_ce' in metrics

@@ -50,6 +50,7 @@ class FlowReconstruction(nn.Module):
         self.transport_gain = 1.
         self.disable_recovery_feedback = False
         self.surface_feedback_strength = None
+        self.recovery_correspondence_weight = 0.
 
     @torch.autocast('cuda', enabled=False)
     def forward(self, patch, observed, cad, geometry, valid, reference, recovered=None):
@@ -123,11 +124,15 @@ class FlowReconstruction(nn.Module):
                              observed_mass[..., None], residual[..., None]), -1)
         write = (.1*self.transport_gain)*self.write(context)*(mass/(mass+1))[..., None]*valid[..., None]
         if self.disable_transport: write = write*0
+        recovery_metrics = {}
+        if recovered is not None and self.recovery_correspondence_weight:
+            recovery_metrics = dict(recovery_match_scores=feedback.masked_fill(~valid[:, None], -1e4),
+                                    recovery_correspondence_weight=self.recovery_correspondence_weight)
         return patch+write.to(patch.dtype), dict(
             uv=uv, flow=uv-reference['uv'], scores=appearance.masked_fill(~valid[:, None], -1e4),
             coarse_uv=coarse_uv, endpoint_delta=uv-coarse_uv, peak_uv=grid[peak],
             support_logits=logits[..., 0], visible_logits=logits[..., 1], entropy=entropy,
-            aligned_mass=mass, geometry_feedback=feedback, write=write, **evidence_metrics, **local_metrics)
+            aligned_mass=mass, geometry_feedback=feedback, write=write, **evidence_metrics, **local_metrics, **recovery_metrics)
 
 
 @torch.no_grad()
@@ -156,9 +161,16 @@ def flow_reconstruction_loss(output, labels):
         endpoint = F.smooth_l1_loss(result['uv'].float()/224, labels['uv']/224, beta=1/224, reduction='none').sum(-1)
         error = (result['uv'].detach()-labels['uv']).norm(dim=-1)
         stage_loss = endpoint.sum()*0
+        recovery_ce = None
+        if 'recovery_match_scores' in result:
+            recovery_ce = -(heat*result['recovery_match_scores'].float().log_softmax(-1)).sum(-1)
         for name, factor in [('observed', 1.), ('real', 1.), ('proxy', .5)]:
             mask = labels[name]
             stage_loss = stage_loss+factor*mean(10*endpoint+.05*ce, mask)
+            if recovery_ce is not None:
+                value = mean(recovery_ce, mask)
+                stage_loss = stage_loss+factor*result['recovery_correspondence_weight']*value
+                metrics[f'flow{stage}_{name}_recovery_ce'] = value.detach()
             metrics[f'flow{stage}_{name}_epe'] = mean(error, mask).detach()
             metrics[f'flow_{name}_count'] = mask.sum().detach()
         for name in ('support', 'visible'):

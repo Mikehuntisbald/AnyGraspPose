@@ -122,6 +122,14 @@ def build_model(config,device='cuda'):
                 model.flow_reconstruction = FlowReconstruction().to(device)
             model.model_version = 'iterative-template-flow-jepa-v56'
             model.flow_reconstruction.transport_gain=float(config['flow_reconstruction'].get('transport_gain',1.))
+            feedback_config = config['flow_reconstruction'].get('surface_feedback', {})
+            if feedback_config.get('enabled', False):
+                strength = float(feedback_config.get('strength', 2.))
+                weight = float(feedback_config.get('correspondence_weight', 0.))
+                if strength <= 0 or weight < 0:
+                    raise ValueError('Surface feedback needs positive strength and nonnegative loss weight')
+                model.flow_reconstruction.surface_feedback_strength = strength
+                model.flow_reconstruction.recovery_correspondence_weight = weight
             if config['flow_reconstruction'].get('local_flow',{}).get('enabled'):
                 from .local_flow import LocalFlowHead
                 model.flow_reconstruction.local_flow_head=LocalFlowHead(
