@@ -1,0 +1,92 @@
+# V67 surface-preserving geometry feedback diagnostic
+
+Frozen V60-extra checkpoint; 64 training-partition physical-holdout frames.
+GT substitutions are diagnostics only, not deployable predictions. Candidate: 16 actual raster samples per patch; maximum validity-weighted canonical similarity, strengths 2 and 8. Same seeds as V66.
+Heavy means requested augmentation. Frame means; unchanged target masks, no confidence filtering.
+
+| Angle | Heavy | Region | Variant | Frames | Round 1 EPE px | Round 2 EPE px |
+|---:|---|---|---|---:|---:|---:|
+| 10 | False | observed | normal | 16 | 5.4001 | 5.0424 |
+| 10 | False | observed | surface2 | 16 | 5.4001 | 5.2046 |
+| 10 | False | observed | surface8 | 16 | 5.4001 | 5.6607 |
+| 10 | False | observed | oracle_xyz_surface2 | 16 | 5.4001 | 4.7989 |
+| 10 | False | observed | oracle_xyz_surface8 | 16 | 5.4001 | 4.6936 |
+| 10 | False | observed | oracle_xyz_validity_surface2 | 16 | 5.4001 | 4.6143 |
+| 10 | False | observed | oracle_xyz_validity_surface8 | 16 | 5.4001 | 4.5203 |
+| 10 | False | real | normal | 8 | 6.9397 | 6.2685 |
+| 10 | False | real | surface2 | 8 | 6.9397 | 6.4614 |
+| 10 | False | real | surface8 | 8 | 6.9397 | 6.2897 |
+| 10 | False | real | oracle_xyz_surface2 | 8 | 6.9397 | 5.2406 |
+| 10 | False | real | oracle_xyz_surface8 | 8 | 6.9397 | 4.7755 |
+| 10 | False | real | oracle_xyz_validity_surface2 | 8 | 6.9397 | 5.0232 |
+| 10 | False | real | oracle_xyz_validity_surface8 | 8 | 6.9397 | 4.5229 |
+| 10 | False | proxy | normal | 7 | 5.2907 | 4.2166 |
+| 10 | False | proxy | surface2 | 7 | 5.2907 | 4.0958 |
+| 10 | False | proxy | surface8 | 7 | 5.2907 | 3.8469 |
+| 10 | False | proxy | oracle_xyz_surface2 | 7 | 5.2907 | 4.0854 |
+| 10 | False | proxy | oracle_xyz_surface8 | 7 | 5.2907 | 4.1278 |
+| 10 | False | proxy | oracle_xyz_validity_surface2 | 7 | 5.2907 | 4.0736 |
+| 10 | False | proxy | oracle_xyz_validity_surface8 | 7 | 5.2907 | 4.6299 |
+| 10 | True | observed | normal | 13 | 5.3404 | 5.1764 |
+| 10 | True | observed | surface2 | 13 | 5.3404 | 5.3982 |
+| 10 | True | observed | surface8 | 13 | 5.3404 | 6.2391 |
+| 10 | True | observed | oracle_xyz_surface2 | 13 | 5.3404 | 5.3485 |
+| 10 | True | observed | oracle_xyz_surface8 | 13 | 5.3404 | 5.3824 |
+| 10 | True | observed | oracle_xyz_validity_surface2 | 13 | 5.3404 | 4.6644 |
+| 10 | True | observed | oracle_xyz_validity_surface8 | 13 | 5.3404 | 4.5298 |
+| 10 | True | real | normal | 16 | 6.7052 | 5.8033 |
+| 10 | True | real | surface2 | 16 | 6.7052 | 5.8210 |
+| 10 | True | real | surface8 | 16 | 6.7052 | 6.0304 |
+| 10 | True | real | oracle_xyz_surface2 | 16 | 6.7052 | 5.3263 |
+| 10 | True | real | oracle_xyz_surface8 | 16 | 6.7052 | 5.0695 |
+| 10 | True | real | oracle_xyz_validity_surface2 | 16 | 6.7052 | 5.0176 |
+| 10 | True | real | oracle_xyz_validity_surface8 | 16 | 6.7052 | 4.8652 |
+| 10 | True | proxy | normal | 2 | 1.7066 | 2.6687 |
+| 10 | True | proxy | surface2 | 2 | 1.7066 | 1.9288 |
+| 10 | True | proxy | surface8 | 2 | 1.7066 | 3.2322 |
+| 10 | True | proxy | oracle_xyz_surface2 | 2 | 1.7066 | 1.6614 |
+| 10 | True | proxy | oracle_xyz_surface8 | 2 | 1.7066 | 2.7192 |
+| 10 | True | proxy | oracle_xyz_validity_surface2 | 2 | 1.7066 | 1.2596 |
+| 10 | True | proxy | oracle_xyz_validity_surface8 | 2 | 1.7066 | 2.9856 |
+| 60 | False | observed | normal | 15 | 29.4004 | 29.0987 |
+| 60 | False | observed | surface2 | 15 | 29.4004 | 28.3264 |
+| 60 | False | observed | surface8 | 15 | 29.4004 | 26.8754 |
+| 60 | False | observed | oracle_xyz_surface2 | 15 | 29.4004 | 25.1876 |
+| 60 | False | observed | oracle_xyz_surface8 | 15 | 29.4004 | 17.0856 |
+| 60 | False | observed | oracle_xyz_validity_surface2 | 15 | 29.4004 | 21.9279 |
+| 60 | False | observed | oracle_xyz_validity_surface8 | 15 | 29.4004 | 13.8048 |
+| 60 | False | real | normal | 7 | 21.1489 | 20.6338 |
+| 60 | False | real | surface2 | 7 | 21.1489 | 20.4818 |
+| 60 | False | real | surface8 | 7 | 21.1489 | 19.1456 |
+| 60 | False | real | oracle_xyz_surface2 | 7 | 21.1489 | 17.9131 |
+| 60 | False | real | oracle_xyz_surface8 | 7 | 21.1489 | 12.2153 |
+| 60 | False | real | oracle_xyz_validity_surface2 | 7 | 21.1489 | 16.7594 |
+| 60 | False | real | oracle_xyz_validity_surface8 | 7 | 21.1489 | 11.3804 |
+| 60 | False | proxy | normal | 5 | 31.3365 | 32.1371 |
+| 60 | False | proxy | surface2 | 5 | 31.3365 | 32.0789 |
+| 60 | False | proxy | surface8 | 5 | 31.3365 | 31.4767 |
+| 60 | False | proxy | oracle_xyz_surface2 | 5 | 31.3365 | 27.4064 |
+| 60 | False | proxy | oracle_xyz_surface8 | 5 | 31.3365 | 22.3974 |
+| 60 | False | proxy | oracle_xyz_validity_surface2 | 5 | 31.3365 | 22.9993 |
+| 60 | False | proxy | oracle_xyz_validity_surface8 | 5 | 31.3365 | 16.7823 |
+| 60 | True | observed | normal | 13 | 19.5636 | 19.4722 |
+| 60 | True | observed | surface2 | 13 | 19.5636 | 19.0122 |
+| 60 | True | observed | surface8 | 13 | 19.5636 | 19.0627 |
+| 60 | True | observed | oracle_xyz_surface2 | 13 | 19.5636 | 17.6109 |
+| 60 | True | observed | oracle_xyz_surface8 | 13 | 19.5636 | 14.1921 |
+| 60 | True | observed | oracle_xyz_validity_surface2 | 13 | 19.5636 | 15.5221 |
+| 60 | True | observed | oracle_xyz_validity_surface8 | 13 | 19.5636 | 9.9055 |
+| 60 | True | real | normal | 14 | 27.5862 | 27.7115 |
+| 60 | True | real | surface2 | 14 | 27.5862 | 26.7697 |
+| 60 | True | real | surface8 | 14 | 27.5862 | 26.7759 |
+| 60 | True | real | oracle_xyz_surface2 | 14 | 27.5862 | 25.6006 |
+| 60 | True | real | oracle_xyz_surface8 | 14 | 27.5862 | 17.0418 |
+| 60 | True | real | oracle_xyz_validity_surface2 | 14 | 27.5862 | 23.0600 |
+| 60 | True | real | oracle_xyz_validity_surface8 | 14 | 27.5862 | 12.6615 |
+| 60 | True | proxy | normal | 5 | 13.2305 | 12.3995 |
+| 60 | True | proxy | surface2 | 5 | 13.2305 | 12.3451 |
+| 60 | True | proxy | surface8 | 5 | 13.2305 | 12.0613 |
+| 60 | True | proxy | oracle_xyz_surface2 | 5 | 13.2305 | 9.9932 |
+| 60 | True | proxy | oracle_xyz_surface8 | 5 | 13.2305 | 8.6117 |
+| 60 | True | proxy | oracle_xyz_validity_surface2 | 5 | 13.2305 | 8.9138 |
+| 60 | True | proxy | oracle_xyz_validity_surface8 | 5 | 13.2305 | 7.8564 |

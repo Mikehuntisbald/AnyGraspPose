@@ -1,0 +1,11 @@
+{
+  "completed": true,
+  "records": 8,
+  "source_sha256": "0c6f712c7848316259dae3d24554dd4dfac506a20404676e43fb679b94d46d7e",
+  "model_frozen": true,
+  "physical_holdout": true,
+  "training_partition_only": true,
+  "normal_forward_bitwise_verified": true,
+  "oracle_scope": "GT canonical XYZ replaces reconstructed XYZ only in valid rendered surface pixels; validity variant also replaces feedback validity logits. Other pixels retain predicted XYZ. Surface-preserving candidate feedback; fixed sixteen raster points per patch. Paired with V66 seeds. Diagnostic only, not deployable.",
+  "seconds": 18.294974870979786
+}

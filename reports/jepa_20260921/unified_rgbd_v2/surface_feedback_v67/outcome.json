@@ -1,0 +1,591 @@
+{
+  "10/False/observed/normal": {
+    "frames": 16,
+    "round_epe": [
+      5.4001361429691315,
+      5.0424260795116425
+    ]
+  },
+  "10/False/observed/surface2": {
+    "frames": 16,
+    "round_epe": [
+      5.4001361429691315,
+      5.204635038971901
+    ]
+  },
+  "10/False/observed/surface8": {
+    "frames": 16,
+    "round_epe": [
+      5.4001361429691315,
+      5.660657435655594
+    ]
+  },
+  "10/False/observed/oracle_xyz_surface2": {
+    "frames": 16,
+    "round_epe": [
+      5.4001361429691315,
+      4.798926115036011
+    ]
+  },
+  "10/False/observed/oracle_xyz_surface8": {
+    "frames": 16,
+    "round_epe": [
+      5.4001361429691315,
+      4.693559676408768
+    ]
+  },
+  "10/False/observed/oracle_xyz_validity_surface2": {
+    "frames": 16,
+    "round_epe": [
+      5.4001361429691315,
+      4.614253103733063
+    ]
+  },
+  "10/False/observed/oracle_xyz_validity_surface8": {
+    "frames": 16,
+    "round_epe": [
+      5.4001361429691315,
+      4.520329982042313
+    ]
+  },
+  "10/False/real/normal": {
+    "frames": 8,
+    "round_epe": [
+      6.9397492706775665,
+      6.26851299405098
+    ]
+  },
+  "10/False/real/surface2": {
+    "frames": 8,
+    "round_epe": [
+      6.9397492706775665,
+      6.461369305849075
+    ]
+  },
+  "10/False/real/surface8": {
+    "frames": 8,
+    "round_epe": [
+      6.9397492706775665,
+      6.289724111557007
+    ]
+  },
+  "10/False/real/oracle_xyz_surface2": {
+    "frames": 8,
+    "round_epe": [
+      6.9397492706775665,
+      5.240649729967117
+    ]
+  },
+  "10/False/real/oracle_xyz_surface8": {
+    "frames": 8,
+    "round_epe": [
+      6.9397492706775665,
+      4.7754515409469604
+    ]
+  },
+  "10/False/real/oracle_xyz_validity_surface2": {
+    "frames": 8,
+    "round_epe": [
+      6.9397492706775665,
+      5.023161694407463
+    ]
+  },
+  "10/False/real/oracle_xyz_validity_surface8": {
+    "frames": 8,
+    "round_epe": [
+      6.9397492706775665,
+      4.522882118821144
+    ]
+  },
+  "10/False/proxy/normal": {
+    "frames": 7,
+    "round_epe": [
+      5.290659734180996,
+      4.21660041809082
+    ]
+  },
+  "10/False/proxy/surface2": {
+    "frames": 7,
+    "round_epe": [
+      5.290659734180996,
+      4.095750876835415
+    ]
+  },
+  "10/False/proxy/surface8": {
+    "frames": 7,
+    "round_epe": [
+      5.290659734180996,
+      3.846852813448225
+    ]
+  },
+  "10/False/proxy/oracle_xyz_surface2": {
+    "frames": 7,
+    "round_epe": [
+      5.290659734180996,
+      4.085371392113822
+    ]
+  },
+  "10/False/proxy/oracle_xyz_surface8": {
+    "frames": 7,
+    "round_epe": [
+      5.290659734180996,
+      4.1277952534811835
+    ]
+  },
+  "10/False/proxy/oracle_xyz_validity_surface2": {
+    "frames": 7,
+    "round_epe": [
+      5.290659734180996,
+      4.07359664780753
+    ]
+  },
+  "10/False/proxy/oracle_xyz_validity_surface8": {
+    "frames": 7,
+    "round_epe": [
+      5.290659734180996,
+      4.629939998899188
+    ]
+  },
+  "10/True/observed/normal": {
+    "frames": 13,
+    "round_epe": [
+      5.340446641811957,
+      5.176404998852656
+    ]
+  },
+  "10/True/observed/surface2": {
+    "frames": 13,
+    "round_epe": [
+      5.340446641811957,
+      5.3982211374319515
+    ]
+  },
+  "10/True/observed/surface8": {
+    "frames": 13,
+    "round_epe": [
+      5.340446641811957,
+      6.23907655936021
+    ]
+  },
+  "10/True/observed/oracle_xyz_surface2": {
+    "frames": 13,
+    "round_epe": [
+      5.340446641811957,
+      5.348490944275489
+    ]
+  },
+  "10/True/observed/oracle_xyz_surface8": {
+    "frames": 13,
+    "round_epe": [
+      5.340446641811957,
+      5.382430956913875
+    ]
+  },
+  "10/True/observed/oracle_xyz_validity_surface2": {
+    "frames": 13,
+    "round_epe": [
+      5.340446641811957,
+      4.6643859423123875
+    ]
+  },
+  "10/True/observed/oracle_xyz_validity_surface8": {
+    "frames": 13,
+    "round_epe": [
+      5.340446641811957,
+      4.529791758610652
+    ]
+  },
+  "10/True/real/normal": {
+    "frames": 16,
+    "round_epe": [
+      6.705203428864479,
+      5.803277015686035
+    ]
+  },
+  "10/True/real/surface2": {
+    "frames": 16,
+    "round_epe": [
+      6.705203428864479,
+      5.821010559797287
+    ]
+  },
+  "10/True/real/surface8": {
+    "frames": 16,
+    "round_epe": [
+      6.705203428864479,
+      6.03039214015007
+    ]
+  },
+  "10/True/real/oracle_xyz_surface2": {
+    "frames": 16,
+    "round_epe": [
+      6.705203428864479,
+      5.326318383216858
+    ]
+  },
+  "10/True/real/oracle_xyz_surface8": {
+    "frames": 16,
+    "round_epe": [
+      6.705203428864479,
+      5.069474816322327
+    ]
+  },
+  "10/True/real/oracle_xyz_validity_surface2": {
+    "frames": 16,
+    "round_epe": [
+      6.705203428864479,
+      5.017570331692696
+    ]
+  },
+  "10/True/real/oracle_xyz_validity_surface8": {
+    "frames": 16,
+    "round_epe": [
+      6.705203428864479,
+      4.865161895751953
+    ]
+  },
+  "10/True/proxy/normal": {
+    "frames": 2,
+    "round_epe": [
+      1.7065958380699158,
+      2.668657422065735
+    ]
+  },
+  "10/True/proxy/surface2": {
+    "frames": 2,
+    "round_epe": [
+      1.7065958380699158,
+      1.9288167357444763
+    ]
+  },
+  "10/True/proxy/surface8": {
+    "frames": 2,
+    "round_epe": [
+      1.7065958380699158,
+      3.2321550846099854
+    ]
+  },
+  "10/True/proxy/oracle_xyz_surface2": {
+    "frames": 2,
+    "round_epe": [
+      1.7065958380699158,
+      1.6613658666610718
+    ]
+  },
+  "10/True/proxy/oracle_xyz_surface8": {
+    "frames": 2,
+    "round_epe": [
+      1.7065958380699158,
+      2.71923828125
+    ]
+  },
+  "10/True/proxy/oracle_xyz_validity_surface2": {
+    "frames": 2,
+    "round_epe": [
+      1.7065958380699158,
+      1.2596476674079895
+    ]
+  },
+  "10/True/proxy/oracle_xyz_validity_surface8": {
+    "frames": 2,
+    "round_epe": [
+      1.7065958380699158,
+      2.985556960105896
+    ]
+  },
+  "60/False/observed/normal": {
+    "frames": 15,
+    "round_epe": [
+      29.400369771321614,
+      29.098660786946613
+    ]
+  },
+  "60/False/observed/surface2": {
+    "frames": 15,
+    "round_epe": [
+      29.400369771321614,
+      28.326387151082358
+    ]
+  },
+  "60/False/observed/surface8": {
+    "frames": 15,
+    "round_epe": [
+      29.400369771321614,
+      26.87540473937988
+    ]
+  },
+  "60/False/observed/oracle_xyz_surface2": {
+    "frames": 15,
+    "round_epe": [
+      29.400369771321614,
+      25.187572797139484
+    ]
+  },
+  "60/False/observed/oracle_xyz_surface8": {
+    "frames": 15,
+    "round_epe": [
+      29.400369771321614,
+      17.085648155212404
+    ]
+  },
+  "60/False/observed/oracle_xyz_validity_surface2": {
+    "frames": 15,
+    "round_epe": [
+      29.400369771321614,
+      21.927918434143066
+    ]
+  },
+  "60/False/observed/oracle_xyz_validity_surface8": {
+    "frames": 15,
+    "round_epe": [
+      29.400369771321614,
+      13.804830233256022
+    ]
+  },
+  "60/False/real/normal": {
+    "frames": 7,
+    "round_epe": [
+      21.148937497820175,
+      20.63376726422991
+    ]
+  },
+  "60/False/real/surface2": {
+    "frames": 7,
+    "round_epe": [
+      21.148937497820175,
+      20.48181860787528
+    ]
+  },
+  "60/False/real/surface8": {
+    "frames": 7,
+    "round_epe": [
+      21.148937497820175,
+      19.14557102748326
+    ]
+  },
+  "60/False/real/oracle_xyz_surface2": {
+    "frames": 7,
+    "round_epe": [
+      21.148937497820175,
+      17.913144247872488
+    ]
+  },
+  "60/False/real/oracle_xyz_surface8": {
+    "frames": 7,
+    "round_epe": [
+      21.148937497820175,
+      12.215288707188197
+    ]
+  },
+  "60/False/real/oracle_xyz_validity_surface2": {
+    "frames": 7,
+    "round_epe": [
+      21.148937497820175,
+      16.75938047681536
+    ]
+  },
+  "60/False/real/oracle_xyz_validity_surface8": {
+    "frames": 7,
+    "round_epe": [
+      21.148937497820175,
+      11.380396570478167
+    ]
+  },
+  "60/False/proxy/normal": {
+    "frames": 5,
+    "round_epe": [
+      31.336505126953124,
+      32.13712387084961
+    ]
+  },
+  "60/False/proxy/surface2": {
+    "frames": 5,
+    "round_epe": [
+      31.336505126953124,
+      32.07887268066406
+    ]
+  },
+  "60/False/proxy/surface8": {
+    "frames": 5,
+    "round_epe": [
+      31.336505126953124,
+      31.476716232299804
+    ]
+  },
+  "60/False/proxy/oracle_xyz_surface2": {
+    "frames": 5,
+    "round_epe": [
+      31.336505126953124,
+      27.406372451782225
+    ]
+  },
+  "60/False/proxy/oracle_xyz_surface8": {
+    "frames": 5,
+    "round_epe": [
+      31.336505126953124,
+      22.397371292114258
+    ]
+  },
+  "60/False/proxy/oracle_xyz_validity_surface2": {
+    "frames": 5,
+    "round_epe": [
+      31.336505126953124,
+      22.999292373657227
+    ]
+  },
+  "60/False/proxy/oracle_xyz_validity_surface8": {
+    "frames": 5,
+    "round_epe": [
+      31.336505126953124,
+      16.782340049743652
+    ]
+  },
+  "60/True/observed/normal": {
+    "frames": 13,
+    "round_epe": [
+      19.563624418698826,
+      19.47216011927678
+    ]
+  },
+  "60/True/observed/surface2": {
+    "frames": 13,
+    "round_epe": [
+      19.563624418698826,
+      19.012229075798622
+    ]
+  },
+  "60/True/observed/surface8": {
+    "frames": 13,
+    "round_epe": [
+      19.563624418698826,
+      19.06274049098675
+    ]
+  },
+  "60/True/observed/oracle_xyz_surface2": {
+    "frames": 13,
+    "round_epe": [
+      19.563624418698826,
+      17.610943244053768
+    ]
+  },
+  "60/True/observed/oracle_xyz_surface8": {
+    "frames": 13,
+    "round_epe": [
+      19.563624418698826,
+      14.192080094264103
+    ]
+  },
+  "60/True/observed/oracle_xyz_validity_surface2": {
+    "frames": 13,
+    "round_epe": [
+      19.563624418698826,
+      15.52213430404663
+    ]
+  },
+  "60/True/observed/oracle_xyz_validity_surface8": {
+    "frames": 13,
+    "round_epe": [
+      19.563624418698826,
+      9.90553380892827
+    ]
+  },
+  "60/True/real/normal": {
+    "frames": 14,
+    "round_epe": [
+      27.58616488320487,
+      27.711469071252004
+    ]
+  },
+  "60/True/real/surface2": {
+    "frames": 14,
+    "round_epe": [
+      27.58616488320487,
+      26.769711869103567
+    ]
+  },
+  "60/True/real/surface8": {
+    "frames": 14,
+    "round_epe": [
+      27.58616488320487,
+      26.775944811957224
+    ]
+  },
+  "60/True/real/oracle_xyz_surface2": {
+    "frames": 14,
+    "round_epe": [
+      27.58616488320487,
+      25.60057803562709
+    ]
+  },
+  "60/True/real/oracle_xyz_surface8": {
+    "frames": 14,
+    "round_epe": [
+      27.58616488320487,
+      17.041843516486033
+    ]
+  },
+  "60/True/real/oracle_xyz_validity_surface2": {
+    "frames": 14,
+    "round_epe": [
+      27.58616488320487,
+      23.060027054377965
+    ]
+  },
+  "60/True/real/oracle_xyz_validity_surface8": {
+    "frames": 14,
+    "round_epe": [
+      27.58616488320487,
+      12.661513941628593
+    ]
+  },
+  "60/True/proxy/normal": {
+    "frames": 5,
+    "round_epe": [
+      13.230471324920654,
+      12.399458599090575
+    ]
+  },
+  "60/True/proxy/surface2": {
+    "frames": 5,
+    "round_epe": [
+      13.230471324920654,
+      12.345145225524902
+    ]
+  },
+  "60/True/proxy/surface8": {
+    "frames": 5,
+    "round_epe": [
+      13.230471324920654,
+      12.0612717628479
+    ]
+  },
+  "60/True/proxy/oracle_xyz_surface2": {
+    "frames": 5,
+    "round_epe": [
+      13.230471324920654,
+      9.99322214126587
+    ]
+  },
+  "60/True/proxy/oracle_xyz_surface8": {
+    "frames": 5,
+    "round_epe": [
+      13.230471324920654,
+      8.611657428741456
+    ]
+  },
+  "60/True/proxy/oracle_xyz_validity_surface2": {
+    "frames": 5,
+    "round_epe": [
+      13.230471324920654,
+      8.91384677886963
+    ]
+  },
+  "60/True/proxy/oracle_xyz_validity_surface8": {
+    "frames": 5,
+    "round_epe": [
+      13.230471324920654,
+      7.85641508102417
+    ]
+  },
+  "first_round_invariance_verified": true
+}
