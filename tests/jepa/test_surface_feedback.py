@@ -54,10 +54,33 @@ def test_global_correspondence_supervises_recovery_without_endpoint_gradients():
     # come from the newly supervised global recovery correspondence scores.
     stage = dict(uv=uv, scores=torch.zeros_like(scores), support_logits=torch.zeros(1, 1),
                  visible_logits=torch.zeros(1, 1), recovery_match_scores=scores,
-                 recovery_correspondence_weight=.05)
+                 recovery_correspondence_weight=.05, matching_valid=torch.ones(1, 256, dtype=torch.bool))
     loss, metrics = flow_reconstruction_loss(dict(surface_xyz=recovered[:, :3], flow_rounds=[stage]), labels)
     loss.backward()
     assert recovered.grad[:, :3].norm() > 0
     assert torch.isfinite(recovered.grad).all()
     assert not recovered.grad[:, 4].any()
     assert 'flow0_observed_recovery_ce' in metrics
+
+
+def test_masked_soft_target_tails_do_not_create_unlearnable_loss():
+    from lip.unified.flow_reconstruction import flow_reconstruction_loss, patch_grid
+    uv = patch_grid('cpu')[None, :1]
+    active = torch.ones(1, 1, dtype=torch.bool)
+    labels = dict(uv=uv, observed=active, real=~active, proxy=~active,
+                  support=active, visible=active, known_support=active, known_visible=active)
+    # Only one candidate exists. Its conditioned target probability is 1;
+    # probability tails assigned to fixed masked logits must not cost anything.
+    valid = torch.zeros(1, 256, dtype=torch.bool)
+    valid[:, 0] = True
+    scores = torch.full((1, 1, 256), -1e4)
+    scores[..., 0] = 0
+    scores.requires_grad_()
+    stage = dict(uv=uv, scores=scores, matching_valid=valid, support_logits=torch.zeros(1, 1),
+                 visible_logits=torch.zeros(1, 1), recovery_match_scores=scores,
+                 recovery_correspondence_weight=.05)
+    loss, metrics = flow_reconstruction_loss(dict(surface_xyz=torch.zeros(1), flow_rounds=[stage]), labels)
+    assert metrics['flow0_observed_recovery_ce'] == 0
+    assert loss < .1
+    loss.backward()
+    assert not scores.grad.any()

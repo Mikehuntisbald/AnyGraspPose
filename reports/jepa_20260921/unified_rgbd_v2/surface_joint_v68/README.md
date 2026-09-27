@@ -1,9 +1,7 @@
-# V68 running receipt
+# V68 interrupted: masked-target correction required
 
-Source commit0a0c35b; existing remote environment, eight H20s, seed42. Required tests:31 passed in7.55s. Seven changed source/config/test files were compared to executed source_receipt.json and matched exactly.
+This run is terminal/interrupted, not an active training job. Control completed200updates; candidate completed97 before deliberate controller termination. All artifacts are preserved remotely under unified_jepa_20260921/surface_joint_v68. This local folder contains compact receipts/logs only; full checkpoints and per-step rank logs remain remote.
 
-Training controller: /tmp/dexycb_surface_joint_v68_r0/tools/run_surface_joint_v68.py. Remote artifacts: /mnt/why/dexycb_lip/unified_jepa_20260921/surface_joint_v68. Both source archive and complete training checkpoints remain there; only compact receipts are synchronized locally so far.
+New recovery correspondence CE reached574.33 for an observed region at step14: Gaussian target tails lay on invalid crop keys whose logits are fixed to-10000. That contribution is unlearnable and invalidates interpreting the total loss. Existing appearance CE used the same unconditioned target form. This is an implementation defect in the objective, not established as the root cause of all earlier geometry failures.
 
-Baseline0/10/60-degree probes completed. Control completed2updates, verified full-state resume, and is continuing toward200. The surface arm is queued after control evaluation, also200updates. The controller will stop after paired evaluation; no automatic budget increase or promotion. This document is a snapshot, not proof that a process remains live. Check status.json, process identity and rank logs before acting.
-
-V68 tests the combined candidate of surface-preserving feedback and explicit geometry-score correspondence CE. Learned geometry improvement remains unproven. No pose/history training or official-test evaluation is authorized by this receipt.
+V68r1 conditions soft correspondence targets on valid keys and renormalizes for BOTH appearance and recovery CE. Endpoint and geometry masks/labels remain unchanged. An explicit single-valid-key test requires zero matching CE and zero score gradient;11focused tests passed. Both arms restart from the original identical V60-extra tensors under the corrected objective,200updates each. Do not compare an interrupted candidate checkpoint against the completed control as the claimed matched result.

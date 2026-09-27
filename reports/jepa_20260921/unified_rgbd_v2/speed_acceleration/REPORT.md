@@ -1,3 +1,7 @@
+## V68r1 correction launched (2026-09-27)
+
+Original V68 deliberately stopped at control200/candidate97: soft correspondence target tails on invalid crop keys caused large fixed loss terms. Both appearance and recovery CE now condition targets on valid keys; endpoint/geometry targets and evaluation masks are unchanged. Elevenfocused tests passed. Corrected paired run restarts from V60-extra,200updates per arm, remote root surface_joint_v68_r1. No learned geometry improvement has been established. Original V68 below is historical, not a live process.
+
 ## V67 completed; V68 paired training launched (2026-09-27)
 
 V67 confirms surface-preserving feedback can use correct geometry better: 60-degree heavy real-hidden oracle XYZ+validity EPE 12.6615px versus old feedback27.4665px. Predicted geometry only improves27.7115 to26.7759px and regresses at10degrees; actual reconstruction error is essentially unchanged. No promotion. [Full V67 summary](../surface_feedback_v67/SUMMARY.md).

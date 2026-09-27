@@ -1,0 +1,179 @@
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/swiglu_ffn.py:43: UserWarning: xFormers is available (SwiGLU)
+  warnings.warn("xFormers is available (SwiGLU)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/attention.py:27: UserWarning: xFormers is available (Attention)
+  warnings.warn("xFormers is available (Attention)")
+/mnt/why/dexycb_lip/jepa_20260920/third_party/dinov2_jepa/dinov2/layers/block.py:33: UserWarning: xFormers is available (Block)
+  warnings.warn("xFormers is available (Block)")
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank7]:[W927 08:29:07.552982055 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 7]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank6]:[W927 08:29:07.575739113 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 6]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank3]:[W927 08:29:07.610937296 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 3]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank5]:[W927 08:29:07.645862821 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 5]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank1]:[W927 08:29:07.662299369 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 1]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank2]:[W927 08:29:07.693355280 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 2]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank4]:[W927 08:29:07.704398276 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 4]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+/usr/local/lib/python3.12/dist-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[rank0]:[W927 08:29:07.801710605 ProcessGroupNCCL.cpp:5023] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 as device used by this process is currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect. You can specify device_id in init_process_group() to force use of a particular device.
+{"step": 25, "seconds": 0.6693856951314956, "data_seconds": 0.12796826101839542, "loss": 1.560140609741211, "grad_norm": 7.6347246170043945, "lr": {"encoder": 9.809698831278216e-07, "predictor": 2.9429096493834653e-05, "new": 9.809698831278218e-05, "transport": 9.809698831278218e-05, "flow": 0.0002942909649383465}, "metrics": {"real_pixels": 14976.0, "real_xyz_mm": 10.224160194396973, "real_depth_mm": 9.106955528259277, "real_cad_xyz_mm": 10.639518737792969, "proxy_pixels": 0.0, "proxy_xyz_mm": 0.0, "proxy_depth_mm": 0.0, "proxy_cad_xyz_mm": 0.0, "visible_xyz_mm": 9.792814254760742, "atlas_real_ce": 5.565605163574219, "atlas_real_distance_d": 0.07249423861503601, "atlas_real_top8": 0.0911458358168602, "atlas_visible_ce": 5.5656609535217285, "atlas_visible_distance_d": 0.07684877514839172, "atlas_visible_top8": 0.10437841713428497, "flow0_observed_epe": 13.035754203796387, "flow_observed_count": 95.0, "flow0_real_epe": 16.389421463012695, "flow_real_count": 73.0, "flow0_proxy_epe": 0.0, "flow_proxy_count": 0.0, "flow1_observed_recovery_ce": 2.447728395462036, "flow1_observed_epe": 9.557342529296875, "flow1_real_recovery_ce": 2.2736599445343018, "flow1_real_epe": 12.374557495117188, "flow1_proxy_recovery_ce": 0.0, "flow1_proxy_epe": 0.0}, "windows": [{"kind": "uniform_full_training_window", "native_initializer_frame": 7, "first_frame": 16, "count": 1, "stream_frames": 74, "cached_frames": 1, "raw_native_frames": 0, "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"}, {"kind": "uniform_full_training_window", "native_initializer_frame": 2, "first_frame": 3, "count": 1, "stream_frames": 74, "cached_frames": 1, "raw_native_frames": 0, "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"}, {"kind": "uniform_full_training_window", "native_initializer_frame": 12, "first_frame": 24, "count": 1, "stream_frames": 72, "cached_frames": 1, "raw_native_frames": 0, "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"}, {"kind": "uniform_full_training_window", "native_initializer_frame": 14, "first_frame": 5, "count": 1, "stream_frames": 74, "cached_frames": 0, "raw_native_frames": 1, "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"}]}
+{"step": 50, "seconds": 0.7332909470424056, "data_seconds": 0.1482635368593037, "loss": 1.9878652095794678, "grad_norm": 12.908958435058594, "lr": {"encoder": 9.267766952966368e-07, "predictor": 2.7803300858899108e-05, "new": 9.267766952966369e-05, "transport": 9.267766952966369e-05, "flow": 0.000278033008588991}, "metrics": {"real_pixels": 33224.0, "real_xyz_mm": 19.594472885131836, "real_depth_mm": 12.755365371704102, "real_cad_xyz_mm": 17.122346878051758, "proxy_pixels": 3862.0, "proxy_xyz_mm": 18.07765769958496, "proxy_depth_mm": 12.642596244812012, "proxy_cad_xyz_mm": 18.07765769958496, "visible_xyz_mm": 12.082027435302734, "atlas_real_ce": 5.885381698608398, "atlas_real_distance_d": 0.08526620268821716, "atlas_real_top8": 0.048828125, "atlas_proxy_ce": 6.146356105804443, "atlas_proxy_distance_d": 0.09365895390510559, "atlas_proxy_top8": 0.03059895895421505, "atlas_visible_ce": 5.441934108734131, "atlas_visible_distance_d": 0.07268260419368744, "atlas_visible_top8": 0.201171875, "flow0_observed_epe": 9.272088050842285, "flow_observed_count": 20.0, "flow0_real_epe": 8.914965629577637, "flow_real_count": 166.0, "flow0_proxy_epe": 13.972232818603516, "flow_proxy_count": 18.0, "flow1_observed_recovery_ce": 2.1468071937561035, "flow1_observed_epe": 7.630481719970703, "flow1_real_recovery_ce": 2.602869987487793, "flow1_real_epe": 8.57542610168457, "flow1_proxy_recovery_ce": 2.759784698486328, "flow1_proxy_epe": 11.672491073608398}, "windows": [{"kind": "uniform_full_training_window", "native_initializer_frame": 10, "first_frame": 0, "count": 1, "stream_frames": 74, "cached_frames": 0, "raw_native_frames": 1, "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"}, {"kind": "uniform_full_training_window", "native_initializer_frame": 13, "first_frame": 8, "count": 1, "stream_frames": 74, "cached_frames": 1, "raw_native_frames": 0, "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"}, {"kind": "uniform_full_training_window", "native_initializer_frame": 0, "first_frame": 33, "count": 1, "stream_frames": 72, "cached_frames": 1, "raw_native_frames": 0, "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"}, {"kind": "uniform_full_training_window", "native_initializer_frame": 6, "first_frame": 45, "count": 1, "stream_frames": 72, "cached_frames": 1, "raw_native_frames": 0, "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"}]}
+{"step": 75, "seconds": 0.6571772310417145, "data_seconds": 0.11965442611835897, "loss": 1.8822810649871826, "grad_norm": 8.418014526367188, "lr": {"encoder": 8.456708580912723e-07, "predictor": 2.537012574273817e-05, "new": 8.456708580912724e-05, "transport": 8.456708580912724e-05, "flow": 0.0002537012574273817}, "metrics": {"real_pixels": 5596.0, "real_xyz_mm": 17.785823822021484, "real_depth_mm": 8.254419326782227, "real_cad_xyz_mm": 16.203426361083984, "proxy_pixels": 3440.0, "proxy_xyz_mm": 13.688346862792969, "proxy_depth_mm": 7.756225109100342, "proxy_cad_xyz_mm": 13.688346862792969, "visible_xyz_mm": 15.882556915283203, "atlas_real_ce": 5.704992294311523, "atlas_real_distance_d": 0.08009667694568634, "atlas_real_top8": 0.0595703125, "atlas_proxy_ce": 5.756157875061035, "atlas_proxy_distance_d": 0.0830436646938324, "atlas_proxy_top8": 0.1458333432674408, "atlas_visible_ce": 5.777650833129883, "atlas_visible_distance_d": 0.07750324159860611, "atlas_visible_top8": 0.1025390625, "flow0_observed_epe": 8.31456470489502, "flow_observed_count": 94.0, "flow0_real_epe": 9.001747131347656, "flow_real_count": 27.0, "flow0_proxy_epe": 11.127264976501465, "flow_proxy_count": 19.0, "flow1_observed_recovery_ce": 2.3779327869415283, "flow1_observed_epe": 7.329885482788086, "flow1_real_recovery_ce": 2.587648391723633, "flow1_real_epe": 8.799293518066406, "flow1_proxy_recovery_ce": 2.574165105819702, "flow1_proxy_epe": 6.689049243927002}, "windows": [{"kind": "uniform_full_training_window", "native_initializer_frame": 15, "first_frame": 34, "count": 1, "stream_frames": 72, "cached_frames": 1, "raw_native_frames": 0, "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"}, {"kind": "uniform_full_training_window", "native_initializer_frame": 12, "first_frame": 7, "count": 1, "stream_frames": 72, "cached_frames": 1, "raw_native_frames": 0, "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"}, {"kind": "uniform_full_training_window", "native_initializer_frame": 0, "first_frame": 66, "count": 1, "stream_frames": 72, "cached_frames": 0, "raw_native_frames": 1, "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"}, {"kind": "uniform_full_training_window", "native_initializer_frame": 9, "first_frame": 65, "count": 1, "stream_frames": 74, "cached_frames": 0, "raw_native_frames": 1, "pose_source": "Training-only transport of empirical native initialization error; not native current-frame initialization"}]}
+W0927 08:30:42.055000 2101959 torch/distributed/elastic/agent/server/api.py:723] Received 15 death signal, shutting down workers
+W0927 08:30:42.056000 2101959 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2101964 closing signal SIGTERM
+W0927 08:30:42.057000 2101959 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2101965 closing signal SIGTERM
+W0927 08:30:42.059000 2101959 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2101966 closing signal SIGTERM
+W0927 08:30:42.060000 2101959 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2101967 closing signal SIGTERM
+W0927 08:30:42.062000 2101959 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2101968 closing signal SIGTERM
+--- Logging error ---
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/agent/server/api.py", line 715, in run
+    result = self._invoke_run(role)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/agent/server/api.py", line 879, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/multiprocessing/api.py", line 84, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 2101959 got signal: 15
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/logging/__init__.py", line 1160, in emit
+    msg = self.format(record)
+          ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/logging/__init__.py", line 999, in format
+    return fmt.format(record)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/_logging/_internal.py", line 887, in format
+    filepath = make_module_path_relative(record.pathname)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/_logging/_internal.py", line 815, in make_module_path_relative
+    rel_path = abs_path.relative_to(path)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 679, in relative_to
+    if self.is_relative_to(path):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/pathlib.py", line 700, in is_relative_to
+    return other == self or other in self.parents
+                            ^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen _collections_abc>", line 1033, in __contains__
+  File "<frozen _collections_abc>", line 1026, in __iter__
+  File "/usr/lib/python3.12/pathlib.py", line 282, in __getitem__
+    raise IndexError(idx)
+          ^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/multiprocessing/api.py", line 84, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 2101959 got signal: 15
+Call stack:
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 905, in <module>
+    main()
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 357, in wrapper
+    return f(*args, **kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/launcher/api.py", line 143, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/launcher/api.py", line 268, in launch_agent
+    result = agent.run()
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/metrics/api.py", line 138, in wrapper
+    result = f(*args, **kwargs)
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/agent/server/api.py", line 724, in run
+    self._shutdown(e.sigval)
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/agent/server/local_elastic_agent.py", line 368, in _shutdown
+    self._pcontext.close(death_sig)
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/multiprocessing/api.py", line 577, in close
+    self._close(death_sig=death_sig, timeout=timeout)
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/multiprocessing/api.py", line 900, in _close
+    logger.warning(
+Message: 'Sending process %s closing signal %s'
+Arguments: (2101969, 'SIGTERM')
+W0927 08:30:42.067000 2101959 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2101970 closing signal SIGTERM
+W0927 08:30:42.068000 2101959 torch/distributed/elastic/multiprocessing/api.py:900] Sending process 2101971 closing signal SIGTERM
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 905, in <module>
+    main()
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 357, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/launcher/api.py", line 143, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/launcher/api.py", line 268, in launch_agent
+    result = agent.run()
+             ^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/metrics/api.py", line 138, in wrapper
+    result = f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/agent/server/api.py", line 715, in run
+    result = self._invoke_run(role)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/agent/server/api.py", line 879, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/usr/local/lib/python3.12/dist-packages/torch/distributed/elastic/multiprocessing/api.py", line 84, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 2101959 got signal: 15

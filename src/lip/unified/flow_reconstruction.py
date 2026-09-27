@@ -130,6 +130,7 @@ class FlowReconstruction(nn.Module):
                                     recovery_correspondence_weight=self.recovery_correspondence_weight)
         return patch+write.to(patch.dtype), dict(
             uv=uv, flow=uv-reference['uv'], scores=appearance.masked_fill(~valid[:, None], -1e4),
+            matching_valid=valid,
             coarse_uv=coarse_uv, endpoint_delta=uv-coarse_uv, peak_uv=grid[peak],
             support_logits=logits[..., 0], visible_logits=logits[..., 1], entropy=entropy,
             aligned_mass=mass, geometry_feedback=feedback, write=write, **evidence_metrics, **local_metrics, **recovery_metrics)
@@ -157,18 +158,25 @@ def flow_reconstruction_loss(output, labels):
     loss = output['surface_xyz'].sum()*0
     metrics = {}
     for stage, result in enumerate(output['flow_rounds']):
-        ce = -(heat*result['scores'].float().log_softmax(-1)).sum(-1)
+        # A soft target near crop boundaries may have tails outside the valid
+        # key set. Those keys have fixed -1e4 logits and cannot be learned.
+        # Condition targets on available keys for BOTH matching objectives.
+        active_heat = heat*result['matching_valid'][:, None]
+        target_mass = active_heat.sum(-1, keepdim=True)
+        active_heat = active_heat/target_mass.clamp_min(1e-8)
+        target_supported = target_mass[..., 0] > 1e-8
+        ce = -(active_heat*result['scores'].float().log_softmax(-1)).sum(-1)
         endpoint = F.smooth_l1_loss(result['uv'].float()/224, labels['uv']/224, beta=1/224, reduction='none').sum(-1)
         error = (result['uv'].detach()-labels['uv']).norm(dim=-1)
         stage_loss = endpoint.sum()*0
         recovery_ce = None
         if 'recovery_match_scores' in result:
-            recovery_ce = -(heat*result['recovery_match_scores'].float().log_softmax(-1)).sum(-1)
+            recovery_ce = -(active_heat*result['recovery_match_scores'].float().log_softmax(-1)).sum(-1)
         for name, factor in [('observed', 1.), ('real', 1.), ('proxy', .5)]:
             mask = labels[name]
-            stage_loss = stage_loss+factor*mean(10*endpoint+.05*ce, mask)
+            stage_loss = stage_loss+factor*(mean(10*endpoint, mask)+.05*mean(ce, mask & target_supported))
             if recovery_ce is not None:
-                value = mean(recovery_ce, mask)
+                value = mean(recovery_ce, mask & target_supported)
                 stage_loss = stage_loss+factor*result['recovery_correspondence_weight']*value
                 metrics[f'flow{stage}_{name}_recovery_ce'] = value.detach()
             metrics[f'flow{stage}_{name}_epe'] = mean(error, mask).detach()
