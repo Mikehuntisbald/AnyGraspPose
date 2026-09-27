@@ -1,3 +1,7 @@
+## V66: geometry-to-flow causal diagnostic (2026-09-27)
+
+64 frozen physical-holdout training-partition cases completed. At 10-degree heavy real-hidden points, flow EPE: feedback off 6.6862px, normal 5.8033px, oracle XYZ 5.4324px, oracle XYZ+validity 5.2285px. At 60-degree heavy real-hidden points, oracle XYZ only improves 27.7115 to 27.1641px. Correct geometry can help flow, but does not fix the current large-error hidden matcher. No learned geometry improvement or default promotion is claimed. Full paired results and adverse slices: [V66 summary](../geometry_feedback_v66/SUMMARY.md), [all conditions](../geometry_feedback_v66/REPORT.md).
+
 # V64 — 全尺度恢复latent解码对照完成
 
 新模型DPT四路均读取恢复后latent，200步训练与128个配对条件评估完成。10°重遮挡相对历史匹配对照：真实XYZ10.092→9.986mm、深度11.250→11.061mm；代理深度9.041→9.195mm。收益有限且有回退，未达几何准确目标，不晋升、不扩训。

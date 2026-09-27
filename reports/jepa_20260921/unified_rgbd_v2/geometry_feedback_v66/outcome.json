@@ -1,0 +1,339 @@
+{
+  "10/False/observed/normal": {
+    "frames": 16,
+    "round_epe": [
+      5.4001361429691315,
+      5.0424260795116425
+    ]
+  },
+  "10/False/observed/feedback_off": {
+    "frames": 16,
+    "round_epe": [
+      5.4001361429691315,
+      5.418519467115402
+    ]
+  },
+  "10/False/observed/oracle_xyz": {
+    "frames": 16,
+    "round_epe": [
+      5.4001361429691315,
+      4.7762790620327
+    ]
+  },
+  "10/False/observed/oracle_xyz_validity": {
+    "frames": 16,
+    "round_epe": [
+      5.4001361429691315,
+      4.702981248497963
+    ]
+  },
+  "10/False/real/normal": {
+    "frames": 8,
+    "round_epe": [
+      6.9397492706775665,
+      6.26851299405098
+    ]
+  },
+  "10/False/real/feedback_off": {
+    "frames": 8,
+    "round_epe": [
+      6.9397492706775665,
+      6.852279782295227
+    ]
+  },
+  "10/False/real/oracle_xyz": {
+    "frames": 8,
+    "round_epe": [
+      6.9397492706775665,
+      5.346212148666382
+    ]
+  },
+  "10/False/real/oracle_xyz_validity": {
+    "frames": 8,
+    "round_epe": [
+      6.9397492706775665,
+      5.229505032300949
+    ]
+  },
+  "10/False/proxy/normal": {
+    "frames": 7,
+    "round_epe": [
+      5.290659734180996,
+      4.21660041809082
+    ]
+  },
+  "10/False/proxy/feedback_off": {
+    "frames": 7,
+    "round_epe": [
+      5.290659734180996,
+      5.286444050925119
+    ]
+  },
+  "10/False/proxy/oracle_xyz": {
+    "frames": 7,
+    "round_epe": [
+      5.290659734180996,
+      4.164639949798584
+    ]
+  },
+  "10/False/proxy/oracle_xyz_validity": {
+    "frames": 7,
+    "round_epe": [
+      5.290659734180996,
+      3.9245643615722656
+    ]
+  },
+  "10/True/observed/normal": {
+    "frames": 13,
+    "round_epe": [
+      5.340446641811957,
+      5.176404998852656
+    ]
+  },
+  "10/True/observed/feedback_off": {
+    "frames": 13,
+    "round_epe": [
+      5.340446641811957,
+      5.3364051305330715
+    ]
+  },
+  "10/True/observed/oracle_xyz": {
+    "frames": 13,
+    "round_epe": [
+      5.340446641811957,
+      4.800846755504608
+    ]
+  },
+  "10/True/observed/oracle_xyz_validity": {
+    "frames": 13,
+    "round_epe": [
+      5.340446641811957,
+      5.049877900343675
+    ]
+  },
+  "10/True/real/normal": {
+    "frames": 16,
+    "round_epe": [
+      6.705203428864479,
+      5.803277015686035
+    ]
+  },
+  "10/True/real/feedback_off": {
+    "frames": 16,
+    "round_epe": [
+      6.705203428864479,
+      6.686208978295326
+    ]
+  },
+  "10/True/real/oracle_xyz": {
+    "frames": 16,
+    "round_epe": [
+      6.705203428864479,
+      5.4323790371418
+    ]
+  },
+  "10/True/real/oracle_xyz_validity": {
+    "frames": 16,
+    "round_epe": [
+      6.705203428864479,
+      5.228485748171806
+    ]
+  },
+  "10/True/proxy/normal": {
+    "frames": 2,
+    "round_epe": [
+      1.7065958380699158,
+      2.668657422065735
+    ]
+  },
+  "10/True/proxy/feedback_off": {
+    "frames": 2,
+    "round_epe": [
+      1.7065958380699158,
+      1.6940360069274902
+    ]
+  },
+  "10/True/proxy/oracle_xyz": {
+    "frames": 2,
+    "round_epe": [
+      1.7065958380699158,
+      2.515527367591858
+    ]
+  },
+  "10/True/proxy/oracle_xyz_validity": {
+    "frames": 2,
+    "round_epe": [
+      1.7065958380699158,
+      2.5071372985839844
+    ]
+  },
+  "60/False/observed/normal": {
+    "frames": 15,
+    "round_epe": [
+      29.400369771321614,
+      29.098660786946613
+    ]
+  },
+  "60/False/observed/feedback_off": {
+    "frames": 15,
+    "round_epe": [
+      29.400369771321614,
+      29.401858520507812
+    ]
+  },
+  "60/False/observed/oracle_xyz": {
+    "frames": 15,
+    "round_epe": [
+      29.400369771321614,
+      26.52784252166748
+    ]
+  },
+  "60/False/observed/oracle_xyz_validity": {
+    "frames": 15,
+    "round_epe": [
+      29.400369771321614,
+      25.41847826639811
+    ]
+  },
+  "60/False/real/normal": {
+    "frames": 7,
+    "round_epe": [
+      21.148937497820175,
+      20.63376726422991
+    ]
+  },
+  "60/False/real/feedback_off": {
+    "frames": 7,
+    "round_epe": [
+      21.148937497820175,
+      21.147260665893555
+    ]
+  },
+  "60/False/real/oracle_xyz": {
+    "frames": 7,
+    "round_epe": [
+      21.148937497820175,
+      19.155213900974818
+    ]
+  },
+  "60/False/real/oracle_xyz_validity": {
+    "frames": 7,
+    "round_epe": [
+      21.148937497820175,
+      16.790513856070383
+    ]
+  },
+  "60/False/proxy/normal": {
+    "frames": 5,
+    "round_epe": [
+      31.336505126953124,
+      32.13712387084961
+    ]
+  },
+  "60/False/proxy/feedback_off": {
+    "frames": 5,
+    "round_epe": [
+      31.336505126953124,
+      31.333612060546876
+    ]
+  },
+  "60/False/proxy/oracle_xyz": {
+    "frames": 5,
+    "round_epe": [
+      31.336505126953124,
+      28.811793518066406
+    ]
+  },
+  "60/False/proxy/oracle_xyz_validity": {
+    "frames": 5,
+    "round_epe": [
+      31.336505126953124,
+      27.819827461242674
+    ]
+  },
+  "60/True/observed/normal": {
+    "frames": 13,
+    "round_epe": [
+      19.563624418698826,
+      19.47216011927678
+    ]
+  },
+  "60/True/observed/feedback_off": {
+    "frames": 13,
+    "round_epe": [
+      19.563624418698826,
+      19.56988217280461
+    ]
+  },
+  "60/True/observed/oracle_xyz": {
+    "frames": 13,
+    "round_epe": [
+      19.563624418698826,
+      18.67137960287241
+    ]
+  },
+  "60/True/observed/oracle_xyz_validity": {
+    "frames": 13,
+    "round_epe": [
+      19.563624418698826,
+      18.899987844320442
+    ]
+  },
+  "60/True/real/normal": {
+    "frames": 14,
+    "round_epe": [
+      27.58616488320487,
+      27.711469071252004
+    ]
+  },
+  "60/True/real/feedback_off": {
+    "frames": 14,
+    "round_epe": [
+      27.58616488320487,
+      27.448700972965785
+    ]
+  },
+  "60/True/real/oracle_xyz": {
+    "frames": 14,
+    "round_epe": [
+      27.58616488320487,
+      27.164101668766566
+    ]
+  },
+  "60/True/real/oracle_xyz_validity": {
+    "frames": 14,
+    "round_epe": [
+      27.58616488320487,
+      27.466458320617676
+    ]
+  },
+  "60/True/proxy/normal": {
+    "frames": 5,
+    "round_epe": [
+      13.230471324920654,
+      12.399458599090575
+    ]
+  },
+  "60/True/proxy/feedback_off": {
+    "frames": 5,
+    "round_epe": [
+      13.230471324920654,
+      13.231144237518311
+    ]
+  },
+  "60/True/proxy/oracle_xyz": {
+    "frames": 5,
+    "round_epe": [
+      13.230471324920654,
+      10.685911512374878
+    ]
+  },
+  "60/True/proxy/oracle_xyz_validity": {
+    "frames": 5,
+    "round_epe": [
+      13.230471324920654,
+      11.94515609741211
+    ]
+  },
+  "first_round_invariance_verified": true
+}
