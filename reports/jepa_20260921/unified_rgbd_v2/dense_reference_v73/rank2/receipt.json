@@ -1,0 +1,11 @@
+{
+  "completed": true,
+  "records": 12,
+  "source_sha256": "9a5605822cf9a5407193735a7989fe435d8774e48b6e09a3fcb41cb1e1e7cbec",
+  "model_frozen": true,
+  "physical_holdout": true,
+  "training_partition_only": true,
+  "teacher_input": false,
+  "scope": "Input reference uses estimated pose, including a controlled zero-error arm. Same target masks for all variants; unavailable reference pixels use network fallback. Patch variants use identical dense-reference coverage.",
+  "seconds": 14.851570999016985
+}
