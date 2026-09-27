@@ -263,7 +263,9 @@ def main():
             if config.get('dense_canonical',{}).get('enabled',False):
                 from lip.unified.dense_canonical import dense_canonical_loss
                 dense_loss,dense_metrics=dense_canonical_loss(output['dense_canonical_rounds'],target,observation,
-                    torch.stack([s.k_crop for s in scenes]),visible)
+                    torch.stack([s.k_crop for s in scenes]),visible,
+                    gate_target=config['dense_canonical'].get('gate_target','supported'),
+                    preference_margin=config['dense_canonical'].get('preference_margin',.005))
                 loss=loss+config['dense_canonical']['loss_weight']*dense_loss
                 metrics.update(dense_metrics)
                 if step==start:

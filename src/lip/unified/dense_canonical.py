@@ -40,11 +40,21 @@ class DenseCanonicalReadout(nn.Module):
             xyz=hard_xyz.detach()+(blend-blend.detach())
             surface=torch.cat((xyz,fallback[:,3:].float()),1)
         return surface,dict(flow=flow,uv=uv,warped_xyz=warped,mass=mass,
-                            gate_logits=raw[:,2:3],gate=gate,soft_gate=soft_gate)
+                            gate_logits=raw[:,2:3],gate=gate,soft_gate=soft_gate,
+                            fallback_xyz=fallback[:,:3])
+
+
+@torch.no_grad()
+def read_preference(result,truth,margin=.005):
+    """Teacher-only branch preference, not a claim of absolute confidence."""
+    if margin<0:raise ValueError('Read preference margin must be nonnegative')
+    read_error=(result['warped_xyz'].float()-truth.float()).norm(dim=1,keepdim=True)
+    fallback_error=(result['fallback_xyz'].float()-truth.float()).norm(dim=1,keepdim=True)
+    return (read_error+margin<fallback_error)&(result['mass']>=.999)
 
 
 @torch.autocast('cuda',enabled=False)
-def dense_canonical_loss(rounds,target,observation,crop_k,visible):
+def dense_canonical_loss(rounds,target,observation,crop_k,visible,gate_target='supported',preference_margin=.005):
     """Independent dense correspondence labels; no predicted-gate masking."""
     truth=transport_targets(target.cad_geometry_xyz,observation.geometry_image,
                             observation.base,observation.diameter,crop_k,observation.cad_valid)
@@ -59,7 +69,10 @@ def dense_canonical_loss(rounds,target,observation,crop_k,visible):
         value=total*0
         error=F.smooth_l1_loss(result['flow']/224.,truth['flow']/224.,beta=1/224.,reduction='none').mean(1,keepdim=True)
         xyz=F.smooth_l1_loss(result['warped_xyz'],target.cad_geometry_xyz,beta=.02,reduction='none').mean(1,keepdim=True)
-        gate=F.binary_cross_entropy_with_logits(result['gate_logits'],truth['supported'].float(),reduction='none')
+        if gate_target=='supported':gate_label=truth['supported']
+        elif gate_target=='better_than_fallback':gate_label=read_preference(result,target.cad_geometry_xyz,preference_margin)
+        else:raise ValueError('Unknown dense canonical gate target: '+gate_target)
+        gate=F.binary_cross_entropy_with_logits(result['gate_logits'],gate_label.float(),reduction='none')
         for name,mask,factor in masks:
             domain=mask&target.cad_geometry_valid
             supported=domain&truth['supported']
