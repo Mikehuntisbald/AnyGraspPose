@@ -1,0 +1,9 @@
+# V70 diagnosis and V71 local CAD surface projection
+
+V70 separates the continuous canonical prior from final atlas retrieval. On64frozen cases, even a perfect canonical prior can be moved far from the correct surface by learned appearance scores:60deg heavy real-hidden error23.025mm at sigma0.1,5.119mm at sigma0.03. However, tightening the prior worsens several predicted-flow variants; the prior itself is inaccurate. This is not evidence to globally tighten sigma or promote oracle results.
+
+V71 therefore tests an explicit local readout. First select the nearest8CAD points by canonical distance to the continuous DPT prior. Appearance scores choose only within those candidates. The forward XYZ remains an actual CAD point. A straight-through identity path additionally carries final XYZ gradients into the continuous DPT prior; the existing soft local gradient to descriptors remains. This is an explicit biased gradient estimator, not differentiation of the hard nearest-neighbor operation. Global correspondence supervision remains separately available.
+
+The default `local_surface_projection=False` preserves all existing behavior and checkpoint tensors. The frozen diagnostic runtime enables it only for candidate arms. Compare original, local projection with original DPT prior, predicted-flow prior, oracle-supported-flow prior, and perfect prior on the exact V66–V70seeds. No training, pose solver or depth modification. All target pixels are scored; coverage-only summaries are secondary. Baseline, depth and flow invariance are asserted.
+
+Seven tests passed (existing atlas tests plus hostile appearance evidence, exact canonical selected-index accounting, missing-CAD fallback, and direct XYZ-to-DPT-prior gradient). This is a candidate geometry decoder, not proof of accurate learned recovery. Any subsequent training must use a persisted config switch and matched control before adoption.

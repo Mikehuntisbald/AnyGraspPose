@@ -18,6 +18,7 @@ class CADAtlasDecoder(nn.Module):
         self.prior_sigma=.1
         self.temperature=.1
         self.supervised_prior=supervised_prior
+        self.local_surface_projection=False
 
     def scores(self,query,keys,prior,xyz,available):
         logits=(query@keys.transpose(-1,-2))/self.temperature
@@ -30,14 +31,19 @@ class CADAtlasDecoder(nn.Module):
         query=F.normalize(self.query(dense).flatten(2).transpose(1,2).float(),dim=-1)
         keys=F.normalize((self.descriptor(safe_features)+self.geometry(safe_geometry)).float(),dim=-1)
         xyz=safe_geometry[:,:,:3].float()
-        prior=fallback[:,:3].detach().float().flatten(2).transpose(1,2)
+        continuous_prior=fallback[:,:3].float().flatten(2).transpose(1,2)
+        prior=continuous_prior.detach()
         # The full bank search is hard and teacher-independent. Recompute only
         # a small local neighborhood with gradients; global CE is computed on
         # fixed supervised query samples by atlas_correspondence_loss below.
         indices=[]
         with torch.no_grad(),torch.autocast(dense.device.type,enabled=False):
             for start in range(0,query.shape[1],2048):
-                scores=self.scores(query[:,start:start+2048].detach(),keys.detach(),prior[:,start:start+2048],xyz,available)
+                if self.local_surface_projection:
+                    distance=torch.cdist(prior[:,start:start+2048],xyz,compute_mode='donot_use_mm_for_euclid_dist')
+                    scores=(-distance).masked_fill(~available[:,None],-1e4)
+                else:
+                    scores=self.scores(query[:,start:start+2048].detach(),keys.detach(),prior[:,start:start+2048],xyz,available)
                 indices.append(scores.topk(min(8,xyz.shape[1]),dim=-1).indices)
         selected=torch.cat(indices,1)
         batch=torch.arange(len(query),device=query.device)[:,None,None]
@@ -49,13 +55,25 @@ class CADAtlasDecoder(nn.Module):
             local=local.masked_fill(~available[batch,selected],-1e4)
             probability=local.softmax(-1)
             soft=(probability[...,None]*selected_xyz).sum(2)
-            hard=selected_xyz[:,:,0]
+            if self.local_surface_projection:
+                # Appearance may disambiguate only the eight geometric
+                # neighbors; it cannot jump to a distant object surface.
+                winner=local.detach().argmax(-1)
+                hard=selected_xyz.gather(2,winner[...,None,None].expand(-1,-1,1,3))[:,:,0]
+                chosen_index=selected.gather(2,winner[...,None])[...,0]
+            else:
+                hard=selected_xyz[:,:,0]
+                chosen_index=selected[:,:,0]
             recovered=hard+(soft-soft.detach())
+            if self.local_surface_projection:
+                # Straight-through coordinate gradient also trains the DPT
+                # proposal; the forward value remains an actual CAD point.
+                recovered=recovered+(continuous_prior-continuous_prior.detach())
             recovered=recovered.transpose(1,2).reshape_as(fallback[:,:3])
             recovered=torch.where(available.any(-1)[:,None,None,None],recovered,fallback[:,:3].float())
         surface=torch.cat((recovered,fallback[:,3:].float()),1)
         output=dict(atlas_query=query,atlas_keys=keys,atlas_xyz=xyz,atlas_geometry=safe_geometry,atlas_available=available,
-                            atlas_prior=prior,atlas_index=selected[:,:,0],atlas_fallback=fallback,
+                            atlas_prior=prior,atlas_index=chosen_index,atlas_fallback=fallback,
                             atlas_temperature=self.temperature,atlas_prior_sigma=self.prior_sigma,
                             atlas_supervised_prior=self.supervised_prior)
         if hasattr(self,'image_readout'):
