@@ -142,6 +142,13 @@ def build_model(config,device='cuda'):
                     model.flow_reconstruction.point_evidence_head=PointEvidenceHead(
                         config['flow_reconstruction']['point_evidence']['use_observation']).to(device)
                 model.model_version='frozen-jepa-point-evidence-v58'
+        if config.get('dense_canonical',{}).get('enabled',False):
+            if not config.get('cad_atlas',{}).get('enabled') or not config.get('flow_reconstruction',{}).get('enabled'):
+                raise ValueError('Dense canonical read requires the serial flow and CAD atlas paths')
+            from .dense_canonical import DenseCanonicalReadout
+            with torch.random.fork_rng(devices=[]):
+                torch.manual_seed(config['seed']+74)
+                model.dense_canonical=DenseCanonicalReadout().to(device)
         return model
     if config['architecture_id']=='stream_dino_fp_staticutonia_jepa_rgbd_v3':
         return build_fp_model(config,device)

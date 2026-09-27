@@ -179,6 +179,7 @@ class ConvCrossTracker(TwoStreamTracker):
         mem, mv, mb = self.history_sources(mem, mv, mb)
         patch = patch + position + prompt[:, None] + dt[:, None]
         surface_metrics={}
+        dense_canonical_rounds=[]
         dense_levels=[]
         use_dpt=getattr(self,'surface_decoder_kind','mlp')=='dpt'
         before_last=patch
@@ -212,7 +213,13 @@ class ConvCrossTracker(TwoStreamTracker):
                                        - block(prior_patch, valid, mem, mv, mb))
                 dense_levels[-1] = self.core.final_norm(patch)
                 if stage == 0:
-                    recovered = self.surface_head(dense_levels, valid)
+                    if hasattr(self,'dense_canonical'):
+                        recovery_dense=self.surface_head.dense_features(dense_levels,valid)
+                        recovered=self.surface_head.output[-1](recovery_dense).float()
+                        recovered,dense_read=self.dense_canonical(recovery_dense,recovered,geometry_image,cad_valid)
+                        dense_canonical_rounds.append(dense_read)
+                    else:
+                        recovered = self.surface_head(dense_levels, valid)
             surface_metrics.update(flow_reference=reference, flow_rounds=rounds,
                                    flow_coarse_surface=recovered)
         patch = self.core.final_norm(patch)
@@ -233,6 +240,10 @@ class ConvCrossTracker(TwoStreamTracker):
         else:
             surface = self.surface_head(patch).reshape(batch, 16, 16, 14, 14, 5)
             surface = surface.permute(0, 5, 1, 3, 2, 4).reshape(batch, 5, 224, 224).float()
+        if hasattr(self,'dense_canonical'):
+            surface,dense_read=self.dense_canonical(dense,surface,geometry_image,cad_valid)
+            dense_canonical_rounds.append(dense_read)
+            surface_metrics['dense_canonical_rounds']=dense_canonical_rounds
         surface_xyz, surface_depth, surface_validity = surface[:, :3], surface[:, 3:4], surface[:, 4:5]
         logits = self.visibility(real).squeeze(-1)
         decoded_mid, decoded_last = self.core.feature_mid(patch), self.core.feature_last(patch)

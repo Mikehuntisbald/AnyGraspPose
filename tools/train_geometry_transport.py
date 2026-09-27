@@ -54,6 +54,8 @@ def main():
     torch.manual_seed(config['seed']); random.seed(config['seed']+rank); np.random.seed(config['seed']+rank)
     if world > 1: dist.init_process_group('nccl')
     plan = config['geometry_transport_training']
+    if config.get('dense_canonical',{}).get('enabled') and not plan.get('canonical_surface'):
+        raise ValueError('Dense CAD lookup requires explicit canonical surface targets')
     extension = config.get('geometry_horizon_continuation')
     if extension and not (args.extend_from or args.resume):raise ValueError('Geometry extension requires an explicit restore source')
     if args.extend_from and not extension:raise ValueError('Missing geometry extension configuration')
@@ -72,7 +74,7 @@ def main():
             parent['model'][key]=extended
         elif old.shape[1]!=25:raise ValueError('Unexpected transport channel count')
     status = model.load_state_dict(parent['model'], strict=False)
-    if status.unexpected_keys or any(not n.startswith(('cad_transport.','cad_atlas_decoder.','flow_reconstruction.')) for n in status.missing_keys):
+    if status.unexpected_keys or any(not n.startswith(('cad_transport.','cad_atlas_decoder.','flow_reconstruction.','dense_canonical.')) for n in status.missing_keys):
         raise ValueError('Unexpected geometry migration: '+str(status))
     if any(not torch.equal(model.state_dict()[n].cpu(), value.cpu()) for n, value in parent['model'].items()):
         raise ValueError('Existing model tensors changed during migration')
@@ -97,6 +99,7 @@ def main():
         if name.startswith('cad_transport.') and 'transport' in config['training']['learning_rates']:kind='transport'
         if name.startswith('cad_atlas_decoder.'):kind='transport'
         if name.startswith('flow_reconstruction.'):kind='flow'
+        if name.startswith('dense_canonical.'):kind='new'
         group = groups.setdefault(kind, dict(params=[], names=[], category=kind, lr=config['training']['learning_rates'][kind]))
         group['params'].append(parameter); group['names'].append(name)
     optimizer = torch.optim.AdamW(list(groups.values()), weight_decay=.01, fused=True)
@@ -257,6 +260,30 @@ def main():
                         native_crop_max_error_px=discrepancy, source_points=int(mask.sum()),
                         shared_projection_gradient=gradient_balance,
                         regions={n:int(labels[n].sum()) for n in ('observed', 'real', 'proxy')}, teacher_input=False))
+            if config.get('dense_canonical',{}).get('enabled',False):
+                from lip.unified.dense_canonical import dense_canonical_loss
+                dense_loss,dense_metrics=dense_canonical_loss(output['dense_canonical_rounds'],target,observation,
+                    torch.stack([s.k_crop for s in scenes]),visible)
+                loss=loss+config['dense_canonical']['loss_weight']*dense_loss
+                metrics.update(dense_metrics)
+                if step==start:
+                    from lip.unified.cad_transport import transport_targets,pixel_grid
+                    with torch.no_grad():
+                        dense_truth=transport_targets(target.cad_geometry_xyz,observation.geometry_image,
+                            observation.base,observation.diameter,torch.stack([s.k_crop for s in scenes]),observation.cad_valid)
+                        points=target.cad_geometry_xyz.double()*observation.diameter[:,None,None,None].double()
+                        camera=torch.einsum('bij,bjhw->bihw',observation.base[:,:3,:3].double(),points)+observation.base[:,:3,3,None,None].double()
+                        native_k=torch.stack([e.k for e in episodes]*(2 if plan.get('paired_estimates') else 1)).double()
+                        native=torch.einsum('bij,bjhw->bihw',native_k,camera)
+                        cropped=torch.einsum('bij,bjhw->bihw',torch.stack([s.affine for s in scenes]).double(),native)
+                        expected=cropped[:,:2]/cropped[:,2:3].clamp_min(.001)
+                        actual=dense_truth['flow'].double()+pixel_grid(len(scenes),224,224,camera.device).double()
+                        selected=dense_truth['supported']&target.cad_geometry_valid
+                        discrepancy=float((expected-actual).abs().amax(1,keepdim=True)[selected].max()) if selected.any() else 0.
+                        if discrepancy>.002:raise RuntimeError('Dense canonical correspondence crop mismatch')
+                        atomic_json(out/f'dense_canonical_integrity_rank{rank}.json',dict(native_crop_max_error_px=discrepancy,
+                            supported_pixels=int(selected.sum()),teacher_input=False,camera_depth_from_reference=False,
+                            new_head_initialization='seed+74, zero flow, gate bias1',hard_forward_soft_gate_gradient=True))
             if config.get('cad_image',{}).get('enabled'):
                 from lip.unified.cad_image_correspondence import image_correspondence_targets,image_correspondence_loss
                 labels=image_correspondence_targets(output,target,torch.stack([s.k_crop for s in scenes]),observation.diameter,visible)
