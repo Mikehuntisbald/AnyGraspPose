@@ -1,0 +1,11 @@
+{
+  "completed": true,
+  "records": 8,
+  "source_sha256": "0c6f712c7848316259dae3d24554dd4dfac506a20404676e43fb679b94d46d7e",
+  "model_frozen": true,
+  "physical_holdout": true,
+  "training_partition_only": true,
+  "normal_forward_bitwise_verified": true,
+  "oracle_scope": "Oracle flow variants use GT-supported endpoints; perfect_prior replaces the canonical prior on GT-valid pixels. All non-normal modes restrict atlas candidates to the nearest eight geometric points; local_projection uses the unchanged DPT prior. All are frozen diagnostics; depth and flow unchanged. Covered metrics are secondary, primary metrics retain all targets.",
+  "seconds": 42.89433758286759
+}
