@@ -1,0 +1,7 @@
+{
+  "candidate_sha256": "9a5605822cf9a5407193735a7989fe435d8774e48b6e09a3fcb41cb1e1e7cbec",
+  "candidate_bytes": 474007204,
+  "steps": 200,
+  "warm_step_median_seconds": 0.6513492530211806,
+  "historical_control_path": "/mnt/why/dexycb_lip/unified_jepa_20260921/surface_joint_v68_r1/control/seed42/last.pt"
+}

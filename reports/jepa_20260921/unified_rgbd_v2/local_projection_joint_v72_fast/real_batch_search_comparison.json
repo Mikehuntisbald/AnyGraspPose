@@ -1,0 +1,8 @@
+{
+  "steps": 2,
+  "ranks": 8,
+  "metadata_exact": true,
+  "max_loss_difference": 0.0,
+  "max_grad_norm_difference": 0.002086639404296875,
+  "max_metric_difference": 0.0
+}

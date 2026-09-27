@@ -1,0 +1,11 @@
+{
+  "files": [
+    "src/lip/unified/cad_atlas_decoder.py",
+    "src/lip/unified/build.py",
+    "tools/run_local_projection_joint_v72_fast.py",
+    "configs/jepa/local_projection_joint_v72_fast_surface.yaml",
+    "configs/jepa/local_projection_joint_v72_fast_control_replay.yaml"
+  ],
+  "matched": true,
+  "source_commit": "987bf10"
+}

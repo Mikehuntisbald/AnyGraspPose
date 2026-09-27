@@ -1,3 +1,7 @@
+## V72 fast completed: modest geometry gains, no promotion (2026-09-27)
+
+200updates plus all paired probes completed;35tests and full-state resume passed.10deg/heavy real-hidden XYZ11.255→10.770mm versus matched control (24/31frames improve), but proxy11.139→11.370mm regresses and large-error recovery remains inaccurate. No default change or budget expansion. Warm-step median0.651s after search optimization, down from roughly8–9s in the stopped slow trial. [Complete results and limitations](../local_projection_joint_v72_fast/SUMMARY.md). All experiment GPU jobs are terminal; next audit preservation of dense estimated-CAD geometry versus compressed/decoded geometry.
+
 ## V72 fast rerun (2026-09-27)
 
 The first local-projection trial stopped at14updates due to8–9s/step non-GEMM distance search. Search now uses GEMM shortlist plus direct-distance reranking: synthetic H20benchmark284.49→5.87ms, same sampled neighbors.35tests pass. New immutable root local_projection_joint_v72_fast restarts the matched200update candidate and exact historical-control replay; no accuracy conclusion yet.
