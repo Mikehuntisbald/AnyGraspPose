@@ -1,0 +1,31 @@
+{
+  "completed": true,
+  "updates_per_arm": 200,
+  "ranks": 8,
+  "matching_window_metadata_and_learning_rates": true,
+  "note": "Window metadata equality does not independently hash every input pixel.",
+  "all_losses_gradients_finite": true,
+  "complete_state_resume_receipts_verified": true,
+  "geometry_ce_min": 0.0,
+  "geometry_ce_max": 7.445102691650391,
+  "geometry_ce_terms": 4800,
+  "geometry_ce_upper_bound": 13.545177444479563,
+  "checkpoint_receipts": {
+    "control": {
+      "completed": true,
+      "step": 200,
+      "sha256": "00454f996a8536b7d1f004fb529edf6794e683b32cb2e6a4d0c20a8fcf3505b7",
+      "sampler_position": 6400,
+      "config_hash": "656192bc259d456fc6d192c2e81f5955bac4ab14a14d493c82a879828c23b078",
+      "all_rank_rng": 8
+    },
+    "surface": {
+      "completed": true,
+      "step": 200,
+      "sha256": "b025f137690eef0ba8bb97b64334f00a19f994eed8c1cf479fb4b98880c884be",
+      "sampler_position": 6400,
+      "config_hash": "f171d064151bc208359a4058b6ea27741b9bfc1b42e99a0d958f732a88bdceed",
+      "all_rank_rng": 8
+    }
+  }
+}

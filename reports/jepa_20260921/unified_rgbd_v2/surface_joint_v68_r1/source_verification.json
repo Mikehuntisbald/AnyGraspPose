@@ -1,0 +1,13 @@
+{
+  "local_and_executed_source_match": [
+    "src/lip/unified/build.py",
+    "src/lip/unified/flow_reconstruction.py",
+    "src/lip/unified/surface_feedback.py",
+    "tools/run_surface_joint_v68_r1.py",
+    "configs/jepa/surface_joint_v68_r1_control.yaml",
+    "configs/jepa/surface_joint_v68_r1_surface.yaml",
+    "tests/jepa/test_surface_feedback.py"
+  ],
+  "code_commit": "99f7043",
+  "required_tests_passed": 32
+}

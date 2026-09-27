@@ -1,0 +1,17 @@
+{
+  "stage": "complete",
+  "pids": [
+    2104129,
+    2104130,
+    2104131,
+    2104132,
+    2104133,
+    2104134,
+    2104135,
+    2104136
+  ],
+  "time": 1790469833.47534,
+  "completed": true,
+  "updates_per_arm": 200,
+  "default_model_changed": false
+}

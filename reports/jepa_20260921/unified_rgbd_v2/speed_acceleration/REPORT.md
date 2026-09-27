@@ -1,3 +1,7 @@
+## V68r1 complete: no promotion; V69 diagnostic running (2026-09-27)
+
+Both arms completed200steps and all paired probes. Candidate60deg/heavy real-hidden XYZ35.424→34.969mm versus control, but10deg/heavy unchanged at11.255mm; depth remains worse than the pretraining baseline in these slices. Accurate recovery is not achieved.32tests and complete-state resume passed;4,800geometry-CE values remain bounded after the mask fix. [Results](../surface_joint_v68_r1/SUMMARY.md). V69 now tests flow-aligned CAD canonical identities as an atlas search prior, with unchanged depth/flow and explicit oracle-only arms; no new training or default promotion.
+
 ## V68r1 correction launched (2026-09-27)
 
 Original V68 deliberately stopped at control200/candidate97: soft correspondence target tails on invalid crop keys caused large fixed loss terms. Both appearance and recovery CE now condition targets on valid keys; endpoint/geometry targets and evaluation masks are unchanged. Elevenfocused tests passed. Corrected paired run restarts from V60-extra,200updates per arm, remote root surface_joint_v68_r1. No learned geometry improvement has been established. Original V68 below is historical, not a live process.

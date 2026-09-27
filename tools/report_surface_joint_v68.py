@@ -45,7 +45,7 @@ def main():
                 values=[r['metrics'][source] for r in rows if r['heavy']==heavy and r['metrics'][source]]
                 key=('heavy_' if heavy else 'nonheavy_')+source
                 row=dict(frames=len(values))
-                for name in ('canonical_xyz_mm','depth_mm'):
+                for name in ('canonical_xyz_mm','depth_mm','camera_xyz_mm','camera_normal_deg','xyz_within_10mm'):
                     numbers=[v[name] for v in values if v.get(name) is not None]
                     row[name]=statistics.mean(numbers) if numbers else None
                 result[tag][key]=row
@@ -75,6 +75,26 @@ def main():
                 value=statistics.mean(vals) if vals else None
                 result[tag]['flow_by_occlusion'][key]=dict(frames=len(vals),epe=value)
                 if vals:lines.append(f'| {tag} | {heavy} | {region} | {len(vals)} | {value:.3f} |')
+    changes={}
+    lines+=['', '## Paired candidate minus control geometry error', '',
+            'Negative error change is better. Win fraction counts strictly lower error per eligible frame.', '',
+            '| Angle | Heavy | Source | Metric | Frames | Mean change | Win fraction |',
+            '|---:|---|---|---|---:|---:|---:|']
+    for angle in (0,10,60):
+        for heavy in (False,True):
+            for region in ('real','proxy'):
+                for metric in ('canonical_xyz_mm','depth_mm'):
+                    deltas=[]
+                    for control,surface in zip(data[f'control_{angle}'],data[f'surface_{angle}']):
+                        if control['heavy']!=heavy:continue
+                        a,b=control['metrics'][region],surface['metrics'][region]
+                        if a and a.get(metric) is not None and b.get(metric) is not None:
+                            deltas.append(b[metric]-a[metric])
+                    if not deltas:continue
+                    mean=statistics.mean(deltas);wins=sum(x<0 for x in deltas)/len(deltas)
+                    changes[f'{angle}/{heavy}/{region}/{metric}']=dict(frames=len(deltas),mean_delta=mean,win_fraction=wins)
+                    lines.append(f'| {angle} | {heavy} | {region} | {metric} | {len(deltas)} | {mean:.4f} | {wins:.1%} |')
+    result['paired_candidate_minus_control']=changes
     (root/'outcome.json').write_text(json.dumps(result,indent=2)+'\n')
     (root/'REPORT.md').write_text('\n'.join(lines)+'\n')
 
